@@ -1,0 +1,315 @@
+\hypertarget{adc_8c}{}\section{epcf\+\_\+project/epcf/peripheral/source/adc/adc.c File Reference}
+\label{adc_8c}\index{epcf\+\_\+project/epcf/peripheral/source/adc/adc.\+c@{epcf\+\_\+project/epcf/peripheral/source/adc/adc.\+c}}
+
+
+This file is used to configure a A\+DC device.  
+
+
+{\ttfamily \#include \char`\"{}pcf.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{adc_8c_a8fdd303dcc7be9bc2b77e4c038cc0b90}\label{adc_8c_a8fdd303dcc7be9bc2b77e4c038cc0b90}} 
+\#define {\bfseries \+\_\+\+\_\+\+E\+P\+C\+F\+\_\+\+P\+R\+I\+V\+A\+T\+E\+\_\+\+A\+D\+C\+\_\+\+H\+\_\+\+I\+N\+C\+L\+U\+DE}~P\+C\+F\+\_\+\+C\+O\+N\+D\+I\+T\+I\+O\+N\+A\+L\+\_\+\+I\+N\+C\+L\+U\+D\+E\+\_\+\+F\+I\+LE(E\+P\+C\+F\+\_\+\+D\+I\+R\+\_\+\+P\+A\+TH/,peripheral/source/,adc/,adc\+\_\+hidden.\+h)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$ \mbox{\hyperlink{adc_8c_a9685694ea5d9836d57b539a9fd7e3fcc}{epcf\+\_\+adc\+\_\+create\+Native}} (\mbox{\hyperlink{structEPCFAdcCfg__t}{E\+P\+C\+F\+Adc\+Cfg\+\_\+t}} $\ast$p\+Adc\+Config)
+\begin{DoxyCompactList}\small\item\em This function is used to create an adc device. Call this function in beginning to initialize the adc device. This function allocates memory for the device using malloc() function call and returns a pointer to the device. Pass this device pointer while calling adc functions. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{adc_8c_a33e0e06f911314f2359df05f7756989f}{epcf\+\_\+adc\+\_\+continuous\+Conversion\+Start}} (\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$p\+Adc\+Device, uint16\+\_\+t channel)
+\begin{DoxyCompactList}\small\item\em This function is used to start continuous adc conversion. Adc will start data conversion according to the configuration settings. Use epcf\+\_\+adc\+\_\+get\+Value and epcf\+\_\+adc\+\_\+get\+Voltage functions to read digital output data. User callback, if attached will be call after an adc conversion is completed when adc is configured in interrupt mode. Adc conversion can be stopped by a call to the function epcf\+\_\+adc\+\_\+conversion\+Stop. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{adc_8c_a076fdffd17b64dafe0cc1f26e9b5ff97}{epcf\+\_\+adc\+\_\+conversion\+Stop}} (\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$p\+Adc\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to stop continuous adc conversion. User callback will not be called after data conversion has been stopped. Adc data conversion can be started again by a call to the function epcf\+\_\+adc\+\_\+continuous\+Conversion\+Start. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{adc_8c_a4984e142275784334e3a60046d35fd35}{epcf\+\_\+adc\+\_\+get\+Value}} (\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$p\+Adc\+Device, uint32\+\_\+t $\ast$data, \mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665c}{En\+E\+P\+C\+F\+Adc\+Channel\+\_\+t}} channel)
+\begin{DoxyCompactList}\small\item\em This function is used to read the converted digital output value of the particular channel. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{adc_8c_ac37d3c0d762b698a4e26e8a73608d0ad}{epcf\+\_\+adc\+\_\+get\+Voltage}} (\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$p\+Adc\+Device, uint32\+\_\+t $\ast$milli\+Volts, \mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665c}{En\+E\+P\+C\+F\+Adc\+Channel\+\_\+t}} channel)
+\begin{DoxyCompactList}\small\item\em This function is used to read the converted digital output value in millivolts of the particular channel. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{adc_8c_a805a37b89de494ef23b66a99e91d71af}{epcf\+\_\+adc\+\_\+attach\+Callback}} (\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$p\+Adc\+Device, epcf\+Callback\+\_\+fp callback, \mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665c}{En\+E\+P\+C\+F\+Adc\+Channel\+\_\+t}} channel)
+\begin{DoxyCompactList}\small\item\em This function is used to attach an adc callback called after adc conversion is completed when adc is configured in interrupt mode. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{adc_8c_a051ef2205edf42677037d4fd5eb32a66}{epcf\+\_\+adc\+\_\+detach\+Callback}} (\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$p\+Adc\+Device, \mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665c}{En\+E\+P\+C\+F\+Adc\+Channel\+\_\+t}} channel)
+\begin{DoxyCompactList}\small\item\em This function is used to detach the adc callback for the specific adc interrupt source. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{adc_8c_a7687e962d02134c8c967fed0bb8aa790}{epcf\+\_\+adc\+\_\+single\+Conversion}} (\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$p\+Adc\+Device, \mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665c}{En\+E\+P\+C\+F\+Adc\+Channel\+\_\+t}} channel, uint32\+\_\+t $\ast$data, E\+P\+C\+F\+Time\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em This function is used to perform a single adc conversion and read the converted digital output value of the particular channel in millivolts. This function blocks until adc conversion is completed on all enabled channels or timeout has occurred. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{adc_8c_ae3eb926c7782252306a148cc5b07480a}{epcf\+\_\+adc\+\_\+single\+Conversion\+Get\+Voltage}} (\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$p\+Adc\+Device, \mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665c}{En\+E\+P\+C\+F\+Adc\+Channel\+\_\+t}} channel, uint32\+\_\+t $\ast$milli\+Volts, E\+P\+C\+F\+Time\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em This function is used to perform a single adc conversion and read the converted digital output value of the particular channel. This function blocks until adc conversion is completed enabled channel or timeout has occurred. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{adc_8c_ad23f60b2195f241a86e9faf3b6194903}{epcf\+\_\+adc\+\_\+close}} (\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$p\+Adc\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to close the adc device. It will free the memory allocated by the adc device. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{adc_8c_a38daafe218c2de808fc3c560ba71b524}{epcf\+\_\+adc\+\_\+get\+Device\+Count}} ()
+\begin{DoxyCompactList}\small\item\em This function is used to get total number of available adc devices. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{adc_8h_ac8e2caaea6d80f99b4d2ed46875f9470}{En\+E\+P\+C\+F\+Adc\+State\+\_\+t}} \mbox{\hyperlink{adc_8c_a50067b1bc9c64faa8faa71967f5e12ad}{epcf\+\_\+adc\+\_\+get\+State}} (\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$p\+Adc\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to get the current state of the adc. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{adc_8c_a7fefc0c856a3bf5d3a1c3558a71368ba}\label{adc_8c_a7fefc0c856a3bf5d3a1c3558a71368ba}} 
+uint8\+\_\+t {\bfseries epcf\+\_\+adc\+\_\+ext\+Get\+Device\+Count} (E\+P\+C\+F\+Adc\+Controller\+\_\+t $\ast$p\+Adc\+Controller)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file is used to configure a A\+DC device. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{adc_8c_a805a37b89de494ef23b66a99e91d71af}\label{adc_8c_a805a37b89de494ef23b66a99e91d71af}} 
+\index{adc.\+c@{adc.\+c}!epcf\+\_\+adc\+\_\+attach\+Callback@{epcf\+\_\+adc\+\_\+attach\+Callback}}
+\index{epcf\+\_\+adc\+\_\+attach\+Callback@{epcf\+\_\+adc\+\_\+attach\+Callback}!adc.\+c@{adc.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+adc\+\_\+attach\+Callback()}{epcf\_adc\_attachCallback()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+adc\+\_\+attach\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$}]{p\+Adc\+Device,  }\item[{epcf\+Callback\+\_\+fp}]{callback,  }\item[{\mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665c}{En\+E\+P\+C\+F\+Adc\+Channel\+\_\+t}}}]{channel }\end{DoxyParamCaption})}
+
+
+
+This function is used to attach an adc callback called after adc conversion is completed when adc is configured in interrupt mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Adc\+Device} & Pointer to the adc device. \\
+\hline
+{\em callback} & User callback to be called \\
+\hline
+{\em channel} & adc channel\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return callback\+Id.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Call this function before starting adc conversion. To attach a callback if adc has already started\+:
+\begin{DoxyEnumerate}
+\item Stop adc conversion.
+\item Attach a callback.
+\item Start adc conversion again. 
+\end{DoxyEnumerate}
+\end{DoxyNote}
+\mbox{\Hypertarget{adc_8c_ad23f60b2195f241a86e9faf3b6194903}\label{adc_8c_ad23f60b2195f241a86e9faf3b6194903}} 
+\index{adc.\+c@{adc.\+c}!epcf\+\_\+adc\+\_\+close@{epcf\+\_\+adc\+\_\+close}}
+\index{epcf\+\_\+adc\+\_\+close@{epcf\+\_\+adc\+\_\+close}!adc.\+c@{adc.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+adc\+\_\+close()}{epcf\_adc\_close()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+adc\+\_\+close (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$}]{p\+Adc\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to close the adc device. It will free the memory allocated by the adc device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Adc\+Device} & Pointer to the adc device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{adc_8c_a33e0e06f911314f2359df05f7756989f}\label{adc_8c_a33e0e06f911314f2359df05f7756989f}} 
+\index{adc.\+c@{adc.\+c}!epcf\+\_\+adc\+\_\+continuous\+Conversion\+Start@{epcf\+\_\+adc\+\_\+continuous\+Conversion\+Start}}
+\index{epcf\+\_\+adc\+\_\+continuous\+Conversion\+Start@{epcf\+\_\+adc\+\_\+continuous\+Conversion\+Start}!adc.\+c@{adc.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+adc\+\_\+continuous\+Conversion\+Start()}{epcf\_adc\_continuousConversionStart()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+adc\+\_\+continuous\+Conversion\+Start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$}]{p\+Adc\+Device,  }\item[{uint16\+\_\+t}]{channel }\end{DoxyParamCaption})}
+
+
+
+This function is used to start continuous adc conversion. Adc will start data conversion according to the configuration settings. Use epcf\+\_\+adc\+\_\+get\+Value and epcf\+\_\+adc\+\_\+get\+Voltage functions to read digital output data. User callback, if attached will be call after an adc conversion is completed when adc is configured in interrupt mode. Adc conversion can be stopped by a call to the function epcf\+\_\+adc\+\_\+conversion\+Stop. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Adc\+Device} & Pointer to the adc device. \\
+\hline
+{\em channel} & Adc channels to be configured. To enable multiple channels OR the respective channels numbers. For eg\+: To enable channel0 and channel3, set channel value equal to\+: (en\+E\+P\+C\+F\+Adc\+Channel\+\_\+0 $\vert$ en\+E\+P\+C\+F\+Adc\+Channel\+\_\+3)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{adc_8c_a076fdffd17b64dafe0cc1f26e9b5ff97}\label{adc_8c_a076fdffd17b64dafe0cc1f26e9b5ff97}} 
+\index{adc.\+c@{adc.\+c}!epcf\+\_\+adc\+\_\+conversion\+Stop@{epcf\+\_\+adc\+\_\+conversion\+Stop}}
+\index{epcf\+\_\+adc\+\_\+conversion\+Stop@{epcf\+\_\+adc\+\_\+conversion\+Stop}!adc.\+c@{adc.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+adc\+\_\+conversion\+Stop()}{epcf\_adc\_conversionStop()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+adc\+\_\+conversion\+Stop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$}]{p\+Adc\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to stop continuous adc conversion. User callback will not be called after data conversion has been stopped. Adc data conversion can be started again by a call to the function epcf\+\_\+adc\+\_\+continuous\+Conversion\+Start. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Adc\+Device} & Pointer to the adc device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{adc_8c_a9685694ea5d9836d57b539a9fd7e3fcc}\label{adc_8c_a9685694ea5d9836d57b539a9fd7e3fcc}} 
+\index{adc.\+c@{adc.\+c}!epcf\+\_\+adc\+\_\+create\+Native@{epcf\+\_\+adc\+\_\+create\+Native}}
+\index{epcf\+\_\+adc\+\_\+create\+Native@{epcf\+\_\+adc\+\_\+create\+Native}!adc.\+c@{adc.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+adc\+\_\+create\+Native()}{epcf\_adc\_createNative()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}}$\ast$ epcf\+\_\+adc\+\_\+create\+Native (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFAdcCfg__t}{E\+P\+C\+F\+Adc\+Cfg\+\_\+t}} $\ast$}]{p\+Adc\+Config }\end{DoxyParamCaption})}
+
+
+
+This function is used to create an adc device. Call this function in beginning to initialize the adc device. This function allocates memory for the device using malloc() function call and returns a pointer to the device. Pass this device pointer while calling adc functions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Adc\+Config} & Pointer to the adc configuration structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+On success, it return the pointer to adc device. On error, it returns N\+U\+LL. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{adc_8c_a051ef2205edf42677037d4fd5eb32a66}\label{adc_8c_a051ef2205edf42677037d4fd5eb32a66}} 
+\index{adc.\+c@{adc.\+c}!epcf\+\_\+adc\+\_\+detach\+Callback@{epcf\+\_\+adc\+\_\+detach\+Callback}}
+\index{epcf\+\_\+adc\+\_\+detach\+Callback@{epcf\+\_\+adc\+\_\+detach\+Callback}!adc.\+c@{adc.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+adc\+\_\+detach\+Callback()}{epcf\_adc\_detachCallback()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+adc\+\_\+detach\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$}]{p\+Adc\+Device,  }\item[{\mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665c}{En\+E\+P\+C\+F\+Adc\+Channel\+\_\+t}}}]{channel }\end{DoxyParamCaption})}
+
+
+
+This function is used to detach the adc callback for the specific adc interrupt source. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Adc\+Device} & Pointer to the adc device. \\
+\hline
+{\em channel} & Adc channel to get output data for.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Call this function before starting adc conversion. To detach the callback if adc has already started\+:
+\begin{DoxyEnumerate}
+\item Stop adc conversion.
+\item Detach the callback.
+\item Start adc conversion again. 
+\end{DoxyEnumerate}
+\end{DoxyNote}
+\mbox{\Hypertarget{adc_8c_a38daafe218c2de808fc3c560ba71b524}\label{adc_8c_a38daafe218c2de808fc3c560ba71b524}} 
+\index{adc.\+c@{adc.\+c}!epcf\+\_\+adc\+\_\+get\+Device\+Count@{epcf\+\_\+adc\+\_\+get\+Device\+Count}}
+\index{epcf\+\_\+adc\+\_\+get\+Device\+Count@{epcf\+\_\+adc\+\_\+get\+Device\+Count}!adc.\+c@{adc.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+adc\+\_\+get\+Device\+Count()}{epcf\_adc\_getDeviceCount()}}
+{\footnotesize\ttfamily uint8\+\_\+t epcf\+\_\+adc\+\_\+get\+Device\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function is used to get total number of available adc devices. 
+
+\begin{DoxyReturn}{Returns}
+Returns the number of available adc devices. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{adc_8c_a50067b1bc9c64faa8faa71967f5e12ad}\label{adc_8c_a50067b1bc9c64faa8faa71967f5e12ad}} 
+\index{adc.\+c@{adc.\+c}!epcf\+\_\+adc\+\_\+get\+State@{epcf\+\_\+adc\+\_\+get\+State}}
+\index{epcf\+\_\+adc\+\_\+get\+State@{epcf\+\_\+adc\+\_\+get\+State}!adc.\+c@{adc.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+adc\+\_\+get\+State()}{epcf\_adc\_getState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{adc_8h_ac8e2caaea6d80f99b4d2ed46875f9470}{En\+E\+P\+C\+F\+Adc\+State\+\_\+t}} epcf\+\_\+adc\+\_\+get\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$}]{p\+Adc\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to get the current state of the adc. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Adc\+Device} & Pointer to the adc device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return adc state 
+\end{DoxyReturn}
+\mbox{\Hypertarget{adc_8c_a4984e142275784334e3a60046d35fd35}\label{adc_8c_a4984e142275784334e3a60046d35fd35}} 
+\index{adc.\+c@{adc.\+c}!epcf\+\_\+adc\+\_\+get\+Value@{epcf\+\_\+adc\+\_\+get\+Value}}
+\index{epcf\+\_\+adc\+\_\+get\+Value@{epcf\+\_\+adc\+\_\+get\+Value}!adc.\+c@{adc.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+adc\+\_\+get\+Value()}{epcf\_adc\_getValue()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+adc\+\_\+get\+Value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$}]{p\+Adc\+Device,  }\item[{uint32\+\_\+t $\ast$}]{data,  }\item[{\mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665c}{En\+E\+P\+C\+F\+Adc\+Channel\+\_\+t}}}]{channel }\end{DoxyParamCaption})}
+
+
+
+This function is used to read the converted digital output value of the particular channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Adc\+Device} & Pointer to the adc device. \\
+\hline
+{\em data} & Pointer to uint32\+\_\+t variable to get output data value \\
+\hline
+{\em channel} & adc channel\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{adc_8c_ac37d3c0d762b698a4e26e8a73608d0ad}\label{adc_8c_ac37d3c0d762b698a4e26e8a73608d0ad}} 
+\index{adc.\+c@{adc.\+c}!epcf\+\_\+adc\+\_\+get\+Voltage@{epcf\+\_\+adc\+\_\+get\+Voltage}}
+\index{epcf\+\_\+adc\+\_\+get\+Voltage@{epcf\+\_\+adc\+\_\+get\+Voltage}!adc.\+c@{adc.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+adc\+\_\+get\+Voltage()}{epcf\_adc\_getVoltage()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+adc\+\_\+get\+Voltage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$}]{p\+Adc\+Device,  }\item[{uint32\+\_\+t $\ast$}]{milli\+Volts,  }\item[{\mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665c}{En\+E\+P\+C\+F\+Adc\+Channel\+\_\+t}}}]{channel }\end{DoxyParamCaption})}
+
+
+
+This function is used to read the converted digital output value in millivolts of the particular channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Adc\+Device} & Pointer to the adc device. \\
+\hline
+{\em milli\+Volts} & Pointer to uint32\+\_\+t variable to get output data value in millivolts \\
+\hline
+{\em channel} & adc channel\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{adc_8c_a7687e962d02134c8c967fed0bb8aa790}\label{adc_8c_a7687e962d02134c8c967fed0bb8aa790}} 
+\index{adc.\+c@{adc.\+c}!epcf\+\_\+adc\+\_\+single\+Conversion@{epcf\+\_\+adc\+\_\+single\+Conversion}}
+\index{epcf\+\_\+adc\+\_\+single\+Conversion@{epcf\+\_\+adc\+\_\+single\+Conversion}!adc.\+c@{adc.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+adc\+\_\+single\+Conversion()}{epcf\_adc\_singleConversion()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+adc\+\_\+single\+Conversion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$}]{p\+Adc\+Device,  }\item[{\mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665c}{En\+E\+P\+C\+F\+Adc\+Channel\+\_\+t}}}]{channel,  }\item[{uint32\+\_\+t $\ast$}]{data,  }\item[{E\+P\+C\+F\+Time\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+
+
+This function is used to perform a single adc conversion and read the converted digital output value of the particular channel in millivolts. This function blocks until adc conversion is completed on all enabled channels or timeout has occurred. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Adc\+Device} & Pointer to the adc device. \\
+\hline
+{\em channel} & Adc channel to get output data for. ~\newline
+\\
+\hline
+{\em data} & Pointer to uint32\+\_\+t variable to get output data value. \\
+\hline
+{\em timeout} & timeout channel.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Before calling this function stop continuous adc conversion, if started. 
+\end{DoxyNote}
+\mbox{\Hypertarget{adc_8c_ae3eb926c7782252306a148cc5b07480a}\label{adc_8c_ae3eb926c7782252306a148cc5b07480a}} 
+\index{adc.\+c@{adc.\+c}!epcf\+\_\+adc\+\_\+single\+Conversion\+Get\+Voltage@{epcf\+\_\+adc\+\_\+single\+Conversion\+Get\+Voltage}}
+\index{epcf\+\_\+adc\+\_\+single\+Conversion\+Get\+Voltage@{epcf\+\_\+adc\+\_\+single\+Conversion\+Get\+Voltage}!adc.\+c@{adc.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+adc\+\_\+single\+Conversion\+Get\+Voltage()}{epcf\_adc\_singleConversionGetVoltage()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+adc\+\_\+single\+Conversion\+Get\+Voltage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$}]{p\+Adc\+Device,  }\item[{\mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665c}{En\+E\+P\+C\+F\+Adc\+Channel\+\_\+t}}}]{channel,  }\item[{uint32\+\_\+t $\ast$}]{milli\+Volts,  }\item[{E\+P\+C\+F\+Time\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+
+
+This function is used to perform a single adc conversion and read the converted digital output value of the particular channel. This function blocks until adc conversion is completed enabled channel or timeout has occurred. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Adc\+Device} & Pointer to the adc device. \\
+\hline
+{\em channel} & Adc channel to get voltage in millivolts for. ~\newline
+\\
+\hline
+{\em milli\+Volts} & Pointer to uint32\+\_\+t variable to get output data value in millivolts \\
+\hline
+{\em timeout} & timeout channel.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Before calling this function stop continuous adc conversion, if started. 
+\end{DoxyNote}

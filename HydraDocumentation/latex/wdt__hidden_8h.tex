@@ -1,0 +1,58 @@
+\hypertarget{wdt__hidden_8h}{}\section{epcf\+\_\+project/epcf/peripheral/source/wdt/wdt\+\_\+hidden.h File Reference}
+\label{wdt__hidden_8h}\index{epcf\+\_\+project/epcf/peripheral/source/wdt/wdt\+\_\+hidden.\+h@{epcf\+\_\+project/epcf/peripheral/source/wdt/wdt\+\_\+hidden.\+h}}
+
+
+hidden header file for W\+DT Driver Description for L\+P\+C1768. This file is for internal use and will not be shared with the user. It contains Wdt\+Device and Wdt\+Controller structure definition.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structEPCFWdtDevice}{E\+P\+C\+F\+Wdt\+Device}}
+\item 
+struct \mbox{\hyperlink{structEPCFWdtController}{E\+P\+C\+F\+Wdt\+Controller}}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{wdt__hidden_8h_a5f09d802a48f219099643965bc5288d7}\label{wdt__hidden_8h_a5f09d802a48f219099643965bc5288d7}} 
+typedef struct \mbox{\hyperlink{structEPCFWdtController}{E\+P\+C\+F\+Wdt\+Controller}} {\bfseries E\+P\+C\+F\+Wdt\+Controller\+\_\+t}
+\item 
+\mbox{\Hypertarget{wdt__hidden_8h_a3ce65ad8fbfe4a32952f906cced08939}\label{wdt__hidden_8h_a3ce65ad8fbfe4a32952f906cced08939}} 
+typedef struct \mbox{\hyperlink{structEPCFWdtDevice}{E\+P\+C\+F\+Wdt\+Device}} {\bfseries E\+P\+C\+F\+Wdt\+Device\+\_\+t}
+\item 
+\mbox{\Hypertarget{wdt__hidden_8h_a820c5d804a39423efdecbf618029f53f}\label{wdt__hidden_8h_a820c5d804a39423efdecbf618029f53f}} 
+typedef struct E\+P\+C\+F\+Adapter {\bfseries E\+P\+C\+F\+Adapter\+\_\+t}
+\item 
+\mbox{\Hypertarget{wdt__hidden_8h_a1d01f53db746e01e06581536da1fe0ec}\label{wdt__hidden_8h_a1d01f53db746e01e06581536da1fe0ec}} 
+typedef int8\+\_\+t($\ast$ {\bfseries epcf\+Wdt\+Init\+\_\+fp}) (\mbox{\hyperlink{wdt_8h_a3ce65ad8fbfe4a32952f906cced08939}{E\+P\+C\+F\+Wdt\+Device\+\_\+t}} $\ast$, \mbox{\hyperlink{structEPCFWdtCfg__t}{E\+P\+C\+F\+Wdt\+Cfg\+\_\+t}} $\ast$)
+\item 
+\mbox{\Hypertarget{wdt__hidden_8h_a3834fa4ba46d10d2513becae33f74971}\label{wdt__hidden_8h_a3834fa4ba46d10d2513becae33f74971}} 
+typedef int8\+\_\+t($\ast$ {\bfseries epcf\+Wdt\+Start\+\_\+fp}) (\mbox{\hyperlink{wdt_8h_a3ce65ad8fbfe4a32952f906cced08939}{E\+P\+C\+F\+Wdt\+Device\+\_\+t}} $\ast$p\+Wdt\+Device, E\+P\+C\+F\+Time\+\_\+t timeout)
+\item 
+\mbox{\Hypertarget{wdt__hidden_8h_a6744e275a598028950ec91691dadc62f}\label{wdt__hidden_8h_a6744e275a598028950ec91691dadc62f}} 
+typedef int8\+\_\+t($\ast$ {\bfseries epcf\+Wdt\+Stop\+\_\+fp}) (\mbox{\hyperlink{wdt_8h_a3ce65ad8fbfe4a32952f906cced08939}{E\+P\+C\+F\+Wdt\+Device\+\_\+t}} $\ast$p\+Wdt\+Device)
+\item 
+\mbox{\Hypertarget{wdt__hidden_8h_a138d4a1e03eb3a9b8e8fa16281c8754f}\label{wdt__hidden_8h_a138d4a1e03eb3a9b8e8fa16281c8754f}} 
+typedef int8\+\_\+t($\ast$ {\bfseries epcf\+Wdt\+Reset\+\_\+fp}) (\mbox{\hyperlink{wdt_8h_a3ce65ad8fbfe4a32952f906cced08939}{E\+P\+C\+F\+Wdt\+Device\+\_\+t}} $\ast$p\+Wdt\+Device)
+\item 
+\mbox{\Hypertarget{wdt__hidden_8h_a2009fd86d3b11e93df593ee0e02646e7}\label{wdt__hidden_8h_a2009fd86d3b11e93df593ee0e02646e7}} 
+typedef int8\+\_\+t($\ast$ {\bfseries epcf\+Wdt\+Get\+Remaining\+Time\+To\+Timeout\+\_\+fp}) (\mbox{\hyperlink{wdt_8h_a3ce65ad8fbfe4a32952f906cced08939}{E\+P\+C\+F\+Wdt\+Device\+\_\+t}} $\ast$p\+Wdt\+Device, E\+P\+C\+F\+Time\+\_\+t $\ast$time)
+\item 
+\mbox{\Hypertarget{wdt__hidden_8h_a31382aa9e39cabc9f9e77c0f9be47aa0}\label{wdt__hidden_8h_a31382aa9e39cabc9f9e77c0f9be47aa0}} 
+typedef \mbox{\hyperlink{wdt_8h_a6e284efd021a0c17fe320c68e563116e}{En\+E\+P\+C\+F\+Wdt\+State\+\_\+t}}($\ast$ {\bfseries epcf\+Wdt\+Get\+State\+\_\+fp}) (\mbox{\hyperlink{wdt_8h_a3ce65ad8fbfe4a32952f906cced08939}{E\+P\+C\+F\+Wdt\+Device\+\_\+t}} $\ast$p\+Wdt\+Device)
+\item 
+\mbox{\Hypertarget{wdt__hidden_8h_af3b22b402b75bea09abc9cc9823f918d}\label{wdt__hidden_8h_af3b22b402b75bea09abc9cc9823f918d}} 
+typedef int8\+\_\+t($\ast$ {\bfseries epcf\+Wdt\+Get\+Device\+Count\+\_\+fp}) (\mbox{\hyperlink{structEPCFWdtController}{E\+P\+C\+F\+Wdt\+Controller\+\_\+t}} $\ast$)
+\item 
+\mbox{\Hypertarget{wdt__hidden_8h_a3aac0535b6d4fe665947e3103eb42610}\label{wdt__hidden_8h_a3aac0535b6d4fe665947e3103eb42610}} 
+typedef int8\+\_\+t($\ast$ {\bfseries epcf\+Wdt\+Close\+\_\+fp}) (\mbox{\hyperlink{wdt_8h_a3ce65ad8fbfe4a32952f906cced08939}{E\+P\+C\+F\+Wdt\+Device\+\_\+t}} $\ast$)
+\item 
+\mbox{\Hypertarget{wdt__hidden_8h_ab0de4124920a753a3f63126209620d01}\label{wdt__hidden_8h_ab0de4124920a753a3f63126209620d01}} 
+typedef struct \mbox{\hyperlink{structEPCFWdtController}{E\+P\+C\+F\+Wdt\+Controller}} {\bfseries E\+P\+C\+F\+Ext\+Int\+Controller\+\_\+t}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+hidden header file for W\+DT Driver Description for L\+P\+C1768. This file is for internal use and will not be shared with the user. It contains Wdt\+Device and Wdt\+Controller structure definition. 
+

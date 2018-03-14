@@ -1,0 +1,58 @@
+\hypertarget{uart__hidden_8h}{}\section{epcf\+\_\+project/epcf/peripheral/source/uart/uart\+\_\+hidden.h File Reference}
+\label{uart__hidden_8h}\index{epcf\+\_\+project/epcf/peripheral/source/uart/uart\+\_\+hidden.\+h@{epcf\+\_\+project/epcf/peripheral/source/uart/uart\+\_\+hidden.\+h}}
+
+
+hidden header file for U\+A\+RT Driver Description for L\+P\+C1768. This file is for internal use and will not be shared with the user. It contains Uart\+Device and Uart\+Controller structure defination.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structEPCFUartDevice}{E\+P\+C\+F\+Uart\+Device}}
+\item 
+struct \mbox{\hyperlink{structEPCFUartController}{E\+P\+C\+F\+Uart\+Controller}}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{uart__hidden_8h_ae2a5771b1b87c5264b0b196959794cac}\label{uart__hidden_8h_ae2a5771b1b87c5264b0b196959794cac}} 
+typedef struct \mbox{\hyperlink{structEPCFUartController}{E\+P\+C\+F\+Uart\+Controller}} {\bfseries E\+P\+C\+F\+Uart\+Controller\+\_\+t}
+\item 
+\mbox{\Hypertarget{uart__hidden_8h_ac9ec9e319ac81863d7c03f9b5f65b423}\label{uart__hidden_8h_ac9ec9e319ac81863d7c03f9b5f65b423}} 
+typedef struct \mbox{\hyperlink{structEPCFUartDevice}{E\+P\+C\+F\+Uart\+Device}} {\bfseries E\+P\+C\+F\+Uart\+Device\+\_\+t}
+\item 
+\mbox{\Hypertarget{uart__hidden_8h_a820c5d804a39423efdecbf618029f53f}\label{uart__hidden_8h_a820c5d804a39423efdecbf618029f53f}} 
+typedef struct E\+P\+C\+F\+Adapter {\bfseries E\+P\+C\+F\+Adapter\+\_\+t}
+\item 
+\mbox{\Hypertarget{uart__hidden_8h_af137109a7f618f85c2d02fbb5504ab2e}\label{uart__hidden_8h_af137109a7f618f85c2d02fbb5504ab2e}} 
+typedef int8\+\_\+t($\ast$ {\bfseries epcf\+Uart\+Init\+\_\+fp}) (\mbox{\hyperlink{uart_8h_ac9ec9e319ac81863d7c03f9b5f65b423}{E\+P\+C\+F\+Uart\+Device\+\_\+t}} $\ast$, \mbox{\hyperlink{structEPCFUartCfg}{E\+P\+C\+F\+Uart\+Cfg\+\_\+t}} $\ast$)
+\item 
+\mbox{\Hypertarget{uart__hidden_8h_ae0623778f532a02c02fc8a1b92c9c772}\label{uart__hidden_8h_ae0623778f532a02c02fc8a1b92c9c772}} 
+typedef int32\+\_\+t($\ast$ {\bfseries epcf\+Uart\+Write\+\_\+fp}) (\mbox{\hyperlink{uart_8h_ac9ec9e319ac81863d7c03f9b5f65b423}{E\+P\+C\+F\+Uart\+Device\+\_\+t}} $\ast$, const uint8\+\_\+t $\ast$, uint32\+\_\+t, E\+P\+C\+F\+Time\+\_\+t)
+\item 
+\mbox{\Hypertarget{uart__hidden_8h_a81ec01a6155081a9311ff2eb4a47f0d4}\label{uart__hidden_8h_a81ec01a6155081a9311ff2eb4a47f0d4}} 
+typedef int32\+\_\+t($\ast$ {\bfseries epcf\+Uart\+Write\+Blocking\+\_\+fp}) (\mbox{\hyperlink{uart_8h_ac9ec9e319ac81863d7c03f9b5f65b423}{E\+P\+C\+F\+Uart\+Device\+\_\+t}} $\ast$, const uint8\+\_\+t $\ast$, uint32\+\_\+t, E\+P\+C\+F\+Time\+\_\+t)
+\item 
+\mbox{\Hypertarget{uart__hidden_8h_a0dd8c485a368c2d3a2a0c6c0a2c067ac}\label{uart__hidden_8h_a0dd8c485a368c2d3a2a0c6c0a2c067ac}} 
+typedef int32\+\_\+t($\ast$ {\bfseries epcf\+Uart\+Write\+String\+\_\+fp}) (\mbox{\hyperlink{uart_8h_ac9ec9e319ac81863d7c03f9b5f65b423}{E\+P\+C\+F\+Uart\+Device\+\_\+t}} $\ast$, const uint8\+\_\+t $\ast$, E\+P\+C\+F\+Time\+\_\+t)
+\item 
+\mbox{\Hypertarget{uart__hidden_8h_a163559f134f1df83b3974aad2568d56c}\label{uart__hidden_8h_a163559f134f1df83b3974aad2568d56c}} 
+typedef int32\+\_\+t($\ast$ {\bfseries epcf\+Uart\+Read\+\_\+fp}) (\mbox{\hyperlink{uart_8h_ac9ec9e319ac81863d7c03f9b5f65b423}{E\+P\+C\+F\+Uart\+Device\+\_\+t}} $\ast$, uint8\+\_\+t $\ast$, uint32\+\_\+t, E\+P\+C\+F\+Time\+\_\+t)
+\item 
+\mbox{\Hypertarget{uart__hidden_8h_a336d7706894479fa828cb2cc4453daf6}\label{uart__hidden_8h_a336d7706894479fa828cb2cc4453daf6}} 
+typedef uint32\+\_\+t($\ast$ {\bfseries epcf\+Uart\+Get\+Device\+Count\+\_\+fp}) (\mbox{\hyperlink{structEPCFUartController}{E\+P\+C\+F\+Uart\+Controller\+\_\+t}} $\ast$)
+\item 
+\mbox{\Hypertarget{uart__hidden_8h_a422611389b238ddce48ce958aad8991f}\label{uart__hidden_8h_a422611389b238ddce48ce958aad8991f}} 
+typedef int8\+\_\+t($\ast$ {\bfseries epcf\+Uart\+Buffer\+Flush\+\_\+fp}) (\mbox{\hyperlink{uart_8h_ac9ec9e319ac81863d7c03f9b5f65b423}{E\+P\+C\+F\+Uart\+Device\+\_\+t}} $\ast$)
+\item 
+\mbox{\Hypertarget{uart__hidden_8h_a86e974cc589c5d8c11fe45f7fae436d9}\label{uart__hidden_8h_a86e974cc589c5d8c11fe45f7fae436d9}} 
+typedef int32\+\_\+t($\ast$ {\bfseries epcf\+Uart\+Buffer\+Count\+\_\+fp}) (\mbox{\hyperlink{uart_8h_ac9ec9e319ac81863d7c03f9b5f65b423}{E\+P\+C\+F\+Uart\+Device\+\_\+t}} $\ast$)
+\item 
+\mbox{\Hypertarget{uart__hidden_8h_aba50f64fd91eea3d332b93f84a8cb4ac}\label{uart__hidden_8h_aba50f64fd91eea3d332b93f84a8cb4ac}} 
+typedef int8\+\_\+t($\ast$ {\bfseries epcf\+Uart\+Close\+\_\+fp}) (\mbox{\hyperlink{uart_8h_ac9ec9e319ac81863d7c03f9b5f65b423}{E\+P\+C\+F\+Uart\+Device\+\_\+t}} $\ast$)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+hidden header file for U\+A\+RT Driver Description for L\+P\+C1768. This file is for internal use and will not be shared with the user. It contains Uart\+Device and Uart\+Controller structure defination. 
+

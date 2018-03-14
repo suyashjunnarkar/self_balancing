@@ -1,0 +1,85 @@
+\hypertarget{structEPCFGpioCfg__t}{}\section{E\+P\+C\+F\+Gpio\+Cfg\+\_\+t Struct Reference}
+\label{structEPCFGpioCfg__t}\index{E\+P\+C\+F\+Gpio\+Cfg\+\_\+t@{E\+P\+C\+F\+Gpio\+Cfg\+\_\+t}}
+
+
+Gpio configuration structure.  
+
+
+
+
+{\ttfamily \#include $<$gpio.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+E\+P\+C\+F\+Port\+Pin\+\_\+t \mbox{\hyperlink{structEPCFGpioCfg__t_aaf636f98b62ebee2dd106ac1a16b01d1}{port\+Pin}}
+\item 
+\mbox{\hyperlink{gpio_8h_acfac25969bd9ca852e4a8293fccf01b1}{En\+E\+P\+C\+F\+Gpio\+Direction\+\_\+t}} \mbox{\hyperlink{structEPCFGpioCfg__t_a74d5d67d533e9c0a1131fda88e22efe7}{direction}}
+\item 
+\mbox{\hyperlink{gpio_8h_afa0f233ad1316f898dabeb77efa64cd6}{En\+E\+P\+C\+F\+Gpio\+Pin\+Mode\+\_\+t}} \mbox{\hyperlink{structEPCFGpioCfg__t_a14e2373a72e518a95aaca60121a91e07}{mode}}
+\item 
+\mbox{\hyperlink{gpio_8h_a7b6f54f410f30de33a00d2a3124a7a01}{En\+E\+P\+C\+F\+Gpio\+Open\+Drain\+\_\+t}} \mbox{\hyperlink{structEPCFGpioCfg__t_a03d68acb4904365ac0125836b3969054}{open\+Drain}}
+\item 
+En\+E\+P\+C\+F\+Boolean\+\_\+t \mbox{\hyperlink{structEPCFGpioCfg__t_a3ea1b8cf99f36c3ff8312b22d0fa3266}{int\+Enable}}
+\item 
+\mbox{\hyperlink{gpio_8h_a8c60a8869509cbc9a1cf56ad8d8ae037}{En\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+t}} \mbox{\hyperlink{structEPCFGpioCfg__t_a2c37754fe090e872868d3dcf6e585561}{int\+Mode}}
+\item 
+void $\ast$ \mbox{\hyperlink{structEPCFGpioCfg__t_a8f6ac9e3b552904645605c80ce445e3f}{hardware\+Cfg}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Gpio configuration structure. 
+
+Example to configure Gpio device\+:
+
+\mbox{\hyperlink{structEPCFGpioCfg__t}{E\+P\+C\+F\+Gpio\+Cfg\+\_\+t}} p\+Gpio\+Config = \{ T\+O\+DO \+: Add example \}; 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structEPCFGpioCfg__t_a74d5d67d533e9c0a1131fda88e22efe7}\label{structEPCFGpioCfg__t_a74d5d67d533e9c0a1131fda88e22efe7}} 
+\index{E\+P\+C\+F\+Gpio\+Cfg\+\_\+t@{E\+P\+C\+F\+Gpio\+Cfg\+\_\+t}!direction@{direction}}
+\index{direction@{direction}!E\+P\+C\+F\+Gpio\+Cfg\+\_\+t@{E\+P\+C\+F\+Gpio\+Cfg\+\_\+t}}
+\subsubsection{\texorpdfstring{direction}{direction}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gpio_8h_acfac25969bd9ca852e4a8293fccf01b1}{En\+E\+P\+C\+F\+Gpio\+Direction\+\_\+t}} E\+P\+C\+F\+Gpio\+Cfg\+\_\+t\+::direction}
+
+Pin direction, 1\+:output 0\+:input \mbox{\Hypertarget{structEPCFGpioCfg__t_a8f6ac9e3b552904645605c80ce445e3f}\label{structEPCFGpioCfg__t_a8f6ac9e3b552904645605c80ce445e3f}} 
+\index{E\+P\+C\+F\+Gpio\+Cfg\+\_\+t@{E\+P\+C\+F\+Gpio\+Cfg\+\_\+t}!hardware\+Cfg@{hardware\+Cfg}}
+\index{hardware\+Cfg@{hardware\+Cfg}!E\+P\+C\+F\+Gpio\+Cfg\+\_\+t@{E\+P\+C\+F\+Gpio\+Cfg\+\_\+t}}
+\subsubsection{\texorpdfstring{hardware\+Cfg}{hardwareCfg}}
+{\footnotesize\ttfamily void$\ast$ E\+P\+C\+F\+Gpio\+Cfg\+\_\+t\+::hardware\+Cfg}
+
+Hardware platform specific configuration, pass N\+U\+LL for default configuration \mbox{\Hypertarget{structEPCFGpioCfg__t_a3ea1b8cf99f36c3ff8312b22d0fa3266}\label{structEPCFGpioCfg__t_a3ea1b8cf99f36c3ff8312b22d0fa3266}} 
+\index{E\+P\+C\+F\+Gpio\+Cfg\+\_\+t@{E\+P\+C\+F\+Gpio\+Cfg\+\_\+t}!int\+Enable@{int\+Enable}}
+\index{int\+Enable@{int\+Enable}!E\+P\+C\+F\+Gpio\+Cfg\+\_\+t@{E\+P\+C\+F\+Gpio\+Cfg\+\_\+t}}
+\subsubsection{\texorpdfstring{int\+Enable}{intEnable}}
+{\footnotesize\ttfamily En\+E\+P\+C\+F\+Boolean\+\_\+t E\+P\+C\+F\+Gpio\+Cfg\+\_\+t\+::int\+Enable}
+
+Pin interrupt enable \mbox{\Hypertarget{structEPCFGpioCfg__t_a2c37754fe090e872868d3dcf6e585561}\label{structEPCFGpioCfg__t_a2c37754fe090e872868d3dcf6e585561}} 
+\index{E\+P\+C\+F\+Gpio\+Cfg\+\_\+t@{E\+P\+C\+F\+Gpio\+Cfg\+\_\+t}!int\+Mode@{int\+Mode}}
+\index{int\+Mode@{int\+Mode}!E\+P\+C\+F\+Gpio\+Cfg\+\_\+t@{E\+P\+C\+F\+Gpio\+Cfg\+\_\+t}}
+\subsubsection{\texorpdfstring{int\+Mode}{intMode}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gpio_8h_a8c60a8869509cbc9a1cf56ad8d8ae037}{En\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+t}} E\+P\+C\+F\+Gpio\+Cfg\+\_\+t\+::int\+Mode}
+
+Pin interrupt mode \mbox{\Hypertarget{structEPCFGpioCfg__t_a14e2373a72e518a95aaca60121a91e07}\label{structEPCFGpioCfg__t_a14e2373a72e518a95aaca60121a91e07}} 
+\index{E\+P\+C\+F\+Gpio\+Cfg\+\_\+t@{E\+P\+C\+F\+Gpio\+Cfg\+\_\+t}!mode@{mode}}
+\index{mode@{mode}!E\+P\+C\+F\+Gpio\+Cfg\+\_\+t@{E\+P\+C\+F\+Gpio\+Cfg\+\_\+t}}
+\subsubsection{\texorpdfstring{mode}{mode}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gpio_8h_afa0f233ad1316f898dabeb77efa64cd6}{En\+E\+P\+C\+F\+Gpio\+Pin\+Mode\+\_\+t}} E\+P\+C\+F\+Gpio\+Cfg\+\_\+t\+::mode}
+
+Pin pull up/down mode \mbox{\Hypertarget{structEPCFGpioCfg__t_a03d68acb4904365ac0125836b3969054}\label{structEPCFGpioCfg__t_a03d68acb4904365ac0125836b3969054}} 
+\index{E\+P\+C\+F\+Gpio\+Cfg\+\_\+t@{E\+P\+C\+F\+Gpio\+Cfg\+\_\+t}!open\+Drain@{open\+Drain}}
+\index{open\+Drain@{open\+Drain}!E\+P\+C\+F\+Gpio\+Cfg\+\_\+t@{E\+P\+C\+F\+Gpio\+Cfg\+\_\+t}}
+\subsubsection{\texorpdfstring{open\+Drain}{openDrain}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gpio_8h_a7b6f54f410f30de33a00d2a3124a7a01}{En\+E\+P\+C\+F\+Gpio\+Open\+Drain\+\_\+t}} E\+P\+C\+F\+Gpio\+Cfg\+\_\+t\+::open\+Drain}
+
+Pin open drain on/off \mbox{\Hypertarget{structEPCFGpioCfg__t_aaf636f98b62ebee2dd106ac1a16b01d1}\label{structEPCFGpioCfg__t_aaf636f98b62ebee2dd106ac1a16b01d1}} 
+\index{E\+P\+C\+F\+Gpio\+Cfg\+\_\+t@{E\+P\+C\+F\+Gpio\+Cfg\+\_\+t}!port\+Pin@{port\+Pin}}
+\index{port\+Pin@{port\+Pin}!E\+P\+C\+F\+Gpio\+Cfg\+\_\+t@{E\+P\+C\+F\+Gpio\+Cfg\+\_\+t}}
+\subsubsection{\texorpdfstring{port\+Pin}{portPin}}
+{\footnotesize\ttfamily E\+P\+C\+F\+Port\+Pin\+\_\+t E\+P\+C\+F\+Gpio\+Cfg\+\_\+t\+::port\+Pin}
+
+Port Pin 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+epcf\+\_\+project/epcf/peripheral/include/gpio/\mbox{\hyperlink{gpio_8h}{gpio.\+h}}\end{DoxyCompactItemize}

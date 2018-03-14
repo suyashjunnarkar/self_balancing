@@ -1,0 +1,386 @@
+\hypertarget{timer_8c}{}\section{epcf\+\_\+project/epcf/peripheral/source/timer/timer.c File Reference}
+\label{timer_8c}\index{epcf\+\_\+project/epcf/peripheral/source/timer/timer.\+c@{epcf\+\_\+project/epcf/peripheral/source/timer/timer.\+c}}
+
+
+This file is used to configure a T\+I\+M\+ER device.  
+
+
+{\ttfamily \#include \char`\"{}pcf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}./timer\+\_\+hidden.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$ \mbox{\hyperlink{timer_8c_a057d7fb4ee27ea70d843f313e7948f7e}{epcf\+\_\+timer\+\_\+create\+Native}} (\mbox{\hyperlink{structEPCFTimerCfg__t}{E\+P\+C\+F\+Timer\+Cfg\+\_\+t}} $\ast$p\+Timer\+Config)
+\begin{DoxyCompactList}\small\item\em This function is used to create a timer. Call this function in beginning to initialize the timer. This function allocates memory for the device using malloc() function call and returns a pointer to the device. Pass this device pointer while calling timer functions. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{timer_8c_a6d7fbc41add267502873da2d7b3a6848}{epcf\+\_\+timer\+\_\+start}} (\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$p\+Timer\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to start the timer. The timer starts counting and will run according to the configuration. It can be stopped by a call to the function E\+P\+C\+F\+\_\+\+T\+I\+M\+E\+R\+\_\+\+S\+T\+OP. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{timer_8c_a23c824708319387ad92228cc98e7531f}{epcf\+\_\+timer\+\_\+stop}} (\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$p\+Timer\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to stop the running timer. The timer counting is stopped and can be started again by a call to the function E\+P\+C\+F\+\_\+\+T\+I\+M\+E\+R\+\_\+\+S\+T\+A\+RT. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{timer_8c_aeb2c3ce309a2389e10b4ecd8f54b2a49}{epcf\+\_\+timer\+\_\+reset}} (\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$p\+Timer\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to reset the timer. The timer count will be set to the initial value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{timer_8h_a545dac1050db5d1a791dca4df3830de8}{En\+E\+P\+C\+F\+Timer\+State\+\_\+t}} \mbox{\hyperlink{timer_8c_a14af049adeaef5cc3f3fde90f1fe76ce}{epcf\+\_\+timer\+\_\+get\+State}} (\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$p\+Timer\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to get the current state of the timer. Timer can be started by a call to the function E\+P\+C\+F\+\_\+\+T\+I\+M\+E\+R\+\_\+\+S\+T\+A\+RT. Timer can be stopped by a call to the function E\+P\+C\+F\+\_\+\+T\+I\+M\+E\+R\+\_\+\+S\+T\+OP. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{timer_8c_a3b4ff74d5b2f76582ed2e586d0739cb2}{epcf\+\_\+timer\+\_\+get\+Time}} (\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$p\+Timer\+Device, E\+P\+C\+F\+Time\+\_\+t $\ast$time)
+\begin{DoxyCompactList}\small\item\em This function is used to read the current time value. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{timer_8c_a7ab75ebabd2d855bdbe9bf1290711e78}{epcf\+\_\+timer\+\_\+set\+Counter}} (\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$p\+Timer\+Device, \mbox{\hyperlink{timer_8h_a49758bdd75c2efdc7fae554a566a3420}{En\+E\+P\+C\+F\+Timer\+Channel\+\_\+t}} channel, \mbox{\hyperlink{timer_8h_a69d9d8868241b493f34d11688821a70e}{En\+E\+P\+C\+F\+Timer\+Input\+Polarity\+\_\+t}} input\+Polarity)
+\begin{DoxyCompactList}\small\item\em This function is used to set input polarity of capture signal for getting counter value in counter mode. This function will return error if timer is configured in timer mode. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{timer_8c_ae25969764b4c85f1790bdffc16179a12}{epcf\+\_\+timer\+\_\+get\+Counter\+Value}} (\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$p\+Timer\+Device, uint32\+\_\+t $\ast$count)
+\begin{DoxyCompactList}\small\item\em This function is used to read the current timer count in both timer and counter mode. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{timer_8c_a73fb228a6120b6e9e7ac90ab02296159}{epcf\+\_\+timer\+\_\+attach\+Callback}} (\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$p\+Timer\+Device, \mbox{\hyperlink{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2}{En\+E\+P\+C\+F\+Timer\+Interrupt\+Source\+\_\+t}} interrupt\+Source, epcf\+Callback\+\_\+fp callback)
+\begin{DoxyCompactList}\small\item\em This function is used to attach a timer callback for the specific timer interrupt source. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{timer_8c_abcda35cdd47b96d546961a7d067ebdca}{epcf\+\_\+timer\+\_\+detach\+Callback}} (\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$p\+Timer\+Device, \mbox{\hyperlink{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2}{En\+E\+P\+C\+F\+Timer\+Interrupt\+Source\+\_\+t}} interrupt\+Source)
+\begin{DoxyCompactList}\small\item\em This function is used to detach the timer callback for the specific timer interrupt source. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{timer_8c_adfb8b27d1b568b70a8b0563b7d23aba8}{epcf\+\_\+timer\+\_\+set\+Compare\+Time}} (\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$p\+Timer\+Device, \mbox{\hyperlink{timer_8h_a49758bdd75c2efdc7fae554a566a3420}{En\+E\+P\+C\+F\+Timer\+Channel\+\_\+t}} channel, \mbox{\hyperlink{timer_8h_a18c68e21ca83222d19af8f4aa976c29e}{En\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+t}} compare\+Action, \mbox{\hyperlink{timer_8h_a05cae95f26f7014a386031b3e1fb4e91}{En\+E\+P\+C\+F\+Timer\+Pin\+Action}} pin\+Action, E\+P\+C\+F\+Time\+\_\+t time)
+\begin{DoxyCompactList}\small\item\em This function is used to set the compare time. Compare channel can be used to trigger an event after the specified time. A compare action and an interrupt can be associated to that event. A user callback is called if there is a callback attached for this interrupt source. The maximum value that should be passed to this function is equal to the period of the timer. Timer period = resolution x (2$^\wedge$timer\+Width). For example\+: Consider an 8-\/bit timer with resolution = 0.\+25 microseconds and configured as a periodic type. If time count == 5 and unit is equal to en\+E\+P\+C\+F\+Time\+Unit\+\_\+us, then user callback will be called after every 5 microseconds. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{timer_8c_a363d9244d534de53dabc73523e37c3ff}{epcf\+\_\+timer\+\_\+set\+Input\+Capture}} (\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$p\+Timer\+Device, \mbox{\hyperlink{timer_8h_a49758bdd75c2efdc7fae554a566a3420}{En\+E\+P\+C\+F\+Timer\+Channel\+\_\+t}} channel, \mbox{\hyperlink{timer_8h_a69d9d8868241b493f34d11688821a70e}{En\+E\+P\+C\+F\+Timer\+Input\+Polarity\+\_\+t}} input\+Polarity)
+\begin{DoxyCompactList}\small\item\em This function is used to set input polarity of the input capture channel. An input capture channel can be used to get width of the input signal. It can also be used to generate an interrupt and a user callback is called if there is a callback attached for this interrupt source. For example\+: Consider a configuration in which timer resolution = 0.\+25 microseconds and input capture channel is configured to detect falling clock edge on channel0. If the signal is in high state when the timer has started and comes to a low state after 5 microseconds. Then, an interrupt will be generated after 5 microseconds. Use E\+P\+C\+F\+\_\+\+T\+I\+M\+E\+R\+\_\+\+G\+E\+T\+\_\+\+I\+N\+P\+U\+T\+\_\+\+C\+A\+P\+T\+U\+R\+E\+\_\+\+T\+I\+ME function to get width of the signal. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{timer_8c_adc374c0f2ec21d311615d90b641c40bf}{epcf\+\_\+timer\+\_\+get\+Input\+Capture\+Time}} (\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$p\+Timer\+Device, \mbox{\hyperlink{timer_8h_a49758bdd75c2efdc7fae554a566a3420}{En\+E\+P\+C\+F\+Timer\+Channel\+\_\+t}} channel, E\+P\+C\+F\+Time\+\_\+t $\ast$time)
+\begin{DoxyCompactList}\small\item\em This function is used to read the input capture time for the specified channel. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{timer_8c_a6c5662478b4fdfdf19443a3dc6f4f391}{epcf\+\_\+timer\+\_\+close}} (\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$p\+Timer\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to close the timer. It will free the memory allocated by the timer device. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{timer_8c_a3542e21dd40fa50efc2a2ec7715fca53}{epcf\+\_\+timer\+\_\+get\+Device\+Count}} ()
+\begin{DoxyCompactList}\small\item\em This function is used to get the total number of available timer devices. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{timer_8c_a3e03fa1163d7d44ed88309b0db515989}\label{timer_8c_a3e03fa1163d7d44ed88309b0db515989}} 
+uint8\+\_\+t {\bfseries epcf\+\_\+timer\+\_\+ext\+Get\+Device\+Count} (E\+P\+C\+F\+Timer\+Controller\+\_\+t $\ast$p\+Timer\+Controller)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file is used to configure a T\+I\+M\+ER device. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{timer_8c_a73fb228a6120b6e9e7ac90ab02296159}\label{timer_8c_a73fb228a6120b6e9e7ac90ab02296159}} 
+\index{timer.\+c@{timer.\+c}!epcf\+\_\+timer\+\_\+attach\+Callback@{epcf\+\_\+timer\+\_\+attach\+Callback}}
+\index{epcf\+\_\+timer\+\_\+attach\+Callback@{epcf\+\_\+timer\+\_\+attach\+Callback}!timer.\+c@{timer.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+timer\+\_\+attach\+Callback()}{epcf\_timer\_attachCallback()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+timer\+\_\+attach\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$}]{p\+Timer\+Device,  }\item[{\mbox{\hyperlink{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2}{En\+E\+P\+C\+F\+Timer\+Interrupt\+Source\+\_\+t}}}]{interrupt\+Source,  }\item[{epcf\+Callback\+\_\+fp}]{callback }\end{DoxyParamCaption})}
+
+
+
+This function is used to attach a timer callback for the specific timer interrupt source. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Timer\+Device} & Pointer to the timer device. \\
+\hline
+{\em interrupt\+Source} & Interrupt source for the callback. \\
+\hline
+{\em callback} & User callback to be called at the specified interrupt source \\
+\hline
+{\em priority} & Callback priority\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return callback\+Id.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Call this function before starting the timer device. To attach a callback if timer has already started\+:
+\begin{DoxyEnumerate}
+\item Stop the timer.
+\item Reset the timer
+\item Detach the callback.
+\item Start the timer again. 
+\end{DoxyEnumerate}
+\end{DoxyNote}
+\mbox{\Hypertarget{timer_8c_a6c5662478b4fdfdf19443a3dc6f4f391}\label{timer_8c_a6c5662478b4fdfdf19443a3dc6f4f391}} 
+\index{timer.\+c@{timer.\+c}!epcf\+\_\+timer\+\_\+close@{epcf\+\_\+timer\+\_\+close}}
+\index{epcf\+\_\+timer\+\_\+close@{epcf\+\_\+timer\+\_\+close}!timer.\+c@{timer.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+timer\+\_\+close()}{epcf\_timer\_close()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+timer\+\_\+close (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$}]{p\+Timer\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to close the timer. It will free the memory allocated by the timer device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Timer\+Device} & Pointer to the timer device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{timer_8c_a057d7fb4ee27ea70d843f313e7948f7e}\label{timer_8c_a057d7fb4ee27ea70d843f313e7948f7e}} 
+\index{timer.\+c@{timer.\+c}!epcf\+\_\+timer\+\_\+create\+Native@{epcf\+\_\+timer\+\_\+create\+Native}}
+\index{epcf\+\_\+timer\+\_\+create\+Native@{epcf\+\_\+timer\+\_\+create\+Native}!timer.\+c@{timer.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+timer\+\_\+create\+Native()}{epcf\_timer\_createNative()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}}$\ast$ epcf\+\_\+timer\+\_\+create\+Native (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFTimerCfg__t}{E\+P\+C\+F\+Timer\+Cfg\+\_\+t}} $\ast$}]{p\+Timer\+Config }\end{DoxyParamCaption})}
+
+
+
+This function is used to create a timer. Call this function in beginning to initialize the timer. This function allocates memory for the device using malloc() function call and returns a pointer to the device. Pass this device pointer while calling timer functions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Timer\+Config} & Pointer to the timer configuration structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+On success, it return the pointer to timer device. On error, it returns N\+U\+LL. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{timer_8c_abcda35cdd47b96d546961a7d067ebdca}\label{timer_8c_abcda35cdd47b96d546961a7d067ebdca}} 
+\index{timer.\+c@{timer.\+c}!epcf\+\_\+timer\+\_\+detach\+Callback@{epcf\+\_\+timer\+\_\+detach\+Callback}}
+\index{epcf\+\_\+timer\+\_\+detach\+Callback@{epcf\+\_\+timer\+\_\+detach\+Callback}!timer.\+c@{timer.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+timer\+\_\+detach\+Callback()}{epcf\_timer\_detachCallback()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+timer\+\_\+detach\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$}]{p\+Timer\+Device,  }\item[{\mbox{\hyperlink{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2}{En\+E\+P\+C\+F\+Timer\+Interrupt\+Source\+\_\+t}}}]{interrupt\+Source }\end{DoxyParamCaption})}
+
+
+
+This function is used to detach the timer callback for the specific timer interrupt source. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Timer\+Device} & Pointer to the timer device. \\
+\hline
+{\em callback\+Id} & callback\+Id returned by E\+P\+C\+F\+\_\+\+T\+I\+M\+E\+R\+\_\+\+A\+T\+T\+A\+C\+H\+\_\+\+C\+A\+L\+L\+B\+A\+CK function.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Call this function before starting the timer device. To detach the callback if timer has already started\+:
+\begin{DoxyEnumerate}
+\item Stop the timer.
+\item Reset the timer
+\item Detach the callback.
+\item Start the timer again. 
+\end{DoxyEnumerate}
+\end{DoxyNote}
+\mbox{\Hypertarget{timer_8c_ae25969764b4c85f1790bdffc16179a12}\label{timer_8c_ae25969764b4c85f1790bdffc16179a12}} 
+\index{timer.\+c@{timer.\+c}!epcf\+\_\+timer\+\_\+get\+Counter\+Value@{epcf\+\_\+timer\+\_\+get\+Counter\+Value}}
+\index{epcf\+\_\+timer\+\_\+get\+Counter\+Value@{epcf\+\_\+timer\+\_\+get\+Counter\+Value}!timer.\+c@{timer.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+timer\+\_\+get\+Counter\+Value()}{epcf\_timer\_getCounterValue()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+timer\+\_\+get\+Counter\+Value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$}]{p\+Timer\+Device,  }\item[{uint32\+\_\+t $\ast$}]{count }\end{DoxyParamCaption})}
+
+
+
+This function is used to read the current timer count in both timer and counter mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Timer\+Device} & Pointer to the timer device. \\
+\hline
+{\em count} & Pointer to the uint32\+\_\+t variable to get timer count.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{timer_8c_a3542e21dd40fa50efc2a2ec7715fca53}\label{timer_8c_a3542e21dd40fa50efc2a2ec7715fca53}} 
+\index{timer.\+c@{timer.\+c}!epcf\+\_\+timer\+\_\+get\+Device\+Count@{epcf\+\_\+timer\+\_\+get\+Device\+Count}}
+\index{epcf\+\_\+timer\+\_\+get\+Device\+Count@{epcf\+\_\+timer\+\_\+get\+Device\+Count}!timer.\+c@{timer.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+timer\+\_\+get\+Device\+Count()}{epcf\_timer\_getDeviceCount()}}
+{\footnotesize\ttfamily uint8\+\_\+t epcf\+\_\+timer\+\_\+get\+Device\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function is used to get the total number of available timer devices. 
+
+\begin{DoxyReturn}{Returns}
+Returns the number of available timer devices. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{timer_8c_adc374c0f2ec21d311615d90b641c40bf}\label{timer_8c_adc374c0f2ec21d311615d90b641c40bf}} 
+\index{timer.\+c@{timer.\+c}!epcf\+\_\+timer\+\_\+get\+Input\+Capture\+Time@{epcf\+\_\+timer\+\_\+get\+Input\+Capture\+Time}}
+\index{epcf\+\_\+timer\+\_\+get\+Input\+Capture\+Time@{epcf\+\_\+timer\+\_\+get\+Input\+Capture\+Time}!timer.\+c@{timer.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+timer\+\_\+get\+Input\+Capture\+Time()}{epcf\_timer\_getInputCaptureTime()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+timer\+\_\+get\+Input\+Capture\+Time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$}]{p\+Timer\+Device,  }\item[{\mbox{\hyperlink{timer_8h_a49758bdd75c2efdc7fae554a566a3420}{En\+E\+P\+C\+F\+Timer\+Channel\+\_\+t}}}]{channel,  }\item[{E\+P\+C\+F\+Time\+\_\+t $\ast$}]{time }\end{DoxyParamCaption})}
+
+
+
+This function is used to read the input capture time for the specified channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Timer\+Device} & Pointer to the timer device. \\
+\hline
+{\em channel} & Input Capture channel. \\
+\hline
+{\em time} & Pointer to the E\+P\+C\+F\+Time\+\_\+t variable to get input capture time value.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{timer_8c_a14af049adeaef5cc3f3fde90f1fe76ce}\label{timer_8c_a14af049adeaef5cc3f3fde90f1fe76ce}} 
+\index{timer.\+c@{timer.\+c}!epcf\+\_\+timer\+\_\+get\+State@{epcf\+\_\+timer\+\_\+get\+State}}
+\index{epcf\+\_\+timer\+\_\+get\+State@{epcf\+\_\+timer\+\_\+get\+State}!timer.\+c@{timer.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+timer\+\_\+get\+State()}{epcf\_timer\_getState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{timer_8h_a545dac1050db5d1a791dca4df3830de8}{En\+E\+P\+C\+F\+Timer\+State\+\_\+t}} epcf\+\_\+timer\+\_\+get\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$}]{p\+Timer\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to get the current state of the timer. Timer can be started by a call to the function E\+P\+C\+F\+\_\+\+T\+I\+M\+E\+R\+\_\+\+S\+T\+A\+RT. Timer can be stopped by a call to the function E\+P\+C\+F\+\_\+\+T\+I\+M\+E\+R\+\_\+\+S\+T\+OP. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Timer\+Device} & Pointer to the timer device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return timer state 
+\end{DoxyReturn}
+\mbox{\Hypertarget{timer_8c_a3b4ff74d5b2f76582ed2e586d0739cb2}\label{timer_8c_a3b4ff74d5b2f76582ed2e586d0739cb2}} 
+\index{timer.\+c@{timer.\+c}!epcf\+\_\+timer\+\_\+get\+Time@{epcf\+\_\+timer\+\_\+get\+Time}}
+\index{epcf\+\_\+timer\+\_\+get\+Time@{epcf\+\_\+timer\+\_\+get\+Time}!timer.\+c@{timer.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+timer\+\_\+get\+Time()}{epcf\_timer\_getTime()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+timer\+\_\+get\+Time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$}]{p\+Timer\+Device,  }\item[{E\+P\+C\+F\+Time\+\_\+t $\ast$}]{time }\end{DoxyParamCaption})}
+
+
+
+This function is used to read the current time value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Timer\+Device} & Pointer to the timer device. \\
+\hline
+{\em time} & Pointer to E\+P\+C\+F\+Time\+\_\+t variable to get time value. this function give time value in micro seconds\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{timer_8c_aeb2c3ce309a2389e10b4ecd8f54b2a49}\label{timer_8c_aeb2c3ce309a2389e10b4ecd8f54b2a49}} 
+\index{timer.\+c@{timer.\+c}!epcf\+\_\+timer\+\_\+reset@{epcf\+\_\+timer\+\_\+reset}}
+\index{epcf\+\_\+timer\+\_\+reset@{epcf\+\_\+timer\+\_\+reset}!timer.\+c@{timer.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+timer\+\_\+reset()}{epcf\_timer\_reset()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+timer\+\_\+reset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$}]{p\+Timer\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to reset the timer. The timer count will be set to the initial value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Timer\+Device} & Pointer to the timer device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{timer_8c_adfb8b27d1b568b70a8b0563b7d23aba8}\label{timer_8c_adfb8b27d1b568b70a8b0563b7d23aba8}} 
+\index{timer.\+c@{timer.\+c}!epcf\+\_\+timer\+\_\+set\+Compare\+Time@{epcf\+\_\+timer\+\_\+set\+Compare\+Time}}
+\index{epcf\+\_\+timer\+\_\+set\+Compare\+Time@{epcf\+\_\+timer\+\_\+set\+Compare\+Time}!timer.\+c@{timer.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+timer\+\_\+set\+Compare\+Time()}{epcf\_timer\_setCompareTime()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+timer\+\_\+set\+Compare\+Time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$}]{p\+Timer\+Device,  }\item[{\mbox{\hyperlink{timer_8h_a49758bdd75c2efdc7fae554a566a3420}{En\+E\+P\+C\+F\+Timer\+Channel\+\_\+t}}}]{channel,  }\item[{\mbox{\hyperlink{timer_8h_a18c68e21ca83222d19af8f4aa976c29e}{En\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+t}}}]{compare\+Action,  }\item[{\mbox{\hyperlink{timer_8h_a05cae95f26f7014a386031b3e1fb4e91}{En\+E\+P\+C\+F\+Timer\+Pin\+Action}}}]{pin\+Action,  }\item[{E\+P\+C\+F\+Time\+\_\+t}]{time }\end{DoxyParamCaption})}
+
+
+
+This function is used to set the compare time. Compare channel can be used to trigger an event after the specified time. A compare action and an interrupt can be associated to that event. A user callback is called if there is a callback attached for this interrupt source. The maximum value that should be passed to this function is equal to the period of the timer. Timer period = resolution x (2$^\wedge$timer\+Width). For example\+: Consider an 8-\/bit timer with resolution = 0.\+25 microseconds and configured as a periodic type. If time count == 5 and unit is equal to en\+E\+P\+C\+F\+Time\+Unit\+\_\+us, then user callback will be called after every 5 microseconds. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Timer\+Device} & Pointer to the timer device. \\
+\hline
+{\em channel} & Compare channel. \\
+\hline
+{\em compare\+Action} & Specifies the timer action on compare match This parameter can be a value of En\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+t. \\
+\hline
+{\em pin\+Action} & Specify the output pin action This parameter can be a value of En\+E\+P\+C\+F\+Timer\+Pin\+Action. \\
+\hline
+{\em time} & Compare time value for the channel\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Call this function before starting the timer. To set compare time for a new channel or to update the compare time\+:
+\begin{DoxyEnumerate}
+\item Stop the timer.
+\item Reset the timer
+\item Detach the callback.
+\item Start the timer again. 
+\end{DoxyEnumerate}
+\end{DoxyNote}
+\mbox{\Hypertarget{timer_8c_a7ab75ebabd2d855bdbe9bf1290711e78}\label{timer_8c_a7ab75ebabd2d855bdbe9bf1290711e78}} 
+\index{timer.\+c@{timer.\+c}!epcf\+\_\+timer\+\_\+set\+Counter@{epcf\+\_\+timer\+\_\+set\+Counter}}
+\index{epcf\+\_\+timer\+\_\+set\+Counter@{epcf\+\_\+timer\+\_\+set\+Counter}!timer.\+c@{timer.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+timer\+\_\+set\+Counter()}{epcf\_timer\_setCounter()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+timer\+\_\+set\+Counter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$}]{p\+Timer\+Device,  }\item[{\mbox{\hyperlink{timer_8h_a49758bdd75c2efdc7fae554a566a3420}{En\+E\+P\+C\+F\+Timer\+Channel\+\_\+t}}}]{channel,  }\item[{\mbox{\hyperlink{timer_8h_a69d9d8868241b493f34d11688821a70e}{En\+E\+P\+C\+F\+Timer\+Input\+Polarity\+\_\+t}}}]{input\+Polarity }\end{DoxyParamCaption})}
+
+
+
+This function is used to set input polarity of capture signal for getting counter value in counter mode. This function will return error if timer is configured in timer mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Timer\+Device} & Pointer to the timer device. \\
+\hline
+{\em channel} & Compare channel. \\
+\hline
+{\em input\+Polarity} & Set the input pin polarity to trigger the capture.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{timer_8c_a363d9244d534de53dabc73523e37c3ff}\label{timer_8c_a363d9244d534de53dabc73523e37c3ff}} 
+\index{timer.\+c@{timer.\+c}!epcf\+\_\+timer\+\_\+set\+Input\+Capture@{epcf\+\_\+timer\+\_\+set\+Input\+Capture}}
+\index{epcf\+\_\+timer\+\_\+set\+Input\+Capture@{epcf\+\_\+timer\+\_\+set\+Input\+Capture}!timer.\+c@{timer.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+timer\+\_\+set\+Input\+Capture()}{epcf\_timer\_setInputCapture()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+timer\+\_\+set\+Input\+Capture (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$}]{p\+Timer\+Device,  }\item[{\mbox{\hyperlink{timer_8h_a49758bdd75c2efdc7fae554a566a3420}{En\+E\+P\+C\+F\+Timer\+Channel\+\_\+t}}}]{channel,  }\item[{\mbox{\hyperlink{timer_8h_a69d9d8868241b493f34d11688821a70e}{En\+E\+P\+C\+F\+Timer\+Input\+Polarity\+\_\+t}}}]{input\+Polarity }\end{DoxyParamCaption})}
+
+
+
+This function is used to set input polarity of the input capture channel. An input capture channel can be used to get width of the input signal. It can also be used to generate an interrupt and a user callback is called if there is a callback attached for this interrupt source. For example\+: Consider a configuration in which timer resolution = 0.\+25 microseconds and input capture channel is configured to detect falling clock edge on channel0. If the signal is in high state when the timer has started and comes to a low state after 5 microseconds. Then, an interrupt will be generated after 5 microseconds. Use E\+P\+C\+F\+\_\+\+T\+I\+M\+E\+R\+\_\+\+G\+E\+T\+\_\+\+I\+N\+P\+U\+T\+\_\+\+C\+A\+P\+T\+U\+R\+E\+\_\+\+T\+I\+ME function to get width of the signal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Timer\+Device} & Pointer to the timer device. \\
+\hline
+{\em channel} & Input Capture channel. \\
+\hline
+{\em input\+Polarity} & Set the input pin polarity to trigger the capture\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Call this function before starting the timer. To set input capture time for a new channel or to update the input capture time\+:
+\begin{DoxyEnumerate}
+\item Stop the timer.
+\item Reset the timer
+\item Detach the callback.
+\item Start the timer again. 
+\end{DoxyEnumerate}
+\end{DoxyNote}
+\mbox{\Hypertarget{timer_8c_a6d7fbc41add267502873da2d7b3a6848}\label{timer_8c_a6d7fbc41add267502873da2d7b3a6848}} 
+\index{timer.\+c@{timer.\+c}!epcf\+\_\+timer\+\_\+start@{epcf\+\_\+timer\+\_\+start}}
+\index{epcf\+\_\+timer\+\_\+start@{epcf\+\_\+timer\+\_\+start}!timer.\+c@{timer.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+timer\+\_\+start()}{epcf\_timer\_start()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+timer\+\_\+start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$}]{p\+Timer\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to start the timer. The timer starts counting and will run according to the configuration. It can be stopped by a call to the function E\+P\+C\+F\+\_\+\+T\+I\+M\+E\+R\+\_\+\+S\+T\+OP. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Timer\+Device} & Pointer to the timer device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{timer_8c_a23c824708319387ad92228cc98e7531f}\label{timer_8c_a23c824708319387ad92228cc98e7531f}} 
+\index{timer.\+c@{timer.\+c}!epcf\+\_\+timer\+\_\+stop@{epcf\+\_\+timer\+\_\+stop}}
+\index{epcf\+\_\+timer\+\_\+stop@{epcf\+\_\+timer\+\_\+stop}!timer.\+c@{timer.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+timer\+\_\+stop()}{epcf\_timer\_stop()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+timer\+\_\+stop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$}]{p\+Timer\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to stop the running timer. The timer counting is stopped and can be started again by a call to the function E\+P\+C\+F\+\_\+\+T\+I\+M\+E\+R\+\_\+\+S\+T\+A\+RT. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Timer\+Device} & Pointer to the timer device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}

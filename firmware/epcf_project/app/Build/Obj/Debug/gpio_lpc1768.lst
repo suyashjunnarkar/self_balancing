@@ -1,0 +1,3751 @@
+ARM GAS  /tmp/ccurES30.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1	@ Tag_ABI_FP_denormal
+   5              		.eabi_attribute 21, 1	@ Tag_ABI_FP_exceptions
+   6              		.eabi_attribute 23, 3	@ Tag_ABI_FP_number_model
+   7              		.eabi_attribute 24, 1	@ Tag_ABI_align8_needed
+   8              		.eabi_attribute 25, 1	@ Tag_ABI_align8_preserved
+   9              		.eabi_attribute 26, 1	@ Tag_ABI_enum_size
+  10              		.eabi_attribute 30, 6	@ Tag_ABI_optimization_goals
+  11              		.eabi_attribute 34, 1	@ Tag_CPU_unaligned_access
+  12              		.eabi_attribute 18, 4	@ Tag_ABI_PCS_wchar_t
+  13              		.file	"gpio_lpc1768.c"
+  14              	@ GNU C (15:4.9.3+svn231177-1) version 4.9.3 20150529 (prerelease) (arm-none-eabi)
+  15              	@	compiled by GNU C version 5.2.1 20151129, GMP version 6.1.0, MPFR version 3.1.3, MPC version 1.0.
+  16              	@ warning: MPFR header version 3.1.3 differs from library version 3.1.4.
+  17              	@ GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+  18              	@ options passed:  -I . -I ./include -I ../pcf/include -imultilib armv7-m
+  19              	@ -MD Build/Obj/Debug/gpio_lpc1768.d -MF Build/.dep/gpio_lpc1768.o.d -MP
+  20              	@ -MQ Build/Obj/Debug/gpio_lpc1768.o -D__USES_INITFINI__
+  21              	@ ../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c
+  22              	@ -mcpu=cortex-m3 -mthumb -auxbase-strip Build/Obj/Debug/gpio_lpc1768.o
+  23              	@ -gdwarf-2 -O0 -Wall -Wno-cpp -std=gnu99 -fomit-frame-pointer
+  24              	@ -fverbose-asm
+  25              	@ options enabled:  -faggressive-loop-optimizations -fauto-inc-dec -fcommon
+  26              	@ -fdelete-null-pointer-checks -fdwarf2-cfi-asm -fearly-inlining
+  27              	@ -feliminate-unused-debug-types -ffunction-cse -fgcse-lm -fgnu-runtime
+  28              	@ -fgnu-unique -fident -finline-atomics -fira-hoist-pressure
+  29              	@ -fira-share-save-slots -fira-share-spill-slots -fivopts
+  30              	@ -fkeep-static-consts -fleading-underscore -flifetime-dse -fmath-errno
+  31              	@ -fmerge-debug-strings -fomit-frame-pointer -fpeephole
+  32              	@ -fprefetch-loop-arrays -freg-struct-return
+  33              	@ -fsched-critical-path-heuristic -fsched-dep-count-heuristic
+  34              	@ -fsched-group-heuristic -fsched-interblock -fsched-last-insn-heuristic
+  35              	@ -fsched-rank-heuristic -fsched-spec -fsched-spec-insn-heuristic
+  36              	@ -fsched-stalled-insns-dep -fshow-column -fsigned-zeros
+  37              	@ -fsplit-ivs-in-unroller -fstrict-volatile-bitfields -fsync-libcalls
+  38              	@ -ftrapping-math -ftree-coalesce-vars -ftree-cselim -ftree-forwprop
+  39              	@ -ftree-loop-if-convert -ftree-loop-im -ftree-loop-ivcanon
+  40              	@ -ftree-loop-optimize -ftree-parallelize-loops= -ftree-phiprop
+  41              	@ -ftree-reassoc -ftree-scev-cprop -funit-at-a-time -fverbose-asm
+  42              	@ -fzero-initialized-in-bss -mfix-cortex-m3-ldrd -mlittle-endian -mlra
+  43              	@ -mpic-data-is-text-relative -msched-prolog -mthumb -munaligned-access
+  44              	@ -mvectorize-with-neon-quad
+  45              	
+  46              		.text
+  47              	.Ltext0:
+  48              		.cfi_sections	.debug_frame
+  49              		.bss
+  50              		.align	2
+  51              	gpioIntMode:
+  52 0000 00000000 		.space	42
+  52      00000000 
+  52      00000000 
+  52      00000000 
+  52      00000000 
+  53              		.data
+ARM GAS  /tmp/ccurES30.s 			page 2
+
+
+  54              		.type	gpioDeviceCount, %object
+  55              		.size	gpioDeviceCount, 1
+  56              	gpioDeviceCount:
+  57 0000 32       		.byte	50
+  58              		.bss
+  59              	gpioIntEnable:
+  60 002a 00       		.space	1
+  61 002b 00       		.align	2
+  62              	gpioIntCallbackList:
+  63 002c 00000000 		.space	168
+  63      00000000 
+  63      00000000 
+  63      00000000 
+  63      00000000 
+  64              	gpioIntCallbackAttached:
+  65 00d4 00       		.space	1
+  66 00d5 000000   		.align	2
+  67              	gpioIntList:
+  68 00d8 00000000 		.space	504
+  68      00000000 
+  68      00000000 
+  68      00000000 
+  68      00000000 
+  69              	gpioIntId:
+  70 02d0 00       		.space	1
+  71 02d1 000000   		.align	2
+  72              	gpioIntBusy:
+  73 02d4 00000000 		.space	42
+  73      00000000 
+  73      00000000 
+  73      00000000 
+  73      00000000 
+  74              	gpioIntInit:
+  75 02fe 00       		.space	1
+  76              		.text
+  77              		.align	2
+  78              		.global	epcf_gpio_nativeInit
+  79              		.thumb
+  80              		.thumb_func
+  81              		.type	epcf_gpio_nativeInit, %function
+  82              	epcf_gpio_nativeInit:
+  83              	.LFB40:
+  84              		.file 1 "../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c"
+   1:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** #include "pcf.h"
+   2:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+   3:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** #define __EPCF_GPIO_HIDDEN_INCLUDE PCF_CONDITIONAL_INCLUDE_FILE(EPCF_DIR_PATH/,peripheral/source/,g
+   4:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** #include  __EPCF_GPIO_HIDDEN_INCLUDE
+   5:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** #undef __EPCF_GPIO_HIDDEN_INCLUDE
+   6:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+   7:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** #define __EPCF_UTILS_GPIO_H_INCLUDE PCF_CONDITIONAL_INCLUDE_FILE(EPCF_DIR_PATH/,utils/,include/,epc
+   8:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** #include  __EPCF_UTILS_GPIO_H_INCLUDE
+   9:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** #undef __EPCF_UTILS_GPIO_H_INCLUDE
+  10:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+  11:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** #define __EPCF_GPIO_MAX_PORT       5
+  12:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+  13:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** #define __EPCF_GPIO_MAX_PINS       50   //Maximum No. of pins that can be configured as GPIO in lpc
+  14:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+ARM GAS  /tmp/ccurES30.s 			page 3
+
+
+  15:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** /**
+  16:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****  * The macro is used to set the alternate function as GPIO.
+  17:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****  */
+  18:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** #define __EPCF_ALT_FUNCTION_GPIO              0
+  19:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** /**
+  20:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****  * The macro is used to set maximum GPIO interrupts available.
+  21:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****  */
+  22:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** #define __EPCF_GPIO_INT_MAX                 42
+  23:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+  24:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** static uint8_t gpioIntMode[__EPCF_GPIO_INT_MAX]={0};
+  25:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** static uint8_t gpioDeviceCount = __EPCF_GPIO_MAX_PINS;
+  26:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** static EnEPCFBoolean_t gpioIntEnable=enEPCFBoolean_False;
+  27:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** static epcfCallback_fp gpioIntCallbackList[__EPCF_GPIO_INT_MAX];
+  28:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** static EnEPCFBoolean_t gpioIntCallbackAttached =enEPCFBoolean_False;
+  29:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** static EPCFGpioCfg_t gpioIntList[__EPCF_GPIO_INT_MAX]; //Max gpio interrupts in port 0 and port 2
+  30:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** static uint8_t gpioIntId =0;
+  31:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** static EnEPCFBoolean_t gpioIntBusy[__EPCF_GPIO_INT_MAX];
+  32:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** static EnEPCFBoolean_t gpioIntInit=enEPCFBoolean_False;
+  33:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+  34:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** //void EPCF_EINT3_INT_HANDLER(void);
+  35:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** //EnEPCFBoolean_t isGpioIntEnable(void);
+  36:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** //EnEPCFBoolean_t isExtInt3Enable(void);
+  37:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** //EnEPCFBoolean_t getCallbackPointer(epcfCallback_fp* pCallback );
+  38:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+  39:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+  40:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** int8_t epcf_gpio_nativeInit(EPCFGpioCfg_t *pConfig)
+  41:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** {
+  85              		.loc 1 41 0
+  86              		.cfi_startproc
+  87              		@ args = 0, pretend = 0, frame = 32
+  88              		@ frame_needed = 0, uses_anonymous_args = 0
+  89 0000 00B5     		push	{lr}	@
+  90              	.LCFI0:
+  91              		.cfi_def_cfa_offset 4
+  92              		.cfi_offset 14, -4
+  93 0002 89B0     		sub	sp, sp, #36	@,,
+  94              	.LCFI1:
+  95              		.cfi_def_cfa_offset 40
+  96 0004 0190     		str	r0, [sp, #4]	@ pConfig, pConfig
+  42:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     EPCFPinCfg_t pPinCfg;
+  43:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     int8_t status = 0;
+  97              		.loc 1 43 0
+  98 0006 0023     		movs	r3, #0	@ tmp141,
+  99 0008 8DF81E30 		strb	r3, [sp, #30]	@ tmp142, status
+  44:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     int8_t index = 0;
+ 100              		.loc 1 44 0
+ 101 000c 0023     		movs	r3, #0	@ tmp143,
+ 102 000e 8DF81F30 		strb	r3, [sp, #31]	@ tmp144, index
+  45:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+  46:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     pPinCfg.altFunction  = (uint32_t)__EPCF_ALT_FUNCTION_GPIO;
+ 103              		.loc 1 46 0
+ 104 0012 0023     		movs	r3, #0	@ tmp145,
+ 105 0014 0693     		str	r3, [sp, #24]	@ tmp145, pPinCfg.altFunction
+  47:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     pPinCfg.direction    = pConfig->direction;
+ 106              		.loc 1 47 0
+ 107 0016 019B     		ldr	r3, [sp, #4]	@ tmp146, pConfig
+ 108 0018 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2	@ D.6416, pConfig_5(D)->direction
+ARM GAS  /tmp/ccurES30.s 			page 4
+
+
+ 109 001a 0393     		str	r3, [sp, #12]	@ D.6417, pPinCfg.direction
+  48:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     pPinCfg.mode         = pConfig->mode;
+ 110              		.loc 1 48 0
+ 111 001c 019B     		ldr	r3, [sp, #4]	@ tmp147, pConfig
+ 112 001e DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2	@ D.6418, pConfig_5(D)->mode
+ 113 0020 0493     		str	r3, [sp, #16]	@ D.6417, pPinCfg.mode
+  49:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     pPinCfg.openDrain    = pConfig->openDrain;
+ 114              		.loc 1 49 0
+ 115 0022 019B     		ldr	r3, [sp, #4]	@ tmp148, pConfig
+ 116 0024 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2	@ D.6419, pConfig_5(D)->openDrain
+ 117 0026 0593     		str	r3, [sp, #20]	@ D.6417, pPinCfg.openDrain
+  50:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     pPinCfg.portPin.port = pConfig->portPin.port;
+ 118              		.loc 1 50 0
+ 119 0028 019B     		ldr	r3, [sp, #4]	@ tmp149, pConfig
+ 120 002a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2	@ D.6420, pConfig_5(D)->portPin.port
+ 121 002c 8DF80830 		strb	r3, [sp, #8]	@ tmp150, pPinCfg.portPin.port
+  51:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     pPinCfg.portPin.pin  = pConfig->portPin.pin;
+ 122              		.loc 1 51 0
+ 123 0030 019B     		ldr	r3, [sp, #4]	@ tmp151, pConfig
+ 124 0032 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2	@ D.6420, pConfig_5(D)->portPin.pin
+ 125 0034 8DF80930 		strb	r3, [sp, #9]	@ tmp152, pPinCfg.portPin.pin
+  52:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+  53:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     status = epcfPinInit(&pPinCfg);
+ 126              		.loc 1 53 0
+ 127 0038 02AB     		add	r3, sp, #8	@ tmp153,,
+ 128 003a 1846     		mov	r0, r3	@, tmp153
+ 129 003c FFF7FEFF 		bl	epcfPinInit	@
+ 130 0040 0346     		mov	r3, r0	@ tmp154,
+ 131 0042 8DF81E30 		strb	r3, [sp, #30]	@ tmp155, status
+  54:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     if(status != EPCF_STATUS_SUCCESS)
+ 132              		.loc 1 54 0
+ 133 0046 9DF91E30 		ldrsb	r3, [sp, #30]	@ tmp156, status
+ 134 004a 002B     		cmp	r3, #0	@ tmp156,
+ 135 004c 02D0     		beq	.L2	@,
+  55:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****         return status;
+ 136              		.loc 1 55 0
+ 137 004e 9DF81E30 		ldrb	r3, [sp, #30]	@ zero_extendqisi2	@ D.6415, status
+ 138 0052 5FE0     		b	.L14	@
+ 139              	.L2:
+  56:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+  57:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+  58:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     if(pConfig->intEnable == enEPCFBoolean_True)
+ 140              		.loc 1 58 0
+ 141 0054 019B     		ldr	r3, [sp, #4]	@ tmp157, pConfig
+ 142 0056 5B79     		ldrb	r3, [r3, #5]	@ zero_extendqisi2	@ D.6421, pConfig_5(D)->intEnable
+ 143 0058 012B     		cmp	r3, #1	@ D.6421,
+ 144 005a 53D1     		bne	.L4	@,
+  59:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     {
+  60:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****         if((pConfig->portPin.port!=EPCF_PORT_2)&&(pConfig->portPin.port!=EPCF_PORT_0))
+ 145              		.loc 1 60 0
+ 146 005c 019B     		ldr	r3, [sp, #4]	@ tmp158, pConfig
+ 147 005e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2	@ D.6420, pConfig_5(D)->portPin.port
+ 148 0060 022B     		cmp	r3, #2	@ D.6420,
+ 149 0062 05D0     		beq	.L5	@,
+ 150              		.loc 1 60 0 is_stmt 0 discriminator 1
+ 151 0064 019B     		ldr	r3, [sp, #4]	@ tmp159, pConfig
+ 152 0066 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2	@ D.6420, pConfig_5(D)->portPin.port
+ARM GAS  /tmp/ccurES30.s 			page 5
+
+
+ 153 0068 002B     		cmp	r3, #0	@ D.6420,
+ 154 006a 01D0     		beq	.L5	@,
+  61:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****             return EPCF_STATUS_ERROR;
+ 155              		.loc 1 61 0 is_stmt 1
+ 156 006c FF23     		movs	r3, #255	@ D.6415,
+ 157 006e 51E0     		b	.L14	@
+ 158              	.L5:
+  62:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+  63:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****         if((pConfig->portPin.port == EPCF_PORT_2)&&(pConfig->portPin.pin > EPCF_PIN_13))
+ 159              		.loc 1 63 0
+ 160 0070 019B     		ldr	r3, [sp, #4]	@ tmp160, pConfig
+ 161 0072 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2	@ D.6420, pConfig_5(D)->portPin.port
+ 162 0074 022B     		cmp	r3, #2	@ D.6420,
+ 163 0076 05D1     		bne	.L6	@,
+ 164              		.loc 1 63 0 is_stmt 0 discriminator 1
+ 165 0078 019B     		ldr	r3, [sp, #4]	@ tmp161, pConfig
+ 166 007a 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2	@ D.6420, pConfig_5(D)->portPin.pin
+ 167 007c 0D2B     		cmp	r3, #13	@ D.6420,
+ 168 007e 01D9     		bls	.L6	@,
+  64:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****             return EPCF_STATUS_ERROR;
+ 169              		.loc 1 64 0 is_stmt 1
+ 170 0080 FF23     		movs	r3, #255	@ D.6415,
+ 171 0082 47E0     		b	.L14	@
+ 172              	.L6:
+  65:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+  66:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****         if((pConfig->portPin.port == EPCF_PORT_0)&&((pConfig->portPin.pin == EPCF_PIN_12)||(pConfig
+ 173              		.loc 1 66 0
+ 174 0084 019B     		ldr	r3, [sp, #4]	@ tmp162, pConfig
+ 175 0086 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2	@ D.6420, pConfig_5(D)->portPin.port
+ 176 0088 002B     		cmp	r3, #0	@ D.6420,
+ 177 008a 0DD1     		bne	.L7	@,
+ 178              		.loc 1 66 0 is_stmt 0 discriminator 1
+ 179 008c 019B     		ldr	r3, [sp, #4]	@ tmp163, pConfig
+ 180 008e 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2	@ D.6420, pConfig_5(D)->portPin.pin
+ 181 0090 0C2B     		cmp	r3, #12	@ D.6420,
+ 182 0092 07D0     		beq	.L8	@,
+ 183              		.loc 1 66 0 discriminator 2
+ 184 0094 019B     		ldr	r3, [sp, #4]	@ tmp164, pConfig
+ 185 0096 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2	@ D.6420, pConfig_5(D)->portPin.pin
+ 186 0098 0D2B     		cmp	r3, #13	@ D.6420,
+ 187 009a 03D0     		beq	.L8	@,
+ 188              		.loc 1 66 0 discriminator 3
+ 189 009c 019B     		ldr	r3, [sp, #4]	@ tmp165, pConfig
+ 190 009e 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2	@ D.6420, pConfig_5(D)->portPin.pin
+ 191 00a0 0E2B     		cmp	r3, #14	@ D.6420,
+ 192 00a2 01D1     		bne	.L7	@,
+ 193              	.L8:
+  67:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****             return EPCF_STATUS_ERROR;
+ 194              		.loc 1 67 0 is_stmt 1
+ 195 00a4 FF23     		movs	r3, #255	@ D.6415,
+ 196 00a6 35E0     		b	.L14	@
+ 197              	.L7:
+  68:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+  69:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****         if((EnEPCFGpioIntMode_t)pConfig->mode > enEPCFGpioIntMode_LowLevel) //supports edge not lev
+ 198              		.loc 1 69 0
+ 199 00a8 019B     		ldr	r3, [sp, #4]	@ tmp166, pConfig
+ 200 00aa DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2	@ D.6418, pConfig_5(D)->mode
+ARM GAS  /tmp/ccurES30.s 			page 6
+
+
+ 201 00ac 032B     		cmp	r3, #3	@ D.6418,
+ 202 00ae 01D9     		bls	.L9	@,
+  70:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****             return  EPCF_STATUS_ERROR;
+ 203              		.loc 1 70 0
+ 204 00b0 FF23     		movs	r3, #255	@ D.6415,
+ 205 00b2 2FE0     		b	.L14	@
+ 206              	.L9:
+  71:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+  72:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** //        if(isExtInt3Enable() == enEPCFBoolean_True)
+  73:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** //            return  EPCF_STATUS_ERROR;
+  74:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+  75:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****         for (index = 0; index < __EPCF_GPIO_INT_MAX; index++)
+ 207              		.loc 1 75 0
+ 208 00b4 0023     		movs	r3, #0	@ tmp167,
+ 209 00b6 8DF81F30 		strb	r3, [sp, #31]	@ tmp168, index
+ 210 00ba 1CE0     		b	.L10	@
+ 211              	.L13:
+  76:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****         {
+  77:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****             if(gpioIntBusy[index] == enEPCFBoolean_False)
+ 212              		.loc 1 77 0
+ 213 00bc 9DF91F30 		ldrsb	r3, [sp, #31]	@ D.6422, index
+ 214 00c0 174A     		ldr	r2, .L15	@ tmp169,
+ 215 00c2 D35C     		ldrb	r3, [r2, r3]	@ zero_extendqisi2	@ D.6421, gpioIntBusy
+ 216 00c4 002B     		cmp	r3, #0	@ D.6421,
+ 217 00c6 0FD1     		bne	.L11	@,
+  78:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****             {
+  79:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                 gpioIntId = index;
+ 218              		.loc 1 79 0
+ 219 00c8 9DF81F20 		ldrb	r2, [sp, #31]	@ zero_extendqisi2	@ D.6420, index
+ 220 00cc 154B     		ldr	r3, .L15+4	@ tmp170,
+ 221 00ce 1A70     		strb	r2, [r3]	@ tmp171, gpioIntId
+  80:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                 gpioIntBusy[index] = enEPCFBoolean_True;
+ 222              		.loc 1 80 0
+ 223 00d0 9DF91F30 		ldrsb	r3, [sp, #31]	@ D.6422, index
+ 224 00d4 124A     		ldr	r2, .L15	@ tmp172,
+ 225 00d6 0121     		movs	r1, #1	@ tmp173,
+ 226 00d8 D154     		strb	r1, [r2, r3]	@ tmp174, gpioIntBusy
+  81:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                 gpioIntMode[index] = pConfig->intMode;
+ 227              		.loc 1 81 0
+ 228 00da 9DF91F30 		ldrsb	r3, [sp, #31]	@ D.6422, index
+ 229 00de 019A     		ldr	r2, [sp, #4]	@ tmp175, pConfig
+ 230 00e0 9179     		ldrb	r1, [r2, #6]	@ zero_extendqisi2	@ D.6425, pConfig_5(D)->intMode
+ 231 00e2 114A     		ldr	r2, .L15+8	@ tmp176,
+ 232 00e4 D154     		strb	r1, [r2, r3]	@ tmp177, gpioIntMode
+  82:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                 break;
+ 233              		.loc 1 82 0
+ 234 00e6 0AE0     		b	.L12	@
+ 235              	.L11:
+  75:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****         {
+ 236              		.loc 1 75 0 discriminator 2
+ 237 00e8 9DF81F30 		ldrb	r3, [sp, #31]	@ zero_extendqisi2	@ D.6423, index
+ 238 00ec DBB2     		uxtb	r3, r3	@ D.6424, D.6423
+ 239 00ee 0133     		adds	r3, r3, #1	@ tmp178, D.6424,
+ 240 00f0 DBB2     		uxtb	r3, r3	@ D.6424, tmp178
+ 241 00f2 8DF81F30 		strb	r3, [sp, #31]	@ tmp179, index
+ 242              	.L10:
+  75:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****         {
+ARM GAS  /tmp/ccurES30.s 			page 7
+
+
+ 243              		.loc 1 75 0 is_stmt 0 discriminator 1
+ 244 00f6 9DF91F30 		ldrsb	r3, [sp, #31]	@ tmp180, index
+ 245 00fa 292B     		cmp	r3, #41	@ tmp180,
+ 246 00fc DEDD     		ble	.L13	@,
+ 247              	.L12:
+  83:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****             }
+  84:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****         }
+  85:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+  86:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** //        pcfMemCopy(&gpioIntList[gpioIntId],pConfig,sizeof(EPCFGpioCfg_t) );
+  87:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****         gpioIntInit = enEPCFBoolean_True;
+ 248              		.loc 1 87 0 is_stmt 1
+ 249 00fe 0B4B     		ldr	r3, .L15+12	@ tmp181,
+ 250 0100 0122     		movs	r2, #1	@ tmp182,
+ 251 0102 1A70     		strb	r2, [r3]	@ tmp183, gpioIntInit
+ 252              	.L4:
+  88:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     }
+  89:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+  90:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     gpioDeviceCount--;
+ 253              		.loc 1 90 0
+ 254 0104 0A4B     		ldr	r3, .L15+16	@ tmp184,
+ 255 0106 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2	@ D.6420, gpioDeviceCount
+ 256 0108 013B     		subs	r3, r3, #1	@ tmp185, D.6420,
+ 257 010a DAB2     		uxtb	r2, r3	@ D.6420, tmp185
+ 258 010c 084B     		ldr	r3, .L15+16	@ tmp186,
+ 259 010e 1A70     		strb	r2, [r3]	@ tmp187, gpioDeviceCount
+  91:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+  92:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     return status;
+ 260              		.loc 1 92 0
+ 261 0110 9DF81E30 		ldrb	r3, [sp, #30]	@ zero_extendqisi2	@ D.6415, status
+ 262              	.L14:
+ 263 0114 5BB2     		sxtb	r3, r3	@ tmp189, D.6415
+  93:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** }
+ 264              		.loc 1 93 0 discriminator 1
+ 265 0116 1846     		mov	r0, r3	@, <retval>
+ 266 0118 09B0     		add	sp, sp, #36	@,,
+ 267              	.LCFI2:
+ 268              		.cfi_def_cfa_offset 4
+ 269              		@ sp needed	@
+ 270 011a 5DF804FB 		ldr	pc, [sp], #4	@
+ 271              	.L16:
+ 272 011e 00BF     		.align	2
+ 273              	.L15:
+ 274 0120 D4020000 		.word	gpioIntBusy
+ 275 0124 D0020000 		.word	gpioIntId
+ 276 0128 00000000 		.word	gpioIntMode
+ 277 012c FE020000 		.word	gpioIntInit
+ 278 0130 00000000 		.word	gpioDeviceCount
+ 279              		.cfi_endproc
+ 280              	.LFE40:
+ 281              		.size	epcf_gpio_nativeInit, .-epcf_gpio_nativeInit
+ 282              		.align	2
+ 283              		.global	epcf_gpio_nativeSet
+ 284              		.thumb
+ 285              		.thumb_func
+ 286              		.type	epcf_gpio_nativeSet, %function
+ 287              	epcf_gpio_nativeSet:
+ 288              	.LFB41:
+ARM GAS  /tmp/ccurES30.s 			page 8
+
+
+  94:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+  95:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** int8_t epcf_gpio_nativeSet(EPCFGpioDevice_t* pGpiodevice)
+  96:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** {
+ 289              		.loc 1 96 0
+ 290              		.cfi_startproc
+ 291              		@ args = 0, pretend = 0, frame = 8
+ 292              		@ frame_needed = 0, uses_anonymous_args = 0
+ 293              		@ link register save eliminated.
+ 294 0134 82B0     		sub	sp, sp, #8	@,,
+ 295              	.LCFI3:
+ 296              		.cfi_def_cfa_offset 8
+ 297 0136 0190     		str	r0, [sp, #4]	@ pGpiodevice, pGpiodevice
+  97:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     EPCF_GPIO_PINS_SET(pGpiodevice->portPin.port, pGpiodevice->portPin.pin);
+ 298              		.loc 1 97 0
+ 299 0138 019B     		ldr	r3, [sp, #4]	@ tmp121, pGpiodevice
+ 300 013a 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2	@ D.6426, pGpiodevice_1(D)->portPin.port
+ 301 013c 5A01     		lsls	r2, r3, #5	@ D.6427, D.6427,
+ 302 013e 074B     		ldr	r3, .L19	@ D.6427,
+ 303 0140 1344     		add	r3, r3, r2	@ D.6427, D.6427
+ 304 0142 1A46     		mov	r2, r3	@ D.6428, D.6427
+ 305 0144 019B     		ldr	r3, [sp, #4]	@ tmp122, pGpiodevice
+ 306 0146 5B79     		ldrb	r3, [r3, #5]	@ zero_extendqisi2	@ D.6426, pGpiodevice_1(D)->portPin.pin
+ 307 0148 1946     		mov	r1, r3	@ D.6427, D.6426
+ 308 014a 0123     		movs	r3, #1	@ tmp123,
+ 309 014c 8B40     		lsls	r3, r3, r1	@ D.6427, tmp123, D.6427
+ 310 014e 1360     		str	r3, [r2]	@ D.6429, *_6
+  98:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     return EPCF_STATUS_SUCCESS;
+ 311              		.loc 1 98 0
+ 312 0150 0023     		movs	r3, #0	@ D.6430,
+ 313 0152 5BB2     		sxtb	r3, r3	@ tmp125, D.6430
+  99:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** }
+ 314              		.loc 1 99 0
+ 315 0154 1846     		mov	r0, r3	@, <retval>
+ 316 0156 02B0     		add	sp, sp, #8	@,,
+ 317              	.LCFI4:
+ 318              		.cfi_def_cfa_offset 0
+ 319              		@ sp needed	@
+ 320 0158 7047     		bx	lr	@
+ 321              	.L20:
+ 322 015a 00BF     		.align	2
+ 323              	.L19:
+ 324 015c 18C00920 		.word	537509912
+ 325              		.cfi_endproc
+ 326              	.LFE41:
+ 327              		.size	epcf_gpio_nativeSet, .-epcf_gpio_nativeSet
+ 328              		.align	2
+ 329              		.global	epcf_gpio_nativeClear
+ 330              		.thumb
+ 331              		.thumb_func
+ 332              		.type	epcf_gpio_nativeClear, %function
+ 333              	epcf_gpio_nativeClear:
+ 334              	.LFB42:
+ 100:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+ 101:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** int8_t epcf_gpio_nativeClear(EPCFGpioDevice_t* pGpiodevice)
+ 102:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** {
+ 335              		.loc 1 102 0
+ 336              		.cfi_startproc
+ARM GAS  /tmp/ccurES30.s 			page 9
+
+
+ 337              		@ args = 0, pretend = 0, frame = 8
+ 338              		@ frame_needed = 0, uses_anonymous_args = 0
+ 339              		@ link register save eliminated.
+ 340 0160 82B0     		sub	sp, sp, #8	@,,
+ 341              	.LCFI5:
+ 342              		.cfi_def_cfa_offset 8
+ 343 0162 0190     		str	r0, [sp, #4]	@ pGpiodevice, pGpiodevice
+ 103:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     EPCF_GPIO_PINS_CLEAR(pGpiodevice->portPin.port, pGpiodevice->portPin.pin);
+ 344              		.loc 1 103 0
+ 345 0164 019B     		ldr	r3, [sp, #4]	@ tmp121, pGpiodevice
+ 346 0166 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2	@ D.6431, pGpiodevice_1(D)->portPin.port
+ 347 0168 5A01     		lsls	r2, r3, #5	@ D.6432, D.6432,
+ 348 016a 074B     		ldr	r3, .L23	@ D.6432,
+ 349 016c 1344     		add	r3, r3, r2	@ D.6432, D.6432
+ 350 016e 1A46     		mov	r2, r3	@ D.6433, D.6432
+ 351 0170 019B     		ldr	r3, [sp, #4]	@ tmp122, pGpiodevice
+ 352 0172 5B79     		ldrb	r3, [r3, #5]	@ zero_extendqisi2	@ D.6431, pGpiodevice_1(D)->portPin.pin
+ 353 0174 1946     		mov	r1, r3	@ D.6432, D.6431
+ 354 0176 0123     		movs	r3, #1	@ tmp123,
+ 355 0178 8B40     		lsls	r3, r3, r1	@ D.6432, tmp123, D.6432
+ 356 017a 1360     		str	r3, [r2]	@ D.6434, *_6
+ 104:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     return EPCF_STATUS_SUCCESS;
+ 357              		.loc 1 104 0
+ 358 017c 0023     		movs	r3, #0	@ D.6435,
+ 359 017e 5BB2     		sxtb	r3, r3	@ tmp125, D.6435
+ 105:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** }
+ 360              		.loc 1 105 0
+ 361 0180 1846     		mov	r0, r3	@, <retval>
+ 362 0182 02B0     		add	sp, sp, #8	@,,
+ 363              	.LCFI6:
+ 364              		.cfi_def_cfa_offset 0
+ 365              		@ sp needed	@
+ 366 0184 7047     		bx	lr	@
+ 367              	.L24:
+ 368 0186 00BF     		.align	2
+ 369              	.L23:
+ 370 0188 1CC00920 		.word	537509916
+ 371              		.cfi_endproc
+ 372              	.LFE42:
+ 373              		.size	epcf_gpio_nativeClear, .-epcf_gpio_nativeClear
+ 374              		.align	2
+ 375              		.global	epcf_gpio_nativeRead
+ 376              		.thumb
+ 377              		.thumb_func
+ 378              		.type	epcf_gpio_nativeRead, %function
+ 379              	epcf_gpio_nativeRead:
+ 380              	.LFB43:
+ 106:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+ 107:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** int8_t epcf_gpio_nativeRead(EPCFGpioDevice_t* pGpiodevice)
+ 108:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** {
+ 381              		.loc 1 108 0
+ 382              		.cfi_startproc
+ 383              		@ args = 0, pretend = 0, frame = 16
+ 384              		@ frame_needed = 0, uses_anonymous_args = 0
+ 385              		@ link register save eliminated.
+ 386 018c 84B0     		sub	sp, sp, #16	@,,
+ 387              	.LCFI7:
+ARM GAS  /tmp/ccurES30.s 			page 10
+
+
+ 388              		.cfi_def_cfa_offset 16
+ 389 018e 0190     		str	r0, [sp, #4]	@ pGpiodevice, pGpiodevice
+ 109:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     int32_t data;
+ 110:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+ 111:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     data = EPCF_GPIO_PORT_READ(pGpiodevice->portPin.port);
+ 390              		.loc 1 111 0
+ 391 0190 019B     		ldr	r3, [sp, #4]	@ tmp125, pGpiodevice
+ 392 0192 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2	@ D.6436, pGpiodevice_1(D)->portPin.port
+ 393 0194 5A01     		lsls	r2, r3, #5	@ D.6437, D.6437,
+ 394 0196 0A4B     		ldr	r3, .L27	@ D.6437,
+ 395 0198 1344     		add	r3, r3, r2	@ D.6437, D.6437
+ 396 019a 1B68     		ldr	r3, [r3]	@ D.6439, *_6
+ 397 019c 0393     		str	r3, [sp, #12]	@ D.6439, data
+ 112:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     return ( (int8_t)(((1<<(pGpiodevice->portPin.pin)) & data)>>(pGpiodevice->portPin.pin)) );
+ 398              		.loc 1 112 0
+ 399 019e 019B     		ldr	r3, [sp, #4]	@ tmp126, pGpiodevice
+ 400 01a0 5B79     		ldrb	r3, [r3, #5]	@ zero_extendqisi2	@ D.6436, pGpiodevice_1(D)->portPin.pin
+ 401 01a2 1A46     		mov	r2, r3	@ D.6437, D.6436
+ 402 01a4 0123     		movs	r3, #1	@ tmp127,
+ 403 01a6 03FA02F2 		lsl	r2, r3, r2	@ D.6437, tmp127, D.6437
+ 404 01aa 039B     		ldr	r3, [sp, #12]	@ tmp128, data
+ 405 01ac 1340     		ands	r3, r3, r2	@, D.6440, tmp128, D.6437
+ 406 01ae 019A     		ldr	r2, [sp, #4]	@ tmp129, pGpiodevice
+ 407 01b0 5279     		ldrb	r2, [r2, #5]	@ zero_extendqisi2	@ D.6436, pGpiodevice_1(D)->portPin.pin
+ 408 01b2 1341     		asrs	r3, r3, r2	@ D.6440, D.6440, D.6437
+ 409 01b4 DBB2     		uxtb	r3, r3	@ D.6441, D.6440
+ 410 01b6 5BB2     		sxtb	r3, r3	@ tmp131, D.6441
+ 113:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** }
+ 411              		.loc 1 113 0
+ 412 01b8 1846     		mov	r0, r3	@, <retval>
+ 413 01ba 04B0     		add	sp, sp, #16	@,,
+ 414              	.LCFI8:
+ 415              		.cfi_def_cfa_offset 0
+ 416              		@ sp needed	@
+ 417 01bc 7047     		bx	lr	@
+ 418              	.L28:
+ 419 01be 00BF     		.align	2
+ 420              	.L27:
+ 421 01c0 14C00920 		.word	537509908
+ 422              		.cfi_endproc
+ 423              	.LFE43:
+ 424              		.size	epcf_gpio_nativeRead, .-epcf_gpio_nativeRead
+ 425              		.align	2
+ 426              		.global	epcf_gpio_nativeSetDirection
+ 427              		.thumb
+ 428              		.thumb_func
+ 429              		.type	epcf_gpio_nativeSetDirection, %function
+ 430              	epcf_gpio_nativeSetDirection:
+ 431              	.LFB44:
+ 114:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+ 115:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** int8_t epcf_gpio_nativeSetDirection(EPCFGpioDevice_t* pGpiodevice, EnEPCFGpioDirection_t direction)
+ 116:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** {
+ 432              		.loc 1 116 0
+ 433              		.cfi_startproc
+ 434              		@ args = 0, pretend = 0, frame = 8
+ 435              		@ frame_needed = 0, uses_anonymous_args = 0
+ 436              		@ link register save eliminated.
+ARM GAS  /tmp/ccurES30.s 			page 11
+
+
+ 437 01c4 82B0     		sub	sp, sp, #8	@,,
+ 438              	.LCFI9:
+ 439              		.cfi_def_cfa_offset 8
+ 440 01c6 0190     		str	r0, [sp, #4]	@ pGpiodevice, pGpiodevice
+ 441 01c8 0B46     		mov	r3, r1	@ tmp147, direction
+ 442 01ca 8DF80330 		strb	r3, [sp, #3]	@ tmp148, direction
+ 117:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     EPCF_GPIO_SET_DIR(pGpiodevice->portPin.port, pGpiodevice->portPin.pin, direction);
+ 443              		.loc 1 117 0
+ 444 01ce 9DF80330 		ldrb	r3, [sp, #3]	@ zero_extendqisi2	@ tmp149, direction
+ 445 01d2 002B     		cmp	r3, #0	@ tmp149,
+ 446 01d4 17D0     		beq	.L30	@,
+ 447              		.loc 1 117 0 is_stmt 0 discriminator 1
+ 448 01d6 019B     		ldr	r3, [sp, #4]	@ tmp150, pGpiodevice
+ 449 01d8 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2	@ D.6442, pGpiodevice_2(D)->portPin.port
+ 450 01da 03F18073 		add	r3, r3, #16777216	@ D.6443, D.6443,
+ 451 01de 03F59C43 		add	r3, r3, #19968	@ D.6443, D.6443,
+ 452 01e2 5B01     		lsls	r3, r3, #5	@ D.6443, D.6443,
+ 453 01e4 1946     		mov	r1, r3	@ D.6444, D.6443
+ 454 01e6 019B     		ldr	r3, [sp, #4]	@ tmp151, pGpiodevice
+ 455 01e8 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2	@ D.6442, pGpiodevice_2(D)->portPin.port
+ 456 01ea 03F18073 		add	r3, r3, #16777216	@ D.6443, D.6443,
+ 457 01ee 03F59C43 		add	r3, r3, #19968	@ D.6443, D.6443,
+ 458 01f2 5B01     		lsls	r3, r3, #5	@ D.6443, D.6443,
+ 459 01f4 1B68     		ldr	r3, [r3]	@ D.6445, *_12
+ 460 01f6 019A     		ldr	r2, [sp, #4]	@ tmp152, pGpiodevice
+ 461 01f8 5279     		ldrb	r2, [r2, #5]	@ zero_extendqisi2	@ D.6442, pGpiodevice_2(D)->portPin.pin
+ 462 01fa 1046     		mov	r0, r2	@ D.6443, D.6442
+ 463 01fc 0122     		movs	r2, #1	@ tmp153,
+ 464 01fe 8240     		lsls	r2, r2, r0	@ D.6443, tmp153, D.6443
+ 465 0200 1343     		orrs	r3, r3, r2	@, D.6445, D.6445, D.6445
+ 466 0202 0B60     		str	r3, [r1]	@ D.6445, *_7
+ 467 0204 17E0     		b	.L31	@
+ 468              	.L30:
+ 469              		.loc 1 117 0 discriminator 2
+ 470 0206 019B     		ldr	r3, [sp, #4]	@ tmp154, pGpiodevice
+ 471 0208 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2	@ D.6442, pGpiodevice_2(D)->portPin.port
+ 472 020a 03F18073 		add	r3, r3, #16777216	@ D.6443, D.6443,
+ 473 020e 03F59C43 		add	r3, r3, #19968	@ D.6443, D.6443,
+ 474 0212 5B01     		lsls	r3, r3, #5	@ D.6443, D.6443,
+ 475 0214 1946     		mov	r1, r3	@ D.6444, D.6443
+ 476 0216 019B     		ldr	r3, [sp, #4]	@ tmp155, pGpiodevice
+ 477 0218 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2	@ D.6442, pGpiodevice_2(D)->portPin.port
+ 478 021a 03F18073 		add	r3, r3, #16777216	@ D.6443, D.6443,
+ 479 021e 03F59C43 		add	r3, r3, #19968	@ D.6443, D.6443,
+ 480 0222 5B01     		lsls	r3, r3, #5	@ D.6443, D.6443,
+ 481 0224 1B68     		ldr	r3, [r3]	@ D.6445, *_29
+ 482 0226 019A     		ldr	r2, [sp, #4]	@ tmp156, pGpiodevice
+ 483 0228 5279     		ldrb	r2, [r2, #5]	@ zero_extendqisi2	@ D.6442, pGpiodevice_2(D)->portPin.pin
+ 484 022a 1046     		mov	r0, r2	@ D.6443, D.6442
+ 485 022c 0122     		movs	r2, #1	@ tmp157,
+ 486 022e 8240     		lsls	r2, r2, r0	@ D.6443, tmp157, D.6443
+ 487 0230 D243     		mvns	r2, r2	@ D.6443, D.6443
+ 488 0232 1340     		ands	r3, r3, r2	@, D.6445, D.6445, D.6445
+ 489 0234 0B60     		str	r3, [r1]	@ D.6445, *_24
+ 490              	.L31:
+ 118:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     return EPCF_STATUS_SUCCESS;
+ 491              		.loc 1 118 0 is_stmt 1
+ARM GAS  /tmp/ccurES30.s 			page 12
+
+
+ 492 0236 0023     		movs	r3, #0	@ D.6447,
+ 493 0238 5BB2     		sxtb	r3, r3	@ tmp159, D.6447
+ 119:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** }
+ 494              		.loc 1 119 0
+ 495 023a 1846     		mov	r0, r3	@, <retval>
+ 496 023c 02B0     		add	sp, sp, #8	@,,
+ 497              	.LCFI10:
+ 498              		.cfi_def_cfa_offset 0
+ 499              		@ sp needed	@
+ 500 023e 7047     		bx	lr	@
+ 501              		.cfi_endproc
+ 502              	.LFE44:
+ 503              		.size	epcf_gpio_nativeSetDirection, .-epcf_gpio_nativeSetDirection
+ 504              		.align	2
+ 505              		.global	epcf_gpio_nativeGetDeviceCount
+ 506              		.thumb
+ 507              		.thumb_func
+ 508              		.type	epcf_gpio_nativeGetDeviceCount, %function
+ 509              	epcf_gpio_nativeGetDeviceCount:
+ 510              	.LFB45:
+ 120:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+ 121:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** uint32_t epcf_gpio_nativeGetDeviceCount()
+ 122:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** {
+ 511              		.loc 1 122 0
+ 512              		.cfi_startproc
+ 513              		@ args = 0, pretend = 0, frame = 0
+ 514              		@ frame_needed = 0, uses_anonymous_args = 0
+ 515              		@ link register save eliminated.
+ 123:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     return gpioDeviceCount;
+ 516              		.loc 1 123 0
+ 517 0240 014B     		ldr	r3, .L35	@ tmp113,
+ 518 0242 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2	@ D.6448, gpioDeviceCount
+ 124:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** }
+ 519              		.loc 1 124 0
+ 520 0244 1846     		mov	r0, r3	@, <retval>
+ 521 0246 7047     		bx	lr	@
+ 522              	.L36:
+ 523              		.align	2
+ 524              	.L35:
+ 525 0248 00000000 		.word	gpioDeviceCount
+ 526              		.cfi_endproc
+ 527              	.LFE45:
+ 528              		.size	epcf_gpio_nativeGetDeviceCount, .-epcf_gpio_nativeGetDeviceCount
+ 529              		.align	2
+ 530              		.global	epcf_gpio_nativeIntEnable
+ 531              		.thumb
+ 532              		.thumb_func
+ 533              		.type	epcf_gpio_nativeIntEnable, %function
+ 534              	epcf_gpio_nativeIntEnable:
+ 535              	.LFB46:
+ 125:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+ 126:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** int8_t epcf_gpio_nativeIntEnable(EPCFGpioDevice_t* pGpioDevice)
+ 127:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** {
+ 536              		.loc 1 127 0
+ 537              		.cfi_startproc
+ 538              		@ args = 0, pretend = 0, frame = 16
+ 539              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /tmp/ccurES30.s 			page 13
+
+
+ 540              		@ link register save eliminated.
+ 541 024c 84B0     		sub	sp, sp, #16	@,,
+ 542              	.LCFI11:
+ 543              		.cfi_def_cfa_offset 16
+ 544 024e 0190     		str	r0, [sp, #4]	@ pGpioDevice, pGpioDevice
+ 128:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     uint8_t index=0;
+ 545              		.loc 1 128 0
+ 546 0250 0023     		movs	r3, #0	@ tmp196,
+ 547 0252 8DF80F30 		strb	r3, [sp, #15]	@ tmp197, index
+ 129:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     if((pGpioDevice->portPin.port != EPCF_PORT_2 )&&(pGpioDevice->portPin.port != EPCF_PORT_0 ))
+ 548              		.loc 1 129 0
+ 549 0256 019B     		ldr	r3, [sp, #4]	@ tmp198, pGpioDevice
+ 550 0258 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2	@ D.6451, pGpioDevice_4(D)->portPin.port
+ 551 025a 022B     		cmp	r3, #2	@ D.6451,
+ 552 025c 05D0     		beq	.L38	@,
+ 553              		.loc 1 129 0 is_stmt 0 discriminator 1
+ 554 025e 019B     		ldr	r3, [sp, #4]	@ tmp199, pGpioDevice
+ 555 0260 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2	@ D.6451, pGpioDevice_4(D)->portPin.port
+ 556 0262 002B     		cmp	r3, #0	@ D.6451,
+ 557 0264 01D0     		beq	.L38	@,
+ 130:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****         return EPCF_STATUS_NOT_SUPPORTED;
+ 558              		.loc 1 130 0 is_stmt 1
+ 559 0266 FD23     		movs	r3, #253	@ D.6450,
+ 560 0268 9DE0     		b	.L39	@
+ 561              	.L38:
+ 131:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+ 132:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     for(index=0;index<__EPCF_GPIO_INT_MAX;index++)
+ 562              		.loc 1 132 0
+ 563 026a 0023     		movs	r3, #0	@ tmp200,
+ 564 026c 8DF80F30 		strb	r3, [sp, #15]	@ tmp201, index
+ 565 0270 90E0     		b	.L40	@
+ 566              	.L50:
+ 133:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     {
+ 134:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****         if(gpioIntList[index].portPin.pin == pGpioDevice->portPin.pin)
+ 567              		.loc 1 134 0
+ 568 0272 9DF80F20 		ldrb	r2, [sp, #15]	@ zero_extendqisi2	@ D.6452, index
+ 569 0276 4E49     		ldr	r1, .L52	@ tmp202,
+ 570 0278 1346     		mov	r3, r2	@ tmp203, D.6452
+ 571 027a 5B00     		lsls	r3, r3, #1	@ tmp203, tmp203,
+ 572 027c 1344     		add	r3, r3, r2	@ tmp203, D.6452
+ 573 027e 9B00     		lsls	r3, r3, #2	@ tmp204, tmp203,
+ 574 0280 0B44     		add	r3, r3, r1	@ tmp205, tmp202
+ 575 0282 5A78     		ldrb	r2, [r3, #1]	@ zero_extendqisi2	@ D.6451, gpioIntList[_9].portPin.pin
+ 576 0284 019B     		ldr	r3, [sp, #4]	@ tmp206, pGpioDevice
+ 577 0286 5B79     		ldrb	r3, [r3, #5]	@ zero_extendqisi2	@ D.6451, pGpioDevice_4(D)->portPin.pin
+ 578 0288 9A42     		cmp	r2, r3	@ D.6451, D.6451
+ 579 028a 7ED1     		bne	.L41	@,
+ 135:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****         {
+ 136:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+ 137:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****             switch (pGpioDevice->portPin.port)
+ 580              		.loc 1 137 0
+ 581 028c 019B     		ldr	r3, [sp, #4]	@ tmp207, pGpioDevice
+ 582 028e 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2	@ D.6451, pGpioDevice_4(D)->portPin.port
+ 583 0290 002B     		cmp	r3, #0	@ D.6452,
+ 584 0292 02D0     		beq	.L42	@,
+ 585 0294 022B     		cmp	r3, #2	@ D.6452,
+ 586 0296 3CD0     		beq	.L43	@,
+ARM GAS  /tmp/ccurES30.s 			page 14
+
+
+ 587 0298 77E0     		b	.L41	@
+ 588              	.L42:
+ 138:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****             {
+ 139:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+ 140:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                 case EPCF_PORT_0:
+ 141:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                     if(gpioIntMode[index] == enEPCFGpioIntMode_FallingEdge )//falling edge
+ 589              		.loc 1 141 0
+ 590 029a 9DF80F30 		ldrb	r3, [sp, #15]	@ zero_extendqisi2	@ D.6452, index
+ 591 029e 454A     		ldr	r2, .L52+4	@ tmp208,
+ 592 02a0 D35C     		ldrb	r3, [r2, r3]	@ zero_extendqisi2	@ D.6451, gpioIntMode
+ 593 02a2 002B     		cmp	r3, #0	@ D.6451,
+ 594 02a4 09D1     		bne	.L44	@,
+ 142:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                     {
+ 143:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                         PERIPH_GPIOINT->IO0IntEnF |= 1 << pGpioDevice->portPin.pin;
+ 595              		.loc 1 143 0
+ 596 02a6 4449     		ldr	r1, .L52+8	@ D.6453,
+ 597 02a8 434B     		ldr	r3, .L52+8	@ D.6453,
+ 598 02aa 5B69     		ldr	r3, [r3, #20]	@ D.6454, _17->IO0IntEnF
+ 599 02ac 019A     		ldr	r2, [sp, #4]	@ tmp209, pGpioDevice
+ 600 02ae 5279     		ldrb	r2, [r2, #5]	@ zero_extendqisi2	@ D.6451, pGpioDevice_4(D)->portPin.pin
+ 601 02b0 1046     		mov	r0, r2	@ D.6452, D.6451
+ 602 02b2 0122     		movs	r2, #1	@ tmp210,
+ 603 02b4 8240     		lsls	r2, r2, r0	@ D.6452, tmp210, D.6452
+ 604 02b6 1343     		orrs	r3, r3, r2	@, D.6454, D.6454, D.6454
+ 605 02b8 4B61     		str	r3, [r1, #20]	@ D.6454, _16->IO0IntEnF
+ 606              	.L44:
+ 144:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                     }
+ 145:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                     if(gpioIntMode[index] == enEPCFGpioIntMode_RisingEdge) //rising edge
+ 607              		.loc 1 145 0
+ 608 02ba 9DF80F30 		ldrb	r3, [sp, #15]	@ zero_extendqisi2	@ D.6452, index
+ 609 02be 3D4A     		ldr	r2, .L52+4	@ tmp211,
+ 610 02c0 D35C     		ldrb	r3, [r2, r3]	@ zero_extendqisi2	@ D.6451, gpioIntMode
+ 611 02c2 012B     		cmp	r3, #1	@ D.6451,
+ 612 02c4 09D1     		bne	.L45	@,
+ 146:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                     {
+ 147:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                         PERIPH_GPIOINT->IO0IntEnR |= 1 << pGpioDevice->portPin.pin;
+ 613              		.loc 1 147 0
+ 614 02c6 3C49     		ldr	r1, .L52+8	@ D.6453,
+ 615 02c8 3B4B     		ldr	r3, .L52+8	@ D.6453,
+ 616 02ca 1B69     		ldr	r3, [r3, #16]	@ D.6454, _27->IO0IntEnR
+ 617 02cc 019A     		ldr	r2, [sp, #4]	@ tmp212, pGpioDevice
+ 618 02ce 5279     		ldrb	r2, [r2, #5]	@ zero_extendqisi2	@ D.6451, pGpioDevice_4(D)->portPin.pin
+ 619 02d0 1046     		mov	r0, r2	@ D.6452, D.6451
+ 620 02d2 0122     		movs	r2, #1	@ tmp213,
+ 621 02d4 8240     		lsls	r2, r2, r0	@ D.6452, tmp213, D.6452
+ 622 02d6 1343     		orrs	r3, r3, r2	@, D.6454, D.6454, D.6454
+ 623 02d8 0B61     		str	r3, [r1, #16]	@ D.6454, _26->IO0IntEnR
+ 624              	.L45:
+ 148:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                     }
+ 149:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                     if(gpioIntMode[index]==enEPCFGpioIntMode_BothEdge)
+ 625              		.loc 1 149 0
+ 626 02da 9DF80F30 		ldrb	r3, [sp, #15]	@ zero_extendqisi2	@ D.6452, index
+ 627 02de 354A     		ldr	r2, .L52+4	@ tmp214,
+ 628 02e0 D35C     		ldrb	r3, [r2, r3]	@ zero_extendqisi2	@ D.6451, gpioIntMode
+ 629 02e2 022B     		cmp	r3, #2	@ D.6451,
+ 630 02e4 14D1     		bne	.L46	@,
+ 150:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                     {
+ARM GAS  /tmp/ccurES30.s 			page 15
+
+
+ 151:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                         PERIPH_GPIOINT->IO0IntEnF |= 1 << pGpioDevice->portPin.pin;
+ 631              		.loc 1 151 0
+ 632 02e6 3449     		ldr	r1, .L52+8	@ D.6453,
+ 633 02e8 334B     		ldr	r3, .L52+8	@ D.6453,
+ 634 02ea 5B69     		ldr	r3, [r3, #20]	@ D.6454, _37->IO0IntEnF
+ 635 02ec 019A     		ldr	r2, [sp, #4]	@ tmp215, pGpioDevice
+ 636 02ee 5279     		ldrb	r2, [r2, #5]	@ zero_extendqisi2	@ D.6451, pGpioDevice_4(D)->portPin.pin
+ 637 02f0 1046     		mov	r0, r2	@ D.6452, D.6451
+ 638 02f2 0122     		movs	r2, #1	@ tmp216,
+ 639 02f4 8240     		lsls	r2, r2, r0	@ D.6452, tmp216, D.6452
+ 640 02f6 1343     		orrs	r3, r3, r2	@, D.6454, D.6454, D.6454
+ 641 02f8 4B61     		str	r3, [r1, #20]	@ D.6454, _36->IO0IntEnF
+ 152:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                         PERIPH_GPIOINT->IO0IntEnR |= 1 << pGpioDevice->portPin.pin;
+ 642              		.loc 1 152 0
+ 643 02fa 2F49     		ldr	r1, .L52+8	@ D.6453,
+ 644 02fc 2E4B     		ldr	r3, .L52+8	@ D.6453,
+ 645 02fe 1B69     		ldr	r3, [r3, #16]	@ D.6454, _45->IO0IntEnR
+ 646 0300 019A     		ldr	r2, [sp, #4]	@ tmp217, pGpioDevice
+ 647 0302 5279     		ldrb	r2, [r2, #5]	@ zero_extendqisi2	@ D.6451, pGpioDevice_4(D)->portPin.pin
+ 648 0304 1046     		mov	r0, r2	@ D.6452, D.6451
+ 649 0306 0122     		movs	r2, #1	@ tmp218,
+ 650 0308 8240     		lsls	r2, r2, r0	@ D.6452, tmp218, D.6452
+ 651 030a 1343     		orrs	r3, r3, r2	@, D.6454, D.6454, D.6454
+ 652 030c 0B61     		str	r3, [r1, #16]	@ D.6454, _44->IO0IntEnR
+ 153:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                     }
+ 154:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                     break;
+ 653              		.loc 1 154 0
+ 654 030e 3CE0     		b	.L41	@
+ 655              	.L46:
+ 656 0310 3BE0     		b	.L41	@
+ 657              	.L43:
+ 155:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                 case EPCF_PORT_2:
+ 156:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                     if(gpioIntMode[index] == enEPCFGpioIntMode_FallingEdge )//falling edge
+ 658              		.loc 1 156 0
+ 659 0312 9DF80F30 		ldrb	r3, [sp, #15]	@ zero_extendqisi2	@ D.6452, index
+ 660 0316 274A     		ldr	r2, .L52+4	@ tmp219,
+ 661 0318 D35C     		ldrb	r3, [r2, r3]	@ zero_extendqisi2	@ D.6451, gpioIntMode
+ 662 031a 002B     		cmp	r3, #0	@ D.6451,
+ 663 031c 09D1     		bne	.L47	@,
+ 157:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                     {
+ 158:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                         PERIPH_GPIOINT->IO2IntEnF |= 1 << pGpioDevice->portPin.pin;
+ 664              		.loc 1 158 0
+ 665 031e 2649     		ldr	r1, .L52+8	@ D.6453,
+ 666 0320 254B     		ldr	r3, .L52+8	@ D.6453,
+ 667 0322 5B6B     		ldr	r3, [r3, #52]	@ D.6454, _55->IO2IntEnF
+ 668 0324 019A     		ldr	r2, [sp, #4]	@ tmp220, pGpioDevice
+ 669 0326 5279     		ldrb	r2, [r2, #5]	@ zero_extendqisi2	@ D.6451, pGpioDevice_4(D)->portPin.pin
+ 670 0328 1046     		mov	r0, r2	@ D.6452, D.6451
+ 671 032a 0122     		movs	r2, #1	@ tmp221,
+ 672 032c 8240     		lsls	r2, r2, r0	@ D.6452, tmp221, D.6452
+ 673 032e 1343     		orrs	r3, r3, r2	@, D.6454, D.6454, D.6454
+ 674 0330 4B63     		str	r3, [r1, #52]	@ D.6454, _54->IO2IntEnF
+ 675              	.L47:
+ 159:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                     }
+ 160:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                     if(gpioIntMode[index] == enEPCFGpioIntMode_RisingEdge) //rising edge
+ 676              		.loc 1 160 0
+ 677 0332 9DF80F30 		ldrb	r3, [sp, #15]	@ zero_extendqisi2	@ D.6452, index
+ARM GAS  /tmp/ccurES30.s 			page 16
+
+
+ 678 0336 1F4A     		ldr	r2, .L52+4	@ tmp222,
+ 679 0338 D35C     		ldrb	r3, [r2, r3]	@ zero_extendqisi2	@ D.6451, gpioIntMode
+ 680 033a 012B     		cmp	r3, #1	@ D.6451,
+ 681 033c 09D1     		bne	.L48	@,
+ 161:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                     {
+ 162:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                         PERIPH_GPIOINT->IO2IntEnR |= 1 << pGpioDevice->portPin.pin;
+ 682              		.loc 1 162 0
+ 683 033e 1E49     		ldr	r1, .L52+8	@ D.6453,
+ 684 0340 1D4B     		ldr	r3, .L52+8	@ D.6453,
+ 685 0342 1B6B     		ldr	r3, [r3, #48]	@ D.6454, _65->IO2IntEnR
+ 686 0344 019A     		ldr	r2, [sp, #4]	@ tmp223, pGpioDevice
+ 687 0346 5279     		ldrb	r2, [r2, #5]	@ zero_extendqisi2	@ D.6451, pGpioDevice_4(D)->portPin.pin
+ 688 0348 1046     		mov	r0, r2	@ D.6452, D.6451
+ 689 034a 0122     		movs	r2, #1	@ tmp224,
+ 690 034c 8240     		lsls	r2, r2, r0	@ D.6452, tmp224, D.6452
+ 691 034e 1343     		orrs	r3, r3, r2	@, D.6454, D.6454, D.6454
+ 692 0350 0B63     		str	r3, [r1, #48]	@ D.6454, _64->IO2IntEnR
+ 693              	.L48:
+ 163:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                     }
+ 164:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                     if(gpioIntMode[index] ==enEPCFGpioIntMode_BothEdge)
+ 694              		.loc 1 164 0
+ 695 0352 9DF80F30 		ldrb	r3, [sp, #15]	@ zero_extendqisi2	@ D.6452, index
+ 696 0356 174A     		ldr	r2, .L52+4	@ tmp225,
+ 697 0358 D35C     		ldrb	r3, [r2, r3]	@ zero_extendqisi2	@ D.6451, gpioIntMode
+ 698 035a 022B     		cmp	r3, #2	@ D.6451,
+ 699 035c 14D1     		bne	.L49	@,
+ 165:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                     {
+ 166:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                         PERIPH_GPIOINT->IO2IntEnF |= 1 << pGpioDevice->portPin.pin;
+ 700              		.loc 1 166 0
+ 701 035e 1649     		ldr	r1, .L52+8	@ D.6453,
+ 702 0360 154B     		ldr	r3, .L52+8	@ D.6453,
+ 703 0362 5B6B     		ldr	r3, [r3, #52]	@ D.6454, _75->IO2IntEnF
+ 704 0364 019A     		ldr	r2, [sp, #4]	@ tmp226, pGpioDevice
+ 705 0366 5279     		ldrb	r2, [r2, #5]	@ zero_extendqisi2	@ D.6451, pGpioDevice_4(D)->portPin.pin
+ 706 0368 1046     		mov	r0, r2	@ D.6452, D.6451
+ 707 036a 0122     		movs	r2, #1	@ tmp227,
+ 708 036c 8240     		lsls	r2, r2, r0	@ D.6452, tmp227, D.6452
+ 709 036e 1343     		orrs	r3, r3, r2	@, D.6454, D.6454, D.6454
+ 710 0370 4B63     		str	r3, [r1, #52]	@ D.6454, _74->IO2IntEnF
+ 167:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                         PERIPH_GPIOINT->IO2IntEnR |= 1 << pGpioDevice->portPin.pin;
+ 711              		.loc 1 167 0
+ 712 0372 1149     		ldr	r1, .L52+8	@ D.6453,
+ 713 0374 104B     		ldr	r3, .L52+8	@ D.6453,
+ 714 0376 1B6B     		ldr	r3, [r3, #48]	@ D.6454, _83->IO2IntEnR
+ 715 0378 019A     		ldr	r2, [sp, #4]	@ tmp228, pGpioDevice
+ 716 037a 5279     		ldrb	r2, [r2, #5]	@ zero_extendqisi2	@ D.6451, pGpioDevice_4(D)->portPin.pin
+ 717 037c 1046     		mov	r0, r2	@ D.6452, D.6451
+ 718 037e 0122     		movs	r2, #1	@ tmp229,
+ 719 0380 8240     		lsls	r2, r2, r0	@ D.6452, tmp229, D.6452
+ 720 0382 1343     		orrs	r3, r3, r2	@, D.6454, D.6454, D.6454
+ 721 0384 0B63     		str	r3, [r1, #48]	@ D.6454, _82->IO2IntEnR
+ 168:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                     }
+ 169:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                     break;
+ 722              		.loc 1 169 0
+ 723 0386 FFE7     		b	.L51	@
+ 724              	.L49:
+ 725              	.L51:
+ARM GAS  /tmp/ccurES30.s 			page 17
+
+
+ 726 0388 00BF     		nop
+ 727              	.L41:
+ 132:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     {
+ 728              		.loc 1 132 0 discriminator 2
+ 729 038a 9DF80F30 		ldrb	r3, [sp, #15]	@ zero_extendqisi2	@ D.6451, index
+ 730 038e 0133     		adds	r3, r3, #1	@ tmp230, D.6451,
+ 731 0390 8DF80F30 		strb	r3, [sp, #15]	@ tmp231, index
+ 732              	.L40:
+ 132:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     {
+ 733              		.loc 1 132 0 is_stmt 0 discriminator 1
+ 734 0394 9DF80F30 		ldrb	r3, [sp, #15]	@ zero_extendqisi2	@ tmp232, index
+ 735 0398 292B     		cmp	r3, #41	@ tmp232,
+ 736 039a 7FF66AAF 		bls	.L50	@,
+ 170:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+ 171:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****             }
+ 172:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****         }
+ 173:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     }
+ 174:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****    // NVIC_EnableIRQ(IRQ_NUM(EINT3));
+ 175:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     gpioIntEnable = enEPCFBoolean_True;
+ 737              		.loc 1 175 0 is_stmt 1
+ 738 039e 074B     		ldr	r3, .L52+12	@ tmp233,
+ 739 03a0 0122     		movs	r2, #1	@ tmp234,
+ 740 03a2 1A70     		strb	r2, [r3]	@ tmp235, gpioIntEnable
+ 176:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+ 177:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     return EPCF_STATUS_SUCCESS;
+ 741              		.loc 1 177 0
+ 742 03a4 0023     		movs	r3, #0	@ D.6450,
+ 743              	.L39:
+ 744 03a6 5BB2     		sxtb	r3, r3	@ tmp237, D.6450
+ 178:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** }
+ 745              		.loc 1 178 0
+ 746 03a8 1846     		mov	r0, r3	@, <retval>
+ 747 03aa 04B0     		add	sp, sp, #16	@,,
+ 748              	.LCFI12:
+ 749              		.cfi_def_cfa_offset 0
+ 750              		@ sp needed	@
+ 751 03ac 7047     		bx	lr	@
+ 752              	.L53:
+ 753 03ae 00BF     		.align	2
+ 754              	.L52:
+ 755 03b0 D8000000 		.word	gpioIntList
+ 756 03b4 00000000 		.word	gpioIntMode
+ 757 03b8 80800240 		.word	1073905792
+ 758 03bc 2A000000 		.word	gpioIntEnable
+ 759              		.cfi_endproc
+ 760              	.LFE46:
+ 761              		.size	epcf_gpio_nativeIntEnable, .-epcf_gpio_nativeIntEnable
+ 762              		.align	2
+ 763              		.global	epcf_gpio_nativeIntDisable
+ 764              		.thumb
+ 765              		.thumb_func
+ 766              		.type	epcf_gpio_nativeIntDisable, %function
+ 767              	epcf_gpio_nativeIntDisable:
+ 768              	.LFB47:
+ 179:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+ 180:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** int8_t epcf_gpio_nativeIntDisable(EPCFGpioDevice_t* pGpioDevice)
+ 181:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** {
+ARM GAS  /tmp/ccurES30.s 			page 18
+
+
+ 769              		.loc 1 181 0
+ 770              		.cfi_startproc
+ 771              		@ args = 0, pretend = 0, frame = 8
+ 772              		@ frame_needed = 0, uses_anonymous_args = 0
+ 773              		@ link register save eliminated.
+ 774 03c0 82B0     		sub	sp, sp, #8	@,,
+ 775              	.LCFI13:
+ 776              		.cfi_def_cfa_offset 8
+ 777 03c2 0190     		str	r0, [sp, #4]	@ pGpioDevice, pGpioDevice
+ 182:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     //NVIC_DisableIRQ(IRQ_NUM(EINT3));
+ 183:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     gpioIntEnable = enEPCFBoolean_False;
+ 778              		.loc 1 183 0
+ 779 03c4 034B     		ldr	r3, .L56	@ tmp112,
+ 780 03c6 0022     		movs	r2, #0	@ tmp113,
+ 781 03c8 1A70     		strb	r2, [r3]	@ tmp114, gpioIntEnable
+ 184:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+ 185:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     return EPCF_STATUS_SUCCESS;
+ 782              		.loc 1 185 0
+ 783 03ca 0023     		movs	r3, #0	@ D.6455,
+ 784 03cc 5BB2     		sxtb	r3, r3	@ tmp116, D.6455
+ 186:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** }
+ 785              		.loc 1 186 0
+ 786 03ce 1846     		mov	r0, r3	@, <retval>
+ 787 03d0 02B0     		add	sp, sp, #8	@,,
+ 788              	.LCFI14:
+ 789              		.cfi_def_cfa_offset 0
+ 790              		@ sp needed	@
+ 791 03d2 7047     		bx	lr	@
+ 792              	.L57:
+ 793              		.align	2
+ 794              	.L56:
+ 795 03d4 2A000000 		.word	gpioIntEnable
+ 796              		.cfi_endproc
+ 797              	.LFE47:
+ 798              		.size	epcf_gpio_nativeIntDisable, .-epcf_gpio_nativeIntDisable
+ 799              		.align	2
+ 800              		.global	epcf_gpio_nativeIntAttachCallback
+ 801              		.thumb
+ 802              		.thumb_func
+ 803              		.type	epcf_gpio_nativeIntAttachCallback, %function
+ 804              	epcf_gpio_nativeIntAttachCallback:
+ 805              	.LFB48:
+ 187:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+ 188:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** int8_t epcf_gpio_nativeIntAttachCallback(EPCFGpioDevice_t* pGpioDevice,epcfCallback_fp pCallback)
+ 189:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** {
+ 806              		.loc 1 189 0
+ 807              		.cfi_startproc
+ 808              		@ args = 0, pretend = 0, frame = 16
+ 809              		@ frame_needed = 0, uses_anonymous_args = 0
+ 810              		@ link register save eliminated.
+ 811 03d8 84B0     		sub	sp, sp, #16	@,,
+ 812              	.LCFI15:
+ 813              		.cfi_def_cfa_offset 16
+ 814 03da 0190     		str	r0, [sp, #4]	@ pGpioDevice, pGpioDevice
+ 815 03dc 0091     		str	r1, [sp]	@ pCallback, pCallback
+ 190:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** uint8_t index=0;
+ 816              		.loc 1 190 0
+ARM GAS  /tmp/ccurES30.s 			page 19
+
+
+ 817 03de 0023     		movs	r3, #0	@ tmp117,
+ 818 03e0 8DF80F30 		strb	r3, [sp, #15]	@ tmp118, index
+ 191:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** #if (PCF_ENABLE_DEBUG == PCF_ENABLE)
+ 192:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****   CHECK_NULL_PTR(pCallback);
+ 193:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+ 194:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** #endif  // #if (PCF_ENABLE_DEBUG == PCF_ENABLE)
+ 195:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+ 196:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     for (index = 0; index < __EPCF_GPIO_INT_MAX; index++)
+ 819              		.loc 1 196 0
+ 820 03e4 0023     		movs	r3, #0	@ tmp119,
+ 821 03e6 8DF80F30 		strb	r3, [sp, #15]	@ tmp120, index
+ 822 03ea 18E0     		b	.L59	@
+ 823              	.L62:
+ 197:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     {
+ 198:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****         if(gpioIntList[index].portPin.pin == pGpioDevice->portPin.pin)
+ 824              		.loc 1 198 0
+ 825 03ec 9DF80F20 		ldrb	r2, [sp, #15]	@ zero_extendqisi2	@ D.6456, index
+ 826 03f0 1149     		ldr	r1, .L64	@ tmp121,
+ 827 03f2 1346     		mov	r3, r2	@ tmp122, D.6456
+ 828 03f4 5B00     		lsls	r3, r3, #1	@ tmp122, tmp122,
+ 829 03f6 1344     		add	r3, r3, r2	@ tmp122, D.6456
+ 830 03f8 9B00     		lsls	r3, r3, #2	@ tmp123, tmp122,
+ 831 03fa 0B44     		add	r3, r3, r1	@ tmp124, tmp121
+ 832 03fc 5A78     		ldrb	r2, [r3, #1]	@ zero_extendqisi2	@ D.6457, gpioIntList[_4].portPin.pin
+ 833 03fe 019B     		ldr	r3, [sp, #4]	@ tmp125, pGpioDevice
+ 834 0400 5B79     		ldrb	r3, [r3, #5]	@ zero_extendqisi2	@ D.6457, pGpioDevice_6(D)->portPin.pin
+ 835 0402 9A42     		cmp	r2, r3	@ D.6457, D.6457
+ 836 0404 06D1     		bne	.L60	@,
+ 199:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****         {
+ 200:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****             gpioIntCallbackList[index]=pCallback;
+ 837              		.loc 1 200 0
+ 838 0406 9DF80F30 		ldrb	r3, [sp, #15]	@ zero_extendqisi2	@ D.6456, index
+ 839 040a 0C49     		ldr	r1, .L64+4	@ tmp126,
+ 840 040c 009A     		ldr	r2, [sp]	@ tmp127, pCallback
+ 841 040e 41F82320 		str	r2, [r1, r3, lsl #2]	@ tmp127, gpioIntCallbackList
+ 201:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****             break;
+ 842              		.loc 1 201 0
+ 843 0412 08E0     		b	.L61	@
+ 844              	.L60:
+ 196:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     {
+ 845              		.loc 1 196 0 discriminator 2
+ 846 0414 9DF80F30 		ldrb	r3, [sp, #15]	@ zero_extendqisi2	@ D.6457, index
+ 847 0418 0133     		adds	r3, r3, #1	@ tmp128, D.6457,
+ 848 041a 8DF80F30 		strb	r3, [sp, #15]	@ tmp129, index
+ 849              	.L59:
+ 196:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     {
+ 850              		.loc 1 196 0 is_stmt 0 discriminator 1
+ 851 041e 9DF80F30 		ldrb	r3, [sp, #15]	@ zero_extendqisi2	@ tmp130, index
+ 852 0422 292B     		cmp	r3, #41	@ tmp130,
+ 853 0424 E2D9     		bls	.L62	@,
+ 854              	.L61:
+ 202:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****         }
+ 203:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     }
+ 204:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+ 205:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     gpioIntCallbackAttached=enEPCFBoolean_True;
+ 855              		.loc 1 205 0 is_stmt 1
+ 856 0426 064B     		ldr	r3, .L64+8	@ tmp131,
+ARM GAS  /tmp/ccurES30.s 			page 20
+
+
+ 857 0428 0122     		movs	r2, #1	@ tmp132,
+ 858 042a 1A70     		strb	r2, [r3]	@ tmp133, gpioIntCallbackAttached
+ 206:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+ 207:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     return EPCF_STATUS_SUCCESS;
+ 859              		.loc 1 207 0
+ 860 042c 0023     		movs	r3, #0	@ D.6458,
+ 861 042e 5BB2     		sxtb	r3, r3	@ tmp135, D.6458
+ 208:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+ 209:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** }
+ 862              		.loc 1 209 0
+ 863 0430 1846     		mov	r0, r3	@, <retval>
+ 864 0432 04B0     		add	sp, sp, #16	@,,
+ 865              	.LCFI16:
+ 866              		.cfi_def_cfa_offset 0
+ 867              		@ sp needed	@
+ 868 0434 7047     		bx	lr	@
+ 869              	.L65:
+ 870 0436 00BF     		.align	2
+ 871              	.L64:
+ 872 0438 D8000000 		.word	gpioIntList
+ 873 043c 2C000000 		.word	gpioIntCallbackList
+ 874 0440 D4000000 		.word	gpioIntCallbackAttached
+ 875              		.cfi_endproc
+ 876              	.LFE48:
+ 877              		.size	epcf_gpio_nativeIntAttachCallback, .-epcf_gpio_nativeIntAttachCallback
+ 878              		.align	2
+ 879              		.global	epcf_gpio_nativeIntDetachCallback
+ 880              		.thumb
+ 881              		.thumb_func
+ 882              		.type	epcf_gpio_nativeIntDetachCallback, %function
+ 883              	epcf_gpio_nativeIntDetachCallback:
+ 884              	.LFB49:
+ 210:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+ 211:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** int8_t epcf_gpio_nativeIntDetachCallback(EPCFGpioDevice_t* pGpioDevice)
+ 212:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** {
+ 885              		.loc 1 212 0
+ 886              		.cfi_startproc
+ 887              		@ args = 0, pretend = 0, frame = 16
+ 888              		@ frame_needed = 0, uses_anonymous_args = 0
+ 889              		@ link register save eliminated.
+ 890 0444 84B0     		sub	sp, sp, #16	@,,
+ 891              	.LCFI17:
+ 892              		.cfi_def_cfa_offset 16
+ 893 0446 0190     		str	r0, [sp, #4]	@ pGpioDevice, pGpioDevice
+ 213:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+ 214:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     uint8_t index=0;
+ 894              		.loc 1 214 0
+ 895 0448 0023     		movs	r3, #0	@ tmp118,
+ 896 044a 8DF80F30 		strb	r3, [sp, #15]	@ tmp119, index
+ 215:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     if(gpioIntCallbackAttached==1)
+ 897              		.loc 1 215 0
+ 898 044e 174B     		ldr	r3, .L73	@ tmp120,
+ 899 0450 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2	@ D.6460, gpioIntCallbackAttached
+ 900 0452 012B     		cmp	r3, #1	@ D.6460,
+ 901 0454 01D1     		bne	.L67	@,
+ 216:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****         return EPCF_STATUS_ERROR;
+ 902              		.loc 1 216 0
+ARM GAS  /tmp/ccurES30.s 			page 21
+
+
+ 903 0456 FF23     		movs	r3, #255	@ D.6459,
+ 904 0458 24E0     		b	.L68	@
+ 905              	.L67:
+ 217:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+ 218:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     for (index = 0; index < __EPCF_GPIO_INT_MAX; index++)
+ 906              		.loc 1 218 0
+ 907 045a 0023     		movs	r3, #0	@ tmp121,
+ 908 045c 8DF80F30 		strb	r3, [sp, #15]	@ tmp122, index
+ 909 0460 18E0     		b	.L69	@
+ 910              	.L72:
+ 219:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     {
+ 220:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****         if(gpioIntList[index].portPin.pin == pGpioDevice->portPin.pin)
+ 911              		.loc 1 220 0
+ 912 0462 9DF80F20 		ldrb	r2, [sp, #15]	@ zero_extendqisi2	@ D.6461, index
+ 913 0466 1249     		ldr	r1, .L73+4	@ tmp123,
+ 914 0468 1346     		mov	r3, r2	@ tmp124, D.6461
+ 915 046a 5B00     		lsls	r3, r3, #1	@ tmp124, tmp124,
+ 916 046c 1344     		add	r3, r3, r2	@ tmp124, D.6461
+ 917 046e 9B00     		lsls	r3, r3, #2	@ tmp125, tmp124,
+ 918 0470 0B44     		add	r3, r3, r1	@ tmp126, tmp123
+ 919 0472 5A78     		ldrb	r2, [r3, #1]	@ zero_extendqisi2	@ D.6462, gpioIntList[_7].portPin.pin
+ 920 0474 019B     		ldr	r3, [sp, #4]	@ tmp127, pGpioDevice
+ 921 0476 5B79     		ldrb	r3, [r3, #5]	@ zero_extendqisi2	@ D.6462, pGpioDevice_9(D)->portPin.pin
+ 922 0478 9A42     		cmp	r2, r3	@ D.6462, D.6462
+ 923 047a 06D1     		bne	.L70	@,
+ 221:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****         {
+ 222:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****             gpioIntCallbackList[index]=0;
+ 924              		.loc 1 222 0
+ 925 047c 9DF80F30 		ldrb	r3, [sp, #15]	@ zero_extendqisi2	@ D.6461, index
+ 926 0480 0C4A     		ldr	r2, .L73+8	@ tmp128,
+ 927 0482 0021     		movs	r1, #0	@ tmp129,
+ 928 0484 42F82310 		str	r1, [r2, r3, lsl #2]	@ tmp129, gpioIntCallbackList
+ 223:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****             break;
+ 929              		.loc 1 223 0
+ 930 0488 08E0     		b	.L71	@
+ 931              	.L70:
+ 218:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     {
+ 932              		.loc 1 218 0 discriminator 2
+ 933 048a 9DF80F30 		ldrb	r3, [sp, #15]	@ zero_extendqisi2	@ D.6462, index
+ 934 048e 0133     		adds	r3, r3, #1	@ tmp130, D.6462,
+ 935 0490 8DF80F30 		strb	r3, [sp, #15]	@ tmp131, index
+ 936              	.L69:
+ 218:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     {
+ 937              		.loc 1 218 0 is_stmt 0 discriminator 1
+ 938 0494 9DF80F30 		ldrb	r3, [sp, #15]	@ zero_extendqisi2	@ tmp132, index
+ 939 0498 292B     		cmp	r3, #41	@ tmp132,
+ 940 049a E2D9     		bls	.L72	@,
+ 941              	.L71:
+ 224:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****         }
+ 225:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     }
+ 226:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+ 227:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     gpioIntCallbackAttached=enEPCFBoolean_False;
+ 942              		.loc 1 227 0 is_stmt 1
+ 943 049c 034B     		ldr	r3, .L73	@ tmp133,
+ 944 049e 0022     		movs	r2, #0	@ tmp134,
+ 945 04a0 1A70     		strb	r2, [r3]	@ tmp135, gpioIntCallbackAttached
+ 228:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+ARM GAS  /tmp/ccurES30.s 			page 22
+
+
+ 229:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     return EPCF_STATUS_SUCCESS;
+ 946              		.loc 1 229 0
+ 947 04a2 0023     		movs	r3, #0	@ D.6459,
+ 948              	.L68:
+ 949 04a4 5BB2     		sxtb	r3, r3	@ tmp137, D.6459
+ 230:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
+ 231:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** }
+ 950              		.loc 1 231 0
+ 951 04a6 1846     		mov	r0, r3	@, <retval>
+ 952 04a8 04B0     		add	sp, sp, #16	@,,
+ 953              	.LCFI18:
+ 954              		.cfi_def_cfa_offset 0
+ 955              		@ sp needed	@
+ 956 04aa 7047     		bx	lr	@
+ 957              	.L74:
+ 958              		.align	2
+ 959              	.L73:
+ 960 04ac D4000000 		.word	gpioIntCallbackAttached
+ 961 04b0 D8000000 		.word	gpioIntList
+ 962 04b4 2C000000 		.word	gpioIntCallbackList
+ 963              		.cfi_endproc
+ 964              	.LFE49:
+ 965              		.size	epcf_gpio_nativeIntDetachCallback, .-epcf_gpio_nativeIntDetachCallback
+ 966              	.Letext0:
+ 967              		.file 2 "/usr/include/newlib/machine/_default_types.h"
+ 968              		.file 3 "/usr/include/newlib/sys/_stdint.h"
+ 969              		.file 4 "../pcf/include/private/arch/arm/cm3/nxp/lpc1768/./lpc1768_regmap.h"
+ 970              		.file 5 "/home/majorviraj/Desktop/Self balancing/codes/epcf_project/epcf/./common/types.h"
+ 971              		.file 6 "/home/majorviraj/Desktop/Self balancing/codes/epcf_project/epcf/./common/portpin.h"
+ 972              		.file 7 "/home/majorviraj/Desktop/Self balancing/codes/epcf_project/epcf/peripheral/include/./gpio
+ 973              		.file 8 "/home/majorviraj/Desktop/Self balancing/codes/epcf_project/epcf/peripheral/source/gpio/gp
+ 974              		.file 9 "/home/majorviraj/Desktop/Self balancing/codes/epcf_project/epcf/native/port/arm/cm3/nxp/l
+ 975              		.file 10 "../pcf/include/private/arch/arm/cm3/nxp/lpc1768/./../../../../arm/cm3/nxp/lpc1768/lpc176
+ 976              		.section	.debug_info,"",%progbits
+ 977              	.Ldebug_info0:
+ 978 0000 5D080000 		.4byte	0x85d
+ 979 0004 0200     		.2byte	0x2
+ 980 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 981 000a 04       		.byte	0x4
+ 982 000b 01       		.uleb128 0x1
+ 983 000c 0D030000 		.4byte	.LASF120
+ 984 0010 01       		.byte	0x1
+ 985 0011 FF010000 		.4byte	.LASF121
+ 986 0015 79060000 		.4byte	.LASF122
+ 987 0019 00000000 		.4byte	.Ltext0
+ 988 001d B8040000 		.4byte	.Letext0
+ 989 0021 00000000 		.4byte	.Ldebug_line0
+ 990 0025 02       		.uleb128 0x2
+ 991 0026 04       		.byte	0x4
+ 992 0027 07       		.byte	0x7
+ 993 0028 EC020000 		.4byte	.LASF0
+ 994 002c 03       		.uleb128 0x3
+ 995 002d 04       		.byte	0x4
+ 996 002e 05       		.byte	0x5
+ 997 002f 696E7400 		.ascii	"int\000"
+ 998 0033 04       		.uleb128 0x4
+ 999 0034 DA000000 		.4byte	.LASF2
+ARM GAS  /tmp/ccurES30.s 			page 23
+
+
+ 1000 0038 02       		.byte	0x2
+ 1001 0039 1B       		.byte	0x1b
+ 1002 003a 3E000000 		.4byte	0x3e
+ 1003 003e 02       		.uleb128 0x2
+ 1004 003f 01       		.byte	0x1
+ 1005 0040 06       		.byte	0x6
+ 1006 0041 18010000 		.4byte	.LASF1
+ 1007 0045 04       		.uleb128 0x4
+ 1008 0046 38000000 		.4byte	.LASF3
+ 1009 004a 02       		.byte	0x2
+ 1010 004b 1D       		.byte	0x1d
+ 1011 004c 50000000 		.4byte	0x50
+ 1012 0050 02       		.uleb128 0x2
+ 1013 0051 01       		.byte	0x1
+ 1014 0052 08       		.byte	0x8
+ 1015 0053 4E050000 		.4byte	.LASF4
+ 1016 0057 02       		.uleb128 0x2
+ 1017 0058 02       		.byte	0x2
+ 1018 0059 05       		.byte	0x5
+ 1019 005a 82050000 		.4byte	.LASF5
+ 1020 005e 02       		.uleb128 0x2
+ 1021 005f 02       		.byte	0x2
+ 1022 0060 07       		.byte	0x7
+ 1023 0061 B2030000 		.4byte	.LASF6
+ 1024 0065 04       		.uleb128 0x4
+ 1025 0066 BE060000 		.4byte	.LASF7
+ 1026 006a 02       		.byte	0x2
+ 1027 006b 3F       		.byte	0x3f
+ 1028 006c 70000000 		.4byte	0x70
+ 1029 0070 02       		.uleb128 0x2
+ 1030 0071 04       		.byte	0x4
+ 1031 0072 05       		.byte	0x5
+ 1032 0073 AB010000 		.4byte	.LASF8
+ 1033 0077 04       		.uleb128 0x4
+ 1034 0078 99020000 		.4byte	.LASF9
+ 1035 007c 02       		.byte	0x2
+ 1036 007d 41       		.byte	0x41
+ 1037 007e 82000000 		.4byte	0x82
+ 1038 0082 02       		.uleb128 0x2
+ 1039 0083 04       		.byte	0x4
+ 1040 0084 07       		.byte	0x7
+ 1041 0085 75030000 		.4byte	.LASF10
+ 1042 0089 02       		.uleb128 0x2
+ 1043 008a 08       		.byte	0x8
+ 1044 008b 05       		.byte	0x5
+ 1045 008c 0A010000 		.4byte	.LASF11
+ 1046 0090 02       		.uleb128 0x2
+ 1047 0091 08       		.byte	0x8
+ 1048 0092 07       		.byte	0x7
+ 1049 0093 8D000000 		.4byte	.LASF12
+ 1050 0097 02       		.uleb128 0x2
+ 1051 0098 04       		.byte	0x4
+ 1052 0099 07       		.byte	0x7
+ 1053 009a 5E040000 		.4byte	.LASF13
+ 1054 009e 05       		.uleb128 0x5
+ 1055 009f 04       		.byte	0x4
+ 1056 00a0 06       		.uleb128 0x6
+ARM GAS  /tmp/ccurES30.s 			page 24
+
+
+ 1057 00a1 04       		.byte	0x4
+ 1058 00a2 A6000000 		.4byte	0xa6
+ 1059 00a6 07       		.uleb128 0x7
+ 1060 00a7 01       		.byte	0x1
+ 1061 00a8 02       		.uleb128 0x2
+ 1062 00a9 01       		.byte	0x1
+ 1063 00aa 08       		.byte	0x8
+ 1064 00ab 6F060000 		.4byte	.LASF14
+ 1065 00af 04       		.uleb128 0x4
+ 1066 00b0 43070000 		.4byte	.LASF15
+ 1067 00b4 03       		.byte	0x3
+ 1068 00b5 13       		.byte	0x13
+ 1069 00b6 33000000 		.4byte	0x33
+ 1070 00ba 04       		.uleb128 0x4
+ 1071 00bb 03080000 		.4byte	.LASF16
+ 1072 00bf 03       		.byte	0x3
+ 1073 00c0 14       		.byte	0x14
+ 1074 00c1 45000000 		.4byte	0x45
+ 1075 00c5 04       		.uleb128 0x4
+ 1076 00c6 46050000 		.4byte	.LASF17
+ 1077 00ca 03       		.byte	0x3
+ 1078 00cb 1F       		.byte	0x1f
+ 1079 00cc 65000000 		.4byte	0x65
+ 1080 00d0 04       		.uleb128 0x4
+ 1081 00d1 2B060000 		.4byte	.LASF18
+ 1082 00d5 03       		.byte	0x3
+ 1083 00d6 20       		.byte	0x20
+ 1084 00d7 77000000 		.4byte	0x77
+ 1085 00db 02       		.uleb128 0x2
+ 1086 00dc 04       		.byte	0x4
+ 1087 00dd 04       		.byte	0x4
+ 1088 00de EC040000 		.4byte	.LASF19
+ 1089 00e2 08       		.uleb128 0x8
+ 1090 00e3 D0000000 		.4byte	0xd0
+ 1091 00e7 09       		.uleb128 0x9
+ 1092 00e8 E2000000 		.4byte	0xe2
+ 1093 00ec 0A       		.uleb128 0xa
+ 1094 00ed D0000000 		.4byte	0xd0
+ 1095 00f1 FC000000 		.4byte	0xfc
+ 1096 00f5 0B       		.uleb128 0xb
+ 1097 00f6 97000000 		.4byte	0x97
+ 1098 00fa 02       		.byte	0x2
+ 1099 00fb 00       		.byte	0
+ 1100 00fc 0C       		.uleb128 0xc
+ 1101 00fd 38       		.byte	0x38
+ 1102 00fe 04       		.byte	0x4
+ 1103 00ff 6D01     		.2byte	0x16d
+ 1104 0101 BA010000 		.4byte	0x1ba
+ 1105 0105 0D       		.uleb128 0xd
+ 1106 0106 F3030000 		.4byte	.LASF20
+ 1107 010a 04       		.byte	0x4
+ 1108 010b 6F01     		.2byte	0x16f
+ 1109 010d E7000000 		.4byte	0xe7
+ 1110 0111 02       		.byte	0x2
+ 1111 0112 23       		.byte	0x23
+ 1112 0113 00       		.uleb128 0
+ 1113 0114 0D       		.uleb128 0xd
+ARM GAS  /tmp/ccurES30.s 			page 25
+
+
+ 1114 0115 68080000 		.4byte	.LASF21
+ 1115 0119 04       		.byte	0x4
+ 1116 011a 7001     		.2byte	0x170
+ 1117 011c E7000000 		.4byte	0xe7
+ 1118 0120 02       		.byte	0x2
+ 1119 0121 23       		.byte	0x23
+ 1120 0122 04       		.uleb128 0x4
+ 1121 0123 0D       		.uleb128 0xd
+ 1122 0124 49080000 		.4byte	.LASF22
+ 1123 0128 04       		.byte	0x4
+ 1124 0129 7101     		.2byte	0x171
+ 1125 012b E7000000 		.4byte	0xe7
+ 1126 012f 02       		.byte	0x2
+ 1127 0130 23       		.byte	0x23
+ 1128 0131 08       		.uleb128 0x8
+ 1129 0132 0D       		.uleb128 0xd
+ 1130 0133 4C000000 		.4byte	.LASF23
+ 1131 0137 04       		.byte	0x4
+ 1132 0138 7201     		.2byte	0x172
+ 1133 013a E2000000 		.4byte	0xe2
+ 1134 013e 02       		.byte	0x2
+ 1135 013f 23       		.byte	0x23
+ 1136 0140 0C       		.uleb128 0xc
+ 1137 0141 0D       		.uleb128 0xd
+ 1138 0142 0B080000 		.4byte	.LASF24
+ 1139 0146 04       		.byte	0x4
+ 1140 0147 7301     		.2byte	0x173
+ 1141 0149 E2000000 		.4byte	0xe2
+ 1142 014d 02       		.byte	0x2
+ 1143 014e 23       		.byte	0x23
+ 1144 014f 10       		.uleb128 0x10
+ 1145 0150 0D       		.uleb128 0xd
+ 1146 0151 F9070000 		.4byte	.LASF25
+ 1147 0155 04       		.byte	0x4
+ 1148 0156 7401     		.2byte	0x174
+ 1149 0158 E2000000 		.4byte	0xe2
+ 1150 015c 02       		.byte	0x2
+ 1151 015d 23       		.byte	0x23
+ 1152 015e 14       		.uleb128 0x14
+ 1153 015f 0D       		.uleb128 0xd
+ 1154 0160 03050000 		.4byte	.LASF26
+ 1155 0164 04       		.byte	0x4
+ 1156 0165 7501     		.2byte	0x175
+ 1157 0167 EC000000 		.4byte	0xec
+ 1158 016b 02       		.byte	0x2
+ 1159 016c 23       		.byte	0x23
+ 1160 016d 18       		.uleb128 0x18
+ 1161 016e 0D       		.uleb128 0xd
+ 1162 016f 87030000 		.4byte	.LASF27
+ 1163 0173 04       		.byte	0x4
+ 1164 0174 7601     		.2byte	0x176
+ 1165 0176 E7000000 		.4byte	0xe7
+ 1166 017a 02       		.byte	0x2
+ 1167 017b 23       		.byte	0x23
+ 1168 017c 24       		.uleb128 0x24
+ 1169 017d 0D       		.uleb128 0xd
+ 1170 017e F3010000 		.4byte	.LASF28
+ARM GAS  /tmp/ccurES30.s 			page 26
+
+
+ 1171 0182 04       		.byte	0x4
+ 1172 0183 7701     		.2byte	0x177
+ 1173 0185 E7000000 		.4byte	0xe7
+ 1174 0189 02       		.byte	0x2
+ 1175 018a 23       		.byte	0x23
+ 1176 018b 28       		.uleb128 0x28
+ 1177 018c 0D       		.uleb128 0xd
+ 1178 018d D0000000 		.4byte	.LASF29
+ 1179 0191 04       		.byte	0x4
+ 1180 0192 7801     		.2byte	0x178
+ 1181 0194 E2000000 		.4byte	0xe2
+ 1182 0198 02       		.byte	0x2
+ 1183 0199 23       		.byte	0x23
+ 1184 019a 2C       		.uleb128 0x2c
+ 1185 019b 0D       		.uleb128 0xd
+ 1186 019c 3F080000 		.4byte	.LASF30
+ 1187 01a0 04       		.byte	0x4
+ 1188 01a1 7901     		.2byte	0x179
+ 1189 01a3 E2000000 		.4byte	0xe2
+ 1190 01a7 02       		.byte	0x2
+ 1191 01a8 23       		.byte	0x23
+ 1192 01a9 30       		.uleb128 0x30
+ 1193 01aa 0D       		.uleb128 0xd
+ 1194 01ab 29080000 		.4byte	.LASF31
+ 1195 01af 04       		.byte	0x4
+ 1196 01b0 7A01     		.2byte	0x17a
+ 1197 01b2 E2000000 		.4byte	0xe2
+ 1198 01b6 02       		.byte	0x2
+ 1199 01b7 23       		.byte	0x23
+ 1200 01b8 34       		.uleb128 0x34
+ 1201 01b9 00       		.byte	0
+ 1202 01ba 0E       		.uleb128 0xe
+ 1203 01bb E3030000 		.4byte	.LASF32
+ 1204 01bf 04       		.byte	0x4
+ 1205 01c0 7B01     		.2byte	0x17b
+ 1206 01c2 FC000000 		.4byte	0xfc
+ 1207 01c6 0F       		.uleb128 0xf
+ 1208 01c7 01       		.byte	0x1
+ 1209 01c8 05       		.byte	0x5
+ 1210 01c9 06       		.byte	0x6
+ 1211 01ca E1010000 		.4byte	0x1e1
+ 1212 01ce 10       		.uleb128 0x10
+ 1213 01cf C4040000 		.4byte	.LASF33
+ 1214 01d3 00       		.sleb128 0
+ 1215 01d4 10       		.uleb128 0x10
+ 1216 01d5 18060000 		.4byte	.LASF34
+ 1217 01d9 01       		.sleb128 1
+ 1218 01da 10       		.uleb128 0x10
+ 1219 01db 93030000 		.4byte	.LASF35
+ 1220 01df 02       		.sleb128 2
+ 1221 01e0 00       		.byte	0
+ 1222 01e1 04       		.uleb128 0x4
+ 1223 01e2 D3030000 		.4byte	.LASF36
+ 1224 01e6 05       		.byte	0x5
+ 1225 01e7 0A       		.byte	0xa
+ 1226 01e8 C6010000 		.4byte	0x1c6
+ 1227 01ec 04       		.uleb128 0x4
+ARM GAS  /tmp/ccurES30.s 			page 27
+
+
+ 1228 01ed 2A050000 		.4byte	.LASF37
+ 1229 01f1 05       		.byte	0x5
+ 1230 01f2 0E       		.byte	0xe
+ 1231 01f3 A0000000 		.4byte	0xa0
+ 1232 01f7 11       		.uleb128 0x11
+ 1233 01f8 02       		.byte	0x2
+ 1234 01f9 06       		.byte	0x6
+ 1235 01fa 47       		.byte	0x47
+ 1236 01fb 1C020000 		.4byte	0x21c
+ 1237 01ff 12       		.uleb128 0x12
+ 1238 0200 C6020000 		.4byte	.LASF38
+ 1239 0204 06       		.byte	0x6
+ 1240 0205 49       		.byte	0x49
+ 1241 0206 BA000000 		.4byte	0xba
+ 1242 020a 02       		.byte	0x2
+ 1243 020b 23       		.byte	0x23
+ 1244 020c 00       		.uleb128 0
+ 1245 020d 13       		.uleb128 0x13
+ 1246 020e 70696E00 		.ascii	"pin\000"
+ 1247 0212 06       		.byte	0x6
+ 1248 0213 4A       		.byte	0x4a
+ 1249 0214 BA000000 		.4byte	0xba
+ 1250 0218 02       		.byte	0x2
+ 1251 0219 23       		.byte	0x23
+ 1252 021a 01       		.uleb128 0x1
+ 1253 021b 00       		.byte	0
+ 1254 021c 04       		.uleb128 0x4
+ 1255 021d C5030000 		.4byte	.LASF39
+ 1256 0221 06       		.byte	0x6
+ 1257 0222 4B       		.byte	0x4b
+ 1258 0223 F7010000 		.4byte	0x1f7
+ 1259 0227 04       		.uleb128 0x4
+ 1260 0228 F2040000 		.4byte	.LASF40
+ 1261 022c 07       		.byte	0x7
+ 1262 022d 0A       		.byte	0xa
+ 1263 022e 32020000 		.4byte	0x232
+ 1264 0232 14       		.uleb128 0x14
+ 1265 0233 12070000 		.4byte	.LASF76
+ 1266 0237 08       		.byte	0x8
+ 1267 0238 08       		.byte	0x8
+ 1268 0239 16       		.byte	0x16
+ 1269 023a 77020000 		.4byte	0x277
+ 1270 023e 12       		.uleb128 0x12
+ 1271 023f 78010000 		.4byte	.LASF41
+ 1272 0243 08       		.byte	0x8
+ 1273 0244 18       		.byte	0x18
+ 1274 0245 3D050000 		.4byte	0x53d
+ 1275 0249 02       		.byte	0x2
+ 1276 024a 23       		.byte	0x23
+ 1277 024b 00       		.uleb128 0
+ 1278 024c 12       		.uleb128 0x12
+ 1279 024d 22050000 		.4byte	.LASF42
+ 1280 0251 08       		.byte	0x8
+ 1281 0252 19       		.byte	0x19
+ 1282 0253 1C020000 		.4byte	0x21c
+ 1283 0257 02       		.byte	0x2
+ 1284 0258 23       		.byte	0x23
+ARM GAS  /tmp/ccurES30.s 			page 28
+
+
+ 1285 0259 04       		.uleb128 0x4
+ 1286 025a 12       		.uleb128 0x12
+ 1287 025b 42000000 		.4byte	.LASF43
+ 1288 025f 08       		.byte	0x8
+ 1289 0260 1A       		.byte	0x1a
+ 1290 0261 9C020000 		.4byte	0x29c
+ 1291 0265 02       		.byte	0x2
+ 1292 0266 23       		.byte	0x23
+ 1293 0267 06       		.uleb128 0x6
+ 1294 0268 12       		.uleb128 0x12
+ 1295 0269 0D050000 		.4byte	.LASF44
+ 1296 026d 08       		.byte	0x8
+ 1297 026e 1C       		.byte	0x1c
+ 1298 026f BA000000 		.4byte	0xba
+ 1299 0273 02       		.byte	0x2
+ 1300 0274 23       		.byte	0x23
+ 1301 0275 07       		.uleb128 0x7
+ 1302 0276 00       		.byte	0
+ 1303 0277 15       		.uleb128 0x15
+ 1304 0278 D8040000 		.4byte	.LASF50
+ 1305 027c 01       		.byte	0x1
+ 1306 027d 07       		.byte	0x7
+ 1307 027e 0D       		.byte	0xd
+ 1308 027f 9C020000 		.4byte	0x29c
+ 1309 0283 10       		.uleb128 0x10
+ 1310 0284 67040000 		.4byte	.LASF45
+ 1311 0288 00       		.sleb128 0
+ 1312 0289 10       		.uleb128 0x10
+ 1313 028a 4D010000 		.4byte	.LASF46
+ 1314 028e 01       		.sleb128 1
+ 1315 028f 10       		.uleb128 0x10
+ 1316 0290 AC020000 		.4byte	.LASF47
+ 1317 0294 02       		.sleb128 2
+ 1318 0295 10       		.uleb128 0x10
+ 1319 0296 56000000 		.4byte	.LASF48
+ 1320 029a 03       		.sleb128 3
+ 1321 029b 00       		.byte	0
+ 1322 029c 04       		.uleb128 0x4
+ 1323 029d 48040000 		.4byte	.LASF49
+ 1324 02a1 07       		.byte	0x7
+ 1325 02a2 13       		.byte	0x13
+ 1326 02a3 77020000 		.4byte	0x277
+ 1327 02a7 15       		.uleb128 0x15
+ 1328 02a8 5C050000 		.4byte	.LASF51
+ 1329 02ac 01       		.byte	0x1
+ 1330 02ad 07       		.byte	0x7
+ 1331 02ae 16       		.byte	0x16
+ 1332 02af D2020000 		.4byte	0x2d2
+ 1333 02b3 10       		.uleb128 0x10
+ 1334 02b4 A4000000 		.4byte	.LASF52
+ 1335 02b8 00       		.sleb128 0
+ 1336 02b9 10       		.uleb128 0x10
+ 1337 02ba 2D040000 		.4byte	.LASF53
+ 1338 02be 01       		.sleb128 1
+ 1339 02bf 10       		.uleb128 0x10
+ 1340 02c0 BF050000 		.4byte	.LASF54
+ 1341 02c4 02       		.sleb128 2
+ARM GAS  /tmp/ccurES30.s 			page 29
+
+
+ 1342 02c5 10       		.uleb128 0x10
+ 1343 02c6 A4050000 		.4byte	.LASF55
+ 1344 02ca 03       		.sleb128 3
+ 1345 02cb 10       		.uleb128 0x10
+ 1346 02cc 37010000 		.4byte	.LASF56
+ 1347 02d0 04       		.sleb128 4
+ 1348 02d1 00       		.byte	0
+ 1349 02d2 04       		.uleb128 0x4
+ 1350 02d3 15080000 		.4byte	.LASF57
+ 1351 02d7 07       		.byte	0x7
+ 1352 02d8 1D       		.byte	0x1d
+ 1353 02d9 A7020000 		.4byte	0x2a7
+ 1354 02dd 15       		.uleb128 0x15
+ 1355 02de 68010000 		.4byte	.LASF58
+ 1356 02e2 01       		.byte	0x1
+ 1357 02e3 07       		.byte	0x7
+ 1358 02e4 20       		.byte	0x20
+ 1359 02e5 FC020000 		.4byte	0x2fc
+ 1360 02e9 10       		.uleb128 0x10
+ 1361 02ea CD070000 		.4byte	.LASF59
+ 1362 02ee 00       		.sleb128 0
+ 1363 02ef 10       		.uleb128 0x10
+ 1364 02f0 4A070000 		.4byte	.LASF60
+ 1365 02f4 01       		.sleb128 1
+ 1366 02f5 10       		.uleb128 0x10
+ 1367 02f6 89010000 		.4byte	.LASF61
+ 1368 02fa 02       		.sleb128 2
+ 1369 02fb 00       		.byte	0
+ 1370 02fc 04       		.uleb128 0x4
+ 1371 02fd 8A040000 		.4byte	.LASF62
+ 1372 0301 07       		.byte	0x7
+ 1373 0302 25       		.byte	0x25
+ 1374 0303 DD020000 		.4byte	0x2dd
+ 1375 0307 0F       		.uleb128 0xf
+ 1376 0308 01       		.byte	0x1
+ 1377 0309 07       		.byte	0x7
+ 1378 030a 29       		.byte	0x29
+ 1379 030b 34030000 		.4byte	0x334
+ 1380 030f 10       		.uleb128 0x10
+ 1381 0310 C4010000 		.4byte	.LASF63
+ 1382 0314 00       		.sleb128 0
+ 1383 0315 10       		.uleb128 0x10
+ 1384 0316 00000000 		.4byte	.LASF64
+ 1385 031a 01       		.sleb128 1
+ 1386 031b 10       		.uleb128 0x10
+ 1387 031c FD050000 		.4byte	.LASF65
+ 1388 0320 02       		.sleb128 2
+ 1389 0321 10       		.uleb128 0x10
+ 1390 0322 1D000000 		.4byte	.LASF66
+ 1391 0326 03       		.sleb128 3
+ 1392 0327 10       		.uleb128 0x10
+ 1393 0328 E0060000 		.4byte	.LASF67
+ 1394 032c 04       		.sleb128 4
+ 1395 032d 10       		.uleb128 0x10
+ 1396 032e 83020000 		.4byte	.LASF68
+ 1397 0332 05       		.sleb128 5
+ 1398 0333 00       		.byte	0
+ARM GAS  /tmp/ccurES30.s 			page 30
+
+
+ 1399 0334 04       		.uleb128 0x4
+ 1400 0335 5B060000 		.4byte	.LASF69
+ 1401 0339 07       		.byte	0x7
+ 1402 033a 30       		.byte	0x30
+ 1403 033b 07030000 		.4byte	0x307
+ 1404 033f 11       		.uleb128 0x11
+ 1405 0340 0C       		.byte	0xc
+ 1406 0341 07       		.byte	0x7
+ 1407 0342 3B       		.byte	0x3b
+ 1408 0343 AA030000 		.4byte	0x3aa
+ 1409 0347 12       		.uleb128 0x12
+ 1410 0348 22050000 		.4byte	.LASF42
+ 1411 034c 07       		.byte	0x7
+ 1412 034d 3D       		.byte	0x3d
+ 1413 034e 1C020000 		.4byte	0x21c
+ 1414 0352 02       		.byte	0x2
+ 1415 0353 23       		.byte	0x23
+ 1416 0354 00       		.uleb128 0
+ 1417 0355 12       		.uleb128 0x12
+ 1418 0356 42000000 		.4byte	.LASF43
+ 1419 035a 07       		.byte	0x7
+ 1420 035b 3E       		.byte	0x3e
+ 1421 035c 9C020000 		.4byte	0x29c
+ 1422 0360 02       		.byte	0x2
+ 1423 0361 23       		.byte	0x23
+ 1424 0362 02       		.uleb128 0x2
+ 1425 0363 12       		.uleb128 0x12
+ 1426 0364 74060000 		.4byte	.LASF70
+ 1427 0368 07       		.byte	0x7
+ 1428 0369 3F       		.byte	0x3f
+ 1429 036a D2020000 		.4byte	0x2d2
+ 1430 036e 02       		.byte	0x2
+ 1431 036f 23       		.byte	0x23
+ 1432 0370 03       		.uleb128 0x3
+ 1433 0371 12       		.uleb128 0x12
+ 1434 0372 55080000 		.4byte	.LASF71
+ 1435 0376 07       		.byte	0x7
+ 1436 0377 40       		.byte	0x40
+ 1437 0378 FC020000 		.4byte	0x2fc
+ 1438 037c 02       		.byte	0x2
+ 1439 037d 23       		.byte	0x23
+ 1440 037e 04       		.uleb128 0x4
+ 1441 037f 12       		.uleb128 0x12
+ 1442 0380 42020000 		.4byte	.LASF72
+ 1443 0384 07       		.byte	0x7
+ 1444 0385 41       		.byte	0x41
+ 1445 0386 E1010000 		.4byte	0x1e1
+ 1446 038a 02       		.byte	0x2
+ 1447 038b 23       		.byte	0x23
+ 1448 038c 05       		.uleb128 0x5
+ 1449 038d 12       		.uleb128 0x12
+ 1450 038e AA030000 		.4byte	.LASF73
+ 1451 0392 07       		.byte	0x7
+ 1452 0393 42       		.byte	0x42
+ 1453 0394 34030000 		.4byte	0x334
+ 1454 0398 02       		.byte	0x2
+ 1455 0399 23       		.byte	0x23
+ARM GAS  /tmp/ccurES30.s 			page 31
+
+
+ 1456 039a 06       		.uleb128 0x6
+ 1457 039b 12       		.uleb128 0x12
+ 1458 039c A9070000 		.4byte	.LASF74
+ 1459 03a0 07       		.byte	0x7
+ 1460 03a1 43       		.byte	0x43
+ 1461 03a2 9E000000 		.4byte	0x9e
+ 1462 03a6 02       		.byte	0x2
+ 1463 03a7 23       		.byte	0x23
+ 1464 03a8 08       		.uleb128 0x8
+ 1465 03a9 00       		.byte	0
+ 1466 03aa 04       		.uleb128 0x4
+ 1467 03ab 1F040000 		.4byte	.LASF75
+ 1468 03af 07       		.byte	0x7
+ 1469 03b0 44       		.byte	0x44
+ 1470 03b1 3F030000 		.4byte	0x33f
+ 1471 03b5 14       		.uleb128 0x14
+ 1472 03b6 78020000 		.4byte	.LASF77
+ 1473 03ba 14       		.byte	0x14
+ 1474 03bb 09       		.byte	0x9
+ 1475 03bc 26       		.byte	0x26
+ 1476 03bd 08040000 		.4byte	0x408
+ 1477 03c1 12       		.uleb128 0x12
+ 1478 03c2 22050000 		.4byte	.LASF42
+ 1479 03c6 09       		.byte	0x9
+ 1480 03c7 28       		.byte	0x28
+ 1481 03c8 1C020000 		.4byte	0x21c
+ 1482 03cc 02       		.byte	0x2
+ 1483 03cd 23       		.byte	0x23
+ 1484 03ce 00       		.uleb128 0
+ 1485 03cf 12       		.uleb128 0x12
+ 1486 03d0 42000000 		.4byte	.LASF43
+ 1487 03d4 09       		.byte	0x9
+ 1488 03d5 29       		.byte	0x29
+ 1489 03d6 D0000000 		.4byte	0xd0
+ 1490 03da 02       		.byte	0x2
+ 1491 03db 23       		.byte	0x23
+ 1492 03dc 04       		.uleb128 0x4
+ 1493 03dd 12       		.uleb128 0x12
+ 1494 03de 74060000 		.4byte	.LASF70
+ 1495 03e2 09       		.byte	0x9
+ 1496 03e3 2A       		.byte	0x2a
+ 1497 03e4 D0000000 		.4byte	0xd0
+ 1498 03e8 02       		.byte	0x2
+ 1499 03e9 23       		.byte	0x23
+ 1500 03ea 08       		.uleb128 0x8
+ 1501 03eb 12       		.uleb128 0x12
+ 1502 03ec 55080000 		.4byte	.LASF71
+ 1503 03f0 09       		.byte	0x9
+ 1504 03f1 2B       		.byte	0x2b
+ 1505 03f2 D0000000 		.4byte	0xd0
+ 1506 03f6 02       		.byte	0x2
+ 1507 03f7 23       		.byte	0x23
+ 1508 03f8 0C       		.uleb128 0xc
+ 1509 03f9 12       		.uleb128 0x12
+ 1510 03fa 8C050000 		.4byte	.LASF78
+ 1511 03fe 09       		.byte	0x9
+ 1512 03ff 2C       		.byte	0x2c
+ARM GAS  /tmp/ccurES30.s 			page 32
+
+
+ 1513 0400 D0000000 		.4byte	0xd0
+ 1514 0404 02       		.byte	0x2
+ 1515 0405 23       		.byte	0x23
+ 1516 0406 10       		.uleb128 0x10
+ 1517 0407 00       		.byte	0
+ 1518 0408 04       		.uleb128 0x4
+ 1519 0409 9C070000 		.4byte	.LASF79
+ 1520 040d 09       		.byte	0x9
+ 1521 040e 2D       		.byte	0x2d
+ 1522 040f B5030000 		.4byte	0x3b5
+ 1523 0413 04       		.uleb128 0x4
+ 1524 0414 74080000 		.4byte	.LASF80
+ 1525 0418 08       		.byte	0x8
+ 1526 0419 0C       		.byte	0xc
+ 1527 041a 1E040000 		.4byte	0x41e
+ 1528 041e 14       		.uleb128 0x14
+ 1529 041f BD000000 		.4byte	.LASF81
+ 1530 0423 1C       		.byte	0x1c
+ 1531 0424 08       		.byte	0x8
+ 1532 0425 20       		.byte	0x20
+ 1533 0426 8D040000 		.4byte	0x48d
+ 1534 042a 12       		.uleb128 0x12
+ 1535 042b 5F080000 		.4byte	.LASF82
+ 1536 042f 08       		.byte	0x8
+ 1537 0430 22       		.byte	0x22
+ 1538 0431 8D040000 		.4byte	0x48d
+ 1539 0435 02       		.byte	0x2
+ 1540 0436 23       		.byte	0x23
+ 1541 0437 00       		.uleb128 0
+ 1542 0438 12       		.uleb128 0x12
+ 1543 0439 17040000 		.4byte	.LASF83
+ 1544 043d 08       		.byte	0x8
+ 1545 043e 23       		.byte	0x23
+ 1546 043f BF040000 		.4byte	0x4bf
+ 1547 0443 02       		.byte	0x2
+ 1548 0444 23       		.byte	0x23
+ 1549 0445 04       		.uleb128 0x4
+ 1550 0446 12       		.uleb128 0x12
+ 1551 0447 AC040000 		.4byte	.LASF84
+ 1552 044b 08       		.byte	0x8
+ 1553 044c 24       		.byte	0x24
+ 1554 044d E0040000 		.4byte	0x4e0
+ 1555 0451 02       		.byte	0x2
+ 1556 0452 23       		.byte	0x23
+ 1557 0453 08       		.uleb128 0x8
+ 1558 0454 12       		.uleb128 0x12
+ 1559 0455 81040000 		.4byte	.LASF85
+ 1560 0459 08       		.byte	0x8
+ 1561 045a 25       		.byte	0x25
+ 1562 045b EB040000 		.4byte	0x4eb
+ 1563 045f 02       		.byte	0x2
+ 1564 0460 23       		.byte	0x23
+ 1565 0461 0C       		.uleb128 0xc
+ 1566 0462 12       		.uleb128 0x12
+ 1567 0463 B5070000 		.4byte	.LASF86
+ 1568 0467 08       		.byte	0x8
+ 1569 0468 26       		.byte	0x26
+ARM GAS  /tmp/ccurES30.s 			page 33
+
+
+ 1570 0469 F6040000 		.4byte	0x4f6
+ 1571 046d 02       		.byte	0x2
+ 1572 046e 23       		.byte	0x23
+ 1573 046f 10       		.uleb128 0x10
+ 1574 0470 12       		.uleb128 0x12
+ 1575 0471 24010000 		.4byte	.LASF87
+ 1576 0475 08       		.byte	0x8
+ 1577 0476 27       		.byte	0x27
+ 1578 0477 1C050000 		.4byte	0x51c
+ 1579 047b 02       		.byte	0x2
+ 1580 047c 23       		.byte	0x23
+ 1581 047d 14       		.uleb128 0x14
+ 1582 047e 12       		.uleb128 0x12
+ 1583 047f A9070000 		.4byte	.LASF74
+ 1584 0483 08       		.byte	0x8
+ 1585 0484 28       		.byte	0x28
+ 1586 0485 9E000000 		.4byte	0x9e
+ 1587 0489 02       		.byte	0x2
+ 1588 048a 23       		.byte	0x23
+ 1589 048b 18       		.uleb128 0x18
+ 1590 048c 00       		.byte	0
+ 1591 048d 04       		.uleb128 0x4
+ 1592 048e B4010000 		.4byte	.LASF88
+ 1593 0492 08       		.byte	0x8
+ 1594 0493 0F       		.byte	0xf
+ 1595 0494 98040000 		.4byte	0x498
+ 1596 0498 06       		.uleb128 0x6
+ 1597 0499 04       		.byte	0x4
+ 1598 049a 9E040000 		.4byte	0x49e
+ 1599 049e 16       		.uleb128 0x16
+ 1600 049f 01       		.byte	0x1
+ 1601 04a0 AF000000 		.4byte	0xaf
+ 1602 04a4 B3040000 		.4byte	0x4b3
+ 1603 04a8 17       		.uleb128 0x17
+ 1604 04a9 B3040000 		.4byte	0x4b3
+ 1605 04ad 17       		.uleb128 0x17
+ 1606 04ae B9040000 		.4byte	0x4b9
+ 1607 04b2 00       		.byte	0
+ 1608 04b3 06       		.uleb128 0x6
+ 1609 04b4 04       		.byte	0x4
+ 1610 04b5 27020000 		.4byte	0x227
+ 1611 04b9 06       		.uleb128 0x6
+ 1612 04ba 04       		.byte	0x4
+ 1613 04bb AA030000 		.4byte	0x3aa
+ 1614 04bf 04       		.uleb128 0x4
+ 1615 04c0 6E000000 		.4byte	.LASF89
+ 1616 04c4 08       		.byte	0x8
+ 1617 04c5 10       		.byte	0x10
+ 1618 04c6 CA040000 		.4byte	0x4ca
+ 1619 04ca 06       		.uleb128 0x6
+ 1620 04cb 04       		.byte	0x4
+ 1621 04cc D0040000 		.4byte	0x4d0
+ 1622 04d0 16       		.uleb128 0x16
+ 1623 04d1 01       		.byte	0x1
+ 1624 04d2 AF000000 		.4byte	0xaf
+ 1625 04d6 E0040000 		.4byte	0x4e0
+ 1626 04da 17       		.uleb128 0x17
+ARM GAS  /tmp/ccurES30.s 			page 34
+
+
+ 1627 04db B3040000 		.4byte	0x4b3
+ 1628 04df 00       		.byte	0
+ 1629 04e0 04       		.uleb128 0x4
+ 1630 04e1 E2010000 		.4byte	.LASF90
+ 1631 04e5 08       		.byte	0x8
+ 1632 04e6 11       		.byte	0x11
+ 1633 04e7 CA040000 		.4byte	0x4ca
+ 1634 04eb 04       		.uleb128 0x4
+ 1635 04ec E9070000 		.4byte	.LASF91
+ 1636 04f0 08       		.byte	0x8
+ 1637 04f1 12       		.byte	0x12
+ 1638 04f2 CA040000 		.4byte	0x4ca
+ 1639 04f6 04       		.uleb128 0x4
+ 1640 04f7 C8060000 		.4byte	.LASF92
+ 1641 04fb 08       		.byte	0x8
+ 1642 04fc 13       		.byte	0x13
+ 1643 04fd 01050000 		.4byte	0x501
+ 1644 0501 06       		.uleb128 0x6
+ 1645 0502 04       		.byte	0x4
+ 1646 0503 07050000 		.4byte	0x507
+ 1647 0507 16       		.uleb128 0x16
+ 1648 0508 01       		.byte	0x1
+ 1649 0509 AF000000 		.4byte	0xaf
+ 1650 050d 1C050000 		.4byte	0x51c
+ 1651 0511 17       		.uleb128 0x17
+ 1652 0512 B3040000 		.4byte	0x4b3
+ 1653 0516 17       		.uleb128 0x17
+ 1654 0517 9C020000 		.4byte	0x29c
+ 1655 051b 00       		.byte	0
+ 1656 051c 04       		.uleb128 0x4
+ 1657 051d F0000000 		.4byte	.LASF93
+ 1658 0521 08       		.byte	0x8
+ 1659 0522 14       		.byte	0x14
+ 1660 0523 27050000 		.4byte	0x527
+ 1661 0527 06       		.uleb128 0x6
+ 1662 0528 04       		.byte	0x4
+ 1663 0529 2D050000 		.4byte	0x52d
+ 1664 052d 16       		.uleb128 0x16
+ 1665 052e 01       		.byte	0x1
+ 1666 052f D0000000 		.4byte	0xd0
+ 1667 0533 3D050000 		.4byte	0x53d
+ 1668 0537 17       		.uleb128 0x17
+ 1669 0538 3D050000 		.4byte	0x53d
+ 1670 053c 00       		.byte	0
+ 1671 053d 06       		.uleb128 0x6
+ 1672 053e 04       		.byte	0x4
+ 1673 053f 13040000 		.4byte	0x413
+ 1674 0543 18       		.uleb128 0x18
+ 1675 0544 01       		.byte	0x1
+ 1676 0545 CB020000 		.4byte	.LASF97
+ 1677 0549 01       		.byte	0x1
+ 1678 054a 28       		.byte	0x28
+ 1679 054b 01       		.byte	0x1
+ 1680 054c AF000000 		.4byte	0xaf
+ 1681 0550 00000000 		.4byte	.LFB40
+ 1682 0554 34010000 		.4byte	.LFE40
+ 1683 0558 00000000 		.4byte	.LLST0
+ARM GAS  /tmp/ccurES30.s 			page 35
+
+
+ 1684 055c 01       		.byte	0x1
+ 1685 055d 9A050000 		.4byte	0x59a
+ 1686 0561 19       		.uleb128 0x19
+ 1687 0562 05030000 		.4byte	.LASF99
+ 1688 0566 01       		.byte	0x1
+ 1689 0567 28       		.byte	0x28
+ 1690 0568 B9040000 		.4byte	0x4b9
+ 1691 056c 02       		.byte	0x2
+ 1692 056d 91       		.byte	0x91
+ 1693 056e 5C       		.sleb128 -36
+ 1694 056f 1A       		.uleb128 0x1a
+ 1695 0570 A4020000 		.4byte	.LASF94
+ 1696 0574 01       		.byte	0x1
+ 1697 0575 2A       		.byte	0x2a
+ 1698 0576 08040000 		.4byte	0x408
+ 1699 057a 02       		.byte	0x2
+ 1700 057b 91       		.byte	0x91
+ 1701 057c 60       		.sleb128 -32
+ 1702 057d 1A       		.uleb128 0x1a
+ 1703 057e C6070000 		.4byte	.LASF95
+ 1704 0582 01       		.byte	0x1
+ 1705 0583 2B       		.byte	0x2b
+ 1706 0584 AF000000 		.4byte	0xaf
+ 1707 0588 02       		.byte	0x2
+ 1708 0589 91       		.byte	0x91
+ 1709 058a 76       		.sleb128 -10
+ 1710 058b 1A       		.uleb128 0x1a
+ 1711 058c B8060000 		.4byte	.LASF96
+ 1712 0590 01       		.byte	0x1
+ 1713 0591 2C       		.byte	0x2c
+ 1714 0592 AF000000 		.4byte	0xaf
+ 1715 0596 02       		.byte	0x2
+ 1716 0597 91       		.byte	0x91
+ 1717 0598 77       		.sleb128 -9
+ 1718 0599 00       		.byte	0
+ 1719 059a 1B       		.uleb128 0x1b
+ 1720 059b 01       		.byte	0x1
+ 1721 059c 6E050000 		.4byte	.LASF98
+ 1722 05a0 01       		.byte	0x1
+ 1723 05a1 5F       		.byte	0x5f
+ 1724 05a2 01       		.byte	0x1
+ 1725 05a3 AF000000 		.4byte	0xaf
+ 1726 05a7 34010000 		.4byte	.LFB41
+ 1727 05ab 60010000 		.4byte	.LFE41
+ 1728 05af 38000000 		.4byte	.LLST1
+ 1729 05b3 01       		.byte	0x1
+ 1730 05b4 C7050000 		.4byte	0x5c7
+ 1731 05b8 19       		.uleb128 0x19
+ 1732 05b9 33080000 		.4byte	.LASF100
+ 1733 05bd 01       		.byte	0x1
+ 1734 05be 5F       		.byte	0x5f
+ 1735 05bf C7050000 		.4byte	0x5c7
+ 1736 05c3 02       		.byte	0x2
+ 1737 05c4 91       		.byte	0x91
+ 1738 05c5 7C       		.sleb128 -4
+ 1739 05c6 00       		.byte	0
+ 1740 05c7 06       		.uleb128 0x6
+ARM GAS  /tmp/ccurES30.s 			page 36
+
+
+ 1741 05c8 04       		.byte	0x4
+ 1742 05c9 32020000 		.4byte	0x232
+ 1743 05cd 1B       		.uleb128 0x1b
+ 1744 05ce 01       		.byte	0x1
+ 1745 05cf FC060000 		.4byte	.LASF101
+ 1746 05d3 01       		.byte	0x1
+ 1747 05d4 65       		.byte	0x65
+ 1748 05d5 01       		.byte	0x1
+ 1749 05d6 AF000000 		.4byte	0xaf
+ 1750 05da 60010000 		.4byte	.LFB42
+ 1751 05de 8C010000 		.4byte	.LFE42
+ 1752 05e2 64000000 		.4byte	.LLST2
+ 1753 05e6 01       		.byte	0x1
+ 1754 05e7 FA050000 		.4byte	0x5fa
+ 1755 05eb 19       		.uleb128 0x19
+ 1756 05ec 33080000 		.4byte	.LASF100
+ 1757 05f0 01       		.byte	0x1
+ 1758 05f1 65       		.byte	0x65
+ 1759 05f2 C7050000 		.4byte	0x5c7
+ 1760 05f6 02       		.byte	0x2
+ 1761 05f7 91       		.byte	0x91
+ 1762 05f8 7C       		.sleb128 -4
+ 1763 05f9 00       		.byte	0
+ 1764 05fa 1B       		.uleb128 0x1b
+ 1765 05fb 01       		.byte	0x1
+ 1766 05fc 87070000 		.4byte	.LASF102
+ 1767 0600 01       		.byte	0x1
+ 1768 0601 6B       		.byte	0x6b
+ 1769 0602 01       		.byte	0x1
+ 1770 0603 AF000000 		.4byte	0xaf
+ 1771 0607 8C010000 		.4byte	.LFB43
+ 1772 060b C4010000 		.4byte	.LFE43
+ 1773 060f 90000000 		.4byte	.LLST3
+ 1774 0613 01       		.byte	0x1
+ 1775 0614 35060000 		.4byte	0x635
+ 1776 0618 19       		.uleb128 0x19
+ 1777 0619 33080000 		.4byte	.LASF100
+ 1778 061d 01       		.byte	0x1
+ 1779 061e 6B       		.byte	0x6b
+ 1780 061f C7050000 		.4byte	0x5c7
+ 1781 0623 02       		.byte	0x2
+ 1782 0624 91       		.byte	0x91
+ 1783 0625 74       		.sleb128 -12
+ 1784 0626 1A       		.uleb128 0x1a
+ 1785 0627 A5030000 		.4byte	.LASF103
+ 1786 062b 01       		.byte	0x1
+ 1787 062c 6D       		.byte	0x6d
+ 1788 062d C5000000 		.4byte	0xc5
+ 1789 0631 02       		.byte	0x2
+ 1790 0632 91       		.byte	0x91
+ 1791 0633 7C       		.sleb128 -4
+ 1792 0634 00       		.byte	0
+ 1793 0635 1B       		.uleb128 0x1b
+ 1794 0636 01       		.byte	0x1
+ 1795 0637 34060000 		.4byte	.LASF104
+ 1796 063b 01       		.byte	0x1
+ 1797 063c 73       		.byte	0x73
+ARM GAS  /tmp/ccurES30.s 			page 37
+
+
+ 1798 063d 01       		.byte	0x1
+ 1799 063e AF000000 		.4byte	0xaf
+ 1800 0642 C4010000 		.4byte	.LFB44
+ 1801 0646 40020000 		.4byte	.LFE44
+ 1802 064a BC000000 		.4byte	.LLST4
+ 1803 064e 01       		.byte	0x1
+ 1804 064f 70060000 		.4byte	0x670
+ 1805 0653 19       		.uleb128 0x19
+ 1806 0654 33080000 		.4byte	.LASF100
+ 1807 0658 01       		.byte	0x1
+ 1808 0659 73       		.byte	0x73
+ 1809 065a C7050000 		.4byte	0x5c7
+ 1810 065e 02       		.byte	0x2
+ 1811 065f 91       		.byte	0x91
+ 1812 0660 7C       		.sleb128 -4
+ 1813 0661 19       		.uleb128 0x19
+ 1814 0662 42000000 		.4byte	.LASF43
+ 1815 0666 01       		.byte	0x1
+ 1816 0667 73       		.byte	0x73
+ 1817 0668 9C020000 		.4byte	0x29c
+ 1818 066c 02       		.byte	0x2
+ 1819 066d 91       		.byte	0x91
+ 1820 066e 7B       		.sleb128 -5
+ 1821 066f 00       		.byte	0
+ 1822 0670 1C       		.uleb128 0x1c
+ 1823 0671 01       		.byte	0x1
+ 1824 0672 DE050000 		.4byte	.LASF123
+ 1825 0676 01       		.byte	0x1
+ 1826 0677 79       		.byte	0x79
+ 1827 0678 D0000000 		.4byte	0xd0
+ 1828 067c 40020000 		.4byte	.LFB45
+ 1829 0680 4C020000 		.4byte	.LFE45
+ 1830 0684 02       		.byte	0x2
+ 1831 0685 7D       		.byte	0x7d
+ 1832 0686 00       		.sleb128 0
+ 1833 0687 01       		.byte	0x1
+ 1834 0688 1B       		.uleb128 0x1b
+ 1835 0689 01       		.byte	0x1
+ 1836 068a FD030000 		.4byte	.LASF105
+ 1837 068e 01       		.byte	0x1
+ 1838 068f 7E       		.byte	0x7e
+ 1839 0690 01       		.byte	0x1
+ 1840 0691 AF000000 		.4byte	0xaf
+ 1841 0695 4C020000 		.4byte	.LFB46
+ 1842 0699 C0030000 		.4byte	.LFE46
+ 1843 069d E8000000 		.4byte	.LLST5
+ 1844 06a1 01       		.byte	0x1
+ 1845 06a2 C3060000 		.4byte	0x6c3
+ 1846 06a6 19       		.uleb128 0x19
+ 1847 06a7 98050000 		.4byte	.LASF106
+ 1848 06ab 01       		.byte	0x1
+ 1849 06ac 7E       		.byte	0x7e
+ 1850 06ad C7050000 		.4byte	0x5c7
+ 1851 06b1 02       		.byte	0x2
+ 1852 06b2 91       		.byte	0x91
+ 1853 06b3 74       		.sleb128 -12
+ 1854 06b4 1A       		.uleb128 0x1a
+ARM GAS  /tmp/ccurES30.s 			page 38
+
+
+ 1855 06b5 B8060000 		.4byte	.LASF96
+ 1856 06b9 01       		.byte	0x1
+ 1857 06ba 80       		.byte	0x80
+ 1858 06bb BA000000 		.4byte	0xba
+ 1859 06bf 02       		.byte	0x2
+ 1860 06c0 91       		.byte	0x91
+ 1861 06c1 7F       		.sleb128 -1
+ 1862 06c2 00       		.byte	0
+ 1863 06c3 1B       		.uleb128 0x1b
+ 1864 06c4 01       		.byte	0x1
+ 1865 06c5 89080000 		.4byte	.LASF107
+ 1866 06c9 01       		.byte	0x1
+ 1867 06ca B4       		.byte	0xb4
+ 1868 06cb 01       		.byte	0x1
+ 1869 06cc AF000000 		.4byte	0xaf
+ 1870 06d0 C0030000 		.4byte	.LFB47
+ 1871 06d4 D8030000 		.4byte	.LFE47
+ 1872 06d8 14010000 		.4byte	.LLST6
+ 1873 06dc 01       		.byte	0x1
+ 1874 06dd F0060000 		.4byte	0x6f0
+ 1875 06e1 19       		.uleb128 0x19
+ 1876 06e2 98050000 		.4byte	.LASF106
+ 1877 06e6 01       		.byte	0x1
+ 1878 06e7 B4       		.byte	0xb4
+ 1879 06e8 C7050000 		.4byte	0x5c7
+ 1880 06ec 02       		.byte	0x2
+ 1881 06ed 91       		.byte	0x91
+ 1882 06ee 7C       		.sleb128 -4
+ 1883 06ef 00       		.byte	0
+ 1884 06f0 1B       		.uleb128 0x1b
+ 1885 06f1 01       		.byte	0x1
+ 1886 06f2 21070000 		.4byte	.LASF108
+ 1887 06f6 01       		.byte	0x1
+ 1888 06f7 BC       		.byte	0xbc
+ 1889 06f8 01       		.byte	0x1
+ 1890 06f9 AF000000 		.4byte	0xaf
+ 1891 06fd D8030000 		.4byte	.LFB48
+ 1892 0701 44040000 		.4byte	.LFE48
+ 1893 0705 40010000 		.4byte	.LLST7
+ 1894 0709 01       		.byte	0x1
+ 1895 070a 39070000 		.4byte	0x739
+ 1896 070e 19       		.uleb128 0x19
+ 1897 070f 98050000 		.4byte	.LASF106
+ 1898 0713 01       		.byte	0x1
+ 1899 0714 BC       		.byte	0xbc
+ 1900 0715 C7050000 		.4byte	0x5c7
+ 1901 0719 02       		.byte	0x2
+ 1902 071a 91       		.byte	0x91
+ 1903 071b 74       		.sleb128 -12
+ 1904 071c 19       		.uleb128 0x19
+ 1905 071d 51060000 		.4byte	.LASF109
+ 1906 0721 01       		.byte	0x1
+ 1907 0722 BC       		.byte	0xbc
+ 1908 0723 EC010000 		.4byte	0x1ec
+ 1909 0727 02       		.byte	0x2
+ 1910 0728 91       		.byte	0x91
+ 1911 0729 70       		.sleb128 -16
+ARM GAS  /tmp/ccurES30.s 			page 39
+
+
+ 1912 072a 1A       		.uleb128 0x1a
+ 1913 072b B8060000 		.4byte	.LASF96
+ 1914 072f 01       		.byte	0x1
+ 1915 0730 BE       		.byte	0xbe
+ 1916 0731 BA000000 		.4byte	0xba
+ 1917 0735 02       		.byte	0x2
+ 1918 0736 91       		.byte	0x91
+ 1919 0737 7F       		.sleb128 -1
+ 1920 0738 00       		.byte	0
+ 1921 0739 1B       		.uleb128 0x1b
+ 1922 073a 01       		.byte	0x1
+ 1923 073b 65070000 		.4byte	.LASF110
+ 1924 073f 01       		.byte	0x1
+ 1925 0740 D3       		.byte	0xd3
+ 1926 0741 01       		.byte	0x1
+ 1927 0742 AF000000 		.4byte	0xaf
+ 1928 0746 44040000 		.4byte	.LFB49
+ 1929 074a B8040000 		.4byte	.LFE49
+ 1930 074e 6C010000 		.4byte	.LLST8
+ 1931 0752 01       		.byte	0x1
+ 1932 0753 74070000 		.4byte	0x774
+ 1933 0757 19       		.uleb128 0x19
+ 1934 0758 98050000 		.4byte	.LASF106
+ 1935 075c 01       		.byte	0x1
+ 1936 075d D3       		.byte	0xd3
+ 1937 075e C7050000 		.4byte	0x5c7
+ 1938 0762 02       		.byte	0x2
+ 1939 0763 91       		.byte	0x91
+ 1940 0764 74       		.sleb128 -12
+ 1941 0765 1A       		.uleb128 0x1a
+ 1942 0766 B8060000 		.4byte	.LASF96
+ 1943 076a 01       		.byte	0x1
+ 1944 076b D6       		.byte	0xd6
+ 1945 076c BA000000 		.4byte	0xba
+ 1946 0770 02       		.byte	0x2
+ 1947 0771 91       		.byte	0x91
+ 1948 0772 7F       		.sleb128 -1
+ 1949 0773 00       		.byte	0
+ 1950 0774 0A       		.uleb128 0xa
+ 1951 0775 BA000000 		.4byte	0xba
+ 1952 0779 84070000 		.4byte	0x784
+ 1953 077d 0B       		.uleb128 0xb
+ 1954 077e 97000000 		.4byte	0x97
+ 1955 0782 29       		.byte	0x29
+ 1956 0783 00       		.byte	0
+ 1957 0784 1A       		.uleb128 0x1a
+ 1958 0785 F9020000 		.4byte	.LASF111
+ 1959 0789 01       		.byte	0x1
+ 1960 078a 18       		.byte	0x18
+ 1961 078b 74070000 		.4byte	0x774
+ 1962 078f 05       		.byte	0x5
+ 1963 0790 03       		.byte	0x3
+ 1964 0791 00000000 		.4byte	gpioIntMode
+ 1965 0795 1A       		.uleb128 0x1a
+ 1966 0796 7D000000 		.4byte	.LASF112
+ 1967 079a 01       		.byte	0x1
+ 1968 079b 19       		.byte	0x19
+ARM GAS  /tmp/ccurES30.s 			page 40
+
+
+ 1969 079c BA000000 		.4byte	0xba
+ 1970 07a0 05       		.byte	0x5
+ 1971 07a1 03       		.byte	0x3
+ 1972 07a2 00000000 		.4byte	gpioDeviceCount
+ 1973 07a6 1A       		.uleb128 0x1a
+ 1974 07a7 B6040000 		.4byte	.LASF113
+ 1975 07ab 01       		.byte	0x1
+ 1976 07ac 1A       		.byte	0x1a
+ 1977 07ad E1010000 		.4byte	0x1e1
+ 1978 07b1 05       		.byte	0x5
+ 1979 07b2 03       		.byte	0x3
+ 1980 07b3 2A000000 		.4byte	gpioIntEnable
+ 1981 07b7 0A       		.uleb128 0xa
+ 1982 07b8 EC010000 		.4byte	0x1ec
+ 1983 07bc C7070000 		.4byte	0x7c7
+ 1984 07c0 0B       		.uleb128 0xb
+ 1985 07c1 97000000 		.4byte	0x97
+ 1986 07c5 29       		.byte	0x29
+ 1987 07c6 00       		.byte	0
+ 1988 07c7 1A       		.uleb128 0x1a
+ 1989 07c8 64020000 		.4byte	.LASF114
+ 1990 07cc 01       		.byte	0x1
+ 1991 07cd 1B       		.byte	0x1b
+ 1992 07ce B7070000 		.4byte	0x7b7
+ 1993 07d2 05       		.byte	0x5
+ 1994 07d3 03       		.byte	0x3
+ 1995 07d4 2C000000 		.4byte	gpioIntCallbackList
+ 1996 07d8 1A       		.uleb128 0x1a
+ 1997 07d9 4C020000 		.4byte	.LASF115
+ 1998 07dd 01       		.byte	0x1
+ 1999 07de 1C       		.byte	0x1c
+ 2000 07df E1010000 		.4byte	0x1e1
+ 2001 07e3 05       		.byte	0x5
+ 2002 07e4 03       		.byte	0x3
+ 2003 07e5 D4000000 		.4byte	gpioIntCallbackAttached
+ 2004 07e9 0A       		.uleb128 0xa
+ 2005 07ea AA030000 		.4byte	0x3aa
+ 2006 07ee F9070000 		.4byte	0x7f9
+ 2007 07f2 0B       		.uleb128 0xb
+ 2008 07f3 97000000 		.4byte	0x97
+ 2009 07f7 29       		.byte	0x29
+ 2010 07f8 00       		.byte	0
+ 2011 07f9 1A       		.uleb128 0x1a
+ 2012 07fa A0040000 		.4byte	.LASF116
+ 2013 07fe 01       		.byte	0x1
+ 2014 07ff 1D       		.byte	0x1d
+ 2015 0800 E9070000 		.4byte	0x7e9
+ 2016 0804 05       		.byte	0x5
+ 2017 0805 03       		.byte	0x3
+ 2018 0806 D8000000 		.4byte	gpioIntList
+ 2019 080a 1A       		.uleb128 0x1a
+ 2020 080b A1010000 		.4byte	.LASF117
+ 2021 080f 01       		.byte	0x1
+ 2022 0810 1E       		.byte	0x1e
+ 2023 0811 BA000000 		.4byte	0xba
+ 2024 0815 05       		.byte	0x5
+ 2025 0816 03       		.byte	0x3
+ARM GAS  /tmp/ccurES30.s 			page 41
+
+
+ 2026 0817 D0020000 		.4byte	gpioIntId
+ 2027 081b 0A       		.uleb128 0xa
+ 2028 081c E1010000 		.4byte	0x1e1
+ 2029 0820 2B080000 		.4byte	0x82b
+ 2030 0824 0B       		.uleb128 0xb
+ 2031 0825 97000000 		.4byte	0x97
+ 2032 0829 29       		.byte	0x29
+ 2033 082a 00       		.byte	0
+ 2034 082b 1A       		.uleb128 0x1a
+ 2035 082c E0020000 		.4byte	.LASF118
+ 2036 0830 01       		.byte	0x1
+ 2037 0831 1F       		.byte	0x1f
+ 2038 0832 1B080000 		.4byte	0x81b
+ 2039 0836 05       		.byte	0x5
+ 2040 0837 03       		.byte	0x3
+ 2041 0838 D4020000 		.4byte	gpioIntBusy
+ 2042 083c 1A       		.uleb128 0x1a
+ 2043 083d 3A050000 		.4byte	.LASF119
+ 2044 0841 01       		.byte	0x1
+ 2045 0842 20       		.byte	0x20
+ 2046 0843 E1010000 		.4byte	0x1e1
+ 2047 0847 05       		.byte	0x5
+ 2048 0848 03       		.byte	0x3
+ 2049 0849 FE020000 		.4byte	gpioIntInit
+ 2050 084d 1D       		.uleb128 0x1d
+ 2051 084e E3000000 		.4byte	.LASF124
+ 2052 0852 0A       		.byte	0xa
+ 2053 0853 E602     		.2byte	0x2e6
+ 2054 0855 5B080000 		.4byte	0x85b
+ 2055 0859 01       		.byte	0x1
+ 2056 085a 01       		.byte	0x1
+ 2057 085b 08       		.uleb128 0x8
+ 2058 085c C5000000 		.4byte	0xc5
+ 2059 0860 00       		.byte	0
+ 2060              		.section	.debug_abbrev,"",%progbits
+ 2061              	.Ldebug_abbrev0:
+ 2062 0000 01       		.uleb128 0x1
+ 2063 0001 11       		.uleb128 0x11
+ 2064 0002 01       		.byte	0x1
+ 2065 0003 25       		.uleb128 0x25
+ 2066 0004 0E       		.uleb128 0xe
+ 2067 0005 13       		.uleb128 0x13
+ 2068 0006 0B       		.uleb128 0xb
+ 2069 0007 03       		.uleb128 0x3
+ 2070 0008 0E       		.uleb128 0xe
+ 2071 0009 1B       		.uleb128 0x1b
+ 2072 000a 0E       		.uleb128 0xe
+ 2073 000b 11       		.uleb128 0x11
+ 2074 000c 01       		.uleb128 0x1
+ 2075 000d 12       		.uleb128 0x12
+ 2076 000e 01       		.uleb128 0x1
+ 2077 000f 10       		.uleb128 0x10
+ 2078 0010 06       		.uleb128 0x6
+ 2079 0011 00       		.byte	0
+ 2080 0012 00       		.byte	0
+ 2081 0013 02       		.uleb128 0x2
+ 2082 0014 24       		.uleb128 0x24
+ARM GAS  /tmp/ccurES30.s 			page 42
+
+
+ 2083 0015 00       		.byte	0
+ 2084 0016 0B       		.uleb128 0xb
+ 2085 0017 0B       		.uleb128 0xb
+ 2086 0018 3E       		.uleb128 0x3e
+ 2087 0019 0B       		.uleb128 0xb
+ 2088 001a 03       		.uleb128 0x3
+ 2089 001b 0E       		.uleb128 0xe
+ 2090 001c 00       		.byte	0
+ 2091 001d 00       		.byte	0
+ 2092 001e 03       		.uleb128 0x3
+ 2093 001f 24       		.uleb128 0x24
+ 2094 0020 00       		.byte	0
+ 2095 0021 0B       		.uleb128 0xb
+ 2096 0022 0B       		.uleb128 0xb
+ 2097 0023 3E       		.uleb128 0x3e
+ 2098 0024 0B       		.uleb128 0xb
+ 2099 0025 03       		.uleb128 0x3
+ 2100 0026 08       		.uleb128 0x8
+ 2101 0027 00       		.byte	0
+ 2102 0028 00       		.byte	0
+ 2103 0029 04       		.uleb128 0x4
+ 2104 002a 16       		.uleb128 0x16
+ 2105 002b 00       		.byte	0
+ 2106 002c 03       		.uleb128 0x3
+ 2107 002d 0E       		.uleb128 0xe
+ 2108 002e 3A       		.uleb128 0x3a
+ 2109 002f 0B       		.uleb128 0xb
+ 2110 0030 3B       		.uleb128 0x3b
+ 2111 0031 0B       		.uleb128 0xb
+ 2112 0032 49       		.uleb128 0x49
+ 2113 0033 13       		.uleb128 0x13
+ 2114 0034 00       		.byte	0
+ 2115 0035 00       		.byte	0
+ 2116 0036 05       		.uleb128 0x5
+ 2117 0037 0F       		.uleb128 0xf
+ 2118 0038 00       		.byte	0
+ 2119 0039 0B       		.uleb128 0xb
+ 2120 003a 0B       		.uleb128 0xb
+ 2121 003b 00       		.byte	0
+ 2122 003c 00       		.byte	0
+ 2123 003d 06       		.uleb128 0x6
+ 2124 003e 0F       		.uleb128 0xf
+ 2125 003f 00       		.byte	0
+ 2126 0040 0B       		.uleb128 0xb
+ 2127 0041 0B       		.uleb128 0xb
+ 2128 0042 49       		.uleb128 0x49
+ 2129 0043 13       		.uleb128 0x13
+ 2130 0044 00       		.byte	0
+ 2131 0045 00       		.byte	0
+ 2132 0046 07       		.uleb128 0x7
+ 2133 0047 15       		.uleb128 0x15
+ 2134 0048 00       		.byte	0
+ 2135 0049 27       		.uleb128 0x27
+ 2136 004a 0C       		.uleb128 0xc
+ 2137 004b 00       		.byte	0
+ 2138 004c 00       		.byte	0
+ 2139 004d 08       		.uleb128 0x8
+ARM GAS  /tmp/ccurES30.s 			page 43
+
+
+ 2140 004e 35       		.uleb128 0x35
+ 2141 004f 00       		.byte	0
+ 2142 0050 49       		.uleb128 0x49
+ 2143 0051 13       		.uleb128 0x13
+ 2144 0052 00       		.byte	0
+ 2145 0053 00       		.byte	0
+ 2146 0054 09       		.uleb128 0x9
+ 2147 0055 26       		.uleb128 0x26
+ 2148 0056 00       		.byte	0
+ 2149 0057 49       		.uleb128 0x49
+ 2150 0058 13       		.uleb128 0x13
+ 2151 0059 00       		.byte	0
+ 2152 005a 00       		.byte	0
+ 2153 005b 0A       		.uleb128 0xa
+ 2154 005c 01       		.uleb128 0x1
+ 2155 005d 01       		.byte	0x1
+ 2156 005e 49       		.uleb128 0x49
+ 2157 005f 13       		.uleb128 0x13
+ 2158 0060 01       		.uleb128 0x1
+ 2159 0061 13       		.uleb128 0x13
+ 2160 0062 00       		.byte	0
+ 2161 0063 00       		.byte	0
+ 2162 0064 0B       		.uleb128 0xb
+ 2163 0065 21       		.uleb128 0x21
+ 2164 0066 00       		.byte	0
+ 2165 0067 49       		.uleb128 0x49
+ 2166 0068 13       		.uleb128 0x13
+ 2167 0069 2F       		.uleb128 0x2f
+ 2168 006a 0B       		.uleb128 0xb
+ 2169 006b 00       		.byte	0
+ 2170 006c 00       		.byte	0
+ 2171 006d 0C       		.uleb128 0xc
+ 2172 006e 13       		.uleb128 0x13
+ 2173 006f 01       		.byte	0x1
+ 2174 0070 0B       		.uleb128 0xb
+ 2175 0071 0B       		.uleb128 0xb
+ 2176 0072 3A       		.uleb128 0x3a
+ 2177 0073 0B       		.uleb128 0xb
+ 2178 0074 3B       		.uleb128 0x3b
+ 2179 0075 05       		.uleb128 0x5
+ 2180 0076 01       		.uleb128 0x1
+ 2181 0077 13       		.uleb128 0x13
+ 2182 0078 00       		.byte	0
+ 2183 0079 00       		.byte	0
+ 2184 007a 0D       		.uleb128 0xd
+ 2185 007b 0D       		.uleb128 0xd
+ 2186 007c 00       		.byte	0
+ 2187 007d 03       		.uleb128 0x3
+ 2188 007e 0E       		.uleb128 0xe
+ 2189 007f 3A       		.uleb128 0x3a
+ 2190 0080 0B       		.uleb128 0xb
+ 2191 0081 3B       		.uleb128 0x3b
+ 2192 0082 05       		.uleb128 0x5
+ 2193 0083 49       		.uleb128 0x49
+ 2194 0084 13       		.uleb128 0x13
+ 2195 0085 38       		.uleb128 0x38
+ 2196 0086 0A       		.uleb128 0xa
+ARM GAS  /tmp/ccurES30.s 			page 44
+
+
+ 2197 0087 00       		.byte	0
+ 2198 0088 00       		.byte	0
+ 2199 0089 0E       		.uleb128 0xe
+ 2200 008a 16       		.uleb128 0x16
+ 2201 008b 00       		.byte	0
+ 2202 008c 03       		.uleb128 0x3
+ 2203 008d 0E       		.uleb128 0xe
+ 2204 008e 3A       		.uleb128 0x3a
+ 2205 008f 0B       		.uleb128 0xb
+ 2206 0090 3B       		.uleb128 0x3b
+ 2207 0091 05       		.uleb128 0x5
+ 2208 0092 49       		.uleb128 0x49
+ 2209 0093 13       		.uleb128 0x13
+ 2210 0094 00       		.byte	0
+ 2211 0095 00       		.byte	0
+ 2212 0096 0F       		.uleb128 0xf
+ 2213 0097 04       		.uleb128 0x4
+ 2214 0098 01       		.byte	0x1
+ 2215 0099 0B       		.uleb128 0xb
+ 2216 009a 0B       		.uleb128 0xb
+ 2217 009b 3A       		.uleb128 0x3a
+ 2218 009c 0B       		.uleb128 0xb
+ 2219 009d 3B       		.uleb128 0x3b
+ 2220 009e 0B       		.uleb128 0xb
+ 2221 009f 01       		.uleb128 0x1
+ 2222 00a0 13       		.uleb128 0x13
+ 2223 00a1 00       		.byte	0
+ 2224 00a2 00       		.byte	0
+ 2225 00a3 10       		.uleb128 0x10
+ 2226 00a4 28       		.uleb128 0x28
+ 2227 00a5 00       		.byte	0
+ 2228 00a6 03       		.uleb128 0x3
+ 2229 00a7 0E       		.uleb128 0xe
+ 2230 00a8 1C       		.uleb128 0x1c
+ 2231 00a9 0D       		.uleb128 0xd
+ 2232 00aa 00       		.byte	0
+ 2233 00ab 00       		.byte	0
+ 2234 00ac 11       		.uleb128 0x11
+ 2235 00ad 13       		.uleb128 0x13
+ 2236 00ae 01       		.byte	0x1
+ 2237 00af 0B       		.uleb128 0xb
+ 2238 00b0 0B       		.uleb128 0xb
+ 2239 00b1 3A       		.uleb128 0x3a
+ 2240 00b2 0B       		.uleb128 0xb
+ 2241 00b3 3B       		.uleb128 0x3b
+ 2242 00b4 0B       		.uleb128 0xb
+ 2243 00b5 01       		.uleb128 0x1
+ 2244 00b6 13       		.uleb128 0x13
+ 2245 00b7 00       		.byte	0
+ 2246 00b8 00       		.byte	0
+ 2247 00b9 12       		.uleb128 0x12
+ 2248 00ba 0D       		.uleb128 0xd
+ 2249 00bb 00       		.byte	0
+ 2250 00bc 03       		.uleb128 0x3
+ 2251 00bd 0E       		.uleb128 0xe
+ 2252 00be 3A       		.uleb128 0x3a
+ 2253 00bf 0B       		.uleb128 0xb
+ARM GAS  /tmp/ccurES30.s 			page 45
+
+
+ 2254 00c0 3B       		.uleb128 0x3b
+ 2255 00c1 0B       		.uleb128 0xb
+ 2256 00c2 49       		.uleb128 0x49
+ 2257 00c3 13       		.uleb128 0x13
+ 2258 00c4 38       		.uleb128 0x38
+ 2259 00c5 0A       		.uleb128 0xa
+ 2260 00c6 00       		.byte	0
+ 2261 00c7 00       		.byte	0
+ 2262 00c8 13       		.uleb128 0x13
+ 2263 00c9 0D       		.uleb128 0xd
+ 2264 00ca 00       		.byte	0
+ 2265 00cb 03       		.uleb128 0x3
+ 2266 00cc 08       		.uleb128 0x8
+ 2267 00cd 3A       		.uleb128 0x3a
+ 2268 00ce 0B       		.uleb128 0xb
+ 2269 00cf 3B       		.uleb128 0x3b
+ 2270 00d0 0B       		.uleb128 0xb
+ 2271 00d1 49       		.uleb128 0x49
+ 2272 00d2 13       		.uleb128 0x13
+ 2273 00d3 38       		.uleb128 0x38
+ 2274 00d4 0A       		.uleb128 0xa
+ 2275 00d5 00       		.byte	0
+ 2276 00d6 00       		.byte	0
+ 2277 00d7 14       		.uleb128 0x14
+ 2278 00d8 13       		.uleb128 0x13
+ 2279 00d9 01       		.byte	0x1
+ 2280 00da 03       		.uleb128 0x3
+ 2281 00db 0E       		.uleb128 0xe
+ 2282 00dc 0B       		.uleb128 0xb
+ 2283 00dd 0B       		.uleb128 0xb
+ 2284 00de 3A       		.uleb128 0x3a
+ 2285 00df 0B       		.uleb128 0xb
+ 2286 00e0 3B       		.uleb128 0x3b
+ 2287 00e1 0B       		.uleb128 0xb
+ 2288 00e2 01       		.uleb128 0x1
+ 2289 00e3 13       		.uleb128 0x13
+ 2290 00e4 00       		.byte	0
+ 2291 00e5 00       		.byte	0
+ 2292 00e6 15       		.uleb128 0x15
+ 2293 00e7 04       		.uleb128 0x4
+ 2294 00e8 01       		.byte	0x1
+ 2295 00e9 03       		.uleb128 0x3
+ 2296 00ea 0E       		.uleb128 0xe
+ 2297 00eb 0B       		.uleb128 0xb
+ 2298 00ec 0B       		.uleb128 0xb
+ 2299 00ed 3A       		.uleb128 0x3a
+ 2300 00ee 0B       		.uleb128 0xb
+ 2301 00ef 3B       		.uleb128 0x3b
+ 2302 00f0 0B       		.uleb128 0xb
+ 2303 00f1 01       		.uleb128 0x1
+ 2304 00f2 13       		.uleb128 0x13
+ 2305 00f3 00       		.byte	0
+ 2306 00f4 00       		.byte	0
+ 2307 00f5 16       		.uleb128 0x16
+ 2308 00f6 15       		.uleb128 0x15
+ 2309 00f7 01       		.byte	0x1
+ 2310 00f8 27       		.uleb128 0x27
+ARM GAS  /tmp/ccurES30.s 			page 46
+
+
+ 2311 00f9 0C       		.uleb128 0xc
+ 2312 00fa 49       		.uleb128 0x49
+ 2313 00fb 13       		.uleb128 0x13
+ 2314 00fc 01       		.uleb128 0x1
+ 2315 00fd 13       		.uleb128 0x13
+ 2316 00fe 00       		.byte	0
+ 2317 00ff 00       		.byte	0
+ 2318 0100 17       		.uleb128 0x17
+ 2319 0101 05       		.uleb128 0x5
+ 2320 0102 00       		.byte	0
+ 2321 0103 49       		.uleb128 0x49
+ 2322 0104 13       		.uleb128 0x13
+ 2323 0105 00       		.byte	0
+ 2324 0106 00       		.byte	0
+ 2325 0107 18       		.uleb128 0x18
+ 2326 0108 2E       		.uleb128 0x2e
+ 2327 0109 01       		.byte	0x1
+ 2328 010a 3F       		.uleb128 0x3f
+ 2329 010b 0C       		.uleb128 0xc
+ 2330 010c 03       		.uleb128 0x3
+ 2331 010d 0E       		.uleb128 0xe
+ 2332 010e 3A       		.uleb128 0x3a
+ 2333 010f 0B       		.uleb128 0xb
+ 2334 0110 3B       		.uleb128 0x3b
+ 2335 0111 0B       		.uleb128 0xb
+ 2336 0112 27       		.uleb128 0x27
+ 2337 0113 0C       		.uleb128 0xc
+ 2338 0114 49       		.uleb128 0x49
+ 2339 0115 13       		.uleb128 0x13
+ 2340 0116 11       		.uleb128 0x11
+ 2341 0117 01       		.uleb128 0x1
+ 2342 0118 12       		.uleb128 0x12
+ 2343 0119 01       		.uleb128 0x1
+ 2344 011a 40       		.uleb128 0x40
+ 2345 011b 06       		.uleb128 0x6
+ 2346 011c 9642     		.uleb128 0x2116
+ 2347 011e 0C       		.uleb128 0xc
+ 2348 011f 01       		.uleb128 0x1
+ 2349 0120 13       		.uleb128 0x13
+ 2350 0121 00       		.byte	0
+ 2351 0122 00       		.byte	0
+ 2352 0123 19       		.uleb128 0x19
+ 2353 0124 05       		.uleb128 0x5
+ 2354 0125 00       		.byte	0
+ 2355 0126 03       		.uleb128 0x3
+ 2356 0127 0E       		.uleb128 0xe
+ 2357 0128 3A       		.uleb128 0x3a
+ 2358 0129 0B       		.uleb128 0xb
+ 2359 012a 3B       		.uleb128 0x3b
+ 2360 012b 0B       		.uleb128 0xb
+ 2361 012c 49       		.uleb128 0x49
+ 2362 012d 13       		.uleb128 0x13
+ 2363 012e 02       		.uleb128 0x2
+ 2364 012f 0A       		.uleb128 0xa
+ 2365 0130 00       		.byte	0
+ 2366 0131 00       		.byte	0
+ 2367 0132 1A       		.uleb128 0x1a
+ARM GAS  /tmp/ccurES30.s 			page 47
+
+
+ 2368 0133 34       		.uleb128 0x34
+ 2369 0134 00       		.byte	0
+ 2370 0135 03       		.uleb128 0x3
+ 2371 0136 0E       		.uleb128 0xe
+ 2372 0137 3A       		.uleb128 0x3a
+ 2373 0138 0B       		.uleb128 0xb
+ 2374 0139 3B       		.uleb128 0x3b
+ 2375 013a 0B       		.uleb128 0xb
+ 2376 013b 49       		.uleb128 0x49
+ 2377 013c 13       		.uleb128 0x13
+ 2378 013d 02       		.uleb128 0x2
+ 2379 013e 0A       		.uleb128 0xa
+ 2380 013f 00       		.byte	0
+ 2381 0140 00       		.byte	0
+ 2382 0141 1B       		.uleb128 0x1b
+ 2383 0142 2E       		.uleb128 0x2e
+ 2384 0143 01       		.byte	0x1
+ 2385 0144 3F       		.uleb128 0x3f
+ 2386 0145 0C       		.uleb128 0xc
+ 2387 0146 03       		.uleb128 0x3
+ 2388 0147 0E       		.uleb128 0xe
+ 2389 0148 3A       		.uleb128 0x3a
+ 2390 0149 0B       		.uleb128 0xb
+ 2391 014a 3B       		.uleb128 0x3b
+ 2392 014b 0B       		.uleb128 0xb
+ 2393 014c 27       		.uleb128 0x27
+ 2394 014d 0C       		.uleb128 0xc
+ 2395 014e 49       		.uleb128 0x49
+ 2396 014f 13       		.uleb128 0x13
+ 2397 0150 11       		.uleb128 0x11
+ 2398 0151 01       		.uleb128 0x1
+ 2399 0152 12       		.uleb128 0x12
+ 2400 0153 01       		.uleb128 0x1
+ 2401 0154 40       		.uleb128 0x40
+ 2402 0155 06       		.uleb128 0x6
+ 2403 0156 9742     		.uleb128 0x2117
+ 2404 0158 0C       		.uleb128 0xc
+ 2405 0159 01       		.uleb128 0x1
+ 2406 015a 13       		.uleb128 0x13
+ 2407 015b 00       		.byte	0
+ 2408 015c 00       		.byte	0
+ 2409 015d 1C       		.uleb128 0x1c
+ 2410 015e 2E       		.uleb128 0x2e
+ 2411 015f 00       		.byte	0
+ 2412 0160 3F       		.uleb128 0x3f
+ 2413 0161 0C       		.uleb128 0xc
+ 2414 0162 03       		.uleb128 0x3
+ 2415 0163 0E       		.uleb128 0xe
+ 2416 0164 3A       		.uleb128 0x3a
+ 2417 0165 0B       		.uleb128 0xb
+ 2418 0166 3B       		.uleb128 0x3b
+ 2419 0167 0B       		.uleb128 0xb
+ 2420 0168 49       		.uleb128 0x49
+ 2421 0169 13       		.uleb128 0x13
+ 2422 016a 11       		.uleb128 0x11
+ 2423 016b 01       		.uleb128 0x1
+ 2424 016c 12       		.uleb128 0x12
+ARM GAS  /tmp/ccurES30.s 			page 48
+
+
+ 2425 016d 01       		.uleb128 0x1
+ 2426 016e 40       		.uleb128 0x40
+ 2427 016f 0A       		.uleb128 0xa
+ 2428 0170 9742     		.uleb128 0x2117
+ 2429 0172 0C       		.uleb128 0xc
+ 2430 0173 00       		.byte	0
+ 2431 0174 00       		.byte	0
+ 2432 0175 1D       		.uleb128 0x1d
+ 2433 0176 34       		.uleb128 0x34
+ 2434 0177 00       		.byte	0
+ 2435 0178 03       		.uleb128 0x3
+ 2436 0179 0E       		.uleb128 0xe
+ 2437 017a 3A       		.uleb128 0x3a
+ 2438 017b 0B       		.uleb128 0xb
+ 2439 017c 3B       		.uleb128 0x3b
+ 2440 017d 05       		.uleb128 0x5
+ 2441 017e 49       		.uleb128 0x49
+ 2442 017f 13       		.uleb128 0x13
+ 2443 0180 3F       		.uleb128 0x3f
+ 2444 0181 0C       		.uleb128 0xc
+ 2445 0182 3C       		.uleb128 0x3c
+ 2446 0183 0C       		.uleb128 0xc
+ 2447 0184 00       		.byte	0
+ 2448 0185 00       		.byte	0
+ 2449 0186 00       		.byte	0
+ 2450              		.section	.debug_loc,"",%progbits
+ 2451              	.Ldebug_loc0:
+ 2452              	.LLST0:
+ 2453 0000 00000000 		.4byte	.LFB40-.Ltext0
+ 2454 0004 02000000 		.4byte	.LCFI0-.Ltext0
+ 2455 0008 0200     		.2byte	0x2
+ 2456 000a 7D       		.byte	0x7d
+ 2457 000b 00       		.sleb128 0
+ 2458 000c 02000000 		.4byte	.LCFI0-.Ltext0
+ 2459 0010 04000000 		.4byte	.LCFI1-.Ltext0
+ 2460 0014 0200     		.2byte	0x2
+ 2461 0016 7D       		.byte	0x7d
+ 2462 0017 04       		.sleb128 4
+ 2463 0018 04000000 		.4byte	.LCFI1-.Ltext0
+ 2464 001c 1A010000 		.4byte	.LCFI2-.Ltext0
+ 2465 0020 0200     		.2byte	0x2
+ 2466 0022 7D       		.byte	0x7d
+ 2467 0023 28       		.sleb128 40
+ 2468 0024 1A010000 		.4byte	.LCFI2-.Ltext0
+ 2469 0028 34010000 		.4byte	.LFE40-.Ltext0
+ 2470 002c 0200     		.2byte	0x2
+ 2471 002e 7D       		.byte	0x7d
+ 2472 002f 04       		.sleb128 4
+ 2473 0030 00000000 		.4byte	0
+ 2474 0034 00000000 		.4byte	0
+ 2475              	.LLST1:
+ 2476 0038 34010000 		.4byte	.LFB41-.Ltext0
+ 2477 003c 36010000 		.4byte	.LCFI3-.Ltext0
+ 2478 0040 0200     		.2byte	0x2
+ 2479 0042 7D       		.byte	0x7d
+ 2480 0043 00       		.sleb128 0
+ 2481 0044 36010000 		.4byte	.LCFI3-.Ltext0
+ARM GAS  /tmp/ccurES30.s 			page 49
+
+
+ 2482 0048 58010000 		.4byte	.LCFI4-.Ltext0
+ 2483 004c 0200     		.2byte	0x2
+ 2484 004e 7D       		.byte	0x7d
+ 2485 004f 08       		.sleb128 8
+ 2486 0050 58010000 		.4byte	.LCFI4-.Ltext0
+ 2487 0054 60010000 		.4byte	.LFE41-.Ltext0
+ 2488 0058 0200     		.2byte	0x2
+ 2489 005a 7D       		.byte	0x7d
+ 2490 005b 00       		.sleb128 0
+ 2491 005c 00000000 		.4byte	0
+ 2492 0060 00000000 		.4byte	0
+ 2493              	.LLST2:
+ 2494 0064 60010000 		.4byte	.LFB42-.Ltext0
+ 2495 0068 62010000 		.4byte	.LCFI5-.Ltext0
+ 2496 006c 0200     		.2byte	0x2
+ 2497 006e 7D       		.byte	0x7d
+ 2498 006f 00       		.sleb128 0
+ 2499 0070 62010000 		.4byte	.LCFI5-.Ltext0
+ 2500 0074 84010000 		.4byte	.LCFI6-.Ltext0
+ 2501 0078 0200     		.2byte	0x2
+ 2502 007a 7D       		.byte	0x7d
+ 2503 007b 08       		.sleb128 8
+ 2504 007c 84010000 		.4byte	.LCFI6-.Ltext0
+ 2505 0080 8C010000 		.4byte	.LFE42-.Ltext0
+ 2506 0084 0200     		.2byte	0x2
+ 2507 0086 7D       		.byte	0x7d
+ 2508 0087 00       		.sleb128 0
+ 2509 0088 00000000 		.4byte	0
+ 2510 008c 00000000 		.4byte	0
+ 2511              	.LLST3:
+ 2512 0090 8C010000 		.4byte	.LFB43-.Ltext0
+ 2513 0094 8E010000 		.4byte	.LCFI7-.Ltext0
+ 2514 0098 0200     		.2byte	0x2
+ 2515 009a 7D       		.byte	0x7d
+ 2516 009b 00       		.sleb128 0
+ 2517 009c 8E010000 		.4byte	.LCFI7-.Ltext0
+ 2518 00a0 BC010000 		.4byte	.LCFI8-.Ltext0
+ 2519 00a4 0200     		.2byte	0x2
+ 2520 00a6 7D       		.byte	0x7d
+ 2521 00a7 10       		.sleb128 16
+ 2522 00a8 BC010000 		.4byte	.LCFI8-.Ltext0
+ 2523 00ac C4010000 		.4byte	.LFE43-.Ltext0
+ 2524 00b0 0200     		.2byte	0x2
+ 2525 00b2 7D       		.byte	0x7d
+ 2526 00b3 00       		.sleb128 0
+ 2527 00b4 00000000 		.4byte	0
+ 2528 00b8 00000000 		.4byte	0
+ 2529              	.LLST4:
+ 2530 00bc C4010000 		.4byte	.LFB44-.Ltext0
+ 2531 00c0 C6010000 		.4byte	.LCFI9-.Ltext0
+ 2532 00c4 0200     		.2byte	0x2
+ 2533 00c6 7D       		.byte	0x7d
+ 2534 00c7 00       		.sleb128 0
+ 2535 00c8 C6010000 		.4byte	.LCFI9-.Ltext0
+ 2536 00cc 3E020000 		.4byte	.LCFI10-.Ltext0
+ 2537 00d0 0200     		.2byte	0x2
+ 2538 00d2 7D       		.byte	0x7d
+ARM GAS  /tmp/ccurES30.s 			page 50
+
+
+ 2539 00d3 08       		.sleb128 8
+ 2540 00d4 3E020000 		.4byte	.LCFI10-.Ltext0
+ 2541 00d8 40020000 		.4byte	.LFE44-.Ltext0
+ 2542 00dc 0200     		.2byte	0x2
+ 2543 00de 7D       		.byte	0x7d
+ 2544 00df 00       		.sleb128 0
+ 2545 00e0 00000000 		.4byte	0
+ 2546 00e4 00000000 		.4byte	0
+ 2547              	.LLST5:
+ 2548 00e8 4C020000 		.4byte	.LFB46-.Ltext0
+ 2549 00ec 4E020000 		.4byte	.LCFI11-.Ltext0
+ 2550 00f0 0200     		.2byte	0x2
+ 2551 00f2 7D       		.byte	0x7d
+ 2552 00f3 00       		.sleb128 0
+ 2553 00f4 4E020000 		.4byte	.LCFI11-.Ltext0
+ 2554 00f8 AC030000 		.4byte	.LCFI12-.Ltext0
+ 2555 00fc 0200     		.2byte	0x2
+ 2556 00fe 7D       		.byte	0x7d
+ 2557 00ff 10       		.sleb128 16
+ 2558 0100 AC030000 		.4byte	.LCFI12-.Ltext0
+ 2559 0104 C0030000 		.4byte	.LFE46-.Ltext0
+ 2560 0108 0200     		.2byte	0x2
+ 2561 010a 7D       		.byte	0x7d
+ 2562 010b 00       		.sleb128 0
+ 2563 010c 00000000 		.4byte	0
+ 2564 0110 00000000 		.4byte	0
+ 2565              	.LLST6:
+ 2566 0114 C0030000 		.4byte	.LFB47-.Ltext0
+ 2567 0118 C2030000 		.4byte	.LCFI13-.Ltext0
+ 2568 011c 0200     		.2byte	0x2
+ 2569 011e 7D       		.byte	0x7d
+ 2570 011f 00       		.sleb128 0
+ 2571 0120 C2030000 		.4byte	.LCFI13-.Ltext0
+ 2572 0124 D2030000 		.4byte	.LCFI14-.Ltext0
+ 2573 0128 0200     		.2byte	0x2
+ 2574 012a 7D       		.byte	0x7d
+ 2575 012b 08       		.sleb128 8
+ 2576 012c D2030000 		.4byte	.LCFI14-.Ltext0
+ 2577 0130 D8030000 		.4byte	.LFE47-.Ltext0
+ 2578 0134 0200     		.2byte	0x2
+ 2579 0136 7D       		.byte	0x7d
+ 2580 0137 00       		.sleb128 0
+ 2581 0138 00000000 		.4byte	0
+ 2582 013c 00000000 		.4byte	0
+ 2583              	.LLST7:
+ 2584 0140 D8030000 		.4byte	.LFB48-.Ltext0
+ 2585 0144 DA030000 		.4byte	.LCFI15-.Ltext0
+ 2586 0148 0200     		.2byte	0x2
+ 2587 014a 7D       		.byte	0x7d
+ 2588 014b 00       		.sleb128 0
+ 2589 014c DA030000 		.4byte	.LCFI15-.Ltext0
+ 2590 0150 34040000 		.4byte	.LCFI16-.Ltext0
+ 2591 0154 0200     		.2byte	0x2
+ 2592 0156 7D       		.byte	0x7d
+ 2593 0157 10       		.sleb128 16
+ 2594 0158 34040000 		.4byte	.LCFI16-.Ltext0
+ 2595 015c 44040000 		.4byte	.LFE48-.Ltext0
+ARM GAS  /tmp/ccurES30.s 			page 51
+
+
+ 2596 0160 0200     		.2byte	0x2
+ 2597 0162 7D       		.byte	0x7d
+ 2598 0163 00       		.sleb128 0
+ 2599 0164 00000000 		.4byte	0
+ 2600 0168 00000000 		.4byte	0
+ 2601              	.LLST8:
+ 2602 016c 44040000 		.4byte	.LFB49-.Ltext0
+ 2603 0170 46040000 		.4byte	.LCFI17-.Ltext0
+ 2604 0174 0200     		.2byte	0x2
+ 2605 0176 7D       		.byte	0x7d
+ 2606 0177 00       		.sleb128 0
+ 2607 0178 46040000 		.4byte	.LCFI17-.Ltext0
+ 2608 017c AA040000 		.4byte	.LCFI18-.Ltext0
+ 2609 0180 0200     		.2byte	0x2
+ 2610 0182 7D       		.byte	0x7d
+ 2611 0183 10       		.sleb128 16
+ 2612 0184 AA040000 		.4byte	.LCFI18-.Ltext0
+ 2613 0188 B8040000 		.4byte	.LFE49-.Ltext0
+ 2614 018c 0200     		.2byte	0x2
+ 2615 018e 7D       		.byte	0x7d
+ 2616 018f 00       		.sleb128 0
+ 2617 0190 00000000 		.4byte	0
+ 2618 0194 00000000 		.4byte	0
+ 2619              		.section	.debug_aranges,"",%progbits
+ 2620 0000 1C000000 		.4byte	0x1c
+ 2621 0004 0200     		.2byte	0x2
+ 2622 0006 00000000 		.4byte	.Ldebug_info0
+ 2623 000a 04       		.byte	0x4
+ 2624 000b 00       		.byte	0
+ 2625 000c 0000     		.2byte	0
+ 2626 000e 0000     		.2byte	0
+ 2627 0010 00000000 		.4byte	.Ltext0
+ 2628 0014 B8040000 		.4byte	.Letext0-.Ltext0
+ 2629 0018 00000000 		.4byte	0
+ 2630 001c 00000000 		.4byte	0
+ 2631              		.section	.debug_line,"",%progbits
+ 2632              	.Ldebug_line0:
+ 2633 0000 E9030000 		.section	.debug_str,"MS",%progbits,1
+ 2633      0200FD02 
+ 2633      00000201 
+ 2633      FB0E0D00 
+ 2633      01010101 
+ 2634              	.LASF64:
+ 2635 0000 656E4550 		.ascii	"enEPCFGpioIntMode_RisingEdge\000"
+ 2635      43464770 
+ 2635      696F496E 
+ 2635      744D6F64 
+ 2635      655F5269 
+ 2636              	.LASF66:
+ 2637 001d 656E4550 		.ascii	"enEPCFGpioIntMode_LowLevel\000"
+ 2637      43464770 
+ 2637      696F496E 
+ 2637      744D6F64 
+ 2637      655F4C6F 
+ 2638              	.LASF3:
+ 2639 0038 5F5F7569 		.ascii	"__uint8_t\000"
+ 2639      6E74385F 
+ARM GAS  /tmp/ccurES30.s 			page 52
+
+
+ 2639      7400
+ 2640              	.LASF43:
+ 2641 0042 64697265 		.ascii	"direction\000"
+ 2641      6374696F 
+ 2641      6E00
+ 2642              	.LASF23:
+ 2643 004c 494F3049 		.ascii	"IO0IntClr\000"
+ 2643      6E74436C 
+ 2643      7200
+ 2644              	.LASF48:
+ 2645 0056 656E4550 		.ascii	"enEPCFGpioDirection_Max\000"
+ 2645      43464770 
+ 2645      696F4469 
+ 2645      72656374 
+ 2645      696F6E5F 
+ 2646              	.LASF89:
+ 2647 006e 65706366 		.ascii	"epcfGpioSet_fp\000"
+ 2647      4770696F 
+ 2647      5365745F 
+ 2647      667000
+ 2648              	.LASF112:
+ 2649 007d 6770696F 		.ascii	"gpioDeviceCount\000"
+ 2649      44657669 
+ 2649      6365436F 
+ 2649      756E7400 
+ 2650              	.LASF12:
+ 2651 008d 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2651      206C6F6E 
+ 2651      6720756E 
+ 2651      7369676E 
+ 2651      65642069 
+ 2652              	.LASF52:
+ 2653 00a4 656E4550 		.ascii	"enEPCFGpioPinMode_PullUp\000"
+ 2653      43464770 
+ 2653      696F5069 
+ 2653      6E4D6F64 
+ 2653      655F5075 
+ 2654              	.LASF81:
+ 2655 00bd 45504346 		.ascii	"EPCFGpioController\000"
+ 2655      4770696F 
+ 2655      436F6E74 
+ 2655      726F6C6C 
+ 2655      657200
+ 2656              	.LASF29:
+ 2657 00d0 494F3249 		.ascii	"IO2IntClr\000"
+ 2657      6E74436C 
+ 2657      7200
+ 2658              	.LASF2:
+ 2659 00da 5F5F696E 		.ascii	"__int8_t\000"
+ 2659      74385F74 
+ 2659      00
+ 2660              	.LASF124:
+ 2661 00e3 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 2661      52784275 
+ 2661      66666572 
+ 2661      00
+ 2662              	.LASF93:
+ARM GAS  /tmp/ccurES30.s 			page 53
+
+
+ 2663 00f0 65706366 		.ascii	"epcfGpioGetDeviceCount_fp\000"
+ 2663      4770696F 
+ 2663      47657444 
+ 2663      65766963 
+ 2663      65436F75 
+ 2664              	.LASF11:
+ 2665 010a 6C6F6E67 		.ascii	"long long int\000"
+ 2665      206C6F6E 
+ 2665      6720696E 
+ 2665      7400
+ 2666              	.LASF1:
+ 2667 0118 7369676E 		.ascii	"signed char\000"
+ 2667      65642063 
+ 2667      68617200 
+ 2668              	.LASF87:
+ 2669 0124 6770696F 		.ascii	"gpioGetDeviceCount\000"
+ 2669      47657444 
+ 2669      65766963 
+ 2669      65436F75 
+ 2669      6E7400
+ 2670              	.LASF56:
+ 2671 0137 656E4550 		.ascii	"enEPCFGpioPinMode_Max\000"
+ 2671      43464770 
+ 2671      696F5069 
+ 2671      6E4D6F64 
+ 2671      655F4D61 
+ 2672              	.LASF46:
+ 2673 014d 656E4550 		.ascii	"enEPCFGpioDirection_Output\000"
+ 2673      43464770 
+ 2673      696F4469 
+ 2673      72656374 
+ 2673      696F6E5F 
+ 2674              	.LASF58:
+ 2675 0168 456E4550 		.ascii	"EnEPCFOpenDrain\000"
+ 2675      43464F70 
+ 2675      656E4472 
+ 2675      61696E00 
+ 2676              	.LASF41:
+ 2677 0178 636F6E74 		.ascii	"controllerConfig\000"
+ 2677      726F6C6C 
+ 2677      6572436F 
+ 2677      6E666967 
+ 2677      00
+ 2678              	.LASF61:
+ 2679 0189 656E4550 		.ascii	"enEPCFGpioOpenDrain_Max\000"
+ 2679      43464770 
+ 2679      696F4F70 
+ 2679      656E4472 
+ 2679      61696E5F 
+ 2680              	.LASF117:
+ 2681 01a1 6770696F 		.ascii	"gpioIntId\000"
+ 2681      496E7449 
+ 2681      6400
+ 2682              	.LASF8:
+ 2683 01ab 6C6F6E67 		.ascii	"long int\000"
+ 2683      20696E74 
+ 2683      00
+ARM GAS  /tmp/ccurES30.s 			page 54
+
+
+ 2684              	.LASF88:
+ 2685 01b4 65706366 		.ascii	"epcfGpioInit_fp\000"
+ 2685      4770696F 
+ 2685      496E6974 
+ 2685      5F667000 
+ 2686              	.LASF63:
+ 2687 01c4 656E4550 		.ascii	"enEPCFGpioIntMode_FallingEdge\000"
+ 2687      43464770 
+ 2687      696F496E 
+ 2687      744D6F64 
+ 2687      655F4661 
+ 2688              	.LASF90:
+ 2689 01e2 65706366 		.ascii	"epcfGpioClear_fp\000"
+ 2689      4770696F 
+ 2689      436C6561 
+ 2689      725F6670 
+ 2689      00
+ 2690              	.LASF28:
+ 2691 01f3 494F3249 		.ascii	"IO2IntStatF\000"
+ 2691      6E745374 
+ 2691      61744600 
+ 2692              	.LASF121:
+ 2693 01ff 2E2E2F65 		.ascii	"../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio"
+ 2693      7063662F 
+ 2693      6E617469 
+ 2693      76652F70 
+ 2693      6F72742F 
+ 2694 0232 2F677069 		.ascii	"/gpio_lpc1768.c\000"
+ 2694      6F5F6C70 
+ 2694      63313736 
+ 2694      382E6300 
+ 2695              	.LASF72:
+ 2696 0242 696E7445 		.ascii	"intEnable\000"
+ 2696      6E61626C 
+ 2696      6500
+ 2697              	.LASF115:
+ 2698 024c 6770696F 		.ascii	"gpioIntCallbackAttached\000"
+ 2698      496E7443 
+ 2698      616C6C62 
+ 2698      61636B41 
+ 2698      74746163 
+ 2699              	.LASF114:
+ 2700 0264 6770696F 		.ascii	"gpioIntCallbackList\000"
+ 2700      496E7443 
+ 2700      616C6C62 
+ 2700      61636B4C 
+ 2700      69737400 
+ 2701              	.LASF77:
+ 2702 0278 45504346 		.ascii	"EPCFPinCfg\000"
+ 2702      50696E43 
+ 2702      666700
+ 2703              	.LASF68:
+ 2704 0283 656E4550 		.ascii	"enEPCFGpioIntMode_Max\000"
+ 2704      43464770 
+ 2704      696F496E 
+ 2704      744D6F64 
+ 2704      655F4D61 
+ARM GAS  /tmp/ccurES30.s 			page 55
+
+
+ 2705              	.LASF9:
+ 2706 0299 5F5F7569 		.ascii	"__uint32_t\000"
+ 2706      6E743332 
+ 2706      5F7400
+ 2707              	.LASF94:
+ 2708 02a4 7050696E 		.ascii	"pPinCfg\000"
+ 2708      43666700 
+ 2709              	.LASF47:
+ 2710 02ac 656E4550 		.ascii	"enEPCFGpioDirection_HighZ\000"
+ 2710      43464770 
+ 2710      696F4469 
+ 2710      72656374 
+ 2710      696F6E5F 
+ 2711              	.LASF38:
+ 2712 02c6 706F7274 		.ascii	"port\000"
+ 2712      00
+ 2713              	.LASF97:
+ 2714 02cb 65706366 		.ascii	"epcf_gpio_nativeInit\000"
+ 2714      5F677069 
+ 2714      6F5F6E61 
+ 2714      74697665 
+ 2714      496E6974 
+ 2715              	.LASF118:
+ 2716 02e0 6770696F 		.ascii	"gpioIntBusy\000"
+ 2716      496E7442 
+ 2716      75737900 
+ 2717              	.LASF0:
+ 2718 02ec 756E7369 		.ascii	"unsigned int\000"
+ 2718      676E6564 
+ 2718      20696E74 
+ 2718      00
+ 2719              	.LASF111:
+ 2720 02f9 6770696F 		.ascii	"gpioIntMode\000"
+ 2720      496E744D 
+ 2720      6F646500 
+ 2721              	.LASF99:
+ 2722 0305 70436F6E 		.ascii	"pConfig\000"
+ 2722      66696700 
+ 2723              	.LASF120:
+ 2724 030d 474E5520 		.ascii	"GNU C 4.9.3 20150529 (prerelease) -mcpu=cortex-m3 -"
+ 2724      4320342E 
+ 2724      392E3320 
+ 2724      32303135 
+ 2724      30353239 
+ 2725 0340 6D746875 		.ascii	"mthumb -gdwarf-2 -O0 -std=gnu99 -fomit-frame-pointe"
+ 2725      6D62202D 
+ 2725      67647761 
+ 2725      72662D32 
+ 2725      202D4F30 
+ 2726 0373 7200     		.ascii	"r\000"
+ 2727              	.LASF10:
+ 2728 0375 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2728      20756E73 
+ 2728      69676E65 
+ 2728      6420696E 
+ 2728      7400
+ 2729              	.LASF27:
+ARM GAS  /tmp/ccurES30.s 			page 56
+
+
+ 2730 0387 494F3249 		.ascii	"IO2IntStatR\000"
+ 2730      6E745374 
+ 2730      61745200 
+ 2731              	.LASF35:
+ 2732 0393 656E4550 		.ascii	"enEPCFBoolean_Max\000"
+ 2732      4346426F 
+ 2732      6F6C6561 
+ 2732      6E5F4D61 
+ 2732      7800
+ 2733              	.LASF103:
+ 2734 03a5 64617461 		.ascii	"data\000"
+ 2734      00
+ 2735              	.LASF73:
+ 2736 03aa 696E744D 		.ascii	"intMode\000"
+ 2736      6F646500 
+ 2737              	.LASF6:
+ 2738 03b2 73686F72 		.ascii	"short unsigned int\000"
+ 2738      7420756E 
+ 2738      7369676E 
+ 2738      65642069 
+ 2738      6E7400
+ 2739              	.LASF39:
+ 2740 03c5 45504346 		.ascii	"EPCFPortPin_t\000"
+ 2740      506F7274 
+ 2740      50696E5F 
+ 2740      7400
+ 2741              	.LASF36:
+ 2742 03d3 456E4550 		.ascii	"EnEPCFBoolean_t\000"
+ 2742      4346426F 
+ 2742      6F6C6561 
+ 2742      6E5F7400 
+ 2743              	.LASF32:
+ 2744 03e3 4750494F 		.ascii	"GPIOINT_TypeDef\000"
+ 2744      494E545F 
+ 2744      54797065 
+ 2744      44656600 
+ 2745              	.LASF20:
+ 2746 03f3 496E7453 		.ascii	"IntStatus\000"
+ 2746      74617475 
+ 2746      7300
+ 2747              	.LASF105:
+ 2748 03fd 65706366 		.ascii	"epcf_gpio_nativeIntEnable\000"
+ 2748      5F677069 
+ 2748      6F5F6E61 
+ 2748      74697665 
+ 2748      496E7445 
+ 2749              	.LASF83:
+ 2750 0417 6770696F 		.ascii	"gpioSet\000"
+ 2750      53657400 
+ 2751              	.LASF75:
+ 2752 041f 45504346 		.ascii	"EPCFGpioCfg_t\000"
+ 2752      4770696F 
+ 2752      4366675F 
+ 2752      7400
+ 2753              	.LASF53:
+ 2754 042d 656E4550 		.ascii	"enEPCFGpioPinMode_Repeater\000"
+ 2754      43464770 
+ARM GAS  /tmp/ccurES30.s 			page 57
+
+
+ 2754      696F5069 
+ 2754      6E4D6F64 
+ 2754      655F5265 
+ 2755              	.LASF49:
+ 2756 0448 456E4550 		.ascii	"EnEPCFGpioDirection_t\000"
+ 2756      43464770 
+ 2756      696F4469 
+ 2756      72656374 
+ 2756      696F6E5F 
+ 2757              	.LASF13:
+ 2758 045e 73697A65 		.ascii	"sizetype\000"
+ 2758      74797065 
+ 2758      00
+ 2759              	.LASF45:
+ 2760 0467 656E4550 		.ascii	"enEPCFGpioDirection_Input\000"
+ 2760      43464770 
+ 2760      696F4469 
+ 2760      72656374 
+ 2760      696F6E5F 
+ 2761              	.LASF85:
+ 2762 0481 6770696F 		.ascii	"gpioRead\000"
+ 2762      52656164 
+ 2762      00
+ 2763              	.LASF62:
+ 2764 048a 456E4550 		.ascii	"EnEPCFGpioOpenDrain_t\000"
+ 2764      43464770 
+ 2764      696F4F70 
+ 2764      656E4472 
+ 2764      61696E5F 
+ 2765              	.LASF116:
+ 2766 04a0 6770696F 		.ascii	"gpioIntList\000"
+ 2766      496E744C 
+ 2766      69737400 
+ 2767              	.LASF84:
+ 2768 04ac 6770696F 		.ascii	"gpioClear\000"
+ 2768      436C6561 
+ 2768      7200
+ 2769              	.LASF113:
+ 2770 04b6 6770696F 		.ascii	"gpioIntEnable\000"
+ 2770      496E7445 
+ 2770      6E61626C 
+ 2770      6500
+ 2771              	.LASF33:
+ 2772 04c4 656E4550 		.ascii	"enEPCFBoolean_False\000"
+ 2772      4346426F 
+ 2772      6F6C6561 
+ 2772      6E5F4661 
+ 2772      6C736500 
+ 2773              	.LASF50:
+ 2774 04d8 456E4550 		.ascii	"EnEPCFGpioDirection\000"
+ 2774      43464770 
+ 2774      696F4469 
+ 2774      72656374 
+ 2774      696F6E00 
+ 2775              	.LASF19:
+ 2776 04ec 666C6F61 		.ascii	"float\000"
+ 2776      7400
+ARM GAS  /tmp/ccurES30.s 			page 58
+
+
+ 2777              	.LASF40:
+ 2778 04f2 45504346 		.ascii	"EPCFGpioDevice_t\000"
+ 2778      4770696F 
+ 2778      44657669 
+ 2778      63655F74 
+ 2778      00
+ 2779              	.LASF26:
+ 2780 0503 52455345 		.ascii	"RESERVED0\000"
+ 2780      52564544 
+ 2780      3000
+ 2781              	.LASF44:
+ 2782 050d 65787465 		.ascii	"extendedGpioDeviceId\000"
+ 2782      6E646564 
+ 2782      4770696F 
+ 2782      44657669 
+ 2782      63654964 
+ 2783              	.LASF42:
+ 2784 0522 706F7274 		.ascii	"portPin\000"
+ 2784      50696E00 
+ 2785              	.LASF37:
+ 2786 052a 65706366 		.ascii	"epcfCallback_fp\000"
+ 2786      43616C6C 
+ 2786      6261636B 
+ 2786      5F667000 
+ 2787              	.LASF119:
+ 2788 053a 6770696F 		.ascii	"gpioIntInit\000"
+ 2788      496E7449 
+ 2788      6E697400 
+ 2789              	.LASF17:
+ 2790 0546 696E7433 		.ascii	"int32_t\000"
+ 2790      325F7400 
+ 2791              	.LASF4:
+ 2792 054e 756E7369 		.ascii	"unsigned char\000"
+ 2792      676E6564 
+ 2792      20636861 
+ 2792      7200
+ 2793              	.LASF51:
+ 2794 055c 456E4550 		.ascii	"EnEPCFGpioPinMode\000"
+ 2794      43464770 
+ 2794      696F5069 
+ 2794      6E4D6F64 
+ 2794      6500
+ 2795              	.LASF98:
+ 2796 056e 65706366 		.ascii	"epcf_gpio_nativeSet\000"
+ 2796      5F677069 
+ 2796      6F5F6E61 
+ 2796      74697665 
+ 2796      53657400 
+ 2797              	.LASF5:
+ 2798 0582 73686F72 		.ascii	"short int\000"
+ 2798      7420696E 
+ 2798      7400
+ 2799              	.LASF78:
+ 2800 058c 616C7446 		.ascii	"altFunction\000"
+ 2800      756E6374 
+ 2800      696F6E00 
+ 2801              	.LASF106:
+ARM GAS  /tmp/ccurES30.s 			page 59
+
+
+ 2802 0598 70477069 		.ascii	"pGpioDevice\000"
+ 2802      6F446576 
+ 2802      69636500 
+ 2803              	.LASF55:
+ 2804 05a4 656E4550 		.ascii	"enEPCFGpioPinMode_PullDown\000"
+ 2804      43464770 
+ 2804      696F5069 
+ 2804      6E4D6F64 
+ 2804      655F5075 
+ 2805              	.LASF54:
+ 2806 05bf 656E4550 		.ascii	"enEPCFGpioPinMode_NoPullUpDown\000"
+ 2806      43464770 
+ 2806      696F5069 
+ 2806      6E4D6F64 
+ 2806      655F4E6F 
+ 2807              	.LASF123:
+ 2808 05de 65706366 		.ascii	"epcf_gpio_nativeGetDeviceCount\000"
+ 2808      5F677069 
+ 2808      6F5F6E61 
+ 2808      74697665 
+ 2808      47657444 
+ 2809              	.LASF65:
+ 2810 05fd 656E4550 		.ascii	"enEPCFGpioIntMode_BothEdge\000"
+ 2810      43464770 
+ 2810      696F496E 
+ 2810      744D6F64 
+ 2810      655F426F 
+ 2811              	.LASF34:
+ 2812 0618 656E4550 		.ascii	"enEPCFBoolean_True\000"
+ 2812      4346426F 
+ 2812      6F6C6561 
+ 2812      6E5F5472 
+ 2812      756500
+ 2813              	.LASF18:
+ 2814 062b 75696E74 		.ascii	"uint32_t\000"
+ 2814      33325F74 
+ 2814      00
+ 2815              	.LASF104:
+ 2816 0634 65706366 		.ascii	"epcf_gpio_nativeSetDirection\000"
+ 2816      5F677069 
+ 2816      6F5F6E61 
+ 2816      74697665 
+ 2816      53657444 
+ 2817              	.LASF109:
+ 2818 0651 7043616C 		.ascii	"pCallback\000"
+ 2818      6C626163 
+ 2818      6B00
+ 2819              	.LASF69:
+ 2820 065b 456E4550 		.ascii	"EnEPCFGpioIntMode_t\000"
+ 2820      43464770 
+ 2820      696F496E 
+ 2820      744D6F64 
+ 2820      655F7400 
+ 2821              	.LASF14:
+ 2822 066f 63686172 		.ascii	"char\000"
+ 2822      00
+ 2823              	.LASF70:
+ARM GAS  /tmp/ccurES30.s 			page 60
+
+
+ 2824 0674 6D6F6465 		.ascii	"mode\000"
+ 2824      00
+ 2825              	.LASF122:
+ 2826 0679 2F686F6D 		.ascii	"/home/majorviraj/Desktop/Self balancing/codes/epcf_"
+ 2826      652F6D61 
+ 2826      6A6F7276 
+ 2826      6972616A 
+ 2826      2F446573 
+ 2827 06ac 70726F6A 		.ascii	"project/app\000"
+ 2827      6563742F 
+ 2827      61707000 
+ 2828              	.LASF96:
+ 2829 06b8 696E6465 		.ascii	"index\000"
+ 2829      7800
+ 2830              	.LASF7:
+ 2831 06be 5F5F696E 		.ascii	"__int32_t\000"
+ 2831      7433325F 
+ 2831      7400
+ 2832              	.LASF92:
+ 2833 06c8 65706366 		.ascii	"epcfGpioSetDirection_fp\000"
+ 2833      4770696F 
+ 2833      53657444 
+ 2833      69726563 
+ 2833      74696F6E 
+ 2834              	.LASF67:
+ 2835 06e0 656E4550 		.ascii	"enEPCFGpioIntMode_HighLevel\000"
+ 2835      43464770 
+ 2835      696F496E 
+ 2835      744D6F64 
+ 2835      655F4869 
+ 2836              	.LASF101:
+ 2837 06fc 65706366 		.ascii	"epcf_gpio_nativeClear\000"
+ 2837      5F677069 
+ 2837      6F5F6E61 
+ 2837      74697665 
+ 2837      436C6561 
+ 2838              	.LASF76:
+ 2839 0712 45504346 		.ascii	"EPCFGpioDevice\000"
+ 2839      4770696F 
+ 2839      44657669 
+ 2839      636500
+ 2840              	.LASF108:
+ 2841 0721 65706366 		.ascii	"epcf_gpio_nativeIntAttachCallback\000"
+ 2841      5F677069 
+ 2841      6F5F6E61 
+ 2841      74697665 
+ 2841      496E7441 
+ 2842              	.LASF15:
+ 2843 0743 696E7438 		.ascii	"int8_t\000"
+ 2843      5F7400
+ 2844              	.LASF60:
+ 2845 074a 656E4550 		.ascii	"enEPCFGpioOpenDrain_Enable\000"
+ 2845      43464770 
+ 2845      696F4F70 
+ 2845      656E4472 
+ 2845      61696E5F 
+ 2846              	.LASF110:
+ARM GAS  /tmp/ccurES30.s 			page 61
+
+
+ 2847 0765 65706366 		.ascii	"epcf_gpio_nativeIntDetachCallback\000"
+ 2847      5F677069 
+ 2847      6F5F6E61 
+ 2847      74697665 
+ 2847      496E7444 
+ 2848              	.LASF102:
+ 2849 0787 65706366 		.ascii	"epcf_gpio_nativeRead\000"
+ 2849      5F677069 
+ 2849      6F5F6E61 
+ 2849      74697665 
+ 2849      52656164 
+ 2850              	.LASF79:
+ 2851 079c 45504346 		.ascii	"EPCFPinCfg_t\000"
+ 2851      50696E43 
+ 2851      66675F74 
+ 2851      00
+ 2852              	.LASF74:
+ 2853 07a9 68617264 		.ascii	"hardwareCfg\000"
+ 2853      77617265 
+ 2853      43666700 
+ 2854              	.LASF86:
+ 2855 07b5 6770696F 		.ascii	"gpioSetDirection\000"
+ 2855      53657444 
+ 2855      69726563 
+ 2855      74696F6E 
+ 2855      00
+ 2856              	.LASF95:
+ 2857 07c6 73746174 		.ascii	"status\000"
+ 2857      757300
+ 2858              	.LASF59:
+ 2859 07cd 656E4550 		.ascii	"enEPCFGpioOpenDrain_Disable\000"
+ 2859      43464770 
+ 2859      696F4F70 
+ 2859      656E4472 
+ 2859      61696E5F 
+ 2860              	.LASF91:
+ 2861 07e9 65706366 		.ascii	"epcfGpioRead_fp\000"
+ 2861      4770696F 
+ 2861      52656164 
+ 2861      5F667000 
+ 2862              	.LASF25:
+ 2863 07f9 494F3049 		.ascii	"IO0IntEnF\000"
+ 2863      6E74456E 
+ 2863      4600
+ 2864              	.LASF16:
+ 2865 0803 75696E74 		.ascii	"uint8_t\000"
+ 2865      385F7400 
+ 2866              	.LASF24:
+ 2867 080b 494F3049 		.ascii	"IO0IntEnR\000"
+ 2867      6E74456E 
+ 2867      5200
+ 2868              	.LASF57:
+ 2869 0815 456E4550 		.ascii	"EnEPCFGpioPinMode_t\000"
+ 2869      43464770 
+ 2869      696F5069 
+ 2869      6E4D6F64 
+ 2869      655F7400 
+ARM GAS  /tmp/ccurES30.s 			page 62
+
+
+ 2870              	.LASF31:
+ 2871 0829 494F3249 		.ascii	"IO2IntEnF\000"
+ 2871      6E74456E 
+ 2871      4600
+ 2872              	.LASF100:
+ 2873 0833 70477069 		.ascii	"pGpiodevice\000"
+ 2873      6F646576 
+ 2873      69636500 
+ 2874              	.LASF30:
+ 2875 083f 494F3249 		.ascii	"IO2IntEnR\000"
+ 2875      6E74456E 
+ 2875      5200
+ 2876              	.LASF22:
+ 2877 0849 494F3049 		.ascii	"IO0IntStatF\000"
+ 2877      6E745374 
+ 2877      61744600 
+ 2878              	.LASF71:
+ 2879 0855 6F70656E 		.ascii	"openDrain\000"
+ 2879      44726169 
+ 2879      6E00
+ 2880              	.LASF82:
+ 2881 085f 6770696F 		.ascii	"gpioInit\000"
+ 2881      496E6974 
+ 2881      00
+ 2882              	.LASF21:
+ 2883 0868 494F3049 		.ascii	"IO0IntStatR\000"
+ 2883      6E745374 
+ 2883      61745200 
+ 2884              	.LASF80:
+ 2885 0874 45504346 		.ascii	"EPCFGpioController_t\000"
+ 2885      4770696F 
+ 2885      436F6E74 
+ 2885      726F6C6C 
+ 2885      65725F74 
+ 2886              	.LASF107:
+ 2887 0889 65706366 		.ascii	"epcf_gpio_nativeIntDisable\000"
+ 2887      5F677069 
+ 2887      6F5F6E61 
+ 2887      74697665 
+ 2887      496E7444 
+ 2888              		.ident	"GCC: (15:4.9.3+svn231177-1) 4.9.3 20150529 (prerelease)"
+ARM GAS  /tmp/ccurES30.s 			page 63
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 gpio_lpc1768.c
+     /tmp/ccurES30.s:50     .bss:0000000000000000 $d
+     /tmp/ccurES30.s:51     .bss:0000000000000000 gpioIntMode
+     /tmp/ccurES30.s:56     .data:0000000000000000 gpioDeviceCount
+     /tmp/ccurES30.s:59     .bss:000000000000002a gpioIntEnable
+     /tmp/ccurES30.s:62     .bss:000000000000002c gpioIntCallbackList
+     /tmp/ccurES30.s:64     .bss:00000000000000d4 gpioIntCallbackAttached
+     /tmp/ccurES30.s:67     .bss:00000000000000d8 gpioIntList
+     /tmp/ccurES30.s:69     .bss:00000000000002d0 gpioIntId
+     /tmp/ccurES30.s:72     .bss:00000000000002d4 gpioIntBusy
+     /tmp/ccurES30.s:74     .bss:00000000000002fe gpioIntInit
+     /tmp/ccurES30.s:77     .text:0000000000000000 $t
+     /tmp/ccurES30.s:82     .text:0000000000000000 epcf_gpio_nativeInit
+     /tmp/ccurES30.s:274    .text:0000000000000120 $d
+     /tmp/ccurES30.s:282    .text:0000000000000134 $t
+     /tmp/ccurES30.s:287    .text:0000000000000134 epcf_gpio_nativeSet
+     /tmp/ccurES30.s:324    .text:000000000000015c $d
+     /tmp/ccurES30.s:328    .text:0000000000000160 $t
+     /tmp/ccurES30.s:333    .text:0000000000000160 epcf_gpio_nativeClear
+     /tmp/ccurES30.s:370    .text:0000000000000188 $d
+     /tmp/ccurES30.s:374    .text:000000000000018c $t
+     /tmp/ccurES30.s:379    .text:000000000000018c epcf_gpio_nativeRead
+     /tmp/ccurES30.s:421    .text:00000000000001c0 $d
+     /tmp/ccurES30.s:425    .text:00000000000001c4 $t
+     /tmp/ccurES30.s:430    .text:00000000000001c4 epcf_gpio_nativeSetDirection
+     /tmp/ccurES30.s:509    .text:0000000000000240 epcf_gpio_nativeGetDeviceCount
+     /tmp/ccurES30.s:525    .text:0000000000000248 $d
+     /tmp/ccurES30.s:529    .text:000000000000024c $t
+     /tmp/ccurES30.s:534    .text:000000000000024c epcf_gpio_nativeIntEnable
+     /tmp/ccurES30.s:755    .text:00000000000003b0 $d
+     /tmp/ccurES30.s:762    .text:00000000000003c0 $t
+     /tmp/ccurES30.s:767    .text:00000000000003c0 epcf_gpio_nativeIntDisable
+     /tmp/ccurES30.s:795    .text:00000000000003d4 $d
+     /tmp/ccurES30.s:799    .text:00000000000003d8 $t
+     /tmp/ccurES30.s:804    .text:00000000000003d8 epcf_gpio_nativeIntAttachCallback
+     /tmp/ccurES30.s:872    .text:0000000000000438 $d
+     /tmp/ccurES30.s:878    .text:0000000000000444 $t
+     /tmp/ccurES30.s:883    .text:0000000000000444 epcf_gpio_nativeIntDetachCallback
+     /tmp/ccurES30.s:960    .text:00000000000004ac $d
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+epcfPinInit

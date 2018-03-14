@@ -1,0 +1,268 @@
+\hypertarget{wdt_8h}{}\section{epcf\+\_\+project/epcf/peripheral/include/wdt/wdt.h File Reference}
+\label{wdt_8h}\index{epcf\+\_\+project/epcf/peripheral/include/wdt/wdt.\+h@{epcf\+\_\+project/epcf/peripheral/include/wdt/wdt.\+h}}
+
+
+This file is used to configure a Watchdog timer device.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structEPCFWdtCfg__t}{E\+P\+C\+F\+Wdt\+Cfg\+\_\+t}}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{wdt_8h_a3ce65ad8fbfe4a32952f906cced08939}\label{wdt_8h_a3ce65ad8fbfe4a32952f906cced08939}} 
+typedef struct \mbox{\hyperlink{structEPCFWdtDevice}{E\+P\+C\+F\+Wdt\+Device}} \mbox{\hyperlink{wdt_8h_a3ce65ad8fbfe4a32952f906cced08939}{E\+P\+C\+F\+Wdt\+Device\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Wdt device. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{wdt_8h_a8b33815c75d82ba29955d84f9aead2ab}{En\+E\+P\+C\+F\+Wdt\+Width\+\_\+t}} \{ \newline
+\mbox{\hyperlink{wdt_8h_a8b33815c75d82ba29955d84f9aead2aba1fe90e4304e1065d3219c79afab15d99}{en\+E\+P\+C\+F\+Wdt\+Width\+\_\+8}}, 
+\mbox{\hyperlink{wdt_8h_a8b33815c75d82ba29955d84f9aead2aba656d75e48639d5e8e421c56c421870ae}{en\+E\+P\+C\+F\+Wdt\+Width\+\_\+16}}, 
+\mbox{\hyperlink{wdt_8h_a8b33815c75d82ba29955d84f9aead2aba3d6fd34b6a5cfe8453518bff1b857db4}{en\+E\+P\+C\+F\+Wdt\+Width\+\_\+32}}, 
+\mbox{\hyperlink{wdt_8h_a8b33815c75d82ba29955d84f9aead2aba1b4570bae6c72b8ff3885d6df06ac470}{en\+E\+P\+C\+F\+Wdt\+Width\+\_\+64}}, 
+\newline
+\mbox{\hyperlink{wdt_8h_a8b33815c75d82ba29955d84f9aead2aba186a43de7278112e4737889308928b18}{en\+E\+P\+C\+F\+Wdt\+Width\+\_\+\+Max}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration for Wdt width. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{wdt_8h_a6e284efd021a0c17fe320c68e563116e}{En\+E\+P\+C\+F\+Wdt\+State\+\_\+t}} \{ {\bfseries en\+E\+P\+C\+F\+Wdt\+State\+\_\+\+Idle} = 0, 
+\mbox{\hyperlink{wdt_8h_a6e284efd021a0c17fe320c68e563116ea2967808a348ac4622f61604858996aa6}{en\+E\+P\+C\+F\+Wdt\+State\+\_\+\+Stopped}}, 
+\mbox{\hyperlink{wdt_8h_a6e284efd021a0c17fe320c68e563116ead4312277bc803cfb10419556ea1a8a87}{en\+E\+P\+C\+F\+Wdt\+State\+\_\+\+Running}}, 
+\mbox{\hyperlink{wdt_8h_a6e284efd021a0c17fe320c68e563116ea0acbc23171e9b7245bc0e7b50b02a4df}{en\+E\+P\+C\+F\+Wdt\+State\+\_\+\+Max}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration for current state of watchdog timer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{wdt_8h_a3ce65ad8fbfe4a32952f906cced08939}{E\+P\+C\+F\+Wdt\+Device\+\_\+t}} $\ast$ \mbox{\hyperlink{wdt_8h_a10c924b082e8700441a42c86d23aa829}{epcf\+\_\+wdt\+\_\+create\+Native}} (\mbox{\hyperlink{structEPCFWdtCfg__t}{E\+P\+C\+F\+Wdt\+Cfg\+\_\+t}} $\ast$p\+Wdt\+Config)
+\begin{DoxyCompactList}\small\item\em This function is used to create a wdt device. Call this function in beginning to initialize the device. This function allocates memory for the device using malloc() function call and returns a pointer to the device. Pass this device pointer while calling wdt functions. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{wdt_8h_a89d8669263bb4153e982d5adbd4a56f4}{epcf\+\_\+wdt\+\_\+start}} (\mbox{\hyperlink{wdt_8h_a3ce65ad8fbfe4a32952f906cced08939}{E\+P\+C\+F\+Wdt\+Device\+\_\+t}} $\ast$p\+Wdt\+Device, E\+P\+C\+F\+Time\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em This function is used to start watchdog timer device. After the specified timeout a wdt event will occur and microcontroller will be reset. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{wdt_8h_af4f40ef565b9a915f375befec41d2bb3}{epcf\+\_\+wdt\+\_\+stop}} (\mbox{\hyperlink{wdt_8h_a3ce65ad8fbfe4a32952f906cced08939}{E\+P\+C\+F\+Wdt\+Device\+\_\+t}} $\ast$p\+Wdt\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to stop watchdog timer device. It can be started again by a call to the function E\+P\+C\+F\+\_\+\+W\+D\+T\+\_\+\+S\+T\+A\+RT. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{wdt_8h_a492c4f06c3cf889e935377d48406c258}{epcf\+\_\+wdt\+\_\+reset}} (\mbox{\hyperlink{wdt_8h_a3ce65ad8fbfe4a32952f906cced08939}{E\+P\+C\+F\+Wdt\+Device\+\_\+t}} $\ast$p\+Wdt\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to reset the watchdog timer device. User shall call this function continuously within the timeout value to prevent microcontroller reset. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{wdt_8h_a5892ce23ae03fd2ebafc3938078a0c0d}{epcf\+\_\+wdt\+\_\+get\+Remaining\+Time\+To\+Timeout}} (\mbox{\hyperlink{wdt_8h_a3ce65ad8fbfe4a32952f906cced08939}{E\+P\+C\+F\+Wdt\+Device\+\_\+t}} $\ast$p\+Wdt\+Device, E\+P\+C\+F\+Time\+\_\+t $\ast$time)
+\begin{DoxyCompactList}\small\item\em This function is used to get the remaining time which is left for timeout of the watchdog timer to occur. Call this function after starting the wdt device using E\+P\+C\+F\+\_\+\+W\+D\+T\+\_\+\+S\+T\+A\+RT function. This function has no effect if it has been called before starting the wdt device and an appropriate error message will be returned. For example\+: Consider an application in which wdt has started with a timeout value set to 5 milliseconds. In this case, a wdt event will occur after 5 milliseconds and the microcontroller will be reset. Now, if we call E\+P\+C\+F\+\_\+\+W\+D\+T\+\_\+\+G\+E\+T\+\_\+\+R\+E\+M\+A\+I\+N\+I\+N\+G\+\_\+\+T\+I\+M\+E\+\_\+\+T\+O\+\_\+\+T\+I\+M\+E\+O\+UT function after 2 milliseconds of starting the wdt device, this function will return the remaining time i.\+e. (5ms -\/ 2ms) equal to 3 milliseconds. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{wdt_8h_a6e284efd021a0c17fe320c68e563116e}{En\+E\+P\+C\+F\+Wdt\+State\+\_\+t}} \mbox{\hyperlink{wdt_8h_a0f3373dd836baa7d18cc9b8b1a2e246a}{epcf\+\_\+wdt\+\_\+get\+State}} (\mbox{\hyperlink{wdt_8h_a3ce65ad8fbfe4a32952f906cced08939}{E\+P\+C\+F\+Wdt\+Device\+\_\+t}} $\ast$p\+Wdt\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to get the current state of the watchdog timer. Wdt can be started by a call to the function E\+P\+C\+F\+\_\+\+W\+D\+T\+\_\+\+S\+T\+A\+RT. Wdt can be stopped by a call to the function E\+P\+C\+F\+\_\+\+W\+D\+T\+\_\+\+S\+T\+OP. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{wdt_8h_a8a776ce3f6add00fbb1d83bf65c94b5a}{epcf\+\_\+wdt\+\_\+close}} (\mbox{\hyperlink{wdt_8h_a3ce65ad8fbfe4a32952f906cced08939}{E\+P\+C\+F\+Wdt\+Device\+\_\+t}} $\ast$p\+Wdt\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to close the wdt device. It will free all the memory allocated by the wdt device. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{wdt_8h_a232a0ec3bd491c75469917d25101223b}{epcf\+\_\+wdt\+\_\+get\+Device\+Count}} ()
+\begin{DoxyCompactList}\small\item\em This function is used to get total number of available wdt devices. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file is used to configure a Watchdog timer device. 
+
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{wdt_8h_a6e284efd021a0c17fe320c68e563116e}\label{wdt_8h_a6e284efd021a0c17fe320c68e563116e}} 
+\index{wdt.\+h@{wdt.\+h}!En\+E\+P\+C\+F\+Wdt\+State\+\_\+t@{En\+E\+P\+C\+F\+Wdt\+State\+\_\+t}}
+\index{En\+E\+P\+C\+F\+Wdt\+State\+\_\+t@{En\+E\+P\+C\+F\+Wdt\+State\+\_\+t}!wdt.\+h@{wdt.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Wdt\+State\+\_\+t}{EnEPCFWdtState\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{wdt_8h_a6e284efd021a0c17fe320c68e563116e}{En\+E\+P\+C\+F\+Wdt\+State\+\_\+t}}}
+
+
+
+Enumeration for current state of watchdog timer. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Wdt\+State\+\_\+\+Stopped@{en\+E\+P\+C\+F\+Wdt\+State\+\_\+\+Stopped}!wdt.\+h@{wdt.\+h}}\index{wdt.\+h@{wdt.\+h}!en\+E\+P\+C\+F\+Wdt\+State\+\_\+\+Stopped@{en\+E\+P\+C\+F\+Wdt\+State\+\_\+\+Stopped}}}\mbox{\Hypertarget{wdt_8h_a6e284efd021a0c17fe320c68e563116ea2967808a348ac4622f61604858996aa6}\label{wdt_8h_a6e284efd021a0c17fe320c68e563116ea2967808a348ac4622f61604858996aa6}} 
+en\+E\+P\+C\+F\+Wdt\+State\+\_\+\+Stopped&Wdt is stopped \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Wdt\+State\+\_\+\+Running@{en\+E\+P\+C\+F\+Wdt\+State\+\_\+\+Running}!wdt.\+h@{wdt.\+h}}\index{wdt.\+h@{wdt.\+h}!en\+E\+P\+C\+F\+Wdt\+State\+\_\+\+Running@{en\+E\+P\+C\+F\+Wdt\+State\+\_\+\+Running}}}\mbox{\Hypertarget{wdt_8h_a6e284efd021a0c17fe320c68e563116ead4312277bc803cfb10419556ea1a8a87}\label{wdt_8h_a6e284efd021a0c17fe320c68e563116ead4312277bc803cfb10419556ea1a8a87}} 
+en\+E\+P\+C\+F\+Wdt\+State\+\_\+\+Running&Wdt is running \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Wdt\+State\+\_\+\+Max@{en\+E\+P\+C\+F\+Wdt\+State\+\_\+\+Max}!wdt.\+h@{wdt.\+h}}\index{wdt.\+h@{wdt.\+h}!en\+E\+P\+C\+F\+Wdt\+State\+\_\+\+Max@{en\+E\+P\+C\+F\+Wdt\+State\+\_\+\+Max}}}\mbox{\Hypertarget{wdt_8h_a6e284efd021a0c17fe320c68e563116ea0acbc23171e9b7245bc0e7b50b02a4df}\label{wdt_8h_a6e284efd021a0c17fe320c68e563116ea0acbc23171e9b7245bc0e7b50b02a4df}} 
+en\+E\+P\+C\+F\+Wdt\+State\+\_\+\+Max&Special value for boundary checking \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{wdt_8h_a8b33815c75d82ba29955d84f9aead2ab}\label{wdt_8h_a8b33815c75d82ba29955d84f9aead2ab}} 
+\index{wdt.\+h@{wdt.\+h}!En\+E\+P\+C\+F\+Wdt\+Width\+\_\+t@{En\+E\+P\+C\+F\+Wdt\+Width\+\_\+t}}
+\index{En\+E\+P\+C\+F\+Wdt\+Width\+\_\+t@{En\+E\+P\+C\+F\+Wdt\+Width\+\_\+t}!wdt.\+h@{wdt.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Wdt\+Width\+\_\+t}{EnEPCFWdtWidth\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{wdt_8h_a8b33815c75d82ba29955d84f9aead2ab}{En\+E\+P\+C\+F\+Wdt\+Width\+\_\+t}}}
+
+
+
+Enumeration for Wdt width. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Wdt\+Width\+\_\+8@{en\+E\+P\+C\+F\+Wdt\+Width\+\_\+8}!wdt.\+h@{wdt.\+h}}\index{wdt.\+h@{wdt.\+h}!en\+E\+P\+C\+F\+Wdt\+Width\+\_\+8@{en\+E\+P\+C\+F\+Wdt\+Width\+\_\+8}}}\mbox{\Hypertarget{wdt_8h_a8b33815c75d82ba29955d84f9aead2aba1fe90e4304e1065d3219c79afab15d99}\label{wdt_8h_a8b33815c75d82ba29955d84f9aead2aba1fe90e4304e1065d3219c79afab15d99}} 
+en\+E\+P\+C\+F\+Wdt\+Width\+\_\+8&8-\/bit wdt \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Wdt\+Width\+\_\+16@{en\+E\+P\+C\+F\+Wdt\+Width\+\_\+16}!wdt.\+h@{wdt.\+h}}\index{wdt.\+h@{wdt.\+h}!en\+E\+P\+C\+F\+Wdt\+Width\+\_\+16@{en\+E\+P\+C\+F\+Wdt\+Width\+\_\+16}}}\mbox{\Hypertarget{wdt_8h_a8b33815c75d82ba29955d84f9aead2aba656d75e48639d5e8e421c56c421870ae}\label{wdt_8h_a8b33815c75d82ba29955d84f9aead2aba656d75e48639d5e8e421c56c421870ae}} 
+en\+E\+P\+C\+F\+Wdt\+Width\+\_\+16&16-\/bit wdt \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Wdt\+Width\+\_\+32@{en\+E\+P\+C\+F\+Wdt\+Width\+\_\+32}!wdt.\+h@{wdt.\+h}}\index{wdt.\+h@{wdt.\+h}!en\+E\+P\+C\+F\+Wdt\+Width\+\_\+32@{en\+E\+P\+C\+F\+Wdt\+Width\+\_\+32}}}\mbox{\Hypertarget{wdt_8h_a8b33815c75d82ba29955d84f9aead2aba3d6fd34b6a5cfe8453518bff1b857db4}\label{wdt_8h_a8b33815c75d82ba29955d84f9aead2aba3d6fd34b6a5cfe8453518bff1b857db4}} 
+en\+E\+P\+C\+F\+Wdt\+Width\+\_\+32&32-\/bit wdt \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Wdt\+Width\+\_\+64@{en\+E\+P\+C\+F\+Wdt\+Width\+\_\+64}!wdt.\+h@{wdt.\+h}}\index{wdt.\+h@{wdt.\+h}!en\+E\+P\+C\+F\+Wdt\+Width\+\_\+64@{en\+E\+P\+C\+F\+Wdt\+Width\+\_\+64}}}\mbox{\Hypertarget{wdt_8h_a8b33815c75d82ba29955d84f9aead2aba1b4570bae6c72b8ff3885d6df06ac470}\label{wdt_8h_a8b33815c75d82ba29955d84f9aead2aba1b4570bae6c72b8ff3885d6df06ac470}} 
+en\+E\+P\+C\+F\+Wdt\+Width\+\_\+64&64-\/bit wdt \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Wdt\+Width\+\_\+\+Max@{en\+E\+P\+C\+F\+Wdt\+Width\+\_\+\+Max}!wdt.\+h@{wdt.\+h}}\index{wdt.\+h@{wdt.\+h}!en\+E\+P\+C\+F\+Wdt\+Width\+\_\+\+Max@{en\+E\+P\+C\+F\+Wdt\+Width\+\_\+\+Max}}}\mbox{\Hypertarget{wdt_8h_a8b33815c75d82ba29955d84f9aead2aba186a43de7278112e4737889308928b18}\label{wdt_8h_a8b33815c75d82ba29955d84f9aead2aba186a43de7278112e4737889308928b18}} 
+en\+E\+P\+C\+F\+Wdt\+Width\+\_\+\+Max&Special value for boundary checking \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{wdt_8h_a8a776ce3f6add00fbb1d83bf65c94b5a}\label{wdt_8h_a8a776ce3f6add00fbb1d83bf65c94b5a}} 
+\index{wdt.\+h@{wdt.\+h}!epcf\+\_\+wdt\+\_\+close@{epcf\+\_\+wdt\+\_\+close}}
+\index{epcf\+\_\+wdt\+\_\+close@{epcf\+\_\+wdt\+\_\+close}!wdt.\+h@{wdt.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+wdt\+\_\+close()}{epcf\_wdt\_close()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+wdt\+\_\+close (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{wdt_8h_a3ce65ad8fbfe4a32952f906cced08939}{E\+P\+C\+F\+Wdt\+Device\+\_\+t}} $\ast$}]{p\+Wdt\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to close the wdt device. It will free all the memory allocated by the wdt device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Wdt\+Device} & Pointer to the wdt device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{wdt_8h_a10c924b082e8700441a42c86d23aa829}\label{wdt_8h_a10c924b082e8700441a42c86d23aa829}} 
+\index{wdt.\+h@{wdt.\+h}!epcf\+\_\+wdt\+\_\+create\+Native@{epcf\+\_\+wdt\+\_\+create\+Native}}
+\index{epcf\+\_\+wdt\+\_\+create\+Native@{epcf\+\_\+wdt\+\_\+create\+Native}!wdt.\+h@{wdt.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+wdt\+\_\+create\+Native()}{epcf\_wdt\_createNative()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{wdt_8h_a3ce65ad8fbfe4a32952f906cced08939}{E\+P\+C\+F\+Wdt\+Device\+\_\+t}}$\ast$ epcf\+\_\+wdt\+\_\+create\+Native (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFWdtCfg__t}{E\+P\+C\+F\+Wdt\+Cfg\+\_\+t}} $\ast$}]{p\+Wdt\+Config }\end{DoxyParamCaption})}
+
+
+
+This function is used to create a wdt device. Call this function in beginning to initialize the device. This function allocates memory for the device using malloc() function call and returns a pointer to the device. Pass this device pointer while calling wdt functions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Wdt\+Config} & Pointer to the wdt configuration structure\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+On success, it return the pointer to wdt device. On error, it returns N\+U\+LL. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{wdt_8h_a232a0ec3bd491c75469917d25101223b}\label{wdt_8h_a232a0ec3bd491c75469917d25101223b}} 
+\index{wdt.\+h@{wdt.\+h}!epcf\+\_\+wdt\+\_\+get\+Device\+Count@{epcf\+\_\+wdt\+\_\+get\+Device\+Count}}
+\index{epcf\+\_\+wdt\+\_\+get\+Device\+Count@{epcf\+\_\+wdt\+\_\+get\+Device\+Count}!wdt.\+h@{wdt.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+wdt\+\_\+get\+Device\+Count()}{epcf\_wdt\_getDeviceCount()}}
+{\footnotesize\ttfamily uint8\+\_\+t epcf\+\_\+wdt\+\_\+get\+Device\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function is used to get total number of available wdt devices. 
+
+\begin{DoxyReturn}{Returns}
+Returns the number of available wdt devices. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{wdt_8h_a5892ce23ae03fd2ebafc3938078a0c0d}\label{wdt_8h_a5892ce23ae03fd2ebafc3938078a0c0d}} 
+\index{wdt.\+h@{wdt.\+h}!epcf\+\_\+wdt\+\_\+get\+Remaining\+Time\+To\+Timeout@{epcf\+\_\+wdt\+\_\+get\+Remaining\+Time\+To\+Timeout}}
+\index{epcf\+\_\+wdt\+\_\+get\+Remaining\+Time\+To\+Timeout@{epcf\+\_\+wdt\+\_\+get\+Remaining\+Time\+To\+Timeout}!wdt.\+h@{wdt.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+wdt\+\_\+get\+Remaining\+Time\+To\+Timeout()}{epcf\_wdt\_getRemainingTimeToTimeout()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+wdt\+\_\+get\+Remaining\+Time\+To\+Timeout (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{wdt_8h_a3ce65ad8fbfe4a32952f906cced08939}{E\+P\+C\+F\+Wdt\+Device\+\_\+t}} $\ast$}]{p\+Wdt\+Device,  }\item[{E\+P\+C\+F\+Time\+\_\+t $\ast$}]{time }\end{DoxyParamCaption})}
+
+
+
+This function is used to get the remaining time which is left for timeout of the watchdog timer to occur. Call this function after starting the wdt device using E\+P\+C\+F\+\_\+\+W\+D\+T\+\_\+\+S\+T\+A\+RT function. This function has no effect if it has been called before starting the wdt device and an appropriate error message will be returned. For example\+: Consider an application in which wdt has started with a timeout value set to 5 milliseconds. In this case, a wdt event will occur after 5 milliseconds and the microcontroller will be reset. Now, if we call E\+P\+C\+F\+\_\+\+W\+D\+T\+\_\+\+G\+E\+T\+\_\+\+R\+E\+M\+A\+I\+N\+I\+N\+G\+\_\+\+T\+I\+M\+E\+\_\+\+T\+O\+\_\+\+T\+I\+M\+E\+O\+UT function after 2 milliseconds of starting the wdt device, this function will return the remaining time i.\+e. (5ms -\/ 2ms) equal to 3 milliseconds. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Wdt\+Device} & Pointer to the wdt device \\
+\hline
+{\em time} & Pointer to E\+P\+C\+F\+Time\+\_\+t variable to get time value.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{wdt_8h_a0f3373dd836baa7d18cc9b8b1a2e246a}\label{wdt_8h_a0f3373dd836baa7d18cc9b8b1a2e246a}} 
+\index{wdt.\+h@{wdt.\+h}!epcf\+\_\+wdt\+\_\+get\+State@{epcf\+\_\+wdt\+\_\+get\+State}}
+\index{epcf\+\_\+wdt\+\_\+get\+State@{epcf\+\_\+wdt\+\_\+get\+State}!wdt.\+h@{wdt.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+wdt\+\_\+get\+State()}{epcf\_wdt\_getState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{wdt_8h_a6e284efd021a0c17fe320c68e563116e}{En\+E\+P\+C\+F\+Wdt\+State\+\_\+t}} epcf\+\_\+wdt\+\_\+get\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{wdt_8h_a3ce65ad8fbfe4a32952f906cced08939}{E\+P\+C\+F\+Wdt\+Device\+\_\+t}} $\ast$}]{p\+Wdt\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to get the current state of the watchdog timer. Wdt can be started by a call to the function E\+P\+C\+F\+\_\+\+W\+D\+T\+\_\+\+S\+T\+A\+RT. Wdt can be stopped by a call to the function E\+P\+C\+F\+\_\+\+W\+D\+T\+\_\+\+S\+T\+OP. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Wdt\+Device} & Pointer to the wdt device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return watchdog timer state 
+\end{DoxyReturn}
+\mbox{\Hypertarget{wdt_8h_a492c4f06c3cf889e935377d48406c258}\label{wdt_8h_a492c4f06c3cf889e935377d48406c258}} 
+\index{wdt.\+h@{wdt.\+h}!epcf\+\_\+wdt\+\_\+reset@{epcf\+\_\+wdt\+\_\+reset}}
+\index{epcf\+\_\+wdt\+\_\+reset@{epcf\+\_\+wdt\+\_\+reset}!wdt.\+h@{wdt.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+wdt\+\_\+reset()}{epcf\_wdt\_reset()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+wdt\+\_\+reset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{wdt_8h_a3ce65ad8fbfe4a32952f906cced08939}{E\+P\+C\+F\+Wdt\+Device\+\_\+t}} $\ast$}]{p\+Wdt\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to reset the watchdog timer device. User shall call this function continuously within the timeout value to prevent microcontroller reset. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Wdt\+Device} & Pointer to the wdt device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{wdt_8h_a89d8669263bb4153e982d5adbd4a56f4}\label{wdt_8h_a89d8669263bb4153e982d5adbd4a56f4}} 
+\index{wdt.\+h@{wdt.\+h}!epcf\+\_\+wdt\+\_\+start@{epcf\+\_\+wdt\+\_\+start}}
+\index{epcf\+\_\+wdt\+\_\+start@{epcf\+\_\+wdt\+\_\+start}!wdt.\+h@{wdt.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+wdt\+\_\+start()}{epcf\_wdt\_start()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+wdt\+\_\+start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{wdt_8h_a3ce65ad8fbfe4a32952f906cced08939}{E\+P\+C\+F\+Wdt\+Device\+\_\+t}} $\ast$}]{p\+Wdt\+Device,  }\item[{E\+P\+C\+F\+Time\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+
+
+This function is used to start watchdog timer device. After the specified timeout a wdt event will occur and microcontroller will be reset. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Wdt\+Device} & Pointer to the wdt device \\
+\hline
+{\em timeout} & Timeout for watchdog timer device. In case user pass an unsupported value, the driver should select the most close predefined timeout value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Call E\+P\+C\+F\+\_\+\+W\+D\+T\+\_\+\+R\+E\+S\+E\+T() function within the timeout value to restart watchdog timer. Call E\+P\+C\+F\+\_\+\+W\+D\+T\+\_\+\+S\+T\+O\+P() function to stop watchdog timer. 
+\end{DoxyNote}
+\mbox{\Hypertarget{wdt_8h_af4f40ef565b9a915f375befec41d2bb3}\label{wdt_8h_af4f40ef565b9a915f375befec41d2bb3}} 
+\index{wdt.\+h@{wdt.\+h}!epcf\+\_\+wdt\+\_\+stop@{epcf\+\_\+wdt\+\_\+stop}}
+\index{epcf\+\_\+wdt\+\_\+stop@{epcf\+\_\+wdt\+\_\+stop}!wdt.\+h@{wdt.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+wdt\+\_\+stop()}{epcf\_wdt\_stop()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+wdt\+\_\+stop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{wdt_8h_a3ce65ad8fbfe4a32952f906cced08939}{E\+P\+C\+F\+Wdt\+Device\+\_\+t}} $\ast$}]{p\+Wdt\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to stop watchdog timer device. It can be started again by a call to the function E\+P\+C\+F\+\_\+\+W\+D\+T\+\_\+\+S\+T\+A\+RT. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Wdt\+Device} & Pointer to the wdt device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}

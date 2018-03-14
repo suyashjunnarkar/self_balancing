@@ -1,0 +1,149 @@
+\hypertarget{gpio_8c}{}\section{epcf\+\_\+project/epcf/peripheral/source/gpio/gpio.c File Reference}
+\label{gpio_8c}\index{epcf\+\_\+project/epcf/peripheral/source/gpio/gpio.\+c@{epcf\+\_\+project/epcf/peripheral/source/gpio/gpio.\+c}}
+
+
+This file is used to configure a G\+P\+IO device.  
+
+
+{\ttfamily \#include \char`\"{}pcf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}./gpio\+\_\+hidden.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{gpio_8c_a6d9e54a29b7ed7094311ce140560e529}\label{gpio_8c_a6d9e54a29b7ed7094311ce140560e529}} 
+\#define {\bfseries \+\_\+\+\_\+\+E\+P\+C\+F\+\_\+\+G\+P\+I\+O\+\_\+\+H\+I\+D\+D\+E\+N\+\_\+\+I\+N\+C\+L\+U\+DE}~P\+C\+F\+\_\+\+C\+O\+N\+D\+I\+T\+I\+O\+N\+A\+L\+\_\+\+I\+N\+C\+L\+U\+D\+E\+\_\+\+F\+I\+LE(E\+P\+C\+F\+\_\+\+D\+I\+R\+\_\+\+P\+A\+TH/,peripheral/source/,gpio/,gpio\+\_\+hidden.\+h)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{gpio_8h_adfec01793a42f8d4668a8963ab42a2df}{E\+P\+C\+F\+Gpio\+Device\+\_\+t}} $\ast$ \mbox{\hyperlink{gpio_8c_a23cc2fd736b851fd7eb7157783576ca6}{epcf\+\_\+gpio\+\_\+create\+Native}} (\mbox{\hyperlink{structEPCFGpioCfg__t}{E\+P\+C\+F\+Gpio\+Cfg\+\_\+t}} $\ast$p\+Gpio\+Config)
+\begin{DoxyCompactList}\small\item\em This function is used to create an gpio device. Call this function in beginning to initialize the gpio device. This function allocates memory for the device using malloc() function call and returns a pointer to the device. Pass this device pointer while calling gpio functions. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{gpio_8c_a253c5779c19c8a975669c64a21011dda}{epcf\+\_\+gpio\+\_\+set}} (\mbox{\hyperlink{gpio_8h_adfec01793a42f8d4668a8963ab42a2df}{E\+P\+C\+F\+Gpio\+Device\+\_\+t}} $\ast$p\+Gpiodevice)
+\begin{DoxyCompactList}\small\item\em This function is used to set an gpio, for a particular gpio device. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{gpio_8c_a8bd613b45fca91029b7efd5bc3b101ed}{epcf\+\_\+gpio\+\_\+clear}} (\mbox{\hyperlink{gpio_8h_adfec01793a42f8d4668a8963ab42a2df}{E\+P\+C\+F\+Gpio\+Device\+\_\+t}} $\ast$p\+Gpiodevice)
+\begin{DoxyCompactList}\small\item\em This function is used to clear an gpio, for a particular gpio device. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{gpio_8c_a18b15135deb7c8b8477d82b3320d3c08}{epcf\+\_\+gpio\+\_\+read}} (\mbox{\hyperlink{gpio_8h_adfec01793a42f8d4668a8963ab42a2df}{E\+P\+C\+F\+Gpio\+Device\+\_\+t}} $\ast$p\+Gpiodevice)
+\begin{DoxyCompactList}\small\item\em This function is used to read an gpio, for a particular gpio device. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{gpio_8c_a98670f2bd2f9f0f0cf536404e8042d06}{epcf\+\_\+gpio\+\_\+set\+Direction}} (\mbox{\hyperlink{gpio_8h_adfec01793a42f8d4668a8963ab42a2df}{E\+P\+C\+F\+Gpio\+Device\+\_\+t}} $\ast$p\+Gpiodevice, \mbox{\hyperlink{gpio_8h_acfac25969bd9ca852e4a8293fccf01b1}{En\+E\+P\+C\+F\+Gpio\+Direction\+\_\+t}} direction)
+\begin{DoxyCompactList}\small\item\em This function is used to set direction of gpio, for a particular gpio device. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{gpio_8c_ae3d5fe3691dd0966bf64daeabd3fe4f6}{epcf\+\_\+gpio\+\_\+get\+Device\+Count}} ()
+\begin{DoxyCompactList}\small\item\em This function is used to set an gpio, for a particular gpio device. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{gpio_8c_aa01b210cdeec28b9a3ab2a1509563b9b}\label{gpio_8c_aa01b210cdeec28b9a3ab2a1509563b9b}} 
+uint8\+\_\+t {\bfseries epcf\+\_\+gpio\+\_\+ext\+Get\+Device\+Count} (\mbox{\hyperlink{structEPCFGpioController}{E\+P\+C\+F\+Gpio\+Controller\+\_\+t}} $\ast$p\+Gpio\+Controller)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file is used to configure a G\+P\+IO device. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{gpio_8c_a8bd613b45fca91029b7efd5bc3b101ed}\label{gpio_8c_a8bd613b45fca91029b7efd5bc3b101ed}} 
+\index{gpio.\+c@{gpio.\+c}!epcf\+\_\+gpio\+\_\+clear@{epcf\+\_\+gpio\+\_\+clear}}
+\index{epcf\+\_\+gpio\+\_\+clear@{epcf\+\_\+gpio\+\_\+clear}!gpio.\+c@{gpio.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+gpio\+\_\+clear()}{epcf\_gpio\_clear()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+gpio\+\_\+clear (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio_8h_adfec01793a42f8d4668a8963ab42a2df}{E\+P\+C\+F\+Gpio\+Device\+\_\+t}} $\ast$}]{p\+Gpiodevice }\end{DoxyParamCaption})}
+
+
+
+This function is used to clear an gpio, for a particular gpio device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Gpiodevice} & Pointer to the gpio device structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{gpio_8c_a23cc2fd736b851fd7eb7157783576ca6}\label{gpio_8c_a23cc2fd736b851fd7eb7157783576ca6}} 
+\index{gpio.\+c@{gpio.\+c}!epcf\+\_\+gpio\+\_\+create\+Native@{epcf\+\_\+gpio\+\_\+create\+Native}}
+\index{epcf\+\_\+gpio\+\_\+create\+Native@{epcf\+\_\+gpio\+\_\+create\+Native}!gpio.\+c@{gpio.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+gpio\+\_\+create\+Native()}{epcf\_gpio\_createNative()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gpio_8h_adfec01793a42f8d4668a8963ab42a2df}{E\+P\+C\+F\+Gpio\+Device\+\_\+t}}$\ast$ epcf\+\_\+gpio\+\_\+create\+Native (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFGpioCfg__t}{E\+P\+C\+F\+Gpio\+Cfg\+\_\+t}} $\ast$}]{p\+Gpio\+Config }\end{DoxyParamCaption})}
+
+
+
+This function is used to create an gpio device. Call this function in beginning to initialize the gpio device. This function allocates memory for the device using malloc() function call and returns a pointer to the device. Pass this device pointer while calling gpio functions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Gpio\+Config} & Pointer to the gpio configuration structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+On success, it return the pointer to gpio device. On error, it returns N\+U\+LL. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{gpio_8c_ae3d5fe3691dd0966bf64daeabd3fe4f6}\label{gpio_8c_ae3d5fe3691dd0966bf64daeabd3fe4f6}} 
+\index{gpio.\+c@{gpio.\+c}!epcf\+\_\+gpio\+\_\+get\+Device\+Count@{epcf\+\_\+gpio\+\_\+get\+Device\+Count}}
+\index{epcf\+\_\+gpio\+\_\+get\+Device\+Count@{epcf\+\_\+gpio\+\_\+get\+Device\+Count}!gpio.\+c@{gpio.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+gpio\+\_\+get\+Device\+Count()}{epcf\_gpio\_getDeviceCount()}}
+{\footnotesize\ttfamily uint8\+\_\+t epcf\+\_\+gpio\+\_\+get\+Device\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function is used to set an gpio, for a particular gpio device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Gpiodevice} & Pointer to the gpio device structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{gpio_8c_a18b15135deb7c8b8477d82b3320d3c08}\label{gpio_8c_a18b15135deb7c8b8477d82b3320d3c08}} 
+\index{gpio.\+c@{gpio.\+c}!epcf\+\_\+gpio\+\_\+read@{epcf\+\_\+gpio\+\_\+read}}
+\index{epcf\+\_\+gpio\+\_\+read@{epcf\+\_\+gpio\+\_\+read}!gpio.\+c@{gpio.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+gpio\+\_\+read()}{epcf\_gpio\_read()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+gpio\+\_\+read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio_8h_adfec01793a42f8d4668a8963ab42a2df}{E\+P\+C\+F\+Gpio\+Device\+\_\+t}} $\ast$}]{p\+Gpiodevice }\end{DoxyParamCaption})}
+
+
+
+This function is used to read an gpio, for a particular gpio device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Gpiodevice} & Pointer to the gpio device structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{gpio_8c_a253c5779c19c8a975669c64a21011dda}\label{gpio_8c_a253c5779c19c8a975669c64a21011dda}} 
+\index{gpio.\+c@{gpio.\+c}!epcf\+\_\+gpio\+\_\+set@{epcf\+\_\+gpio\+\_\+set}}
+\index{epcf\+\_\+gpio\+\_\+set@{epcf\+\_\+gpio\+\_\+set}!gpio.\+c@{gpio.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+gpio\+\_\+set()}{epcf\_gpio\_set()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+gpio\+\_\+set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio_8h_adfec01793a42f8d4668a8963ab42a2df}{E\+P\+C\+F\+Gpio\+Device\+\_\+t}} $\ast$}]{p\+Gpiodevice }\end{DoxyParamCaption})}
+
+
+
+This function is used to set an gpio, for a particular gpio device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Gpiodevice} & Pointer to the gpio device structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{gpio_8c_a98670f2bd2f9f0f0cf536404e8042d06}\label{gpio_8c_a98670f2bd2f9f0f0cf536404e8042d06}} 
+\index{gpio.\+c@{gpio.\+c}!epcf\+\_\+gpio\+\_\+set\+Direction@{epcf\+\_\+gpio\+\_\+set\+Direction}}
+\index{epcf\+\_\+gpio\+\_\+set\+Direction@{epcf\+\_\+gpio\+\_\+set\+Direction}!gpio.\+c@{gpio.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+gpio\+\_\+set\+Direction()}{epcf\_gpio\_setDirection()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+gpio\+\_\+set\+Direction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio_8h_adfec01793a42f8d4668a8963ab42a2df}{E\+P\+C\+F\+Gpio\+Device\+\_\+t}} $\ast$}]{p\+Gpiodevice,  }\item[{\mbox{\hyperlink{gpio_8h_acfac25969bd9ca852e4a8293fccf01b1}{En\+E\+P\+C\+F\+Gpio\+Direction\+\_\+t}}}]{direction }\end{DoxyParamCaption})}
+
+
+
+This function is used to set direction of gpio, for a particular gpio device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Gpiodevice} & Pointer to the gpio device structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}

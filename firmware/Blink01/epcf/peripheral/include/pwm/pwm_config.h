@@ -1,0 +1,41 @@
+/**
+ * \file  pwm_config.h
+ * \brief This file is used to configure a PWM device
+ */
+
+#ifndef __EPCF_PERIPHERAL_INCLUDE_PWM_PWM_CONFIG_H
+#define __EPCF_PERIPHERAL_INCLUDE_PWM_PWM_CONFIG_H
+
+#include "pwm.h"
+
+#if(EPCF_USE_PWM == PCF_YES)
+	#define __EPCF_PWM_INCLUDE PCF_CONDITIONAL_INCLUDE_FILE(EPCF_DIR_NATIVE_PATH/,port/PCF_ARCH_NAME/PCF_ARCH_VARIANT/PCF_ARCH_DEVICE_VENDOR/PCF_ARCH_DEVICE/include/pwm/,pwm_,PCF_ARCH_DEVICE.h)
+	#include __EPCF_PWM_INCLUDE
+	#undef __EPCF_PWM_INCLUDE
+#endif
+
+/*
+#if(EPCF_BUILD_MODE == EPCF_BUILD_NATIVE)
+    #if(EPCF_USE_PWM == PCF_YES)
+        #define __EPCF_PWM_INCLUDE PCF_CONDITIONAL_INCLUDE_FILE(NATIVE_PATH/,port/PCF_ARCH_NAME/PCF_ARCH_VARIANT/PCF_ARCH_DEVICE_VENDOR/PCF_ARCH_DEVICE/pwm/,pwm_,PCF_ARCH_DEVICE.h)
+        #include __EPCF_PWM_INCLUDE
+        #undef __EPCF_PWM_INCLUDE
+    #endif
+#endif
+
+#if(EPCF_BUILD_MODE == EPCF_BUILD_EXTENDED)
+    #if(EPCF_USE_PWM == PCF_YES)
+        #define __EPCF_PWM_INCLUDE PCF_CONDITIONAL_INCLUDE_FILE(NATIVE_PATH/,port/PCF_ARCH_NAME/PCF_ARCH_VARIANT/PCF_ARCH_DEVICE_VENDOR/PCF_ARCH_DEVICE/pwm/,pwm_,PCF_ARCH_DEVICE.h)
+        #include __EPCF_PWM_INCLUDE
+        #undef __EPCF_PWM_INCLUDE
+    #endif
+
+    #if(EPCF_EXTENDED_USE_PWM == PCF_YES)
+        #define __EPCF_PWM_INCLUDE PCF_CONDITIONAL_INCLUDE_FILE(EXTENDED_PATH/,controller/,pwm/,pwm_controller.h)
+        #include __EPCF_PWM_INCLUDE
+        #undef __EPCF_PWM_INCLUDE
+    #endif
+#endif
+*/
+
+#endif      //__EPCF_PERIPHERAL_INCLUDE_PWM_PWM_CONFIG_H

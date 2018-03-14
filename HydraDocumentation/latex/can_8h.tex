@@ -1,0 +1,698 @@
+\hypertarget{can_8h}{}\section{epcf\+\_\+project/epcf/peripheral/include/can/can.h File Reference}
+\label{can_8h}\index{epcf\+\_\+project/epcf/peripheral/include/can/can.\+h@{epcf\+\_\+project/epcf/peripheral/include/can/can.\+h}}
+
+
+This file is used to configure a Can device.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structEPCFCanCfg__t}{E\+P\+C\+F\+Can\+Cfg\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em C\+AN configuration structure. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structEPCFCanMsgHeader__t}{E\+P\+C\+F\+Can\+Msg\+Header\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em C\+AN message header structure. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structEPCFCanRxMessage__t}{E\+P\+C\+F\+Can\+Rx\+Message\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em C\+AN Receive message structure. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structEPCFCfgFilter}{E\+P\+C\+F\+Cfg\+Filter}}
+\begin{DoxyCompactList}\small\item\em C\+AN Filter structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{can_8h_acf897332482a87a49a6f253f42b3456d}\label{can_8h_acf897332482a87a49a6f253f42b3456d}} 
+\#define {\bfseries C\+A\+N\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+ZE}~(sizeof(\mbox{\hyperlink{structEPCFCanRxMessage__t}{E\+P\+C\+F\+Can\+Rx\+Message\+\_\+t}}))
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{can_8h_a4cc9e3e0fae513af5d70da508cbce2a6}\label{can_8h_a4cc9e3e0fae513af5d70da508cbce2a6}} 
+typedef struct \mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device}} {\bfseries E\+P\+C\+F\+Can\+Device\+\_\+t}
+\item 
+\mbox{\Hypertarget{can_8h_a78eb451f7f64357f4f253f853f146517}\label{can_8h_a78eb451f7f64357f4f253f853f146517}} 
+typedef \mbox{\hyperlink{structEPCFCfgFilter}{E\+P\+C\+F\+Cfg\+Filter}} $\ast$ {\bfseries E\+P\+C\+Fp\+Cfg\+Filter}
+\item 
+\mbox{\Hypertarget{can_8h_a65b0c4a1e8f8a268b7f44e89a1b69ea1}\label{can_8h_a65b0c4a1e8f8a268b7f44e89a1b69ea1}} 
+typedef \mbox{\hyperlink{structEPCFCanRxMessage__t}{E\+P\+C\+F\+Can\+Rx\+Message\+\_\+t}} $\ast$ {\bfseries E\+P\+C\+Fp\+Can\+Rx\+Message\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{can_8h_a5edf07e1dd389b138138a38d7b513eb3}{En\+E\+P\+C\+F\+Can\+Frame\+Format\+\_\+t}} \{ \mbox{\hyperlink{can_8h_a5edf07e1dd389b138138a38d7b513eb3aeca44904e773b5f8f6d7a7342f67b46e}{en\+E\+P\+C\+F\+Can\+Frame\+Format\+\_\+\+Standard}} = 0, 
+\mbox{\hyperlink{can_8h_a5edf07e1dd389b138138a38d7b513eb3af5e7ce6f065f11cdbccdb2def272fe73}{en\+E\+P\+C\+F\+Can\+Frame\+Format\+\_\+\+Extended}}, 
+\mbox{\hyperlink{can_8h_a5edf07e1dd389b138138a38d7b513eb3ad8a76bbbd4fc995ef127d05594c502e8}{en\+E\+P\+C\+F\+Can\+Frame\+Format\+\_\+\+Max}}
+ \}
+\item 
+enum \mbox{\hyperlink{can_8h_a0befc2200f87407f34c1b2ac19260e18}{En\+E\+P\+C\+F\+Can\+Callback\+\_\+t}} \{ \newline
+\mbox{\hyperlink{can_8h_a0befc2200f87407f34c1b2ac19260e18ac231efe504e77b92d696c6150620c35c}{en\+E\+P\+C\+F\+Can\+Callback\+\_\+\+Buff1\+Tx\+Callback}} = 0, 
+\mbox{\hyperlink{can_8h_a0befc2200f87407f34c1b2ac19260e18a4dd1d80d7eaadc2cb4299abda9ee54c6}{en\+E\+P\+C\+F\+Can\+Callback\+\_\+\+Buff2\+Tx\+Callback}}, 
+\mbox{\hyperlink{can_8h_a0befc2200f87407f34c1b2ac19260e18a9282ae9d03e36ad5bf8f23ef19af7de4}{en\+E\+P\+C\+F\+Can\+Callback\+\_\+\+Buff3\+Tx\+Callback}}, 
+\mbox{\hyperlink{can_8h_a0befc2200f87407f34c1b2ac19260e18ac9ec13ef4b40ab96e0d4f52becee0e32}{en\+E\+P\+C\+F\+Can\+Callback\+\_\+\+Rx\+Callback}}, 
+\newline
+\mbox{\hyperlink{can_8h_a0befc2200f87407f34c1b2ac19260e18a232461c11a69380c2a20c507b4b9b545}{en\+E\+P\+C\+F\+Can\+Callback\+\_\+\+Err\+Callback}}
+ \}
+\item 
+enum \mbox{\hyperlink{can_8h_a1a558e4259c2520bc9727ff9a8941fac}{En\+E\+P\+C\+F\+Data\+Length\+\_\+t}} \{ \newline
+\mbox{\hyperlink{can_8h_a1a558e4259c2520bc9727ff9a8941facad0f61accfc59485feb41f50fa46d30ff}{en\+E\+P\+C\+F\+Can\+Length\+\_\+0byte}} = 0, 
+{\bfseries en\+E\+P\+C\+F\+Can\+Length\+\_\+1byte}, 
+{\bfseries en\+E\+P\+C\+F\+Can\+Length\+\_\+2byte}, 
+{\bfseries en\+E\+P\+C\+F\+Can\+Length\+\_\+3byte}, 
+\newline
+{\bfseries en\+E\+P\+C\+F\+Can\+Length\+\_\+4byte}, 
+{\bfseries en\+E\+P\+C\+F\+Can\+Length\+\_\+5byte}, 
+{\bfseries en\+E\+P\+C\+F\+Can\+Length\+\_\+6byte}, 
+{\bfseries en\+E\+P\+C\+F\+Can\+Length\+\_\+7byte}, 
+\newline
+{\bfseries en\+E\+P\+C\+F\+Can\+Length\+\_\+8byte}, 
+\mbox{\hyperlink{can_8h_a1a558e4259c2520bc9727ff9a8941facaa3a3c80862767338b6314b55064c140c}{en\+E\+P\+C\+F\+Data\+Length\+\_\+\+Max}}
+ \}
+\item 
+enum \mbox{\hyperlink{can_8h_a62829201a68b21def737cc94b7e20803}{En\+E\+P\+C\+F\+Int\+Type\+\_\+t}} \{ \newline
+\mbox{\hyperlink{can_8h_a62829201a68b21def737cc94b7e20803a621f3e8ade8954a25cabc83af3ebd1c8}{en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+None}} = 0, 
+\mbox{\hyperlink{can_8h_a62829201a68b21def737cc94b7e20803a2d7326efdc0c0de77483f7af749f8102}{en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+RI}}, 
+\mbox{\hyperlink{can_8h_a62829201a68b21def737cc94b7e20803ab70d2a27349d9421e1162ea50219ff3f}{en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+TI}}, 
+\mbox{\hyperlink{can_8h_a62829201a68b21def737cc94b7e20803a50fa72b99907878bd51b492a492d4b9a}{en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+T\+I\+\_\+\+RI}}, 
+\newline
+\mbox{\hyperlink{can_8h_a62829201a68b21def737cc94b7e20803ad0d575ef6382551c616452920a48b663}{en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+E\+WI}}, 
+\mbox{\hyperlink{can_8h_a62829201a68b21def737cc94b7e20803a06d217f05fc29023f59c724d0b7c260b}{en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+D\+OI}}, 
+\mbox{\hyperlink{can_8h_a62829201a68b21def737cc94b7e20803af34bf1af90c0d32f2b53a5f075dcfa32}{en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+A\+LI}}, 
+\mbox{\hyperlink{can_8h_a62829201a68b21def737cc94b7e20803a9e7ec866007799585d151684733994ec}{en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+Max}}
+ \}
+\item 
+enum \mbox{\hyperlink{can_8h_a3ba32a3cfd614cbd886a7c62b692defc}{En\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+t}} \{ \newline
+\mbox{\hyperlink{can_8h_a3ba32a3cfd614cbd886a7c62b692defcac4185e0afa53f2e6ba065b97848bb906}{en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Unknown\+Frame}} = 0, 
+\mbox{\hyperlink{can_8h_a3ba32a3cfd614cbd886a7c62b692defcaf506c4a250192193dc0c86ba8d261eac}{en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Data\+Frame}}, 
+\mbox{\hyperlink{can_8h_a3ba32a3cfd614cbd886a7c62b692defca6a02df639ef4095e282f24ecd539e93e}{en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Error\+Frame}}, 
+\mbox{\hyperlink{can_8h_a3ba32a3cfd614cbd886a7c62b692defcad586ba9e5fbb91e7dae90b4dd518ad08}{en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Remote\+Request\+Frame}}, 
+\newline
+\mbox{\hyperlink{can_8h_a3ba32a3cfd614cbd886a7c62b692defcaa1f49634ae4852f40613db7e2e96dae6}{en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Overlod}}, 
+{\bfseries en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Max}
+ \}
+\item 
+enum \mbox{\hyperlink{can_8h_a97f16d03af59a0449d377236677bef41}{En\+E\+P\+C\+F\+Can\+Filter\+Mode}} \{ \mbox{\hyperlink{can_8h_a97f16d03af59a0449d377236677bef41a7d5778707dd733b196ce8fccd1394d1d}{en\+E\+P\+C\+F\+Can\+Filter\+Mode\+Id\+List}}, 
+\mbox{\hyperlink{can_8h_a97f16d03af59a0449d377236677bef41a25949271c204ef8830907df58c1958a2}{en\+E\+P\+C\+F\+Can\+Filter\+Mode\+Id\+Group}}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$ \mbox{\hyperlink{can_8h_a1154a6cc3005b349fd65d61793efb94b}{epcf\+\_\+can\+\_\+create\+Native}} (\mbox{\hyperlink{structEPCFCanCfg__t}{E\+P\+C\+F\+Can\+Cfg\+\_\+t}} $\ast$p\+Can\+Config)
+\begin{DoxyCompactList}\small\item\em This function is used to create a can device. Call this function in beginning to initialize the can device. This function allocates memory for the device using malloc() function call and returns a pointer to the device. Pass this device pointer while calling can functions. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{can_8h_a6c4ee7058d1ee66d2635326ce4a29bac}{epcf\+\_\+can\+\_\+int\+Enable}} (\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$p\+Can\+Device, \mbox{\hyperlink{can_8h_a62829201a68b21def737cc94b7e20803}{En\+E\+P\+C\+F\+Int\+Type\+\_\+t}} int\+Type)
+\begin{DoxyCompactList}\small\item\em This function is used to enable the can interrupt.\+It can be disabled by epcf\+\_\+can\+\_\+int\+Disable function. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{can_8h_a4f1ef36dc44b4a2f231be272a3686c20}{epcf\+\_\+can\+\_\+int\+Disable}} (\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$p\+Can\+Device, \mbox{\hyperlink{can_8h_a62829201a68b21def737cc94b7e20803}{En\+E\+P\+C\+F\+Int\+Type\+\_\+t}} int\+Type)
+\begin{DoxyCompactList}\small\item\em This function is used to disable the can interrupt. The device can be enabled again by epcf\+\_\+can\+\_\+int\+Enable function. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{can_8h_a41f0e50f30f58d61f911c60c5484dfaf}{epcf\+\_\+can\+\_\+int\+Attach\+Callback}} (\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$p\+Can\+Device, \mbox{\hyperlink{can_8h_a0befc2200f87407f34c1b2ac19260e18}{En\+E\+P\+C\+F\+Can\+Callback\+\_\+t}} int\+Type, epcf\+Callback\+With\+Arg\+\_\+fp p\+Callback)
+\begin{DoxyCompactList}\small\item\em This function is used to attach an can interrupt callback according to the interrupt type selected while enabling interrupt. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{can_8h_a8ff7e8e9e244150689ce0bd29a3087ce}{epcf\+\_\+can\+\_\+int\+Detach\+Callback}} (\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$p\+Can\+Device, \mbox{\hyperlink{can_8h_a0befc2200f87407f34c1b2ac19260e18}{En\+E\+P\+C\+F\+Can\+Callback\+\_\+t}} int\+Type)
+\begin{DoxyCompactList}\small\item\em This function is used to detach a can interrupt callback according to the interrupt type selected . \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{can_8h_a6dd5a4a13bdbe5ccf199876d94e13e97}{epcf\+\_\+can\+\_\+get\+Rx\+Buffer\+Count}} (\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$p\+Can\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to get number of bytes received in can receive buffer. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{can_8h_a04172a4cf35c9cd2b1764e412effe146}{epcf\+\_\+can\+\_\+rx\+Buffer\+Flush}} (\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$p\+Can\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to flush can receive buffer. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{can_8h_ae7f0b3981dcd931e3f59a08c854a3e87}{epcf\+\_\+can\+\_\+get\+Tx\+Buffer\+Count}} (\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$p\+Can\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to get number of bytes pending in can transmit buffer. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{can_8h_a36bd3999393144cb618a3c11338ab769}{epcf\+\_\+can\+\_\+tx\+Buffer\+Flush}} (\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$p\+Can\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to flush can transmit buffer. \end{DoxyCompactList}\item 
+En\+E\+P\+C\+F\+Boolean\+\_\+t \mbox{\hyperlink{can_8h_a4c5f8c4684298ff794feb735c388b4de}{epcf\+\_\+can\+\_\+get\+Rx\+Fifo\+Empty}} (\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$p\+Can\+Device)
+\begin{DoxyCompactList}\small\item\em This function returns whether fifo is empty or not. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{can_8h_a6ab382b27ce1323cf11dc6430faf3c68}{epcf\+\_\+can\+\_\+set\+Msg\+Header}} (\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$p\+Can\+Device, \mbox{\hyperlink{structEPCFCanMsgHeader__t}{E\+P\+C\+F\+Can\+Msg\+Header\+\_\+t}} $\ast$p\+Msg\+Header)
+\begin{DoxyCompactList}\small\item\em This function is used to set message header for C\+AN message. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{can_8h_adb68016a12c47a5cc3755fe53ec46b7e}{epcf\+\_\+can\+\_\+write}} (\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$p\+Can\+Device, const uint8\+\_\+t $\ast$data, uint32\+\_\+t size, E\+P\+C\+F\+Time\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em This function is used to send data on C\+AN bus. -\/\+Interrupt mode \+:-\/ It is mandatory to select interrupt as en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+T\+I\+\_\+\+RI or en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+TI in C\+AN configuration structure to use this function in Interrupt mode.\+Data transmission will be asynchronous and the data is transmitted using internal transmit buffer. The function will be non blocking and will return after initiating data transmission. Use epcf\+\_\+can\+\_\+get\+Tx\+Buffer\+Count function to check the status of the transmit buffer. -\/\+Poling mode \+:-\/ It is mandatory to select interrupt type as en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+None in C\+AN configuration structure to use this function in Poling mode.\+Data transmission will be synchronous and calling function will be blocked until all the data is transmitted or timeout has occurred. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{can_8h_a398698722df0ad604b777e12366e154b}{epcf\+\_\+can\+\_\+read}} (\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$p\+Can\+Device, \mbox{\hyperlink{structEPCFCanRxMessage__t}{E\+P\+C\+Fp\+Can\+Rx\+Message\+\_\+t}} rx\+Message, E\+P\+C\+F\+Time\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em This function is used to read data on C\+AN bus. -\/\+Interrupt mode \+:-\/ It is mandatory to select interrupt as en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+T\+I\+\_\+\+RI or en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+RI in C\+AN configuration structure to use this function in Interrupt mode.\+Data Reception will be asynchronous and the data is received using internal receive buffer. Use epcf\+\_\+can\+\_\+get\+Rx\+Buffer\+Count and epcf\+\_\+can\+\_\+get\+Rx\+Fifo\+Empty function to check the status of the transmit buffer. -\/\+Poling mode \+:-\/ It is mandatory to select interrupt type as en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+None in C\+AN configuration structure to use this function in Poling mode.\+Data reception will be synchronous and calling function will be blocked until all the data is transmitted or timeout has occurred. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{can_8h_a1449c4daad5a53ad1219dded8cbd16ce}{epcf\+\_\+can\+\_\+close}} (\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$p\+Can\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to close the can device. It will free the memory allocated by the can device. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{can_8h_ac456e7f4cf8312f73ee73678b3dea2ec}{epcf\+\_\+can\+\_\+get\+Device\+Count}} (\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$p\+Can\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to get the total number of available can devices. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{can_8h_a74a3f7be99b5822e2af1124b97f87162}{epcf\+\_\+can\+\_\+filter\+Init}} (\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$p\+Can\+Device, \mbox{\hyperlink{structEPCFCfgFilter}{E\+P\+C\+Fp\+Cfg\+Filter}} p\+Filter\+Config)
+\begin{DoxyCompactList}\small\item\em This function is used to set acceptance filter for C\+AN receiver to receive required message id. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{can_8h_aa891d6b4eb3ce74d90bcbb9266859590}{epcf\+\_\+can\+\_\+get\+Tx\+Err\+Counter}} (\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$p\+Can\+Device, uint8\+\_\+t $\ast$err\+Count)
+\begin{DoxyCompactList}\small\item\em This function provides interface to read transmission error counter. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{can_8h_abfa8feed32ea5633590b3f0fb2ecbf7d}{epcf\+\_\+can\+\_\+get\+Rx\+Err\+Counter}} (\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$p\+Can\+Device, uint8\+\_\+t $\ast$err\+Count)
+\begin{DoxyCompactList}\small\item\em This function provides interface to read reception error counter. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{can_8h_a829ed68f2085738cc3cedf58d521483e}{epcf\+\_\+can\+\_\+get\+Int\+Status}} (\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$p\+Can\+Device, uint32\+\_\+t $\ast$status)
+\begin{DoxyCompactList}\small\item\em This function gets interrupt status for given channel. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{can_8h_a44a0b72db850ec9ee1ec458d4ff6da96}{epcf\+\_\+can\+\_\+get\+Ctrl\+Status}} (\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$p\+Can\+Device, uint32\+\_\+t $\ast$status)
+\begin{DoxyCompactList}\small\item\em This function gets Control status for given channel. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file is used to configure a Can device. 
+
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{can_8h_a0befc2200f87407f34c1b2ac19260e18}\label{can_8h_a0befc2200f87407f34c1b2ac19260e18}} 
+\index{can.\+h@{can.\+h}!En\+E\+P\+C\+F\+Can\+Callback\+\_\+t@{En\+E\+P\+C\+F\+Can\+Callback\+\_\+t}}
+\index{En\+E\+P\+C\+F\+Can\+Callback\+\_\+t@{En\+E\+P\+C\+F\+Can\+Callback\+\_\+t}!can.\+h@{can.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Can\+Callback\+\_\+t}{EnEPCFCanCallback\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{can_8h_a0befc2200f87407f34c1b2ac19260e18}{En\+E\+P\+C\+F\+Can\+Callback\+\_\+t}}}
+
+Enumeration for C\+AN callback types \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Can\+Callback\+\_\+\+Buff1\+Tx\+Callback@{en\+E\+P\+C\+F\+Can\+Callback\+\_\+\+Buff1\+Tx\+Callback}!can.\+h@{can.\+h}}\index{can.\+h@{can.\+h}!en\+E\+P\+C\+F\+Can\+Callback\+\_\+\+Buff1\+Tx\+Callback@{en\+E\+P\+C\+F\+Can\+Callback\+\_\+\+Buff1\+Tx\+Callback}}}\mbox{\Hypertarget{can_8h_a0befc2200f87407f34c1b2ac19260e18ac231efe504e77b92d696c6150620c35c}\label{can_8h_a0befc2200f87407f34c1b2ac19260e18ac231efe504e77b92d696c6150620c35c}} 
+en\+E\+P\+C\+F\+Can\+Callback\+\_\+\+Buff1\+Tx\+Callback&Can Buffer 1 transmission complete interrupt callback \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Can\+Callback\+\_\+\+Buff2\+Tx\+Callback@{en\+E\+P\+C\+F\+Can\+Callback\+\_\+\+Buff2\+Tx\+Callback}!can.\+h@{can.\+h}}\index{can.\+h@{can.\+h}!en\+E\+P\+C\+F\+Can\+Callback\+\_\+\+Buff2\+Tx\+Callback@{en\+E\+P\+C\+F\+Can\+Callback\+\_\+\+Buff2\+Tx\+Callback}}}\mbox{\Hypertarget{can_8h_a0befc2200f87407f34c1b2ac19260e18a4dd1d80d7eaadc2cb4299abda9ee54c6}\label{can_8h_a0befc2200f87407f34c1b2ac19260e18a4dd1d80d7eaadc2cb4299abda9ee54c6}} 
+en\+E\+P\+C\+F\+Can\+Callback\+\_\+\+Buff2\+Tx\+Callback&Can Buffer 2 transmission complete interrupt callback \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Can\+Callback\+\_\+\+Buff3\+Tx\+Callback@{en\+E\+P\+C\+F\+Can\+Callback\+\_\+\+Buff3\+Tx\+Callback}!can.\+h@{can.\+h}}\index{can.\+h@{can.\+h}!en\+E\+P\+C\+F\+Can\+Callback\+\_\+\+Buff3\+Tx\+Callback@{en\+E\+P\+C\+F\+Can\+Callback\+\_\+\+Buff3\+Tx\+Callback}}}\mbox{\Hypertarget{can_8h_a0befc2200f87407f34c1b2ac19260e18a9282ae9d03e36ad5bf8f23ef19af7de4}\label{can_8h_a0befc2200f87407f34c1b2ac19260e18a9282ae9d03e36ad5bf8f23ef19af7de4}} 
+en\+E\+P\+C\+F\+Can\+Callback\+\_\+\+Buff3\+Tx\+Callback&Can Buffer 3 transmission complete interrupt callback \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Can\+Callback\+\_\+\+Rx\+Callback@{en\+E\+P\+C\+F\+Can\+Callback\+\_\+\+Rx\+Callback}!can.\+h@{can.\+h}}\index{can.\+h@{can.\+h}!en\+E\+P\+C\+F\+Can\+Callback\+\_\+\+Rx\+Callback@{en\+E\+P\+C\+F\+Can\+Callback\+\_\+\+Rx\+Callback}}}\mbox{\Hypertarget{can_8h_a0befc2200f87407f34c1b2ac19260e18ac9ec13ef4b40ab96e0d4f52becee0e32}\label{can_8h_a0befc2200f87407f34c1b2ac19260e18ac9ec13ef4b40ab96e0d4f52becee0e32}} 
+en\+E\+P\+C\+F\+Can\+Callback\+\_\+\+Rx\+Callback&Can message received interrupt callback \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Can\+Callback\+\_\+\+Err\+Callback@{en\+E\+P\+C\+F\+Can\+Callback\+\_\+\+Err\+Callback}!can.\+h@{can.\+h}}\index{can.\+h@{can.\+h}!en\+E\+P\+C\+F\+Can\+Callback\+\_\+\+Err\+Callback@{en\+E\+P\+C\+F\+Can\+Callback\+\_\+\+Err\+Callback}}}\mbox{\Hypertarget{can_8h_a0befc2200f87407f34c1b2ac19260e18a232461c11a69380c2a20c507b4b9b545}\label{can_8h_a0befc2200f87407f34c1b2ac19260e18a232461c11a69380c2a20c507b4b9b545}} 
+en\+E\+P\+C\+F\+Can\+Callback\+\_\+\+Err\+Callback&Can Error passive interrupt callback \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{can_8h_a97f16d03af59a0449d377236677bef41}\label{can_8h_a97f16d03af59a0449d377236677bef41}} 
+\index{can.\+h@{can.\+h}!En\+E\+P\+C\+F\+Can\+Filter\+Mode@{En\+E\+P\+C\+F\+Can\+Filter\+Mode}}
+\index{En\+E\+P\+C\+F\+Can\+Filter\+Mode@{En\+E\+P\+C\+F\+Can\+Filter\+Mode}!can.\+h@{can.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Can\+Filter\+Mode}{EnEPCFCanFilterMode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{can_8h_a97f16d03af59a0449d377236677bef41}{En\+E\+P\+C\+F\+Can\+Filter\+Mode}}}
+
+Enumeration for Can filter mode \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Can\+Filter\+Mode\+Id\+List@{en\+E\+P\+C\+F\+Can\+Filter\+Mode\+Id\+List}!can.\+h@{can.\+h}}\index{can.\+h@{can.\+h}!en\+E\+P\+C\+F\+Can\+Filter\+Mode\+Id\+List@{en\+E\+P\+C\+F\+Can\+Filter\+Mode\+Id\+List}}}\mbox{\Hypertarget{can_8h_a97f16d03af59a0449d377236677bef41a7d5778707dd733b196ce8fccd1394d1d}\label{can_8h_a97f16d03af59a0449d377236677bef41a7d5778707dd733b196ce8fccd1394d1d}} 
+en\+E\+P\+C\+F\+Can\+Filter\+Mode\+Id\+List&One filter will be able to filter a single message I\+Ds \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Can\+Filter\+Mode\+Id\+Group@{en\+E\+P\+C\+F\+Can\+Filter\+Mode\+Id\+Group}!can.\+h@{can.\+h}}\index{can.\+h@{can.\+h}!en\+E\+P\+C\+F\+Can\+Filter\+Mode\+Id\+Group@{en\+E\+P\+C\+F\+Can\+Filter\+Mode\+Id\+Group}}}\mbox{\Hypertarget{can_8h_a97f16d03af59a0449d377236677bef41a25949271c204ef8830907df58c1958a2}\label{can_8h_a97f16d03af59a0449d377236677bef41a25949271c204ef8830907df58c1958a2}} 
+en\+E\+P\+C\+F\+Can\+Filter\+Mode\+Id\+Group&One filter will be able to filter a group of message I\+Ds \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{can_8h_a5edf07e1dd389b138138a38d7b513eb3}\label{can_8h_a5edf07e1dd389b138138a38d7b513eb3}} 
+\index{can.\+h@{can.\+h}!En\+E\+P\+C\+F\+Can\+Frame\+Format\+\_\+t@{En\+E\+P\+C\+F\+Can\+Frame\+Format\+\_\+t}}
+\index{En\+E\+P\+C\+F\+Can\+Frame\+Format\+\_\+t@{En\+E\+P\+C\+F\+Can\+Frame\+Format\+\_\+t}!can.\+h@{can.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Can\+Frame\+Format\+\_\+t}{EnEPCFCanFrameFormat\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{can_8h_a5edf07e1dd389b138138a38d7b513eb3}{En\+E\+P\+C\+F\+Can\+Frame\+Format\+\_\+t}}}
+
+Enumeration for C\+AN frame format \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Can\+Frame\+Format\+\_\+\+Standard@{en\+E\+P\+C\+F\+Can\+Frame\+Format\+\_\+\+Standard}!can.\+h@{can.\+h}}\index{can.\+h@{can.\+h}!en\+E\+P\+C\+F\+Can\+Frame\+Format\+\_\+\+Standard@{en\+E\+P\+C\+F\+Can\+Frame\+Format\+\_\+\+Standard}}}\mbox{\Hypertarget{can_8h_a5edf07e1dd389b138138a38d7b513eb3aeca44904e773b5f8f6d7a7342f67b46e}\label{can_8h_a5edf07e1dd389b138138a38d7b513eb3aeca44904e773b5f8f6d7a7342f67b46e}} 
+en\+E\+P\+C\+F\+Can\+Frame\+Format\+\_\+\+Standard&C\+AN standard frame with 11 bit ID \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Can\+Frame\+Format\+\_\+\+Extended@{en\+E\+P\+C\+F\+Can\+Frame\+Format\+\_\+\+Extended}!can.\+h@{can.\+h}}\index{can.\+h@{can.\+h}!en\+E\+P\+C\+F\+Can\+Frame\+Format\+\_\+\+Extended@{en\+E\+P\+C\+F\+Can\+Frame\+Format\+\_\+\+Extended}}}\mbox{\Hypertarget{can_8h_a5edf07e1dd389b138138a38d7b513eb3af5e7ce6f065f11cdbccdb2def272fe73}\label{can_8h_a5edf07e1dd389b138138a38d7b513eb3af5e7ce6f065f11cdbccdb2def272fe73}} 
+en\+E\+P\+C\+F\+Can\+Frame\+Format\+\_\+\+Extended&C\+AN extended frame with 29 bit ID \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Can\+Frame\+Format\+\_\+\+Max@{en\+E\+P\+C\+F\+Can\+Frame\+Format\+\_\+\+Max}!can.\+h@{can.\+h}}\index{can.\+h@{can.\+h}!en\+E\+P\+C\+F\+Can\+Frame\+Format\+\_\+\+Max@{en\+E\+P\+C\+F\+Can\+Frame\+Format\+\_\+\+Max}}}\mbox{\Hypertarget{can_8h_a5edf07e1dd389b138138a38d7b513eb3ad8a76bbbd4fc995ef127d05594c502e8}\label{can_8h_a5edf07e1dd389b138138a38d7b513eb3ad8a76bbbd4fc995ef127d05594c502e8}} 
+en\+E\+P\+C\+F\+Can\+Frame\+Format\+\_\+\+Max&Special value for boundary checking \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{can_8h_a3ba32a3cfd614cbd886a7c62b692defc}\label{can_8h_a3ba32a3cfd614cbd886a7c62b692defc}} 
+\index{can.\+h@{can.\+h}!En\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+t@{En\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+t}}
+\index{En\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+t@{En\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+t}!can.\+h@{can.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+t}{EnEPCFCanFrameType\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{can_8h_a3ba32a3cfd614cbd886a7c62b692defc}{En\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+t}}}
+
+Enumeration for C\+AN frame type \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Unknown\+Frame@{en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Unknown\+Frame}!can.\+h@{can.\+h}}\index{can.\+h@{can.\+h}!en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Unknown\+Frame@{en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Unknown\+Frame}}}\mbox{\Hypertarget{can_8h_a3ba32a3cfd614cbd886a7c62b692defcac4185e0afa53f2e6ba065b97848bb906}\label{can_8h_a3ba32a3cfd614cbd886a7c62b692defcac4185e0afa53f2e6ba065b97848bb906}} 
+en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Unknown\+Frame&The frame type is unknown. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Data\+Frame@{en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Data\+Frame}!can.\+h@{can.\+h}}\index{can.\+h@{can.\+h}!en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Data\+Frame@{en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Data\+Frame}}}\mbox{\Hypertarget{can_8h_a3ba32a3cfd614cbd886a7c62b692defcaf506c4a250192193dc0c86ba8d261eac}\label{can_8h_a3ba32a3cfd614cbd886a7c62b692defcaf506c4a250192193dc0c86ba8d261eac}} 
+en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Data\+Frame&This value represents a data frame. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Error\+Frame@{en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Error\+Frame}!can.\+h@{can.\+h}}\index{can.\+h@{can.\+h}!en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Error\+Frame@{en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Error\+Frame}}}\mbox{\Hypertarget{can_8h_a3ba32a3cfd614cbd886a7c62b692defca6a02df639ef4095e282f24ecd539e93e}\label{can_8h_a3ba32a3cfd614cbd886a7c62b692defca6a02df639ef4095e282f24ecd539e93e}} 
+en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Error\+Frame&This value represents an error frame. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Remote\+Request\+Frame@{en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Remote\+Request\+Frame}!can.\+h@{can.\+h}}\index{can.\+h@{can.\+h}!en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Remote\+Request\+Frame@{en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Remote\+Request\+Frame}}}\mbox{\Hypertarget{can_8h_a3ba32a3cfd614cbd886a7c62b692defcad586ba9e5fbb91e7dae90b4dd518ad08}\label{can_8h_a3ba32a3cfd614cbd886a7c62b692defcad586ba9e5fbb91e7dae90b4dd518ad08}} 
+en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Remote\+Request\+Frame&This value represents a remote request. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Overlod@{en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Overlod}!can.\+h@{can.\+h}}\index{can.\+h@{can.\+h}!en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Overlod@{en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Overlod}}}\mbox{\Hypertarget{can_8h_a3ba32a3cfd614cbd886a7c62b692defcaa1f49634ae4852f40613db7e2e96dae6}\label{can_8h_a3ba32a3cfd614cbd886a7c62b692defcaa1f49634ae4852f40613db7e2e96dae6}} 
+en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Overlod&This value represents an Overlod frame \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{can_8h_a1a558e4259c2520bc9727ff9a8941fac}\label{can_8h_a1a558e4259c2520bc9727ff9a8941fac}} 
+\index{can.\+h@{can.\+h}!En\+E\+P\+C\+F\+Data\+Length\+\_\+t@{En\+E\+P\+C\+F\+Data\+Length\+\_\+t}}
+\index{En\+E\+P\+C\+F\+Data\+Length\+\_\+t@{En\+E\+P\+C\+F\+Data\+Length\+\_\+t}!can.\+h@{can.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Data\+Length\+\_\+t}{EnEPCFDataLength\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{can_8h_a1a558e4259c2520bc9727ff9a8941fac}{En\+E\+P\+C\+F\+Data\+Length\+\_\+t}}}
+
+Enumeration for C\+AN message length \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Can\+Length\+\_\+0byte@{en\+E\+P\+C\+F\+Can\+Length\+\_\+0byte}!can.\+h@{can.\+h}}\index{can.\+h@{can.\+h}!en\+E\+P\+C\+F\+Can\+Length\+\_\+0byte@{en\+E\+P\+C\+F\+Can\+Length\+\_\+0byte}}}\mbox{\Hypertarget{can_8h_a1a558e4259c2520bc9727ff9a8941facad0f61accfc59485feb41f50fa46d30ff}\label{can_8h_a1a558e4259c2520bc9727ff9a8941facad0f61accfc59485feb41f50fa46d30ff}} 
+en\+E\+P\+C\+F\+Can\+Length\+\_\+0byte&C\+AN Data Length\+:1 byte to 8 bytes \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Data\+Length\+\_\+\+Max@{en\+E\+P\+C\+F\+Data\+Length\+\_\+\+Max}!can.\+h@{can.\+h}}\index{can.\+h@{can.\+h}!en\+E\+P\+C\+F\+Data\+Length\+\_\+\+Max@{en\+E\+P\+C\+F\+Data\+Length\+\_\+\+Max}}}\mbox{\Hypertarget{can_8h_a1a558e4259c2520bc9727ff9a8941facaa3a3c80862767338b6314b55064c140c}\label{can_8h_a1a558e4259c2520bc9727ff9a8941facaa3a3c80862767338b6314b55064c140c}} 
+en\+E\+P\+C\+F\+Data\+Length\+\_\+\+Max&Special value for boundary checking \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{can_8h_a62829201a68b21def737cc94b7e20803}\label{can_8h_a62829201a68b21def737cc94b7e20803}} 
+\index{can.\+h@{can.\+h}!En\+E\+P\+C\+F\+Int\+Type\+\_\+t@{En\+E\+P\+C\+F\+Int\+Type\+\_\+t}}
+\index{En\+E\+P\+C\+F\+Int\+Type\+\_\+t@{En\+E\+P\+C\+F\+Int\+Type\+\_\+t}!can.\+h@{can.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Int\+Type\+\_\+t}{EnEPCFIntType\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{can_8h_a62829201a68b21def737cc94b7e20803}{En\+E\+P\+C\+F\+Int\+Type\+\_\+t}}}
+
+Enumeration for C\+AN interrupt type \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+None@{en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+None}!can.\+h@{can.\+h}}\index{can.\+h@{can.\+h}!en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+None@{en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+None}}}\mbox{\Hypertarget{can_8h_a62829201a68b21def737cc94b7e20803a621f3e8ade8954a25cabc83af3ebd1c8}\label{can_8h_a62829201a68b21def737cc94b7e20803a621f3e8ade8954a25cabc83af3ebd1c8}} 
+en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+None&C\+AN Interrupt None \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+RI@{en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+RI}!can.\+h@{can.\+h}}\index{can.\+h@{can.\+h}!en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+RI@{en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+RI}}}\mbox{\Hypertarget{can_8h_a62829201a68b21def737cc94b7e20803a2d7326efdc0c0de77483f7af749f8102}\label{can_8h_a62829201a68b21def737cc94b7e20803a2d7326efdc0c0de77483f7af749f8102}} 
+en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+RI&C\+AN Receiver Interrupt \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+TI@{en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+TI}!can.\+h@{can.\+h}}\index{can.\+h@{can.\+h}!en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+TI@{en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+TI}}}\mbox{\Hypertarget{can_8h_a62829201a68b21def737cc94b7e20803ab70d2a27349d9421e1162ea50219ff3f}\label{can_8h_a62829201a68b21def737cc94b7e20803ab70d2a27349d9421e1162ea50219ff3f}} 
+en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+TI&C\+AN Transmit Interrupt \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+T\+I\+\_\+\+RI@{en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+T\+I\+\_\+\+RI}!can.\+h@{can.\+h}}\index{can.\+h@{can.\+h}!en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+T\+I\+\_\+\+RI@{en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+T\+I\+\_\+\+RI}}}\mbox{\Hypertarget{can_8h_a62829201a68b21def737cc94b7e20803a50fa72b99907878bd51b492a492d4b9a}\label{can_8h_a62829201a68b21def737cc94b7e20803a50fa72b99907878bd51b492a492d4b9a}} 
+en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+T\+I\+\_\+\+RI&C\+AN Transmit Receiver Interrupt \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+E\+WI@{en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+E\+WI}!can.\+h@{can.\+h}}\index{can.\+h@{can.\+h}!en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+E\+WI@{en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+E\+WI}}}\mbox{\Hypertarget{can_8h_a62829201a68b21def737cc94b7e20803ad0d575ef6382551c616452920a48b663}\label{can_8h_a62829201a68b21def737cc94b7e20803ad0d575ef6382551c616452920a48b663}} 
+en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+E\+WI&C\+AN Error Warning Interrupt \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+D\+OI@{en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+D\+OI}!can.\+h@{can.\+h}}\index{can.\+h@{can.\+h}!en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+D\+OI@{en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+D\+OI}}}\mbox{\Hypertarget{can_8h_a62829201a68b21def737cc94b7e20803a06d217f05fc29023f59c724d0b7c260b}\label{can_8h_a62829201a68b21def737cc94b7e20803a06d217f05fc29023f59c724d0b7c260b}} 
+en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+D\+OI&C\+AN Data Overrun Interrupt \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+A\+LI@{en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+A\+LI}!can.\+h@{can.\+h}}\index{can.\+h@{can.\+h}!en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+A\+LI@{en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+A\+LI}}}\mbox{\Hypertarget{can_8h_a62829201a68b21def737cc94b7e20803af34bf1af90c0d32f2b53a5f075dcfa32}\label{can_8h_a62829201a68b21def737cc94b7e20803af34bf1af90c0d32f2b53a5f075dcfa32}} 
+en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+A\+LI&C\+AN Arbitration Loss Interrupt \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+Max@{en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+Max}!can.\+h@{can.\+h}}\index{can.\+h@{can.\+h}!en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+Max@{en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+Max}}}\mbox{\Hypertarget{can_8h_a62829201a68b21def737cc94b7e20803a9e7ec866007799585d151684733994ec}\label{can_8h_a62829201a68b21def737cc94b7e20803a9e7ec866007799585d151684733994ec}} 
+en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+Max&Special value for boundary checking \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{can_8h_a1449c4daad5a53ad1219dded8cbd16ce}\label{can_8h_a1449c4daad5a53ad1219dded8cbd16ce}} 
+\index{can.\+h@{can.\+h}!epcf\+\_\+can\+\_\+close@{epcf\+\_\+can\+\_\+close}}
+\index{epcf\+\_\+can\+\_\+close@{epcf\+\_\+can\+\_\+close}!can.\+h@{can.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+can\+\_\+close()}{epcf\_can\_close()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+can\+\_\+close (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$}]{p\+Can\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to close the can device. It will free the memory allocated by the can device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Can\+Device} & Pointer to the can device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{can_8h_a1154a6cc3005b349fd65d61793efb94b}\label{can_8h_a1154a6cc3005b349fd65d61793efb94b}} 
+\index{can.\+h@{can.\+h}!epcf\+\_\+can\+\_\+create\+Native@{epcf\+\_\+can\+\_\+create\+Native}}
+\index{epcf\+\_\+can\+\_\+create\+Native@{epcf\+\_\+can\+\_\+create\+Native}!can.\+h@{can.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+can\+\_\+create\+Native()}{epcf\_can\_createNative()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}}$\ast$ epcf\+\_\+can\+\_\+create\+Native (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFCanCfg__t}{E\+P\+C\+F\+Can\+Cfg\+\_\+t}} $\ast$}]{p\+Can\+Config }\end{DoxyParamCaption})}
+
+
+
+This function is used to create a can device. Call this function in beginning to initialize the can device. This function allocates memory for the device using malloc() function call and returns a pointer to the device. Pass this device pointer while calling can functions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Can\+Config} & Pointer to the can configuration structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+On success, it return the pointer to can device. On error, it returns N\+U\+LL. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{can_8h_a74a3f7be99b5822e2af1124b97f87162}\label{can_8h_a74a3f7be99b5822e2af1124b97f87162}} 
+\index{can.\+h@{can.\+h}!epcf\+\_\+can\+\_\+filter\+Init@{epcf\+\_\+can\+\_\+filter\+Init}}
+\index{epcf\+\_\+can\+\_\+filter\+Init@{epcf\+\_\+can\+\_\+filter\+Init}!can.\+h@{can.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+can\+\_\+filter\+Init()}{epcf\_can\_filterInit()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+can\+\_\+filter\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$}]{p\+Can\+Device,  }\item[{\mbox{\hyperlink{structEPCFCfgFilter}{E\+P\+C\+Fp\+Cfg\+Filter}}}]{p\+Filter\+Config }\end{DoxyParamCaption})}
+
+
+
+This function is used to set acceptance filter for C\+AN receiver to receive required message id. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Can\+Device} & Pointer to the can device. \\
+\hline
+{\em p\+Filter\+Config} & Pointer to the can configuration structure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{can_8h_a44a0b72db850ec9ee1ec458d4ff6da96}\label{can_8h_a44a0b72db850ec9ee1ec458d4ff6da96}} 
+\index{can.\+h@{can.\+h}!epcf\+\_\+can\+\_\+get\+Ctrl\+Status@{epcf\+\_\+can\+\_\+get\+Ctrl\+Status}}
+\index{epcf\+\_\+can\+\_\+get\+Ctrl\+Status@{epcf\+\_\+can\+\_\+get\+Ctrl\+Status}!can.\+h@{can.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+can\+\_\+get\+Ctrl\+Status()}{epcf\_can\_getCtrlStatus()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+can\+\_\+get\+Ctrl\+Status (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$}]{p\+Can\+Device,  }\item[{uint32\+\_\+t $\ast$}]{status }\end{DoxyParamCaption})}
+
+
+
+This function gets Control status for given channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Can\+Device} & Pointer to the can device. \\
+\hline
+{\em status} & pointer to Interrupt status. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{can_8h_ac456e7f4cf8312f73ee73678b3dea2ec}\label{can_8h_ac456e7f4cf8312f73ee73678b3dea2ec}} 
+\index{can.\+h@{can.\+h}!epcf\+\_\+can\+\_\+get\+Device\+Count@{epcf\+\_\+can\+\_\+get\+Device\+Count}}
+\index{epcf\+\_\+can\+\_\+get\+Device\+Count@{epcf\+\_\+can\+\_\+get\+Device\+Count}!can.\+h@{can.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+can\+\_\+get\+Device\+Count()}{epcf\_can\_getDeviceCount()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+can\+\_\+get\+Device\+Count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$}]{p\+Can\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to get the total number of available can devices. 
+
+\begin{DoxyReturn}{Returns}
+Returns the number of available can devices. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{can_8h_a829ed68f2085738cc3cedf58d521483e}\label{can_8h_a829ed68f2085738cc3cedf58d521483e}} 
+\index{can.\+h@{can.\+h}!epcf\+\_\+can\+\_\+get\+Int\+Status@{epcf\+\_\+can\+\_\+get\+Int\+Status}}
+\index{epcf\+\_\+can\+\_\+get\+Int\+Status@{epcf\+\_\+can\+\_\+get\+Int\+Status}!can.\+h@{can.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+can\+\_\+get\+Int\+Status()}{epcf\_can\_getIntStatus()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+can\+\_\+get\+Int\+Status (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$}]{p\+Can\+Device,  }\item[{uint32\+\_\+t $\ast$}]{status }\end{DoxyParamCaption})}
+
+
+
+This function gets interrupt status for given channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Can\+Device} & Pointer to the can device. \\
+\hline
+{\em status} & pointer to Interrupt status. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{can_8h_a6dd5a4a13bdbe5ccf199876d94e13e97}\label{can_8h_a6dd5a4a13bdbe5ccf199876d94e13e97}} 
+\index{can.\+h@{can.\+h}!epcf\+\_\+can\+\_\+get\+Rx\+Buffer\+Count@{epcf\+\_\+can\+\_\+get\+Rx\+Buffer\+Count}}
+\index{epcf\+\_\+can\+\_\+get\+Rx\+Buffer\+Count@{epcf\+\_\+can\+\_\+get\+Rx\+Buffer\+Count}!can.\+h@{can.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+can\+\_\+get\+Rx\+Buffer\+Count()}{epcf\_can\_getRxBufferCount()}}
+{\footnotesize\ttfamily uint32\+\_\+t epcf\+\_\+can\+\_\+get\+Rx\+Buffer\+Count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$}]{p\+Can\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to get number of bytes received in can receive buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Can\+Device} & Pointer to the can device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return total number of received bytes
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use this function only when using can in interrupt mode 
+\end{DoxyNote}
+\mbox{\Hypertarget{can_8h_abfa8feed32ea5633590b3f0fb2ecbf7d}\label{can_8h_abfa8feed32ea5633590b3f0fb2ecbf7d}} 
+\index{can.\+h@{can.\+h}!epcf\+\_\+can\+\_\+get\+Rx\+Err\+Counter@{epcf\+\_\+can\+\_\+get\+Rx\+Err\+Counter}}
+\index{epcf\+\_\+can\+\_\+get\+Rx\+Err\+Counter@{epcf\+\_\+can\+\_\+get\+Rx\+Err\+Counter}!can.\+h@{can.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+can\+\_\+get\+Rx\+Err\+Counter()}{epcf\_can\_getRxErrCounter()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+can\+\_\+get\+Rx\+Err\+Counter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$}]{p\+Can\+Device,  }\item[{uint8\+\_\+t $\ast$}]{err\+Count }\end{DoxyParamCaption})}
+
+
+
+This function provides interface to read reception error counter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Can\+Device} & Pointer to the can device. \\
+\hline
+{\em err\+Count} & Pointer to byte to which the function should write error counter value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{can_8h_a4c5f8c4684298ff794feb735c388b4de}\label{can_8h_a4c5f8c4684298ff794feb735c388b4de}} 
+\index{can.\+h@{can.\+h}!epcf\+\_\+can\+\_\+get\+Rx\+Fifo\+Empty@{epcf\+\_\+can\+\_\+get\+Rx\+Fifo\+Empty}}
+\index{epcf\+\_\+can\+\_\+get\+Rx\+Fifo\+Empty@{epcf\+\_\+can\+\_\+get\+Rx\+Fifo\+Empty}!can.\+h@{can.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+can\+\_\+get\+Rx\+Fifo\+Empty()}{epcf\_can\_getRxFifoEmpty()}}
+{\footnotesize\ttfamily En\+E\+P\+C\+F\+Boolean\+\_\+t epcf\+\_\+can\+\_\+get\+Rx\+Fifo\+Empty (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$}]{p\+Can\+Device }\end{DoxyParamCaption})}
+
+
+
+This function returns whether fifo is empty or not. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Can\+Device} & Pointer to the can device. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return boolean status,en\+E\+P\+C\+F\+Boolean\+\_\+\+True if fifo is empty and en\+E\+P\+C\+F\+Boolean\+\_\+\+False if fifo is not empty 
+\end{DoxyReturn}
+\mbox{\Hypertarget{can_8h_ae7f0b3981dcd931e3f59a08c854a3e87}\label{can_8h_ae7f0b3981dcd931e3f59a08c854a3e87}} 
+\index{can.\+h@{can.\+h}!epcf\+\_\+can\+\_\+get\+Tx\+Buffer\+Count@{epcf\+\_\+can\+\_\+get\+Tx\+Buffer\+Count}}
+\index{epcf\+\_\+can\+\_\+get\+Tx\+Buffer\+Count@{epcf\+\_\+can\+\_\+get\+Tx\+Buffer\+Count}!can.\+h@{can.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+can\+\_\+get\+Tx\+Buffer\+Count()}{epcf\_can\_getTxBufferCount()}}
+{\footnotesize\ttfamily uint32\+\_\+t epcf\+\_\+can\+\_\+get\+Tx\+Buffer\+Count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$}]{p\+Can\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to get number of bytes pending in can transmit buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Can\+Device} & Pointer to the can device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return total number of pending bytes
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use this function only when using can in interrupt mode 
+\end{DoxyNote}
+\mbox{\Hypertarget{can_8h_aa891d6b4eb3ce74d90bcbb9266859590}\label{can_8h_aa891d6b4eb3ce74d90bcbb9266859590}} 
+\index{can.\+h@{can.\+h}!epcf\+\_\+can\+\_\+get\+Tx\+Err\+Counter@{epcf\+\_\+can\+\_\+get\+Tx\+Err\+Counter}}
+\index{epcf\+\_\+can\+\_\+get\+Tx\+Err\+Counter@{epcf\+\_\+can\+\_\+get\+Tx\+Err\+Counter}!can.\+h@{can.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+can\+\_\+get\+Tx\+Err\+Counter()}{epcf\_can\_getTxErrCounter()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+can\+\_\+get\+Tx\+Err\+Counter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$}]{p\+Can\+Device,  }\item[{uint8\+\_\+t $\ast$}]{err\+Count }\end{DoxyParamCaption})}
+
+
+
+This function provides interface to read transmission error counter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Can\+Device} & Pointer to the can device. \\
+\hline
+{\em err\+Count} & Pointer to byte to which the function should write error counter value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{can_8h_a41f0e50f30f58d61f911c60c5484dfaf}\label{can_8h_a41f0e50f30f58d61f911c60c5484dfaf}} 
+\index{can.\+h@{can.\+h}!epcf\+\_\+can\+\_\+int\+Attach\+Callback@{epcf\+\_\+can\+\_\+int\+Attach\+Callback}}
+\index{epcf\+\_\+can\+\_\+int\+Attach\+Callback@{epcf\+\_\+can\+\_\+int\+Attach\+Callback}!can.\+h@{can.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+can\+\_\+int\+Attach\+Callback()}{epcf\_can\_intAttachCallback()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+can\+\_\+int\+Attach\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$}]{p\+Can\+Device,  }\item[{\mbox{\hyperlink{can_8h_a0befc2200f87407f34c1b2ac19260e18}{En\+E\+P\+C\+F\+Can\+Callback\+\_\+t}}}]{int\+Type,  }\item[{epcf\+Callback\+With\+Arg\+\_\+fp}]{p\+Callback }\end{DoxyParamCaption})}
+
+
+
+This function is used to attach an can interrupt callback according to the interrupt type selected while enabling interrupt. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Can\+Device} & Pointer to the can device. \\
+\hline
+{\em int\+Type} & interrupt type to generate an interrupt.\+Refer Enum En\+E\+P\+C\+F\+Int\+Type\+\_\+t. \\
+\hline
+{\em callback} & User callback to be attached for respective interrupt.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{can_8h_a8ff7e8e9e244150689ce0bd29a3087ce}\label{can_8h_a8ff7e8e9e244150689ce0bd29a3087ce}} 
+\index{can.\+h@{can.\+h}!epcf\+\_\+can\+\_\+int\+Detach\+Callback@{epcf\+\_\+can\+\_\+int\+Detach\+Callback}}
+\index{epcf\+\_\+can\+\_\+int\+Detach\+Callback@{epcf\+\_\+can\+\_\+int\+Detach\+Callback}!can.\+h@{can.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+can\+\_\+int\+Detach\+Callback()}{epcf\_can\_intDetachCallback()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+can\+\_\+int\+Detach\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$}]{p\+Can\+Device,  }\item[{\mbox{\hyperlink{can_8h_a0befc2200f87407f34c1b2ac19260e18}{En\+E\+P\+C\+F\+Can\+Callback\+\_\+t}}}]{int\+Type }\end{DoxyParamCaption})}
+
+
+
+This function is used to detach a can interrupt callback according to the interrupt type selected . 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Can\+Device} & Pointer to the can device. \\
+\hline
+{\em int\+Type} & interrupt type to generate an interrupt.\+Refer Enum En\+E\+P\+C\+F\+Int\+Type\+\_\+t.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{can_8h_a4f1ef36dc44b4a2f231be272a3686c20}\label{can_8h_a4f1ef36dc44b4a2f231be272a3686c20}} 
+\index{can.\+h@{can.\+h}!epcf\+\_\+can\+\_\+int\+Disable@{epcf\+\_\+can\+\_\+int\+Disable}}
+\index{epcf\+\_\+can\+\_\+int\+Disable@{epcf\+\_\+can\+\_\+int\+Disable}!can.\+h@{can.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+can\+\_\+int\+Disable()}{epcf\_can\_intDisable()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+can\+\_\+int\+Disable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$}]{p\+Can\+Device,  }\item[{\mbox{\hyperlink{can_8h_a62829201a68b21def737cc94b7e20803}{En\+E\+P\+C\+F\+Int\+Type\+\_\+t}}}]{int\+Type }\end{DoxyParamCaption})}
+
+
+
+This function is used to disable the can interrupt. The device can be enabled again by epcf\+\_\+can\+\_\+int\+Enable function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Can\+Device} & Pointer to the can device. \\
+\hline
+{\em int\+Type} & interrupt type to generate an interrupt.\+Refer Enum En\+E\+P\+C\+F\+Int\+Type\+\_\+t. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{can_8h_a6c4ee7058d1ee66d2635326ce4a29bac}\label{can_8h_a6c4ee7058d1ee66d2635326ce4a29bac}} 
+\index{can.\+h@{can.\+h}!epcf\+\_\+can\+\_\+int\+Enable@{epcf\+\_\+can\+\_\+int\+Enable}}
+\index{epcf\+\_\+can\+\_\+int\+Enable@{epcf\+\_\+can\+\_\+int\+Enable}!can.\+h@{can.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+can\+\_\+int\+Enable()}{epcf\_can\_intEnable()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+can\+\_\+int\+Enable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$}]{p\+Can\+Device,  }\item[{\mbox{\hyperlink{can_8h_a62829201a68b21def737cc94b7e20803}{En\+E\+P\+C\+F\+Int\+Type\+\_\+t}}}]{int\+Type }\end{DoxyParamCaption})}
+
+
+
+This function is used to enable the can interrupt.\+It can be disabled by epcf\+\_\+can\+\_\+int\+Disable function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Can\+Device} & Pointer to the can device. \\
+\hline
+{\em int\+Type} & interrupt type to generate an interrupt.\+Refer Enum En\+E\+P\+C\+F\+Int\+Type\+\_\+t.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{can_8h_a398698722df0ad604b777e12366e154b}\label{can_8h_a398698722df0ad604b777e12366e154b}} 
+\index{can.\+h@{can.\+h}!epcf\+\_\+can\+\_\+read@{epcf\+\_\+can\+\_\+read}}
+\index{epcf\+\_\+can\+\_\+read@{epcf\+\_\+can\+\_\+read}!can.\+h@{can.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+can\+\_\+read()}{epcf\_can\_read()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+can\+\_\+read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$}]{p\+Can\+Device,  }\item[{\mbox{\hyperlink{structEPCFCanRxMessage__t}{E\+P\+C\+Fp\+Can\+Rx\+Message\+\_\+t}}}]{rx\+Message,  }\item[{E\+P\+C\+F\+Time\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+
+
+This function is used to read data on C\+AN bus. -\/\+Interrupt mode \+:-\/ It is mandatory to select interrupt as en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+T\+I\+\_\+\+RI or en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+RI in C\+AN configuration structure to use this function in Interrupt mode.\+Data Reception will be asynchronous and the data is received using internal receive buffer. Use epcf\+\_\+can\+\_\+get\+Rx\+Buffer\+Count and epcf\+\_\+can\+\_\+get\+Rx\+Fifo\+Empty function to check the status of the transmit buffer. -\/\+Poling mode \+:-\/ It is mandatory to select interrupt type as en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+None in C\+AN configuration structure to use this function in Poling mode.\+Data reception will be synchronous and calling function will be blocked until all the data is transmitted or timeout has occurred. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Can\+Device} & Pointer to the can device \\
+\hline
+{\em p\+Rx\+Message} & Pointer to the structure where data will be stored \\
+\hline
+{\em timeout} & timeout value.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return number of bytes read over can bus. Check status code if return value is less than 0. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\mbox{\Hypertarget{can_8h_a04172a4cf35c9cd2b1764e412effe146}\label{can_8h_a04172a4cf35c9cd2b1764e412effe146}} 
+\index{can.\+h@{can.\+h}!epcf\+\_\+can\+\_\+rx\+Buffer\+Flush@{epcf\+\_\+can\+\_\+rx\+Buffer\+Flush}}
+\index{epcf\+\_\+can\+\_\+rx\+Buffer\+Flush@{epcf\+\_\+can\+\_\+rx\+Buffer\+Flush}!can.\+h@{can.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+can\+\_\+rx\+Buffer\+Flush()}{epcf\_can\_rxBufferFlush()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+can\+\_\+rx\+Buffer\+Flush (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$}]{p\+Can\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to flush can receive buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Can\+Device} & Pointer to the can device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use this function only when using can in interrupt mode 
+\end{DoxyNote}
+\mbox{\Hypertarget{can_8h_a6ab382b27ce1323cf11dc6430faf3c68}\label{can_8h_a6ab382b27ce1323cf11dc6430faf3c68}} 
+\index{can.\+h@{can.\+h}!epcf\+\_\+can\+\_\+set\+Msg\+Header@{epcf\+\_\+can\+\_\+set\+Msg\+Header}}
+\index{epcf\+\_\+can\+\_\+set\+Msg\+Header@{epcf\+\_\+can\+\_\+set\+Msg\+Header}!can.\+h@{can.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+can\+\_\+set\+Msg\+Header()}{epcf\_can\_setMsgHeader()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+can\+\_\+set\+Msg\+Header (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$}]{p\+Can\+Device,  }\item[{\mbox{\hyperlink{structEPCFCanMsgHeader__t}{E\+P\+C\+F\+Can\+Msg\+Header\+\_\+t}} $\ast$}]{p\+Msg\+Header }\end{DoxyParamCaption})}
+
+
+
+This function is used to set message header for C\+AN message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Can\+Device} & Pointer to the can device \\
+\hline
+{\em p\+Msg\+Header} & Pointer to structure of message header.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{can_8h_a36bd3999393144cb618a3c11338ab769}\label{can_8h_a36bd3999393144cb618a3c11338ab769}} 
+\index{can.\+h@{can.\+h}!epcf\+\_\+can\+\_\+tx\+Buffer\+Flush@{epcf\+\_\+can\+\_\+tx\+Buffer\+Flush}}
+\index{epcf\+\_\+can\+\_\+tx\+Buffer\+Flush@{epcf\+\_\+can\+\_\+tx\+Buffer\+Flush}!can.\+h@{can.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+can\+\_\+tx\+Buffer\+Flush()}{epcf\_can\_txBufferFlush()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+can\+\_\+tx\+Buffer\+Flush (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$}]{p\+Can\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to flush can transmit buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Can\+Device} & Pointer to the can device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use this function only when using can in interrupt mode 
+\end{DoxyNote}
+\mbox{\Hypertarget{can_8h_adb68016a12c47a5cc3755fe53ec46b7e}\label{can_8h_adb68016a12c47a5cc3755fe53ec46b7e}} 
+\index{can.\+h@{can.\+h}!epcf\+\_\+can\+\_\+write@{epcf\+\_\+can\+\_\+write}}
+\index{epcf\+\_\+can\+\_\+write@{epcf\+\_\+can\+\_\+write}!can.\+h@{can.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+can\+\_\+write()}{epcf\_can\_write()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+can\+\_\+write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$}]{p\+Can\+Device,  }\item[{const uint8\+\_\+t $\ast$}]{data,  }\item[{uint32\+\_\+t}]{size,  }\item[{E\+P\+C\+F\+Time\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+
+
+This function is used to send data on C\+AN bus. -\/\+Interrupt mode \+:-\/ It is mandatory to select interrupt as en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+T\+I\+\_\+\+RI or en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+TI in C\+AN configuration structure to use this function in Interrupt mode.\+Data transmission will be asynchronous and the data is transmitted using internal transmit buffer. The function will be non blocking and will return after initiating data transmission. Use epcf\+\_\+can\+\_\+get\+Tx\+Buffer\+Count function to check the status of the transmit buffer. -\/\+Poling mode \+:-\/ It is mandatory to select interrupt type as en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+None in C\+AN configuration structure to use this function in Poling mode.\+Data transmission will be synchronous and calling function will be blocked until all the data is transmitted or timeout has occurred. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Can\+Device} & Pointer to the can device \\
+\hline
+{\em data} & Pointer to buffer where data to be written is stored. \\
+\hline
+{\em size} & Total number of bytes to send \\
+\hline
+{\em timeout} & timeout value.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return total number of bytes send over can bus. Check status code if return value is less than 0. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}

@@ -1,0 +1,75 @@
+\hypertarget{structEPCFTimerCfg__t}{}\section{E\+P\+C\+F\+Timer\+Cfg\+\_\+t Struct Reference}
+\label{structEPCFTimerCfg__t}\index{E\+P\+C\+F\+Timer\+Cfg\+\_\+t@{E\+P\+C\+F\+Timer\+Cfg\+\_\+t}}
+
+
+Timer configuration structure Example to configure timer in timer mode\+:  
+
+
+
+
+{\ttfamily \#include $<$timer.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structEPCFTimerCfg__t_a3d76ca6bd21e3c79c1108bfd5ca12203}{timer\+Id}}
+\item 
+\mbox{\hyperlink{timer_8h_a88093e16b89eaa9d2df5fc6285cffa9f}{En\+E\+P\+C\+F\+Timer\+Width\+\_\+t}} \mbox{\hyperlink{structEPCFTimerCfg__t_a4e6c52d71b02feed17bf2a82f52e0dd5}{timer\+Width}}
+\item 
+E\+P\+C\+F\+Time\+\_\+t \mbox{\hyperlink{structEPCFTimerCfg__t_a95ab8d358214e80efc33d4ab5eafebe4}{resolution}}
+\item 
+\mbox{\hyperlink{timer_8h_a51bff4a4babb9c83592664dca0f1f0e8}{En\+E\+P\+C\+F\+Timer\+Mode\+\_\+t}} \mbox{\hyperlink{structEPCFTimerCfg__t_a4bef5bcf1cd65caba288be72df84d8fb}{mode}}
+\item 
+En\+E\+P\+C\+F\+Boolean\+\_\+t \mbox{\hyperlink{structEPCFTimerCfg__t_affb91a9f214e3b46db718c62db7d4726}{interrupt\+Enable}}
+\item 
+void $\ast$ \mbox{\hyperlink{structEPCFTimerCfg__t_a6de81a71c26c282153e6d1be3f3be0cd}{hardware\+Cfg}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Timer configuration structure Example to configure timer in timer mode\+: 
+
+\mbox{\hyperlink{structEPCFTimerCfg__t}{E\+P\+C\+F\+Timer\+Cfg\+\_\+t}} timer\+Config = \{ 0, // timer id 0 en\+E\+P\+C\+F\+Timer\+Width\+\_\+8, // 8-\/bit timer width \{250,en\+E\+P\+C\+F\+Time\+Unit\+\_\+ns\}, // resolution set to 0.\+25 microseconds en\+E\+P\+C\+F\+Timer\+Type\+Periodic, // set periodic timer en\+E\+P\+C\+F\+Timer\+Mode\+Timer, // set in timer mode en\+E\+P\+C\+F\+Boolean\+True, // enable interrupt N\+U\+LL // No hardware specific config \}; 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structEPCFTimerCfg__t_a6de81a71c26c282153e6d1be3f3be0cd}\label{structEPCFTimerCfg__t_a6de81a71c26c282153e6d1be3f3be0cd}} 
+\index{E\+P\+C\+F\+Timer\+Cfg\+\_\+t@{E\+P\+C\+F\+Timer\+Cfg\+\_\+t}!hardware\+Cfg@{hardware\+Cfg}}
+\index{hardware\+Cfg@{hardware\+Cfg}!E\+P\+C\+F\+Timer\+Cfg\+\_\+t@{E\+P\+C\+F\+Timer\+Cfg\+\_\+t}}
+\subsubsection{\texorpdfstring{hardware\+Cfg}{hardwareCfg}}
+{\footnotesize\ttfamily void$\ast$ E\+P\+C\+F\+Timer\+Cfg\+\_\+t\+::hardware\+Cfg}
+
+Hardware platform specific configuration, Pass N\+U\+LL for default configuration \mbox{\Hypertarget{structEPCFTimerCfg__t_affb91a9f214e3b46db718c62db7d4726}\label{structEPCFTimerCfg__t_affb91a9f214e3b46db718c62db7d4726}} 
+\index{E\+P\+C\+F\+Timer\+Cfg\+\_\+t@{E\+P\+C\+F\+Timer\+Cfg\+\_\+t}!interrupt\+Enable@{interrupt\+Enable}}
+\index{interrupt\+Enable@{interrupt\+Enable}!E\+P\+C\+F\+Timer\+Cfg\+\_\+t@{E\+P\+C\+F\+Timer\+Cfg\+\_\+t}}
+\subsubsection{\texorpdfstring{interrupt\+Enable}{interruptEnable}}
+{\footnotesize\ttfamily En\+E\+P\+C\+F\+Boolean\+\_\+t E\+P\+C\+F\+Timer\+Cfg\+\_\+t\+::interrupt\+Enable}
+
+Specifies to enable timer interrupt or not en\+E\+P\+C\+F\+Boolean\+True = To enable timer interrupt en\+E\+P\+C\+F\+Boolean\+False = To disable timer interrupt \mbox{\Hypertarget{structEPCFTimerCfg__t_a4bef5bcf1cd65caba288be72df84d8fb}\label{structEPCFTimerCfg__t_a4bef5bcf1cd65caba288be72df84d8fb}} 
+\index{E\+P\+C\+F\+Timer\+Cfg\+\_\+t@{E\+P\+C\+F\+Timer\+Cfg\+\_\+t}!mode@{mode}}
+\index{mode@{mode}!E\+P\+C\+F\+Timer\+Cfg\+\_\+t@{E\+P\+C\+F\+Timer\+Cfg\+\_\+t}}
+\subsubsection{\texorpdfstring{mode}{mode}}
+{\footnotesize\ttfamily \mbox{\hyperlink{timer_8h_a51bff4a4babb9c83592664dca0f1f0e8}{En\+E\+P\+C\+F\+Timer\+Mode\+\_\+t}} E\+P\+C\+F\+Timer\+Cfg\+\_\+t\+::mode}
+
+Specifies timer mode \mbox{\Hypertarget{structEPCFTimerCfg__t_a95ab8d358214e80efc33d4ab5eafebe4}\label{structEPCFTimerCfg__t_a95ab8d358214e80efc33d4ab5eafebe4}} 
+\index{E\+P\+C\+F\+Timer\+Cfg\+\_\+t@{E\+P\+C\+F\+Timer\+Cfg\+\_\+t}!resolution@{resolution}}
+\index{resolution@{resolution}!E\+P\+C\+F\+Timer\+Cfg\+\_\+t@{E\+P\+C\+F\+Timer\+Cfg\+\_\+t}}
+\subsubsection{\texorpdfstring{resolution}{resolution}}
+{\footnotesize\ttfamily E\+P\+C\+F\+Time\+\_\+t E\+P\+C\+F\+Timer\+Cfg\+\_\+t\+::resolution}
+
+Specifies the resolution for the timer. Resolution defines the smallest time that can be measured by the timer.\+You can define maximum period of timer by setting appropriate resolution value. Timer period = resolution x (2$^\wedge$timer\+Width). For example\+: Consider an 8-\/bit timer with resolution = 0.\+25 microseconds. Then,the maximum period of the timer is equal to 0.\+25 x 256 = 64 microseconds. To set 0.\+25 microseconds as the resolution, set time unit to en\+E\+P\+C\+F\+Time\+Unit\+\_\+ns and set 250 as the count. Refer to platform specific header file for supported values of resolution. Refer to \char`\"{}../../common/types.\+h\char`\"{} header file for the definition of \mbox{\hyperlink{}{E\+P\+C\+F\+Time\+\_\+t}} structure. \mbox{\Hypertarget{structEPCFTimerCfg__t_a3d76ca6bd21e3c79c1108bfd5ca12203}\label{structEPCFTimerCfg__t_a3d76ca6bd21e3c79c1108bfd5ca12203}} 
+\index{E\+P\+C\+F\+Timer\+Cfg\+\_\+t@{E\+P\+C\+F\+Timer\+Cfg\+\_\+t}!timer\+Id@{timer\+Id}}
+\index{timer\+Id@{timer\+Id}!E\+P\+C\+F\+Timer\+Cfg\+\_\+t@{E\+P\+C\+F\+Timer\+Cfg\+\_\+t}}
+\subsubsection{\texorpdfstring{timer\+Id}{timerId}}
+{\footnotesize\ttfamily uint8\+\_\+t E\+P\+C\+F\+Timer\+Cfg\+\_\+t\+::timer\+Id}
+
+Timer Id. Refer to platform specific header file for appropriate timer id \mbox{\Hypertarget{structEPCFTimerCfg__t_a4e6c52d71b02feed17bf2a82f52e0dd5}\label{structEPCFTimerCfg__t_a4e6c52d71b02feed17bf2a82f52e0dd5}} 
+\index{E\+P\+C\+F\+Timer\+Cfg\+\_\+t@{E\+P\+C\+F\+Timer\+Cfg\+\_\+t}!timer\+Width@{timer\+Width}}
+\index{timer\+Width@{timer\+Width}!E\+P\+C\+F\+Timer\+Cfg\+\_\+t@{E\+P\+C\+F\+Timer\+Cfg\+\_\+t}}
+\subsubsection{\texorpdfstring{timer\+Width}{timerWidth}}
+{\footnotesize\ttfamily \mbox{\hyperlink{timer_8h_a88093e16b89eaa9d2df5fc6285cffa9f}{En\+E\+P\+C\+F\+Timer\+Width\+\_\+t}} E\+P\+C\+F\+Timer\+Cfg\+\_\+t\+::timer\+Width}
+
+Specifies the width of the timer 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+epcf\+\_\+project/epcf/peripheral/include/timer/\mbox{\hyperlink{timer_8h}{timer.\+h}}\end{DoxyCompactItemize}

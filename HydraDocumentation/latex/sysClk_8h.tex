@@ -1,0 +1,128 @@
+\hypertarget{sysClk_8h}{}\section{epcf\+\_\+project/epcf/peripheral/include/sys\+Clk/sys\+Clk.h File Reference}
+\label{sysClk_8h}\index{epcf\+\_\+project/epcf/peripheral/include/sys\+Clk/sys\+Clk.\+h@{epcf\+\_\+project/epcf/peripheral/include/sys\+Clk/sys\+Clk.\+h}}
+
+
+This file is used to configure sys\+Clock of the device.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structEPCFSysClkCfg}{E\+P\+C\+F\+Sys\+Clk\+Cfg}}
+\begin{DoxyCompactList}\small\item\em C\+PU Clock configure Structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{sysClk_8h_a0a093d865f74b6fcc799cd13357e9c03}\label{sysClk_8h_a0a093d865f74b6fcc799cd13357e9c03}} 
+typedef struct \mbox{\hyperlink{structEPCFSysClkDevice}{E\+P\+C\+F\+Sys\+Clk\+Device}} {\bfseries E\+P\+C\+F\+Sys\+Clk\+Device\+\_\+t}
+\item 
+\mbox{\Hypertarget{sysClk_8h_ab6caeb4d5ec4b52bd42c761f88c35b4e}\label{sysClk_8h_ab6caeb4d5ec4b52bd42c761f88c35b4e}} 
+typedef enum \mbox{\hyperlink{sysClk_8h_a57bc31b7ecfcd796f5d51f5dbd2752e3}{En\+E\+P\+C\+F\+Clk\+Src}} \mbox{\hyperlink{sysClk_8h_ab6caeb4d5ec4b52bd42c761f88c35b4e}{En\+E\+P\+C\+F\+Clk\+Src\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Enumeration for P\+LL Clock Source Selection. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{sysClk_8h_a52655772337486558ddecf34218d6b81}\label{sysClk_8h_a52655772337486558ddecf34218d6b81}} 
+typedef enum \mbox{\hyperlink{sysClk_8h_a2303bc9ffb6ab93b6f27cf171050044c}{En\+E\+P\+C\+F\+Pclk\+Divider}} \mbox{\hyperlink{sysClk_8h_a52655772337486558ddecf34218d6b81}{En\+E\+P\+C\+F\+Pclk\+Divider\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Enumeration for peripheral clock divider. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{sysClk_8h_a228928153cfcd90171a4cbf719515cfb}\label{sysClk_8h_a228928153cfcd90171a4cbf719515cfb}} 
+typedef struct \mbox{\hyperlink{structEPCFSysClkCfg}{E\+P\+C\+F\+Sys\+Clk\+Cfg}} \mbox{\hyperlink{sysClk_8h_a228928153cfcd90171a4cbf719515cfb}{E\+P\+C\+F\+Sys\+Clk\+Cfg\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em C\+PU Clock configure Structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{sysClk_8h_a57bc31b7ecfcd796f5d51f5dbd2752e3}{En\+E\+P\+C\+F\+Clk\+Src}} \{ \mbox{\hyperlink{sysClk_8h_a57bc31b7ecfcd796f5d51f5dbd2752e3a530a2f3228b178f842d580cd226d732c}{en\+E\+P\+C\+F\+Pll\+Clk\+Src\+Internal\+RC}} = 0x00, 
+\mbox{\hyperlink{sysClk_8h_a57bc31b7ecfcd796f5d51f5dbd2752e3ae72a9628167912998f8bc550e0755c83}{en\+E\+P\+C\+F\+Pll\+Clk\+Src\+Main\+O\+SC}}, 
+\mbox{\hyperlink{sysClk_8h_a57bc31b7ecfcd796f5d51f5dbd2752e3a69e1ce00984575ae29a9b902f25baa72}{en\+E\+P\+C\+F\+Pll\+Clk\+Src\+Rtc\+O\+SC}}, 
+\mbox{\hyperlink{sysClk_8h_a57bc31b7ecfcd796f5d51f5dbd2752e3a472574ee097bed6d43d728e7fc3500cb}{en\+E\+P\+C\+F\+Clk\+Src\+\_\+\+Max}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration for P\+LL Clock Source Selection. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{sysClk_8h_a2303bc9ffb6ab93b6f27cf171050044c}{En\+E\+P\+C\+F\+Pclk\+Divider}} \{ \newline
+\mbox{\hyperlink{sysClk_8h_a2303bc9ffb6ab93b6f27cf171050044ca81435214314d84f587b62c43f371d58d}{en\+E\+P\+C\+F\+Pclk\+Div\+\_\+4}} = 0, 
+\mbox{\hyperlink{sysClk_8h_a2303bc9ffb6ab93b6f27cf171050044cad38a1c101c2c966aad26064f842234df}{en\+E\+P\+C\+F\+Pclk\+Div\+\_\+1}}, 
+\mbox{\hyperlink{sysClk_8h_a2303bc9ffb6ab93b6f27cf171050044ca986e85bae56204823938dac02861a4a7}{en\+E\+P\+C\+F\+Pclk\+Div\+\_\+2}}, 
+\mbox{\hyperlink{sysClk_8h_a2303bc9ffb6ab93b6f27cf171050044ca9ff6f697b30c958d30588076e11c6ed0}{en\+E\+P\+C\+F\+Pclk\+Div\+\_\+8}}, 
+\newline
+\mbox{\hyperlink{sysClk_8h_a2303bc9ffb6ab93b6f27cf171050044ca5cb60594f788a15af332bfdf02a2d1ea}{en\+E\+P\+C\+F\+Pclk\+Divider\+\_\+\+Max}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration for peripheral clock divider. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{sysClk_8h_a6c535f4d73d950d6b12d11467576536d}\label{sysClk_8h_a6c535f4d73d950d6b12d11467576536d}} 
+\mbox{\hyperlink{structEPCFSysClkDevice}{E\+P\+C\+F\+Sys\+Clk\+Device\+\_\+t}} $\ast$ {\bfseries epcf\+Create\+Sys\+Clk} (\mbox{\hyperlink{sysClk_8h_a228928153cfcd90171a4cbf719515cfb}{E\+P\+C\+F\+Sys\+Clk\+Cfg\+\_\+t}} $\ast$p\+Sys\+Clk\+Config)
+\item 
+\mbox{\Hypertarget{sysClk_8h_aeb81e915d53420c174183118be5dc8c3}\label{sysClk_8h_aeb81e915d53420c174183118be5dc8c3}} 
+uint32\+\_\+t {\bfseries epcf\+Native\+Sys\+Get\+Cpu\+Clock} (\mbox{\hyperlink{structEPCFSysClkDevice}{E\+P\+C\+F\+Sys\+Clk\+Device\+\_\+t}} $\ast$p\+Sys\+Clk\+Device)
+\item 
+\mbox{\Hypertarget{sysClk_8h_aa390a7d597ed396f0de8a7201e270eba}\label{sysClk_8h_aa390a7d597ed396f0de8a7201e270eba}} 
+void {\bfseries epcf\+Native\+Sys\+Set\+Pclk\+Div} (\mbox{\hyperlink{structEPCFSysClkDevice}{E\+P\+C\+F\+Sys\+Clk\+Device\+\_\+t}} $\ast$p\+Sys\+Clk\+Device, uint32\+\_\+t peripheral, uint32\+\_\+t clock\+Div)
+\item 
+\mbox{\Hypertarget{sysClk_8h_ae24711be4a83729365838f5b22196ce5}\label{sysClk_8h_ae24711be4a83729365838f5b22196ce5}} 
+uint32\+\_\+t {\bfseries epcf\+Native\+Sys\+Get\+Pclk} (\mbox{\hyperlink{structEPCFSysClkDevice}{E\+P\+C\+F\+Sys\+Clk\+Device\+\_\+t}} $\ast$p\+Sys\+Clk\+Device, uint32\+\_\+t peripheral)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file is used to configure sys\+Clock of the device. 
+
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{sysClk_8h_a57bc31b7ecfcd796f5d51f5dbd2752e3}\label{sysClk_8h_a57bc31b7ecfcd796f5d51f5dbd2752e3}} 
+\index{sys\+Clk.\+h@{sys\+Clk.\+h}!En\+E\+P\+C\+F\+Clk\+Src@{En\+E\+P\+C\+F\+Clk\+Src}}
+\index{En\+E\+P\+C\+F\+Clk\+Src@{En\+E\+P\+C\+F\+Clk\+Src}!sys\+Clk.\+h@{sys\+Clk.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Clk\+Src}{EnEPCFClkSrc}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{sysClk_8h_a57bc31b7ecfcd796f5d51f5dbd2752e3}{En\+E\+P\+C\+F\+Clk\+Src}}}
+
+
+
+Enumeration for P\+LL Clock Source Selection. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pll\+Clk\+Src\+Internal\+RC@{en\+E\+P\+C\+F\+Pll\+Clk\+Src\+Internal\+RC}!sys\+Clk.\+h@{sys\+Clk.\+h}}\index{sys\+Clk.\+h@{sys\+Clk.\+h}!en\+E\+P\+C\+F\+Pll\+Clk\+Src\+Internal\+RC@{en\+E\+P\+C\+F\+Pll\+Clk\+Src\+Internal\+RC}}}\mbox{\Hypertarget{sysClk_8h_a57bc31b7ecfcd796f5d51f5dbd2752e3a530a2f3228b178f842d580cd226d732c}\label{sysClk_8h_a57bc31b7ecfcd796f5d51f5dbd2752e3a530a2f3228b178f842d580cd226d732c}} 
+en\+E\+P\+C\+F\+Pll\+Clk\+Src\+Internal\+RC&Selects the Internal RC oscillator as the P\+L\+L0 clock source. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pll\+Clk\+Src\+Main\+O\+SC@{en\+E\+P\+C\+F\+Pll\+Clk\+Src\+Main\+O\+SC}!sys\+Clk.\+h@{sys\+Clk.\+h}}\index{sys\+Clk.\+h@{sys\+Clk.\+h}!en\+E\+P\+C\+F\+Pll\+Clk\+Src\+Main\+O\+SC@{en\+E\+P\+C\+F\+Pll\+Clk\+Src\+Main\+O\+SC}}}\mbox{\Hypertarget{sysClk_8h_a57bc31b7ecfcd796f5d51f5dbd2752e3ae72a9628167912998f8bc550e0755c83}\label{sysClk_8h_a57bc31b7ecfcd796f5d51f5dbd2752e3ae72a9628167912998f8bc550e0755c83}} 
+en\+E\+P\+C\+F\+Pll\+Clk\+Src\+Main\+O\+SC&Selects the main oscillator as the P\+L\+L0 clock source. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pll\+Clk\+Src\+Rtc\+O\+SC@{en\+E\+P\+C\+F\+Pll\+Clk\+Src\+Rtc\+O\+SC}!sys\+Clk.\+h@{sys\+Clk.\+h}}\index{sys\+Clk.\+h@{sys\+Clk.\+h}!en\+E\+P\+C\+F\+Pll\+Clk\+Src\+Rtc\+O\+SC@{en\+E\+P\+C\+F\+Pll\+Clk\+Src\+Rtc\+O\+SC}}}\mbox{\Hypertarget{sysClk_8h_a57bc31b7ecfcd796f5d51f5dbd2752e3a69e1ce00984575ae29a9b902f25baa72}\label{sysClk_8h_a57bc31b7ecfcd796f5d51f5dbd2752e3a69e1ce00984575ae29a9b902f25baa72}} 
+en\+E\+P\+C\+F\+Pll\+Clk\+Src\+Rtc\+O\+SC&Selects the R\+TC oscillator as the P\+L\+L0 clock source. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Clk\+Src\+\_\+\+Max@{en\+E\+P\+C\+F\+Clk\+Src\+\_\+\+Max}!sys\+Clk.\+h@{sys\+Clk.\+h}}\index{sys\+Clk.\+h@{sys\+Clk.\+h}!en\+E\+P\+C\+F\+Clk\+Src\+\_\+\+Max@{en\+E\+P\+C\+F\+Clk\+Src\+\_\+\+Max}}}\mbox{\Hypertarget{sysClk_8h_a57bc31b7ecfcd796f5d51f5dbd2752e3a472574ee097bed6d43d728e7fc3500cb}\label{sysClk_8h_a57bc31b7ecfcd796f5d51f5dbd2752e3a472574ee097bed6d43d728e7fc3500cb}} 
+en\+E\+P\+C\+F\+Clk\+Src\+\_\+\+Max&Special value for boundary checking \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{sysClk_8h_a2303bc9ffb6ab93b6f27cf171050044c}\label{sysClk_8h_a2303bc9ffb6ab93b6f27cf171050044c}} 
+\index{sys\+Clk.\+h@{sys\+Clk.\+h}!En\+E\+P\+C\+F\+Pclk\+Divider@{En\+E\+P\+C\+F\+Pclk\+Divider}}
+\index{En\+E\+P\+C\+F\+Pclk\+Divider@{En\+E\+P\+C\+F\+Pclk\+Divider}!sys\+Clk.\+h@{sys\+Clk.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Pclk\+Divider}{EnEPCFPclkDivider}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{sysClk_8h_a2303bc9ffb6ab93b6f27cf171050044c}{En\+E\+P\+C\+F\+Pclk\+Divider}}}
+
+
+
+Enumeration for peripheral clock divider. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pclk\+Div\+\_\+4@{en\+E\+P\+C\+F\+Pclk\+Div\+\_\+4}!sys\+Clk.\+h@{sys\+Clk.\+h}}\index{sys\+Clk.\+h@{sys\+Clk.\+h}!en\+E\+P\+C\+F\+Pclk\+Div\+\_\+4@{en\+E\+P\+C\+F\+Pclk\+Div\+\_\+4}}}\mbox{\Hypertarget{sysClk_8h_a2303bc9ffb6ab93b6f27cf171050044ca81435214314d84f587b62c43f371d58d}\label{sysClk_8h_a2303bc9ffb6ab93b6f27cf171050044ca81435214314d84f587b62c43f371d58d}} 
+en\+E\+P\+C\+F\+Pclk\+Div\+\_\+4&P\+C\+L\+K\+\_\+peripheral = C\+C\+L\+K/4. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pclk\+Div\+\_\+1@{en\+E\+P\+C\+F\+Pclk\+Div\+\_\+1}!sys\+Clk.\+h@{sys\+Clk.\+h}}\index{sys\+Clk.\+h@{sys\+Clk.\+h}!en\+E\+P\+C\+F\+Pclk\+Div\+\_\+1@{en\+E\+P\+C\+F\+Pclk\+Div\+\_\+1}}}\mbox{\Hypertarget{sysClk_8h_a2303bc9ffb6ab93b6f27cf171050044cad38a1c101c2c966aad26064f842234df}\label{sysClk_8h_a2303bc9ffb6ab93b6f27cf171050044cad38a1c101c2c966aad26064f842234df}} 
+en\+E\+P\+C\+F\+Pclk\+Div\+\_\+1&P\+C\+L\+K\+\_\+peripheral = C\+C\+L\+K/1. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pclk\+Div\+\_\+2@{en\+E\+P\+C\+F\+Pclk\+Div\+\_\+2}!sys\+Clk.\+h@{sys\+Clk.\+h}}\index{sys\+Clk.\+h@{sys\+Clk.\+h}!en\+E\+P\+C\+F\+Pclk\+Div\+\_\+2@{en\+E\+P\+C\+F\+Pclk\+Div\+\_\+2}}}\mbox{\Hypertarget{sysClk_8h_a2303bc9ffb6ab93b6f27cf171050044ca986e85bae56204823938dac02861a4a7}\label{sysClk_8h_a2303bc9ffb6ab93b6f27cf171050044ca986e85bae56204823938dac02861a4a7}} 
+en\+E\+P\+C\+F\+Pclk\+Div\+\_\+2&P\+C\+L\+K\+\_\+peripheral = C\+C\+L\+K/2. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pclk\+Div\+\_\+8@{en\+E\+P\+C\+F\+Pclk\+Div\+\_\+8}!sys\+Clk.\+h@{sys\+Clk.\+h}}\index{sys\+Clk.\+h@{sys\+Clk.\+h}!en\+E\+P\+C\+F\+Pclk\+Div\+\_\+8@{en\+E\+P\+C\+F\+Pclk\+Div\+\_\+8}}}\mbox{\Hypertarget{sysClk_8h_a2303bc9ffb6ab93b6f27cf171050044ca9ff6f697b30c958d30588076e11c6ed0}\label{sysClk_8h_a2303bc9ffb6ab93b6f27cf171050044ca9ff6f697b30c958d30588076e11c6ed0}} 
+en\+E\+P\+C\+F\+Pclk\+Div\+\_\+8&P\+C\+L\+K\+\_\+peripheral = C\+C\+L\+K/8. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pclk\+Divider\+\_\+\+Max@{en\+E\+P\+C\+F\+Pclk\+Divider\+\_\+\+Max}!sys\+Clk.\+h@{sys\+Clk.\+h}}\index{sys\+Clk.\+h@{sys\+Clk.\+h}!en\+E\+P\+C\+F\+Pclk\+Divider\+\_\+\+Max@{en\+E\+P\+C\+F\+Pclk\+Divider\+\_\+\+Max}}}\mbox{\Hypertarget{sysClk_8h_a2303bc9ffb6ab93b6f27cf171050044ca5cb60594f788a15af332bfdf02a2d1ea}\label{sysClk_8h_a2303bc9ffb6ab93b6f27cf171050044ca5cb60594f788a15af332bfdf02a2d1ea}} 
+en\+E\+P\+C\+F\+Pclk\+Divider\+\_\+\+Max&Special value for boundary checking \\
+\hline
+
+\end{DoxyEnumFields}

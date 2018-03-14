@@ -1,0 +1,548 @@
+\hypertarget{adc_8h}{}\section{epcf\+\_\+project/epcf/peripheral/include/adc/adc.h File Reference}
+\label{adc_8h}\index{epcf\+\_\+project/epcf/peripheral/include/adc/adc.\+h@{epcf\+\_\+project/epcf/peripheral/include/adc/adc.\+h}}
+
+
+This file is used to configure an Adc device.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structEPCFAdcCfg__t}{E\+P\+C\+F\+Adc\+Cfg\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Adc configuration structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{adc_8h_a43584066d273202e849f267d510bb6db}\label{adc_8h_a43584066d273202e849f267d510bb6db}} 
+typedef struct \mbox{\hyperlink{structEPCFAdcDevice}{E\+P\+C\+F\+Adc\+Device}} \mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Adc device. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665c}{En\+E\+P\+C\+F\+Adc\+Channel\+\_\+t}} \{ \newline
+\mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665cad380e9689a286c21fd7fc95225151c82}{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+0}} = 0x0001, 
+\mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665ca341d0ce375277923dea0ce5448a7ed3b}{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+1}} = 0x0002, 
+\mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665cabcacbecc9877502f917d949f2780d536}{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+2}} = 0x0004, 
+\mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665cad828502034a8e40de0283fb043504c22}{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+3}} = 0x0008, 
+\newline
+\mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665ca9d98a2f3c2fa0c4ed5ee0b9b51aaa1bc}{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+4}} = 0x0010, 
+\mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665cabd4101f0427fa2c6bc79e02ca8b0c432}{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+5}} = 0x0020, 
+\mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665ca78f5bc42d005655c4febe640b3a110e3}{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+6}} = 0x0040, 
+\mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665cace2ab67b48e28ebb2e575a11315cdb76}{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+7}} = 0x0080, 
+\newline
+\mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665ca0a1acfb1b2ac0ade791b74edfb7aaa12}{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+8}} = 0x0100, 
+\mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665cad48d9713221d2da112b0d17800ca1651}{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+9}} = 0x0200, 
+\mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665cac74aa51a0de38ec2ff021a931f4af9de}{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+10}} = 0x0400, 
+\mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665caae4d0c293f69f5477d611a9dfdbc7e61}{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+11}} = 0x0800, 
+\newline
+\mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665cae114ea461dad9c10c3a295deefb170d9}{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+12}} = 0x1000, 
+\mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665ca80b54d729501cc04e9475116cfc02036}{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+13}} = 0x2000, 
+\mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665ca4bf3cecbb162cd7bd9d2df695f3c4aab}{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+14}} = 0x4000, 
+\mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665caef8ddc844a47b33536320d6dba3047c7}{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+15}} = 0x8000, 
+\newline
+\mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665caa4ae38efff82dfd346ae844a6718106a}{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+\+Max}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration for channel number. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{adc_8h_a95ed8e489525daf80ac43f789951d323}{En\+E\+P\+C\+F\+Adc\+Width\+\_\+t}} \{ \newline
+\mbox{\hyperlink{adc_8h_a95ed8e489525daf80ac43f789951d323a46beb0f25e5edb011b468f1b10680a6e}{en\+E\+P\+C\+F\+Adc\+Width\+\_\+3}} = 3, 
+\mbox{\hyperlink{adc_8h_a95ed8e489525daf80ac43f789951d323af6ff99d42331a6a5b37bc482ef1ac092}{en\+E\+P\+C\+F\+Adc\+Width\+\_\+4}}, 
+\mbox{\hyperlink{adc_8h_a95ed8e489525daf80ac43f789951d323a5b95d43f6c8eb6bc81587203e6518f98}{en\+E\+P\+C\+F\+Adc\+Width\+\_\+5}}, 
+\mbox{\hyperlink{adc_8h_a95ed8e489525daf80ac43f789951d323adb1e9ad3a5a68f432b1a5a03620a60f5}{en\+E\+P\+C\+F\+Adc\+Width\+\_\+6}}, 
+\newline
+\mbox{\hyperlink{adc_8h_a95ed8e489525daf80ac43f789951d323a502494d639319498d4028691f1c586b4}{en\+E\+P\+C\+F\+Adc\+Width\+\_\+7}}, 
+\mbox{\hyperlink{adc_8h_a95ed8e489525daf80ac43f789951d323a07ea28a24c3263ea82be6b047d3c2199}{en\+E\+P\+C\+F\+Adc\+Width\+\_\+8}}, 
+\mbox{\hyperlink{adc_8h_a95ed8e489525daf80ac43f789951d323a7064c66ab596481246200f2d95a7cdad}{en\+E\+P\+C\+F\+Adc\+Width\+\_\+9}}, 
+\mbox{\hyperlink{adc_8h_a95ed8e489525daf80ac43f789951d323a33434648a07084843437c7363c546652}{en\+E\+P\+C\+F\+Adc\+Width\+\_\+10}}, 
+\newline
+\mbox{\hyperlink{adc_8h_a95ed8e489525daf80ac43f789951d323a9fd650975de21e0228aac9bf6819e59e}{en\+E\+P\+C\+F\+Adc\+Width\+\_\+11}}, 
+\mbox{\hyperlink{adc_8h_a95ed8e489525daf80ac43f789951d323ac548d9e05f1c6d1d2d65659de28e3b8d}{en\+E\+P\+C\+F\+Adc\+Width\+\_\+12}}, 
+\mbox{\hyperlink{adc_8h_a95ed8e489525daf80ac43f789951d323aca3002ca69b66d12645e0c877ed7d5e8}{en\+E\+P\+C\+F\+Adc\+Width\+\_\+13}}, 
+\mbox{\hyperlink{adc_8h_a95ed8e489525daf80ac43f789951d323af3763c9f094b8ce562264fad6a07b1e8}{en\+E\+P\+C\+F\+Adc\+Width\+\_\+14}}, 
+\newline
+\mbox{\hyperlink{adc_8h_a95ed8e489525daf80ac43f789951d323a4e26a0ff216e8a6440c0d6b36747b321}{en\+E\+P\+C\+F\+Adc\+Width\+\_\+15}}, 
+\mbox{\hyperlink{adc_8h_a95ed8e489525daf80ac43f789951d323a4dda1ba633f4f20193d84d603aed1db2}{en\+E\+P\+C\+F\+Adc\+Width\+\_\+16}}, 
+\mbox{\hyperlink{adc_8h_a95ed8e489525daf80ac43f789951d323a3d6e4308dbe4d8055258c5fbecc6c260}{en\+E\+P\+C\+F\+Adc\+Width\+\_\+\+Max}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration for adc width. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{adc_8h_ac8e2caaea6d80f99b4d2ed46875f9470}{En\+E\+P\+C\+F\+Adc\+State\+\_\+t}} \{ \mbox{\hyperlink{adc_8h_ac8e2caaea6d80f99b4d2ed46875f9470aef2e1c9c55aed5fc620b32f6a916785a}{en\+E\+P\+C\+F\+Adc\+State\+\_\+\+Stopped}} = 0, 
+\mbox{\hyperlink{adc_8h_ac8e2caaea6d80f99b4d2ed46875f9470a4786d4b4e1624247042998cb48d1052c}{en\+E\+P\+C\+F\+Adc\+State\+\_\+\+Running}}, 
+\mbox{\hyperlink{adc_8h_ac8e2caaea6d80f99b4d2ed46875f9470a8fc74ec2f79ebb9a2fefd046e9925f00}{en\+E\+P\+C\+F\+Adc\+State\+\_\+\+Max}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration for current state of adc. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$ \mbox{\hyperlink{adc_8h_a9685694ea5d9836d57b539a9fd7e3fcc}{epcf\+\_\+adc\+\_\+create\+Native}} (\mbox{\hyperlink{structEPCFAdcCfg__t}{E\+P\+C\+F\+Adc\+Cfg\+\_\+t}} $\ast$p\+Adc\+Config)
+\begin{DoxyCompactList}\small\item\em This function is used to create an adc device. Call this function in beginning to initialize the adc device. This function allocates memory for the device using malloc() function call and returns a pointer to the device. Pass this device pointer while calling adc functions. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{adc_8h_a33e0e06f911314f2359df05f7756989f}{epcf\+\_\+adc\+\_\+continuous\+Conversion\+Start}} (\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$p\+Adc\+Device, uint16\+\_\+t channel)
+\begin{DoxyCompactList}\small\item\em This function is used to start continuous adc conversion. Adc will start data conversion according to the configuration settings. Use epcf\+\_\+adc\+\_\+get\+Value and epcf\+\_\+adc\+\_\+get\+Voltage functions to read digital output data. User callback, if attached will be call after an adc conversion is completed when adc is configured in interrupt mode. Adc conversion can be stopped by a call to the function epcf\+\_\+adc\+\_\+conversion\+Stop. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{adc_8h_a076fdffd17b64dafe0cc1f26e9b5ff97}{epcf\+\_\+adc\+\_\+conversion\+Stop}} (\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$p\+Adc\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to stop continuous adc conversion. User callback will not be called after data conversion has been stopped. Adc data conversion can be started again by a call to the function epcf\+\_\+adc\+\_\+continuous\+Conversion\+Start. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{adc_8h_a4984e142275784334e3a60046d35fd35}{epcf\+\_\+adc\+\_\+get\+Value}} (\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$p\+Adc\+Device, uint32\+\_\+t $\ast$data, \mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665c}{En\+E\+P\+C\+F\+Adc\+Channel\+\_\+t}} channel)
+\begin{DoxyCompactList}\small\item\em This function is used to read the converted digital output value of the particular channel. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{adc_8h_ac37d3c0d762b698a4e26e8a73608d0ad}{epcf\+\_\+adc\+\_\+get\+Voltage}} (\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$p\+Adc\+Device, uint32\+\_\+t $\ast$milli\+Volts, \mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665c}{En\+E\+P\+C\+F\+Adc\+Channel\+\_\+t}} channel)
+\begin{DoxyCompactList}\small\item\em This function is used to read the converted digital output value in millivolts of the particular channel. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{adc_8h_a805a37b89de494ef23b66a99e91d71af}{epcf\+\_\+adc\+\_\+attach\+Callback}} (\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$p\+Adc\+Device, epcf\+Callback\+\_\+fp callback, \mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665c}{En\+E\+P\+C\+F\+Adc\+Channel\+\_\+t}} channel)
+\begin{DoxyCompactList}\small\item\em This function is used to attach an adc callback called after adc conversion is completed when adc is configured in interrupt mode. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{adc_8h_a051ef2205edf42677037d4fd5eb32a66}{epcf\+\_\+adc\+\_\+detach\+Callback}} (\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$p\+Adc\+Device, \mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665c}{En\+E\+P\+C\+F\+Adc\+Channel\+\_\+t}} channel)
+\begin{DoxyCompactList}\small\item\em This function is used to detach the adc callback for the specific adc interrupt source. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{adc_8h_a7687e962d02134c8c967fed0bb8aa790}{epcf\+\_\+adc\+\_\+single\+Conversion}} (\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$p\+Adc\+Device, \mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665c}{En\+E\+P\+C\+F\+Adc\+Channel\+\_\+t}} channel, uint32\+\_\+t $\ast$data, E\+P\+C\+F\+Time\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em This function is used to perform a single adc conversion and read the converted digital output value of the particular channel in millivolts. This function blocks until adc conversion is completed on all enabled channels or timeout has occurred. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{adc_8h_ae3eb926c7782252306a148cc5b07480a}{epcf\+\_\+adc\+\_\+single\+Conversion\+Get\+Voltage}} (\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$p\+Adc\+Device, \mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665c}{En\+E\+P\+C\+F\+Adc\+Channel\+\_\+t}} channel, uint32\+\_\+t $\ast$milli\+Volts, E\+P\+C\+F\+Time\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em This function is used to perform a single adc conversion and read the converted digital output value of the particular channel. This function blocks until adc conversion is completed enabled channel or timeout has occurred. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{adc_8h_ad23f60b2195f241a86e9faf3b6194903}{epcf\+\_\+adc\+\_\+close}} (\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$p\+Adc\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to close the adc device. It will free the memory allocated by the adc device. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{adc_8h_a38daafe218c2de808fc3c560ba71b524}{epcf\+\_\+adc\+\_\+get\+Device\+Count}} ()
+\begin{DoxyCompactList}\small\item\em This function is used to get total number of available adc devices. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{adc_8h_ac8e2caaea6d80f99b4d2ed46875f9470}{En\+E\+P\+C\+F\+Adc\+State\+\_\+t}} \mbox{\hyperlink{adc_8h_a50067b1bc9c64faa8faa71967f5e12ad}{epcf\+\_\+adc\+\_\+get\+State}} (\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$p\+Adc\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to get the current state of the adc. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file is used to configure an Adc device. 
+
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665c}\label{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665c}} 
+\index{adc.\+h@{adc.\+h}!En\+E\+P\+C\+F\+Adc\+Channel\+\_\+t@{En\+E\+P\+C\+F\+Adc\+Channel\+\_\+t}}
+\index{En\+E\+P\+C\+F\+Adc\+Channel\+\_\+t@{En\+E\+P\+C\+F\+Adc\+Channel\+\_\+t}!adc.\+h@{adc.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Adc\+Channel\+\_\+t}{EnEPCFAdcChannel\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665c}{En\+E\+P\+C\+F\+Adc\+Channel\+\_\+t}}}
+
+
+
+Enumeration for channel number. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+0@{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+0}!adc.\+h@{adc.\+h}}\index{adc.\+h@{adc.\+h}!en\+E\+P\+C\+F\+Adc\+Channel\+\_\+0@{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+0}}}\mbox{\Hypertarget{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665cad380e9689a286c21fd7fc95225151c82}\label{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665cad380e9689a286c21fd7fc95225151c82}} 
+en\+E\+P\+C\+F\+Adc\+Channel\+\_\+0&Channel number 0 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+1@{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+1}!adc.\+h@{adc.\+h}}\index{adc.\+h@{adc.\+h}!en\+E\+P\+C\+F\+Adc\+Channel\+\_\+1@{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+1}}}\mbox{\Hypertarget{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665ca341d0ce375277923dea0ce5448a7ed3b}\label{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665ca341d0ce375277923dea0ce5448a7ed3b}} 
+en\+E\+P\+C\+F\+Adc\+Channel\+\_\+1&Channel number 1 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+2@{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+2}!adc.\+h@{adc.\+h}}\index{adc.\+h@{adc.\+h}!en\+E\+P\+C\+F\+Adc\+Channel\+\_\+2@{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+2}}}\mbox{\Hypertarget{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665cabcacbecc9877502f917d949f2780d536}\label{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665cabcacbecc9877502f917d949f2780d536}} 
+en\+E\+P\+C\+F\+Adc\+Channel\+\_\+2&Channel number 2 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+3@{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+3}!adc.\+h@{adc.\+h}}\index{adc.\+h@{adc.\+h}!en\+E\+P\+C\+F\+Adc\+Channel\+\_\+3@{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+3}}}\mbox{\Hypertarget{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665cad828502034a8e40de0283fb043504c22}\label{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665cad828502034a8e40de0283fb043504c22}} 
+en\+E\+P\+C\+F\+Adc\+Channel\+\_\+3&Channel number 3 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+4@{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+4}!adc.\+h@{adc.\+h}}\index{adc.\+h@{adc.\+h}!en\+E\+P\+C\+F\+Adc\+Channel\+\_\+4@{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+4}}}\mbox{\Hypertarget{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665ca9d98a2f3c2fa0c4ed5ee0b9b51aaa1bc}\label{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665ca9d98a2f3c2fa0c4ed5ee0b9b51aaa1bc}} 
+en\+E\+P\+C\+F\+Adc\+Channel\+\_\+4&Channel number 4 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+5@{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+5}!adc.\+h@{adc.\+h}}\index{adc.\+h@{adc.\+h}!en\+E\+P\+C\+F\+Adc\+Channel\+\_\+5@{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+5}}}\mbox{\Hypertarget{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665cabd4101f0427fa2c6bc79e02ca8b0c432}\label{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665cabd4101f0427fa2c6bc79e02ca8b0c432}} 
+en\+E\+P\+C\+F\+Adc\+Channel\+\_\+5&Channel number 5 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+6@{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+6}!adc.\+h@{adc.\+h}}\index{adc.\+h@{adc.\+h}!en\+E\+P\+C\+F\+Adc\+Channel\+\_\+6@{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+6}}}\mbox{\Hypertarget{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665ca78f5bc42d005655c4febe640b3a110e3}\label{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665ca78f5bc42d005655c4febe640b3a110e3}} 
+en\+E\+P\+C\+F\+Adc\+Channel\+\_\+6&Channel number 6 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+7@{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+7}!adc.\+h@{adc.\+h}}\index{adc.\+h@{adc.\+h}!en\+E\+P\+C\+F\+Adc\+Channel\+\_\+7@{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+7}}}\mbox{\Hypertarget{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665cace2ab67b48e28ebb2e575a11315cdb76}\label{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665cace2ab67b48e28ebb2e575a11315cdb76}} 
+en\+E\+P\+C\+F\+Adc\+Channel\+\_\+7&Channel number 7 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+8@{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+8}!adc.\+h@{adc.\+h}}\index{adc.\+h@{adc.\+h}!en\+E\+P\+C\+F\+Adc\+Channel\+\_\+8@{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+8}}}\mbox{\Hypertarget{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665ca0a1acfb1b2ac0ade791b74edfb7aaa12}\label{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665ca0a1acfb1b2ac0ade791b74edfb7aaa12}} 
+en\+E\+P\+C\+F\+Adc\+Channel\+\_\+8&Channel number 8 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+9@{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+9}!adc.\+h@{adc.\+h}}\index{adc.\+h@{adc.\+h}!en\+E\+P\+C\+F\+Adc\+Channel\+\_\+9@{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+9}}}\mbox{\Hypertarget{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665cad48d9713221d2da112b0d17800ca1651}\label{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665cad48d9713221d2da112b0d17800ca1651}} 
+en\+E\+P\+C\+F\+Adc\+Channel\+\_\+9&Channel number 9 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+10@{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+10}!adc.\+h@{adc.\+h}}\index{adc.\+h@{adc.\+h}!en\+E\+P\+C\+F\+Adc\+Channel\+\_\+10@{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+10}}}\mbox{\Hypertarget{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665cac74aa51a0de38ec2ff021a931f4af9de}\label{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665cac74aa51a0de38ec2ff021a931f4af9de}} 
+en\+E\+P\+C\+F\+Adc\+Channel\+\_\+10&Channel number 10 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+11@{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+11}!adc.\+h@{adc.\+h}}\index{adc.\+h@{adc.\+h}!en\+E\+P\+C\+F\+Adc\+Channel\+\_\+11@{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+11}}}\mbox{\Hypertarget{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665caae4d0c293f69f5477d611a9dfdbc7e61}\label{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665caae4d0c293f69f5477d611a9dfdbc7e61}} 
+en\+E\+P\+C\+F\+Adc\+Channel\+\_\+11&Channel number 11 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+12@{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+12}!adc.\+h@{adc.\+h}}\index{adc.\+h@{adc.\+h}!en\+E\+P\+C\+F\+Adc\+Channel\+\_\+12@{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+12}}}\mbox{\Hypertarget{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665cae114ea461dad9c10c3a295deefb170d9}\label{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665cae114ea461dad9c10c3a295deefb170d9}} 
+en\+E\+P\+C\+F\+Adc\+Channel\+\_\+12&Channel number 12 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+13@{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+13}!adc.\+h@{adc.\+h}}\index{adc.\+h@{adc.\+h}!en\+E\+P\+C\+F\+Adc\+Channel\+\_\+13@{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+13}}}\mbox{\Hypertarget{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665ca80b54d729501cc04e9475116cfc02036}\label{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665ca80b54d729501cc04e9475116cfc02036}} 
+en\+E\+P\+C\+F\+Adc\+Channel\+\_\+13&Channel number 13 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+14@{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+14}!adc.\+h@{adc.\+h}}\index{adc.\+h@{adc.\+h}!en\+E\+P\+C\+F\+Adc\+Channel\+\_\+14@{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+14}}}\mbox{\Hypertarget{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665ca4bf3cecbb162cd7bd9d2df695f3c4aab}\label{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665ca4bf3cecbb162cd7bd9d2df695f3c4aab}} 
+en\+E\+P\+C\+F\+Adc\+Channel\+\_\+14&Channel number 14 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+15@{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+15}!adc.\+h@{adc.\+h}}\index{adc.\+h@{adc.\+h}!en\+E\+P\+C\+F\+Adc\+Channel\+\_\+15@{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+15}}}\mbox{\Hypertarget{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665caef8ddc844a47b33536320d6dba3047c7}\label{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665caef8ddc844a47b33536320d6dba3047c7}} 
+en\+E\+P\+C\+F\+Adc\+Channel\+\_\+15&Channel number 15 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+\+Max@{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+\+Max}!adc.\+h@{adc.\+h}}\index{adc.\+h@{adc.\+h}!en\+E\+P\+C\+F\+Adc\+Channel\+\_\+\+Max@{en\+E\+P\+C\+F\+Adc\+Channel\+\_\+\+Max}}}\mbox{\Hypertarget{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665caa4ae38efff82dfd346ae844a6718106a}\label{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665caa4ae38efff82dfd346ae844a6718106a}} 
+en\+E\+P\+C\+F\+Adc\+Channel\+\_\+\+Max&Special value for boundary checking \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{adc_8h_ac8e2caaea6d80f99b4d2ed46875f9470}\label{adc_8h_ac8e2caaea6d80f99b4d2ed46875f9470}} 
+\index{adc.\+h@{adc.\+h}!En\+E\+P\+C\+F\+Adc\+State\+\_\+t@{En\+E\+P\+C\+F\+Adc\+State\+\_\+t}}
+\index{En\+E\+P\+C\+F\+Adc\+State\+\_\+t@{En\+E\+P\+C\+F\+Adc\+State\+\_\+t}!adc.\+h@{adc.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Adc\+State\+\_\+t}{EnEPCFAdcState\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{adc_8h_ac8e2caaea6d80f99b4d2ed46875f9470}{En\+E\+P\+C\+F\+Adc\+State\+\_\+t}}}
+
+
+
+Enumeration for current state of adc. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Adc\+State\+\_\+\+Stopped@{en\+E\+P\+C\+F\+Adc\+State\+\_\+\+Stopped}!adc.\+h@{adc.\+h}}\index{adc.\+h@{adc.\+h}!en\+E\+P\+C\+F\+Adc\+State\+\_\+\+Stopped@{en\+E\+P\+C\+F\+Adc\+State\+\_\+\+Stopped}}}\mbox{\Hypertarget{adc_8h_ac8e2caaea6d80f99b4d2ed46875f9470aef2e1c9c55aed5fc620b32f6a916785a}\label{adc_8h_ac8e2caaea6d80f99b4d2ed46875f9470aef2e1c9c55aed5fc620b32f6a916785a}} 
+en\+E\+P\+C\+F\+Adc\+State\+\_\+\+Stopped&adc is stopped, no user callback will get called \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Adc\+State\+\_\+\+Running@{en\+E\+P\+C\+F\+Adc\+State\+\_\+\+Running}!adc.\+h@{adc.\+h}}\index{adc.\+h@{adc.\+h}!en\+E\+P\+C\+F\+Adc\+State\+\_\+\+Running@{en\+E\+P\+C\+F\+Adc\+State\+\_\+\+Running}}}\mbox{\Hypertarget{adc_8h_ac8e2caaea6d80f99b4d2ed46875f9470a4786d4b4e1624247042998cb48d1052c}\label{adc_8h_ac8e2caaea6d80f99b4d2ed46875f9470a4786d4b4e1624247042998cb48d1052c}} 
+en\+E\+P\+C\+F\+Adc\+State\+\_\+\+Running&adc is running (operational), user callback(s) will get called at respective period \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Adc\+State\+\_\+\+Max@{en\+E\+P\+C\+F\+Adc\+State\+\_\+\+Max}!adc.\+h@{adc.\+h}}\index{adc.\+h@{adc.\+h}!en\+E\+P\+C\+F\+Adc\+State\+\_\+\+Max@{en\+E\+P\+C\+F\+Adc\+State\+\_\+\+Max}}}\mbox{\Hypertarget{adc_8h_ac8e2caaea6d80f99b4d2ed46875f9470a8fc74ec2f79ebb9a2fefd046e9925f00}\label{adc_8h_ac8e2caaea6d80f99b4d2ed46875f9470a8fc74ec2f79ebb9a2fefd046e9925f00}} 
+en\+E\+P\+C\+F\+Adc\+State\+\_\+\+Max&Special value for boundary checking \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{adc_8h_a95ed8e489525daf80ac43f789951d323}\label{adc_8h_a95ed8e489525daf80ac43f789951d323}} 
+\index{adc.\+h@{adc.\+h}!En\+E\+P\+C\+F\+Adc\+Width\+\_\+t@{En\+E\+P\+C\+F\+Adc\+Width\+\_\+t}}
+\index{En\+E\+P\+C\+F\+Adc\+Width\+\_\+t@{En\+E\+P\+C\+F\+Adc\+Width\+\_\+t}!adc.\+h@{adc.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Adc\+Width\+\_\+t}{EnEPCFAdcWidth\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{adc_8h_a95ed8e489525daf80ac43f789951d323}{En\+E\+P\+C\+F\+Adc\+Width\+\_\+t}}}
+
+
+
+Enumeration for adc width. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Adc\+Width\+\_\+3@{en\+E\+P\+C\+F\+Adc\+Width\+\_\+3}!adc.\+h@{adc.\+h}}\index{adc.\+h@{adc.\+h}!en\+E\+P\+C\+F\+Adc\+Width\+\_\+3@{en\+E\+P\+C\+F\+Adc\+Width\+\_\+3}}}\mbox{\Hypertarget{adc_8h_a95ed8e489525daf80ac43f789951d323a46beb0f25e5edb011b468f1b10680a6e}\label{adc_8h_a95ed8e489525daf80ac43f789951d323a46beb0f25e5edb011b468f1b10680a6e}} 
+en\+E\+P\+C\+F\+Adc\+Width\+\_\+3&3 bits Adc width \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Adc\+Width\+\_\+4@{en\+E\+P\+C\+F\+Adc\+Width\+\_\+4}!adc.\+h@{adc.\+h}}\index{adc.\+h@{adc.\+h}!en\+E\+P\+C\+F\+Adc\+Width\+\_\+4@{en\+E\+P\+C\+F\+Adc\+Width\+\_\+4}}}\mbox{\Hypertarget{adc_8h_a95ed8e489525daf80ac43f789951d323af6ff99d42331a6a5b37bc482ef1ac092}\label{adc_8h_a95ed8e489525daf80ac43f789951d323af6ff99d42331a6a5b37bc482ef1ac092}} 
+en\+E\+P\+C\+F\+Adc\+Width\+\_\+4&4 bits Adc width \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Adc\+Width\+\_\+5@{en\+E\+P\+C\+F\+Adc\+Width\+\_\+5}!adc.\+h@{adc.\+h}}\index{adc.\+h@{adc.\+h}!en\+E\+P\+C\+F\+Adc\+Width\+\_\+5@{en\+E\+P\+C\+F\+Adc\+Width\+\_\+5}}}\mbox{\Hypertarget{adc_8h_a95ed8e489525daf80ac43f789951d323a5b95d43f6c8eb6bc81587203e6518f98}\label{adc_8h_a95ed8e489525daf80ac43f789951d323a5b95d43f6c8eb6bc81587203e6518f98}} 
+en\+E\+P\+C\+F\+Adc\+Width\+\_\+5&5 bits Adc width \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Adc\+Width\+\_\+6@{en\+E\+P\+C\+F\+Adc\+Width\+\_\+6}!adc.\+h@{adc.\+h}}\index{adc.\+h@{adc.\+h}!en\+E\+P\+C\+F\+Adc\+Width\+\_\+6@{en\+E\+P\+C\+F\+Adc\+Width\+\_\+6}}}\mbox{\Hypertarget{adc_8h_a95ed8e489525daf80ac43f789951d323adb1e9ad3a5a68f432b1a5a03620a60f5}\label{adc_8h_a95ed8e489525daf80ac43f789951d323adb1e9ad3a5a68f432b1a5a03620a60f5}} 
+en\+E\+P\+C\+F\+Adc\+Width\+\_\+6&6 bits Adc width \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Adc\+Width\+\_\+7@{en\+E\+P\+C\+F\+Adc\+Width\+\_\+7}!adc.\+h@{adc.\+h}}\index{adc.\+h@{adc.\+h}!en\+E\+P\+C\+F\+Adc\+Width\+\_\+7@{en\+E\+P\+C\+F\+Adc\+Width\+\_\+7}}}\mbox{\Hypertarget{adc_8h_a95ed8e489525daf80ac43f789951d323a502494d639319498d4028691f1c586b4}\label{adc_8h_a95ed8e489525daf80ac43f789951d323a502494d639319498d4028691f1c586b4}} 
+en\+E\+P\+C\+F\+Adc\+Width\+\_\+7&7 bits Adc width \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Adc\+Width\+\_\+8@{en\+E\+P\+C\+F\+Adc\+Width\+\_\+8}!adc.\+h@{adc.\+h}}\index{adc.\+h@{adc.\+h}!en\+E\+P\+C\+F\+Adc\+Width\+\_\+8@{en\+E\+P\+C\+F\+Adc\+Width\+\_\+8}}}\mbox{\Hypertarget{adc_8h_a95ed8e489525daf80ac43f789951d323a07ea28a24c3263ea82be6b047d3c2199}\label{adc_8h_a95ed8e489525daf80ac43f789951d323a07ea28a24c3263ea82be6b047d3c2199}} 
+en\+E\+P\+C\+F\+Adc\+Width\+\_\+8&8 bits Adc width \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Adc\+Width\+\_\+9@{en\+E\+P\+C\+F\+Adc\+Width\+\_\+9}!adc.\+h@{adc.\+h}}\index{adc.\+h@{adc.\+h}!en\+E\+P\+C\+F\+Adc\+Width\+\_\+9@{en\+E\+P\+C\+F\+Adc\+Width\+\_\+9}}}\mbox{\Hypertarget{adc_8h_a95ed8e489525daf80ac43f789951d323a7064c66ab596481246200f2d95a7cdad}\label{adc_8h_a95ed8e489525daf80ac43f789951d323a7064c66ab596481246200f2d95a7cdad}} 
+en\+E\+P\+C\+F\+Adc\+Width\+\_\+9&9 bits Adc width \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Adc\+Width\+\_\+10@{en\+E\+P\+C\+F\+Adc\+Width\+\_\+10}!adc.\+h@{adc.\+h}}\index{adc.\+h@{adc.\+h}!en\+E\+P\+C\+F\+Adc\+Width\+\_\+10@{en\+E\+P\+C\+F\+Adc\+Width\+\_\+10}}}\mbox{\Hypertarget{adc_8h_a95ed8e489525daf80ac43f789951d323a33434648a07084843437c7363c546652}\label{adc_8h_a95ed8e489525daf80ac43f789951d323a33434648a07084843437c7363c546652}} 
+en\+E\+P\+C\+F\+Adc\+Width\+\_\+10&10 bits Adc width \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Adc\+Width\+\_\+11@{en\+E\+P\+C\+F\+Adc\+Width\+\_\+11}!adc.\+h@{adc.\+h}}\index{adc.\+h@{adc.\+h}!en\+E\+P\+C\+F\+Adc\+Width\+\_\+11@{en\+E\+P\+C\+F\+Adc\+Width\+\_\+11}}}\mbox{\Hypertarget{adc_8h_a95ed8e489525daf80ac43f789951d323a9fd650975de21e0228aac9bf6819e59e}\label{adc_8h_a95ed8e489525daf80ac43f789951d323a9fd650975de21e0228aac9bf6819e59e}} 
+en\+E\+P\+C\+F\+Adc\+Width\+\_\+11&11 bits Adc width \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Adc\+Width\+\_\+12@{en\+E\+P\+C\+F\+Adc\+Width\+\_\+12}!adc.\+h@{adc.\+h}}\index{adc.\+h@{adc.\+h}!en\+E\+P\+C\+F\+Adc\+Width\+\_\+12@{en\+E\+P\+C\+F\+Adc\+Width\+\_\+12}}}\mbox{\Hypertarget{adc_8h_a95ed8e489525daf80ac43f789951d323ac548d9e05f1c6d1d2d65659de28e3b8d}\label{adc_8h_a95ed8e489525daf80ac43f789951d323ac548d9e05f1c6d1d2d65659de28e3b8d}} 
+en\+E\+P\+C\+F\+Adc\+Width\+\_\+12&12 bits Adc width \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Adc\+Width\+\_\+13@{en\+E\+P\+C\+F\+Adc\+Width\+\_\+13}!adc.\+h@{adc.\+h}}\index{adc.\+h@{adc.\+h}!en\+E\+P\+C\+F\+Adc\+Width\+\_\+13@{en\+E\+P\+C\+F\+Adc\+Width\+\_\+13}}}\mbox{\Hypertarget{adc_8h_a95ed8e489525daf80ac43f789951d323aca3002ca69b66d12645e0c877ed7d5e8}\label{adc_8h_a95ed8e489525daf80ac43f789951d323aca3002ca69b66d12645e0c877ed7d5e8}} 
+en\+E\+P\+C\+F\+Adc\+Width\+\_\+13&13 bits Adc width \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Adc\+Width\+\_\+14@{en\+E\+P\+C\+F\+Adc\+Width\+\_\+14}!adc.\+h@{adc.\+h}}\index{adc.\+h@{adc.\+h}!en\+E\+P\+C\+F\+Adc\+Width\+\_\+14@{en\+E\+P\+C\+F\+Adc\+Width\+\_\+14}}}\mbox{\Hypertarget{adc_8h_a95ed8e489525daf80ac43f789951d323af3763c9f094b8ce562264fad6a07b1e8}\label{adc_8h_a95ed8e489525daf80ac43f789951d323af3763c9f094b8ce562264fad6a07b1e8}} 
+en\+E\+P\+C\+F\+Adc\+Width\+\_\+14&14 bits Adc width \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Adc\+Width\+\_\+15@{en\+E\+P\+C\+F\+Adc\+Width\+\_\+15}!adc.\+h@{adc.\+h}}\index{adc.\+h@{adc.\+h}!en\+E\+P\+C\+F\+Adc\+Width\+\_\+15@{en\+E\+P\+C\+F\+Adc\+Width\+\_\+15}}}\mbox{\Hypertarget{adc_8h_a95ed8e489525daf80ac43f789951d323a4e26a0ff216e8a6440c0d6b36747b321}\label{adc_8h_a95ed8e489525daf80ac43f789951d323a4e26a0ff216e8a6440c0d6b36747b321}} 
+en\+E\+P\+C\+F\+Adc\+Width\+\_\+15&15 bits Adc width \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Adc\+Width\+\_\+16@{en\+E\+P\+C\+F\+Adc\+Width\+\_\+16}!adc.\+h@{adc.\+h}}\index{adc.\+h@{adc.\+h}!en\+E\+P\+C\+F\+Adc\+Width\+\_\+16@{en\+E\+P\+C\+F\+Adc\+Width\+\_\+16}}}\mbox{\Hypertarget{adc_8h_a95ed8e489525daf80ac43f789951d323a4dda1ba633f4f20193d84d603aed1db2}\label{adc_8h_a95ed8e489525daf80ac43f789951d323a4dda1ba633f4f20193d84d603aed1db2}} 
+en\+E\+P\+C\+F\+Adc\+Width\+\_\+16&16 bits Adc width \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Adc\+Width\+\_\+\+Max@{en\+E\+P\+C\+F\+Adc\+Width\+\_\+\+Max}!adc.\+h@{adc.\+h}}\index{adc.\+h@{adc.\+h}!en\+E\+P\+C\+F\+Adc\+Width\+\_\+\+Max@{en\+E\+P\+C\+F\+Adc\+Width\+\_\+\+Max}}}\mbox{\Hypertarget{adc_8h_a95ed8e489525daf80ac43f789951d323a3d6e4308dbe4d8055258c5fbecc6c260}\label{adc_8h_a95ed8e489525daf80ac43f789951d323a3d6e4308dbe4d8055258c5fbecc6c260}} 
+en\+E\+P\+C\+F\+Adc\+Width\+\_\+\+Max&Special value for boundary checking \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{adc_8h_a805a37b89de494ef23b66a99e91d71af}\label{adc_8h_a805a37b89de494ef23b66a99e91d71af}} 
+\index{adc.\+h@{adc.\+h}!epcf\+\_\+adc\+\_\+attach\+Callback@{epcf\+\_\+adc\+\_\+attach\+Callback}}
+\index{epcf\+\_\+adc\+\_\+attach\+Callback@{epcf\+\_\+adc\+\_\+attach\+Callback}!adc.\+h@{adc.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+adc\+\_\+attach\+Callback()}{epcf\_adc\_attachCallback()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+adc\+\_\+attach\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$}]{p\+Adc\+Device,  }\item[{epcf\+Callback\+\_\+fp}]{callback,  }\item[{\mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665c}{En\+E\+P\+C\+F\+Adc\+Channel\+\_\+t}}}]{channel }\end{DoxyParamCaption})}
+
+
+
+This function is used to attach an adc callback called after adc conversion is completed when adc is configured in interrupt mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Adc\+Device} & Pointer to the adc device. \\
+\hline
+{\em callback} & User callback to be called \\
+\hline
+{\em channel} & adc channel\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return callback\+Id.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Call this function before starting adc conversion. To attach a callback if adc has already started\+:
+\begin{DoxyEnumerate}
+\item Stop adc conversion.
+\item Attach a callback.
+\item Start adc conversion again. 
+\end{DoxyEnumerate}
+\end{DoxyNote}
+\mbox{\Hypertarget{adc_8h_ad23f60b2195f241a86e9faf3b6194903}\label{adc_8h_ad23f60b2195f241a86e9faf3b6194903}} 
+\index{adc.\+h@{adc.\+h}!epcf\+\_\+adc\+\_\+close@{epcf\+\_\+adc\+\_\+close}}
+\index{epcf\+\_\+adc\+\_\+close@{epcf\+\_\+adc\+\_\+close}!adc.\+h@{adc.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+adc\+\_\+close()}{epcf\_adc\_close()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+adc\+\_\+close (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$}]{p\+Adc\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to close the adc device. It will free the memory allocated by the adc device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Adc\+Device} & Pointer to the adc device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{adc_8h_a33e0e06f911314f2359df05f7756989f}\label{adc_8h_a33e0e06f911314f2359df05f7756989f}} 
+\index{adc.\+h@{adc.\+h}!epcf\+\_\+adc\+\_\+continuous\+Conversion\+Start@{epcf\+\_\+adc\+\_\+continuous\+Conversion\+Start}}
+\index{epcf\+\_\+adc\+\_\+continuous\+Conversion\+Start@{epcf\+\_\+adc\+\_\+continuous\+Conversion\+Start}!adc.\+h@{adc.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+adc\+\_\+continuous\+Conversion\+Start()}{epcf\_adc\_continuousConversionStart()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+adc\+\_\+continuous\+Conversion\+Start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$}]{p\+Adc\+Device,  }\item[{uint16\+\_\+t}]{channel }\end{DoxyParamCaption})}
+
+
+
+This function is used to start continuous adc conversion. Adc will start data conversion according to the configuration settings. Use epcf\+\_\+adc\+\_\+get\+Value and epcf\+\_\+adc\+\_\+get\+Voltage functions to read digital output data. User callback, if attached will be call after an adc conversion is completed when adc is configured in interrupt mode. Adc conversion can be stopped by a call to the function epcf\+\_\+adc\+\_\+conversion\+Stop. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Adc\+Device} & Pointer to the adc device. \\
+\hline
+{\em channel} & Adc channels to be configured. To enable multiple channels OR the respective channels numbers. For eg\+: To enable channel0 and channel3, set channel value equal to\+: (en\+E\+P\+C\+F\+Adc\+Channel\+\_\+0 $\vert$ en\+E\+P\+C\+F\+Adc\+Channel\+\_\+3)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{adc_8h_a076fdffd17b64dafe0cc1f26e9b5ff97}\label{adc_8h_a076fdffd17b64dafe0cc1f26e9b5ff97}} 
+\index{adc.\+h@{adc.\+h}!epcf\+\_\+adc\+\_\+conversion\+Stop@{epcf\+\_\+adc\+\_\+conversion\+Stop}}
+\index{epcf\+\_\+adc\+\_\+conversion\+Stop@{epcf\+\_\+adc\+\_\+conversion\+Stop}!adc.\+h@{adc.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+adc\+\_\+conversion\+Stop()}{epcf\_adc\_conversionStop()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+adc\+\_\+conversion\+Stop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$}]{p\+Adc\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to stop continuous adc conversion. User callback will not be called after data conversion has been stopped. Adc data conversion can be started again by a call to the function epcf\+\_\+adc\+\_\+continuous\+Conversion\+Start. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Adc\+Device} & Pointer to the adc device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{adc_8h_a9685694ea5d9836d57b539a9fd7e3fcc}\label{adc_8h_a9685694ea5d9836d57b539a9fd7e3fcc}} 
+\index{adc.\+h@{adc.\+h}!epcf\+\_\+adc\+\_\+create\+Native@{epcf\+\_\+adc\+\_\+create\+Native}}
+\index{epcf\+\_\+adc\+\_\+create\+Native@{epcf\+\_\+adc\+\_\+create\+Native}!adc.\+h@{adc.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+adc\+\_\+create\+Native()}{epcf\_adc\_createNative()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}}$\ast$ epcf\+\_\+adc\+\_\+create\+Native (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFAdcCfg__t}{E\+P\+C\+F\+Adc\+Cfg\+\_\+t}} $\ast$}]{p\+Adc\+Config }\end{DoxyParamCaption})}
+
+
+
+This function is used to create an adc device. Call this function in beginning to initialize the adc device. This function allocates memory for the device using malloc() function call and returns a pointer to the device. Pass this device pointer while calling adc functions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Adc\+Config} & Pointer to the adc configuration structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+On success, it return the pointer to adc device. On error, it returns N\+U\+LL. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{adc_8h_a051ef2205edf42677037d4fd5eb32a66}\label{adc_8h_a051ef2205edf42677037d4fd5eb32a66}} 
+\index{adc.\+h@{adc.\+h}!epcf\+\_\+adc\+\_\+detach\+Callback@{epcf\+\_\+adc\+\_\+detach\+Callback}}
+\index{epcf\+\_\+adc\+\_\+detach\+Callback@{epcf\+\_\+adc\+\_\+detach\+Callback}!adc.\+h@{adc.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+adc\+\_\+detach\+Callback()}{epcf\_adc\_detachCallback()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+adc\+\_\+detach\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$}]{p\+Adc\+Device,  }\item[{\mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665c}{En\+E\+P\+C\+F\+Adc\+Channel\+\_\+t}}}]{channel }\end{DoxyParamCaption})}
+
+
+
+This function is used to detach the adc callback for the specific adc interrupt source. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Adc\+Device} & Pointer to the adc device. \\
+\hline
+{\em channel} & Adc channel to get output data for.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Call this function before starting adc conversion. To detach the callback if adc has already started\+:
+\begin{DoxyEnumerate}
+\item Stop adc conversion.
+\item Detach the callback.
+\item Start adc conversion again. 
+\end{DoxyEnumerate}
+\end{DoxyNote}
+\mbox{\Hypertarget{adc_8h_a38daafe218c2de808fc3c560ba71b524}\label{adc_8h_a38daafe218c2de808fc3c560ba71b524}} 
+\index{adc.\+h@{adc.\+h}!epcf\+\_\+adc\+\_\+get\+Device\+Count@{epcf\+\_\+adc\+\_\+get\+Device\+Count}}
+\index{epcf\+\_\+adc\+\_\+get\+Device\+Count@{epcf\+\_\+adc\+\_\+get\+Device\+Count}!adc.\+h@{adc.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+adc\+\_\+get\+Device\+Count()}{epcf\_adc\_getDeviceCount()}}
+{\footnotesize\ttfamily uint8\+\_\+t epcf\+\_\+adc\+\_\+get\+Device\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function is used to get total number of available adc devices. 
+
+\begin{DoxyReturn}{Returns}
+Returns the number of available adc devices. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{adc_8h_a50067b1bc9c64faa8faa71967f5e12ad}\label{adc_8h_a50067b1bc9c64faa8faa71967f5e12ad}} 
+\index{adc.\+h@{adc.\+h}!epcf\+\_\+adc\+\_\+get\+State@{epcf\+\_\+adc\+\_\+get\+State}}
+\index{epcf\+\_\+adc\+\_\+get\+State@{epcf\+\_\+adc\+\_\+get\+State}!adc.\+h@{adc.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+adc\+\_\+get\+State()}{epcf\_adc\_getState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{adc_8h_ac8e2caaea6d80f99b4d2ed46875f9470}{En\+E\+P\+C\+F\+Adc\+State\+\_\+t}} epcf\+\_\+adc\+\_\+get\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$}]{p\+Adc\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to get the current state of the adc. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Adc\+Device} & Pointer to the adc device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return adc state 
+\end{DoxyReturn}
+\mbox{\Hypertarget{adc_8h_a4984e142275784334e3a60046d35fd35}\label{adc_8h_a4984e142275784334e3a60046d35fd35}} 
+\index{adc.\+h@{adc.\+h}!epcf\+\_\+adc\+\_\+get\+Value@{epcf\+\_\+adc\+\_\+get\+Value}}
+\index{epcf\+\_\+adc\+\_\+get\+Value@{epcf\+\_\+adc\+\_\+get\+Value}!adc.\+h@{adc.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+adc\+\_\+get\+Value()}{epcf\_adc\_getValue()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+adc\+\_\+get\+Value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$}]{p\+Adc\+Device,  }\item[{uint32\+\_\+t $\ast$}]{data,  }\item[{\mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665c}{En\+E\+P\+C\+F\+Adc\+Channel\+\_\+t}}}]{channel }\end{DoxyParamCaption})}
+
+
+
+This function is used to read the converted digital output value of the particular channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Adc\+Device} & Pointer to the adc device. \\
+\hline
+{\em data} & Pointer to uint32\+\_\+t variable to get output data value \\
+\hline
+{\em channel} & adc channel\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{adc_8h_ac37d3c0d762b698a4e26e8a73608d0ad}\label{adc_8h_ac37d3c0d762b698a4e26e8a73608d0ad}} 
+\index{adc.\+h@{adc.\+h}!epcf\+\_\+adc\+\_\+get\+Voltage@{epcf\+\_\+adc\+\_\+get\+Voltage}}
+\index{epcf\+\_\+adc\+\_\+get\+Voltage@{epcf\+\_\+adc\+\_\+get\+Voltage}!adc.\+h@{adc.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+adc\+\_\+get\+Voltage()}{epcf\_adc\_getVoltage()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+adc\+\_\+get\+Voltage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$}]{p\+Adc\+Device,  }\item[{uint32\+\_\+t $\ast$}]{milli\+Volts,  }\item[{\mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665c}{En\+E\+P\+C\+F\+Adc\+Channel\+\_\+t}}}]{channel }\end{DoxyParamCaption})}
+
+
+
+This function is used to read the converted digital output value in millivolts of the particular channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Adc\+Device} & Pointer to the adc device. \\
+\hline
+{\em milli\+Volts} & Pointer to uint32\+\_\+t variable to get output data value in millivolts \\
+\hline
+{\em channel} & adc channel\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{adc_8h_a7687e962d02134c8c967fed0bb8aa790}\label{adc_8h_a7687e962d02134c8c967fed0bb8aa790}} 
+\index{adc.\+h@{adc.\+h}!epcf\+\_\+adc\+\_\+single\+Conversion@{epcf\+\_\+adc\+\_\+single\+Conversion}}
+\index{epcf\+\_\+adc\+\_\+single\+Conversion@{epcf\+\_\+adc\+\_\+single\+Conversion}!adc.\+h@{adc.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+adc\+\_\+single\+Conversion()}{epcf\_adc\_singleConversion()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+adc\+\_\+single\+Conversion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$}]{p\+Adc\+Device,  }\item[{\mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665c}{En\+E\+P\+C\+F\+Adc\+Channel\+\_\+t}}}]{channel,  }\item[{uint32\+\_\+t $\ast$}]{data,  }\item[{E\+P\+C\+F\+Time\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+
+
+This function is used to perform a single adc conversion and read the converted digital output value of the particular channel in millivolts. This function blocks until adc conversion is completed on all enabled channels or timeout has occurred. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Adc\+Device} & Pointer to the adc device. \\
+\hline
+{\em channel} & Adc channel to get output data for. ~\newline
+\\
+\hline
+{\em data} & Pointer to uint32\+\_\+t variable to get output data value. \\
+\hline
+{\em timeout} & timeout channel.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Before calling this function stop continuous adc conversion, if started. 
+\end{DoxyNote}
+\mbox{\Hypertarget{adc_8h_ae3eb926c7782252306a148cc5b07480a}\label{adc_8h_ae3eb926c7782252306a148cc5b07480a}} 
+\index{adc.\+h@{adc.\+h}!epcf\+\_\+adc\+\_\+single\+Conversion\+Get\+Voltage@{epcf\+\_\+adc\+\_\+single\+Conversion\+Get\+Voltage}}
+\index{epcf\+\_\+adc\+\_\+single\+Conversion\+Get\+Voltage@{epcf\+\_\+adc\+\_\+single\+Conversion\+Get\+Voltage}!adc.\+h@{adc.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+adc\+\_\+single\+Conversion\+Get\+Voltage()}{epcf\_adc\_singleConversionGetVoltage()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+adc\+\_\+single\+Conversion\+Get\+Voltage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{adc_8h_a43584066d273202e849f267d510bb6db}{E\+P\+C\+F\+Adc\+Device\+\_\+t}} $\ast$}]{p\+Adc\+Device,  }\item[{\mbox{\hyperlink{adc_8h_a64cc2cb1cd42e6cdc3f3cfebd223665c}{En\+E\+P\+C\+F\+Adc\+Channel\+\_\+t}}}]{channel,  }\item[{uint32\+\_\+t $\ast$}]{milli\+Volts,  }\item[{E\+P\+C\+F\+Time\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+
+
+This function is used to perform a single adc conversion and read the converted digital output value of the particular channel. This function blocks until adc conversion is completed enabled channel or timeout has occurred. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Adc\+Device} & Pointer to the adc device. \\
+\hline
+{\em channel} & Adc channel to get voltage in millivolts for. ~\newline
+\\
+\hline
+{\em milli\+Volts} & Pointer to uint32\+\_\+t variable to get output data value in millivolts \\
+\hline
+{\em timeout} & timeout channel.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Before calling this function stop continuous adc conversion, if started. 
+\end{DoxyNote}

@@ -1,0 +1,46 @@
+\hypertarget{structEPCFCfgFilter}{}\section{E\+P\+C\+F\+Cfg\+Filter Struct Reference}
+\label{structEPCFCfgFilter}\index{E\+P\+C\+F\+Cfg\+Filter@{E\+P\+C\+F\+Cfg\+Filter}}
+
+
+C\+AN Filter structure.  
+
+
+
+
+{\ttfamily \#include $<$can.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structEPCFCanMsgHeader__t}{E\+P\+C\+F\+Can\+Msg\+Header\+\_\+t}} \mbox{\hyperlink{structEPCFCfgFilter_a2d258b7cbf3cddb1485fbf21c67df392}{msg\+Header}} \mbox{[}2\mbox{]}
+\item 
+\mbox{\hyperlink{can_8h_a97f16d03af59a0449d377236677bef41}{En\+E\+P\+C\+F\+Can\+Filter\+Mode}} \mbox{\hyperlink{structEPCFCfgFilter_a4ca4c374d7444f742c40723021e52645}{mode}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+C\+AN Filter structure. 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structEPCFCfgFilter_a4ca4c374d7444f742c40723021e52645}\label{structEPCFCfgFilter_a4ca4c374d7444f742c40723021e52645}} 
+\index{E\+P\+C\+F\+Cfg\+Filter@{E\+P\+C\+F\+Cfg\+Filter}!mode@{mode}}
+\index{mode@{mode}!E\+P\+C\+F\+Cfg\+Filter@{E\+P\+C\+F\+Cfg\+Filter}}
+\subsubsection{\texorpdfstring{mode}{mode}}
+{\footnotesize\ttfamily \mbox{\hyperlink{can_8h_a97f16d03af59a0449d377236677bef41}{En\+E\+P\+C\+F\+Can\+Filter\+Mode}} E\+P\+C\+F\+Cfg\+Filter\+::mode}
+
+\begin{DoxySeeAlso}{See also}
+P\+F\+En\+Can\+Frame\+Format 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{structEPCFCfgFilter_a2d258b7cbf3cddb1485fbf21c67df392}\label{structEPCFCfgFilter_a2d258b7cbf3cddb1485fbf21c67df392}} 
+\index{E\+P\+C\+F\+Cfg\+Filter@{E\+P\+C\+F\+Cfg\+Filter}!msg\+Header@{msg\+Header}}
+\index{msg\+Header@{msg\+Header}!E\+P\+C\+F\+Cfg\+Filter@{E\+P\+C\+F\+Cfg\+Filter}}
+\subsubsection{\texorpdfstring{msg\+Header}{msgHeader}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structEPCFCanMsgHeader__t}{E\+P\+C\+F\+Can\+Msg\+Header\+\_\+t}} E\+P\+C\+F\+Cfg\+Filter\+::msg\+Header\mbox{[}2\mbox{]}}
+
+msg\+Header is an array contatining two elements ~\newline
+ In case of single message filter the element 0 will contain information about the message. ~\newline
+ In case of filtering a group of message elemet 0 will contain the lower bound of the range of messages to be filtered and the upper bound will be stored in the second element 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+epcf\+\_\+project/epcf/peripheral/include/can/\mbox{\hyperlink{can_8h}{can.\+h}}\end{DoxyCompactItemize}

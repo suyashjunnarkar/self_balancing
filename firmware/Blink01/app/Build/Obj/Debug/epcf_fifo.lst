@@ -1,0 +1,1704 @@
+ARM GAS  /tmp/cc1Op8kD.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1	@ Tag_ABI_FP_denormal
+   5              		.eabi_attribute 21, 1	@ Tag_ABI_FP_exceptions
+   6              		.eabi_attribute 23, 3	@ Tag_ABI_FP_number_model
+   7              		.eabi_attribute 24, 1	@ Tag_ABI_align8_needed
+   8              		.eabi_attribute 25, 1	@ Tag_ABI_align8_preserved
+   9              		.eabi_attribute 26, 1	@ Tag_ABI_enum_size
+  10              		.eabi_attribute 30, 6	@ Tag_ABI_optimization_goals
+  11              		.eabi_attribute 34, 1	@ Tag_CPU_unaligned_access
+  12              		.eabi_attribute 18, 4	@ Tag_ABI_PCS_wchar_t
+  13              		.file	"epcf_fifo.c"
+  14              	@ GNU C (15:4.9.3+svn231177-1) version 4.9.3 20150529 (prerelease) (arm-none-eabi)
+  15              	@	compiled by GNU C version 5.2.1 20151129, GMP version 6.1.0, MPFR version 3.1.3, MPC version 1.0.
+  16              	@ warning: MPFR header version 3.1.3 differs from library version 3.1.4.
+  17              	@ GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+  18              	@ options passed:  -I . -I ./include -I ../pcf/include -imultilib armv7-m
+  19              	@ -MD Build/Obj/Debug/epcf_fifo.d -MF Build/.dep/epcf_fifo.o.d -MP
+  20              	@ -MQ Build/Obj/Debug/epcf_fifo.o -D__USES_INITFINI__
+  21              	@ ../epcf/utils/source/epcf_fifo.c -mcpu=cortex-m3 -mthumb
+  22              	@ -auxbase-strip Build/Obj/Debug/epcf_fifo.o -gdwarf-2 -O0 -Wall -Wno-cpp
+  23              	@ -std=gnu99 -fomit-frame-pointer -fverbose-asm
+  24              	@ options enabled:  -faggressive-loop-optimizations -fauto-inc-dec -fcommon
+  25              	@ -fdelete-null-pointer-checks -fdwarf2-cfi-asm -fearly-inlining
+  26              	@ -feliminate-unused-debug-types -ffunction-cse -fgcse-lm -fgnu-runtime
+  27              	@ -fgnu-unique -fident -finline-atomics -fira-hoist-pressure
+  28              	@ -fira-share-save-slots -fira-share-spill-slots -fivopts
+  29              	@ -fkeep-static-consts -fleading-underscore -flifetime-dse -fmath-errno
+  30              	@ -fmerge-debug-strings -fomit-frame-pointer -fpeephole
+  31              	@ -fprefetch-loop-arrays -freg-struct-return
+  32              	@ -fsched-critical-path-heuristic -fsched-dep-count-heuristic
+  33              	@ -fsched-group-heuristic -fsched-interblock -fsched-last-insn-heuristic
+  34              	@ -fsched-rank-heuristic -fsched-spec -fsched-spec-insn-heuristic
+  35              	@ -fsched-stalled-insns-dep -fshow-column -fsigned-zeros
+  36              	@ -fsplit-ivs-in-unroller -fstrict-volatile-bitfields -fsync-libcalls
+  37              	@ -ftrapping-math -ftree-coalesce-vars -ftree-cselim -ftree-forwprop
+  38              	@ -ftree-loop-if-convert -ftree-loop-im -ftree-loop-ivcanon
+  39              	@ -ftree-loop-optimize -ftree-parallelize-loops= -ftree-phiprop
+  40              	@ -ftree-reassoc -ftree-scev-cprop -funit-at-a-time -fverbose-asm
+  41              	@ -fzero-initialized-in-bss -mfix-cortex-m3-ldrd -mlittle-endian -mlra
+  42              	@ -mpic-data-is-text-relative -msched-prolog -mthumb -munaligned-access
+  43              	@ -mvectorize-with-neon-quad
+  44              	
+  45              		.text
+  46              	.Ltext0:
+  47              		.cfi_sections	.debug_frame
+  48              		.align	2
+  49              		.global	pcfFifoInit
+  50              		.thumb
+  51              		.thumb_func
+  52              		.type	pcfFifoInit, %function
+  53              	pcfFifoInit:
+  54              	.LFB40:
+  55              		.file 1 "../epcf/utils/source/epcf_fifo.c"
+   1:../epcf/utils/source/epcf_fifo.c **** #include "pcf.h"
+   2:../epcf/utils/source/epcf_fifo.c **** 
+ARM GAS  /tmp/cc1Op8kD.s 			page 2
+
+
+   3:../epcf/utils/source/epcf_fifo.c **** #define __EPCF_UTILS_FIFO_INCLUDE PCF_CONDITIONAL_INCLUDE_FILE(EPCF_DIR_PATH/,utils/,include/,epcf_
+   4:../epcf/utils/source/epcf_fifo.c **** #include __EPCF_UTILS_FIFO_INCLUDE
+   5:../epcf/utils/source/epcf_fifo.c **** #undef __EPCF_UTILS_FIFO_INCLUDE
+   6:../epcf/utils/source/epcf_fifo.c **** 
+   7:../epcf/utils/source/epcf_fifo.c **** /** \brief FIFO descriptor */
+   8:../epcf/utils/source/epcf_fifo.c **** typedef struct PCFFifoDesc
+   9:../epcf/utils/source/epcf_fifo.c **** {
+  10:../epcf/utils/source/epcf_fifo.c ****   uint8_t* pBegin;          /**< pointer to the beginning of storage buffer */
+  11:../epcf/utils/source/epcf_fifo.c ****   uint8_t* volatile pHead;  /**< pointer to the first element               */
+  12:../epcf/utils/source/epcf_fifo.c ****   uint8_t* volatile pTail;  /**< pointer to the last element                */
+  13:../epcf/utils/source/epcf_fifo.c ****   uint8_t* pEnd;            /**< pointer to the end of storage buffer       */
+  14:../epcf/utils/source/epcf_fifo.c ****   uint32_t size;            /**< fifo buffer size in bytes                  */
+  15:../epcf/utils/source/epcf_fifo.c ****   uint32_t count;           /**< count of the elements in buffer            */
+  16:../epcf/utils/source/epcf_fifo.c **** }PCFFifoDesc_t;
+  17:../epcf/utils/source/epcf_fifo.c **** 
+  18:../epcf/utils/source/epcf_fifo.c **** PCFFifoDesc_t* pcfFifoInit(uint8_t* pBuf, uint32_t uSize)
+  19:../epcf/utils/source/epcf_fifo.c **** {
+  56              		.loc 1 19 0
+  57              		.cfi_startproc
+  58              		@ args = 0, pretend = 0, frame = 16
+  59              		@ frame_needed = 0, uses_anonymous_args = 0
+  60 0000 00B5     		push	{lr}	@
+  61              	.LCFI0:
+  62              		.cfi_def_cfa_offset 4
+  63              		.cfi_offset 14, -4
+  64 0002 85B0     		sub	sp, sp, #20	@,,
+  65              	.LCFI1:
+  66              		.cfi_def_cfa_offset 24
+  67 0004 0190     		str	r0, [sp, #4]	@ pBuf, pBuf
+  68 0006 0091     		str	r1, [sp]	@ uSize, uSize
+  20:../epcf/utils/source/epcf_fifo.c ****     PCFFifoDesc_t* pFifo;
+  21:../epcf/utils/source/epcf_fifo.c ****     
+  22:../epcf/utils/source/epcf_fifo.c **** #if (PF_UTILS_DEBUG == 1)
+  23:../epcf/utils/source/epcf_fifo.c **** 	if(pBuf == 0)
+  24:../epcf/utils/source/epcf_fifo.c **** 	{
+  25:../epcf/utils/source/epcf_fifo.c **** 		return EPCF_STATUS_INVALID_ARGS;
+  26:../epcf/utils/source/epcf_fifo.c **** 	}
+  27:../epcf/utils/source/epcf_fifo.c **** #endif	//	#if (PF_UTILS_DEBUG == 1)
+  28:../epcf/utils/source/epcf_fifo.c ****         
+  29:../epcf/utils/source/epcf_fifo.c ****     pFifo = (PCFFifoDesc_t*)malloc(sizeof(PCFFifoDesc_t));
+  69              		.loc 1 29 0
+  70 0008 1820     		movs	r0, #24	@,
+  71 000a FFF7FEFF 		bl	malloc	@
+  72 000e 0346     		mov	r3, r0	@ tmp116,
+  73 0010 0393     		str	r3, [sp, #12]	@ tmp116, pFifo
+  30:../epcf/utils/source/epcf_fifo.c ****     if(pFifo == 0)
+  74              		.loc 1 30 0
+  75 0012 039B     		ldr	r3, [sp, #12]	@ tmp117, pFifo
+  76 0014 002B     		cmp	r3, #0	@ tmp117,
+  77 0016 01D1     		bne	.L2	@,
+  31:../epcf/utils/source/epcf_fifo.c ****         return NULL;
+  78              		.loc 1 31 0
+  79 0018 0023     		movs	r3, #0	@ D.6247,
+  80 001a 1DE0     		b	.L3	@
+  81              	.L2:
+  32:../epcf/utils/source/epcf_fifo.c ****     
+  33:../epcf/utils/source/epcf_fifo.c **** 	pFifo->pHead = pBuf;
+ARM GAS  /tmp/cc1Op8kD.s 			page 3
+
+
+  82              		.loc 1 33 0
+  83 001c 039B     		ldr	r3, [sp, #12]	@ tmp118, pFifo
+  84 001e 019A     		ldr	r2, [sp, #4]	@ tmp119, pBuf
+  85 0020 5A60     		str	r2, [r3, #4]	@ tmp119, pFifo_2->pHead
+  34:../epcf/utils/source/epcf_fifo.c **** 	pFifo->pTail = pBuf;
+  86              		.loc 1 34 0
+  87 0022 039B     		ldr	r3, [sp, #12]	@ tmp120, pFifo
+  88 0024 019A     		ldr	r2, [sp, #4]	@ tmp121, pBuf
+  89 0026 9A60     		str	r2, [r3, #8]	@ tmp121, pFifo_2->pTail
+  35:../epcf/utils/source/epcf_fifo.c **** 	pFifo->pBegin = pBuf;
+  90              		.loc 1 35 0
+  91 0028 039B     		ldr	r3, [sp, #12]	@ tmp122, pFifo
+  92 002a 019A     		ldr	r2, [sp, #4]	@ tmp123, pBuf
+  93 002c 1A60     		str	r2, [r3]	@ tmp123, pFifo_2->pBegin
+  36:../epcf/utils/source/epcf_fifo.c **** 	pFifo->pEnd = pBuf + uSize - 1;
+  94              		.loc 1 36 0
+  95 002e 009B     		ldr	r3, [sp]	@ tmp124, uSize
+  96 0030 013B     		subs	r3, r3, #1	@ D.6248, tmp124,
+  97 0032 019A     		ldr	r2, [sp, #4]	@ tmp125, pBuf
+  98 0034 1A44     		add	r2, r2, r3	@ D.6249, D.6248
+  99 0036 039B     		ldr	r3, [sp, #12]	@ tmp126, pFifo
+ 100 0038 DA60     		str	r2, [r3, #12]	@ D.6249, pFifo_2->pEnd
+  37:../epcf/utils/source/epcf_fifo.c **** 	pFifo->size = uSize;
+ 101              		.loc 1 37 0
+ 102 003a 039B     		ldr	r3, [sp, #12]	@ tmp127, pFifo
+ 103 003c 009A     		ldr	r2, [sp]	@ tmp128, uSize
+ 104 003e 1A61     		str	r2, [r3, #16]	@ tmp128, pFifo_2->size
+  38:../epcf/utils/source/epcf_fifo.c **** 	pFifo->count = 0;
+ 105              		.loc 1 38 0
+ 106 0040 039B     		ldr	r3, [sp, #12]	@ tmp129, pFifo
+ 107 0042 0022     		movs	r2, #0	@ tmp130,
+ 108 0044 5A61     		str	r2, [r3, #20]	@ tmp130, pFifo_2->count
+  39:../epcf/utils/source/epcf_fifo.c **** 	
+  40:../epcf/utils/source/epcf_fifo.c **** 	if(pFifo->pBegin > pFifo->pEnd)
+ 109              		.loc 1 40 0
+ 110 0046 039B     		ldr	r3, [sp, #12]	@ tmp131, pFifo
+ 111 0048 1A68     		ldr	r2, [r3]	@ D.6249, pFifo_2->pBegin
+ 112 004a 039B     		ldr	r3, [sp, #12]	@ tmp132, pFifo
+ 113 004c DB68     		ldr	r3, [r3, #12]	@ D.6249, pFifo_2->pEnd
+ 114 004e 9A42     		cmp	r2, r3	@ D.6249, D.6249
+ 115 0050 01D9     		bls	.L4	@,
+  41:../epcf/utils/source/epcf_fifo.c **** 	{
+  42:../epcf/utils/source/epcf_fifo.c **** 		return NULL;
+ 116              		.loc 1 42 0
+ 117 0052 0023     		movs	r3, #0	@ D.6247,
+ 118 0054 00E0     		b	.L3	@
+ 119              	.L4:
+  43:../epcf/utils/source/epcf_fifo.c **** 	}
+  44:../epcf/utils/source/epcf_fifo.c **** 	return pFifo;
+ 120              		.loc 1 44 0
+ 121 0056 039B     		ldr	r3, [sp, #12]	@ D.6247, pFifo
+ 122              	.L3:
+  45:../epcf/utils/source/epcf_fifo.c **** }
+ 123              		.loc 1 45 0
+ 124 0058 1846     		mov	r0, r3	@, <retval>
+ 125 005a 05B0     		add	sp, sp, #20	@,,
+ 126              	.LCFI2:
+ARM GAS  /tmp/cc1Op8kD.s 			page 4
+
+
+ 127              		.cfi_def_cfa_offset 4
+ 128              		@ sp needed	@
+ 129 005c 5DF804FB 		ldr	pc, [sp], #4	@
+ 130              		.cfi_endproc
+ 131              	.LFE40:
+ 132              		.size	pcfFifoInit, .-pcfFifoInit
+ 133              		.align	2
+ 134              		.global	pcfFifoLength
+ 135              		.thumb
+ 136              		.thumb_func
+ 137              		.type	pcfFifoLength, %function
+ 138              	pcfFifoLength:
+ 139              	.LFB41:
+  46:../epcf/utils/source/epcf_fifo.c **** 
+  47:../epcf/utils/source/epcf_fifo.c **** uint32_t pcfFifoLength(PCFFifoDesc_t* pFifo)
+  48:../epcf/utils/source/epcf_fifo.c **** {
+ 140              		.loc 1 48 0
+ 141              		.cfi_startproc
+ 142              		@ args = 0, pretend = 0, frame = 8
+ 143              		@ frame_needed = 0, uses_anonymous_args = 0
+ 144              		@ link register save eliminated.
+ 145 0060 82B0     		sub	sp, sp, #8	@,,
+ 146              	.LCFI3:
+ 147              		.cfi_def_cfa_offset 8
+ 148 0062 0190     		str	r0, [sp, #4]	@ pFifo, pFifo
+  49:../epcf/utils/source/epcf_fifo.c **** 	return pFifo->size;
+ 149              		.loc 1 49 0
+ 150 0064 019B     		ldr	r3, [sp, #4]	@ tmp112, pFifo
+ 151 0066 1B69     		ldr	r3, [r3, #16]	@ D.6250, pFifo_1(D)->size
+  50:../epcf/utils/source/epcf_fifo.c **** }
+ 152              		.loc 1 50 0
+ 153 0068 1846     		mov	r0, r3	@, <retval>
+ 154 006a 02B0     		add	sp, sp, #8	@,,
+ 155              	.LCFI4:
+ 156              		.cfi_def_cfa_offset 0
+ 157              		@ sp needed	@
+ 158 006c 7047     		bx	lr	@
+ 159              		.cfi_endproc
+ 160              	.LFE41:
+ 161              		.size	pcfFifoLength, .-pcfFifoLength
+ 162 006e 00BF     		.align	2
+ 163              		.global	pcfFifoCount
+ 164              		.thumb
+ 165              		.thumb_func
+ 166              		.type	pcfFifoCount, %function
+ 167              	pcfFifoCount:
+ 168              	.LFB42:
+  51:../epcf/utils/source/epcf_fifo.c **** 
+  52:../epcf/utils/source/epcf_fifo.c **** 
+  53:../epcf/utils/source/epcf_fifo.c **** uint32_t pcfFifoCount(PCFFifoDesc_t* pFifo)
+  54:../epcf/utils/source/epcf_fifo.c **** {
+ 169              		.loc 1 54 0
+ 170              		.cfi_startproc
+ 171              		@ args = 0, pretend = 0, frame = 8
+ 172              		@ frame_needed = 0, uses_anonymous_args = 0
+ 173              		@ link register save eliminated.
+ 174 0070 82B0     		sub	sp, sp, #8	@,,
+ARM GAS  /tmp/cc1Op8kD.s 			page 5
+
+
+ 175              	.LCFI5:
+ 176              		.cfi_def_cfa_offset 8
+ 177 0072 0190     		str	r0, [sp, #4]	@ pFifo, pFifo
+  55:../epcf/utils/source/epcf_fifo.c **** 	return pFifo->count;
+ 178              		.loc 1 55 0
+ 179 0074 019B     		ldr	r3, [sp, #4]	@ tmp112, pFifo
+ 180 0076 5B69     		ldr	r3, [r3, #20]	@ D.6251, pFifo_1(D)->count
+  56:../epcf/utils/source/epcf_fifo.c **** }
+ 181              		.loc 1 56 0
+ 182 0078 1846     		mov	r0, r3	@, <retval>
+ 183 007a 02B0     		add	sp, sp, #8	@,,
+ 184              	.LCFI6:
+ 185              		.cfi_def_cfa_offset 0
+ 186              		@ sp needed	@
+ 187 007c 7047     		bx	lr	@
+ 188              		.cfi_endproc
+ 189              	.LFE42:
+ 190              		.size	pcfFifoCount, .-pcfFifoCount
+ 191 007e 00BF     		.align	2
+ 192              		.global	pcfFifoPush
+ 193              		.thumb
+ 194              		.thumb_func
+ 195              		.type	pcfFifoPush, %function
+ 196              	pcfFifoPush:
+ 197              	.LFB43:
+  57:../epcf/utils/source/epcf_fifo.c **** 
+  58:../epcf/utils/source/epcf_fifo.c **** 
+  59:../epcf/utils/source/epcf_fifo.c **** EnEPCFBoolean_t pcfFifoPush(PCFFifoDesc_t* pFifo, uint8_t c)
+  60:../epcf/utils/source/epcf_fifo.c **** {
+ 198              		.loc 1 60 0
+ 199              		.cfi_startproc
+ 200              		@ args = 0, pretend = 0, frame = 8
+ 201              		@ frame_needed = 0, uses_anonymous_args = 0
+ 202              		@ link register save eliminated.
+ 203 0080 82B0     		sub	sp, sp, #8	@,,
+ 204              	.LCFI7:
+ 205              		.cfi_def_cfa_offset 8
+ 206 0082 0190     		str	r0, [sp, #4]	@ pFifo, pFifo
+ 207 0084 0B46     		mov	r3, r1	@ tmp122, c
+ 208 0086 8DF80330 		strb	r3, [sp, #3]	@ tmp123, c
+  61:../epcf/utils/source/epcf_fifo.c **** 	if(pFifo->count < pFifo->size)
+ 209              		.loc 1 61 0
+ 210 008a 019B     		ldr	r3, [sp, #4]	@ tmp124, pFifo
+ 211 008c 5A69     		ldr	r2, [r3, #20]	@ D.6253, pFifo_2(D)->count
+ 212 008e 019B     		ldr	r3, [sp, #4]	@ tmp125, pFifo
+ 213 0090 1B69     		ldr	r3, [r3, #16]	@ D.6253, pFifo_2(D)->size
+ 214 0092 9A42     		cmp	r2, r3	@ D.6253, D.6253
+ 215 0094 1AD2     		bcs	.L10	@,
+  62:../epcf/utils/source/epcf_fifo.c **** 	{
+  63:../epcf/utils/source/epcf_fifo.c **** 		*(pFifo->pTail) = c;
+ 216              		.loc 1 63 0
+ 217 0096 019B     		ldr	r3, [sp, #4]	@ tmp126, pFifo
+ 218 0098 9B68     		ldr	r3, [r3, #8]	@ D.6254, pFifo_2(D)->pTail
+ 219 009a 9DF80320 		ldrb	r2, [sp, #3]	@ tmp127, c
+ 220 009e 1A70     		strb	r2, [r3]	@ tmp127, *_6
+  64:../epcf/utils/source/epcf_fifo.c **** 		pFifo->count++;
+ 221              		.loc 1 64 0
+ARM GAS  /tmp/cc1Op8kD.s 			page 6
+
+
+ 222 00a0 019B     		ldr	r3, [sp, #4]	@ tmp128, pFifo
+ 223 00a2 5B69     		ldr	r3, [r3, #20]	@ D.6253, pFifo_2(D)->count
+ 224 00a4 5A1C     		adds	r2, r3, #1	@ D.6253, D.6253,
+ 225 00a6 019B     		ldr	r3, [sp, #4]	@ tmp129, pFifo
+ 226 00a8 5A61     		str	r2, [r3, #20]	@ D.6253, pFifo_2(D)->count
+  65:../epcf/utils/source/epcf_fifo.c **** 		if (pFifo->pTail == pFifo->pEnd)
+ 227              		.loc 1 65 0
+ 228 00aa 019B     		ldr	r3, [sp, #4]	@ tmp130, pFifo
+ 229 00ac 9A68     		ldr	r2, [r3, #8]	@ D.6254, pFifo_2(D)->pTail
+ 230 00ae 019B     		ldr	r3, [sp, #4]	@ tmp131, pFifo
+ 231 00b0 DB68     		ldr	r3, [r3, #12]	@ D.6254, pFifo_2(D)->pEnd
+ 232 00b2 9A42     		cmp	r2, r3	@ D.6254, D.6254
+ 233 00b4 04D1     		bne	.L11	@,
+  66:../epcf/utils/source/epcf_fifo.c **** 		{
+  67:../epcf/utils/source/epcf_fifo.c **** 			pFifo->pTail = pFifo->pBegin;
+ 234              		.loc 1 67 0
+ 235 00b6 019B     		ldr	r3, [sp, #4]	@ tmp132, pFifo
+ 236 00b8 1A68     		ldr	r2, [r3]	@ D.6254, pFifo_2(D)->pBegin
+ 237 00ba 019B     		ldr	r3, [sp, #4]	@ tmp133, pFifo
+ 238 00bc 9A60     		str	r2, [r3, #8]	@ D.6254, pFifo_2(D)->pTail
+ 239 00be 07E0     		b	.L13	@
+ 240              	.L11:
+  68:../epcf/utils/source/epcf_fifo.c **** 		}
+  69:../epcf/utils/source/epcf_fifo.c **** 		else
+  70:../epcf/utils/source/epcf_fifo.c **** 		{
+  71:../epcf/utils/source/epcf_fifo.c **** 			pFifo->pTail++;
+ 241              		.loc 1 71 0
+ 242 00c0 019B     		ldr	r3, [sp, #4]	@ tmp134, pFifo
+ 243 00c2 9B68     		ldr	r3, [r3, #8]	@ D.6254, pFifo_2(D)->pTail
+ 244 00c4 5A1C     		adds	r2, r3, #1	@ D.6254, D.6254,
+ 245 00c6 019B     		ldr	r3, [sp, #4]	@ tmp135, pFifo
+ 246 00c8 9A60     		str	r2, [r3, #8]	@ D.6254, pFifo_2(D)->pTail
+ 247 00ca 01E0     		b	.L13	@
+ 248              	.L10:
+  72:../epcf/utils/source/epcf_fifo.c **** 		}
+  73:../epcf/utils/source/epcf_fifo.c **** 	}
+  74:../epcf/utils/source/epcf_fifo.c **** 	else
+  75:../epcf/utils/source/epcf_fifo.c **** 	{
+  76:../epcf/utils/source/epcf_fifo.c **** 	#if(PF_FIFO_OVERWRITE_ENABLE == 0)
+  77:../epcf/utils/source/epcf_fifo.c **** 		return enEPCFBoolean_False;
+ 249              		.loc 1 77 0
+ 250 00cc 0023     		movs	r3, #0	@ D.6252,
+ 251 00ce 00E0     		b	.L14	@
+ 252              	.L13:
+  78:../epcf/utils/source/epcf_fifo.c **** 	#else
+  79:../epcf/utils/source/epcf_fifo.c **** 		*(pFifo->pTail) = c;
+  80:../epcf/utils/source/epcf_fifo.c **** 		if(pFifo->pTail == pFifo->pHead)
+  81:../epcf/utils/source/epcf_fifo.c **** 		{
+  82:../epcf/utils/source/epcf_fifo.c **** 			if (pFifo->pTail == pFifo->pEnd)
+  83:../epcf/utils/source/epcf_fifo.c **** 			{
+  84:../epcf/utils/source/epcf_fifo.c **** 				pFifo->pTail = pFifo->pBegin;
+  85:../epcf/utils/source/epcf_fifo.c **** 				pFifo->pHead = pFifo->pBegin;
+  86:../epcf/utils/source/epcf_fifo.c **** 			}
+  87:../epcf/utils/source/epcf_fifo.c **** 			else
+  88:../epcf/utils/source/epcf_fifo.c **** 			{
+  89:../epcf/utils/source/epcf_fifo.c **** 				pFifo->pTail++;
+  90:../epcf/utils/source/epcf_fifo.c **** 				pFifo->pHead++;
+ARM GAS  /tmp/cc1Op8kD.s 			page 7
+
+
+  91:../epcf/utils/source/epcf_fifo.c **** 			}
+  92:../epcf/utils/source/epcf_fifo.c **** 		}
+  93:../epcf/utils/source/epcf_fifo.c **** 	#endif
+  94:../epcf/utils/source/epcf_fifo.c **** 	}
+  95:../epcf/utils/source/epcf_fifo.c **** 	return enEPCFBoolean_True;
+ 253              		.loc 1 95 0
+ 254 00d0 0123     		movs	r3, #1	@ D.6252,
+ 255              	.L14:
+  96:../epcf/utils/source/epcf_fifo.c **** }
+ 256              		.loc 1 96 0
+ 257 00d2 1846     		mov	r0, r3	@, <retval>
+ 258 00d4 02B0     		add	sp, sp, #8	@,,
+ 259              	.LCFI8:
+ 260              		.cfi_def_cfa_offset 0
+ 261              		@ sp needed	@
+ 262 00d6 7047     		bx	lr	@
+ 263              		.cfi_endproc
+ 264              	.LFE43:
+ 265              		.size	pcfFifoPush, .-pcfFifoPush
+ 266              		.align	2
+ 267              		.global	pcfFifoPop
+ 268              		.thumb
+ 269              		.thumb_func
+ 270              		.type	pcfFifoPop, %function
+ 271              	pcfFifoPop:
+ 272              	.LFB44:
+  97:../epcf/utils/source/epcf_fifo.c **** 
+  98:../epcf/utils/source/epcf_fifo.c **** uint8_t pcfFifoPop(PCFFifoDesc_t* pFifo)
+  99:../epcf/utils/source/epcf_fifo.c **** {
+ 273              		.loc 1 99 0
+ 274              		.cfi_startproc
+ 275              		@ args = 0, pretend = 0, frame = 8
+ 276              		@ frame_needed = 0, uses_anonymous_args = 0
+ 277              		@ link register save eliminated.
+ 278 00d8 82B0     		sub	sp, sp, #8	@,,
+ 279              	.LCFI9:
+ 280              		.cfi_def_cfa_offset 8
+ 281 00da 0190     		str	r0, [sp, #4]	@ pFifo, pFifo
+ 100:../epcf/utils/source/epcf_fifo.c **** 	if(pFifo->count == 0)
+ 282              		.loc 1 100 0
+ 283 00dc 019B     		ldr	r3, [sp, #4]	@ tmp121, pFifo
+ 284 00de 5B69     		ldr	r3, [r3, #20]	@ D.6256, pFifo_2(D)->count
+ 285 00e0 002B     		cmp	r3, #0	@ D.6256,
+ 286 00e2 01D1     		bne	.L16	@,
+ 101:../epcf/utils/source/epcf_fifo.c **** 	{
+ 102:../epcf/utils/source/epcf_fifo.c **** 		return 0xFF;
+ 287              		.loc 1 102 0
+ 288 00e4 FF23     		movs	r3, #255	@ D.6255,
+ 289 00e6 18E0     		b	.L17	@
+ 290              	.L16:
+ 103:../epcf/utils/source/epcf_fifo.c **** 	}
+ 104:../epcf/utils/source/epcf_fifo.c **** 	pFifo->count--;
+ 291              		.loc 1 104 0
+ 292 00e8 019B     		ldr	r3, [sp, #4]	@ tmp122, pFifo
+ 293 00ea 5B69     		ldr	r3, [r3, #20]	@ D.6256, pFifo_2(D)->count
+ 294 00ec 5A1E     		subs	r2, r3, #1	@ D.6256, D.6256,
+ 295 00ee 019B     		ldr	r3, [sp, #4]	@ tmp123, pFifo
+ARM GAS  /tmp/cc1Op8kD.s 			page 8
+
+
+ 296 00f0 5A61     		str	r2, [r3, #20]	@ D.6256, pFifo_2(D)->count
+ 105:../epcf/utils/source/epcf_fifo.c **** 	if (pFifo->pHead == pFifo->pEnd)
+ 297              		.loc 1 105 0
+ 298 00f2 019B     		ldr	r3, [sp, #4]	@ tmp124, pFifo
+ 299 00f4 5A68     		ldr	r2, [r3, #4]	@ D.6257, pFifo_2(D)->pHead
+ 300 00f6 019B     		ldr	r3, [sp, #4]	@ tmp125, pFifo
+ 301 00f8 DB68     		ldr	r3, [r3, #12]	@ D.6257, pFifo_2(D)->pEnd
+ 302 00fa 9A42     		cmp	r2, r3	@ D.6257, D.6257
+ 303 00fc 07D1     		bne	.L18	@,
+ 106:../epcf/utils/source/epcf_fifo.c **** 	{
+ 107:../epcf/utils/source/epcf_fifo.c **** 		pFifo->pHead = pFifo->pBegin;
+ 304              		.loc 1 107 0
+ 305 00fe 019B     		ldr	r3, [sp, #4]	@ tmp126, pFifo
+ 306 0100 1A68     		ldr	r2, [r3]	@ D.6257, pFifo_2(D)->pBegin
+ 307 0102 019B     		ldr	r3, [sp, #4]	@ tmp127, pFifo
+ 308 0104 5A60     		str	r2, [r3, #4]	@ D.6257, pFifo_2(D)->pHead
+ 108:../epcf/utils/source/epcf_fifo.c **** 		return *(pFifo->pEnd);
+ 309              		.loc 1 108 0
+ 310 0106 019B     		ldr	r3, [sp, #4]	@ tmp128, pFifo
+ 311 0108 DB68     		ldr	r3, [r3, #12]	@ D.6257, pFifo_2(D)->pEnd
+ 312 010a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2	@ D.6255, *_10
+ 313 010c 05E0     		b	.L17	@
+ 314              	.L18:
+ 109:../epcf/utils/source/epcf_fifo.c **** 	}
+ 110:../epcf/utils/source/epcf_fifo.c **** 	else
+ 111:../epcf/utils/source/epcf_fifo.c **** 	{
+ 112:../epcf/utils/source/epcf_fifo.c **** 		return *(pFifo->pHead++);
+ 315              		.loc 1 112 0
+ 316 010e 019B     		ldr	r3, [sp, #4]	@ tmp129, pFifo
+ 317 0110 5B68     		ldr	r3, [r3, #4]	@ D.6257, pFifo_2(D)->pHead
+ 318 0112 591C     		adds	r1, r3, #1	@ D.6257, D.6257,
+ 319 0114 019A     		ldr	r2, [sp, #4]	@ tmp130, pFifo
+ 320 0116 5160     		str	r1, [r2, #4]	@ D.6257, pFifo_2(D)->pHead
+ 321 0118 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2	@ D.6255, *_13
+ 322              	.L17:
+ 113:../epcf/utils/source/epcf_fifo.c **** 	}
+ 114:../epcf/utils/source/epcf_fifo.c **** }
+ 323              		.loc 1 114 0
+ 324 011a 1846     		mov	r0, r3	@, <retval>
+ 325 011c 02B0     		add	sp, sp, #8	@,,
+ 326              	.LCFI10:
+ 327              		.cfi_def_cfa_offset 0
+ 328              		@ sp needed	@
+ 329 011e 7047     		bx	lr	@
+ 330              		.cfi_endproc
+ 331              	.LFE44:
+ 332              		.size	pcfFifoPop, .-pcfFifoPop
+ 333              		.align	2
+ 334              		.global	pcfFifoFlush
+ 335              		.thumb
+ 336              		.thumb_func
+ 337              		.type	pcfFifoFlush, %function
+ 338              	pcfFifoFlush:
+ 339              	.LFB45:
+ 115:../epcf/utils/source/epcf_fifo.c **** 
+ 116:../epcf/utils/source/epcf_fifo.c **** void pcfFifoFlush(PCFFifoDesc_t* pFifo)
+ 117:../epcf/utils/source/epcf_fifo.c **** {
+ARM GAS  /tmp/cc1Op8kD.s 			page 9
+
+
+ 340              		.loc 1 117 0
+ 341              		.cfi_startproc
+ 342              		@ args = 0, pretend = 0, frame = 8
+ 343              		@ frame_needed = 0, uses_anonymous_args = 0
+ 344              		@ link register save eliminated.
+ 345 0120 82B0     		sub	sp, sp, #8	@,,
+ 346              	.LCFI11:
+ 347              		.cfi_def_cfa_offset 8
+ 348 0122 0190     		str	r0, [sp, #4]	@ pFifo, pFifo
+ 118:../epcf/utils/source/epcf_fifo.c **** 	pFifo->pHead = pFifo->pTail;
+ 349              		.loc 1 118 0
+ 350 0124 019B     		ldr	r3, [sp, #4]	@ tmp111, pFifo
+ 351 0126 9A68     		ldr	r2, [r3, #8]	@ D.6258, pFifo_1(D)->pTail
+ 352 0128 019B     		ldr	r3, [sp, #4]	@ tmp112, pFifo
+ 353 012a 5A60     		str	r2, [r3, #4]	@ D.6258, pFifo_1(D)->pHead
+ 119:../epcf/utils/source/epcf_fifo.c **** 	pFifo->count = 0;
+ 354              		.loc 1 119 0
+ 355 012c 019B     		ldr	r3, [sp, #4]	@ tmp113, pFifo
+ 356 012e 0022     		movs	r2, #0	@ tmp114,
+ 357 0130 5A61     		str	r2, [r3, #20]	@ tmp114, pFifo_1(D)->count
+ 120:../epcf/utils/source/epcf_fifo.c **** }
+ 358              		.loc 1 120 0
+ 359 0132 02B0     		add	sp, sp, #8	@,,
+ 360              	.LCFI12:
+ 361              		.cfi_def_cfa_offset 0
+ 362              		@ sp needed	@
+ 363 0134 7047     		bx	lr	@
+ 364              		.cfi_endproc
+ 365              	.LFE45:
+ 366              		.size	pcfFifoFlush, .-pcfFifoFlush
+ 367 0136 00BF     		.align	2
+ 368              		.global	pcfFifoIsEmpty
+ 369              		.thumb
+ 370              		.thumb_func
+ 371              		.type	pcfFifoIsEmpty, %function
+ 372              	pcfFifoIsEmpty:
+ 373              	.LFB46:
+ 121:../epcf/utils/source/epcf_fifo.c **** 
+ 122:../epcf/utils/source/epcf_fifo.c **** EnEPCFBoolean_t pcfFifoIsEmpty(const PCFFifoDesc_t* pFifo)
+ 123:../epcf/utils/source/epcf_fifo.c **** {
+ 374              		.loc 1 123 0
+ 375              		.cfi_startproc
+ 376              		@ args = 0, pretend = 0, frame = 8
+ 377              		@ frame_needed = 0, uses_anonymous_args = 0
+ 378              		@ link register save eliminated.
+ 379 0138 82B0     		sub	sp, sp, #8	@,,
+ 380              	.LCFI13:
+ 381              		.cfi_def_cfa_offset 8
+ 382 013a 0190     		str	r0, [sp, #4]	@ pFifo, pFifo
+ 124:../epcf/utils/source/epcf_fifo.c **** 	return ( (pFifo->count > 0) ? enEPCFBoolean_False : enEPCFBoolean_True);
+ 383              		.loc 1 124 0
+ 384 013c 019B     		ldr	r3, [sp, #4]	@ tmp114, pFifo
+ 385 013e 5B69     		ldr	r3, [r3, #20]	@ D.6259, pFifo_1(D)->count
+ 386 0140 002B     		cmp	r3, #0	@ D.6259,
+ 387 0142 0CBF     		ite	eq
+ 388 0144 0123     		moveq	r3, #1	@ tmp116,
+ 389 0146 0023     		movne	r3, #0	@ tmp116,
+ARM GAS  /tmp/cc1Op8kD.s 			page 10
+
+
+ 390 0148 DBB2     		uxtb	r3, r3	@ D.6260, tmp115
+ 125:../epcf/utils/source/epcf_fifo.c **** }
+ 391              		.loc 1 125 0
+ 392 014a 1846     		mov	r0, r3	@, <retval>
+ 393 014c 02B0     		add	sp, sp, #8	@,,
+ 394              	.LCFI14:
+ 395              		.cfi_def_cfa_offset 0
+ 396              		@ sp needed	@
+ 397 014e 7047     		bx	lr	@
+ 398              		.cfi_endproc
+ 399              	.LFE46:
+ 400              		.size	pcfFifoIsEmpty, .-pcfFifoIsEmpty
+ 401              		.align	2
+ 402              		.global	pcfFifoIsFull
+ 403              		.thumb
+ 404              		.thumb_func
+ 405              		.type	pcfFifoIsFull, %function
+ 406              	pcfFifoIsFull:
+ 407              	.LFB47:
+ 126:../epcf/utils/source/epcf_fifo.c **** 
+ 127:../epcf/utils/source/epcf_fifo.c **** EnEPCFBoolean_t pcfFifoIsFull(const PCFFifoDesc_t* pFifo)
+ 128:../epcf/utils/source/epcf_fifo.c **** {
+ 408              		.loc 1 128 0
+ 409              		.cfi_startproc
+ 410              		@ args = 0, pretend = 0, frame = 8
+ 411              		@ frame_needed = 0, uses_anonymous_args = 0
+ 412              		@ link register save eliminated.
+ 413 0150 82B0     		sub	sp, sp, #8	@,,
+ 414              	.LCFI15:
+ 415              		.cfi_def_cfa_offset 8
+ 416 0152 0190     		str	r0, [sp, #4]	@ pFifo, pFifo
+ 129:../epcf/utils/source/epcf_fifo.c **** 	return ( (pFifo->count < pFifo->size) ? enEPCFBoolean_False : enEPCFBoolean_True);
+ 417              		.loc 1 129 0
+ 418 0154 019B     		ldr	r3, [sp, #4]	@ tmp115, pFifo
+ 419 0156 5A69     		ldr	r2, [r3, #20]	@ D.6262, pFifo_1(D)->count
+ 420 0158 019B     		ldr	r3, [sp, #4]	@ tmp116, pFifo
+ 421 015a 1B69     		ldr	r3, [r3, #16]	@ D.6262, pFifo_1(D)->size
+ 422 015c 9A42     		cmp	r2, r3	@ D.6262, D.6262
+ 423 015e 2CBF     		ite	cs
+ 424 0160 0123     		movcs	r3, #1	@ tmp118,
+ 425 0162 0023     		movcc	r3, #0	@ tmp118,
+ 426 0164 DBB2     		uxtb	r3, r3	@ D.6263, tmp117
+ 130:../epcf/utils/source/epcf_fifo.c **** }
+ 427              		.loc 1 130 0
+ 428 0166 1846     		mov	r0, r3	@, <retval>
+ 429 0168 02B0     		add	sp, sp, #8	@,,
+ 430              	.LCFI16:
+ 431              		.cfi_def_cfa_offset 0
+ 432              		@ sp needed	@
+ 433 016a 7047     		bx	lr	@
+ 434              		.cfi_endproc
+ 435              	.LFE47:
+ 436              		.size	pcfFifoIsFull, .-pcfFifoIsFull
+ 437              	.Letext0:
+ 438              		.file 2 "/usr/include/newlib/machine/_default_types.h"
+ 439              		.file 3 "/usr/include/newlib/sys/_stdint.h"
+ 440              		.file 4 "/home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/./common/types.h"
+ARM GAS  /tmp/cc1Op8kD.s 			page 11
+
+
+ 441              		.file 5 "../pcf/include/private/arch/arm/cm3/nxp/lpc1768/./../../../../arm/cm3/nxp/lpc1768/lpc1768
+ 442              		.section	.debug_info,"",%progbits
+ 443              	.Ldebug_info0:
+ 444 0000 01030000 		.4byte	0x301
+ 445 0004 0200     		.2byte	0x2
+ 446 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 447 000a 04       		.byte	0x4
+ 448 000b 01       		.uleb128 0x1
+ 449 000c 6F010000 		.4byte	.LASF38
+ 450 0010 01       		.byte	0x1
+ 451 0011 E5000000 		.4byte	.LASF39
+ 452 0015 E7010000 		.4byte	.LASF40
+ 453 0019 00000000 		.4byte	.Ltext0
+ 454 001d 6C010000 		.4byte	.Letext0
+ 455 0021 00000000 		.4byte	.Ldebug_line0
+ 456 0025 02       		.uleb128 0x2
+ 457 0026 04       		.byte	0x4
+ 458 0027 07       		.byte	0x7
+ 459 0028 18010000 		.4byte	.LASF0
+ 460 002c 03       		.uleb128 0x3
+ 461 002d 04       		.byte	0x4
+ 462 002e 05       		.byte	0x5
+ 463 002f 696E7400 		.ascii	"int\000"
+ 464 0033 02       		.uleb128 0x2
+ 465 0034 01       		.byte	0x1
+ 466 0035 06       		.byte	0x6
+ 467 0036 4F000000 		.4byte	.LASF1
+ 468 003a 04       		.uleb128 0x4
+ 469 003b 00000000 		.4byte	.LASF5
+ 470 003f 02       		.byte	0x2
+ 471 0040 1D       		.byte	0x1d
+ 472 0041 45000000 		.4byte	0x45
+ 473 0045 02       		.uleb128 0x2
+ 474 0046 01       		.byte	0x1
+ 475 0047 08       		.byte	0x8
+ 476 0048 5B000000 		.4byte	.LASF2
+ 477 004c 02       		.uleb128 0x2
+ 478 004d 02       		.byte	0x2
+ 479 004e 05       		.byte	0x5
+ 480 004f 21020000 		.4byte	.LASF3
+ 481 0053 02       		.uleb128 0x2
+ 482 0054 02       		.byte	0x2
+ 483 0055 07       		.byte	0x7
+ 484 0056 86000000 		.4byte	.LASF4
+ 485 005a 04       		.uleb128 0x4
+ 486 005b 2B000000 		.4byte	.LASF6
+ 487 005f 02       		.byte	0x2
+ 488 0060 3F       		.byte	0x3f
+ 489 0061 65000000 		.4byte	0x65
+ 490 0065 02       		.uleb128 0x2
+ 491 0066 04       		.byte	0x4
+ 492 0067 05       		.byte	0x5
+ 493 0068 4E020000 		.4byte	.LASF7
+ 494 006c 04       		.uleb128 0x4
+ 495 006d DA000000 		.4byte	.LASF8
+ 496 0071 02       		.byte	0x2
+ 497 0072 41       		.byte	0x41
+ARM GAS  /tmp/cc1Op8kD.s 			page 12
+
+
+ 498 0073 77000000 		.4byte	0x77
+ 499 0077 02       		.uleb128 0x2
+ 500 0078 04       		.byte	0x4
+ 501 0079 07       		.byte	0x7
+ 502 007a 69000000 		.4byte	.LASF9
+ 503 007e 02       		.uleb128 0x2
+ 504 007f 08       		.byte	0x8
+ 505 0080 05       		.byte	0x5
+ 506 0081 61010000 		.4byte	.LASF10
+ 507 0085 02       		.uleb128 0x2
+ 508 0086 08       		.byte	0x8
+ 509 0087 07       		.byte	0x7
+ 510 0088 75020000 		.4byte	.LASF11
+ 511 008c 02       		.uleb128 0x2
+ 512 008d 04       		.byte	0x4
+ 513 008e 07       		.byte	0x7
+ 514 008f 58010000 		.4byte	.LASF12
+ 515 0093 02       		.uleb128 0x2
+ 516 0094 01       		.byte	0x1
+ 517 0095 08       		.byte	0x8
+ 518 0096 32010000 		.4byte	.LASF13
+ 519 009a 04       		.uleb128 0x4
+ 520 009b 37010000 		.4byte	.LASF14
+ 521 009f 03       		.byte	0x3
+ 522 00a0 14       		.byte	0x14
+ 523 00a1 3A000000 		.4byte	0x3a
+ 524 00a5 04       		.uleb128 0x4
+ 525 00a6 50010000 		.4byte	.LASF15
+ 526 00aa 03       		.byte	0x3
+ 527 00ab 1F       		.byte	0x1f
+ 528 00ac 5A000000 		.4byte	0x5a
+ 529 00b0 04       		.uleb128 0x4
+ 530 00b1 45020000 		.4byte	.LASF16
+ 531 00b5 03       		.byte	0x3
+ 532 00b6 20       		.byte	0x20
+ 533 00b7 6C000000 		.4byte	0x6c
+ 534 00bb 02       		.uleb128 0x2
+ 535 00bc 04       		.byte	0x4
+ 536 00bd 04       		.byte	0x4
+ 537 00be 49000000 		.4byte	.LASF17
+ 538 00c2 05       		.uleb128 0x5
+ 539 00c3 01       		.byte	0x1
+ 540 00c4 04       		.byte	0x4
+ 541 00c5 06       		.byte	0x6
+ 542 00c6 DD000000 		.4byte	0xdd
+ 543 00ca 06       		.uleb128 0x6
+ 544 00cb 11000000 		.4byte	.LASF18
+ 545 00cf 00       		.sleb128 0
+ 546 00d0 06       		.uleb128 0x6
+ 547 00d1 9F000000 		.4byte	.LASF19
+ 548 00d5 01       		.sleb128 1
+ 549 00d6 06       		.uleb128 0x6
+ 550 00d7 06010000 		.4byte	.LASF20
+ 551 00db 02       		.sleb128 2
+ 552 00dc 00       		.byte	0
+ 553 00dd 04       		.uleb128 0x4
+ 554 00de D7010000 		.4byte	.LASF21
+ARM GAS  /tmp/cc1Op8kD.s 			page 13
+
+
+ 555 00e2 04       		.byte	0x4
+ 556 00e3 0A       		.byte	0xa
+ 557 00e4 C2000000 		.4byte	0xc2
+ 558 00e8 07       		.uleb128 0x7
+ 559 00e9 44010000 		.4byte	.LASF41
+ 560 00ed 18       		.byte	0x18
+ 561 00ee 01       		.byte	0x1
+ 562 00ef 08       		.byte	0x8
+ 563 00f0 49010000 		.4byte	0x149
+ 564 00f4 08       		.uleb128 0x8
+ 565 00f5 0A000000 		.4byte	.LASF22
+ 566 00f9 01       		.byte	0x1
+ 567 00fa 0A       		.byte	0xa
+ 568 00fb 49010000 		.4byte	0x149
+ 569 00ff 02       		.byte	0x2
+ 570 0100 23       		.byte	0x23
+ 571 0101 00       		.uleb128 0
+ 572 0102 08       		.uleb128 0x8
+ 573 0103 BF000000 		.4byte	.LASF23
+ 574 0107 01       		.byte	0x1
+ 575 0108 0B       		.byte	0xb
+ 576 0109 4F010000 		.4byte	0x14f
+ 577 010d 02       		.byte	0x2
+ 578 010e 23       		.byte	0x23
+ 579 010f 04       		.uleb128 0x4
+ 580 0110 08       		.uleb128 0x8
+ 581 0111 99000000 		.4byte	.LASF24
+ 582 0115 01       		.byte	0x1
+ 583 0116 0C       		.byte	0xc
+ 584 0117 4F010000 		.4byte	0x14f
+ 585 011b 02       		.byte	0x2
+ 586 011c 23       		.byte	0x23
+ 587 011d 08       		.uleb128 0x8
+ 588 011e 08       		.uleb128 0x8
+ 589 011f 8C020000 		.4byte	.LASF25
+ 590 0123 01       		.byte	0x1
+ 591 0124 0D       		.byte	0xd
+ 592 0125 49010000 		.4byte	0x149
+ 593 0129 02       		.byte	0x2
+ 594 012a 23       		.byte	0x23
+ 595 012b 0C       		.uleb128 0xc
+ 596 012c 08       		.uleb128 0x8
+ 597 012d 63020000 		.4byte	.LASF26
+ 598 0131 01       		.byte	0x1
+ 599 0132 0E       		.byte	0xe
+ 600 0133 B0000000 		.4byte	0xb0
+ 601 0137 02       		.byte	0x2
+ 602 0138 23       		.byte	0x23
+ 603 0139 10       		.uleb128 0x10
+ 604 013a 08       		.uleb128 0x8
+ 605 013b 25000000 		.4byte	.LASF27
+ 606 013f 01       		.byte	0x1
+ 607 0140 0F       		.byte	0xf
+ 608 0141 B0000000 		.4byte	0xb0
+ 609 0145 02       		.byte	0x2
+ 610 0146 23       		.byte	0x23
+ 611 0147 14       		.uleb128 0x14
+ARM GAS  /tmp/cc1Op8kD.s 			page 14
+
+
+ 612 0148 00       		.byte	0
+ 613 0149 09       		.uleb128 0x9
+ 614 014a 04       		.byte	0x4
+ 615 014b 9A000000 		.4byte	0x9a
+ 616 014f 0A       		.uleb128 0xa
+ 617 0150 49010000 		.4byte	0x149
+ 618 0154 0B       		.uleb128 0xb
+ 619 0155 01       		.byte	0x1
+ 620 0156 2B020000 		.4byte	.LASF30
+ 621 015a 01       		.byte	0x1
+ 622 015b 12       		.byte	0x12
+ 623 015c 01       		.byte	0x1
+ 624 015d 9D010000 		.4byte	0x19d
+ 625 0161 00000000 		.4byte	.LFB40
+ 626 0165 60000000 		.4byte	.LFE40
+ 627 0169 00000000 		.4byte	.LLST0
+ 628 016d 01       		.byte	0x1
+ 629 016e 9D010000 		.4byte	0x19d
+ 630 0172 0C       		.uleb128 0xc
+ 631 0173 3F010000 		.4byte	.LASF28
+ 632 0177 01       		.byte	0x1
+ 633 0178 12       		.byte	0x12
+ 634 0179 49010000 		.4byte	0x149
+ 635 017d 02       		.byte	0x2
+ 636 017e 91       		.byte	0x91
+ 637 017f 6C       		.sleb128 -20
+ 638 0180 0C       		.uleb128 0xc
+ 639 0181 D4000000 		.4byte	.LASF29
+ 640 0185 01       		.byte	0x1
+ 641 0186 12       		.byte	0x12
+ 642 0187 B0000000 		.4byte	0xb0
+ 643 018b 02       		.byte	0x2
+ 644 018c 91       		.byte	0x91
+ 645 018d 68       		.sleb128 -24
+ 646 018e 0D       		.uleb128 0xd
+ 647 018f 35000000 		.4byte	.LASF32
+ 648 0193 01       		.byte	0x1
+ 649 0194 14       		.byte	0x14
+ 650 0195 9D010000 		.4byte	0x19d
+ 651 0199 02       		.byte	0x2
+ 652 019a 91       		.byte	0x91
+ 653 019b 74       		.sleb128 -12
+ 654 019c 00       		.byte	0
+ 655 019d 09       		.uleb128 0x9
+ 656 019e 04       		.byte	0x4
+ 657 019f E8000000 		.4byte	0xe8
+ 658 01a3 0E       		.uleb128 0xe
+ 659 01a4 01       		.byte	0x1
+ 660 01a5 3B000000 		.4byte	.LASF31
+ 661 01a9 01       		.byte	0x1
+ 662 01aa 2F       		.byte	0x2f
+ 663 01ab 01       		.byte	0x1
+ 664 01ac B0000000 		.4byte	0xb0
+ 665 01b0 60000000 		.4byte	.LFB41
+ 666 01b4 6E000000 		.4byte	.LFE41
+ 667 01b8 38000000 		.4byte	.LLST1
+ 668 01bc 01       		.byte	0x1
+ARM GAS  /tmp/cc1Op8kD.s 			page 15
+
+
+ 669 01bd D0010000 		.4byte	0x1d0
+ 670 01c1 0C       		.uleb128 0xc
+ 671 01c2 35000000 		.4byte	.LASF32
+ 672 01c6 01       		.byte	0x1
+ 673 01c7 2F       		.byte	0x2f
+ 674 01c8 9D010000 		.4byte	0x19d
+ 675 01cc 02       		.byte	0x2
+ 676 01cd 91       		.byte	0x91
+ 677 01ce 7C       		.sleb128 -4
+ 678 01cf 00       		.byte	0
+ 679 01d0 0E       		.uleb128 0xe
+ 680 01d1 01       		.byte	0x1
+ 681 01d2 68020000 		.4byte	.LASF33
+ 682 01d6 01       		.byte	0x1
+ 683 01d7 35       		.byte	0x35
+ 684 01d8 01       		.byte	0x1
+ 685 01d9 B0000000 		.4byte	0xb0
+ 686 01dd 70000000 		.4byte	.LFB42
+ 687 01e1 7E000000 		.4byte	.LFE42
+ 688 01e5 64000000 		.4byte	.LLST2
+ 689 01e9 01       		.byte	0x1
+ 690 01ea FD010000 		.4byte	0x1fd
+ 691 01ee 0C       		.uleb128 0xc
+ 692 01ef 35000000 		.4byte	.LASF32
+ 693 01f3 01       		.byte	0x1
+ 694 01f4 35       		.byte	0x35
+ 695 01f5 9D010000 		.4byte	0x19d
+ 696 01f9 02       		.byte	0x2
+ 697 01fa 91       		.byte	0x91
+ 698 01fb 7C       		.sleb128 -4
+ 699 01fc 00       		.byte	0
+ 700 01fd 0E       		.uleb128 0xe
+ 701 01fe 01       		.byte	0x1
+ 702 01ff 57020000 		.4byte	.LASF34
+ 703 0203 01       		.byte	0x1
+ 704 0204 3B       		.byte	0x3b
+ 705 0205 01       		.byte	0x1
+ 706 0206 DD000000 		.4byte	0xdd
+ 707 020a 80000000 		.4byte	.LFB43
+ 708 020e D8000000 		.4byte	.LFE43
+ 709 0212 90000000 		.4byte	.LLST3
+ 710 0216 01       		.byte	0x1
+ 711 0217 36020000 		.4byte	0x236
+ 712 021b 0C       		.uleb128 0xc
+ 713 021c 35000000 		.4byte	.LASF32
+ 714 0220 01       		.byte	0x1
+ 715 0221 3B       		.byte	0x3b
+ 716 0222 9D010000 		.4byte	0x19d
+ 717 0226 02       		.byte	0x2
+ 718 0227 91       		.byte	0x91
+ 719 0228 7C       		.sleb128 -4
+ 720 0229 0F       		.uleb128 0xf
+ 721 022a 6300     		.ascii	"c\000"
+ 722 022c 01       		.byte	0x1
+ 723 022d 3B       		.byte	0x3b
+ 724 022e 9A000000 		.4byte	0x9a
+ 725 0232 02       		.byte	0x2
+ARM GAS  /tmp/cc1Op8kD.s 			page 16
+
+
+ 726 0233 91       		.byte	0x91
+ 727 0234 7B       		.sleb128 -5
+ 728 0235 00       		.byte	0
+ 729 0236 0E       		.uleb128 0xe
+ 730 0237 01       		.byte	0x1
+ 731 0238 7B000000 		.4byte	.LASF35
+ 732 023c 01       		.byte	0x1
+ 733 023d 62       		.byte	0x62
+ 734 023e 01       		.byte	0x1
+ 735 023f 9A000000 		.4byte	0x9a
+ 736 0243 D8000000 		.4byte	.LFB44
+ 737 0247 20010000 		.4byte	.LFE44
+ 738 024b BC000000 		.4byte	.LLST4
+ 739 024f 01       		.byte	0x1
+ 740 0250 63020000 		.4byte	0x263
+ 741 0254 0C       		.uleb128 0xc
+ 742 0255 35000000 		.4byte	.LASF32
+ 743 0259 01       		.byte	0x1
+ 744 025a 62       		.byte	0x62
+ 745 025b 9D010000 		.4byte	0x19d
+ 746 025f 02       		.byte	0x2
+ 747 0260 91       		.byte	0x91
+ 748 0261 7C       		.sleb128 -4
+ 749 0262 00       		.byte	0
+ 750 0263 10       		.uleb128 0x10
+ 751 0264 01       		.byte	0x1
+ 752 0265 25010000 		.4byte	.LASF42
+ 753 0269 01       		.byte	0x1
+ 754 026a 74       		.byte	0x74
+ 755 026b 01       		.byte	0x1
+ 756 026c 20010000 		.4byte	.LFB45
+ 757 0270 36010000 		.4byte	.LFE45
+ 758 0274 E8000000 		.4byte	.LLST5
+ 759 0278 01       		.byte	0x1
+ 760 0279 8C020000 		.4byte	0x28c
+ 761 027d 0C       		.uleb128 0xc
+ 762 027e 35000000 		.4byte	.LASF32
+ 763 0282 01       		.byte	0x1
+ 764 0283 74       		.byte	0x74
+ 765 0284 9D010000 		.4byte	0x19d
+ 766 0288 02       		.byte	0x2
+ 767 0289 91       		.byte	0x91
+ 768 028a 7C       		.sleb128 -4
+ 769 028b 00       		.byte	0
+ 770 028c 0E       		.uleb128 0xe
+ 771 028d 01       		.byte	0x1
+ 772 028e C5000000 		.4byte	.LASF36
+ 773 0292 01       		.byte	0x1
+ 774 0293 7A       		.byte	0x7a
+ 775 0294 01       		.byte	0x1
+ 776 0295 DD000000 		.4byte	0xdd
+ 777 0299 38010000 		.4byte	.LFB46
+ 778 029d 50010000 		.4byte	.LFE46
+ 779 02a1 14010000 		.4byte	.LLST6
+ 780 02a5 01       		.byte	0x1
+ 781 02a6 B9020000 		.4byte	0x2b9
+ 782 02aa 0C       		.uleb128 0xc
+ARM GAS  /tmp/cc1Op8kD.s 			page 17
+
+
+ 783 02ab 35000000 		.4byte	.LASF32
+ 784 02af 01       		.byte	0x1
+ 785 02b0 7A       		.byte	0x7a
+ 786 02b1 B9020000 		.4byte	0x2b9
+ 787 02b5 02       		.byte	0x2
+ 788 02b6 91       		.byte	0x91
+ 789 02b7 7C       		.sleb128 -4
+ 790 02b8 00       		.byte	0
+ 791 02b9 09       		.uleb128 0x9
+ 792 02ba 04       		.byte	0x4
+ 793 02bb BF020000 		.4byte	0x2bf
+ 794 02bf 11       		.uleb128 0x11
+ 795 02c0 E8000000 		.4byte	0xe8
+ 796 02c4 0E       		.uleb128 0xe
+ 797 02c5 01       		.byte	0x1
+ 798 02c6 37020000 		.4byte	.LASF37
+ 799 02ca 01       		.byte	0x1
+ 800 02cb 7F       		.byte	0x7f
+ 801 02cc 01       		.byte	0x1
+ 802 02cd DD000000 		.4byte	0xdd
+ 803 02d1 50010000 		.4byte	.LFB47
+ 804 02d5 6C010000 		.4byte	.LFE47
+ 805 02d9 40010000 		.4byte	.LLST7
+ 806 02dd 01       		.byte	0x1
+ 807 02de F1020000 		.4byte	0x2f1
+ 808 02e2 0C       		.uleb128 0xc
+ 809 02e3 35000000 		.4byte	.LASF32
+ 810 02e7 01       		.byte	0x1
+ 811 02e8 7F       		.byte	0x7f
+ 812 02e9 B9020000 		.4byte	0x2b9
+ 813 02ed 02       		.byte	0x2
+ 814 02ee 91       		.byte	0x91
+ 815 02ef 7C       		.sleb128 -4
+ 816 02f0 00       		.byte	0
+ 817 02f1 12       		.uleb128 0x12
+ 818 02f2 B2000000 		.4byte	.LASF43
+ 819 02f6 05       		.byte	0x5
+ 820 02f7 E602     		.2byte	0x2e6
+ 821 02f9 FF020000 		.4byte	0x2ff
+ 822 02fd 01       		.byte	0x1
+ 823 02fe 01       		.byte	0x1
+ 824 02ff 0A       		.uleb128 0xa
+ 825 0300 A5000000 		.4byte	0xa5
+ 826 0304 00       		.byte	0
+ 827              		.section	.debug_abbrev,"",%progbits
+ 828              	.Ldebug_abbrev0:
+ 829 0000 01       		.uleb128 0x1
+ 830 0001 11       		.uleb128 0x11
+ 831 0002 01       		.byte	0x1
+ 832 0003 25       		.uleb128 0x25
+ 833 0004 0E       		.uleb128 0xe
+ 834 0005 13       		.uleb128 0x13
+ 835 0006 0B       		.uleb128 0xb
+ 836 0007 03       		.uleb128 0x3
+ 837 0008 0E       		.uleb128 0xe
+ 838 0009 1B       		.uleb128 0x1b
+ 839 000a 0E       		.uleb128 0xe
+ARM GAS  /tmp/cc1Op8kD.s 			page 18
+
+
+ 840 000b 11       		.uleb128 0x11
+ 841 000c 01       		.uleb128 0x1
+ 842 000d 12       		.uleb128 0x12
+ 843 000e 01       		.uleb128 0x1
+ 844 000f 10       		.uleb128 0x10
+ 845 0010 06       		.uleb128 0x6
+ 846 0011 00       		.byte	0
+ 847 0012 00       		.byte	0
+ 848 0013 02       		.uleb128 0x2
+ 849 0014 24       		.uleb128 0x24
+ 850 0015 00       		.byte	0
+ 851 0016 0B       		.uleb128 0xb
+ 852 0017 0B       		.uleb128 0xb
+ 853 0018 3E       		.uleb128 0x3e
+ 854 0019 0B       		.uleb128 0xb
+ 855 001a 03       		.uleb128 0x3
+ 856 001b 0E       		.uleb128 0xe
+ 857 001c 00       		.byte	0
+ 858 001d 00       		.byte	0
+ 859 001e 03       		.uleb128 0x3
+ 860 001f 24       		.uleb128 0x24
+ 861 0020 00       		.byte	0
+ 862 0021 0B       		.uleb128 0xb
+ 863 0022 0B       		.uleb128 0xb
+ 864 0023 3E       		.uleb128 0x3e
+ 865 0024 0B       		.uleb128 0xb
+ 866 0025 03       		.uleb128 0x3
+ 867 0026 08       		.uleb128 0x8
+ 868 0027 00       		.byte	0
+ 869 0028 00       		.byte	0
+ 870 0029 04       		.uleb128 0x4
+ 871 002a 16       		.uleb128 0x16
+ 872 002b 00       		.byte	0
+ 873 002c 03       		.uleb128 0x3
+ 874 002d 0E       		.uleb128 0xe
+ 875 002e 3A       		.uleb128 0x3a
+ 876 002f 0B       		.uleb128 0xb
+ 877 0030 3B       		.uleb128 0x3b
+ 878 0031 0B       		.uleb128 0xb
+ 879 0032 49       		.uleb128 0x49
+ 880 0033 13       		.uleb128 0x13
+ 881 0034 00       		.byte	0
+ 882 0035 00       		.byte	0
+ 883 0036 05       		.uleb128 0x5
+ 884 0037 04       		.uleb128 0x4
+ 885 0038 01       		.byte	0x1
+ 886 0039 0B       		.uleb128 0xb
+ 887 003a 0B       		.uleb128 0xb
+ 888 003b 3A       		.uleb128 0x3a
+ 889 003c 0B       		.uleb128 0xb
+ 890 003d 3B       		.uleb128 0x3b
+ 891 003e 0B       		.uleb128 0xb
+ 892 003f 01       		.uleb128 0x1
+ 893 0040 13       		.uleb128 0x13
+ 894 0041 00       		.byte	0
+ 895 0042 00       		.byte	0
+ 896 0043 06       		.uleb128 0x6
+ARM GAS  /tmp/cc1Op8kD.s 			page 19
+
+
+ 897 0044 28       		.uleb128 0x28
+ 898 0045 00       		.byte	0
+ 899 0046 03       		.uleb128 0x3
+ 900 0047 0E       		.uleb128 0xe
+ 901 0048 1C       		.uleb128 0x1c
+ 902 0049 0D       		.uleb128 0xd
+ 903 004a 00       		.byte	0
+ 904 004b 00       		.byte	0
+ 905 004c 07       		.uleb128 0x7
+ 906 004d 13       		.uleb128 0x13
+ 907 004e 01       		.byte	0x1
+ 908 004f 03       		.uleb128 0x3
+ 909 0050 0E       		.uleb128 0xe
+ 910 0051 0B       		.uleb128 0xb
+ 911 0052 0B       		.uleb128 0xb
+ 912 0053 3A       		.uleb128 0x3a
+ 913 0054 0B       		.uleb128 0xb
+ 914 0055 3B       		.uleb128 0x3b
+ 915 0056 0B       		.uleb128 0xb
+ 916 0057 01       		.uleb128 0x1
+ 917 0058 13       		.uleb128 0x13
+ 918 0059 00       		.byte	0
+ 919 005a 00       		.byte	0
+ 920 005b 08       		.uleb128 0x8
+ 921 005c 0D       		.uleb128 0xd
+ 922 005d 00       		.byte	0
+ 923 005e 03       		.uleb128 0x3
+ 924 005f 0E       		.uleb128 0xe
+ 925 0060 3A       		.uleb128 0x3a
+ 926 0061 0B       		.uleb128 0xb
+ 927 0062 3B       		.uleb128 0x3b
+ 928 0063 0B       		.uleb128 0xb
+ 929 0064 49       		.uleb128 0x49
+ 930 0065 13       		.uleb128 0x13
+ 931 0066 38       		.uleb128 0x38
+ 932 0067 0A       		.uleb128 0xa
+ 933 0068 00       		.byte	0
+ 934 0069 00       		.byte	0
+ 935 006a 09       		.uleb128 0x9
+ 936 006b 0F       		.uleb128 0xf
+ 937 006c 00       		.byte	0
+ 938 006d 0B       		.uleb128 0xb
+ 939 006e 0B       		.uleb128 0xb
+ 940 006f 49       		.uleb128 0x49
+ 941 0070 13       		.uleb128 0x13
+ 942 0071 00       		.byte	0
+ 943 0072 00       		.byte	0
+ 944 0073 0A       		.uleb128 0xa
+ 945 0074 35       		.uleb128 0x35
+ 946 0075 00       		.byte	0
+ 947 0076 49       		.uleb128 0x49
+ 948 0077 13       		.uleb128 0x13
+ 949 0078 00       		.byte	0
+ 950 0079 00       		.byte	0
+ 951 007a 0B       		.uleb128 0xb
+ 952 007b 2E       		.uleb128 0x2e
+ 953 007c 01       		.byte	0x1
+ARM GAS  /tmp/cc1Op8kD.s 			page 20
+
+
+ 954 007d 3F       		.uleb128 0x3f
+ 955 007e 0C       		.uleb128 0xc
+ 956 007f 03       		.uleb128 0x3
+ 957 0080 0E       		.uleb128 0xe
+ 958 0081 3A       		.uleb128 0x3a
+ 959 0082 0B       		.uleb128 0xb
+ 960 0083 3B       		.uleb128 0x3b
+ 961 0084 0B       		.uleb128 0xb
+ 962 0085 27       		.uleb128 0x27
+ 963 0086 0C       		.uleb128 0xc
+ 964 0087 49       		.uleb128 0x49
+ 965 0088 13       		.uleb128 0x13
+ 966 0089 11       		.uleb128 0x11
+ 967 008a 01       		.uleb128 0x1
+ 968 008b 12       		.uleb128 0x12
+ 969 008c 01       		.uleb128 0x1
+ 970 008d 40       		.uleb128 0x40
+ 971 008e 06       		.uleb128 0x6
+ 972 008f 9642     		.uleb128 0x2116
+ 973 0091 0C       		.uleb128 0xc
+ 974 0092 01       		.uleb128 0x1
+ 975 0093 13       		.uleb128 0x13
+ 976 0094 00       		.byte	0
+ 977 0095 00       		.byte	0
+ 978 0096 0C       		.uleb128 0xc
+ 979 0097 05       		.uleb128 0x5
+ 980 0098 00       		.byte	0
+ 981 0099 03       		.uleb128 0x3
+ 982 009a 0E       		.uleb128 0xe
+ 983 009b 3A       		.uleb128 0x3a
+ 984 009c 0B       		.uleb128 0xb
+ 985 009d 3B       		.uleb128 0x3b
+ 986 009e 0B       		.uleb128 0xb
+ 987 009f 49       		.uleb128 0x49
+ 988 00a0 13       		.uleb128 0x13
+ 989 00a1 02       		.uleb128 0x2
+ 990 00a2 0A       		.uleb128 0xa
+ 991 00a3 00       		.byte	0
+ 992 00a4 00       		.byte	0
+ 993 00a5 0D       		.uleb128 0xd
+ 994 00a6 34       		.uleb128 0x34
+ 995 00a7 00       		.byte	0
+ 996 00a8 03       		.uleb128 0x3
+ 997 00a9 0E       		.uleb128 0xe
+ 998 00aa 3A       		.uleb128 0x3a
+ 999 00ab 0B       		.uleb128 0xb
+ 1000 00ac 3B       		.uleb128 0x3b
+ 1001 00ad 0B       		.uleb128 0xb
+ 1002 00ae 49       		.uleb128 0x49
+ 1003 00af 13       		.uleb128 0x13
+ 1004 00b0 02       		.uleb128 0x2
+ 1005 00b1 0A       		.uleb128 0xa
+ 1006 00b2 00       		.byte	0
+ 1007 00b3 00       		.byte	0
+ 1008 00b4 0E       		.uleb128 0xe
+ 1009 00b5 2E       		.uleb128 0x2e
+ 1010 00b6 01       		.byte	0x1
+ARM GAS  /tmp/cc1Op8kD.s 			page 21
+
+
+ 1011 00b7 3F       		.uleb128 0x3f
+ 1012 00b8 0C       		.uleb128 0xc
+ 1013 00b9 03       		.uleb128 0x3
+ 1014 00ba 0E       		.uleb128 0xe
+ 1015 00bb 3A       		.uleb128 0x3a
+ 1016 00bc 0B       		.uleb128 0xb
+ 1017 00bd 3B       		.uleb128 0x3b
+ 1018 00be 0B       		.uleb128 0xb
+ 1019 00bf 27       		.uleb128 0x27
+ 1020 00c0 0C       		.uleb128 0xc
+ 1021 00c1 49       		.uleb128 0x49
+ 1022 00c2 13       		.uleb128 0x13
+ 1023 00c3 11       		.uleb128 0x11
+ 1024 00c4 01       		.uleb128 0x1
+ 1025 00c5 12       		.uleb128 0x12
+ 1026 00c6 01       		.uleb128 0x1
+ 1027 00c7 40       		.uleb128 0x40
+ 1028 00c8 06       		.uleb128 0x6
+ 1029 00c9 9742     		.uleb128 0x2117
+ 1030 00cb 0C       		.uleb128 0xc
+ 1031 00cc 01       		.uleb128 0x1
+ 1032 00cd 13       		.uleb128 0x13
+ 1033 00ce 00       		.byte	0
+ 1034 00cf 00       		.byte	0
+ 1035 00d0 0F       		.uleb128 0xf
+ 1036 00d1 05       		.uleb128 0x5
+ 1037 00d2 00       		.byte	0
+ 1038 00d3 03       		.uleb128 0x3
+ 1039 00d4 08       		.uleb128 0x8
+ 1040 00d5 3A       		.uleb128 0x3a
+ 1041 00d6 0B       		.uleb128 0xb
+ 1042 00d7 3B       		.uleb128 0x3b
+ 1043 00d8 0B       		.uleb128 0xb
+ 1044 00d9 49       		.uleb128 0x49
+ 1045 00da 13       		.uleb128 0x13
+ 1046 00db 02       		.uleb128 0x2
+ 1047 00dc 0A       		.uleb128 0xa
+ 1048 00dd 00       		.byte	0
+ 1049 00de 00       		.byte	0
+ 1050 00df 10       		.uleb128 0x10
+ 1051 00e0 2E       		.uleb128 0x2e
+ 1052 00e1 01       		.byte	0x1
+ 1053 00e2 3F       		.uleb128 0x3f
+ 1054 00e3 0C       		.uleb128 0xc
+ 1055 00e4 03       		.uleb128 0x3
+ 1056 00e5 0E       		.uleb128 0xe
+ 1057 00e6 3A       		.uleb128 0x3a
+ 1058 00e7 0B       		.uleb128 0xb
+ 1059 00e8 3B       		.uleb128 0x3b
+ 1060 00e9 0B       		.uleb128 0xb
+ 1061 00ea 27       		.uleb128 0x27
+ 1062 00eb 0C       		.uleb128 0xc
+ 1063 00ec 11       		.uleb128 0x11
+ 1064 00ed 01       		.uleb128 0x1
+ 1065 00ee 12       		.uleb128 0x12
+ 1066 00ef 01       		.uleb128 0x1
+ 1067 00f0 40       		.uleb128 0x40
+ARM GAS  /tmp/cc1Op8kD.s 			page 22
+
+
+ 1068 00f1 06       		.uleb128 0x6
+ 1069 00f2 9742     		.uleb128 0x2117
+ 1070 00f4 0C       		.uleb128 0xc
+ 1071 00f5 01       		.uleb128 0x1
+ 1072 00f6 13       		.uleb128 0x13
+ 1073 00f7 00       		.byte	0
+ 1074 00f8 00       		.byte	0
+ 1075 00f9 11       		.uleb128 0x11
+ 1076 00fa 26       		.uleb128 0x26
+ 1077 00fb 00       		.byte	0
+ 1078 00fc 49       		.uleb128 0x49
+ 1079 00fd 13       		.uleb128 0x13
+ 1080 00fe 00       		.byte	0
+ 1081 00ff 00       		.byte	0
+ 1082 0100 12       		.uleb128 0x12
+ 1083 0101 34       		.uleb128 0x34
+ 1084 0102 00       		.byte	0
+ 1085 0103 03       		.uleb128 0x3
+ 1086 0104 0E       		.uleb128 0xe
+ 1087 0105 3A       		.uleb128 0x3a
+ 1088 0106 0B       		.uleb128 0xb
+ 1089 0107 3B       		.uleb128 0x3b
+ 1090 0108 05       		.uleb128 0x5
+ 1091 0109 49       		.uleb128 0x49
+ 1092 010a 13       		.uleb128 0x13
+ 1093 010b 3F       		.uleb128 0x3f
+ 1094 010c 0C       		.uleb128 0xc
+ 1095 010d 3C       		.uleb128 0x3c
+ 1096 010e 0C       		.uleb128 0xc
+ 1097 010f 00       		.byte	0
+ 1098 0110 00       		.byte	0
+ 1099 0111 00       		.byte	0
+ 1100              		.section	.debug_loc,"",%progbits
+ 1101              	.Ldebug_loc0:
+ 1102              	.LLST0:
+ 1103 0000 00000000 		.4byte	.LFB40-.Ltext0
+ 1104 0004 02000000 		.4byte	.LCFI0-.Ltext0
+ 1105 0008 0200     		.2byte	0x2
+ 1106 000a 7D       		.byte	0x7d
+ 1107 000b 00       		.sleb128 0
+ 1108 000c 02000000 		.4byte	.LCFI0-.Ltext0
+ 1109 0010 04000000 		.4byte	.LCFI1-.Ltext0
+ 1110 0014 0200     		.2byte	0x2
+ 1111 0016 7D       		.byte	0x7d
+ 1112 0017 04       		.sleb128 4
+ 1113 0018 04000000 		.4byte	.LCFI1-.Ltext0
+ 1114 001c 5C000000 		.4byte	.LCFI2-.Ltext0
+ 1115 0020 0200     		.2byte	0x2
+ 1116 0022 7D       		.byte	0x7d
+ 1117 0023 18       		.sleb128 24
+ 1118 0024 5C000000 		.4byte	.LCFI2-.Ltext0
+ 1119 0028 60000000 		.4byte	.LFE40-.Ltext0
+ 1120 002c 0200     		.2byte	0x2
+ 1121 002e 7D       		.byte	0x7d
+ 1122 002f 04       		.sleb128 4
+ 1123 0030 00000000 		.4byte	0
+ 1124 0034 00000000 		.4byte	0
+ARM GAS  /tmp/cc1Op8kD.s 			page 23
+
+
+ 1125              	.LLST1:
+ 1126 0038 60000000 		.4byte	.LFB41-.Ltext0
+ 1127 003c 62000000 		.4byte	.LCFI3-.Ltext0
+ 1128 0040 0200     		.2byte	0x2
+ 1129 0042 7D       		.byte	0x7d
+ 1130 0043 00       		.sleb128 0
+ 1131 0044 62000000 		.4byte	.LCFI3-.Ltext0
+ 1132 0048 6C000000 		.4byte	.LCFI4-.Ltext0
+ 1133 004c 0200     		.2byte	0x2
+ 1134 004e 7D       		.byte	0x7d
+ 1135 004f 08       		.sleb128 8
+ 1136 0050 6C000000 		.4byte	.LCFI4-.Ltext0
+ 1137 0054 6E000000 		.4byte	.LFE41-.Ltext0
+ 1138 0058 0200     		.2byte	0x2
+ 1139 005a 7D       		.byte	0x7d
+ 1140 005b 00       		.sleb128 0
+ 1141 005c 00000000 		.4byte	0
+ 1142 0060 00000000 		.4byte	0
+ 1143              	.LLST2:
+ 1144 0064 70000000 		.4byte	.LFB42-.Ltext0
+ 1145 0068 72000000 		.4byte	.LCFI5-.Ltext0
+ 1146 006c 0200     		.2byte	0x2
+ 1147 006e 7D       		.byte	0x7d
+ 1148 006f 00       		.sleb128 0
+ 1149 0070 72000000 		.4byte	.LCFI5-.Ltext0
+ 1150 0074 7C000000 		.4byte	.LCFI6-.Ltext0
+ 1151 0078 0200     		.2byte	0x2
+ 1152 007a 7D       		.byte	0x7d
+ 1153 007b 08       		.sleb128 8
+ 1154 007c 7C000000 		.4byte	.LCFI6-.Ltext0
+ 1155 0080 7E000000 		.4byte	.LFE42-.Ltext0
+ 1156 0084 0200     		.2byte	0x2
+ 1157 0086 7D       		.byte	0x7d
+ 1158 0087 00       		.sleb128 0
+ 1159 0088 00000000 		.4byte	0
+ 1160 008c 00000000 		.4byte	0
+ 1161              	.LLST3:
+ 1162 0090 80000000 		.4byte	.LFB43-.Ltext0
+ 1163 0094 82000000 		.4byte	.LCFI7-.Ltext0
+ 1164 0098 0200     		.2byte	0x2
+ 1165 009a 7D       		.byte	0x7d
+ 1166 009b 00       		.sleb128 0
+ 1167 009c 82000000 		.4byte	.LCFI7-.Ltext0
+ 1168 00a0 D6000000 		.4byte	.LCFI8-.Ltext0
+ 1169 00a4 0200     		.2byte	0x2
+ 1170 00a6 7D       		.byte	0x7d
+ 1171 00a7 08       		.sleb128 8
+ 1172 00a8 D6000000 		.4byte	.LCFI8-.Ltext0
+ 1173 00ac D8000000 		.4byte	.LFE43-.Ltext0
+ 1174 00b0 0200     		.2byte	0x2
+ 1175 00b2 7D       		.byte	0x7d
+ 1176 00b3 00       		.sleb128 0
+ 1177 00b4 00000000 		.4byte	0
+ 1178 00b8 00000000 		.4byte	0
+ 1179              	.LLST4:
+ 1180 00bc D8000000 		.4byte	.LFB44-.Ltext0
+ 1181 00c0 DA000000 		.4byte	.LCFI9-.Ltext0
+ARM GAS  /tmp/cc1Op8kD.s 			page 24
+
+
+ 1182 00c4 0200     		.2byte	0x2
+ 1183 00c6 7D       		.byte	0x7d
+ 1184 00c7 00       		.sleb128 0
+ 1185 00c8 DA000000 		.4byte	.LCFI9-.Ltext0
+ 1186 00cc 1E010000 		.4byte	.LCFI10-.Ltext0
+ 1187 00d0 0200     		.2byte	0x2
+ 1188 00d2 7D       		.byte	0x7d
+ 1189 00d3 08       		.sleb128 8
+ 1190 00d4 1E010000 		.4byte	.LCFI10-.Ltext0
+ 1191 00d8 20010000 		.4byte	.LFE44-.Ltext0
+ 1192 00dc 0200     		.2byte	0x2
+ 1193 00de 7D       		.byte	0x7d
+ 1194 00df 00       		.sleb128 0
+ 1195 00e0 00000000 		.4byte	0
+ 1196 00e4 00000000 		.4byte	0
+ 1197              	.LLST5:
+ 1198 00e8 20010000 		.4byte	.LFB45-.Ltext0
+ 1199 00ec 22010000 		.4byte	.LCFI11-.Ltext0
+ 1200 00f0 0200     		.2byte	0x2
+ 1201 00f2 7D       		.byte	0x7d
+ 1202 00f3 00       		.sleb128 0
+ 1203 00f4 22010000 		.4byte	.LCFI11-.Ltext0
+ 1204 00f8 34010000 		.4byte	.LCFI12-.Ltext0
+ 1205 00fc 0200     		.2byte	0x2
+ 1206 00fe 7D       		.byte	0x7d
+ 1207 00ff 08       		.sleb128 8
+ 1208 0100 34010000 		.4byte	.LCFI12-.Ltext0
+ 1209 0104 36010000 		.4byte	.LFE45-.Ltext0
+ 1210 0108 0200     		.2byte	0x2
+ 1211 010a 7D       		.byte	0x7d
+ 1212 010b 00       		.sleb128 0
+ 1213 010c 00000000 		.4byte	0
+ 1214 0110 00000000 		.4byte	0
+ 1215              	.LLST6:
+ 1216 0114 38010000 		.4byte	.LFB46-.Ltext0
+ 1217 0118 3A010000 		.4byte	.LCFI13-.Ltext0
+ 1218 011c 0200     		.2byte	0x2
+ 1219 011e 7D       		.byte	0x7d
+ 1220 011f 00       		.sleb128 0
+ 1221 0120 3A010000 		.4byte	.LCFI13-.Ltext0
+ 1222 0124 4E010000 		.4byte	.LCFI14-.Ltext0
+ 1223 0128 0200     		.2byte	0x2
+ 1224 012a 7D       		.byte	0x7d
+ 1225 012b 08       		.sleb128 8
+ 1226 012c 4E010000 		.4byte	.LCFI14-.Ltext0
+ 1227 0130 50010000 		.4byte	.LFE46-.Ltext0
+ 1228 0134 0200     		.2byte	0x2
+ 1229 0136 7D       		.byte	0x7d
+ 1230 0137 00       		.sleb128 0
+ 1231 0138 00000000 		.4byte	0
+ 1232 013c 00000000 		.4byte	0
+ 1233              	.LLST7:
+ 1234 0140 50010000 		.4byte	.LFB47-.Ltext0
+ 1235 0144 52010000 		.4byte	.LCFI15-.Ltext0
+ 1236 0148 0200     		.2byte	0x2
+ 1237 014a 7D       		.byte	0x7d
+ 1238 014b 00       		.sleb128 0
+ARM GAS  /tmp/cc1Op8kD.s 			page 25
+
+
+ 1239 014c 52010000 		.4byte	.LCFI15-.Ltext0
+ 1240 0150 6A010000 		.4byte	.LCFI16-.Ltext0
+ 1241 0154 0200     		.2byte	0x2
+ 1242 0156 7D       		.byte	0x7d
+ 1243 0157 08       		.sleb128 8
+ 1244 0158 6A010000 		.4byte	.LCFI16-.Ltext0
+ 1245 015c 6C010000 		.4byte	.LFE47-.Ltext0
+ 1246 0160 0200     		.2byte	0x2
+ 1247 0162 7D       		.byte	0x7d
+ 1248 0163 00       		.sleb128 0
+ 1249 0164 00000000 		.4byte	0
+ 1250 0168 00000000 		.4byte	0
+ 1251              		.section	.debug_aranges,"",%progbits
+ 1252 0000 1C000000 		.4byte	0x1c
+ 1253 0004 0200     		.2byte	0x2
+ 1254 0006 00000000 		.4byte	.Ldebug_info0
+ 1255 000a 04       		.byte	0x4
+ 1256 000b 00       		.byte	0
+ 1257 000c 0000     		.2byte	0
+ 1258 000e 0000     		.2byte	0
+ 1259 0010 00000000 		.4byte	.Ltext0
+ 1260 0014 6C010000 		.4byte	.Letext0-.Ltext0
+ 1261 0018 00000000 		.4byte	0
+ 1262 001c 00000000 		.4byte	0
+ 1263              		.section	.debug_line,"",%progbits
+ 1264              	.Ldebug_line0:
+ 1265 0000 87010000 		.section	.debug_str,"MS",%progbits,1
+ 1265      02003E01 
+ 1265      00000201 
+ 1265      FB0E0D00 
+ 1265      01010101 
+ 1266              	.LASF5:
+ 1267 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 1267      6E74385F 
+ 1267      7400
+ 1268              	.LASF22:
+ 1269 000a 70426567 		.ascii	"pBegin\000"
+ 1269      696E00
+ 1270              	.LASF18:
+ 1271 0011 656E4550 		.ascii	"enEPCFBoolean_False\000"
+ 1271      4346426F 
+ 1271      6F6C6561 
+ 1271      6E5F4661 
+ 1271      6C736500 
+ 1272              	.LASF27:
+ 1273 0025 636F756E 		.ascii	"count\000"
+ 1273      7400
+ 1274              	.LASF6:
+ 1275 002b 5F5F696E 		.ascii	"__int32_t\000"
+ 1275      7433325F 
+ 1275      7400
+ 1276              	.LASF32:
+ 1277 0035 70466966 		.ascii	"pFifo\000"
+ 1277      6F00
+ 1278              	.LASF31:
+ 1279 003b 70636646 		.ascii	"pcfFifoLength\000"
+ 1279      69666F4C 
+ARM GAS  /tmp/cc1Op8kD.s 			page 26
+
+
+ 1279      656E6774 
+ 1279      6800
+ 1280              	.LASF17:
+ 1281 0049 666C6F61 		.ascii	"float\000"
+ 1281      7400
+ 1282              	.LASF1:
+ 1283 004f 7369676E 		.ascii	"signed char\000"
+ 1283      65642063 
+ 1283      68617200 
+ 1284              	.LASF2:
+ 1285 005b 756E7369 		.ascii	"unsigned char\000"
+ 1285      676E6564 
+ 1285      20636861 
+ 1285      7200
+ 1286              	.LASF9:
+ 1287 0069 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1287      20756E73 
+ 1287      69676E65 
+ 1287      6420696E 
+ 1287      7400
+ 1288              	.LASF35:
+ 1289 007b 70636646 		.ascii	"pcfFifoPop\000"
+ 1289      69666F50 
+ 1289      6F7000
+ 1290              	.LASF4:
+ 1291 0086 73686F72 		.ascii	"short unsigned int\000"
+ 1291      7420756E 
+ 1291      7369676E 
+ 1291      65642069 
+ 1291      6E7400
+ 1292              	.LASF24:
+ 1293 0099 70546169 		.ascii	"pTail\000"
+ 1293      6C00
+ 1294              	.LASF19:
+ 1295 009f 656E4550 		.ascii	"enEPCFBoolean_True\000"
+ 1295      4346426F 
+ 1295      6F6C6561 
+ 1295      6E5F5472 
+ 1295      756500
+ 1296              	.LASF43:
+ 1297 00b2 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1297      52784275 
+ 1297      66666572 
+ 1297      00
+ 1298              	.LASF23:
+ 1299 00bf 70486561 		.ascii	"pHead\000"
+ 1299      6400
+ 1300              	.LASF36:
+ 1301 00c5 70636646 		.ascii	"pcfFifoIsEmpty\000"
+ 1301      69666F49 
+ 1301      73456D70 
+ 1301      747900
+ 1302              	.LASF29:
+ 1303 00d4 7553697A 		.ascii	"uSize\000"
+ 1303      6500
+ 1304              	.LASF8:
+ 1305 00da 5F5F7569 		.ascii	"__uint32_t\000"
+ARM GAS  /tmp/cc1Op8kD.s 			page 27
+
+
+ 1305      6E743332 
+ 1305      5F7400
+ 1306              	.LASF39:
+ 1307 00e5 2E2E2F65 		.ascii	"../epcf/utils/source/epcf_fifo.c\000"
+ 1307      7063662F 
+ 1307      7574696C 
+ 1307      732F736F 
+ 1307      75726365 
+ 1308              	.LASF20:
+ 1309 0106 656E4550 		.ascii	"enEPCFBoolean_Max\000"
+ 1309      4346426F 
+ 1309      6F6C6561 
+ 1309      6E5F4D61 
+ 1309      7800
+ 1310              	.LASF0:
+ 1311 0118 756E7369 		.ascii	"unsigned int\000"
+ 1311      676E6564 
+ 1311      20696E74 
+ 1311      00
+ 1312              	.LASF42:
+ 1313 0125 70636646 		.ascii	"pcfFifoFlush\000"
+ 1313      69666F46 
+ 1313      6C757368 
+ 1313      00
+ 1314              	.LASF13:
+ 1315 0132 63686172 		.ascii	"char\000"
+ 1315      00
+ 1316              	.LASF14:
+ 1317 0137 75696E74 		.ascii	"uint8_t\000"
+ 1317      385F7400 
+ 1318              	.LASF28:
+ 1319 013f 70427566 		.ascii	"pBuf\000"
+ 1319      00
+ 1320              	.LASF41:
+ 1321 0144 50434646 		.ascii	"PCFFifoDesc\000"
+ 1321      69666F44 
+ 1321      65736300 
+ 1322              	.LASF15:
+ 1323 0150 696E7433 		.ascii	"int32_t\000"
+ 1323      325F7400 
+ 1324              	.LASF12:
+ 1325 0158 73697A65 		.ascii	"sizetype\000"
+ 1325      74797065 
+ 1325      00
+ 1326              	.LASF10:
+ 1327 0161 6C6F6E67 		.ascii	"long long int\000"
+ 1327      206C6F6E 
+ 1327      6720696E 
+ 1327      7400
+ 1328              	.LASF38:
+ 1329 016f 474E5520 		.ascii	"GNU C 4.9.3 20150529 (prerelease) -mcpu=cortex-m3 -"
+ 1329      4320342E 
+ 1329      392E3320 
+ 1329      32303135 
+ 1329      30353239 
+ 1330 01a2 6D746875 		.ascii	"mthumb -gdwarf-2 -O0 -std=gnu99 -fomit-frame-pointe"
+ 1330      6D62202D 
+ARM GAS  /tmp/cc1Op8kD.s 			page 28
+
+
+ 1330      67647761 
+ 1330      72662D32 
+ 1330      202D4F30 
+ 1331 01d5 7200     		.ascii	"r\000"
+ 1332              	.LASF21:
+ 1333 01d7 456E4550 		.ascii	"EnEPCFBoolean_t\000"
+ 1333      4346426F 
+ 1333      6F6C6561 
+ 1333      6E5F7400 
+ 1334              	.LASF40:
+ 1335 01e7 2F686F6D 		.ascii	"/home/majorviraj/Desktop/Self_balancing/codes/Blink"
+ 1335      652F6D61 
+ 1335      6A6F7276 
+ 1335      6972616A 
+ 1335      2F446573 
+ 1336 021a 30312F61 		.ascii	"01/app\000"
+ 1336      707000
+ 1337              	.LASF3:
+ 1338 0221 73686F72 		.ascii	"short int\000"
+ 1338      7420696E 
+ 1338      7400
+ 1339              	.LASF30:
+ 1340 022b 70636646 		.ascii	"pcfFifoInit\000"
+ 1340      69666F49 
+ 1340      6E697400 
+ 1341              	.LASF37:
+ 1342 0237 70636646 		.ascii	"pcfFifoIsFull\000"
+ 1342      69666F49 
+ 1342      7346756C 
+ 1342      6C00
+ 1343              	.LASF16:
+ 1344 0245 75696E74 		.ascii	"uint32_t\000"
+ 1344      33325F74 
+ 1344      00
+ 1345              	.LASF7:
+ 1346 024e 6C6F6E67 		.ascii	"long int\000"
+ 1346      20696E74 
+ 1346      00
+ 1347              	.LASF34:
+ 1348 0257 70636646 		.ascii	"pcfFifoPush\000"
+ 1348      69666F50 
+ 1348      75736800 
+ 1349              	.LASF26:
+ 1350 0263 73697A65 		.ascii	"size\000"
+ 1350      00
+ 1351              	.LASF33:
+ 1352 0268 70636646 		.ascii	"pcfFifoCount\000"
+ 1352      69666F43 
+ 1352      6F756E74 
+ 1352      00
+ 1353              	.LASF11:
+ 1354 0275 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1354      206C6F6E 
+ 1354      6720756E 
+ 1354      7369676E 
+ 1354      65642069 
+ 1355              	.LASF25:
+ARM GAS  /tmp/cc1Op8kD.s 			page 29
+
+
+ 1356 028c 70456E64 		.ascii	"pEnd\000"
+ 1356      00
+ 1357              		.ident	"GCC: (15:4.9.3+svn231177-1) 4.9.3 20150529 (prerelease)"
+ARM GAS  /tmp/cc1Op8kD.s 			page 30
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 epcf_fifo.c
+     /tmp/cc1Op8kD.s:48     .text:0000000000000000 $t
+     /tmp/cc1Op8kD.s:53     .text:0000000000000000 pcfFifoInit
+     /tmp/cc1Op8kD.s:138    .text:0000000000000060 pcfFifoLength
+     /tmp/cc1Op8kD.s:167    .text:0000000000000070 pcfFifoCount
+     /tmp/cc1Op8kD.s:196    .text:0000000000000080 pcfFifoPush
+     /tmp/cc1Op8kD.s:271    .text:00000000000000d8 pcfFifoPop
+     /tmp/cc1Op8kD.s:338    .text:0000000000000120 pcfFifoFlush
+     /tmp/cc1Op8kD.s:372    .text:0000000000000138 pcfFifoIsEmpty
+     /tmp/cc1Op8kD.s:406    .text:0000000000000150 pcfFifoIsFull
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+malloc

@@ -1,0 +1,412 @@
+\hypertarget{gpio_8h}{}\section{epcf\+\_\+project/epcf/peripheral/include/gpio/gpio.h File Reference}
+\label{gpio_8h}\index{epcf\+\_\+project/epcf/peripheral/include/gpio/gpio.\+h@{epcf\+\_\+project/epcf/peripheral/include/gpio/gpio.\+h}}
+
+
+This file is used to configure a G\+P\+IO device.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structEPCFGpioCfg__t}{E\+P\+C\+F\+Gpio\+Cfg\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Gpio configuration structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{gpio_8h_adfec01793a42f8d4668a8963ab42a2df}\label{gpio_8h_adfec01793a42f8d4668a8963ab42a2df}} 
+typedef struct \mbox{\hyperlink{structEPCFGpioDevice}{E\+P\+C\+F\+Gpio\+Device}} \mbox{\hyperlink{gpio_8h_adfec01793a42f8d4668a8963ab42a2df}{E\+P\+C\+F\+Gpio\+Device\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Gpio Device. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{gpio_8h_acfac25969bd9ca852e4a8293fccf01b1}\label{gpio_8h_acfac25969bd9ca852e4a8293fccf01b1}} 
+typedef enum \mbox{\hyperlink{gpio_8h_aadbbabbca368b6574173ef0b4b25cb2d}{En\+E\+P\+C\+F\+Gpio\+Direction}} \mbox{\hyperlink{gpio_8h_acfac25969bd9ca852e4a8293fccf01b1}{En\+E\+P\+C\+F\+Gpio\+Direction\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Enumeration for pin direction. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{gpio_8h_afa0f233ad1316f898dabeb77efa64cd6}\label{gpio_8h_afa0f233ad1316f898dabeb77efa64cd6}} 
+typedef enum \mbox{\hyperlink{gpio_8h_a45f723d26f0d5aede87e09debfd538bc}{En\+E\+P\+C\+F\+Gpio\+Pin\+Mode}} \mbox{\hyperlink{gpio_8h_afa0f233ad1316f898dabeb77efa64cd6}{En\+E\+P\+C\+F\+Gpio\+Pin\+Mode\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Enumeration for pin mode. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{gpio_8h_a7b6f54f410f30de33a00d2a3124a7a01}\label{gpio_8h_a7b6f54f410f30de33a00d2a3124a7a01}} 
+typedef enum \mbox{\hyperlink{gpio_8h_a9579adb3002dd77538d63a90fa4380b6}{En\+E\+P\+C\+F\+Open\+Drain}} \mbox{\hyperlink{gpio_8h_a7b6f54f410f30de33a00d2a3124a7a01}{En\+E\+P\+C\+F\+Gpio\+Open\+Drain\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Enumeration for open drain settings. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{gpio_8h_aadbbabbca368b6574173ef0b4b25cb2d}{En\+E\+P\+C\+F\+Gpio\+Direction}} \{ \mbox{\hyperlink{gpio_8h_aadbbabbca368b6574173ef0b4b25cb2da2cf7ca3ebf2237951f63fd199bf719be}{en\+E\+P\+C\+F\+Gpio\+Direction\+\_\+\+Input}} = 0, 
+\mbox{\hyperlink{gpio_8h_aadbbabbca368b6574173ef0b4b25cb2daae450ec8625b68df0cb2cc084772bafa}{en\+E\+P\+C\+F\+Gpio\+Direction\+\_\+\+Output}}, 
+\mbox{\hyperlink{gpio_8h_aadbbabbca368b6574173ef0b4b25cb2da9b0df0d71a81518cc3d436206bdf0a46}{en\+E\+P\+C\+F\+Gpio\+Direction\+\_\+\+HighZ}}, 
+\mbox{\hyperlink{gpio_8h_aadbbabbca368b6574173ef0b4b25cb2daaf45c8ec091b162129e4d1f510af850a}{en\+E\+P\+C\+F\+Gpio\+Direction\+\_\+\+Max}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration for pin direction. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{gpio_8h_a45f723d26f0d5aede87e09debfd538bc}{En\+E\+P\+C\+F\+Gpio\+Pin\+Mode}} \{ \newline
+\mbox{\hyperlink{gpio_8h_a45f723d26f0d5aede87e09debfd538bca38bb01f2a1027fd0c22065a07cc22191}{en\+E\+P\+C\+F\+Gpio\+Pin\+Mode\+\_\+\+Pull\+Up}} = 0, 
+\mbox{\hyperlink{gpio_8h_a45f723d26f0d5aede87e09debfd538bca5569d62eb3966b27ea5322bfe648f5a0}{en\+E\+P\+C\+F\+Gpio\+Pin\+Mode\+\_\+\+Repeater}}, 
+\mbox{\hyperlink{gpio_8h_a45f723d26f0d5aede87e09debfd538bcaff68ba22847ae2c06c65afc14610b8fe}{en\+E\+P\+C\+F\+Gpio\+Pin\+Mode\+\_\+\+No\+Pull\+Up\+Down}}, 
+\mbox{\hyperlink{gpio_8h_a45f723d26f0d5aede87e09debfd538bca28957fa4b056eba04b31052f38134cc0}{en\+E\+P\+C\+F\+Gpio\+Pin\+Mode\+\_\+\+Pull\+Down}}, 
+\newline
+\mbox{\hyperlink{gpio_8h_a45f723d26f0d5aede87e09debfd538bcabc96af42b305373c82f82cf620af3ada}{en\+E\+P\+C\+F\+Gpio\+Pin\+Mode\+\_\+\+Max}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration for pin mode. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{gpio_8h_a9579adb3002dd77538d63a90fa4380b6}{En\+E\+P\+C\+F\+Open\+Drain}} \{ \mbox{\hyperlink{gpio_8h_a9579adb3002dd77538d63a90fa4380b6a7b514a5447fc18c8f31d0670ffcb6bcb}{en\+E\+P\+C\+F\+Gpio\+Open\+Drain\+\_\+\+Disable}} = 0, 
+\mbox{\hyperlink{gpio_8h_a9579adb3002dd77538d63a90fa4380b6a56ad3208726ee924cb2f8914811f12fa}{en\+E\+P\+C\+F\+Gpio\+Open\+Drain\+\_\+\+Enable}}, 
+\mbox{\hyperlink{gpio_8h_a9579adb3002dd77538d63a90fa4380b6a02dbb34deedc13e7e3836758aa7fb99d}{en\+E\+P\+C\+F\+Gpio\+Open\+Drain\+\_\+\+Max}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration for open drain settings. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{gpio_8h_a8c60a8869509cbc9a1cf56ad8d8ae037}{En\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+t}} \{ \newline
+\mbox{\hyperlink{gpio_8h_a8c60a8869509cbc9a1cf56ad8d8ae037a73c12b6303c5a7378cd06bf146eb76f7}{en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+Falling\+Edge}}, 
+\mbox{\hyperlink{gpio_8h_a8c60a8869509cbc9a1cf56ad8d8ae037ad74c0883a27e92940d9fb6190746211f}{en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+Rising\+Edge}}, 
+\mbox{\hyperlink{gpio_8h_a8c60a8869509cbc9a1cf56ad8d8ae037a927edf8375d00e499a98c6751adf0c53}{en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+Both\+Edge}}, 
+\mbox{\hyperlink{gpio_8h_a8c60a8869509cbc9a1cf56ad8d8ae037a72162bb79bc4c7a659993f30d7348cca}{en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+Low\+Level}}, 
+\newline
+\mbox{\hyperlink{gpio_8h_a8c60a8869509cbc9a1cf56ad8d8ae037a1c2f9bd18728cb189c15714a333a3346}{en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+High\+Level}}, 
+\mbox{\hyperlink{gpio_8h_a8c60a8869509cbc9a1cf56ad8d8ae037ad4ef1bec316aa5780d6ab173cfda33a6}{en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+Max}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration for gpio interrupt mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{gpio_8h_adfec01793a42f8d4668a8963ab42a2df}{E\+P\+C\+F\+Gpio\+Device\+\_\+t}} $\ast$ \mbox{\hyperlink{gpio_8h_a23cc2fd736b851fd7eb7157783576ca6}{epcf\+\_\+gpio\+\_\+create\+Native}} (\mbox{\hyperlink{structEPCFGpioCfg__t}{E\+P\+C\+F\+Gpio\+Cfg\+\_\+t}} $\ast$p\+Gpio\+Config)
+\begin{DoxyCompactList}\small\item\em This function is used to create an gpio device. Call this function in beginning to initialize the gpio device. This function allocates memory for the device using malloc() function call and returns a pointer to the device. Pass this device pointer while calling gpio functions. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{gpio_8h_a253c5779c19c8a975669c64a21011dda}{epcf\+\_\+gpio\+\_\+set}} (\mbox{\hyperlink{gpio_8h_adfec01793a42f8d4668a8963ab42a2df}{E\+P\+C\+F\+Gpio\+Device\+\_\+t}} $\ast$p\+Gpiodevice)
+\begin{DoxyCompactList}\small\item\em This function is used to set an gpio, for a particular gpio device. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{gpio_8h_a8bd613b45fca91029b7efd5bc3b101ed}{epcf\+\_\+gpio\+\_\+clear}} (\mbox{\hyperlink{gpio_8h_adfec01793a42f8d4668a8963ab42a2df}{E\+P\+C\+F\+Gpio\+Device\+\_\+t}} $\ast$p\+Gpiodevice)
+\begin{DoxyCompactList}\small\item\em This function is used to clear an gpio, for a particular gpio device. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{gpio_8h_a18b15135deb7c8b8477d82b3320d3c08}{epcf\+\_\+gpio\+\_\+read}} (\mbox{\hyperlink{gpio_8h_adfec01793a42f8d4668a8963ab42a2df}{E\+P\+C\+F\+Gpio\+Device\+\_\+t}} $\ast$p\+Gpiodevice)
+\begin{DoxyCompactList}\small\item\em This function is used to read an gpio, for a particular gpio device. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{gpio_8h_a98670f2bd2f9f0f0cf536404e8042d06}{epcf\+\_\+gpio\+\_\+set\+Direction}} (\mbox{\hyperlink{gpio_8h_adfec01793a42f8d4668a8963ab42a2df}{E\+P\+C\+F\+Gpio\+Device\+\_\+t}} $\ast$p\+Gpiodevice, \mbox{\hyperlink{gpio_8h_acfac25969bd9ca852e4a8293fccf01b1}{En\+E\+P\+C\+F\+Gpio\+Direction\+\_\+t}} direction)
+\begin{DoxyCompactList}\small\item\em This function is used to set direction of gpio, for a particular gpio device. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{gpio_8h_ae3d5fe3691dd0966bf64daeabd3fe4f6}{epcf\+\_\+gpio\+\_\+get\+Device\+Count}} ()
+\begin{DoxyCompactList}\small\item\em This function is used to set an gpio, for a particular gpio device. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{gpio_8h_ad9b75e3ea7f6abe37bacfbc7a2101a53}{epcf\+\_\+gpio\+\_\+int\+Enable}} (\mbox{\hyperlink{gpio_8h_adfec01793a42f8d4668a8963ab42a2df}{E\+P\+C\+F\+Gpio\+Device\+\_\+t}} $\ast$p\+Gpio\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to enable the interrupt on gpio device. User callback, if attached will be called when the status of pin changes according to mode of the device while configuring. It can be disabled by a call to the function E\+P\+C\+F\+\_\+\+G\+P\+I\+O\+I\+N\+T\+\_\+\+D\+I\+S\+A\+B\+LE. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{gpio_8h_aeabfc793cfcf8ff2c0d5900394860681}{epcf\+\_\+gpio\+\_\+int\+Disable}} (\mbox{\hyperlink{gpio_8h_adfec01793a42f8d4668a8963ab42a2df}{E\+P\+C\+F\+Gpio\+Device\+\_\+t}} $\ast$p\+Gpio\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to disable interrupt on Gpio device. User callback will not get called after the device interrupt has been disabled. The device interrupt can be enabled again by a call to the function E\+P\+C\+F\+\_\+\+G\+P\+I\+O\+I\+N\+T\+\_\+\+E\+N\+A\+B\+LE. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{gpio_8h_aa769c465bd4fc39cdb2fcb1e8662557d}{epcf\+\_\+gpio\+\_\+int\+Attach\+Callback}} (\mbox{\hyperlink{gpio_8h_adfec01793a42f8d4668a8963ab42a2df}{E\+P\+C\+F\+Gpio\+Device\+\_\+t}} $\ast$p\+Gpio\+Device, epcf\+Callback\+\_\+fp p\+Callback)
+\begin{DoxyCompactList}\small\item\em This function is used to attach an Gpio interrupt callback according to the interrupt mode selected while configuring the device. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{gpio_8h_a06a51416e2fc6b1406eced685b810c96}{epcf\+\_\+gpio\+\_\+int\+Detach\+Callback}} (\mbox{\hyperlink{gpio_8h_adfec01793a42f8d4668a8963ab42a2df}{E\+P\+C\+F\+Gpio\+Device\+\_\+t}} $\ast$p\+Gpio\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to detach an Gpio interrupt callback for the device. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file is used to configure a G\+P\+IO device. 
+
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{gpio_8h_aadbbabbca368b6574173ef0b4b25cb2d}\label{gpio_8h_aadbbabbca368b6574173ef0b4b25cb2d}} 
+\index{gpio.\+h@{gpio.\+h}!En\+E\+P\+C\+F\+Gpio\+Direction@{En\+E\+P\+C\+F\+Gpio\+Direction}}
+\index{En\+E\+P\+C\+F\+Gpio\+Direction@{En\+E\+P\+C\+F\+Gpio\+Direction}!gpio.\+h@{gpio.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Gpio\+Direction}{EnEPCFGpioDirection}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{gpio_8h_aadbbabbca368b6574173ef0b4b25cb2d}{En\+E\+P\+C\+F\+Gpio\+Direction}}}
+
+
+
+Enumeration for pin direction. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Gpio\+Direction\+\_\+\+Input@{en\+E\+P\+C\+F\+Gpio\+Direction\+\_\+\+Input}!gpio.\+h@{gpio.\+h}}\index{gpio.\+h@{gpio.\+h}!en\+E\+P\+C\+F\+Gpio\+Direction\+\_\+\+Input@{en\+E\+P\+C\+F\+Gpio\+Direction\+\_\+\+Input}}}\mbox{\Hypertarget{gpio_8h_aadbbabbca368b6574173ef0b4b25cb2da2cf7ca3ebf2237951f63fd199bf719be}\label{gpio_8h_aadbbabbca368b6574173ef0b4b25cb2da2cf7ca3ebf2237951f63fd199bf719be}} 
+en\+E\+P\+C\+F\+Gpio\+Direction\+\_\+\+Input&Gpio pin input direction \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Gpio\+Direction\+\_\+\+Output@{en\+E\+P\+C\+F\+Gpio\+Direction\+\_\+\+Output}!gpio.\+h@{gpio.\+h}}\index{gpio.\+h@{gpio.\+h}!en\+E\+P\+C\+F\+Gpio\+Direction\+\_\+\+Output@{en\+E\+P\+C\+F\+Gpio\+Direction\+\_\+\+Output}}}\mbox{\Hypertarget{gpio_8h_aadbbabbca368b6574173ef0b4b25cb2daae450ec8625b68df0cb2cc084772bafa}\label{gpio_8h_aadbbabbca368b6574173ef0b4b25cb2daae450ec8625b68df0cb2cc084772bafa}} 
+en\+E\+P\+C\+F\+Gpio\+Direction\+\_\+\+Output&Gpio pin output direction \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Gpio\+Direction\+\_\+\+HighZ@{en\+E\+P\+C\+F\+Gpio\+Direction\+\_\+\+HighZ}!gpio.\+h@{gpio.\+h}}\index{gpio.\+h@{gpio.\+h}!en\+E\+P\+C\+F\+Gpio\+Direction\+\_\+\+HighZ@{en\+E\+P\+C\+F\+Gpio\+Direction\+\_\+\+HighZ}}}\mbox{\Hypertarget{gpio_8h_aadbbabbca368b6574173ef0b4b25cb2da9b0df0d71a81518cc3d436206bdf0a46}\label{gpio_8h_aadbbabbca368b6574173ef0b4b25cb2da9b0df0d71a81518cc3d436206bdf0a46}} 
+en\+E\+P\+C\+F\+Gpio\+Direction\+\_\+\+HighZ&Gpio pin high impedence \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Gpio\+Direction\+\_\+\+Max@{en\+E\+P\+C\+F\+Gpio\+Direction\+\_\+\+Max}!gpio.\+h@{gpio.\+h}}\index{gpio.\+h@{gpio.\+h}!en\+E\+P\+C\+F\+Gpio\+Direction\+\_\+\+Max@{en\+E\+P\+C\+F\+Gpio\+Direction\+\_\+\+Max}}}\mbox{\Hypertarget{gpio_8h_aadbbabbca368b6574173ef0b4b25cb2daaf45c8ec091b162129e4d1f510af850a}\label{gpio_8h_aadbbabbca368b6574173ef0b4b25cb2daaf45c8ec091b162129e4d1f510af850a}} 
+en\+E\+P\+C\+F\+Gpio\+Direction\+\_\+\+Max&Special value for boundary checking \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{gpio_8h_a8c60a8869509cbc9a1cf56ad8d8ae037}\label{gpio_8h_a8c60a8869509cbc9a1cf56ad8d8ae037}} 
+\index{gpio.\+h@{gpio.\+h}!En\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+t@{En\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+t}}
+\index{En\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+t@{En\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+t}!gpio.\+h@{gpio.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+t}{EnEPCFGpioIntMode\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{gpio_8h_a8c60a8869509cbc9a1cf56ad8d8ae037}{En\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+t}}}
+
+
+
+Enumeration for gpio interrupt mode. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+Falling\+Edge@{en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+Falling\+Edge}!gpio.\+h@{gpio.\+h}}\index{gpio.\+h@{gpio.\+h}!en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+Falling\+Edge@{en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+Falling\+Edge}}}\mbox{\Hypertarget{gpio_8h_a8c60a8869509cbc9a1cf56ad8d8ae037a73c12b6303c5a7378cd06bf146eb76f7}\label{gpio_8h_a8c60a8869509cbc9a1cf56ad8d8ae037a73c12b6303c5a7378cd06bf146eb76f7}} 
+en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+Falling\+Edge&Falling edge triggered gpio interrupt \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+Rising\+Edge@{en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+Rising\+Edge}!gpio.\+h@{gpio.\+h}}\index{gpio.\+h@{gpio.\+h}!en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+Rising\+Edge@{en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+Rising\+Edge}}}\mbox{\Hypertarget{gpio_8h_a8c60a8869509cbc9a1cf56ad8d8ae037ad74c0883a27e92940d9fb6190746211f}\label{gpio_8h_a8c60a8869509cbc9a1cf56ad8d8ae037ad74c0883a27e92940d9fb6190746211f}} 
+en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+Rising\+Edge&Rising edge triggered gpio interrupt \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+Both\+Edge@{en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+Both\+Edge}!gpio.\+h@{gpio.\+h}}\index{gpio.\+h@{gpio.\+h}!en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+Both\+Edge@{en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+Both\+Edge}}}\mbox{\Hypertarget{gpio_8h_a8c60a8869509cbc9a1cf56ad8d8ae037a927edf8375d00e499a98c6751adf0c53}\label{gpio_8h_a8c60a8869509cbc9a1cf56ad8d8ae037a927edf8375d00e499a98c6751adf0c53}} 
+en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+Both\+Edge&Both edge triggered gpio interrupt \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+Low\+Level@{en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+Low\+Level}!gpio.\+h@{gpio.\+h}}\index{gpio.\+h@{gpio.\+h}!en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+Low\+Level@{en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+Low\+Level}}}\mbox{\Hypertarget{gpio_8h_a8c60a8869509cbc9a1cf56ad8d8ae037a72162bb79bc4c7a659993f30d7348cca}\label{gpio_8h_a8c60a8869509cbc9a1cf56ad8d8ae037a72162bb79bc4c7a659993f30d7348cca}} 
+en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+Low\+Level&Low level triggered gpio interrupt \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+High\+Level@{en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+High\+Level}!gpio.\+h@{gpio.\+h}}\index{gpio.\+h@{gpio.\+h}!en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+High\+Level@{en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+High\+Level}}}\mbox{\Hypertarget{gpio_8h_a8c60a8869509cbc9a1cf56ad8d8ae037a1c2f9bd18728cb189c15714a333a3346}\label{gpio_8h_a8c60a8869509cbc9a1cf56ad8d8ae037a1c2f9bd18728cb189c15714a333a3346}} 
+en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+High\+Level&High level triggered gpio interrupt \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+Max@{en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+Max}!gpio.\+h@{gpio.\+h}}\index{gpio.\+h@{gpio.\+h}!en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+Max@{en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+Max}}}\mbox{\Hypertarget{gpio_8h_a8c60a8869509cbc9a1cf56ad8d8ae037ad4ef1bec316aa5780d6ab173cfda33a6}\label{gpio_8h_a8c60a8869509cbc9a1cf56ad8d8ae037ad4ef1bec316aa5780d6ab173cfda33a6}} 
+en\+E\+P\+C\+F\+Gpio\+Int\+Mode\+\_\+\+Max&Special value for boundary checking \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{gpio_8h_a45f723d26f0d5aede87e09debfd538bc}\label{gpio_8h_a45f723d26f0d5aede87e09debfd538bc}} 
+\index{gpio.\+h@{gpio.\+h}!En\+E\+P\+C\+F\+Gpio\+Pin\+Mode@{En\+E\+P\+C\+F\+Gpio\+Pin\+Mode}}
+\index{En\+E\+P\+C\+F\+Gpio\+Pin\+Mode@{En\+E\+P\+C\+F\+Gpio\+Pin\+Mode}!gpio.\+h@{gpio.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Gpio\+Pin\+Mode}{EnEPCFGpioPinMode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{gpio_8h_a45f723d26f0d5aede87e09debfd538bc}{En\+E\+P\+C\+F\+Gpio\+Pin\+Mode}}}
+
+
+
+Enumeration for pin mode. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Gpio\+Pin\+Mode\+\_\+\+Pull\+Up@{en\+E\+P\+C\+F\+Gpio\+Pin\+Mode\+\_\+\+Pull\+Up}!gpio.\+h@{gpio.\+h}}\index{gpio.\+h@{gpio.\+h}!en\+E\+P\+C\+F\+Gpio\+Pin\+Mode\+\_\+\+Pull\+Up@{en\+E\+P\+C\+F\+Gpio\+Pin\+Mode\+\_\+\+Pull\+Up}}}\mbox{\Hypertarget{gpio_8h_a45f723d26f0d5aede87e09debfd538bca38bb01f2a1027fd0c22065a07cc22191}\label{gpio_8h_a45f723d26f0d5aede87e09debfd538bca38bb01f2a1027fd0c22065a07cc22191}} 
+en\+E\+P\+C\+F\+Gpio\+Pin\+Mode\+\_\+\+Pull\+Up&Gpio pin pull-\/up enable \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Gpio\+Pin\+Mode\+\_\+\+Repeater@{en\+E\+P\+C\+F\+Gpio\+Pin\+Mode\+\_\+\+Repeater}!gpio.\+h@{gpio.\+h}}\index{gpio.\+h@{gpio.\+h}!en\+E\+P\+C\+F\+Gpio\+Pin\+Mode\+\_\+\+Repeater@{en\+E\+P\+C\+F\+Gpio\+Pin\+Mode\+\_\+\+Repeater}}}\mbox{\Hypertarget{gpio_8h_a45f723d26f0d5aede87e09debfd538bca5569d62eb3966b27ea5322bfe648f5a0}\label{gpio_8h_a45f723d26f0d5aede87e09debfd538bca5569d62eb3966b27ea5322bfe648f5a0}} 
+en\+E\+P\+C\+F\+Gpio\+Pin\+Mode\+\_\+\+Repeater&Gpio pin repeater mode enable \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Gpio\+Pin\+Mode\+\_\+\+No\+Pull\+Up\+Down@{en\+E\+P\+C\+F\+Gpio\+Pin\+Mode\+\_\+\+No\+Pull\+Up\+Down}!gpio.\+h@{gpio.\+h}}\index{gpio.\+h@{gpio.\+h}!en\+E\+P\+C\+F\+Gpio\+Pin\+Mode\+\_\+\+No\+Pull\+Up\+Down@{en\+E\+P\+C\+F\+Gpio\+Pin\+Mode\+\_\+\+No\+Pull\+Up\+Down}}}\mbox{\Hypertarget{gpio_8h_a45f723d26f0d5aede87e09debfd538bcaff68ba22847ae2c06c65afc14610b8fe}\label{gpio_8h_a45f723d26f0d5aede87e09debfd538bcaff68ba22847ae2c06c65afc14610b8fe}} 
+en\+E\+P\+C\+F\+Gpio\+Pin\+Mode\+\_\+\+No\+Pull\+Up\+Down&Gpio pin no pull-\/up or pull-\/down \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Gpio\+Pin\+Mode\+\_\+\+Pull\+Down@{en\+E\+P\+C\+F\+Gpio\+Pin\+Mode\+\_\+\+Pull\+Down}!gpio.\+h@{gpio.\+h}}\index{gpio.\+h@{gpio.\+h}!en\+E\+P\+C\+F\+Gpio\+Pin\+Mode\+\_\+\+Pull\+Down@{en\+E\+P\+C\+F\+Gpio\+Pin\+Mode\+\_\+\+Pull\+Down}}}\mbox{\Hypertarget{gpio_8h_a45f723d26f0d5aede87e09debfd538bca28957fa4b056eba04b31052f38134cc0}\label{gpio_8h_a45f723d26f0d5aede87e09debfd538bca28957fa4b056eba04b31052f38134cc0}} 
+en\+E\+P\+C\+F\+Gpio\+Pin\+Mode\+\_\+\+Pull\+Down&Gpio pin pull-\/down enable \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Gpio\+Pin\+Mode\+\_\+\+Max@{en\+E\+P\+C\+F\+Gpio\+Pin\+Mode\+\_\+\+Max}!gpio.\+h@{gpio.\+h}}\index{gpio.\+h@{gpio.\+h}!en\+E\+P\+C\+F\+Gpio\+Pin\+Mode\+\_\+\+Max@{en\+E\+P\+C\+F\+Gpio\+Pin\+Mode\+\_\+\+Max}}}\mbox{\Hypertarget{gpio_8h_a45f723d26f0d5aede87e09debfd538bcabc96af42b305373c82f82cf620af3ada}\label{gpio_8h_a45f723d26f0d5aede87e09debfd538bcabc96af42b305373c82f82cf620af3ada}} 
+en\+E\+P\+C\+F\+Gpio\+Pin\+Mode\+\_\+\+Max&Special value for boundary checking \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{gpio_8h_a9579adb3002dd77538d63a90fa4380b6}\label{gpio_8h_a9579adb3002dd77538d63a90fa4380b6}} 
+\index{gpio.\+h@{gpio.\+h}!En\+E\+P\+C\+F\+Open\+Drain@{En\+E\+P\+C\+F\+Open\+Drain}}
+\index{En\+E\+P\+C\+F\+Open\+Drain@{En\+E\+P\+C\+F\+Open\+Drain}!gpio.\+h@{gpio.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Open\+Drain}{EnEPCFOpenDrain}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{gpio_8h_a9579adb3002dd77538d63a90fa4380b6}{En\+E\+P\+C\+F\+Open\+Drain}}}
+
+
+
+Enumeration for open drain settings. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Gpio\+Open\+Drain\+\_\+\+Disable@{en\+E\+P\+C\+F\+Gpio\+Open\+Drain\+\_\+\+Disable}!gpio.\+h@{gpio.\+h}}\index{gpio.\+h@{gpio.\+h}!en\+E\+P\+C\+F\+Gpio\+Open\+Drain\+\_\+\+Disable@{en\+E\+P\+C\+F\+Gpio\+Open\+Drain\+\_\+\+Disable}}}\mbox{\Hypertarget{gpio_8h_a9579adb3002dd77538d63a90fa4380b6a7b514a5447fc18c8f31d0670ffcb6bcb}\label{gpio_8h_a9579adb3002dd77538d63a90fa4380b6a7b514a5447fc18c8f31d0670ffcb6bcb}} 
+en\+E\+P\+C\+F\+Gpio\+Open\+Drain\+\_\+\+Disable&Gpio pin open drain disable \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Gpio\+Open\+Drain\+\_\+\+Enable@{en\+E\+P\+C\+F\+Gpio\+Open\+Drain\+\_\+\+Enable}!gpio.\+h@{gpio.\+h}}\index{gpio.\+h@{gpio.\+h}!en\+E\+P\+C\+F\+Gpio\+Open\+Drain\+\_\+\+Enable@{en\+E\+P\+C\+F\+Gpio\+Open\+Drain\+\_\+\+Enable}}}\mbox{\Hypertarget{gpio_8h_a9579adb3002dd77538d63a90fa4380b6a56ad3208726ee924cb2f8914811f12fa}\label{gpio_8h_a9579adb3002dd77538d63a90fa4380b6a56ad3208726ee924cb2f8914811f12fa}} 
+en\+E\+P\+C\+F\+Gpio\+Open\+Drain\+\_\+\+Enable&Gpio pin open drain enable \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Gpio\+Open\+Drain\+\_\+\+Max@{en\+E\+P\+C\+F\+Gpio\+Open\+Drain\+\_\+\+Max}!gpio.\+h@{gpio.\+h}}\index{gpio.\+h@{gpio.\+h}!en\+E\+P\+C\+F\+Gpio\+Open\+Drain\+\_\+\+Max@{en\+E\+P\+C\+F\+Gpio\+Open\+Drain\+\_\+\+Max}}}\mbox{\Hypertarget{gpio_8h_a9579adb3002dd77538d63a90fa4380b6a02dbb34deedc13e7e3836758aa7fb99d}\label{gpio_8h_a9579adb3002dd77538d63a90fa4380b6a02dbb34deedc13e7e3836758aa7fb99d}} 
+en\+E\+P\+C\+F\+Gpio\+Open\+Drain\+\_\+\+Max&Special value for boundary checking \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{gpio_8h_a8bd613b45fca91029b7efd5bc3b101ed}\label{gpio_8h_a8bd613b45fca91029b7efd5bc3b101ed}} 
+\index{gpio.\+h@{gpio.\+h}!epcf\+\_\+gpio\+\_\+clear@{epcf\+\_\+gpio\+\_\+clear}}
+\index{epcf\+\_\+gpio\+\_\+clear@{epcf\+\_\+gpio\+\_\+clear}!gpio.\+h@{gpio.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+gpio\+\_\+clear()}{epcf\_gpio\_clear()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+gpio\+\_\+clear (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio_8h_adfec01793a42f8d4668a8963ab42a2df}{E\+P\+C\+F\+Gpio\+Device\+\_\+t}} $\ast$}]{p\+Gpiodevice }\end{DoxyParamCaption})}
+
+
+
+This function is used to clear an gpio, for a particular gpio device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Gpiodevice} & Pointer to the gpio device structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{gpio_8h_a23cc2fd736b851fd7eb7157783576ca6}\label{gpio_8h_a23cc2fd736b851fd7eb7157783576ca6}} 
+\index{gpio.\+h@{gpio.\+h}!epcf\+\_\+gpio\+\_\+create\+Native@{epcf\+\_\+gpio\+\_\+create\+Native}}
+\index{epcf\+\_\+gpio\+\_\+create\+Native@{epcf\+\_\+gpio\+\_\+create\+Native}!gpio.\+h@{gpio.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+gpio\+\_\+create\+Native()}{epcf\_gpio\_createNative()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gpio_8h_adfec01793a42f8d4668a8963ab42a2df}{E\+P\+C\+F\+Gpio\+Device\+\_\+t}}$\ast$ epcf\+\_\+gpio\+\_\+create\+Native (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFGpioCfg__t}{E\+P\+C\+F\+Gpio\+Cfg\+\_\+t}} $\ast$}]{p\+Gpio\+Config }\end{DoxyParamCaption})}
+
+
+
+This function is used to create an gpio device. Call this function in beginning to initialize the gpio device. This function allocates memory for the device using malloc() function call and returns a pointer to the device. Pass this device pointer while calling gpio functions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Gpio\+Config} & Pointer to the gpio configuration structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+On success, it return the pointer to gpio device. On error, it returns N\+U\+LL. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{gpio_8h_ae3d5fe3691dd0966bf64daeabd3fe4f6}\label{gpio_8h_ae3d5fe3691dd0966bf64daeabd3fe4f6}} 
+\index{gpio.\+h@{gpio.\+h}!epcf\+\_\+gpio\+\_\+get\+Device\+Count@{epcf\+\_\+gpio\+\_\+get\+Device\+Count}}
+\index{epcf\+\_\+gpio\+\_\+get\+Device\+Count@{epcf\+\_\+gpio\+\_\+get\+Device\+Count}!gpio.\+h@{gpio.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+gpio\+\_\+get\+Device\+Count()}{epcf\_gpio\_getDeviceCount()}}
+{\footnotesize\ttfamily uint8\+\_\+t epcf\+\_\+gpio\+\_\+get\+Device\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function is used to set an gpio, for a particular gpio device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Gpiodevice} & Pointer to the gpio device structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{gpio_8h_aa769c465bd4fc39cdb2fcb1e8662557d}\label{gpio_8h_aa769c465bd4fc39cdb2fcb1e8662557d}} 
+\index{gpio.\+h@{gpio.\+h}!epcf\+\_\+gpio\+\_\+int\+Attach\+Callback@{epcf\+\_\+gpio\+\_\+int\+Attach\+Callback}}
+\index{epcf\+\_\+gpio\+\_\+int\+Attach\+Callback@{epcf\+\_\+gpio\+\_\+int\+Attach\+Callback}!gpio.\+h@{gpio.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+gpio\+\_\+int\+Attach\+Callback()}{epcf\_gpio\_intAttachCallback()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+gpio\+\_\+int\+Attach\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio_8h_adfec01793a42f8d4668a8963ab42a2df}{E\+P\+C\+F\+Gpio\+Device\+\_\+t}} $\ast$}]{p\+Gpio\+Device,  }\item[{epcf\+Callback\+\_\+fp}]{p\+Callback }\end{DoxyParamCaption})}
+
+
+
+This function is used to attach an Gpio interrupt callback according to the interrupt mode selected while configuring the device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Gpio\+Device} & Pointer to the Gpio device. \\
+\hline
+{\em callback} & User callback to be called\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Call this function before enabling the Gpio interrupt device. To attach a callback if Gpio interrupt has already enabled\+:
+\begin{DoxyEnumerate}
+\item Disable interrupt on Gpio device.
+\item Attach a callback.
+\item Enable interrupt on Gpio device again. 
+\end{DoxyEnumerate}
+\end{DoxyNote}
+\mbox{\Hypertarget{gpio_8h_a06a51416e2fc6b1406eced685b810c96}\label{gpio_8h_a06a51416e2fc6b1406eced685b810c96}} 
+\index{gpio.\+h@{gpio.\+h}!epcf\+\_\+gpio\+\_\+int\+Detach\+Callback@{epcf\+\_\+gpio\+\_\+int\+Detach\+Callback}}
+\index{epcf\+\_\+gpio\+\_\+int\+Detach\+Callback@{epcf\+\_\+gpio\+\_\+int\+Detach\+Callback}!gpio.\+h@{gpio.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+gpio\+\_\+int\+Detach\+Callback()}{epcf\_gpio\_intDetachCallback()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+gpio\+\_\+int\+Detach\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio_8h_adfec01793a42f8d4668a8963ab42a2df}{E\+P\+C\+F\+Gpio\+Device\+\_\+t}} $\ast$}]{p\+Gpio\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to detach an Gpio interrupt callback for the device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Gpio\+Device} & Pointer to the Gpio interrupt device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Call this function before enabling the Gpio interrupt device. To detach a callback if Gpio interrupt has already enabled\+:
+\begin{DoxyEnumerate}
+\item Disable interrupt on Gpio device.
+\item Detach the callback.
+\item Enable interrupt on Gpio device again. 
+\end{DoxyEnumerate}
+\end{DoxyNote}
+\mbox{\Hypertarget{gpio_8h_aeabfc793cfcf8ff2c0d5900394860681}\label{gpio_8h_aeabfc793cfcf8ff2c0d5900394860681}} 
+\index{gpio.\+h@{gpio.\+h}!epcf\+\_\+gpio\+\_\+int\+Disable@{epcf\+\_\+gpio\+\_\+int\+Disable}}
+\index{epcf\+\_\+gpio\+\_\+int\+Disable@{epcf\+\_\+gpio\+\_\+int\+Disable}!gpio.\+h@{gpio.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+gpio\+\_\+int\+Disable()}{epcf\_gpio\_intDisable()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+gpio\+\_\+int\+Disable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio_8h_adfec01793a42f8d4668a8963ab42a2df}{E\+P\+C\+F\+Gpio\+Device\+\_\+t}} $\ast$}]{p\+Gpio\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to disable interrupt on Gpio device. User callback will not get called after the device interrupt has been disabled. The device interrupt can be enabled again by a call to the function E\+P\+C\+F\+\_\+\+G\+P\+I\+O\+I\+N\+T\+\_\+\+E\+N\+A\+B\+LE. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Gpio\+Device} & Pointer to the Gpio device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{gpio_8h_ad9b75e3ea7f6abe37bacfbc7a2101a53}\label{gpio_8h_ad9b75e3ea7f6abe37bacfbc7a2101a53}} 
+\index{gpio.\+h@{gpio.\+h}!epcf\+\_\+gpio\+\_\+int\+Enable@{epcf\+\_\+gpio\+\_\+int\+Enable}}
+\index{epcf\+\_\+gpio\+\_\+int\+Enable@{epcf\+\_\+gpio\+\_\+int\+Enable}!gpio.\+h@{gpio.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+gpio\+\_\+int\+Enable()}{epcf\_gpio\_intEnable()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+gpio\+\_\+int\+Enable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio_8h_adfec01793a42f8d4668a8963ab42a2df}{E\+P\+C\+F\+Gpio\+Device\+\_\+t}} $\ast$}]{p\+Gpio\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to enable the interrupt on gpio device. User callback, if attached will be called when the status of pin changes according to mode of the device while configuring. It can be disabled by a call to the function E\+P\+C\+F\+\_\+\+G\+P\+I\+O\+I\+N\+T\+\_\+\+D\+I\+S\+A\+B\+LE. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Gpio\+Device} & Pointer to the Gpio device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{gpio_8h_a18b15135deb7c8b8477d82b3320d3c08}\label{gpio_8h_a18b15135deb7c8b8477d82b3320d3c08}} 
+\index{gpio.\+h@{gpio.\+h}!epcf\+\_\+gpio\+\_\+read@{epcf\+\_\+gpio\+\_\+read}}
+\index{epcf\+\_\+gpio\+\_\+read@{epcf\+\_\+gpio\+\_\+read}!gpio.\+h@{gpio.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+gpio\+\_\+read()}{epcf\_gpio\_read()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+gpio\+\_\+read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio_8h_adfec01793a42f8d4668a8963ab42a2df}{E\+P\+C\+F\+Gpio\+Device\+\_\+t}} $\ast$}]{p\+Gpiodevice }\end{DoxyParamCaption})}
+
+
+
+This function is used to read an gpio, for a particular gpio device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Gpiodevice} & Pointer to the gpio device structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{gpio_8h_a253c5779c19c8a975669c64a21011dda}\label{gpio_8h_a253c5779c19c8a975669c64a21011dda}} 
+\index{gpio.\+h@{gpio.\+h}!epcf\+\_\+gpio\+\_\+set@{epcf\+\_\+gpio\+\_\+set}}
+\index{epcf\+\_\+gpio\+\_\+set@{epcf\+\_\+gpio\+\_\+set}!gpio.\+h@{gpio.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+gpio\+\_\+set()}{epcf\_gpio\_set()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+gpio\+\_\+set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio_8h_adfec01793a42f8d4668a8963ab42a2df}{E\+P\+C\+F\+Gpio\+Device\+\_\+t}} $\ast$}]{p\+Gpiodevice }\end{DoxyParamCaption})}
+
+
+
+This function is used to set an gpio, for a particular gpio device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Gpiodevice} & Pointer to the gpio device structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{gpio_8h_a98670f2bd2f9f0f0cf536404e8042d06}\label{gpio_8h_a98670f2bd2f9f0f0cf536404e8042d06}} 
+\index{gpio.\+h@{gpio.\+h}!epcf\+\_\+gpio\+\_\+set\+Direction@{epcf\+\_\+gpio\+\_\+set\+Direction}}
+\index{epcf\+\_\+gpio\+\_\+set\+Direction@{epcf\+\_\+gpio\+\_\+set\+Direction}!gpio.\+h@{gpio.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+gpio\+\_\+set\+Direction()}{epcf\_gpio\_setDirection()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+gpio\+\_\+set\+Direction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio_8h_adfec01793a42f8d4668a8963ab42a2df}{E\+P\+C\+F\+Gpio\+Device\+\_\+t}} $\ast$}]{p\+Gpiodevice,  }\item[{\mbox{\hyperlink{gpio_8h_acfac25969bd9ca852e4a8293fccf01b1}{En\+E\+P\+C\+F\+Gpio\+Direction\+\_\+t}}}]{direction }\end{DoxyParamCaption})}
+
+
+
+This function is used to set direction of gpio, for a particular gpio device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Gpiodevice} & Pointer to the gpio device structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}

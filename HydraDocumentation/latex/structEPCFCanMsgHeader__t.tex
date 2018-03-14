@@ -1,0 +1,69 @@
+\hypertarget{structEPCFCanMsgHeader__t}{}\section{E\+P\+C\+F\+Can\+Msg\+Header\+\_\+t Struct Reference}
+\label{structEPCFCanMsgHeader__t}\index{E\+P\+C\+F\+Can\+Msg\+Header\+\_\+t@{E\+P\+C\+F\+Can\+Msg\+Header\+\_\+t}}
+
+
+C\+AN message header structure.  
+
+
+
+
+{\ttfamily \#include $<$can.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{can_8h_a5edf07e1dd389b138138a38d7b513eb3}{En\+E\+P\+C\+F\+Can\+Frame\+Format\+\_\+t}} \mbox{\hyperlink{structEPCFCanMsgHeader__t_a76efcf8bc5f6ec5c88d46c66c91b10ff}{frame\+Format}}
+\item 
+\mbox{\hyperlink{can_8h_a3ba32a3cfd614cbd886a7c62b692defc}{En\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+t}} \mbox{\hyperlink{structEPCFCanMsgHeader__t_aa62b2d4a72a8c7251efc3b54296a5e38}{frame\+Type}}
+\item 
+\mbox{\hyperlink{can_8h_a1a558e4259c2520bc9727ff9a8941fac}{En\+E\+P\+C\+F\+Data\+Length\+\_\+t}} \mbox{\hyperlink{structEPCFCanMsgHeader__t_ae2e652a36b29fcb32ac8581e59114d08}{length}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structEPCFCanMsgHeader__t_ab65259bd2e786aa9842f0b2dc23b394b}{id}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+C\+AN message header structure. 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structEPCFCanMsgHeader__t_a76efcf8bc5f6ec5c88d46c66c91b10ff}\label{structEPCFCanMsgHeader__t_a76efcf8bc5f6ec5c88d46c66c91b10ff}} 
+\index{E\+P\+C\+F\+Can\+Msg\+Header\+\_\+t@{E\+P\+C\+F\+Can\+Msg\+Header\+\_\+t}!frame\+Format@{frame\+Format}}
+\index{frame\+Format@{frame\+Format}!E\+P\+C\+F\+Can\+Msg\+Header\+\_\+t@{E\+P\+C\+F\+Can\+Msg\+Header\+\_\+t}}
+\subsubsection{\texorpdfstring{frame\+Format}{frameFormat}}
+{\footnotesize\ttfamily \mbox{\hyperlink{can_8h_a5edf07e1dd389b138138a38d7b513eb3}{En\+E\+P\+C\+F\+Can\+Frame\+Format\+\_\+t}} E\+P\+C\+F\+Can\+Msg\+Header\+\_\+t\+::frame\+Format}
+
+This enum describes identifier Format\+:
+\begin{DoxyItemize}
+\item en\+E\+P\+C\+F\+Can\+Frame\+Standard\+: Standard ID -\/ 11 bit format
+\item en\+E\+P\+C\+F\+Can\+Frame\+Extended\+: Extended ID -\/ 29 bit format 
+\end{DoxyItemize}\mbox{\Hypertarget{structEPCFCanMsgHeader__t_aa62b2d4a72a8c7251efc3b54296a5e38}\label{structEPCFCanMsgHeader__t_aa62b2d4a72a8c7251efc3b54296a5e38}} 
+\index{E\+P\+C\+F\+Can\+Msg\+Header\+\_\+t@{E\+P\+C\+F\+Can\+Msg\+Header\+\_\+t}!frame\+Type@{frame\+Type}}
+\index{frame\+Type@{frame\+Type}!E\+P\+C\+F\+Can\+Msg\+Header\+\_\+t@{E\+P\+C\+F\+Can\+Msg\+Header\+\_\+t}}
+\subsubsection{\texorpdfstring{frame\+Type}{frameType}}
+{\footnotesize\ttfamily \mbox{\hyperlink{can_8h_a3ba32a3cfd614cbd886a7c62b692defc}{En\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+t}} E\+P\+C\+F\+Can\+Msg\+Header\+\_\+t\+::frame\+Type}
+
+This enum describes the type of the C\+AN frame. en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Unknown\+Frame en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Data\+Frame en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Error\+Frame en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Remote\+Request\+Frame en\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Overlod \mbox{\Hypertarget{structEPCFCanMsgHeader__t_ab65259bd2e786aa9842f0b2dc23b394b}\label{structEPCFCanMsgHeader__t_ab65259bd2e786aa9842f0b2dc23b394b}} 
+\index{E\+P\+C\+F\+Can\+Msg\+Header\+\_\+t@{E\+P\+C\+F\+Can\+Msg\+Header\+\_\+t}!id@{id}}
+\index{id@{id}!E\+P\+C\+F\+Can\+Msg\+Header\+\_\+t@{E\+P\+C\+F\+Can\+Msg\+Header\+\_\+t}}
+\subsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily uint32\+\_\+t E\+P\+C\+F\+Can\+Msg\+Header\+\_\+t\+::id}
+
+C\+AN identifier value, it depends on \char`\"{}\+En\+E\+P\+C\+F\+Can\+Frame\+Format\+\_\+t\char`\"{} value
+\begin{DoxyItemize}
+\item for en\+E\+P\+C\+F\+Can\+Frame\+Standard, it should be 11 bit identifier
+\item for en\+E\+P\+C\+F\+Can\+Frame\+Extended, it should be 29 bit identifier Note \+: do not missinterpretate term \textquotesingle{}id\textquotesingle{} with can\+Id from \mbox{\hyperlink{structEPCFCanCfg__t}{E\+P\+C\+F\+Can\+Cfg\+\_\+t}}, here id represents identifier which is part of standard can bus frame. 
+\end{DoxyItemize}\mbox{\Hypertarget{structEPCFCanMsgHeader__t_ae2e652a36b29fcb32ac8581e59114d08}\label{structEPCFCanMsgHeader__t_ae2e652a36b29fcb32ac8581e59114d08}} 
+\index{E\+P\+C\+F\+Can\+Msg\+Header\+\_\+t@{E\+P\+C\+F\+Can\+Msg\+Header\+\_\+t}!length@{length}}
+\index{length@{length}!E\+P\+C\+F\+Can\+Msg\+Header\+\_\+t@{E\+P\+C\+F\+Can\+Msg\+Header\+\_\+t}}
+\subsubsection{\texorpdfstring{length}{length}}
+{\footnotesize\ttfamily \mbox{\hyperlink{can_8h_a1a558e4259c2520bc9727ff9a8941fac}{En\+E\+P\+C\+F\+Data\+Length\+\_\+t}} E\+P\+C\+F\+Can\+Msg\+Header\+\_\+t\+::length}
+
+Length of data field in bytes,
+\begin{DoxyItemize}
+\item minimum \+:1 byte
+\item maximum \+:8 bytes Select appropriate value from enum En\+E\+P\+C\+F\+Data\+Len\+\_\+t 
+\end{DoxyItemize}
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+epcf\+\_\+project/epcf/peripheral/include/can/\mbox{\hyperlink{can_8h}{can.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,812 @@
+\hypertarget{timer_8h}{}\section{epcf\+\_\+project/epcf/peripheral/include/timer/timer.h File Reference}
+\label{timer_8h}\index{epcf\+\_\+project/epcf/peripheral/include/timer/timer.\+h@{epcf\+\_\+project/epcf/peripheral/include/timer/timer.\+h}}
+
+
+This file is used to configure a Timer device.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structEPCFTimerCfg__t}{E\+P\+C\+F\+Timer\+Cfg\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Timer configuration structure Example to configure timer in timer mode\+: \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}\label{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}} 
+typedef struct \mbox{\hyperlink{structEPCFTimerDevice}{E\+P\+C\+F\+Timer\+Device}} \mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Timer device. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{timer_8h_a49758bdd75c2efdc7fae554a566a3420}{En\+E\+P\+C\+F\+Timer\+Channel\+\_\+t}} \{ \newline
+\mbox{\hyperlink{timer_8h_a49758bdd75c2efdc7fae554a566a3420a924923d73551e1e0928e6218931d8de7}{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+0}} = 0, 
+\mbox{\hyperlink{timer_8h_a49758bdd75c2efdc7fae554a566a3420acd7e3d35f0c9969222b7c485042e2823}{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+1}}, 
+\mbox{\hyperlink{timer_8h_a49758bdd75c2efdc7fae554a566a3420a33804178fbbb13bf52c4523d725f0688}{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+2}}, 
+\mbox{\hyperlink{timer_8h_a49758bdd75c2efdc7fae554a566a3420a11cc5fdf523e82d3c79821c9152d4f6a}{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+3}}, 
+\newline
+\mbox{\hyperlink{timer_8h_a49758bdd75c2efdc7fae554a566a3420ae4890e794713137389c9a1d41e3d2794}{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+4}}, 
+\mbox{\hyperlink{timer_8h_a49758bdd75c2efdc7fae554a566a3420af040804f6ab9bb2bda19867ddae33f61}{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+5}}, 
+\mbox{\hyperlink{timer_8h_a49758bdd75c2efdc7fae554a566a3420a704e30075aaca66a7ca7c31822aafc0a}{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+6}}, 
+\mbox{\hyperlink{timer_8h_a49758bdd75c2efdc7fae554a566a3420a615227f7196f1eed477ce11873e45e95}{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+7}}, 
+\newline
+\mbox{\hyperlink{timer_8h_a49758bdd75c2efdc7fae554a566a3420a848ee217c896b64a3fc5e418723dfcb6}{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+8}}, 
+\mbox{\hyperlink{timer_8h_a49758bdd75c2efdc7fae554a566a3420a8e16e1f23e407f2979eb028952c54fcb}{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+9}}, 
+\mbox{\hyperlink{timer_8h_a49758bdd75c2efdc7fae554a566a3420a791a0fe1c4a9a2b703aeac713acb7ed0}{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+10}}, 
+\mbox{\hyperlink{timer_8h_a49758bdd75c2efdc7fae554a566a3420ab62e91c6163b3b2e4c19391f37a830a1}{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+11}}, 
+\newline
+\mbox{\hyperlink{timer_8h_a49758bdd75c2efdc7fae554a566a3420a6120ad83169444610f14ad340706805a}{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+12}}, 
+\mbox{\hyperlink{timer_8h_a49758bdd75c2efdc7fae554a566a3420aacee3623cf56d672421452c56f927f6b}{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+13}}, 
+\mbox{\hyperlink{timer_8h_a49758bdd75c2efdc7fae554a566a3420a5e2176c8e42fd6d4a4d8d61a990804f4}{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+14}}, 
+\mbox{\hyperlink{timer_8h_a49758bdd75c2efdc7fae554a566a3420a5a686e6d53644794d926e67f47ce49e2}{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+15}}, 
+\newline
+\mbox{\hyperlink{timer_8h_a49758bdd75c2efdc7fae554a566a3420a5f2b4e49f02fb39864f88712a996c731}{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+\+Max}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration for Channel number. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{timer_8h_a88093e16b89eaa9d2df5fc6285cffa9f}{En\+E\+P\+C\+F\+Timer\+Width\+\_\+t}} \{ \newline
+\mbox{\hyperlink{timer_8h_a88093e16b89eaa9d2df5fc6285cffa9fae141940ae5b5028db7d512cac5cde931}{en\+E\+P\+C\+F\+Timer\+Width\+\_\+8}} = 0, 
+\mbox{\hyperlink{timer_8h_a88093e16b89eaa9d2df5fc6285cffa9fa2b8f0509499fe9f5b127b1c89c65a6db}{en\+E\+P\+C\+F\+Timer\+Width\+\_\+16}}, 
+\mbox{\hyperlink{timer_8h_a88093e16b89eaa9d2df5fc6285cffa9fa13073ab5ca86f3203dabc8cd5c230b74}{en\+E\+P\+C\+F\+Timer\+Width\+\_\+32}}, 
+\mbox{\hyperlink{timer_8h_a88093e16b89eaa9d2df5fc6285cffa9fa7094b726f754e05bf5312daae1058673}{en\+E\+P\+C\+F\+Timer\+Width\+\_\+64}}, 
+\newline
+\mbox{\hyperlink{timer_8h_a88093e16b89eaa9d2df5fc6285cffa9fa4a4fff3116592c68d162c707743ca367}{en\+E\+P\+C\+F\+Timer\+Width\+\_\+\+Max}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration for Timer width. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{timer_8h_a51bff4a4babb9c83592664dca0f1f0e8}{En\+E\+P\+C\+F\+Timer\+Mode\+\_\+t}} \{ \mbox{\hyperlink{timer_8h_a51bff4a4babb9c83592664dca0f1f0e8a1809a6dcdf1c59485a76fe8dbb5dff80}{en\+E\+P\+C\+F\+Timer\+Mode\+\_\+\+Timer}} = 0, 
+\mbox{\hyperlink{timer_8h_a51bff4a4babb9c83592664dca0f1f0e8afbfd9e26c0bc5f25b4f2b1d5f8e230cd}{en\+E\+P\+C\+F\+Timer\+Mode\+\_\+\+Counter}}, 
+\mbox{\hyperlink{timer_8h_a51bff4a4babb9c83592664dca0f1f0e8ae1084337079b823aadf3b39fe1ff4394}{en\+E\+P\+C\+F\+Timer\+Mode\+\_\+\+Max}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration for Timer mode. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{timer_8h_a18c68e21ca83222d19af8f4aa976c29e}{En\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+t}} \{ \newline
+\mbox{\hyperlink{timer_8h_a18c68e21ca83222d19af8f4aa976c29ead27e25bdfecb5b5d1c2732cc7bec1fb8}{en\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+\+None}} = 0, 
+\mbox{\hyperlink{timer_8h_a18c68e21ca83222d19af8f4aa976c29eaea1d28133d194330e4442f7f9fe64974}{en\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+\+Reset}}, 
+\mbox{\hyperlink{timer_8h_a18c68e21ca83222d19af8f4aa976c29ea9aa91a86e0b1919212ebabfb0eb12a04}{en\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+\+Stop}}, 
+\mbox{\hyperlink{timer_8h_a18c68e21ca83222d19af8f4aa976c29ea9c5ba170d5b7f6dd193482f954496e2e}{en\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+\+Stop\+Reset}}, 
+\newline
+\mbox{\hyperlink{timer_8h_a18c68e21ca83222d19af8f4aa976c29ea915c642957428f602d677699499050ed}{en\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+\+Max}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration for compare match action. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{timer_8h_a05cae95f26f7014a386031b3e1fb4e91}{En\+E\+P\+C\+F\+Timer\+Pin\+Action}} \{ \newline
+\mbox{\hyperlink{timer_8h_a05cae95f26f7014a386031b3e1fb4e91a94bc5f9b46af43811748d12758a9ea86}{en\+E\+P\+C\+F\+Timer\+Pin\+Action\+\_\+\+None}} = 0, 
+\mbox{\hyperlink{timer_8h_a05cae95f26f7014a386031b3e1fb4e91a5d8db35b1f46213f2b8ba2a3c41bc6b2}{en\+E\+P\+C\+F\+Timer\+Pin\+Action\+\_\+\+Clear}}, 
+\mbox{\hyperlink{timer_8h_a05cae95f26f7014a386031b3e1fb4e91a87942c35bc1be143e3d29febf263a8e6}{en\+E\+P\+C\+F\+Timer\+Pin\+Action\+\_\+\+Set}}, 
+\mbox{\hyperlink{timer_8h_a05cae95f26f7014a386031b3e1fb4e91ae68c2beb10667dcd0557132281453813}{en\+E\+P\+C\+F\+Timer\+Pin\+Action\+\_\+toggle}}, 
+\newline
+\mbox{\hyperlink{timer_8h_a05cae95f26f7014a386031b3e1fb4e91aa7050ae24ef775d3fffec923d590f375}{en\+E\+P\+C\+F\+Timer\+Pin\+Action\+\_\+\+Max}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration for pin compare match action. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{timer_8h_a69d9d8868241b493f34d11688821a70e}{En\+E\+P\+C\+F\+Timer\+Input\+Polarity\+\_\+t}} \{ \newline
+\mbox{\hyperlink{timer_8h_a69d9d8868241b493f34d11688821a70ea6e70c2ba2c929b8123f49a4a208b64d9}{en\+E\+P\+C\+F\+Timer\+\_\+\+None}} = 0, 
+\mbox{\hyperlink{timer_8h_a69d9d8868241b493f34d11688821a70ea1a4602db9565fa6c79e36711974e1a82}{en\+E\+P\+C\+F\+Timer\+\_\+\+Rising\+Edge}}, 
+\mbox{\hyperlink{timer_8h_a69d9d8868241b493f34d11688821a70eac26cd53e64b403d7e488f4e0a838d366}{en\+E\+P\+C\+F\+Timer\+\_\+\+Falling\+Edge}}, 
+\mbox{\hyperlink{timer_8h_a69d9d8868241b493f34d11688821a70ea718feedbc00bc54bd3c46eb1c82ff486}{en\+E\+P\+C\+F\+Timer\+\_\+\+Both\+Edge}}, 
+\newline
+\mbox{\hyperlink{timer_8h_a69d9d8868241b493f34d11688821a70ea8de0f1cfb780f487b52dc3b728d7aa36}{en\+E\+P\+C\+F\+Timer\+\_\+\+Max}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration for input pin polarity. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2}{En\+E\+P\+C\+F\+Timer\+Interrupt\+Source\+\_\+t}} \{ \newline
+\mbox{\hyperlink{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a92da1c8750915c1130d9c90f7156f9d9}{en\+E\+P\+C\+F\+Timer\+\_\+\+Overflow}} = 0, 
+\mbox{\hyperlink{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a4e7761cf1a0038afd9761f3f449e6ab8}{en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+0}}, 
+\mbox{\hyperlink{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a821a6ed4416945b3d55b1c80b1dfb45b}{en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+1}}, 
+\mbox{\hyperlink{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2adfbcf6cf3b58516387e0833127604e82}{en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+2}}, 
+\newline
+\mbox{\hyperlink{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a7fa2027a23a13a73cbad6ef525e5018d}{en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+3}}, 
+\mbox{\hyperlink{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2abc00c43811df35cfb64badf989d53c1c}{en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+4}}, 
+\mbox{\hyperlink{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a15d59e9ebd67151d03fee081b3ef6e83}{en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+5}}, 
+\mbox{\hyperlink{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a8a03b2a214c64c8603e4385efe25fe63}{en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+0}}, 
+\newline
+\mbox{\hyperlink{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a43efbb25fac489866737f5e9e0899c00}{en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+1}}, 
+\mbox{\hyperlink{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a4d9e4613bea7f1ff7e148a5b5be17816}{en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+2}}, 
+\mbox{\hyperlink{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a832afe8dba57127c865d99fcf568fc2c}{en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+3}}, 
+\mbox{\hyperlink{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a0e682d43a89bd94ae90e8b999f1cfc32}{en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+4}}, 
+\newline
+\mbox{\hyperlink{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a0e4fdd064621fdd96b91a653aaadafd5}{en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+5}}, 
+\mbox{\hyperlink{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a65c27d36f8139f003e3789dba2dcb043}{en\+E\+P\+C\+F\+Timer\+Interrupt\+Source\+\_\+\+Max}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration for interrupt source. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{timer_8h_a545dac1050db5d1a791dca4df3830de8}{En\+E\+P\+C\+F\+Timer\+State\+\_\+t}} \{ \mbox{\hyperlink{timer_8h_a545dac1050db5d1a791dca4df3830de8afe33601d81e61639826cec3f597795dd}{en\+E\+P\+C\+F\+Timer\+State\+\_\+\+Stopped}} = 0, 
+\mbox{\hyperlink{timer_8h_a545dac1050db5d1a791dca4df3830de8a1732f335fdf0dd34eda3fb9ef9dbe64e}{en\+E\+P\+C\+F\+Timer\+State\+\_\+\+Running}}, 
+\mbox{\hyperlink{timer_8h_a545dac1050db5d1a791dca4df3830de8a81cc2604e6491aa440638f80b80dfd09}{en\+E\+P\+C\+F\+Timer\+State\+\_\+\+Max}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration for current state of timer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$ \mbox{\hyperlink{timer_8h_a057d7fb4ee27ea70d843f313e7948f7e}{epcf\+\_\+timer\+\_\+create\+Native}} (\mbox{\hyperlink{structEPCFTimerCfg__t}{E\+P\+C\+F\+Timer\+Cfg\+\_\+t}} $\ast$p\+Timer\+Config)
+\begin{DoxyCompactList}\small\item\em This function is used to create a timer. Call this function in beginning to initialize the timer. This function allocates memory for the device using malloc() function call and returns a pointer to the device. Pass this device pointer while calling timer functions. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{timer_8h_a6d7fbc41add267502873da2d7b3a6848}{epcf\+\_\+timer\+\_\+start}} (\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$p\+Timer\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to start the timer. The timer starts counting and will run according to the configuration. It can be stopped by a call to the function E\+P\+C\+F\+\_\+\+T\+I\+M\+E\+R\+\_\+\+S\+T\+OP. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{timer_8h_a23c824708319387ad92228cc98e7531f}{epcf\+\_\+timer\+\_\+stop}} (\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$p\+Timer\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to stop the running timer. The timer counting is stopped and can be started again by a call to the function E\+P\+C\+F\+\_\+\+T\+I\+M\+E\+R\+\_\+\+S\+T\+A\+RT. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{timer_8h_aeb2c3ce309a2389e10b4ecd8f54b2a49}{epcf\+\_\+timer\+\_\+reset}} (\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$p\+Timer\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to reset the timer. The timer count will be set to the initial value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{timer_8h_a545dac1050db5d1a791dca4df3830de8}{En\+E\+P\+C\+F\+Timer\+State\+\_\+t}} \mbox{\hyperlink{timer_8h_a14af049adeaef5cc3f3fde90f1fe76ce}{epcf\+\_\+timer\+\_\+get\+State}} (\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$p\+Timer\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to get the current state of the timer. Timer can be started by a call to the function E\+P\+C\+F\+\_\+\+T\+I\+M\+E\+R\+\_\+\+S\+T\+A\+RT. Timer can be stopped by a call to the function E\+P\+C\+F\+\_\+\+T\+I\+M\+E\+R\+\_\+\+S\+T\+OP. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{timer_8h_a3b4ff74d5b2f76582ed2e586d0739cb2}{epcf\+\_\+timer\+\_\+get\+Time}} (\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$p\+Timer\+Device, E\+P\+C\+F\+Time\+\_\+t $\ast$time)
+\begin{DoxyCompactList}\small\item\em This function is used to read the current time value. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{timer_8h_a7ab75ebabd2d855bdbe9bf1290711e78}{epcf\+\_\+timer\+\_\+set\+Counter}} (\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$p\+Timer\+Device, \mbox{\hyperlink{timer_8h_a49758bdd75c2efdc7fae554a566a3420}{En\+E\+P\+C\+F\+Timer\+Channel\+\_\+t}} channel, \mbox{\hyperlink{timer_8h_a69d9d8868241b493f34d11688821a70e}{En\+E\+P\+C\+F\+Timer\+Input\+Polarity\+\_\+t}} input\+Polarity)
+\begin{DoxyCompactList}\small\item\em This function is used to set input polarity of capture signal for getting counter value in counter mode. This function will return error if timer is configured in timer mode. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{timer_8h_ae25969764b4c85f1790bdffc16179a12}{epcf\+\_\+timer\+\_\+get\+Counter\+Value}} (\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$p\+Timer\+Device, uint32\+\_\+t $\ast$count)
+\begin{DoxyCompactList}\small\item\em This function is used to read the current timer count in both timer and counter mode. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{timer_8h_a73fb228a6120b6e9e7ac90ab02296159}{epcf\+\_\+timer\+\_\+attach\+Callback}} (\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$p\+Timer\+Device, \mbox{\hyperlink{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2}{En\+E\+P\+C\+F\+Timer\+Interrupt\+Source\+\_\+t}} interrupt\+Source, epcf\+Callback\+\_\+fp callback)
+\begin{DoxyCompactList}\small\item\em This function is used to attach a timer callback for the specific timer interrupt source. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{timer_8h_abcda35cdd47b96d546961a7d067ebdca}{epcf\+\_\+timer\+\_\+detach\+Callback}} (\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$p\+Timer\+Device, \mbox{\hyperlink{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2}{En\+E\+P\+C\+F\+Timer\+Interrupt\+Source\+\_\+t}} interrupt\+Source)
+\begin{DoxyCompactList}\small\item\em This function is used to detach the timer callback for the specific timer interrupt source. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{timer_8h_adfb8b27d1b568b70a8b0563b7d23aba8}{epcf\+\_\+timer\+\_\+set\+Compare\+Time}} (\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$p\+Timer\+Device, \mbox{\hyperlink{timer_8h_a49758bdd75c2efdc7fae554a566a3420}{En\+E\+P\+C\+F\+Timer\+Channel\+\_\+t}} channel, \mbox{\hyperlink{timer_8h_a18c68e21ca83222d19af8f4aa976c29e}{En\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+t}} compare\+Action, \mbox{\hyperlink{timer_8h_a05cae95f26f7014a386031b3e1fb4e91}{En\+E\+P\+C\+F\+Timer\+Pin\+Action}} pin\+Action, E\+P\+C\+F\+Time\+\_\+t time)
+\begin{DoxyCompactList}\small\item\em This function is used to set the compare time. Compare channel can be used to trigger an event after the specified time. A compare action and an interrupt can be associated to that event. A user callback is called if there is a callback attached for this interrupt source. The maximum value that should be passed to this function is equal to the period of the timer. Timer period = resolution x (2$^\wedge$timer\+Width). For example\+: Consider an 8-\/bit timer with resolution = 0.\+25 microseconds and configured as a periodic type. If time count == 5 and unit is equal to en\+E\+P\+C\+F\+Time\+Unit\+\_\+us, then user callback will be called after every 5 microseconds. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{timer_8h_a363d9244d534de53dabc73523e37c3ff}{epcf\+\_\+timer\+\_\+set\+Input\+Capture}} (\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$p\+Timer\+Device, \mbox{\hyperlink{timer_8h_a49758bdd75c2efdc7fae554a566a3420}{En\+E\+P\+C\+F\+Timer\+Channel\+\_\+t}} channel, \mbox{\hyperlink{timer_8h_a69d9d8868241b493f34d11688821a70e}{En\+E\+P\+C\+F\+Timer\+Input\+Polarity\+\_\+t}} input\+Polarity)
+\begin{DoxyCompactList}\small\item\em This function is used to set input polarity of the input capture channel. An input capture channel can be used to get width of the input signal. It can also be used to generate an interrupt and a user callback is called if there is a callback attached for this interrupt source. For example\+: Consider a configuration in which timer resolution = 0.\+25 microseconds and input capture channel is configured to detect falling clock edge on channel0. If the signal is in high state when the timer has started and comes to a low state after 5 microseconds. Then, an interrupt will be generated after 5 microseconds. Use E\+P\+C\+F\+\_\+\+T\+I\+M\+E\+R\+\_\+\+G\+E\+T\+\_\+\+I\+N\+P\+U\+T\+\_\+\+C\+A\+P\+T\+U\+R\+E\+\_\+\+T\+I\+ME function to get width of the signal. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{timer_8h_adc374c0f2ec21d311615d90b641c40bf}{epcf\+\_\+timer\+\_\+get\+Input\+Capture\+Time}} (\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$p\+Timer\+Device, \mbox{\hyperlink{timer_8h_a49758bdd75c2efdc7fae554a566a3420}{En\+E\+P\+C\+F\+Timer\+Channel\+\_\+t}} channel, E\+P\+C\+F\+Time\+\_\+t $\ast$time)
+\begin{DoxyCompactList}\small\item\em This function is used to read the input capture time for the specified channel. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{timer_8h_a6c5662478b4fdfdf19443a3dc6f4f391}{epcf\+\_\+timer\+\_\+close}} (\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$p\+Timer\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to close the timer. It will free the memory allocated by the timer device. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{timer_8h_a3542e21dd40fa50efc2a2ec7715fca53}{epcf\+\_\+timer\+\_\+get\+Device\+Count}} ()
+\begin{DoxyCompactList}\small\item\em This function is used to get the total number of available timer devices. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file is used to configure a Timer device. 
+
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{timer_8h_a49758bdd75c2efdc7fae554a566a3420}\label{timer_8h_a49758bdd75c2efdc7fae554a566a3420}} 
+\index{timer.\+h@{timer.\+h}!En\+E\+P\+C\+F\+Timer\+Channel\+\_\+t@{En\+E\+P\+C\+F\+Timer\+Channel\+\_\+t}}
+\index{En\+E\+P\+C\+F\+Timer\+Channel\+\_\+t@{En\+E\+P\+C\+F\+Timer\+Channel\+\_\+t}!timer.\+h@{timer.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Timer\+Channel\+\_\+t}{EnEPCFTimerChannel\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{timer_8h_a49758bdd75c2efdc7fae554a566a3420}{En\+E\+P\+C\+F\+Timer\+Channel\+\_\+t}}}
+
+
+
+Enumeration for Channel number. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+0@{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+0}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Channel\+\_\+0@{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+0}}}\mbox{\Hypertarget{timer_8h_a49758bdd75c2efdc7fae554a566a3420a924923d73551e1e0928e6218931d8de7}\label{timer_8h_a49758bdd75c2efdc7fae554a566a3420a924923d73551e1e0928e6218931d8de7}} 
+en\+E\+P\+C\+F\+Timer\+Channel\+\_\+0&Channel number 0 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+1@{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+1}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Channel\+\_\+1@{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+1}}}\mbox{\Hypertarget{timer_8h_a49758bdd75c2efdc7fae554a566a3420acd7e3d35f0c9969222b7c485042e2823}\label{timer_8h_a49758bdd75c2efdc7fae554a566a3420acd7e3d35f0c9969222b7c485042e2823}} 
+en\+E\+P\+C\+F\+Timer\+Channel\+\_\+1&Channel number 1 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+2@{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+2}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Channel\+\_\+2@{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+2}}}\mbox{\Hypertarget{timer_8h_a49758bdd75c2efdc7fae554a566a3420a33804178fbbb13bf52c4523d725f0688}\label{timer_8h_a49758bdd75c2efdc7fae554a566a3420a33804178fbbb13bf52c4523d725f0688}} 
+en\+E\+P\+C\+F\+Timer\+Channel\+\_\+2&Channel number 2 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+3@{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+3}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Channel\+\_\+3@{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+3}}}\mbox{\Hypertarget{timer_8h_a49758bdd75c2efdc7fae554a566a3420a11cc5fdf523e82d3c79821c9152d4f6a}\label{timer_8h_a49758bdd75c2efdc7fae554a566a3420a11cc5fdf523e82d3c79821c9152d4f6a}} 
+en\+E\+P\+C\+F\+Timer\+Channel\+\_\+3&Channel number 3 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+4@{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+4}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Channel\+\_\+4@{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+4}}}\mbox{\Hypertarget{timer_8h_a49758bdd75c2efdc7fae554a566a3420ae4890e794713137389c9a1d41e3d2794}\label{timer_8h_a49758bdd75c2efdc7fae554a566a3420ae4890e794713137389c9a1d41e3d2794}} 
+en\+E\+P\+C\+F\+Timer\+Channel\+\_\+4&Channel number 4 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+5@{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+5}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Channel\+\_\+5@{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+5}}}\mbox{\Hypertarget{timer_8h_a49758bdd75c2efdc7fae554a566a3420af040804f6ab9bb2bda19867ddae33f61}\label{timer_8h_a49758bdd75c2efdc7fae554a566a3420af040804f6ab9bb2bda19867ddae33f61}} 
+en\+E\+P\+C\+F\+Timer\+Channel\+\_\+5&Channel number 5 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+6@{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+6}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Channel\+\_\+6@{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+6}}}\mbox{\Hypertarget{timer_8h_a49758bdd75c2efdc7fae554a566a3420a704e30075aaca66a7ca7c31822aafc0a}\label{timer_8h_a49758bdd75c2efdc7fae554a566a3420a704e30075aaca66a7ca7c31822aafc0a}} 
+en\+E\+P\+C\+F\+Timer\+Channel\+\_\+6&Channel number 6 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+7@{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+7}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Channel\+\_\+7@{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+7}}}\mbox{\Hypertarget{timer_8h_a49758bdd75c2efdc7fae554a566a3420a615227f7196f1eed477ce11873e45e95}\label{timer_8h_a49758bdd75c2efdc7fae554a566a3420a615227f7196f1eed477ce11873e45e95}} 
+en\+E\+P\+C\+F\+Timer\+Channel\+\_\+7&Channel number 7 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+8@{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+8}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Channel\+\_\+8@{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+8}}}\mbox{\Hypertarget{timer_8h_a49758bdd75c2efdc7fae554a566a3420a848ee217c896b64a3fc5e418723dfcb6}\label{timer_8h_a49758bdd75c2efdc7fae554a566a3420a848ee217c896b64a3fc5e418723dfcb6}} 
+en\+E\+P\+C\+F\+Timer\+Channel\+\_\+8&Channel number 8 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+9@{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+9}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Channel\+\_\+9@{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+9}}}\mbox{\Hypertarget{timer_8h_a49758bdd75c2efdc7fae554a566a3420a8e16e1f23e407f2979eb028952c54fcb}\label{timer_8h_a49758bdd75c2efdc7fae554a566a3420a8e16e1f23e407f2979eb028952c54fcb}} 
+en\+E\+P\+C\+F\+Timer\+Channel\+\_\+9&Channel number 9 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+10@{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+10}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Channel\+\_\+10@{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+10}}}\mbox{\Hypertarget{timer_8h_a49758bdd75c2efdc7fae554a566a3420a791a0fe1c4a9a2b703aeac713acb7ed0}\label{timer_8h_a49758bdd75c2efdc7fae554a566a3420a791a0fe1c4a9a2b703aeac713acb7ed0}} 
+en\+E\+P\+C\+F\+Timer\+Channel\+\_\+10&Channel number 10 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+11@{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+11}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Channel\+\_\+11@{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+11}}}\mbox{\Hypertarget{timer_8h_a49758bdd75c2efdc7fae554a566a3420ab62e91c6163b3b2e4c19391f37a830a1}\label{timer_8h_a49758bdd75c2efdc7fae554a566a3420ab62e91c6163b3b2e4c19391f37a830a1}} 
+en\+E\+P\+C\+F\+Timer\+Channel\+\_\+11&Channel number 11 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+12@{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+12}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Channel\+\_\+12@{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+12}}}\mbox{\Hypertarget{timer_8h_a49758bdd75c2efdc7fae554a566a3420a6120ad83169444610f14ad340706805a}\label{timer_8h_a49758bdd75c2efdc7fae554a566a3420a6120ad83169444610f14ad340706805a}} 
+en\+E\+P\+C\+F\+Timer\+Channel\+\_\+12&Channel number 12 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+13@{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+13}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Channel\+\_\+13@{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+13}}}\mbox{\Hypertarget{timer_8h_a49758bdd75c2efdc7fae554a566a3420aacee3623cf56d672421452c56f927f6b}\label{timer_8h_a49758bdd75c2efdc7fae554a566a3420aacee3623cf56d672421452c56f927f6b}} 
+en\+E\+P\+C\+F\+Timer\+Channel\+\_\+13&Channel number 13 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+14@{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+14}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Channel\+\_\+14@{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+14}}}\mbox{\Hypertarget{timer_8h_a49758bdd75c2efdc7fae554a566a3420a5e2176c8e42fd6d4a4d8d61a990804f4}\label{timer_8h_a49758bdd75c2efdc7fae554a566a3420a5e2176c8e42fd6d4a4d8d61a990804f4}} 
+en\+E\+P\+C\+F\+Timer\+Channel\+\_\+14&Channel number 14 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+15@{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+15}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Channel\+\_\+15@{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+15}}}\mbox{\Hypertarget{timer_8h_a49758bdd75c2efdc7fae554a566a3420a5a686e6d53644794d926e67f47ce49e2}\label{timer_8h_a49758bdd75c2efdc7fae554a566a3420a5a686e6d53644794d926e67f47ce49e2}} 
+en\+E\+P\+C\+F\+Timer\+Channel\+\_\+15&Channel number 15 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+\+Max@{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+\+Max}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Channel\+\_\+\+Max@{en\+E\+P\+C\+F\+Timer\+Channel\+\_\+\+Max}}}\mbox{\Hypertarget{timer_8h_a49758bdd75c2efdc7fae554a566a3420a5f2b4e49f02fb39864f88712a996c731}\label{timer_8h_a49758bdd75c2efdc7fae554a566a3420a5f2b4e49f02fb39864f88712a996c731}} 
+en\+E\+P\+C\+F\+Timer\+Channel\+\_\+\+Max&Special value for boundary checking \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{timer_8h_a18c68e21ca83222d19af8f4aa976c29e}\label{timer_8h_a18c68e21ca83222d19af8f4aa976c29e}} 
+\index{timer.\+h@{timer.\+h}!En\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+t@{En\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+t}}
+\index{En\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+t@{En\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+t}!timer.\+h@{timer.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+t}{EnEPCFTimerCompareAction\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{timer_8h_a18c68e21ca83222d19af8f4aa976c29e}{En\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+t}}}
+
+
+
+Enumeration for compare match action. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+\+None@{en\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+\+None}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+\+None@{en\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+\+None}}}\mbox{\Hypertarget{timer_8h_a18c68e21ca83222d19af8f4aa976c29ead27e25bdfecb5b5d1c2732cc7bec1fb8}\label{timer_8h_a18c68e21ca83222d19af8f4aa976c29ead27e25bdfecb5b5d1c2732cc7bec1fb8}} 
+en\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+\+None&Take no action on compare match \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+\+Reset@{en\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+\+Reset}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+\+Reset@{en\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+\+Reset}}}\mbox{\Hypertarget{timer_8h_a18c68e21ca83222d19af8f4aa976c29eaea1d28133d194330e4442f7f9fe64974}\label{timer_8h_a18c68e21ca83222d19af8f4aa976c29eaea1d28133d194330e4442f7f9fe64974}} 
+en\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+\+Reset&Reset the timer on compare match \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+\+Stop@{en\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+\+Stop}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+\+Stop@{en\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+\+Stop}}}\mbox{\Hypertarget{timer_8h_a18c68e21ca83222d19af8f4aa976c29ea9aa91a86e0b1919212ebabfb0eb12a04}\label{timer_8h_a18c68e21ca83222d19af8f4aa976c29ea9aa91a86e0b1919212ebabfb0eb12a04}} 
+en\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+\+Stop&Stop the timer on compare match \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+\+Stop\+Reset@{en\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+\+Stop\+Reset}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+\+Stop\+Reset@{en\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+\+Stop\+Reset}}}\mbox{\Hypertarget{timer_8h_a18c68e21ca83222d19af8f4aa976c29ea9c5ba170d5b7f6dd193482f954496e2e}\label{timer_8h_a18c68e21ca83222d19af8f4aa976c29ea9c5ba170d5b7f6dd193482f954496e2e}} 
+en\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+\+Stop\+Reset&Reset and stop the timer on compare match \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+\+Max@{en\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+\+Max}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+\+Max@{en\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+\+Max}}}\mbox{\Hypertarget{timer_8h_a18c68e21ca83222d19af8f4aa976c29ea915c642957428f602d677699499050ed}\label{timer_8h_a18c68e21ca83222d19af8f4aa976c29ea915c642957428f602d677699499050ed}} 
+en\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+\+Max&Special value for boundary checking \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{timer_8h_a69d9d8868241b493f34d11688821a70e}\label{timer_8h_a69d9d8868241b493f34d11688821a70e}} 
+\index{timer.\+h@{timer.\+h}!En\+E\+P\+C\+F\+Timer\+Input\+Polarity\+\_\+t@{En\+E\+P\+C\+F\+Timer\+Input\+Polarity\+\_\+t}}
+\index{En\+E\+P\+C\+F\+Timer\+Input\+Polarity\+\_\+t@{En\+E\+P\+C\+F\+Timer\+Input\+Polarity\+\_\+t}!timer.\+h@{timer.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Timer\+Input\+Polarity\+\_\+t}{EnEPCFTimerInputPolarity\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{timer_8h_a69d9d8868241b493f34d11688821a70e}{En\+E\+P\+C\+F\+Timer\+Input\+Polarity\+\_\+t}}}
+
+
+
+Enumeration for input pin polarity. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+\_\+\+None@{en\+E\+P\+C\+F\+Timer\+\_\+\+None}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+\_\+\+None@{en\+E\+P\+C\+F\+Timer\+\_\+\+None}}}\mbox{\Hypertarget{timer_8h_a69d9d8868241b493f34d11688821a70ea6e70c2ba2c929b8123f49a4a208b64d9}\label{timer_8h_a69d9d8868241b493f34d11688821a70ea6e70c2ba2c929b8123f49a4a208b64d9}} 
+en\+E\+P\+C\+F\+Timer\+\_\+\+None&Do nothing \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+\_\+\+Rising\+Edge@{en\+E\+P\+C\+F\+Timer\+\_\+\+Rising\+Edge}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+\_\+\+Rising\+Edge@{en\+E\+P\+C\+F\+Timer\+\_\+\+Rising\+Edge}}}\mbox{\Hypertarget{timer_8h_a69d9d8868241b493f34d11688821a70ea1a4602db9565fa6c79e36711974e1a82}\label{timer_8h_a69d9d8868241b493f34d11688821a70ea1a4602db9565fa6c79e36711974e1a82}} 
+en\+E\+P\+C\+F\+Timer\+\_\+\+Rising\+Edge&Capture input on rising edge of input pin \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+\_\+\+Falling\+Edge@{en\+E\+P\+C\+F\+Timer\+\_\+\+Falling\+Edge}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+\_\+\+Falling\+Edge@{en\+E\+P\+C\+F\+Timer\+\_\+\+Falling\+Edge}}}\mbox{\Hypertarget{timer_8h_a69d9d8868241b493f34d11688821a70eac26cd53e64b403d7e488f4e0a838d366}\label{timer_8h_a69d9d8868241b493f34d11688821a70eac26cd53e64b403d7e488f4e0a838d366}} 
+en\+E\+P\+C\+F\+Timer\+\_\+\+Falling\+Edge&Capture input on falling edge of input pin \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+\_\+\+Both\+Edge@{en\+E\+P\+C\+F\+Timer\+\_\+\+Both\+Edge}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+\_\+\+Both\+Edge@{en\+E\+P\+C\+F\+Timer\+\_\+\+Both\+Edge}}}\mbox{\Hypertarget{timer_8h_a69d9d8868241b493f34d11688821a70ea718feedbc00bc54bd3c46eb1c82ff486}\label{timer_8h_a69d9d8868241b493f34d11688821a70ea718feedbc00bc54bd3c46eb1c82ff486}} 
+en\+E\+P\+C\+F\+Timer\+\_\+\+Both\+Edge&Capture input on both rising and falling edge of input pin \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+\_\+\+Max@{en\+E\+P\+C\+F\+Timer\+\_\+\+Max}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+\_\+\+Max@{en\+E\+P\+C\+F\+Timer\+\_\+\+Max}}}\mbox{\Hypertarget{timer_8h_a69d9d8868241b493f34d11688821a70ea8de0f1cfb780f487b52dc3b728d7aa36}\label{timer_8h_a69d9d8868241b493f34d11688821a70ea8de0f1cfb780f487b52dc3b728d7aa36}} 
+en\+E\+P\+C\+F\+Timer\+\_\+\+Max&Special value for boundary checking \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2}\label{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2}} 
+\index{timer.\+h@{timer.\+h}!En\+E\+P\+C\+F\+Timer\+Interrupt\+Source\+\_\+t@{En\+E\+P\+C\+F\+Timer\+Interrupt\+Source\+\_\+t}}
+\index{En\+E\+P\+C\+F\+Timer\+Interrupt\+Source\+\_\+t@{En\+E\+P\+C\+F\+Timer\+Interrupt\+Source\+\_\+t}!timer.\+h@{timer.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Timer\+Interrupt\+Source\+\_\+t}{EnEPCFTimerInterruptSource\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2}{En\+E\+P\+C\+F\+Timer\+Interrupt\+Source\+\_\+t}}}
+
+
+
+Enumeration for interrupt source. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+\_\+\+Overflow@{en\+E\+P\+C\+F\+Timer\+\_\+\+Overflow}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+\_\+\+Overflow@{en\+E\+P\+C\+F\+Timer\+\_\+\+Overflow}}}\mbox{\Hypertarget{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a92da1c8750915c1130d9c90f7156f9d9}\label{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a92da1c8750915c1130d9c90f7156f9d9}} 
+en\+E\+P\+C\+F\+Timer\+\_\+\+Overflow&Interrupt for timer counter overflow \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+0@{en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+0}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+0@{en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+0}}}\mbox{\Hypertarget{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a4e7761cf1a0038afd9761f3f449e6ab8}\label{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a4e7761cf1a0038afd9761f3f449e6ab8}} 
+en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+0&Interrupt for compare match channel 0 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+1@{en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+1}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+1@{en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+1}}}\mbox{\Hypertarget{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a821a6ed4416945b3d55b1c80b1dfb45b}\label{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a821a6ed4416945b3d55b1c80b1dfb45b}} 
+en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+1&Interrupt for compare match channel 1 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+2@{en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+2}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+2@{en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+2}}}\mbox{\Hypertarget{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2adfbcf6cf3b58516387e0833127604e82}\label{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2adfbcf6cf3b58516387e0833127604e82}} 
+en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+2&Interrupt for compare match channel 2 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+3@{en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+3}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+3@{en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+3}}}\mbox{\Hypertarget{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a7fa2027a23a13a73cbad6ef525e5018d}\label{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a7fa2027a23a13a73cbad6ef525e5018d}} 
+en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+3&Interrupt for compare match channel 3 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+4@{en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+4}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+4@{en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+4}}}\mbox{\Hypertarget{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2abc00c43811df35cfb64badf989d53c1c}\label{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2abc00c43811df35cfb64badf989d53c1c}} 
+en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+4&Interrupt for compare match channel 4 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+5@{en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+5}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+5@{en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+5}}}\mbox{\Hypertarget{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a15d59e9ebd67151d03fee081b3ef6e83}\label{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a15d59e9ebd67151d03fee081b3ef6e83}} 
+en\+E\+P\+C\+F\+Timer\+Compare\+Match\+Channel\+\_\+5&Interrupt for compare match channel 5 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+0@{en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+0}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+0@{en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+0}}}\mbox{\Hypertarget{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a8a03b2a214c64c8603e4385efe25fe63}\label{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a8a03b2a214c64c8603e4385efe25fe63}} 
+en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+0&Interrupt for input capture channel 0 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+1@{en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+1}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+1@{en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+1}}}\mbox{\Hypertarget{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a43efbb25fac489866737f5e9e0899c00}\label{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a43efbb25fac489866737f5e9e0899c00}} 
+en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+1&Interrupt for input capture channel 1 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+2@{en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+2}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+2@{en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+2}}}\mbox{\Hypertarget{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a4d9e4613bea7f1ff7e148a5b5be17816}\label{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a4d9e4613bea7f1ff7e148a5b5be17816}} 
+en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+2&Interrupt for input capture channel 2 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+3@{en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+3}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+3@{en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+3}}}\mbox{\Hypertarget{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a832afe8dba57127c865d99fcf568fc2c}\label{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a832afe8dba57127c865d99fcf568fc2c}} 
+en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+3&Interrupt for input capture channel 3 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+4@{en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+4}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+4@{en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+4}}}\mbox{\Hypertarget{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a0e682d43a89bd94ae90e8b999f1cfc32}\label{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a0e682d43a89bd94ae90e8b999f1cfc32}} 
+en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+4&Interrupt for input capture channel 4 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+5@{en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+5}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+5@{en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+5}}}\mbox{\Hypertarget{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a0e4fdd064621fdd96b91a653aaadafd5}\label{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a0e4fdd064621fdd96b91a653aaadafd5}} 
+en\+E\+P\+C\+F\+Timer\+Input\+Capture\+Channel\+\_\+5&Interrupt for input capture channel 5 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Interrupt\+Source\+\_\+\+Max@{en\+E\+P\+C\+F\+Timer\+Interrupt\+Source\+\_\+\+Max}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Interrupt\+Source\+\_\+\+Max@{en\+E\+P\+C\+F\+Timer\+Interrupt\+Source\+\_\+\+Max}}}\mbox{\Hypertarget{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a65c27d36f8139f003e3789dba2dcb043}\label{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2a65c27d36f8139f003e3789dba2dcb043}} 
+en\+E\+P\+C\+F\+Timer\+Interrupt\+Source\+\_\+\+Max&Special value for boundary checking \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{timer_8h_a51bff4a4babb9c83592664dca0f1f0e8}\label{timer_8h_a51bff4a4babb9c83592664dca0f1f0e8}} 
+\index{timer.\+h@{timer.\+h}!En\+E\+P\+C\+F\+Timer\+Mode\+\_\+t@{En\+E\+P\+C\+F\+Timer\+Mode\+\_\+t}}
+\index{En\+E\+P\+C\+F\+Timer\+Mode\+\_\+t@{En\+E\+P\+C\+F\+Timer\+Mode\+\_\+t}!timer.\+h@{timer.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Timer\+Mode\+\_\+t}{EnEPCFTimerMode\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{timer_8h_a51bff4a4babb9c83592664dca0f1f0e8}{En\+E\+P\+C\+F\+Timer\+Mode\+\_\+t}}}
+
+
+
+Enumeration for Timer mode. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Mode\+\_\+\+Timer@{en\+E\+P\+C\+F\+Timer\+Mode\+\_\+\+Timer}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Mode\+\_\+\+Timer@{en\+E\+P\+C\+F\+Timer\+Mode\+\_\+\+Timer}}}\mbox{\Hypertarget{timer_8h_a51bff4a4babb9c83592664dca0f1f0e8a1809a6dcdf1c59485a76fe8dbb5dff80}\label{timer_8h_a51bff4a4babb9c83592664dca0f1f0e8a1809a6dcdf1c59485a76fe8dbb5dff80}} 
+en\+E\+P\+C\+F\+Timer\+Mode\+\_\+\+Timer&Configure Timer in timer mode \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Mode\+\_\+\+Counter@{en\+E\+P\+C\+F\+Timer\+Mode\+\_\+\+Counter}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Mode\+\_\+\+Counter@{en\+E\+P\+C\+F\+Timer\+Mode\+\_\+\+Counter}}}\mbox{\Hypertarget{timer_8h_a51bff4a4babb9c83592664dca0f1f0e8afbfd9e26c0bc5f25b4f2b1d5f8e230cd}\label{timer_8h_a51bff4a4babb9c83592664dca0f1f0e8afbfd9e26c0bc5f25b4f2b1d5f8e230cd}} 
+en\+E\+P\+C\+F\+Timer\+Mode\+\_\+\+Counter&Configure Timer in counter mode \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Mode\+\_\+\+Max@{en\+E\+P\+C\+F\+Timer\+Mode\+\_\+\+Max}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Mode\+\_\+\+Max@{en\+E\+P\+C\+F\+Timer\+Mode\+\_\+\+Max}}}\mbox{\Hypertarget{timer_8h_a51bff4a4babb9c83592664dca0f1f0e8ae1084337079b823aadf3b39fe1ff4394}\label{timer_8h_a51bff4a4babb9c83592664dca0f1f0e8ae1084337079b823aadf3b39fe1ff4394}} 
+en\+E\+P\+C\+F\+Timer\+Mode\+\_\+\+Max&Special value for boundary checking \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{timer_8h_a05cae95f26f7014a386031b3e1fb4e91}\label{timer_8h_a05cae95f26f7014a386031b3e1fb4e91}} 
+\index{timer.\+h@{timer.\+h}!En\+E\+P\+C\+F\+Timer\+Pin\+Action@{En\+E\+P\+C\+F\+Timer\+Pin\+Action}}
+\index{En\+E\+P\+C\+F\+Timer\+Pin\+Action@{En\+E\+P\+C\+F\+Timer\+Pin\+Action}!timer.\+h@{timer.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Timer\+Pin\+Action}{EnEPCFTimerPinAction}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{timer_8h_a05cae95f26f7014a386031b3e1fb4e91}{En\+E\+P\+C\+F\+Timer\+Pin\+Action}}}
+
+
+
+Enumeration for pin compare match action. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Pin\+Action\+\_\+\+None@{en\+E\+P\+C\+F\+Timer\+Pin\+Action\+\_\+\+None}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Pin\+Action\+\_\+\+None@{en\+E\+P\+C\+F\+Timer\+Pin\+Action\+\_\+\+None}}}\mbox{\Hypertarget{timer_8h_a05cae95f26f7014a386031b3e1fb4e91a94bc5f9b46af43811748d12758a9ea86}\label{timer_8h_a05cae95f26f7014a386031b3e1fb4e91a94bc5f9b46af43811748d12758a9ea86}} 
+en\+E\+P\+C\+F\+Timer\+Pin\+Action\+\_\+\+None&Take no action on compare match \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Pin\+Action\+\_\+\+Clear@{en\+E\+P\+C\+F\+Timer\+Pin\+Action\+\_\+\+Clear}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Pin\+Action\+\_\+\+Clear@{en\+E\+P\+C\+F\+Timer\+Pin\+Action\+\_\+\+Clear}}}\mbox{\Hypertarget{timer_8h_a05cae95f26f7014a386031b3e1fb4e91a5d8db35b1f46213f2b8ba2a3c41bc6b2}\label{timer_8h_a05cae95f26f7014a386031b3e1fb4e91a5d8db35b1f46213f2b8ba2a3c41bc6b2}} 
+en\+E\+P\+C\+F\+Timer\+Pin\+Action\+\_\+\+Clear&Set pin Low on compare match \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Pin\+Action\+\_\+\+Set@{en\+E\+P\+C\+F\+Timer\+Pin\+Action\+\_\+\+Set}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Pin\+Action\+\_\+\+Set@{en\+E\+P\+C\+F\+Timer\+Pin\+Action\+\_\+\+Set}}}\mbox{\Hypertarget{timer_8h_a05cae95f26f7014a386031b3e1fb4e91a87942c35bc1be143e3d29febf263a8e6}\label{timer_8h_a05cae95f26f7014a386031b3e1fb4e91a87942c35bc1be143e3d29febf263a8e6}} 
+en\+E\+P\+C\+F\+Timer\+Pin\+Action\+\_\+\+Set&Set pin High on compare match \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Pin\+Action\+\_\+toggle@{en\+E\+P\+C\+F\+Timer\+Pin\+Action\+\_\+toggle}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Pin\+Action\+\_\+toggle@{en\+E\+P\+C\+F\+Timer\+Pin\+Action\+\_\+toggle}}}\mbox{\Hypertarget{timer_8h_a05cae95f26f7014a386031b3e1fb4e91ae68c2beb10667dcd0557132281453813}\label{timer_8h_a05cae95f26f7014a386031b3e1fb4e91ae68c2beb10667dcd0557132281453813}} 
+en\+E\+P\+C\+F\+Timer\+Pin\+Action\+\_\+toggle&Toggle pin state compare match \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Pin\+Action\+\_\+\+Max@{en\+E\+P\+C\+F\+Timer\+Pin\+Action\+\_\+\+Max}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Pin\+Action\+\_\+\+Max@{en\+E\+P\+C\+F\+Timer\+Pin\+Action\+\_\+\+Max}}}\mbox{\Hypertarget{timer_8h_a05cae95f26f7014a386031b3e1fb4e91aa7050ae24ef775d3fffec923d590f375}\label{timer_8h_a05cae95f26f7014a386031b3e1fb4e91aa7050ae24ef775d3fffec923d590f375}} 
+en\+E\+P\+C\+F\+Timer\+Pin\+Action\+\_\+\+Max&Special value for boundary checking \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{timer_8h_a545dac1050db5d1a791dca4df3830de8}\label{timer_8h_a545dac1050db5d1a791dca4df3830de8}} 
+\index{timer.\+h@{timer.\+h}!En\+E\+P\+C\+F\+Timer\+State\+\_\+t@{En\+E\+P\+C\+F\+Timer\+State\+\_\+t}}
+\index{En\+E\+P\+C\+F\+Timer\+State\+\_\+t@{En\+E\+P\+C\+F\+Timer\+State\+\_\+t}!timer.\+h@{timer.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Timer\+State\+\_\+t}{EnEPCFTimerState\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{timer_8h_a545dac1050db5d1a791dca4df3830de8}{En\+E\+P\+C\+F\+Timer\+State\+\_\+t}}}
+
+
+
+Enumeration for current state of timer. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+State\+\_\+\+Stopped@{en\+E\+P\+C\+F\+Timer\+State\+\_\+\+Stopped}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+State\+\_\+\+Stopped@{en\+E\+P\+C\+F\+Timer\+State\+\_\+\+Stopped}}}\mbox{\Hypertarget{timer_8h_a545dac1050db5d1a791dca4df3830de8afe33601d81e61639826cec3f597795dd}\label{timer_8h_a545dac1050db5d1a791dca4df3830de8afe33601d81e61639826cec3f597795dd}} 
+en\+E\+P\+C\+F\+Timer\+State\+\_\+\+Stopped&Timer is stopped, no user callback will get called \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+State\+\_\+\+Running@{en\+E\+P\+C\+F\+Timer\+State\+\_\+\+Running}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+State\+\_\+\+Running@{en\+E\+P\+C\+F\+Timer\+State\+\_\+\+Running}}}\mbox{\Hypertarget{timer_8h_a545dac1050db5d1a791dca4df3830de8a1732f335fdf0dd34eda3fb9ef9dbe64e}\label{timer_8h_a545dac1050db5d1a791dca4df3830de8a1732f335fdf0dd34eda3fb9ef9dbe64e}} 
+en\+E\+P\+C\+F\+Timer\+State\+\_\+\+Running&Timer is running (operational), user callback(s) will get called at respective period \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+State\+\_\+\+Max@{en\+E\+P\+C\+F\+Timer\+State\+\_\+\+Max}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+State\+\_\+\+Max@{en\+E\+P\+C\+F\+Timer\+State\+\_\+\+Max}}}\mbox{\Hypertarget{timer_8h_a545dac1050db5d1a791dca4df3830de8a81cc2604e6491aa440638f80b80dfd09}\label{timer_8h_a545dac1050db5d1a791dca4df3830de8a81cc2604e6491aa440638f80b80dfd09}} 
+en\+E\+P\+C\+F\+Timer\+State\+\_\+\+Max&Special value for boundary checking \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{timer_8h_a88093e16b89eaa9d2df5fc6285cffa9f}\label{timer_8h_a88093e16b89eaa9d2df5fc6285cffa9f}} 
+\index{timer.\+h@{timer.\+h}!En\+E\+P\+C\+F\+Timer\+Width\+\_\+t@{En\+E\+P\+C\+F\+Timer\+Width\+\_\+t}}
+\index{En\+E\+P\+C\+F\+Timer\+Width\+\_\+t@{En\+E\+P\+C\+F\+Timer\+Width\+\_\+t}!timer.\+h@{timer.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Timer\+Width\+\_\+t}{EnEPCFTimerWidth\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{timer_8h_a88093e16b89eaa9d2df5fc6285cffa9f}{En\+E\+P\+C\+F\+Timer\+Width\+\_\+t}}}
+
+
+
+Enumeration for Timer width. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Width\+\_\+8@{en\+E\+P\+C\+F\+Timer\+Width\+\_\+8}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Width\+\_\+8@{en\+E\+P\+C\+F\+Timer\+Width\+\_\+8}}}\mbox{\Hypertarget{timer_8h_a88093e16b89eaa9d2df5fc6285cffa9fae141940ae5b5028db7d512cac5cde931}\label{timer_8h_a88093e16b89eaa9d2df5fc6285cffa9fae141940ae5b5028db7d512cac5cde931}} 
+en\+E\+P\+C\+F\+Timer\+Width\+\_\+8&8-\/bit timer.\+Timer count M\+IN=0x00, M\+AX=0x\+FF \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Width\+\_\+16@{en\+E\+P\+C\+F\+Timer\+Width\+\_\+16}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Width\+\_\+16@{en\+E\+P\+C\+F\+Timer\+Width\+\_\+16}}}\mbox{\Hypertarget{timer_8h_a88093e16b89eaa9d2df5fc6285cffa9fa2b8f0509499fe9f5b127b1c89c65a6db}\label{timer_8h_a88093e16b89eaa9d2df5fc6285cffa9fa2b8f0509499fe9f5b127b1c89c65a6db}} 
+en\+E\+P\+C\+F\+Timer\+Width\+\_\+16&16-\/bit timer.\+Timer count M\+IN=0x0000, M\+AX=0x\+F\+F\+FF \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Width\+\_\+32@{en\+E\+P\+C\+F\+Timer\+Width\+\_\+32}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Width\+\_\+32@{en\+E\+P\+C\+F\+Timer\+Width\+\_\+32}}}\mbox{\Hypertarget{timer_8h_a88093e16b89eaa9d2df5fc6285cffa9fa13073ab5ca86f3203dabc8cd5c230b74}\label{timer_8h_a88093e16b89eaa9d2df5fc6285cffa9fa13073ab5ca86f3203dabc8cd5c230b74}} 
+en\+E\+P\+C\+F\+Timer\+Width\+\_\+32&32-\/bit timer.\+Timer count M\+IN=0x00000000, M\+AX=0x\+F\+F\+F\+F\+F\+F\+FF \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Width\+\_\+64@{en\+E\+P\+C\+F\+Timer\+Width\+\_\+64}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Width\+\_\+64@{en\+E\+P\+C\+F\+Timer\+Width\+\_\+64}}}\mbox{\Hypertarget{timer_8h_a88093e16b89eaa9d2df5fc6285cffa9fa7094b726f754e05bf5312daae1058673}\label{timer_8h_a88093e16b89eaa9d2df5fc6285cffa9fa7094b726f754e05bf5312daae1058673}} 
+en\+E\+P\+C\+F\+Timer\+Width\+\_\+64&64-\/bit timer.\+Timer count M\+IN=0x0000000000000000, M\+AX=0x\+F\+F\+F\+F\+F\+F\+F\+F\+F\+F\+F\+F\+F\+F\+FF \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Timer\+Width\+\_\+\+Max@{en\+E\+P\+C\+F\+Timer\+Width\+\_\+\+Max}!timer.\+h@{timer.\+h}}\index{timer.\+h@{timer.\+h}!en\+E\+P\+C\+F\+Timer\+Width\+\_\+\+Max@{en\+E\+P\+C\+F\+Timer\+Width\+\_\+\+Max}}}\mbox{\Hypertarget{timer_8h_a88093e16b89eaa9d2df5fc6285cffa9fa4a4fff3116592c68d162c707743ca367}\label{timer_8h_a88093e16b89eaa9d2df5fc6285cffa9fa4a4fff3116592c68d162c707743ca367}} 
+en\+E\+P\+C\+F\+Timer\+Width\+\_\+\+Max&Special value for boundary checking \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{timer_8h_a73fb228a6120b6e9e7ac90ab02296159}\label{timer_8h_a73fb228a6120b6e9e7ac90ab02296159}} 
+\index{timer.\+h@{timer.\+h}!epcf\+\_\+timer\+\_\+attach\+Callback@{epcf\+\_\+timer\+\_\+attach\+Callback}}
+\index{epcf\+\_\+timer\+\_\+attach\+Callback@{epcf\+\_\+timer\+\_\+attach\+Callback}!timer.\+h@{timer.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+timer\+\_\+attach\+Callback()}{epcf\_timer\_attachCallback()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+timer\+\_\+attach\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$}]{p\+Timer\+Device,  }\item[{\mbox{\hyperlink{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2}{En\+E\+P\+C\+F\+Timer\+Interrupt\+Source\+\_\+t}}}]{interrupt\+Source,  }\item[{epcf\+Callback\+\_\+fp}]{callback }\end{DoxyParamCaption})}
+
+
+
+This function is used to attach a timer callback for the specific timer interrupt source. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Timer\+Device} & Pointer to the timer device. \\
+\hline
+{\em interrupt\+Source} & Interrupt source for the callback. \\
+\hline
+{\em callback} & User callback to be called at the specified interrupt source \\
+\hline
+{\em priority} & Callback priority\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return callback\+Id.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Call this function before starting the timer device. To attach a callback if timer has already started\+:
+\begin{DoxyEnumerate}
+\item Stop the timer.
+\item Reset the timer
+\item Detach the callback.
+\item Start the timer again. 
+\end{DoxyEnumerate}
+\end{DoxyNote}
+\mbox{\Hypertarget{timer_8h_a6c5662478b4fdfdf19443a3dc6f4f391}\label{timer_8h_a6c5662478b4fdfdf19443a3dc6f4f391}} 
+\index{timer.\+h@{timer.\+h}!epcf\+\_\+timer\+\_\+close@{epcf\+\_\+timer\+\_\+close}}
+\index{epcf\+\_\+timer\+\_\+close@{epcf\+\_\+timer\+\_\+close}!timer.\+h@{timer.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+timer\+\_\+close()}{epcf\_timer\_close()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+timer\+\_\+close (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$}]{p\+Timer\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to close the timer. It will free the memory allocated by the timer device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Timer\+Device} & Pointer to the timer device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{timer_8h_a057d7fb4ee27ea70d843f313e7948f7e}\label{timer_8h_a057d7fb4ee27ea70d843f313e7948f7e}} 
+\index{timer.\+h@{timer.\+h}!epcf\+\_\+timer\+\_\+create\+Native@{epcf\+\_\+timer\+\_\+create\+Native}}
+\index{epcf\+\_\+timer\+\_\+create\+Native@{epcf\+\_\+timer\+\_\+create\+Native}!timer.\+h@{timer.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+timer\+\_\+create\+Native()}{epcf\_timer\_createNative()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}}$\ast$ epcf\+\_\+timer\+\_\+create\+Native (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFTimerCfg__t}{E\+P\+C\+F\+Timer\+Cfg\+\_\+t}} $\ast$}]{p\+Timer\+Config }\end{DoxyParamCaption})}
+
+
+
+This function is used to create a timer. Call this function in beginning to initialize the timer. This function allocates memory for the device using malloc() function call and returns a pointer to the device. Pass this device pointer while calling timer functions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Timer\+Config} & Pointer to the timer configuration structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+On success, it return the pointer to timer device. On error, it returns N\+U\+LL. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{timer_8h_abcda35cdd47b96d546961a7d067ebdca}\label{timer_8h_abcda35cdd47b96d546961a7d067ebdca}} 
+\index{timer.\+h@{timer.\+h}!epcf\+\_\+timer\+\_\+detach\+Callback@{epcf\+\_\+timer\+\_\+detach\+Callback}}
+\index{epcf\+\_\+timer\+\_\+detach\+Callback@{epcf\+\_\+timer\+\_\+detach\+Callback}!timer.\+h@{timer.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+timer\+\_\+detach\+Callback()}{epcf\_timer\_detachCallback()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+timer\+\_\+detach\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$}]{p\+Timer\+Device,  }\item[{\mbox{\hyperlink{timer_8h_a18e9ed18e2ec15f7a0264e167afecfa2}{En\+E\+P\+C\+F\+Timer\+Interrupt\+Source\+\_\+t}}}]{interrupt\+Source }\end{DoxyParamCaption})}
+
+
+
+This function is used to detach the timer callback for the specific timer interrupt source. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Timer\+Device} & Pointer to the timer device. \\
+\hline
+{\em callback\+Id} & callback\+Id returned by E\+P\+C\+F\+\_\+\+T\+I\+M\+E\+R\+\_\+\+A\+T\+T\+A\+C\+H\+\_\+\+C\+A\+L\+L\+B\+A\+CK function.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Call this function before starting the timer device. To detach the callback if timer has already started\+:
+\begin{DoxyEnumerate}
+\item Stop the timer.
+\item Reset the timer
+\item Detach the callback.
+\item Start the timer again. 
+\end{DoxyEnumerate}
+\end{DoxyNote}
+\mbox{\Hypertarget{timer_8h_ae25969764b4c85f1790bdffc16179a12}\label{timer_8h_ae25969764b4c85f1790bdffc16179a12}} 
+\index{timer.\+h@{timer.\+h}!epcf\+\_\+timer\+\_\+get\+Counter\+Value@{epcf\+\_\+timer\+\_\+get\+Counter\+Value}}
+\index{epcf\+\_\+timer\+\_\+get\+Counter\+Value@{epcf\+\_\+timer\+\_\+get\+Counter\+Value}!timer.\+h@{timer.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+timer\+\_\+get\+Counter\+Value()}{epcf\_timer\_getCounterValue()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+timer\+\_\+get\+Counter\+Value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$}]{p\+Timer\+Device,  }\item[{uint32\+\_\+t $\ast$}]{count }\end{DoxyParamCaption})}
+
+
+
+This function is used to read the current timer count in both timer and counter mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Timer\+Device} & Pointer to the timer device. \\
+\hline
+{\em count} & Pointer to the uint32\+\_\+t variable to get timer count.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{timer_8h_a3542e21dd40fa50efc2a2ec7715fca53}\label{timer_8h_a3542e21dd40fa50efc2a2ec7715fca53}} 
+\index{timer.\+h@{timer.\+h}!epcf\+\_\+timer\+\_\+get\+Device\+Count@{epcf\+\_\+timer\+\_\+get\+Device\+Count}}
+\index{epcf\+\_\+timer\+\_\+get\+Device\+Count@{epcf\+\_\+timer\+\_\+get\+Device\+Count}!timer.\+h@{timer.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+timer\+\_\+get\+Device\+Count()}{epcf\_timer\_getDeviceCount()}}
+{\footnotesize\ttfamily uint8\+\_\+t epcf\+\_\+timer\+\_\+get\+Device\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function is used to get the total number of available timer devices. 
+
+\begin{DoxyReturn}{Returns}
+Returns the number of available timer devices. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{timer_8h_adc374c0f2ec21d311615d90b641c40bf}\label{timer_8h_adc374c0f2ec21d311615d90b641c40bf}} 
+\index{timer.\+h@{timer.\+h}!epcf\+\_\+timer\+\_\+get\+Input\+Capture\+Time@{epcf\+\_\+timer\+\_\+get\+Input\+Capture\+Time}}
+\index{epcf\+\_\+timer\+\_\+get\+Input\+Capture\+Time@{epcf\+\_\+timer\+\_\+get\+Input\+Capture\+Time}!timer.\+h@{timer.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+timer\+\_\+get\+Input\+Capture\+Time()}{epcf\_timer\_getInputCaptureTime()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+timer\+\_\+get\+Input\+Capture\+Time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$}]{p\+Timer\+Device,  }\item[{\mbox{\hyperlink{timer_8h_a49758bdd75c2efdc7fae554a566a3420}{En\+E\+P\+C\+F\+Timer\+Channel\+\_\+t}}}]{channel,  }\item[{E\+P\+C\+F\+Time\+\_\+t $\ast$}]{time }\end{DoxyParamCaption})}
+
+
+
+This function is used to read the input capture time for the specified channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Timer\+Device} & Pointer to the timer device. \\
+\hline
+{\em channel} & Input Capture channel. \\
+\hline
+{\em time} & Pointer to the E\+P\+C\+F\+Time\+\_\+t variable to get input capture time value.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{timer_8h_a14af049adeaef5cc3f3fde90f1fe76ce}\label{timer_8h_a14af049adeaef5cc3f3fde90f1fe76ce}} 
+\index{timer.\+h@{timer.\+h}!epcf\+\_\+timer\+\_\+get\+State@{epcf\+\_\+timer\+\_\+get\+State}}
+\index{epcf\+\_\+timer\+\_\+get\+State@{epcf\+\_\+timer\+\_\+get\+State}!timer.\+h@{timer.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+timer\+\_\+get\+State()}{epcf\_timer\_getState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{timer_8h_a545dac1050db5d1a791dca4df3830de8}{En\+E\+P\+C\+F\+Timer\+State\+\_\+t}} epcf\+\_\+timer\+\_\+get\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$}]{p\+Timer\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to get the current state of the timer. Timer can be started by a call to the function E\+P\+C\+F\+\_\+\+T\+I\+M\+E\+R\+\_\+\+S\+T\+A\+RT. Timer can be stopped by a call to the function E\+P\+C\+F\+\_\+\+T\+I\+M\+E\+R\+\_\+\+S\+T\+OP. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Timer\+Device} & Pointer to the timer device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return timer state 
+\end{DoxyReturn}
+\mbox{\Hypertarget{timer_8h_a3b4ff74d5b2f76582ed2e586d0739cb2}\label{timer_8h_a3b4ff74d5b2f76582ed2e586d0739cb2}} 
+\index{timer.\+h@{timer.\+h}!epcf\+\_\+timer\+\_\+get\+Time@{epcf\+\_\+timer\+\_\+get\+Time}}
+\index{epcf\+\_\+timer\+\_\+get\+Time@{epcf\+\_\+timer\+\_\+get\+Time}!timer.\+h@{timer.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+timer\+\_\+get\+Time()}{epcf\_timer\_getTime()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+timer\+\_\+get\+Time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$}]{p\+Timer\+Device,  }\item[{E\+P\+C\+F\+Time\+\_\+t $\ast$}]{time }\end{DoxyParamCaption})}
+
+
+
+This function is used to read the current time value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Timer\+Device} & Pointer to the timer device. \\
+\hline
+{\em time} & Pointer to E\+P\+C\+F\+Time\+\_\+t variable to get time value. this function give time value in micro seconds\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{timer_8h_aeb2c3ce309a2389e10b4ecd8f54b2a49}\label{timer_8h_aeb2c3ce309a2389e10b4ecd8f54b2a49}} 
+\index{timer.\+h@{timer.\+h}!epcf\+\_\+timer\+\_\+reset@{epcf\+\_\+timer\+\_\+reset}}
+\index{epcf\+\_\+timer\+\_\+reset@{epcf\+\_\+timer\+\_\+reset}!timer.\+h@{timer.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+timer\+\_\+reset()}{epcf\_timer\_reset()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+timer\+\_\+reset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$}]{p\+Timer\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to reset the timer. The timer count will be set to the initial value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Timer\+Device} & Pointer to the timer device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{timer_8h_adfb8b27d1b568b70a8b0563b7d23aba8}\label{timer_8h_adfb8b27d1b568b70a8b0563b7d23aba8}} 
+\index{timer.\+h@{timer.\+h}!epcf\+\_\+timer\+\_\+set\+Compare\+Time@{epcf\+\_\+timer\+\_\+set\+Compare\+Time}}
+\index{epcf\+\_\+timer\+\_\+set\+Compare\+Time@{epcf\+\_\+timer\+\_\+set\+Compare\+Time}!timer.\+h@{timer.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+timer\+\_\+set\+Compare\+Time()}{epcf\_timer\_setCompareTime()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+timer\+\_\+set\+Compare\+Time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$}]{p\+Timer\+Device,  }\item[{\mbox{\hyperlink{timer_8h_a49758bdd75c2efdc7fae554a566a3420}{En\+E\+P\+C\+F\+Timer\+Channel\+\_\+t}}}]{channel,  }\item[{\mbox{\hyperlink{timer_8h_a18c68e21ca83222d19af8f4aa976c29e}{En\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+t}}}]{compare\+Action,  }\item[{\mbox{\hyperlink{timer_8h_a05cae95f26f7014a386031b3e1fb4e91}{En\+E\+P\+C\+F\+Timer\+Pin\+Action}}}]{pin\+Action,  }\item[{E\+P\+C\+F\+Time\+\_\+t}]{time }\end{DoxyParamCaption})}
+
+
+
+This function is used to set the compare time. Compare channel can be used to trigger an event after the specified time. A compare action and an interrupt can be associated to that event. A user callback is called if there is a callback attached for this interrupt source. The maximum value that should be passed to this function is equal to the period of the timer. Timer period = resolution x (2$^\wedge$timer\+Width). For example\+: Consider an 8-\/bit timer with resolution = 0.\+25 microseconds and configured as a periodic type. If time count == 5 and unit is equal to en\+E\+P\+C\+F\+Time\+Unit\+\_\+us, then user callback will be called after every 5 microseconds. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Timer\+Device} & Pointer to the timer device. \\
+\hline
+{\em channel} & Compare channel. \\
+\hline
+{\em compare\+Action} & Specifies the timer action on compare match This parameter can be a value of En\+E\+P\+C\+F\+Timer\+Compare\+Action\+\_\+t. \\
+\hline
+{\em pin\+Action} & Specify the output pin action This parameter can be a value of En\+E\+P\+C\+F\+Timer\+Pin\+Action. \\
+\hline
+{\em time} & Compare time value for the channel\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Call this function before starting the timer. To set compare time for a new channel or to update the compare time\+:
+\begin{DoxyEnumerate}
+\item Stop the timer.
+\item Reset the timer
+\item Detach the callback.
+\item Start the timer again. 
+\end{DoxyEnumerate}
+\end{DoxyNote}
+\mbox{\Hypertarget{timer_8h_a7ab75ebabd2d855bdbe9bf1290711e78}\label{timer_8h_a7ab75ebabd2d855bdbe9bf1290711e78}} 
+\index{timer.\+h@{timer.\+h}!epcf\+\_\+timer\+\_\+set\+Counter@{epcf\+\_\+timer\+\_\+set\+Counter}}
+\index{epcf\+\_\+timer\+\_\+set\+Counter@{epcf\+\_\+timer\+\_\+set\+Counter}!timer.\+h@{timer.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+timer\+\_\+set\+Counter()}{epcf\_timer\_setCounter()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+timer\+\_\+set\+Counter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$}]{p\+Timer\+Device,  }\item[{\mbox{\hyperlink{timer_8h_a49758bdd75c2efdc7fae554a566a3420}{En\+E\+P\+C\+F\+Timer\+Channel\+\_\+t}}}]{channel,  }\item[{\mbox{\hyperlink{timer_8h_a69d9d8868241b493f34d11688821a70e}{En\+E\+P\+C\+F\+Timer\+Input\+Polarity\+\_\+t}}}]{input\+Polarity }\end{DoxyParamCaption})}
+
+
+
+This function is used to set input polarity of capture signal for getting counter value in counter mode. This function will return error if timer is configured in timer mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Timer\+Device} & Pointer to the timer device. \\
+\hline
+{\em channel} & Compare channel. \\
+\hline
+{\em input\+Polarity} & Set the input pin polarity to trigger the capture.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{timer_8h_a363d9244d534de53dabc73523e37c3ff}\label{timer_8h_a363d9244d534de53dabc73523e37c3ff}} 
+\index{timer.\+h@{timer.\+h}!epcf\+\_\+timer\+\_\+set\+Input\+Capture@{epcf\+\_\+timer\+\_\+set\+Input\+Capture}}
+\index{epcf\+\_\+timer\+\_\+set\+Input\+Capture@{epcf\+\_\+timer\+\_\+set\+Input\+Capture}!timer.\+h@{timer.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+timer\+\_\+set\+Input\+Capture()}{epcf\_timer\_setInputCapture()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+timer\+\_\+set\+Input\+Capture (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$}]{p\+Timer\+Device,  }\item[{\mbox{\hyperlink{timer_8h_a49758bdd75c2efdc7fae554a566a3420}{En\+E\+P\+C\+F\+Timer\+Channel\+\_\+t}}}]{channel,  }\item[{\mbox{\hyperlink{timer_8h_a69d9d8868241b493f34d11688821a70e}{En\+E\+P\+C\+F\+Timer\+Input\+Polarity\+\_\+t}}}]{input\+Polarity }\end{DoxyParamCaption})}
+
+
+
+This function is used to set input polarity of the input capture channel. An input capture channel can be used to get width of the input signal. It can also be used to generate an interrupt and a user callback is called if there is a callback attached for this interrupt source. For example\+: Consider a configuration in which timer resolution = 0.\+25 microseconds and input capture channel is configured to detect falling clock edge on channel0. If the signal is in high state when the timer has started and comes to a low state after 5 microseconds. Then, an interrupt will be generated after 5 microseconds. Use E\+P\+C\+F\+\_\+\+T\+I\+M\+E\+R\+\_\+\+G\+E\+T\+\_\+\+I\+N\+P\+U\+T\+\_\+\+C\+A\+P\+T\+U\+R\+E\+\_\+\+T\+I\+ME function to get width of the signal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Timer\+Device} & Pointer to the timer device. \\
+\hline
+{\em channel} & Input Capture channel. \\
+\hline
+{\em input\+Polarity} & Set the input pin polarity to trigger the capture\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Call this function before starting the timer. To set input capture time for a new channel or to update the input capture time\+:
+\begin{DoxyEnumerate}
+\item Stop the timer.
+\item Reset the timer
+\item Detach the callback.
+\item Start the timer again. 
+\end{DoxyEnumerate}
+\end{DoxyNote}
+\mbox{\Hypertarget{timer_8h_a6d7fbc41add267502873da2d7b3a6848}\label{timer_8h_a6d7fbc41add267502873da2d7b3a6848}} 
+\index{timer.\+h@{timer.\+h}!epcf\+\_\+timer\+\_\+start@{epcf\+\_\+timer\+\_\+start}}
+\index{epcf\+\_\+timer\+\_\+start@{epcf\+\_\+timer\+\_\+start}!timer.\+h@{timer.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+timer\+\_\+start()}{epcf\_timer\_start()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+timer\+\_\+start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$}]{p\+Timer\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to start the timer. The timer starts counting and will run according to the configuration. It can be stopped by a call to the function E\+P\+C\+F\+\_\+\+T\+I\+M\+E\+R\+\_\+\+S\+T\+OP. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Timer\+Device} & Pointer to the timer device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{timer_8h_a23c824708319387ad92228cc98e7531f}\label{timer_8h_a23c824708319387ad92228cc98e7531f}} 
+\index{timer.\+h@{timer.\+h}!epcf\+\_\+timer\+\_\+stop@{epcf\+\_\+timer\+\_\+stop}}
+\index{epcf\+\_\+timer\+\_\+stop@{epcf\+\_\+timer\+\_\+stop}!timer.\+h@{timer.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+timer\+\_\+stop()}{epcf\_timer\_stop()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+timer\+\_\+stop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timer_8h_ab21ed2c6357cfab9af8e28c49dc33668}{E\+P\+C\+F\+Timer\+Device\+\_\+t}} $\ast$}]{p\+Timer\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to stop the running timer. The timer counting is stopped and can be started again by a call to the function E\+P\+C\+F\+\_\+\+T\+I\+M\+E\+R\+\_\+\+S\+T\+A\+RT. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Timer\+Device} & Pointer to the timer device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}

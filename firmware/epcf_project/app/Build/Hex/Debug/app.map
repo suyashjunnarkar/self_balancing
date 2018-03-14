@@ -1,0 +1,612 @@
+Archive member included to satisfy reference by file (symbol)
+
+/usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+                              /Debug/sysClk_lpc1768.o (malloc)
+/usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-freer.o)
+                              /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o) (_free_r)
+/usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+                              /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o) (_malloc_r)
+/usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+                              /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o) (_sbrk_r)
+/usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+                              /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o) (_impure_ptr)
+/usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+                              /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o) (errno)
+/usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+                              /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o) (_sbrk)
+
+Allocating common symbols
+Common symbol       size              file
+
+errno               0x4               /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+myClock             0x4               /Debug/appConfig.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x0000000000000000 0x0000000000080000 xrw
+RAM1             0x0000000010000000 0x0000000000008000 xrw
+RAM2             0x000000002007c000 0x0000000000008000 xrw
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD /Debug/app.o
+LOAD /Debug/appConfig.o
+LOAD /Debug/sysClk.o
+LOAD /Debug/pin_lpc1768.o
+LOAD /Debug/vectors_lpc1768.o
+LOAD /Debug/sysClk_lpc1768.o
+LOAD /Debug/gpio_lpc1768.o
+LOAD /Debug/gpio.o
+START GROUP
+LOAD /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a
+LOAD /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a
+END GROUP
+START GROUP
+LOAD /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a
+LOAD /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a
+LOAD /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a
+END GROUP
+START GROUP
+LOAD /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a
+LOAD /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a
+LOAD /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a
+END GROUP
+
+.text           0x0000000000000000     0x1ac4
+                0x0000000000000000                _stext = .
+ CREATE_OBJECT_SYMBOLS
+ *(.vectors)
+ .vectors       0x0000000000000000       0xc0 /Debug/vectors_lpc1768.o
+                0x0000000000000000                gVectors
+ *(.text)
+ .text          0x00000000000000c0       0x58 /Debug/app.o
+                0x00000000000000c0                main
+ .text          0x0000000000000118       0x2c /Debug/appConfig.o
+                0x0000000000000118                appInit
+ .text          0x0000000000000144       0x18 /Debug/sysClk.o
+                0x0000000000000144                epcfCreateSysClk
+ .text          0x000000000000015c      0xb3c /Debug/pin_lpc1768.o
+                0x000000000000015c                epcfPinInit
+ .text          0x0000000000000c98      0x10c /Debug/vectors_lpc1768.o
+                0x0000000000000c98                ResetHandler
+                0x0000000000000d00                NMI_Handler
+                0x0000000000000d04                HardFault_Handler
+                0x0000000000000d08                MemManage_Handler
+                0x0000000000000d0c                BusFault_Handler
+                0x0000000000000d10                UsageFault_Handler
+                0x0000000000000d14                SVC_Handler
+                0x0000000000000d18                DebugMon_Handler
+                0x0000000000000d1c                PendSV_Handler
+                0x0000000000000d20                SysTick_Handler
+                0x0000000000000d24                WDT_IRQHandler
+                0x0000000000000d28                TIMER0_IRQHandler
+                0x0000000000000d2c                TIMER1_IRQHandler
+                0x0000000000000d30                TIMER2_IRQHandler
+                0x0000000000000d34                TIMER3_IRQHandler
+                0x0000000000000d38                UART0_IRQHandler
+                0x0000000000000d3c                UART1_IRQHandler
+                0x0000000000000d40                UART2_IRQHandler
+                0x0000000000000d44                UART3_IRQHandler
+                0x0000000000000d48                PWM_IRQHandler
+                0x0000000000000d4c                I2C0_IRQHandler
+                0x0000000000000d50                I2C1_IRQHandler
+                0x0000000000000d54                I2C2_IRQHandler
+                0x0000000000000d58                SPI_IRQHandler
+                0x0000000000000d5c                SSP0_IRQHandler
+                0x0000000000000d60                SSP1_IRQHandler
+                0x0000000000000d64                PLL0_IRQHandler
+                0x0000000000000d68                RTC_IRQHandler
+                0x0000000000000d6c                EINT0_IRQHandler
+                0x0000000000000d70                EINT1_IRQHandler
+                0x0000000000000d74                EINT2_IRQHandler
+                0x0000000000000d78                EINT3_IRQHandler
+                0x0000000000000d7c                ADC_IRQHandler
+                0x0000000000000d80                BOD_IRQHandler
+                0x0000000000000d84                USB_IRQHandler
+                0x0000000000000d88                CAN_IRQHandler
+                0x0000000000000d8c                DMA_IRQHandler
+                0x0000000000000d90                I2S_IRQHandler
+                0x0000000000000d94                ENET_IRQHandler
+                0x0000000000000d98                RIT_IRQHandler
+                0x0000000000000d9c                MCPWM_IRQHandler
+                0x0000000000000da0                QEI_IRQHandler
+ .text          0x0000000000000da4      0x3b0 /Debug/sysClk_lpc1768.o
+                0x0000000000000da4                epcfNativeCreateSysClk
+                0x0000000000000de8                epcfNativeSysGetCpuClock
+                0x0000000000000e88                epcfNativeSysSetPclkDiv
+                0x0000000000000f00                epcfNativeSysGetPclk
+ .text          0x0000000000001154      0x4b8 /Debug/gpio_lpc1768.o
+                0x0000000000001154                epcf_gpio_nativeInit
+                0x0000000000001288                epcf_gpio_nativeSet
+                0x00000000000012b4                epcf_gpio_nativeClear
+                0x00000000000012e0                epcf_gpio_nativeRead
+                0x0000000000001318                epcf_gpio_nativeSetDirection
+                0x0000000000001394                epcf_gpio_nativeGetDeviceCount
+                0x00000000000013a0                epcf_gpio_nativeIntEnable
+                0x0000000000001514                epcf_gpio_nativeIntDisable
+                0x000000000000152c                epcf_gpio_nativeIntAttachCallback
+                0x0000000000001598                epcf_gpio_nativeIntDetachCallback
+ .text          0x000000000000160c      0x1c4 /Debug/gpio.o
+                0x000000000000160c                epcf_gpio_createNative
+                0x000000000000167c                epcf_gpio_set
+                0x00000000000016bc                epcf_gpio_clear
+                0x00000000000016fc                epcf_gpio_read
+                0x000000000000173c                epcf_gpio_setDirection
+                0x0000000000001790                epcf_gpio_getDeviceCount
+                0x00000000000017b0                epcf_gpio_extGetDeviceCount
+ .text          0x00000000000017d0        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+ .text          0x00000000000017d0        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-freer.o)
+ .text          0x00000000000017d0        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+ .text          0x00000000000017d0        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+ .text          0x00000000000017d0        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+ .text          0x00000000000017d0        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+ .text          0x00000000000017d0        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+ *(.text.*)
+ .text.malloc   0x00000000000017d0       0x10 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+                0x00000000000017d0                malloc
+ .text.free     0x00000000000017e0       0x10 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+                0x00000000000017e0                free
+ .text._free_r  0x00000000000017f0       0x88 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-freer.o)
+                0x00000000000017f0                _free_r
+ .text._malloc_r
+                0x0000000000001878       0xac /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+                0x0000000000001878                _malloc_r
+ .text._sbrk_r  0x0000000000001924       0x20 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+                0x0000000000001924                _sbrk_r
+ .text.cleanup_glue
+                0x0000000000001944       0x1a /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+                0x0000000000001944                cleanup_glue
+ *fill*         0x000000000000195e        0x2 00000000
+ .text._reclaim_reent
+                0x0000000000001960       0xb4 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+                0x0000000000001960                _reclaim_reent
+ .text._sbrk    0x0000000000001a14       0x1c /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+                0x0000000000001a14                _sbrk
+                0x0000000000001a30                . = ALIGN (0x4)
+ *(.rodata)
+ .rodata        0x0000000000001a30       0x88 /Debug/pin_lpc1768.o
+ .rodata        0x0000000000001ab8        0x4 /Debug/sysClk_lpc1768.o
+ *(.rodata.*)
+ .rodata.str1.1
+                0x0000000000001abc        0x2 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+ *fill*         0x0000000000001abe        0x2 00000000
+ .rodata._global_impure_ptr
+                0x0000000000001ac0        0x4 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+                0x0000000000001ac0                _global_impure_ptr
+                0x0000000000001ac4                . = ALIGN (0x4)
+
+.glue_7         0x0000000000001ac4        0x0
+ .glue_7        0x0000000000001ac4        0x0 linker stubs
+
+.glue_7t        0x0000000000001ac4        0x0
+ .glue_7t       0x0000000000001ac4        0x0 linker stubs
+
+.vfp11_veneer   0x0000000000001ac4        0x0
+ .vfp11_veneer  0x0000000000001ac4        0x0 linker stubs
+
+.v4_bx          0x0000000000001ac4        0x0
+ .v4_bx         0x0000000000001ac4        0x0 linker stubs
+
+.iplt           0x0000000000001ac4        0x0
+ .iplt          0x0000000000001ac4        0x0 /Debug/app.o
+
+.rel.dyn        0x0000000000001ac4        0x0
+ .rel.iplt      0x0000000000001ac4        0x0 /Debug/app.o
+
+.ARM.extab
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+                0x0000000000001ac4                __exidx_start = .
+
+.ARM.exidx
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+                0x0000000000001ac4                __exidx_end = .
+                0x0000000000001ac4                _etext = .
+
+.data           0x000000002007c000       0x74 load address 0x0000000000001ac4
+                0x000000002007c000                . = ALIGN (0x4)
+                0x000000002007c000                _sdata = .
+ *(.data)
+ .data          0x000000002007c000        0x0 /Debug/app.o
+ .data          0x000000002007c000        0xc /Debug/appConfig.o
+                0x000000002007c000                myClockCfg
+ .data          0x000000002007c00c        0x0 /Debug/sysClk.o
+ .data          0x000000002007c00c        0x0 /Debug/pin_lpc1768.o
+ .data          0x000000002007c00c        0x0 /Debug/vectors_lpc1768.o
+ .data          0x000000002007c00c        0x0 /Debug/sysClk_lpc1768.o
+ .data          0x000000002007c00c        0x1 /Debug/gpio_lpc1768.o
+ .data          0x000000002007c00d        0x0 /Debug/gpio.o
+ .data          0x000000002007c00d        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+ .data          0x000000002007c00d        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-freer.o)
+ .data          0x000000002007c00d        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+ .data          0x000000002007c00d        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+ .data          0x000000002007c00d        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+ .data          0x000000002007c00d        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+ .data          0x000000002007c00d        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+ *(.data.*)
+ *fill*         0x000000002007c00d        0x3 
+ .data.impure_data
+                0x000000002007c010       0x60 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+ .data._impure_ptr
+                0x000000002007c070        0x4 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+                0x000000002007c070                _impure_ptr
+                0x000000002007c074                . = ALIGN (0x4)
+ *(.fastrun)
+ *(.fastrun.*)
+                0x000000002007c074                . = ALIGN (0x4)
+                0x000000002007c074                _edata = .
+
+.igot.plt       0x000000002007c074        0x0 load address 0x0000000000001b38
+ .igot.plt      0x000000002007c074        0x0 /Debug/app.o
+
+.bss            0x0000000010000000      0x318
+                0x0000000010000000                . = ALIGN (0x4)
+                0x0000000010000000                _sbss = .
+ *(.bss)
+ .bss           0x0000000010000000        0x0 /Debug/app.o
+ .bss           0x0000000010000000        0x0 /Debug/appConfig.o
+ .bss           0x0000000010000000        0x0 /Debug/sysClk.o
+ .bss           0x0000000010000000        0x0 /Debug/pin_lpc1768.o
+ .bss           0x0000000010000000        0x0 /Debug/vectors_lpc1768.o
+ .bss           0x0000000010000000        0x4 /Debug/sysClk_lpc1768.o
+ .bss           0x0000000010000004      0x2ff /Debug/gpio_lpc1768.o
+ .bss           0x0000000010000303        0x0 /Debug/gpio.o
+ .bss           0x0000000010000303        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+ .bss           0x0000000010000303        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-freer.o)
+ .bss           0x0000000010000303        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+ .bss           0x0000000010000303        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+ .bss           0x0000000010000303        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+ .bss           0x0000000010000303        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+ .bss           0x0000000010000303        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+ *(.bss.*)
+ *fill*         0x0000000010000303        0x1 
+ .bss.__malloc_sbrk_start
+                0x0000000010000304        0x4 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+                0x0000000010000304                __malloc_sbrk_start
+ .bss.__malloc_free_list
+                0x0000000010000308        0x4 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+                0x0000000010000308                __malloc_free_list
+ .bss.heap_end.4079
+                0x000000001000030c        0x4 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+                0x0000000010000310                . = ALIGN (0x4)
+ COMMON         0x0000000010000310        0x4 /Debug/appConfig.o
+                0x0000000010000310                myClock
+ COMMON         0x0000000010000314        0x4 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+                0x0000000010000314                errno
+                0x0000000010000318                _ebss = .
+
+.heap           0x000000002007c074        0x0
+                0x000000002007c074                __end__ = .
+                0x000000002007c074                PROVIDE (end, .)
+ *(.heap*)
+                0x000000002007c074                __HeapLimit = .
+                0x0000000020084000                _estack = (ORIGIN (RAM2) + LENGTH (RAM2))
+OUTPUT(Build/Hex/Debug/app.elf elf32-littlearm)
+
+.debug_info     0x0000000000000000     0x5ab5
+ .debug_info    0x0000000000000000      0x648 /Debug/app.o
+ .debug_info    0x0000000000000648      0x19d /Debug/appConfig.o
+ .debug_info    0x00000000000007e5      0x18a /Debug/sysClk.o
+ .debug_info    0x000000000000096f      0x5c0 /Debug/pin_lpc1768.o
+ .debug_info    0x0000000000000f2f      0x4e4 /Debug/vectors_lpc1768.o
+ .debug_info    0x0000000000001413      0x6ac /Debug/sysClk_lpc1768.o
+ .debug_info    0x0000000000001abf      0x861 /Debug/gpio_lpc1768.o
+ .debug_info    0x0000000000002320      0x5b8 /Debug/gpio.o
+ .debug_info    0x00000000000028d8      0x7c1 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+ .debug_info    0x0000000000003099      0x81a /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-freer.o)
+ .debug_info    0x00000000000038b3      0x8fb /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+ .debug_info    0x00000000000041ae      0x7a0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+ .debug_info    0x000000000000494e      0x7d3 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+ .debug_info    0x0000000000005121      0x8fb /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+ .debug_info    0x0000000000005a1c       0x99 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+
+.debug_abbrev   0x0000000000000000     0x13fb
+ .debug_abbrev  0x0000000000000000       0xec /Debug/app.o
+ .debug_abbrev  0x00000000000000ec       0xc2 /Debug/appConfig.o
+ .debug_abbrev  0x00000000000001ae       0xd1 /Debug/sysClk.o
+ .debug_abbrev  0x000000000000027f      0x187 /Debug/pin_lpc1768.o
+ .debug_abbrev  0x0000000000000406       0xdb /Debug/vectors_lpc1768.o
+ .debug_abbrev  0x00000000000004e1      0x17d /Debug/sysClk_lpc1768.o
+ .debug_abbrev  0x000000000000065e      0x187 /Debug/gpio_lpc1768.o
+ .debug_abbrev  0x00000000000007e5      0x124 /Debug/gpio.o
+ .debug_abbrev  0x0000000000000909      0x19f /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+ .debug_abbrev  0x0000000000000aa8      0x1b6 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-freer.o)
+ .debug_abbrev  0x0000000000000c5e      0x250 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+ .debug_abbrev  0x0000000000000eae      0x1a2 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+ .debug_abbrev  0x0000000000001050      0x136 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+ .debug_abbrev  0x0000000000001186      0x1f2 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+ .debug_abbrev  0x0000000000001378       0x83 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+
+.debug_loc      0x0000000000000000      0xc33
+ .debug_loc     0x0000000000000000       0x39 /Debug/app.o
+ .debug_loc     0x0000000000000039       0x20 /Debug/appConfig.o
+ .debug_loc     0x0000000000000059       0x38 /Debug/sysClk.o
+ .debug_loc     0x0000000000000091       0xe8 /Debug/pin_lpc1768.o
+ .debug_loc     0x0000000000000179       0x2c /Debug/vectors_lpc1768.o
+ .debug_loc     0x00000000000001a5      0x138 /Debug/sysClk_lpc1768.o
+ .debug_loc     0x00000000000002dd      0x198 /Debug/gpio_lpc1768.o
+ .debug_loc     0x0000000000000475      0x188 /Debug/gpio.o
+ .debug_loc     0x00000000000005fd       0x58 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+ .debug_loc     0x0000000000000655      0x172 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-freer.o)
+ .debug_loc     0x00000000000007c7      0x304 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+ .debug_loc     0x0000000000000acb       0x4d /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+ .debug_loc     0x0000000000000b18       0xfa /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+ .debug_loc     0x0000000000000c12       0x21 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+
+.debug_aranges  0x0000000000000000      0x1e8
+ .debug_aranges
+                0x0000000000000000       0x20 /Debug/app.o
+ .debug_aranges
+                0x0000000000000020       0x20 /Debug/appConfig.o
+ .debug_aranges
+                0x0000000000000040       0x20 /Debug/sysClk.o
+ .debug_aranges
+                0x0000000000000060       0x20 /Debug/pin_lpc1768.o
+ .debug_aranges
+                0x0000000000000080       0x20 /Debug/vectors_lpc1768.o
+ .debug_aranges
+                0x00000000000000a0       0x20 /Debug/sysClk_lpc1768.o
+ .debug_aranges
+                0x00000000000000c0       0x20 /Debug/gpio_lpc1768.o
+ .debug_aranges
+                0x00000000000000e0       0x20 /Debug/gpio.o
+ .debug_aranges
+                0x0000000000000100       0x28 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+ .debug_aranges
+                0x0000000000000128       0x20 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-freer.o)
+ .debug_aranges
+                0x0000000000000148       0x20 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+ .debug_aranges
+                0x0000000000000168       0x20 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+ .debug_aranges
+                0x0000000000000188       0x18 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+ .debug_aranges
+                0x00000000000001a0       0x28 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+ .debug_aranges
+                0x00000000000001c8       0x20 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+
+.debug_line     0x0000000000000000     0x1c56
+ .debug_line    0x0000000000000000      0x14e /Debug/app.o
+ .debug_line    0x000000000000014e      0x169 /Debug/appConfig.o
+ .debug_line    0x00000000000002b7      0x17a /Debug/sysClk.o
+ .debug_line    0x0000000000000431      0x43a /Debug/pin_lpc1768.o
+ .debug_line    0x000000000000086b      0x233 /Debug/vectors_lpc1768.o
+ .debug_line    0x0000000000000a9e      0x2c4 /Debug/sysClk_lpc1768.o
+ .debug_line    0x0000000000000d62      0x3ed /Debug/gpio_lpc1768.o
+ .debug_line    0x000000000000114f      0x272 /Debug/gpio.o
+ .debug_line    0x00000000000013c1      0x16e /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+ .debug_line    0x000000000000152f      0x145 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-freer.o)
+ .debug_line    0x0000000000001674      0x199 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+ .debug_line    0x000000000000180d      0x162 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+ .debug_line    0x000000000000196f       0xf1 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+ .debug_line    0x0000000000001a60      0x19e /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+ .debug_line    0x0000000000001bfe       0x58 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+
+.debug_str      0x0000000000000000     0x1b45
+ .debug_str     0x0000000000000000      0x3a4 /Debug/app.o
+                                        0x406 (size before relaxing)
+ .debug_str     0x00000000000003a4      0x102 /Debug/appConfig.o
+                                        0x284 (size before relaxing)
+ .debug_str     0x00000000000004a6       0x51 /Debug/sysClk.o
+                                        0x295 (size before relaxing)
+ .debug_str     0x00000000000004f7      0x2ce /Debug/pin_lpc1768.o
+                                        0x58f (size before relaxing)
+ .debug_str     0x00000000000007c5      0x318 /Debug/vectors_lpc1768.o
+                                        0x499 (size before relaxing)
+ .debug_str     0x0000000000000add      0x2d0 /Debug/sysClk_lpc1768.o
+                                        0x542 (size before relaxing)
+ .debug_str     0x0000000000000dad      0x4ea /Debug/gpio_lpc1768.o
+                                        0x8a4 (size before relaxing)
+ .debug_str     0x0000000000001297       0xd9 /Debug/gpio.o
+                                        0x6c4 (size before relaxing)
+ .debug_str     0x0000000000001370      0x469 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+                                        0x54f (size before relaxing)
+ .debug_str     0x00000000000017d9       0x90 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-freer.o)
+                                        0x593 (size before relaxing)
+ .debug_str     0x0000000000001869       0x50 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+                                        0x5c8 (size before relaxing)
+ .debug_str     0x00000000000018b9       0xa0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+                                        0x532 (size before relaxing)
+ .debug_str     0x0000000000001959       0x8b /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+                                        0x57a (size before relaxing)
+ .debug_str     0x00000000000019e4       0x58 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+                                        0x55a (size before relaxing)
+ .debug_str     0x0000000000001a3c      0x109 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+                                        0x122 (size before relaxing)
+
+.comment        0x0000000000000000       0x70
+ .comment       0x0000000000000000       0x38 /Debug/app.o
+                                         0x39 (size before relaxing)
+ .comment       0x0000000000000038       0x39 /Debug/appConfig.o
+ .comment       0x0000000000000038       0x39 /Debug/sysClk.o
+ .comment       0x0000000000000038       0x39 /Debug/pin_lpc1768.o
+ .comment       0x0000000000000038       0x39 /Debug/vectors_lpc1768.o
+ .comment       0x0000000000000038       0x39 /Debug/sysClk_lpc1768.o
+ .comment       0x0000000000000038       0x39 /Debug/gpio_lpc1768.o
+ .comment       0x0000000000000038       0x39 /Debug/gpio.o
+ .comment       0x0000000000000038       0x38 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+                                         0x39 (size before relaxing)
+ .comment       0x0000000000000070       0x39 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-freer.o)
+ .comment       0x0000000000000070       0x39 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+ .comment       0x0000000000000070       0x39 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+ .comment       0x0000000000000070       0x39 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+ .comment       0x0000000000000070       0x39 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+ .comment       0x0000000000000070       0x39 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+
+.ARM.attributes
+                0x0000000000000000       0x33
+ .ARM.attributes
+                0x0000000000000000       0x33 /Debug/app.o
+ .ARM.attributes
+                0x0000000000000033       0x33 /Debug/appConfig.o
+ .ARM.attributes
+                0x0000000000000066       0x33 /Debug/sysClk.o
+ .ARM.attributes
+                0x0000000000000099       0x33 /Debug/pin_lpc1768.o
+ .ARM.attributes
+                0x00000000000000cc       0x33 /Debug/vectors_lpc1768.o
+ .ARM.attributes
+                0x00000000000000ff       0x33 /Debug/sysClk_lpc1768.o
+ .ARM.attributes
+                0x0000000000000132       0x33 /Debug/gpio_lpc1768.o
+ .ARM.attributes
+                0x0000000000000165       0x33 /Debug/gpio.o
+ .ARM.attributes
+                0x0000000000000198       0x2d /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+ .ARM.attributes
+                0x00000000000001c5       0x2d /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-freer.o)
+ .ARM.attributes
+                0x00000000000001f2       0x2d /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+ .ARM.attributes
+                0x000000000000021f       0x2d /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+ .ARM.attributes
+                0x000000000000024c       0x2d /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+ .ARM.attributes
+                0x0000000000000279       0x2d /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+ .ARM.attributes
+                0x00000000000002a6       0x2d /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+
+.debug_frame    0x0000000000000000      0x7a0
+ .debug_frame   0x0000000000000000       0x30 /Debug/app.o
+ .debug_frame   0x0000000000000030       0x2c /Debug/appConfig.o
+ .debug_frame   0x000000000000005c       0x2c /Debug/sysClk.o
+ .debug_frame   0x0000000000000088       0x90 /Debug/pin_lpc1768.o
+ .debug_frame   0x0000000000000118      0x2bc /Debug/vectors_lpc1768.o
+ .debug_frame   0x00000000000003d4       0xc8 /Debug/sysClk_lpc1768.o
+ .debug_frame   0x000000000000049c      0x100 /Debug/gpio_lpc1768.o
+ .debug_frame   0x000000000000059c       0xd4 /Debug/gpio.o
+ .debug_frame   0x0000000000000670       0x30 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+ .debug_frame   0x00000000000006a0       0x2c /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-freer.o)
+ .debug_frame   0x00000000000006cc       0x2c /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+ .debug_frame   0x00000000000006f8       0x2c /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+ .debug_frame   0x0000000000000724       0x5c /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+ .debug_frame   0x0000000000000780       0x20 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+
+.debug_ranges   0x0000000000000000       0xa0
+ .debug_ranges  0x0000000000000000       0x18 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+ .debug_ranges  0x0000000000000018       0x28 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-freer.o)
+ .debug_ranges  0x0000000000000040       0x28 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+ .debug_ranges  0x0000000000000068       0x10 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+ .debug_ranges  0x0000000000000078       0x18 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+ .debug_ranges  0x0000000000000090       0x10 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+
+Cross Reference Table
+
+Symbol                                            File
+ADC_IRQHandler                                    /Debug/vectors_lpc1768.o
+BOD_IRQHandler                                    /Debug/vectors_lpc1768.o
+BusFault_Handler                                  /Debug/vectors_lpc1768.o
+CAN_IRQHandler                                    /Debug/vectors_lpc1768.o
+DMA_IRQHandler                                    /Debug/vectors_lpc1768.o
+DebugMon_Handler                                  /Debug/vectors_lpc1768.o
+EINT0_IRQHandler                                  /Debug/vectors_lpc1768.o
+EINT1_IRQHandler                                  /Debug/vectors_lpc1768.o
+EINT2_IRQHandler                                  /Debug/vectors_lpc1768.o
+EINT3_IRQHandler                                  /Debug/vectors_lpc1768.o
+ENET_IRQHandler                                   /Debug/vectors_lpc1768.o
+HardFault_Handler                                 /Debug/vectors_lpc1768.o
+I2C0_IRQHandler                                   /Debug/vectors_lpc1768.o
+I2C1_IRQHandler                                   /Debug/vectors_lpc1768.o
+I2C2_IRQHandler                                   /Debug/vectors_lpc1768.o
+I2S_IRQHandler                                    /Debug/vectors_lpc1768.o
+MCPWM_IRQHandler                                  /Debug/vectors_lpc1768.o
+MemManage_Handler                                 /Debug/vectors_lpc1768.o
+NMI_Handler                                       /Debug/vectors_lpc1768.o
+PLL0_IRQHandler                                   /Debug/vectors_lpc1768.o
+PWM_IRQHandler                                    /Debug/vectors_lpc1768.o
+PendSV_Handler                                    /Debug/vectors_lpc1768.o
+QEI_IRQHandler                                    /Debug/vectors_lpc1768.o
+RIT_IRQHandler                                    /Debug/vectors_lpc1768.o
+RTC_IRQHandler                                    /Debug/vectors_lpc1768.o
+ResetHandler                                      /Debug/vectors_lpc1768.o
+SPI_IRQHandler                                    /Debug/vectors_lpc1768.o
+SSP0_IRQHandler                                   /Debug/vectors_lpc1768.o
+SSP1_IRQHandler                                   /Debug/vectors_lpc1768.o
+SVC_Handler                                       /Debug/vectors_lpc1768.o
+SysTick_Handler                                   /Debug/vectors_lpc1768.o
+TIMER0_IRQHandler                                 /Debug/vectors_lpc1768.o
+TIMER1_IRQHandler                                 /Debug/vectors_lpc1768.o
+TIMER2_IRQHandler                                 /Debug/vectors_lpc1768.o
+TIMER3_IRQHandler                                 /Debug/vectors_lpc1768.o
+UART0_IRQHandler                                  /Debug/vectors_lpc1768.o
+UART1_IRQHandler                                  /Debug/vectors_lpc1768.o
+UART2_IRQHandler                                  /Debug/vectors_lpc1768.o
+UART3_IRQHandler                                  /Debug/vectors_lpc1768.o
+USB_IRQHandler                                    /Debug/vectors_lpc1768.o
+UsageFault_Handler                                /Debug/vectors_lpc1768.o
+WDT_IRQHandler                                    /Debug/vectors_lpc1768.o
+__malloc_free_list                                /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+                                                  /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-freer.o)
+__malloc_sbrk_start                               /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+__sf_fake_stderr                                  /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+__sf_fake_stdin                                   /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+__sf_fake_stdout                                  /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+_ebss                                             /Debug/vectors_lpc1768.o
+_edata                                            /Debug/vectors_lpc1768.o
+_estack                                           /Debug/vectors_lpc1768.o
+_etext                                            /Debug/vectors_lpc1768.o
+_free_r                                           /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-freer.o)
+                                                  /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+                                                  /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+_global_impure_ptr                                /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+_impure_ptr                                       /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+                                                  /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+                                                  /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+_malloc_r                                         /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+                                                  /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+_reclaim_reent                                    /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+_sbrk                                             /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+                                                  /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+_sbrk_r                                           /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+                                                  /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+_sbss                                             /Debug/vectors_lpc1768.o
+_sdata                                            /Debug/vectors_lpc1768.o
+_stext                                            /Debug/vectors_lpc1768.o
+appInit                                           /Debug/appConfig.o
+                                                  /Debug/app.o
+cleanup_glue                                      /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+end                                               /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+epcfCreateSysClk                                  /Debug/sysClk.o
+                                                  /Debug/appConfig.o
+epcfNativeCreateSysClk                            /Debug/sysClk_lpc1768.o
+                                                  /Debug/sysClk.o
+epcfNativeSysGetCpuClock                          /Debug/sysClk_lpc1768.o
+epcfNativeSysGetPclk                              /Debug/sysClk_lpc1768.o
+epcfNativeSysSetPclkDiv                           /Debug/sysClk_lpc1768.o
+epcfPinInit                                       /Debug/pin_lpc1768.o
+                                                  /Debug/gpio_lpc1768.o
+epcf_gpio_clear                                   /Debug/gpio.o
+epcf_gpio_createNative                            /Debug/gpio.o
+epcf_gpio_extGetDeviceCount                       /Debug/gpio.o
+epcf_gpio_getDeviceCount                          /Debug/gpio.o
+epcf_gpio_nativeClear                             /Debug/gpio_lpc1768.o
+                                                  /Debug/gpio.o
+epcf_gpio_nativeGetDeviceCount                    /Debug/gpio_lpc1768.o
+                                                  /Debug/gpio.o
+epcf_gpio_nativeInit                              /Debug/gpio_lpc1768.o
+                                                  /Debug/gpio.o
+epcf_gpio_nativeIntAttachCallback                 /Debug/gpio_lpc1768.o
+epcf_gpio_nativeIntDetachCallback                 /Debug/gpio_lpc1768.o
+epcf_gpio_nativeIntDisable                        /Debug/gpio_lpc1768.o
+epcf_gpio_nativeIntEnable                         /Debug/gpio_lpc1768.o
+epcf_gpio_nativeRead                              /Debug/gpio_lpc1768.o
+                                                  /Debug/gpio.o
+epcf_gpio_nativeSet                               /Debug/gpio_lpc1768.o
+                                                  /Debug/gpio.o
+epcf_gpio_nativeSetDirection                      /Debug/gpio_lpc1768.o
+                                                  /Debug/gpio.o
+epcf_gpio_read                                    /Debug/gpio.o
+epcf_gpio_set                                     /Debug/gpio.o
+epcf_gpio_setDirection                            /Debug/gpio.o
+errno                                             /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+                                                  /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+free                                              /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+gVectors                                          /Debug/vectors_lpc1768.o
+main                                              /Debug/app.o
+                                                  /Debug/vectors_lpc1768.o
+malloc                                            /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+                                                  /Debug/gpio.o
+                                                  /Debug/sysClk_lpc1768.o
+myClock                                           /Debug/appConfig.o
+myClockCfg                                        /Debug/appConfig.o

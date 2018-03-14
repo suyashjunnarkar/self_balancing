@@ -1,0 +1,85 @@
+\hypertarget{structEPCFUartCfg}{}\section{E\+P\+C\+F\+Uart\+Cfg Struct Reference}
+\label{structEPCFUartCfg}\index{E\+P\+C\+F\+Uart\+Cfg@{E\+P\+C\+F\+Uart\+Cfg}}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structEPCFUartCfg_a7fcc9c804313cbc8f01af381ea28a840}{uart\+Id}}
+\item 
+\mbox{\hyperlink{uart_8h_a24fb18401ffd9130c23a2cfe3bce15ad}{En\+E\+P\+C\+F\+Uart\+Baudrate\+\_\+t}} \mbox{\hyperlink{structEPCFUartCfg_a40222f034578279705cdf4057c945ea5}{baudrate}}
+\item 
+\mbox{\hyperlink{uart_8h_a516fed66490995cacbaac89afadb3faf}{En\+E\+P\+C\+F\+Uart\+Data\+Bits\+\_\+t}} \mbox{\hyperlink{structEPCFUartCfg_a04a5e975552aa93fbf5ee1142c994498}{data\+Bits}}
+\item 
+\mbox{\hyperlink{uart_8h_ae3b1989d517831580e94d943b5701848}{En\+E\+P\+C\+F\+Uart\+Parity\+\_\+t}} \mbox{\hyperlink{structEPCFUartCfg_a9bca630da923c86a472569120bcaf0c0}{parity}}
+\item 
+\mbox{\hyperlink{uart_8h_a1d89bd0bb4e330d2d1d8b0229ecbcb35}{En\+E\+P\+C\+F\+Uart\+Stop\+Bits\+\_\+t}} \mbox{\hyperlink{structEPCFUartCfg_a73d09fb0d0a1c9bed2168744e0f395f1}{stop\+Bits}}
+\item 
+En\+E\+P\+C\+F\+Boolean\+\_\+t \mbox{\hyperlink{structEPCFUartCfg_a46be619c0ace09e5f81dc82923693556}{interrupt\+Enable}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structEPCFUartCfg_adc64f8ba1a6f531727518641fd220737}{tx\+Buffer\+Size}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structEPCFUartCfg_a18b2a5f72dcf93e14987a0dc5d9c74b1}{rx\+Buffer\+Size}}
+\item 
+void $\ast$ \mbox{\hyperlink{structEPCFUartCfg_adb1ead8cb827ec9e7c9ebe52d777e6a0}{hardware\+Cfg}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structEPCFUartCfg_a40222f034578279705cdf4057c945ea5}\label{structEPCFUartCfg_a40222f034578279705cdf4057c945ea5}} 
+\index{E\+P\+C\+F\+Uart\+Cfg@{E\+P\+C\+F\+Uart\+Cfg}!baudrate@{baudrate}}
+\index{baudrate@{baudrate}!E\+P\+C\+F\+Uart\+Cfg@{E\+P\+C\+F\+Uart\+Cfg}}
+\subsubsection{\texorpdfstring{baudrate}{baudrate}}
+{\footnotesize\ttfamily \mbox{\hyperlink{uart_8h_a24fb18401ffd9130c23a2cfe3bce15ad}{En\+E\+P\+C\+F\+Uart\+Baudrate\+\_\+t}} E\+P\+C\+F\+Uart\+Cfg\+::baudrate}
+
+Baudrate for uart communication in bits/second \mbox{\Hypertarget{structEPCFUartCfg_a04a5e975552aa93fbf5ee1142c994498}\label{structEPCFUartCfg_a04a5e975552aa93fbf5ee1142c994498}} 
+\index{E\+P\+C\+F\+Uart\+Cfg@{E\+P\+C\+F\+Uart\+Cfg}!data\+Bits@{data\+Bits}}
+\index{data\+Bits@{data\+Bits}!E\+P\+C\+F\+Uart\+Cfg@{E\+P\+C\+F\+Uart\+Cfg}}
+\subsubsection{\texorpdfstring{data\+Bits}{dataBits}}
+{\footnotesize\ttfamily \mbox{\hyperlink{uart_8h_a516fed66490995cacbaac89afadb3faf}{En\+E\+P\+C\+F\+Uart\+Data\+Bits\+\_\+t}} E\+P\+C\+F\+Uart\+Cfg\+::data\+Bits}
+
+Specifies number of data bits in uart frame \mbox{\Hypertarget{structEPCFUartCfg_adb1ead8cb827ec9e7c9ebe52d777e6a0}\label{structEPCFUartCfg_adb1ead8cb827ec9e7c9ebe52d777e6a0}} 
+\index{E\+P\+C\+F\+Uart\+Cfg@{E\+P\+C\+F\+Uart\+Cfg}!hardware\+Cfg@{hardware\+Cfg}}
+\index{hardware\+Cfg@{hardware\+Cfg}!E\+P\+C\+F\+Uart\+Cfg@{E\+P\+C\+F\+Uart\+Cfg}}
+\subsubsection{\texorpdfstring{hardware\+Cfg}{hardwareCfg}}
+{\footnotesize\ttfamily void$\ast$ E\+P\+C\+F\+Uart\+Cfg\+::hardware\+Cfg}
+
+Hardware platform specific configuration, pass N\+U\+LL for default configuration \mbox{\Hypertarget{structEPCFUartCfg_a46be619c0ace09e5f81dc82923693556}\label{structEPCFUartCfg_a46be619c0ace09e5f81dc82923693556}} 
+\index{E\+P\+C\+F\+Uart\+Cfg@{E\+P\+C\+F\+Uart\+Cfg}!interrupt\+Enable@{interrupt\+Enable}}
+\index{interrupt\+Enable@{interrupt\+Enable}!E\+P\+C\+F\+Uart\+Cfg@{E\+P\+C\+F\+Uart\+Cfg}}
+\subsubsection{\texorpdfstring{interrupt\+Enable}{interruptEnable}}
+{\footnotesize\ttfamily En\+E\+P\+C\+F\+Boolean\+\_\+t E\+P\+C\+F\+Uart\+Cfg\+::interrupt\+Enable}
+
+Specifies to enable uart interrupt or not \mbox{\Hypertarget{structEPCFUartCfg_a9bca630da923c86a472569120bcaf0c0}\label{structEPCFUartCfg_a9bca630da923c86a472569120bcaf0c0}} 
+\index{E\+P\+C\+F\+Uart\+Cfg@{E\+P\+C\+F\+Uart\+Cfg}!parity@{parity}}
+\index{parity@{parity}!E\+P\+C\+F\+Uart\+Cfg@{E\+P\+C\+F\+Uart\+Cfg}}
+\subsubsection{\texorpdfstring{parity}{parity}}
+{\footnotesize\ttfamily \mbox{\hyperlink{uart_8h_ae3b1989d517831580e94d943b5701848}{En\+E\+P\+C\+F\+Uart\+Parity\+\_\+t}} E\+P\+C\+F\+Uart\+Cfg\+::parity}
+
+Specifies parity to be used for communication \mbox{\Hypertarget{structEPCFUartCfg_a18b2a5f72dcf93e14987a0dc5d9c74b1}\label{structEPCFUartCfg_a18b2a5f72dcf93e14987a0dc5d9c74b1}} 
+\index{E\+P\+C\+F\+Uart\+Cfg@{E\+P\+C\+F\+Uart\+Cfg}!rx\+Buffer\+Size@{rx\+Buffer\+Size}}
+\index{rx\+Buffer\+Size@{rx\+Buffer\+Size}!E\+P\+C\+F\+Uart\+Cfg@{E\+P\+C\+F\+Uart\+Cfg}}
+\subsubsection{\texorpdfstring{rx\+Buffer\+Size}{rxBufferSize}}
+{\footnotesize\ttfamily uint32\+\_\+t E\+P\+C\+F\+Uart\+Cfg\+::rx\+Buffer\+Size}
+
+Specifies the receive buffer size in bytes when using uart in interrupt mode Pass 0 when uart is configured in polling mode \mbox{\Hypertarget{structEPCFUartCfg_a73d09fb0d0a1c9bed2168744e0f395f1}\label{structEPCFUartCfg_a73d09fb0d0a1c9bed2168744e0f395f1}} 
+\index{E\+P\+C\+F\+Uart\+Cfg@{E\+P\+C\+F\+Uart\+Cfg}!stop\+Bits@{stop\+Bits}}
+\index{stop\+Bits@{stop\+Bits}!E\+P\+C\+F\+Uart\+Cfg@{E\+P\+C\+F\+Uart\+Cfg}}
+\subsubsection{\texorpdfstring{stop\+Bits}{stopBits}}
+{\footnotesize\ttfamily \mbox{\hyperlink{uart_8h_a1d89bd0bb4e330d2d1d8b0229ecbcb35}{En\+E\+P\+C\+F\+Uart\+Stop\+Bits\+\_\+t}} E\+P\+C\+F\+Uart\+Cfg\+::stop\+Bits}
+
+Specifies number of stop bits \mbox{\Hypertarget{structEPCFUartCfg_adc64f8ba1a6f531727518641fd220737}\label{structEPCFUartCfg_adc64f8ba1a6f531727518641fd220737}} 
+\index{E\+P\+C\+F\+Uart\+Cfg@{E\+P\+C\+F\+Uart\+Cfg}!tx\+Buffer\+Size@{tx\+Buffer\+Size}}
+\index{tx\+Buffer\+Size@{tx\+Buffer\+Size}!E\+P\+C\+F\+Uart\+Cfg@{E\+P\+C\+F\+Uart\+Cfg}}
+\subsubsection{\texorpdfstring{tx\+Buffer\+Size}{txBufferSize}}
+{\footnotesize\ttfamily uint32\+\_\+t E\+P\+C\+F\+Uart\+Cfg\+::tx\+Buffer\+Size}
+
+Specifies the transmit buffer size in bytes when using uart in interrupt mode Pass 0 when uart is configured in polling mode \mbox{\Hypertarget{structEPCFUartCfg_a7fcc9c804313cbc8f01af381ea28a840}\label{structEPCFUartCfg_a7fcc9c804313cbc8f01af381ea28a840}} 
+\index{E\+P\+C\+F\+Uart\+Cfg@{E\+P\+C\+F\+Uart\+Cfg}!uart\+Id@{uart\+Id}}
+\index{uart\+Id@{uart\+Id}!E\+P\+C\+F\+Uart\+Cfg@{E\+P\+C\+F\+Uart\+Cfg}}
+\subsubsection{\texorpdfstring{uart\+Id}{uartId}}
+{\footnotesize\ttfamily uint8\+\_\+t E\+P\+C\+F\+Uart\+Cfg\+::uart\+Id}
+
+Uart Id. Refer to platform specific header file for appropriate uart id 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+epcf\+\_\+project/epcf/peripheral/include/uart/\mbox{\hyperlink{uart_8h}{uart.\+h}}\end{DoxyCompactItemize}

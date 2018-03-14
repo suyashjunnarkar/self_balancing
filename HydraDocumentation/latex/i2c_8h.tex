@@ -1,0 +1,315 @@
+\hypertarget{i2c_8h}{}\section{epcf\+\_\+project/epcf/peripheral/include/i2c/i2c.h File Reference}
+\label{i2c_8h}\index{epcf\+\_\+project/epcf/peripheral/include/i2c/i2c.\+h@{epcf\+\_\+project/epcf/peripheral/include/i2c/i2c.\+h}}
+
+
+This file is used to configure a I2c device.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structEPCFI2cCfg__t}{E\+P\+C\+F\+I2c\+Cfg\+\_\+t}}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{i2c_8h_abad1f65160a59e1e3ceefa2645e755c6}\label{i2c_8h_abad1f65160a59e1e3ceefa2645e755c6}} 
+typedef struct \mbox{\hyperlink{structEPCFI2cDevice}{E\+P\+C\+F\+I2c\+Device}} \mbox{\hyperlink{i2c_8h_abad1f65160a59e1e3ceefa2645e755c6}{E\+P\+C\+F\+I2c\+Device\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em I2c device. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{i2c_8h_a9bc5b2ac9d948097d750f5a4f570ad44}{En\+E\+P\+C\+F\+I2c\+Address\+Type\+\_\+t}} \{ \mbox{\hyperlink{i2c_8h_a9bc5b2ac9d948097d750f5a4f570ad44a502249a8b143b2745d08882de4c9c6f2}{en\+E\+P\+C\+F\+I2c\+Address\+\_\+7bit}}, 
+\mbox{\hyperlink{i2c_8h_a9bc5b2ac9d948097d750f5a4f570ad44ace0c0f0231b617da362c4f84e7c642a2}{en\+E\+P\+C\+F\+I2c\+Address\+\_\+10bit}}, 
+\mbox{\hyperlink{i2c_8h_a9bc5b2ac9d948097d750f5a4f570ad44ab186f3eac31184cc72d580a87e751685}{en\+E\+P\+C\+F\+I2c\+Address\+Type\+\_\+\+Max}}
+ \}
+\begin{DoxyCompactList}\small\item\em I2c address type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{i2c_8h_abad1f65160a59e1e3ceefa2645e755c6}{E\+P\+C\+F\+I2c\+Device\+\_\+t}} $\ast$ \mbox{\hyperlink{i2c_8h_a3f687b5c66cbdbe03666613dcd9aef94}{epcf\+\_\+i2c\+\_\+\+Create\+Native}} (\mbox{\hyperlink{structEPCFI2cCfg__t}{E\+P\+C\+F\+I2c\+Cfg\+\_\+t}} $\ast$p\+I2c\+Config)
+\begin{DoxyCompactList}\small\item\em This function is used to create a i2c device. Call this function in beginning to initialize the i2c device. This function allocates memory for the device using malloc() function call and returns a pointer to the device. Pass this device pointer while calling i2c functions. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{i2c_8h_a24f35ecf200ff9e2dec3c2169f634b26}{epcf\+\_\+i2c\+\_\+write}} (\mbox{\hyperlink{i2c_8h_abad1f65160a59e1e3ceefa2645e755c6}{E\+P\+C\+F\+I2c\+Device\+\_\+t}} $\ast$p\+I2c\+Device, En\+E\+P\+C\+F\+Boolean\+\_\+t master\+Enable, uint8\+\_\+t slave\+Address, const uint8\+\_\+t $\ast$data, uint32\+\_\+t size, En\+E\+P\+C\+F\+Boolean\+\_\+t bus\+Release, E\+P\+C\+F\+Time\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em This function is used to send data on I2c bus. It can be used in both master and slave mode. In Interrupt mode, data transmission will be asynchronous and the data is transmitted using internal software buffer. The function will be non blocking and will return after initiating data transmission. Use E\+P\+C\+F\+\_\+\+I2c\+\_\+\+G\+E\+T\+\_\+\+T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+C\+O\+U\+NT function to check the status of the transmit buffer. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{i2c_8h_ad706f83fd8413715ac0bc5378b0015e5}{epcf\+\_\+i2c\+\_\+read}} (\mbox{\hyperlink{i2c_8h_abad1f65160a59e1e3ceefa2645e755c6}{E\+P\+C\+F\+I2c\+Device\+\_\+t}} $\ast$p\+I2c\+Device, En\+E\+P\+C\+F\+Boolean\+\_\+t master\+Enable, uint8\+\_\+t slave\+Address, uint8\+\_\+t $\ast$data, uint32\+\_\+t size, En\+E\+P\+C\+F\+Boolean\+\_\+t bus\+Release, E\+P\+C\+F\+Time\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em This function is used to read data on I2c bus. This function can be used in both master and slave mode. In Interrupt mode, data receiving is asynchronous and data is received in an internal software buffer. Use E\+P\+C\+F\+\_\+\+I2c\+\_\+\+G\+E\+T\+\_\+\+R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+C\+O\+U\+NT function to get receive buffer count. When the count is equal to the required number of bytes to be read, call E\+P\+C\+F\+\_\+\+I2c\+\_\+\+R\+E\+AD function to read the buffer. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{i2c_8h_acf0afd43ef7268ae9360c8ea70a54541}{epcf\+\_\+i2c\+\_\+int\+Enable}} (\mbox{\hyperlink{i2c_8h_abad1f65160a59e1e3ceefa2645e755c6}{E\+P\+C\+F\+I2c\+Device\+\_\+t}} $\ast$p\+I2c\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to enable the I2c interrupt.\+It can be disabled by \mbox{\hyperlink{i2c_8h_a54aa1fdbfae89bd17958069e8d58e635}{epcf\+\_\+i2c\+\_\+int\+Disable()}} function. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{i2c_8h_a54aa1fdbfae89bd17958069e8d58e635}{epcf\+\_\+i2c\+\_\+int\+Disable}} (\mbox{\hyperlink{i2c_8h_abad1f65160a59e1e3ceefa2645e755c6}{E\+P\+C\+F\+I2c\+Device\+\_\+t}} $\ast$p\+I2c\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to disable the I2c interrupt. The device can be enabled again by \mbox{\hyperlink{i2c_8h_acf0afd43ef7268ae9360c8ea70a54541}{epcf\+\_\+i2c\+\_\+int\+Enable()}} function. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{i2c_8h_acc241257a5efd5cd65f5da5ebeb59a65}{epcf\+\_\+i2c\+\_\+get\+Rx\+Buffer\+Count}} (\mbox{\hyperlink{i2c_8h_abad1f65160a59e1e3ceefa2645e755c6}{E\+P\+C\+F\+I2c\+Device\+\_\+t}} $\ast$p\+I2c\+Device)
+\item 
+int8\+\_\+t \mbox{\hyperlink{i2c_8h_a90d512b68b103443365474a689da05ee}{epcf\+\_\+i2c\+\_\+rx\+Buffer\+Flush}} (\mbox{\hyperlink{i2c_8h_abad1f65160a59e1e3ceefa2645e755c6}{E\+P\+C\+F\+I2c\+Device\+\_\+t}} $\ast$p\+I2c\+Device)
+\item 
+int32\+\_\+t \mbox{\hyperlink{i2c_8h_a53f89f9f23839f49a11c83ed229bb805}{epcf\+\_\+i2c\+\_\+get\+Tx\+Buffer\+Count}} (\mbox{\hyperlink{i2c_8h_abad1f65160a59e1e3ceefa2645e755c6}{E\+P\+C\+F\+I2c\+Device\+\_\+t}} $\ast$p\+I2c\+Device)
+\item 
+int8\+\_\+t \mbox{\hyperlink{i2c_8h_a7ede5bd8a347d4a1a9230bc2e796c6f7}{epcf\+\_\+i2c\+\_\+tx\+Buffer\+Flush}} (\mbox{\hyperlink{i2c_8h_abad1f65160a59e1e3ceefa2645e755c6}{E\+P\+C\+F\+I2c\+Device\+\_\+t}} $\ast$p\+I2c\+Device)
+\item 
+int8\+\_\+t \mbox{\hyperlink{i2c_8h_abad40cdebd822ac63221f357d5ef25fd}{epcf\+\_\+i2c\+\_\+close}} (\mbox{\hyperlink{i2c_8h_abad1f65160a59e1e3ceefa2645e755c6}{E\+P\+C\+F\+I2c\+Device\+\_\+t}} $\ast$p\+I2c\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to close the I2c device. It will free the memory allocated by the I2c device. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{i2c_8h_ab567c3d619e8d5576d316194be5fb803}{epcf\+\_\+i2c\+\_\+get\+Device\+Count}} ()
+\begin{DoxyCompactList}\small\item\em This function is used to get the total number of available I2c devices. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file is used to configure a I2c device. 
+
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{i2c_8h_a9bc5b2ac9d948097d750f5a4f570ad44}\label{i2c_8h_a9bc5b2ac9d948097d750f5a4f570ad44}} 
+\index{i2c.\+h@{i2c.\+h}!En\+E\+P\+C\+F\+I2c\+Address\+Type\+\_\+t@{En\+E\+P\+C\+F\+I2c\+Address\+Type\+\_\+t}}
+\index{En\+E\+P\+C\+F\+I2c\+Address\+Type\+\_\+t@{En\+E\+P\+C\+F\+I2c\+Address\+Type\+\_\+t}!i2c.\+h@{i2c.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+I2c\+Address\+Type\+\_\+t}{EnEPCFI2cAddressType\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{i2c_8h_a9bc5b2ac9d948097d750f5a4f570ad44}{En\+E\+P\+C\+F\+I2c\+Address\+Type\+\_\+t}}}
+
+
+
+I2c address type. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+I2c\+Address\+\_\+7bit@{en\+E\+P\+C\+F\+I2c\+Address\+\_\+7bit}!i2c.\+h@{i2c.\+h}}\index{i2c.\+h@{i2c.\+h}!en\+E\+P\+C\+F\+I2c\+Address\+\_\+7bit@{en\+E\+P\+C\+F\+I2c\+Address\+\_\+7bit}}}\mbox{\Hypertarget{i2c_8h_a9bc5b2ac9d948097d750f5a4f570ad44a502249a8b143b2745d08882de4c9c6f2}\label{i2c_8h_a9bc5b2ac9d948097d750f5a4f570ad44a502249a8b143b2745d08882de4c9c6f2}} 
+en\+E\+P\+C\+F\+I2c\+Address\+\_\+7bit&7bit address type \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+I2c\+Address\+\_\+10bit@{en\+E\+P\+C\+F\+I2c\+Address\+\_\+10bit}!i2c.\+h@{i2c.\+h}}\index{i2c.\+h@{i2c.\+h}!en\+E\+P\+C\+F\+I2c\+Address\+\_\+10bit@{en\+E\+P\+C\+F\+I2c\+Address\+\_\+10bit}}}\mbox{\Hypertarget{i2c_8h_a9bc5b2ac9d948097d750f5a4f570ad44ace0c0f0231b617da362c4f84e7c642a2}\label{i2c_8h_a9bc5b2ac9d948097d750f5a4f570ad44ace0c0f0231b617da362c4f84e7c642a2}} 
+en\+E\+P\+C\+F\+I2c\+Address\+\_\+10bit&10bit address type \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+I2c\+Address\+Type\+\_\+\+Max@{en\+E\+P\+C\+F\+I2c\+Address\+Type\+\_\+\+Max}!i2c.\+h@{i2c.\+h}}\index{i2c.\+h@{i2c.\+h}!en\+E\+P\+C\+F\+I2c\+Address\+Type\+\_\+\+Max@{en\+E\+P\+C\+F\+I2c\+Address\+Type\+\_\+\+Max}}}\mbox{\Hypertarget{i2c_8h_a9bc5b2ac9d948097d750f5a4f570ad44ab186f3eac31184cc72d580a87e751685}\label{i2c_8h_a9bc5b2ac9d948097d750f5a4f570ad44ab186f3eac31184cc72d580a87e751685}} 
+en\+E\+P\+C\+F\+I2c\+Address\+Type\+\_\+\+Max&Special value for boundary checking \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{i2c_8h_abad40cdebd822ac63221f357d5ef25fd}\label{i2c_8h_abad40cdebd822ac63221f357d5ef25fd}} 
+\index{i2c.\+h@{i2c.\+h}!epcf\+\_\+i2c\+\_\+close@{epcf\+\_\+i2c\+\_\+close}}
+\index{epcf\+\_\+i2c\+\_\+close@{epcf\+\_\+i2c\+\_\+close}!i2c.\+h@{i2c.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+i2c\+\_\+close()}{epcf\_i2c\_close()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+i2c\+\_\+close (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{i2c_8h_abad1f65160a59e1e3ceefa2645e755c6}{E\+P\+C\+F\+I2c\+Device\+\_\+t}} $\ast$}]{p\+I2c\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to close the I2c device. It will free the memory allocated by the I2c device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+I2c\+Device} & Pointer to the I2c device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{i2c_8h_a3f687b5c66cbdbe03666613dcd9aef94}\label{i2c_8h_a3f687b5c66cbdbe03666613dcd9aef94}} 
+\index{i2c.\+h@{i2c.\+h}!epcf\+\_\+i2c\+\_\+\+Create\+Native@{epcf\+\_\+i2c\+\_\+\+Create\+Native}}
+\index{epcf\+\_\+i2c\+\_\+\+Create\+Native@{epcf\+\_\+i2c\+\_\+\+Create\+Native}!i2c.\+h@{i2c.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+i2c\+\_\+\+Create\+Native()}{epcf\_i2c\_CreateNative()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{i2c_8h_abad1f65160a59e1e3ceefa2645e755c6}{E\+P\+C\+F\+I2c\+Device\+\_\+t}}$\ast$ epcf\+\_\+i2c\+\_\+\+Create\+Native (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFI2cCfg__t}{E\+P\+C\+F\+I2c\+Cfg\+\_\+t}} $\ast$}]{p\+I2c\+Config }\end{DoxyParamCaption})}
+
+
+
+This function is used to create a i2c device. Call this function in beginning to initialize the i2c device. This function allocates memory for the device using malloc() function call and returns a pointer to the device. Pass this device pointer while calling i2c functions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+I2c\+Config} & Pointer to the i2c configuration structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+On success, it return the pointer to i2c device. On error, it returns N\+U\+LL. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{i2c_8h_ab567c3d619e8d5576d316194be5fb803}\label{i2c_8h_ab567c3d619e8d5576d316194be5fb803}} 
+\index{i2c.\+h@{i2c.\+h}!epcf\+\_\+i2c\+\_\+get\+Device\+Count@{epcf\+\_\+i2c\+\_\+get\+Device\+Count}}
+\index{epcf\+\_\+i2c\+\_\+get\+Device\+Count@{epcf\+\_\+i2c\+\_\+get\+Device\+Count}!i2c.\+h@{i2c.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+i2c\+\_\+get\+Device\+Count()}{epcf\_i2c\_getDeviceCount()}}
+{\footnotesize\ttfamily uint8\+\_\+t epcf\+\_\+i2c\+\_\+get\+Device\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function is used to get the total number of available I2c devices. 
+
+\begin{DoxyReturn}{Returns}
+Returns the number of available I2c devices. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{i2c_8h_acc241257a5efd5cd65f5da5ebeb59a65}\label{i2c_8h_acc241257a5efd5cd65f5da5ebeb59a65}} 
+\index{i2c.\+h@{i2c.\+h}!epcf\+\_\+i2c\+\_\+get\+Rx\+Buffer\+Count@{epcf\+\_\+i2c\+\_\+get\+Rx\+Buffer\+Count}}
+\index{epcf\+\_\+i2c\+\_\+get\+Rx\+Buffer\+Count@{epcf\+\_\+i2c\+\_\+get\+Rx\+Buffer\+Count}!i2c.\+h@{i2c.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+i2c\+\_\+get\+Rx\+Buffer\+Count()}{epcf\_i2c\_getRxBufferCount()}}
+{\footnotesize\ttfamily int32\+\_\+t epcf\+\_\+i2c\+\_\+get\+Rx\+Buffer\+Count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{i2c_8h_abad1f65160a59e1e3ceefa2645e755c6}{E\+P\+C\+F\+I2c\+Device\+\_\+t}} $\ast$}]{p\+I2c\+Device }\end{DoxyParamCaption})}
+
+This function is used to get number of bytes received in I2c receive buffer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+I2c\+Device} & Pointer to the I2c device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return total number of received bytes
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use this function only when I2c is configured in interrupt mode 
+\end{DoxyNote}
+\mbox{\Hypertarget{i2c_8h_a53f89f9f23839f49a11c83ed229bb805}\label{i2c_8h_a53f89f9f23839f49a11c83ed229bb805}} 
+\index{i2c.\+h@{i2c.\+h}!epcf\+\_\+i2c\+\_\+get\+Tx\+Buffer\+Count@{epcf\+\_\+i2c\+\_\+get\+Tx\+Buffer\+Count}}
+\index{epcf\+\_\+i2c\+\_\+get\+Tx\+Buffer\+Count@{epcf\+\_\+i2c\+\_\+get\+Tx\+Buffer\+Count}!i2c.\+h@{i2c.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+i2c\+\_\+get\+Tx\+Buffer\+Count()}{epcf\_i2c\_getTxBufferCount()}}
+{\footnotesize\ttfamily int32\+\_\+t epcf\+\_\+i2c\+\_\+get\+Tx\+Buffer\+Count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{i2c_8h_abad1f65160a59e1e3ceefa2645e755c6}{E\+P\+C\+F\+I2c\+Device\+\_\+t}} $\ast$}]{p\+I2c\+Device }\end{DoxyParamCaption})}
+
+This function is used to get number of bytes pending in I2c transmit buffer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+I2c\+Device} & Pointer to the I2c device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return total number of pending bytes
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use this function only when I2c is configured in interrupt mode 
+\end{DoxyNote}
+\mbox{\Hypertarget{i2c_8h_a54aa1fdbfae89bd17958069e8d58e635}\label{i2c_8h_a54aa1fdbfae89bd17958069e8d58e635}} 
+\index{i2c.\+h@{i2c.\+h}!epcf\+\_\+i2c\+\_\+int\+Disable@{epcf\+\_\+i2c\+\_\+int\+Disable}}
+\index{epcf\+\_\+i2c\+\_\+int\+Disable@{epcf\+\_\+i2c\+\_\+int\+Disable}!i2c.\+h@{i2c.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+i2c\+\_\+int\+Disable()}{epcf\_i2c\_intDisable()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+i2c\+\_\+int\+Disable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{i2c_8h_abad1f65160a59e1e3ceefa2645e755c6}{E\+P\+C\+F\+I2c\+Device\+\_\+t}} $\ast$}]{p\+I2c\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to disable the I2c interrupt. The device can be enabled again by \mbox{\hyperlink{i2c_8h_acf0afd43ef7268ae9360c8ea70a54541}{epcf\+\_\+i2c\+\_\+int\+Enable()}} function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+I2c\+Device} & Pointer to the I2c device. \\
+\hline
+{\em int\+Type} & interrupt type to generate an interrupt.\+Refer Enum En\+E\+P\+C\+F\+Int\+Type\+\_\+t. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{i2c_8h_acf0afd43ef7268ae9360c8ea70a54541}\label{i2c_8h_acf0afd43ef7268ae9360c8ea70a54541}} 
+\index{i2c.\+h@{i2c.\+h}!epcf\+\_\+i2c\+\_\+int\+Enable@{epcf\+\_\+i2c\+\_\+int\+Enable}}
+\index{epcf\+\_\+i2c\+\_\+int\+Enable@{epcf\+\_\+i2c\+\_\+int\+Enable}!i2c.\+h@{i2c.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+i2c\+\_\+int\+Enable()}{epcf\_i2c\_intEnable()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+i2c\+\_\+int\+Enable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{i2c_8h_abad1f65160a59e1e3ceefa2645e755c6}{E\+P\+C\+F\+I2c\+Device\+\_\+t}} $\ast$}]{p\+I2c\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to enable the I2c interrupt.\+It can be disabled by \mbox{\hyperlink{i2c_8h_a54aa1fdbfae89bd17958069e8d58e635}{epcf\+\_\+i2c\+\_\+int\+Disable()}} function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+I2c\+Device} & Pointer to the I2c device. \\
+\hline
+{\em int\+Type} & interrupt type to generate an interrupt.\+Refer Enum En\+E\+P\+C\+F\+Int\+Type\+\_\+t.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{i2c_8h_ad706f83fd8413715ac0bc5378b0015e5}\label{i2c_8h_ad706f83fd8413715ac0bc5378b0015e5}} 
+\index{i2c.\+h@{i2c.\+h}!epcf\+\_\+i2c\+\_\+read@{epcf\+\_\+i2c\+\_\+read}}
+\index{epcf\+\_\+i2c\+\_\+read@{epcf\+\_\+i2c\+\_\+read}!i2c.\+h@{i2c.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+i2c\+\_\+read()}{epcf\_i2c\_read()}}
+{\footnotesize\ttfamily int32\+\_\+t epcf\+\_\+i2c\+\_\+read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{i2c_8h_abad1f65160a59e1e3ceefa2645e755c6}{E\+P\+C\+F\+I2c\+Device\+\_\+t}} $\ast$}]{p\+I2c\+Device,  }\item[{En\+E\+P\+C\+F\+Boolean\+\_\+t}]{master\+Enable,  }\item[{uint8\+\_\+t}]{slave\+Address,  }\item[{uint8\+\_\+t $\ast$}]{data,  }\item[{uint32\+\_\+t}]{size,  }\item[{En\+E\+P\+C\+F\+Boolean\+\_\+t}]{bus\+Release,  }\item[{E\+P\+C\+F\+Time\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+
+
+This function is used to read data on I2c bus. This function can be used in both master and slave mode. In Interrupt mode, data receiving is asynchronous and data is received in an internal software buffer. Use E\+P\+C\+F\+\_\+\+I2c\+\_\+\+G\+E\+T\+\_\+\+R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+C\+O\+U\+NT function to get receive buffer count. When the count is equal to the required number of bytes to be read, call E\+P\+C\+F\+\_\+\+I2c\+\_\+\+R\+E\+AD function to read the buffer. 
+
+In Polling mode, data receiving will be synchronous and calling function will be blocked until all the data is received or timeout has occurred.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+I2c\+Device} & Pointer to the I2c device \\
+\hline
+{\em master\+Enable} & Make it true if want to use this function in master mode. \\
+\hline
+{\em slave\+Address} & Address of the slave device \\
+\hline
+{\em data} & Pointer to buffer where data read is to be stored \\
+\hline
+{\em size} & Total number of bytes to be read \\
+\hline
+{\em bus\+Release} & Make it true if want to release the bus after receiving all data. \\
+\hline
+{\em timeout} & timeout value.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return number of bytes read over I2c bus. Check status code if return value is less than 0. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{i2c_8h_a90d512b68b103443365474a689da05ee}\label{i2c_8h_a90d512b68b103443365474a689da05ee}} 
+\index{i2c.\+h@{i2c.\+h}!epcf\+\_\+i2c\+\_\+rx\+Buffer\+Flush@{epcf\+\_\+i2c\+\_\+rx\+Buffer\+Flush}}
+\index{epcf\+\_\+i2c\+\_\+rx\+Buffer\+Flush@{epcf\+\_\+i2c\+\_\+rx\+Buffer\+Flush}!i2c.\+h@{i2c.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+i2c\+\_\+rx\+Buffer\+Flush()}{epcf\_i2c\_rxBufferFlush()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+i2c\+\_\+rx\+Buffer\+Flush (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{i2c_8h_abad1f65160a59e1e3ceefa2645e755c6}{E\+P\+C\+F\+I2c\+Device\+\_\+t}} $\ast$}]{p\+I2c\+Device }\end{DoxyParamCaption})}
+
+This function is used to flush I2c receive buffer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+I2c\+Device} & Pointer to the I2c device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use this function only when I2c is configured in interrupt mode 
+\end{DoxyNote}
+\mbox{\Hypertarget{i2c_8h_a7ede5bd8a347d4a1a9230bc2e796c6f7}\label{i2c_8h_a7ede5bd8a347d4a1a9230bc2e796c6f7}} 
+\index{i2c.\+h@{i2c.\+h}!epcf\+\_\+i2c\+\_\+tx\+Buffer\+Flush@{epcf\+\_\+i2c\+\_\+tx\+Buffer\+Flush}}
+\index{epcf\+\_\+i2c\+\_\+tx\+Buffer\+Flush@{epcf\+\_\+i2c\+\_\+tx\+Buffer\+Flush}!i2c.\+h@{i2c.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+i2c\+\_\+tx\+Buffer\+Flush()}{epcf\_i2c\_txBufferFlush()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+i2c\+\_\+tx\+Buffer\+Flush (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{i2c_8h_abad1f65160a59e1e3ceefa2645e755c6}{E\+P\+C\+F\+I2c\+Device\+\_\+t}} $\ast$}]{p\+I2c\+Device }\end{DoxyParamCaption})}
+
+This function is used to flush I2c transmit buffer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+I2c\+Device} & Pointer to the I2c device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use this function only when I2c is configured in interrupt mode 
+\end{DoxyNote}
+\mbox{\Hypertarget{i2c_8h_a24f35ecf200ff9e2dec3c2169f634b26}\label{i2c_8h_a24f35ecf200ff9e2dec3c2169f634b26}} 
+\index{i2c.\+h@{i2c.\+h}!epcf\+\_\+i2c\+\_\+write@{epcf\+\_\+i2c\+\_\+write}}
+\index{epcf\+\_\+i2c\+\_\+write@{epcf\+\_\+i2c\+\_\+write}!i2c.\+h@{i2c.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+i2c\+\_\+write()}{epcf\_i2c\_write()}}
+{\footnotesize\ttfamily int32\+\_\+t epcf\+\_\+i2c\+\_\+write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{i2c_8h_abad1f65160a59e1e3ceefa2645e755c6}{E\+P\+C\+F\+I2c\+Device\+\_\+t}} $\ast$}]{p\+I2c\+Device,  }\item[{En\+E\+P\+C\+F\+Boolean\+\_\+t}]{master\+Enable,  }\item[{uint8\+\_\+t}]{slave\+Address,  }\item[{const uint8\+\_\+t $\ast$}]{data,  }\item[{uint32\+\_\+t}]{size,  }\item[{En\+E\+P\+C\+F\+Boolean\+\_\+t}]{bus\+Release,  }\item[{E\+P\+C\+F\+Time\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+
+
+This function is used to send data on I2c bus. It can be used in both master and slave mode. In Interrupt mode, data transmission will be asynchronous and the data is transmitted using internal software buffer. The function will be non blocking and will return after initiating data transmission. Use E\+P\+C\+F\+\_\+\+I2c\+\_\+\+G\+E\+T\+\_\+\+T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+C\+O\+U\+NT function to check the status of the transmit buffer. 
+
+In Polling mode, data transmission will be synchronous and calling function will be blocked until all the data is transmitted or timeout has occurred.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+I2c\+Device} & Pointer to the I2c device \\
+\hline
+{\em master\+Enable} & Make it true if want to use this function in master mode. \\
+\hline
+{\em slave\+Address} & Address of the slave device \\
+\hline
+{\em data} & Pointer to buffer where data to be write is stored \\
+\hline
+{\em size} & Total number of bytes to be read \\
+\hline
+{\em bus\+Release} & Make it true if want to release the bus after receiving all data. \\
+\hline
+{\em timeout} & timeout value.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return total number of bytes send over I2c bus. Check status code if return value is less than 0. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}

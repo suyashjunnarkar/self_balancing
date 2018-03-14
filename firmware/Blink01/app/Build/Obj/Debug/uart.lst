@@ -1,0 +1,3449 @@
+ARM GAS  /tmp/ccuihVGC.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1	@ Tag_ABI_FP_denormal
+   5              		.eabi_attribute 21, 1	@ Tag_ABI_FP_exceptions
+   6              		.eabi_attribute 23, 3	@ Tag_ABI_FP_number_model
+   7              		.eabi_attribute 24, 1	@ Tag_ABI_align8_needed
+   8              		.eabi_attribute 25, 1	@ Tag_ABI_align8_preserved
+   9              		.eabi_attribute 26, 1	@ Tag_ABI_enum_size
+  10              		.eabi_attribute 30, 6	@ Tag_ABI_optimization_goals
+  11              		.eabi_attribute 34, 1	@ Tag_CPU_unaligned_access
+  12              		.eabi_attribute 18, 4	@ Tag_ABI_PCS_wchar_t
+  13              		.file	"uart.c"
+  14              	@ GNU C (15:4.9.3+svn231177-1) version 4.9.3 20150529 (prerelease) (arm-none-eabi)
+  15              	@	compiled by GNU C version 5.2.1 20151129, GMP version 6.1.0, MPFR version 3.1.3, MPC version 1.0.
+  16              	@ warning: MPFR header version 3.1.3 differs from library version 3.1.4.
+  17              	@ GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+  18              	@ options passed:  -I . -I ./include -I ../pcf/include -imultilib armv7-m
+  19              	@ -MD Build/Obj/Debug/uart.d -MF Build/.dep/uart.o.d -MP
+  20              	@ -MQ Build/Obj/Debug/uart.o -D__USES_INITFINI__
+  21              	@ ../epcf/peripheral/source/uart/uart.c -mcpu=cortex-m3 -mthumb
+  22              	@ -auxbase-strip Build/Obj/Debug/uart.o -gdwarf-2 -O0 -Wall -Wno-cpp
+  23              	@ -std=gnu99 -fomit-frame-pointer -fverbose-asm
+  24              	@ options enabled:  -faggressive-loop-optimizations -fauto-inc-dec -fcommon
+  25              	@ -fdelete-null-pointer-checks -fdwarf2-cfi-asm -fearly-inlining
+  26              	@ -feliminate-unused-debug-types -ffunction-cse -fgcse-lm -fgnu-runtime
+  27              	@ -fgnu-unique -fident -finline-atomics -fira-hoist-pressure
+  28              	@ -fira-share-save-slots -fira-share-spill-slots -fivopts
+  29              	@ -fkeep-static-consts -fleading-underscore -flifetime-dse -fmath-errno
+  30              	@ -fmerge-debug-strings -fomit-frame-pointer -fpeephole
+  31              	@ -fprefetch-loop-arrays -freg-struct-return
+  32              	@ -fsched-critical-path-heuristic -fsched-dep-count-heuristic
+  33              	@ -fsched-group-heuristic -fsched-interblock -fsched-last-insn-heuristic
+  34              	@ -fsched-rank-heuristic -fsched-spec -fsched-spec-insn-heuristic
+  35              	@ -fsched-stalled-insns-dep -fshow-column -fsigned-zeros
+  36              	@ -fsplit-ivs-in-unroller -fstrict-volatile-bitfields -fsync-libcalls
+  37              	@ -ftrapping-math -ftree-coalesce-vars -ftree-cselim -ftree-forwprop
+  38              	@ -ftree-loop-if-convert -ftree-loop-im -ftree-loop-ivcanon
+  39              	@ -ftree-loop-optimize -ftree-parallelize-loops= -ftree-phiprop
+  40              	@ -ftree-reassoc -ftree-scev-cprop -funit-at-a-time -fverbose-asm
+  41              	@ -fzero-initialized-in-bss -mfix-cortex-m3-ldrd -mlittle-endian -mlra
+  42              	@ -mpic-data-is-text-relative -msched-prolog -mthumb -munaligned-access
+  43              	@ -mvectorize-with-neon-quad
+  44              	
+  45              		.text
+  46              	.Ltext0:
+  47              		.cfi_sections	.debug_frame
+  48              		.align	2
+  49              		.global	epcf_uart_createNative
+  50              		.thumb
+  51              		.thumb_func
+  52              		.type	epcf_uart_createNative, %function
+  53              	epcf_uart_createNative:
+  54              	.LFB40:
+  55              		.file 1 "../epcf/peripheral/source/uart/uart.c"
+   1:../epcf/peripheral/source/uart/uart.c **** /**
+   2:../epcf/peripheral/source/uart/uart.c ****  * \file  uart.c
+ARM GAS  /tmp/ccuihVGC.s 			page 2
+
+
+   3:../epcf/peripheral/source/uart/uart.c ****  * \brief This file is used to configure a UART device
+   4:../epcf/peripheral/source/uart/uart.c ****  */
+   5:../epcf/peripheral/source/uart/uart.c **** 
+   6:../epcf/peripheral/source/uart/uart.c **** #include "pcf.h"
+   7:../epcf/peripheral/source/uart/uart.c **** 
+   8:../epcf/peripheral/source/uart/uart.c **** //Include fifo file Required by uart_hidden.h
+   9:../epcf/peripheral/source/uart/uart.c **** #define __EPCF_UTIL_FIFO_INCLUDE PCF_CONDITIONAL_INCLUDE_FILE(EPCF_DIR_PATH/,utils/,include/,epcf_f
+  10:../epcf/peripheral/source/uart/uart.c **** #include  __EPCF_UTIL_FIFO_INCLUDE
+  11:../epcf/peripheral/source/uart/uart.c **** #undef __EPCF_UTIL_FIFO_INCLUDE
+  12:../epcf/peripheral/source/uart/uart.c **** 
+  13:../epcf/peripheral/source/uart/uart.c **** #include "./uart_hidden.h"
+  14:../epcf/peripheral/source/uart/uart.c **** 
+  15:../epcf/peripheral/source/uart/uart.c **** EPCFUartDevice_t* epcf_uart_createNative(EPCFUartCfg_t* pUartConfig)
+  16:../epcf/peripheral/source/uart/uart.c **** {
+  56              		.loc 1 16 0
+  57              		.cfi_startproc
+  58              		@ args = 0, pretend = 0, frame = 16
+  59              		@ frame_needed = 0, uses_anonymous_args = 0
+  60 0000 00B5     		push	{lr}	@
+  61              	.LCFI0:
+  62              		.cfi_def_cfa_offset 4
+  63              		.cfi_offset 14, -4
+  64 0002 85B0     		sub	sp, sp, #20	@,,
+  65              	.LCFI1:
+  66              		.cfi_def_cfa_offset 24
+  67 0004 0190     		str	r0, [sp, #4]	@ pUartConfig, pUartConfig
+  17:../epcf/peripheral/source/uart/uart.c **** 	EPCFUartDevice_t* pUartDevice;
+  18:../epcf/peripheral/source/uart/uart.c **** 	int8_t status=0;
+  68              		.loc 1 18 0
+  69 0006 0023     		movs	r3, #0	@ tmp113,
+  70 0008 8DF80F30 		strb	r3, [sp, #15]	@ tmp114, status
+  19:../epcf/peripheral/source/uart/uart.c **** 	
+  20:../epcf/peripheral/source/uart/uart.c **** 	if(epcf_uart_nativeGetDeviceCount())
+  71              		.loc 1 20 0
+  72 000c FFF7FEFF 		bl	epcf_uart_nativeGetDeviceCount	@
+  73 0010 0346     		mov	r3, r0	@ D.6349,
+  74 0012 002B     		cmp	r3, #0	@ D.6349,
+  75 0014 1BD0     		beq	.L2	@,
+  21:../epcf/peripheral/source/uart/uart.c **** 	{
+  22:../epcf/peripheral/source/uart/uart.c **** 		pUartDevice = (EPCFUartDevice_t *)malloc(sizeof(EPCFUartDevice_t));
+  76              		.loc 1 22 0
+  77 0016 1C20     		movs	r0, #28	@,
+  78 0018 FFF7FEFF 		bl	malloc	@
+  79 001c 0346     		mov	r3, r0	@ tmp115,
+  80 001e 0293     		str	r3, [sp, #8]	@ tmp115, pUartDevice
+  23:../epcf/peripheral/source/uart/uart.c **** 		if (pUartDevice == (EPCFUartDevice_t *)NULL)
+  81              		.loc 1 23 0
+  82 0020 029B     		ldr	r3, [sp, #8]	@ tmp116, pUartDevice
+  83 0022 002B     		cmp	r3, #0	@ tmp116,
+  84 0024 01D1     		bne	.L3	@,
+  24:../epcf/peripheral/source/uart/uart.c **** 		return NULL;
+  85              		.loc 1 24 0
+  86 0026 0023     		movs	r3, #0	@ D.6348,
+  87 0028 12E0     		b	.L4	@
+  88              	.L3:
+  25:../epcf/peripheral/source/uart/uart.c **** 		
+  26:../epcf/peripheral/source/uart/uart.c **** 		pUartDevice->controllerConfig = NULL;
+ARM GAS  /tmp/ccuihVGC.s 			page 3
+
+
+  89              		.loc 1 26 0
+  90 002a 029B     		ldr	r3, [sp, #8]	@ tmp117, pUartDevice
+  91 002c 0022     		movs	r2, #0	@ tmp118,
+  92 002e 1A60     		str	r2, [r3]	@ tmp118, pUartDevice_4->controllerConfig
+  27:../epcf/peripheral/source/uart/uart.c **** 		
+  28:../epcf/peripheral/source/uart/uart.c **** 		status = epcf_uart_nativeInit(pUartDevice, pUartConfig);
+  93              		.loc 1 28 0
+  94 0030 0298     		ldr	r0, [sp, #8]	@, pUartDevice
+  95 0032 0199     		ldr	r1, [sp, #4]	@, pUartConfig
+  96 0034 FFF7FEFF 		bl	epcf_uart_nativeInit	@
+  97 0038 0346     		mov	r3, r0	@ tmp119,
+  98 003a 8DF80F30 		strb	r3, [sp, #15]	@ tmp120, status
+  29:../epcf/peripheral/source/uart/uart.c **** 		if(status != 0)
+  99              		.loc 1 29 0
+ 100 003e 9DF90F30 		ldrsb	r3, [sp, #15]	@ tmp121, status
+ 101 0042 002B     		cmp	r3, #0	@ tmp121,
+ 102 0044 01D0     		beq	.L5	@,
+  30:../epcf/peripheral/source/uart/uart.c **** 			return NULL;
+ 103              		.loc 1 30 0
+ 104 0046 0023     		movs	r3, #0	@ D.6348,
+ 105 0048 02E0     		b	.L4	@
+ 106              	.L5:
+  31:../epcf/peripheral/source/uart/uart.c **** 		
+  32:../epcf/peripheral/source/uart/uart.c **** 		return pUartDevice;
+ 107              		.loc 1 32 0
+ 108 004a 029B     		ldr	r3, [sp, #8]	@ D.6348, pUartDevice
+ 109 004c 00E0     		b	.L4	@
+ 110              	.L2:
+  33:../epcf/peripheral/source/uart/uart.c **** 	}
+  34:../epcf/peripheral/source/uart/uart.c **** 	else
+  35:../epcf/peripheral/source/uart/uart.c **** 		return NULL;
+ 111              		.loc 1 35 0
+ 112 004e 0023     		movs	r3, #0	@ D.6348,
+ 113              	.L4:
+  36:../epcf/peripheral/source/uart/uart.c **** }
+ 114              		.loc 1 36 0
+ 115 0050 1846     		mov	r0, r3	@, <retval>
+ 116 0052 05B0     		add	sp, sp, #20	@,,
+ 117              	.LCFI2:
+ 118              		.cfi_def_cfa_offset 4
+ 119              		@ sp needed	@
+ 120 0054 5DF804FB 		ldr	pc, [sp], #4	@
+ 121              		.cfi_endproc
+ 122              	.LFE40:
+ 123              		.size	epcf_uart_createNative, .-epcf_uart_createNative
+ 124              		.align	2
+ 125              		.global	epcf_uart_close
+ 126              		.thumb
+ 127              		.thumb_func
+ 128              		.type	epcf_uart_close, %function
+ 129              	epcf_uart_close:
+ 130              	.LFB41:
+  37:../epcf/peripheral/source/uart/uart.c ****  
+  38:../epcf/peripheral/source/uart/uart.c **** 
+  39:../epcf/peripheral/source/uart/uart.c **** #ifdef EPCF_SUPPORT_EXTENDED_UART
+  40:../epcf/peripheral/source/uart/uart.c **** EPCFUartDevice_t* epcf_uart_createExtended(EPCFUartController_t* pUartController, EPCFUartCfg_t* pU
+  41:../epcf/peripheral/source/uart/uart.c **** {
+ARM GAS  /tmp/ccuihVGC.s 			page 4
+
+
+  42:../epcf/peripheral/source/uart/uart.c **** 	EPCFUartDevice_t* pUartDevice;
+  43:../epcf/peripheral/source/uart/uart.c **** 	int8_t status = 0;
+  44:../epcf/peripheral/source/uart/uart.c **** 
+  45:../epcf/peripheral/source/uart/uart.c **** 	if(epcf_uart_extGetDeviceCount(pUartController))
+  46:../epcf/peripheral/source/uart/uart.c **** 	{
+  47:../epcf/peripheral/source/uart/uart.c **** 		pUartDevice = (EPCFUartDevice_t*)malloc(sizeof(EPCFUartDevice_t));
+  48:../epcf/peripheral/source/uart/uart.c **** 		if(pUartDevice == NULL)
+  49:../epcf/peripheral/source/uart/uart.c **** 			return NULL;
+  50:../epcf/peripheral/source/uart/uart.c **** 
+  51:../epcf/peripheral/source/uart/uart.c **** 		pUartDevice->controllerConfig = pUartController;
+  52:../epcf/peripheral/source/uart/uart.c **** 
+  53:../epcf/peripheral/source/uart/uart.c **** 		status = pUartController->uartInit(pUartDevice, pUartConfig);
+  54:../epcf/peripheral/source/uart/uart.c **** 		if(status != 0)
+  55:../epcf/peripheral/source/uart/uart.c **** 			return NULL;
+  56:../epcf/peripheral/source/uart/uart.c **** 
+  57:../epcf/peripheral/source/uart/uart.c **** 		return pUartDevice;
+  58:../epcf/peripheral/source/uart/uart.c **** 	}
+  59:../epcf/peripheral/source/uart/uart.c **** 	else
+  60:../epcf/peripheral/source/uart/uart.c **** 		return NULL;
+  61:../epcf/peripheral/source/uart/uart.c **** }
+  62:../epcf/peripheral/source/uart/uart.c **** #endif
+  63:../epcf/peripheral/source/uart/uart.c **** 
+  64:../epcf/peripheral/source/uart/uart.c **** int8_t epcf_uart_close(EPCFUartDevice_t* pUartDevice)
+  65:../epcf/peripheral/source/uart/uart.c **** {
+ 131              		.loc 1 65 0
+ 132              		.cfi_startproc
+ 133              		@ args = 0, pretend = 0, frame = 16
+ 134              		@ frame_needed = 0, uses_anonymous_args = 0
+ 135 0058 00B5     		push	{lr}	@
+ 136              	.LCFI3:
+ 137              		.cfi_def_cfa_offset 4
+ 138              		.cfi_offset 14, -4
+ 139 005a 85B0     		sub	sp, sp, #20	@,,
+ 140              	.LCFI4:
+ 141              		.cfi_def_cfa_offset 24
+ 142 005c 0190     		str	r0, [sp, #4]	@ pUartDevice, pUartDevice
+  66:../epcf/peripheral/source/uart/uart.c **** 	int8_t status=0;
+ 143              		.loc 1 66 0
+ 144 005e 0023     		movs	r3, #0	@ tmp115,
+ 145 0060 8DF80F30 		strb	r3, [sp, #15]	@ tmp116, status
+  67:../epcf/peripheral/source/uart/uart.c **** 
+  68:../epcf/peripheral/source/uart/uart.c **** 	if(pUartDevice->controllerConfig == NULL)
+ 146              		.loc 1 68 0
+ 147 0064 019B     		ldr	r3, [sp, #4]	@ tmp117, pUartDevice
+ 148 0066 1B68     		ldr	r3, [r3]	@ D.6350, pUartDevice_3(D)->controllerConfig
+ 149 0068 002B     		cmp	r3, #0	@ D.6350,
+ 150 006a 06D1     		bne	.L7	@,
+  69:../epcf/peripheral/source/uart/uart.c **** 	{
+  70:../epcf/peripheral/source/uart/uart.c **** 		status = epcf_uart_nativeClose(pUartDevice);
+ 151              		.loc 1 70 0
+ 152 006c 0198     		ldr	r0, [sp, #4]	@, pUartDevice
+ 153 006e FFF7FEFF 		bl	epcf_uart_nativeClose	@
+ 154 0072 0346     		mov	r3, r0	@ tmp118,
+ 155 0074 8DF80F30 		strb	r3, [sp, #15]	@ tmp119, status
+ 156 0078 07E0     		b	.L8	@
+ 157              	.L7:
+  71:../epcf/peripheral/source/uart/uart.c **** 	}
+ARM GAS  /tmp/ccuihVGC.s 			page 5
+
+
+  72:../epcf/peripheral/source/uart/uart.c **** 	else
+  73:../epcf/peripheral/source/uart/uart.c **** 	{
+  74:../epcf/peripheral/source/uart/uart.c **** 		status = pUartDevice->controllerConfig->uartClose(pUartDevice);
+ 158              		.loc 1 74 0
+ 159 007a 019B     		ldr	r3, [sp, #4]	@ tmp120, pUartDevice
+ 160 007c 1B68     		ldr	r3, [r3]	@ D.6350, pUartDevice_3(D)->controllerConfig
+ 161 007e 9B6A     		ldr	r3, [r3, #40]	@ D.6351, _6->uartClose
+ 162 0080 0198     		ldr	r0, [sp, #4]	@, pUartDevice
+ 163 0082 9847     		blx	r3	@ D.6351
+ 164 0084 0346     		mov	r3, r0	@ tmp121,
+ 165 0086 8DF80F30 		strb	r3, [sp, #15]	@ tmp122, status
+ 166              	.L8:
+  75:../epcf/peripheral/source/uart/uart.c **** 	}
+  76:../epcf/peripheral/source/uart/uart.c **** 	return status;
+ 167              		.loc 1 76 0
+ 168 008a 9DF80F30 		ldrb	r3, [sp, #15]	@ zero_extendqisi2	@ D.6352, status
+ 169 008e 5BB2     		sxtb	r3, r3	@ tmp124, D.6352
+  77:../epcf/peripheral/source/uart/uart.c **** }
+ 170              		.loc 1 77 0
+ 171 0090 1846     		mov	r0, r3	@, <retval>
+ 172 0092 05B0     		add	sp, sp, #20	@,,
+ 173              	.LCFI5:
+ 174              		.cfi_def_cfa_offset 4
+ 175              		@ sp needed	@
+ 176 0094 5DF804FB 		ldr	pc, [sp], #4	@
+ 177              		.cfi_endproc
+ 178              	.LFE41:
+ 179              		.size	epcf_uart_close, .-epcf_uart_close
+ 180              		.align	2
+ 181              		.global	epcf_uart_write
+ 182              		.thumb
+ 183              		.thumb_func
+ 184              		.type	epcf_uart_write, %function
+ 185              	epcf_uart_write:
+ 186              	.LFB42:
+  78:../epcf/peripheral/source/uart/uart.c **** 
+  79:../epcf/peripheral/source/uart/uart.c **** int32_t epcf_uart_write(EPCFUartDevice_t* pUartDevice, const uint8_t* data, uint32_t size, EPCFTime
+  80:../epcf/peripheral/source/uart/uart.c **** {
+ 187              		.loc 1 80 0
+ 188              		.cfi_startproc
+ 189              		@ args = 12, pretend = 8, frame = 24
+ 190              		@ frame_needed = 0, uses_anonymous_args = 0
+ 191 0098 82B0     		sub	sp, sp, #8	@,,
+ 192              	.LCFI6:
+ 193              		.cfi_def_cfa_offset 8
+ 194 009a 10B5     		push	{r4, lr}	@
+ 195              	.LCFI7:
+ 196              		.cfi_def_cfa_offset 16
+ 197              		.cfi_offset 4, -16
+ 198              		.cfi_offset 14, -12
+ 199 009c 88B0     		sub	sp, sp, #32	@,,
+ 200              	.LCFI8:
+ 201              		.cfi_def_cfa_offset 48
+ 202 009e 0590     		str	r0, [sp, #20]	@ pUartDevice, pUartDevice
+ 203 00a0 0491     		str	r1, [sp, #16]	@ data, data
+ 204 00a2 0392     		str	r2, [sp, #12]	@ size, size
+ 205 00a4 0B93     		str	r3, [sp, #44]	@, timeout
+ARM GAS  /tmp/ccuihVGC.s 			page 6
+
+
+  81:../epcf/peripheral/source/uart/uart.c **** 	int32_t retVal=0;
+ 206              		.loc 1 81 0
+ 207 00a6 0023     		movs	r3, #0	@ tmp115,
+ 208 00a8 0793     		str	r3, [sp, #28]	@ tmp115, retVal
+  82:../epcf/peripheral/source/uart/uart.c **** 
+  83:../epcf/peripheral/source/uart/uart.c **** 	if(pUartDevice->controllerConfig == NULL)
+ 209              		.loc 1 83 0
+ 210 00aa 059B     		ldr	r3, [sp, #20]	@ tmp116, pUartDevice
+ 211 00ac 1B68     		ldr	r3, [r3]	@ D.6353, pUartDevice_3(D)->controllerConfig
+ 212 00ae 002B     		cmp	r3, #0	@ D.6353,
+ 213 00b0 09D1     		bne	.L11	@,
+  84:../epcf/peripheral/source/uart/uart.c **** 	{
+  85:../epcf/peripheral/source/uart/uart.c **** 		retVal = epcf_uart_nativeWrite(pUartDevice, data, size, timeout);
+ 214              		.loc 1 85 0
+ 215 00b2 0C9B     		ldr	r3, [sp, #48]	@ tmp117, timeout
+ 216 00b4 0093     		str	r3, [sp]	@ tmp117,
+ 217 00b6 0B9B     		ldr	r3, [sp, #44]	@, timeout
+ 218 00b8 0598     		ldr	r0, [sp, #20]	@, pUartDevice
+ 219 00ba 0499     		ldr	r1, [sp, #16]	@, data
+ 220 00bc 039A     		ldr	r2, [sp, #12]	@, size
+ 221 00be FFF7FEFF 		bl	epcf_uart_nativeWrite	@
+ 222 00c2 0790     		str	r0, [sp, #28]	@, retVal
+ 223 00c4 0AE0     		b	.L12	@
+ 224              	.L11:
+  86:../epcf/peripheral/source/uart/uart.c **** 	}
+  87:../epcf/peripheral/source/uart/uart.c **** 	else
+  88:../epcf/peripheral/source/uart/uart.c **** 	{
+  89:../epcf/peripheral/source/uart/uart.c **** 		retVal = pUartDevice->controllerConfig->uartWrite(pUartDevice, data, size, timeout);
+ 225              		.loc 1 89 0
+ 226 00c6 059B     		ldr	r3, [sp, #20]	@ tmp118, pUartDevice
+ 227 00c8 1B68     		ldr	r3, [r3]	@ D.6353, pUartDevice_3(D)->controllerConfig
+ 228 00ca 5C68     		ldr	r4, [r3, #4]	@ D.6354, _8->uartWrite
+ 229 00cc 0C9B     		ldr	r3, [sp, #48]	@ tmp119, timeout
+ 230 00ce 0093     		str	r3, [sp]	@ tmp119,
+ 231 00d0 0B9B     		ldr	r3, [sp, #44]	@, timeout
+ 232 00d2 0598     		ldr	r0, [sp, #20]	@, pUartDevice
+ 233 00d4 0499     		ldr	r1, [sp, #16]	@, data
+ 234 00d6 039A     		ldr	r2, [sp, #12]	@, size
+ 235 00d8 A047     		blx	r4	@ D.6354
+ 236 00da 0790     		str	r0, [sp, #28]	@, retVal
+ 237              	.L12:
+  90:../epcf/peripheral/source/uart/uart.c **** 	}
+  91:../epcf/peripheral/source/uart/uart.c **** 	return retVal;
+ 238              		.loc 1 91 0
+ 239 00dc 079B     		ldr	r3, [sp, #28]	@ D.6355, retVal
+  92:../epcf/peripheral/source/uart/uart.c **** }
+ 240              		.loc 1 92 0
+ 241 00de 1846     		mov	r0, r3	@, <retval>
+ 242 00e0 08B0     		add	sp, sp, #32	@,,
+ 243              	.LCFI9:
+ 244              		.cfi_def_cfa_offset 16
+ 245              		@ sp needed	@
+ 246 00e2 BDE81040 		pop	{r4, lr}	@
+ 247              	.LCFI10:
+ 248              		.cfi_restore 14
+ 249              		.cfi_restore 4
+ 250              		.cfi_def_cfa_offset 8
+ARM GAS  /tmp/ccuihVGC.s 			page 7
+
+
+ 251 00e6 02B0     		add	sp, sp, #8	@,,
+ 252              	.LCFI11:
+ 253              		.cfi_def_cfa_offset 0
+ 254 00e8 7047     		bx	lr	@
+ 255              		.cfi_endproc
+ 256              	.LFE42:
+ 257              		.size	epcf_uart_write, .-epcf_uart_write
+ 258 00ea 00BF     		.align	2
+ 259              		.global	epcf_uart_writeString
+ 260              		.thumb
+ 261              		.thumb_func
+ 262              		.type	epcf_uart_writeString, %function
+ 263              	epcf_uart_writeString:
+ 264              	.LFB43:
+  93:../epcf/peripheral/source/uart/uart.c **** 
+  94:../epcf/peripheral/source/uart/uart.c **** int32_t epcf_uart_writeString(EPCFUartDevice_t* pUartDevice, const uint8_t* data, EPCFTime_t timeou
+  95:../epcf/peripheral/source/uart/uart.c **** {
+ 265              		.loc 1 95 0
+ 266              		.cfi_startproc
+ 267              		@ args = 0, pretend = 0, frame = 24
+ 268              		@ frame_needed = 0, uses_anonymous_args = 0
+ 269 00ec 10B5     		push	{r4, lr}	@
+ 270              	.LCFI12:
+ 271              		.cfi_def_cfa_offset 8
+ 272              		.cfi_offset 4, -8
+ 273              		.cfi_offset 14, -4
+ 274 00ee 86B0     		sub	sp, sp, #24	@,,
+ 275              	.LCFI13:
+ 276              		.cfi_def_cfa_offset 32
+ 277 00f0 0390     		str	r0, [sp, #12]	@ pUartDevice, pUartDevice
+ 278 00f2 0291     		str	r1, [sp, #8]	@ data, data
+ 279 00f4 6946     		mov	r1, sp	@ tmp115,
+ 280 00f6 81E80C00 		stmia	r1, {r2, r3}	@ tmp115,,
+  96:../epcf/peripheral/source/uart/uart.c **** 	int32_t retVal=0;
+ 281              		.loc 1 96 0
+ 282 00fa 0023     		movs	r3, #0	@ tmp116,
+ 283 00fc 0593     		str	r3, [sp, #20]	@ tmp116, retVal
+  97:../epcf/peripheral/source/uart/uart.c **** 
+  98:../epcf/peripheral/source/uart/uart.c **** 	if(pUartDevice->controllerConfig == NULL)
+ 284              		.loc 1 98 0
+ 285 00fe 039B     		ldr	r3, [sp, #12]	@ tmp117, pUartDevice
+ 286 0100 1B68     		ldr	r3, [r3]	@ D.6357, pUartDevice_3(D)->controllerConfig
+ 287 0102 002B     		cmp	r3, #0	@ D.6357,
+ 288 0104 07D1     		bne	.L15	@,
+  99:../epcf/peripheral/source/uart/uart.c **** 	{
+ 100:../epcf/peripheral/source/uart/uart.c **** 		retVal = epcf_uart_nativeWriteString(pUartDevice, data, timeout);
+ 289              		.loc 1 100 0
+ 290 0106 0398     		ldr	r0, [sp, #12]	@, pUartDevice
+ 291 0108 0299     		ldr	r1, [sp, #8]	@, data
+ 292 010a 6B46     		mov	r3, sp	@ tmp118,
+ 293 010c 0CCB     		ldmia	r3, {r2, r3}	@ tmp118,,
+ 294 010e FFF7FEFF 		bl	epcf_uart_nativeWriteString	@
+ 295 0112 0590     		str	r0, [sp, #20]	@, retVal
+ 296 0114 08E0     		b	.L16	@
+ 297              	.L15:
+ 101:../epcf/peripheral/source/uart/uart.c **** 	}
+ 102:../epcf/peripheral/source/uart/uart.c **** 	else
+ARM GAS  /tmp/ccuihVGC.s 			page 8
+
+
+ 103:../epcf/peripheral/source/uart/uart.c **** 	{
+ 104:../epcf/peripheral/source/uart/uart.c **** 		retVal = pUartDevice->controllerConfig->uartWriteString(pUartDevice, data, timeout);
+ 298              		.loc 1 104 0
+ 299 0116 039B     		ldr	r3, [sp, #12]	@ tmp119, pUartDevice
+ 300 0118 1B68     		ldr	r3, [r3]	@ D.6357, pUartDevice_3(D)->controllerConfig
+ 301 011a DC68     		ldr	r4, [r3, #12]	@ D.6358, _7->uartWriteString
+ 302 011c 0398     		ldr	r0, [sp, #12]	@, pUartDevice
+ 303 011e 0299     		ldr	r1, [sp, #8]	@, data
+ 304 0120 6B46     		mov	r3, sp	@ tmp120,
+ 305 0122 0CCB     		ldmia	r3, {r2, r3}	@ tmp120,,
+ 306 0124 A047     		blx	r4	@ D.6358
+ 307 0126 0590     		str	r0, [sp, #20]	@, retVal
+ 308              	.L16:
+ 105:../epcf/peripheral/source/uart/uart.c **** 	}
+ 106:../epcf/peripheral/source/uart/uart.c **** 	return retVal;
+ 309              		.loc 1 106 0
+ 310 0128 059B     		ldr	r3, [sp, #20]	@ D.6359, retVal
+ 107:../epcf/peripheral/source/uart/uart.c **** }
+ 311              		.loc 1 107 0
+ 312 012a 1846     		mov	r0, r3	@, <retval>
+ 313 012c 06B0     		add	sp, sp, #24	@,,
+ 314              	.LCFI14:
+ 315              		.cfi_def_cfa_offset 8
+ 316              		@ sp needed	@
+ 317 012e 10BD     		pop	{r4, pc}	@
+ 318              		.cfi_endproc
+ 319              	.LFE43:
+ 320              		.size	epcf_uart_writeString, .-epcf_uart_writeString
+ 321              		.align	2
+ 322              		.global	epcf_uart_read
+ 323              		.thumb
+ 324              		.thumb_func
+ 325              		.type	epcf_uart_read, %function
+ 326              	epcf_uart_read:
+ 327              	.LFB44:
+ 108:../epcf/peripheral/source/uart/uart.c **** 
+ 109:../epcf/peripheral/source/uart/uart.c **** int32_t epcf_uart_read(EPCFUartDevice_t* pUartDevice, uint8_t *data, uint32_t size, EPCFTime_t time
+ 110:../epcf/peripheral/source/uart/uart.c **** {
+ 328              		.loc 1 110 0
+ 329              		.cfi_startproc
+ 330              		@ args = 12, pretend = 8, frame = 24
+ 331              		@ frame_needed = 0, uses_anonymous_args = 0
+ 332 0130 82B0     		sub	sp, sp, #8	@,,
+ 333              	.LCFI15:
+ 334              		.cfi_def_cfa_offset 8
+ 335 0132 10B5     		push	{r4, lr}	@
+ 336              	.LCFI16:
+ 337              		.cfi_def_cfa_offset 16
+ 338              		.cfi_offset 4, -16
+ 339              		.cfi_offset 14, -12
+ 340 0134 88B0     		sub	sp, sp, #32	@,,
+ 341              	.LCFI17:
+ 342              		.cfi_def_cfa_offset 48
+ 343 0136 0590     		str	r0, [sp, #20]	@ pUartDevice, pUartDevice
+ 344 0138 0491     		str	r1, [sp, #16]	@ data, data
+ 345 013a 0392     		str	r2, [sp, #12]	@ size, size
+ 346 013c 0B93     		str	r3, [sp, #44]	@, timeout
+ARM GAS  /tmp/ccuihVGC.s 			page 9
+
+
+ 111:../epcf/peripheral/source/uart/uart.c **** 	int32_t retVal = 0;
+ 347              		.loc 1 111 0
+ 348 013e 0023     		movs	r3, #0	@ tmp115,
+ 349 0140 0793     		str	r3, [sp, #28]	@ tmp115, retVal
+ 112:../epcf/peripheral/source/uart/uart.c **** 
+ 113:../epcf/peripheral/source/uart/uart.c **** 	if(pUartDevice->controllerConfig == NULL)
+ 350              		.loc 1 113 0
+ 351 0142 059B     		ldr	r3, [sp, #20]	@ tmp116, pUartDevice
+ 352 0144 1B68     		ldr	r3, [r3]	@ D.6360, pUartDevice_3(D)->controllerConfig
+ 353 0146 002B     		cmp	r3, #0	@ D.6360,
+ 354 0148 09D1     		bne	.L19	@,
+ 114:../epcf/peripheral/source/uart/uart.c **** 	{
+ 115:../epcf/peripheral/source/uart/uart.c **** 		retVal = epcf_uart_nativeRead(pUartDevice, data, size, timeout);
+ 355              		.loc 1 115 0
+ 356 014a 0C9B     		ldr	r3, [sp, #48]	@ tmp117, timeout
+ 357 014c 0093     		str	r3, [sp]	@ tmp117,
+ 358 014e 0B9B     		ldr	r3, [sp, #44]	@, timeout
+ 359 0150 0598     		ldr	r0, [sp, #20]	@, pUartDevice
+ 360 0152 0499     		ldr	r1, [sp, #16]	@, data
+ 361 0154 039A     		ldr	r2, [sp, #12]	@, size
+ 362 0156 FFF7FEFF 		bl	epcf_uart_nativeRead	@
+ 363 015a 0790     		str	r0, [sp, #28]	@, retVal
+ 364 015c 0AE0     		b	.L20	@
+ 365              	.L19:
+ 116:../epcf/peripheral/source/uart/uart.c **** 	}
+ 117:../epcf/peripheral/source/uart/uart.c **** 	else
+ 118:../epcf/peripheral/source/uart/uart.c **** 	{
+ 119:../epcf/peripheral/source/uart/uart.c **** 		retVal = pUartDevice->controllerConfig->uartRead(pUartDevice, data, size, timeout);
+ 366              		.loc 1 119 0
+ 367 015e 059B     		ldr	r3, [sp, #20]	@ tmp118, pUartDevice
+ 368 0160 1B68     		ldr	r3, [r3]	@ D.6360, pUartDevice_3(D)->controllerConfig
+ 369 0162 1C69     		ldr	r4, [r3, #16]	@ D.6361, _8->uartRead
+ 370 0164 0C9B     		ldr	r3, [sp, #48]	@ tmp119, timeout
+ 371 0166 0093     		str	r3, [sp]	@ tmp119,
+ 372 0168 0B9B     		ldr	r3, [sp, #44]	@, timeout
+ 373 016a 0598     		ldr	r0, [sp, #20]	@, pUartDevice
+ 374 016c 0499     		ldr	r1, [sp, #16]	@, data
+ 375 016e 039A     		ldr	r2, [sp, #12]	@, size
+ 376 0170 A047     		blx	r4	@ D.6361
+ 377 0172 0790     		str	r0, [sp, #28]	@, retVal
+ 378              	.L20:
+ 120:../epcf/peripheral/source/uart/uart.c **** 	}
+ 121:../epcf/peripheral/source/uart/uart.c **** 	return retVal;
+ 379              		.loc 1 121 0
+ 380 0174 079B     		ldr	r3, [sp, #28]	@ D.6362, retVal
+ 122:../epcf/peripheral/source/uart/uart.c **** }
+ 381              		.loc 1 122 0
+ 382 0176 1846     		mov	r0, r3	@, <retval>
+ 383 0178 08B0     		add	sp, sp, #32	@,,
+ 384              	.LCFI18:
+ 385              		.cfi_def_cfa_offset 16
+ 386              		@ sp needed	@
+ 387 017a BDE81040 		pop	{r4, lr}	@
+ 388              	.LCFI19:
+ 389              		.cfi_restore 14
+ 390              		.cfi_restore 4
+ 391              		.cfi_def_cfa_offset 8
+ARM GAS  /tmp/ccuihVGC.s 			page 10
+
+
+ 392 017e 02B0     		add	sp, sp, #8	@,,
+ 393              	.LCFI20:
+ 394              		.cfi_def_cfa_offset 0
+ 395 0180 7047     		bx	lr	@
+ 396              		.cfi_endproc
+ 397              	.LFE44:
+ 398              		.size	epcf_uart_read, .-epcf_uart_read
+ 399 0182 00BF     		.align	2
+ 400              		.global	epcf_uart_getDeviceCount
+ 401              		.thumb
+ 402              		.thumb_func
+ 403              		.type	epcf_uart_getDeviceCount, %function
+ 404              	epcf_uart_getDeviceCount:
+ 405              	.LFB45:
+ 123:../epcf/peripheral/source/uart/uart.c **** 
+ 124:../epcf/peripheral/source/uart/uart.c **** uint8_t epcf_uart_getDeviceCount()
+ 125:../epcf/peripheral/source/uart/uart.c **** {
+ 406              		.loc 1 125 0
+ 407              		.cfi_startproc
+ 408              		@ args = 0, pretend = 0, frame = 8
+ 409              		@ frame_needed = 0, uses_anonymous_args = 0
+ 410 0184 00B5     		push	{lr}	@
+ 411              	.LCFI21:
+ 412              		.cfi_def_cfa_offset 4
+ 413              		.cfi_offset 14, -4
+ 414 0186 83B0     		sub	sp, sp, #12	@,,
+ 415              	.LCFI22:
+ 416              		.cfi_def_cfa_offset 16
+ 126:../epcf/peripheral/source/uart/uart.c **** 	uint8_t retVal=0;
+ 417              		.loc 1 126 0
+ 418 0188 0023     		movs	r3, #0	@ tmp113,
+ 419 018a 8DF80730 		strb	r3, [sp, #7]	@ tmp114, retVal
+ 127:../epcf/peripheral/source/uart/uart.c **** 
+ 128:../epcf/peripheral/source/uart/uart.c **** 	retVal = epcf_uart_nativeGetDeviceCount();
+ 420              		.loc 1 128 0
+ 421 018e FFF7FEFF 		bl	epcf_uart_nativeGetDeviceCount	@
+ 422 0192 0346     		mov	r3, r0	@ D.6363,
+ 423 0194 8DF80730 		strb	r3, [sp, #7]	@ tmp115, retVal
+ 129:../epcf/peripheral/source/uart/uart.c **** 	return retVal;
+ 424              		.loc 1 129 0
+ 425 0198 9DF80730 		ldrb	r3, [sp, #7]	@ zero_extendqisi2	@ D.6364, retVal
+ 130:../epcf/peripheral/source/uart/uart.c **** }
+ 426              		.loc 1 130 0
+ 427 019c 1846     		mov	r0, r3	@, <retval>
+ 428 019e 03B0     		add	sp, sp, #12	@,,
+ 429              	.LCFI23:
+ 430              		.cfi_def_cfa_offset 4
+ 431              		@ sp needed	@
+ 432 01a0 5DF804FB 		ldr	pc, [sp], #4	@
+ 433              		.cfi_endproc
+ 434              	.LFE45:
+ 435              		.size	epcf_uart_getDeviceCount, .-epcf_uart_getDeviceCount
+ 436              		.align	2
+ 437              		.global	epcf_uart_getRxBufferCount
+ 438              		.thumb
+ 439              		.thumb_func
+ 440              		.type	epcf_uart_getRxBufferCount, %function
+ARM GAS  /tmp/ccuihVGC.s 			page 11
+
+
+ 441              	epcf_uart_getRxBufferCount:
+ 442              	.LFB46:
+ 131:../epcf/peripheral/source/uart/uart.c **** 
+ 132:../epcf/peripheral/source/uart/uart.c **** int32_t epcf_uart_getRxBufferCount(EPCFUartDevice_t* pUartDevice)
+ 133:../epcf/peripheral/source/uart/uart.c **** {
+ 443              		.loc 1 133 0
+ 444              		.cfi_startproc
+ 445              		@ args = 0, pretend = 0, frame = 16
+ 446              		@ frame_needed = 0, uses_anonymous_args = 0
+ 447 01a4 00B5     		push	{lr}	@
+ 448              	.LCFI24:
+ 449              		.cfi_def_cfa_offset 4
+ 450              		.cfi_offset 14, -4
+ 451 01a6 85B0     		sub	sp, sp, #20	@,,
+ 452              	.LCFI25:
+ 453              		.cfi_def_cfa_offset 24
+ 454 01a8 0190     		str	r0, [sp, #4]	@ pUartDevice, pUartDevice
+ 134:../epcf/peripheral/source/uart/uart.c **** 	int32_t retVal=0;
+ 455              		.loc 1 134 0
+ 456 01aa 0023     		movs	r3, #0	@ tmp115,
+ 457 01ac 0393     		str	r3, [sp, #12]	@ tmp115, retVal
+ 135:../epcf/peripheral/source/uart/uart.c **** 
+ 136:../epcf/peripheral/source/uart/uart.c **** 	if(pUartDevice->controllerConfig == NULL)
+ 458              		.loc 1 136 0
+ 459 01ae 019B     		ldr	r3, [sp, #4]	@ tmp116, pUartDevice
+ 460 01b0 1B68     		ldr	r3, [r3]	@ D.6365, pUartDevice_3(D)->controllerConfig
+ 461 01b2 002B     		cmp	r3, #0	@ D.6365,
+ 462 01b4 04D1     		bne	.L25	@,
+ 137:../epcf/peripheral/source/uart/uart.c **** 	{
+ 138:../epcf/peripheral/source/uart/uart.c **** 		retVal = epcf_uart_nativeGetRxBufferCount(pUartDevice);
+ 463              		.loc 1 138 0
+ 464 01b6 0198     		ldr	r0, [sp, #4]	@, pUartDevice
+ 465 01b8 FFF7FEFF 		bl	epcf_uart_nativeGetRxBufferCount	@
+ 466 01bc 0390     		str	r0, [sp, #12]	@, retVal
+ 467 01be 05E0     		b	.L26	@
+ 468              	.L25:
+ 139:../epcf/peripheral/source/uart/uart.c **** 	}
+ 140:../epcf/peripheral/source/uart/uart.c **** 	else
+ 141:../epcf/peripheral/source/uart/uart.c **** 	{
+ 142:../epcf/peripheral/source/uart/uart.c **** 		retVal = pUartDevice->controllerConfig->uartRxBufferCount(pUartDevice);
+ 469              		.loc 1 142 0
+ 470 01c0 019B     		ldr	r3, [sp, #4]	@ tmp117, pUartDevice
+ 471 01c2 1B68     		ldr	r3, [r3]	@ D.6365, pUartDevice_3(D)->controllerConfig
+ 472 01c4 DB69     		ldr	r3, [r3, #28]	@ D.6366, _6->uartRxBufferCount
+ 473 01c6 0198     		ldr	r0, [sp, #4]	@, pUartDevice
+ 474 01c8 9847     		blx	r3	@ D.6366
+ 475 01ca 0390     		str	r0, [sp, #12]	@, retVal
+ 476              	.L26:
+ 143:../epcf/peripheral/source/uart/uart.c **** 	}
+ 144:../epcf/peripheral/source/uart/uart.c **** 	return retVal;
+ 477              		.loc 1 144 0
+ 478 01cc 039B     		ldr	r3, [sp, #12]	@ D.6367, retVal
+ 145:../epcf/peripheral/source/uart/uart.c **** }
+ 479              		.loc 1 145 0
+ 480 01ce 1846     		mov	r0, r3	@, <retval>
+ 481 01d0 05B0     		add	sp, sp, #20	@,,
+ 482              	.LCFI26:
+ARM GAS  /tmp/ccuihVGC.s 			page 12
+
+
+ 483              		.cfi_def_cfa_offset 4
+ 484              		@ sp needed	@
+ 485 01d2 5DF804FB 		ldr	pc, [sp], #4	@
+ 486              		.cfi_endproc
+ 487              	.LFE46:
+ 488              		.size	epcf_uart_getRxBufferCount, .-epcf_uart_getRxBufferCount
+ 489 01d6 00BF     		.align	2
+ 490              		.global	epcf_uart_rxBufferFlush
+ 491              		.thumb
+ 492              		.thumb_func
+ 493              		.type	epcf_uart_rxBufferFlush, %function
+ 494              	epcf_uart_rxBufferFlush:
+ 495              	.LFB47:
+ 146:../epcf/peripheral/source/uart/uart.c **** 
+ 147:../epcf/peripheral/source/uart/uart.c **** int8_t epcf_uart_rxBufferFlush(EPCFUartDevice_t* pUartDevice)
+ 148:../epcf/peripheral/source/uart/uart.c **** {
+ 496              		.loc 1 148 0
+ 497              		.cfi_startproc
+ 498              		@ args = 0, pretend = 0, frame = 16
+ 499              		@ frame_needed = 0, uses_anonymous_args = 0
+ 500 01d8 00B5     		push	{lr}	@
+ 501              	.LCFI27:
+ 502              		.cfi_def_cfa_offset 4
+ 503              		.cfi_offset 14, -4
+ 504 01da 85B0     		sub	sp, sp, #20	@,,
+ 505              	.LCFI28:
+ 506              		.cfi_def_cfa_offset 24
+ 507 01dc 0190     		str	r0, [sp, #4]	@ pUartDevice, pUartDevice
+ 149:../epcf/peripheral/source/uart/uart.c **** 	int8_t retVal=0;
+ 508              		.loc 1 149 0
+ 509 01de 0023     		movs	r3, #0	@ tmp115,
+ 510 01e0 8DF80F30 		strb	r3, [sp, #15]	@ tmp116, retVal
+ 150:../epcf/peripheral/source/uart/uart.c **** 
+ 151:../epcf/peripheral/source/uart/uart.c **** 	if(pUartDevice->controllerConfig == NULL)
+ 511              		.loc 1 151 0
+ 512 01e4 019B     		ldr	r3, [sp, #4]	@ tmp117, pUartDevice
+ 513 01e6 1B68     		ldr	r3, [r3]	@ D.6368, pUartDevice_3(D)->controllerConfig
+ 514 01e8 002B     		cmp	r3, #0	@ D.6368,
+ 515 01ea 06D1     		bne	.L29	@,
+ 152:../epcf/peripheral/source/uart/uart.c **** 	{
+ 153:../epcf/peripheral/source/uart/uart.c **** 		retVal = epcf_uart_nativeRxBufferFlush(pUartDevice);
+ 516              		.loc 1 153 0
+ 517 01ec 0198     		ldr	r0, [sp, #4]	@, pUartDevice
+ 518 01ee FFF7FEFF 		bl	epcf_uart_nativeRxBufferFlush	@
+ 519 01f2 0346     		mov	r3, r0	@ tmp118,
+ 520 01f4 8DF80F30 		strb	r3, [sp, #15]	@ tmp119, retVal
+ 521 01f8 07E0     		b	.L30	@
+ 522              	.L29:
+ 154:../epcf/peripheral/source/uart/uart.c **** 	}
+ 155:../epcf/peripheral/source/uart/uart.c **** 	else
+ 156:../epcf/peripheral/source/uart/uart.c **** 	{
+ 157:../epcf/peripheral/source/uart/uart.c **** 		retVal = pUartDevice->controllerConfig->uartRxBufferFlush(pUartDevice);
+ 523              		.loc 1 157 0
+ 524 01fa 019B     		ldr	r3, [sp, #4]	@ tmp120, pUartDevice
+ 525 01fc 1B68     		ldr	r3, [r3]	@ D.6368, pUartDevice_3(D)->controllerConfig
+ 526 01fe 9B69     		ldr	r3, [r3, #24]	@ D.6369, _6->uartRxBufferFlush
+ 527 0200 0198     		ldr	r0, [sp, #4]	@, pUartDevice
+ARM GAS  /tmp/ccuihVGC.s 			page 13
+
+
+ 528 0202 9847     		blx	r3	@ D.6369
+ 529 0204 0346     		mov	r3, r0	@ tmp121,
+ 530 0206 8DF80F30 		strb	r3, [sp, #15]	@ tmp122, retVal
+ 531              	.L30:
+ 158:../epcf/peripheral/source/uart/uart.c **** 	}
+ 159:../epcf/peripheral/source/uart/uart.c **** 	return retVal;
+ 532              		.loc 1 159 0
+ 533 020a 9DF80F30 		ldrb	r3, [sp, #15]	@ zero_extendqisi2	@ D.6370, retVal
+ 534 020e 5BB2     		sxtb	r3, r3	@ tmp124, D.6370
+ 160:../epcf/peripheral/source/uart/uart.c **** }
+ 535              		.loc 1 160 0
+ 536 0210 1846     		mov	r0, r3	@, <retval>
+ 537 0212 05B0     		add	sp, sp, #20	@,,
+ 538              	.LCFI29:
+ 539              		.cfi_def_cfa_offset 4
+ 540              		@ sp needed	@
+ 541 0214 5DF804FB 		ldr	pc, [sp], #4	@
+ 542              		.cfi_endproc
+ 543              	.LFE47:
+ 544              		.size	epcf_uart_rxBufferFlush, .-epcf_uart_rxBufferFlush
+ 545              		.align	2
+ 546              		.global	epcf_uart_getTxBufferCount
+ 547              		.thumb
+ 548              		.thumb_func
+ 549              		.type	epcf_uart_getTxBufferCount, %function
+ 550              	epcf_uart_getTxBufferCount:
+ 551              	.LFB48:
+ 161:../epcf/peripheral/source/uart/uart.c **** 
+ 162:../epcf/peripheral/source/uart/uart.c **** int32_t epcf_uart_getTxBufferCount(EPCFUartDevice_t* pUartDevice)
+ 163:../epcf/peripheral/source/uart/uart.c **** {
+ 552              		.loc 1 163 0
+ 553              		.cfi_startproc
+ 554              		@ args = 0, pretend = 0, frame = 16
+ 555              		@ frame_needed = 0, uses_anonymous_args = 0
+ 556 0218 00B5     		push	{lr}	@
+ 557              	.LCFI30:
+ 558              		.cfi_def_cfa_offset 4
+ 559              		.cfi_offset 14, -4
+ 560 021a 85B0     		sub	sp, sp, #20	@,,
+ 561              	.LCFI31:
+ 562              		.cfi_def_cfa_offset 24
+ 563 021c 0190     		str	r0, [sp, #4]	@ pUartDevice, pUartDevice
+ 164:../epcf/peripheral/source/uart/uart.c **** 	int32_t retVal=0;
+ 564              		.loc 1 164 0
+ 565 021e 0023     		movs	r3, #0	@ tmp115,
+ 566 0220 0393     		str	r3, [sp, #12]	@ tmp115, retVal
+ 165:../epcf/peripheral/source/uart/uart.c **** 
+ 166:../epcf/peripheral/source/uart/uart.c **** 	if(pUartDevice->controllerConfig == NULL)
+ 567              		.loc 1 166 0
+ 568 0222 019B     		ldr	r3, [sp, #4]	@ tmp116, pUartDevice
+ 569 0224 1B68     		ldr	r3, [r3]	@ D.6371, pUartDevice_3(D)->controllerConfig
+ 570 0226 002B     		cmp	r3, #0	@ D.6371,
+ 571 0228 04D1     		bne	.L33	@,
+ 167:../epcf/peripheral/source/uart/uart.c **** 	{
+ 168:../epcf/peripheral/source/uart/uart.c **** 		retVal = epcf_uart_nativeGetTxBufferCount(pUartDevice);
+ 572              		.loc 1 168 0
+ 573 022a 0198     		ldr	r0, [sp, #4]	@, pUartDevice
+ARM GAS  /tmp/ccuihVGC.s 			page 14
+
+
+ 574 022c FFF7FEFF 		bl	epcf_uart_nativeGetTxBufferCount	@
+ 575 0230 0390     		str	r0, [sp, #12]	@, retVal
+ 576 0232 05E0     		b	.L34	@
+ 577              	.L33:
+ 169:../epcf/peripheral/source/uart/uart.c **** 	}
+ 170:../epcf/peripheral/source/uart/uart.c **** 	else
+ 171:../epcf/peripheral/source/uart/uart.c **** 	{
+ 172:../epcf/peripheral/source/uart/uart.c **** 		retVal = pUartDevice->controllerConfig->uartTxBufferCount(pUartDevice);
+ 578              		.loc 1 172 0
+ 579 0234 019B     		ldr	r3, [sp, #4]	@ tmp117, pUartDevice
+ 580 0236 1B68     		ldr	r3, [r3]	@ D.6371, pUartDevice_3(D)->controllerConfig
+ 581 0238 5B6A     		ldr	r3, [r3, #36]	@ D.6372, _6->uartTxBufferCount
+ 582 023a 0198     		ldr	r0, [sp, #4]	@, pUartDevice
+ 583 023c 9847     		blx	r3	@ D.6372
+ 584 023e 0390     		str	r0, [sp, #12]	@, retVal
+ 585              	.L34:
+ 173:../epcf/peripheral/source/uart/uart.c **** 	}
+ 174:../epcf/peripheral/source/uart/uart.c **** 	return retVal;
+ 586              		.loc 1 174 0
+ 587 0240 039B     		ldr	r3, [sp, #12]	@ D.6373, retVal
+ 175:../epcf/peripheral/source/uart/uart.c **** }
+ 588              		.loc 1 175 0
+ 589 0242 1846     		mov	r0, r3	@, <retval>
+ 590 0244 05B0     		add	sp, sp, #20	@,,
+ 591              	.LCFI32:
+ 592              		.cfi_def_cfa_offset 4
+ 593              		@ sp needed	@
+ 594 0246 5DF804FB 		ldr	pc, [sp], #4	@
+ 595              		.cfi_endproc
+ 596              	.LFE48:
+ 597              		.size	epcf_uart_getTxBufferCount, .-epcf_uart_getTxBufferCount
+ 598 024a 00BF     		.align	2
+ 599              		.global	epcf_uart_txBufferFlush
+ 600              		.thumb
+ 601              		.thumb_func
+ 602              		.type	epcf_uart_txBufferFlush, %function
+ 603              	epcf_uart_txBufferFlush:
+ 604              	.LFB49:
+ 176:../epcf/peripheral/source/uart/uart.c **** 
+ 177:../epcf/peripheral/source/uart/uart.c **** int8_t epcf_uart_txBufferFlush(EPCFUartDevice_t* pUartDevice)
+ 178:../epcf/peripheral/source/uart/uart.c **** {
+ 605              		.loc 1 178 0
+ 606              		.cfi_startproc
+ 607              		@ args = 0, pretend = 0, frame = 16
+ 608              		@ frame_needed = 0, uses_anonymous_args = 0
+ 609 024c 00B5     		push	{lr}	@
+ 610              	.LCFI33:
+ 611              		.cfi_def_cfa_offset 4
+ 612              		.cfi_offset 14, -4
+ 613 024e 85B0     		sub	sp, sp, #20	@,,
+ 614              	.LCFI34:
+ 615              		.cfi_def_cfa_offset 24
+ 616 0250 0190     		str	r0, [sp, #4]	@ pUartDevice, pUartDevice
+ 179:../epcf/peripheral/source/uart/uart.c **** 	int8_t retVal=0;
+ 617              		.loc 1 179 0
+ 618 0252 0023     		movs	r3, #0	@ tmp115,
+ 619 0254 8DF80F30 		strb	r3, [sp, #15]	@ tmp116, retVal
+ARM GAS  /tmp/ccuihVGC.s 			page 15
+
+
+ 180:../epcf/peripheral/source/uart/uart.c **** 
+ 181:../epcf/peripheral/source/uart/uart.c **** 	if(pUartDevice->controllerConfig == NULL)
+ 620              		.loc 1 181 0
+ 621 0258 019B     		ldr	r3, [sp, #4]	@ tmp117, pUartDevice
+ 622 025a 1B68     		ldr	r3, [r3]	@ D.6374, pUartDevice_3(D)->controllerConfig
+ 623 025c 002B     		cmp	r3, #0	@ D.6374,
+ 624 025e 06D1     		bne	.L37	@,
+ 182:../epcf/peripheral/source/uart/uart.c **** 	{
+ 183:../epcf/peripheral/source/uart/uart.c **** 		retVal = epcf_uart_nativeTxBufferFlush(pUartDevice);
+ 625              		.loc 1 183 0
+ 626 0260 0198     		ldr	r0, [sp, #4]	@, pUartDevice
+ 627 0262 FFF7FEFF 		bl	epcf_uart_nativeTxBufferFlush	@
+ 628 0266 0346     		mov	r3, r0	@ tmp118,
+ 629 0268 8DF80F30 		strb	r3, [sp, #15]	@ tmp119, retVal
+ 630 026c 07E0     		b	.L38	@
+ 631              	.L37:
+ 184:../epcf/peripheral/source/uart/uart.c **** 	}
+ 185:../epcf/peripheral/source/uart/uart.c **** 	else
+ 186:../epcf/peripheral/source/uart/uart.c **** 	{
+ 187:../epcf/peripheral/source/uart/uart.c **** 		retVal = pUartDevice->controllerConfig->uartTxBufferFlush(pUartDevice);
+ 632              		.loc 1 187 0
+ 633 026e 019B     		ldr	r3, [sp, #4]	@ tmp120, pUartDevice
+ 634 0270 1B68     		ldr	r3, [r3]	@ D.6374, pUartDevice_3(D)->controllerConfig
+ 635 0272 1B6A     		ldr	r3, [r3, #32]	@ D.6375, _6->uartTxBufferFlush
+ 636 0274 0198     		ldr	r0, [sp, #4]	@, pUartDevice
+ 637 0276 9847     		blx	r3	@ D.6375
+ 638 0278 0346     		mov	r3, r0	@ tmp121,
+ 639 027a 8DF80F30 		strb	r3, [sp, #15]	@ tmp122, retVal
+ 640              	.L38:
+ 188:../epcf/peripheral/source/uart/uart.c **** 	}
+ 189:../epcf/peripheral/source/uart/uart.c **** 	return retVal;
+ 641              		.loc 1 189 0
+ 642 027e 9DF80F30 		ldrb	r3, [sp, #15]	@ zero_extendqisi2	@ D.6376, retVal
+ 643 0282 5BB2     		sxtb	r3, r3	@ tmp124, D.6376
+ 190:../epcf/peripheral/source/uart/uart.c **** }
+ 644              		.loc 1 190 0
+ 645 0284 1846     		mov	r0, r3	@, <retval>
+ 646 0286 05B0     		add	sp, sp, #20	@,,
+ 647              	.LCFI35:
+ 648              		.cfi_def_cfa_offset 4
+ 649              		@ sp needed	@
+ 650 0288 5DF804FB 		ldr	pc, [sp], #4	@
+ 651              		.cfi_endproc
+ 652              	.LFE49:
+ 653              		.size	epcf_uart_txBufferFlush, .-epcf_uart_txBufferFlush
+ 654              		.align	2
+ 655              		.global	epcf_uart_extGetDeviceCount
+ 656              		.thumb
+ 657              		.thumb_func
+ 658              		.type	epcf_uart_extGetDeviceCount, %function
+ 659              	epcf_uart_extGetDeviceCount:
+ 660              	.LFB50:
+ 191:../epcf/peripheral/source/uart/uart.c **** 
+ 192:../epcf/peripheral/source/uart/uart.c **** uint32_t epcf_uart_extGetDeviceCount(EPCFUartController_t* pUartController)
+ 193:../epcf/peripheral/source/uart/uart.c **** {
+ 661              		.loc 1 193 0
+ 662              		.cfi_startproc
+ARM GAS  /tmp/ccuihVGC.s 			page 16
+
+
+ 663              		@ args = 0, pretend = 0, frame = 16
+ 664              		@ frame_needed = 0, uses_anonymous_args = 0
+ 665 028c 00B5     		push	{lr}	@
+ 666              	.LCFI36:
+ 667              		.cfi_def_cfa_offset 4
+ 668              		.cfi_offset 14, -4
+ 669 028e 85B0     		sub	sp, sp, #20	@,,
+ 670              	.LCFI37:
+ 671              		.cfi_def_cfa_offset 24
+ 672 0290 0190     		str	r0, [sp, #4]	@ pUartController, pUartController
+ 194:../epcf/peripheral/source/uart/uart.c **** 	uint32_t retVal=0;
+ 673              		.loc 1 194 0
+ 674 0292 0023     		movs	r3, #0	@ tmp113,
+ 675 0294 0393     		str	r3, [sp, #12]	@ tmp113, retVal
+ 195:../epcf/peripheral/source/uart/uart.c **** 
+ 196:../epcf/peripheral/source/uart/uart.c **** 	if(pUartController == NULL)
+ 676              		.loc 1 196 0
+ 677 0296 019B     		ldr	r3, [sp, #4]	@ tmp114, pUartController
+ 678 0298 002B     		cmp	r3, #0	@ tmp114,
+ 679 029a 02D1     		bne	.L41	@,
+ 197:../epcf/peripheral/source/uart/uart.c **** 		return EPCF_STATUS_ERROR;
+ 680              		.loc 1 197 0
+ 681 029c 4FF0FF33 		mov	r3, #-1	@ D.6377,
+ 682 02a0 05E0     		b	.L42	@
+ 683              	.L41:
+ 198:../epcf/peripheral/source/uart/uart.c **** 	else
+ 199:../epcf/peripheral/source/uart/uart.c **** 	{
+ 200:../epcf/peripheral/source/uart/uart.c **** 		retVal = pUartController->uartGetDeviceCount(pUartController);
+ 684              		.loc 1 200 0
+ 685 02a2 019B     		ldr	r3, [sp, #4]	@ tmp115, pUartController
+ 686 02a4 5B69     		ldr	r3, [r3, #20]	@ D.6378, pUartController_3(D)->uartGetDeviceCount
+ 687 02a6 0198     		ldr	r0, [sp, #4]	@, pUartController
+ 688 02a8 9847     		blx	r3	@ D.6378
+ 689 02aa 0390     		str	r0, [sp, #12]	@, retVal
+ 201:../epcf/peripheral/source/uart/uart.c **** 		return retVal;
+ 690              		.loc 1 201 0
+ 691 02ac 039B     		ldr	r3, [sp, #12]	@ D.6377, retVal
+ 692              	.L42:
+ 202:../epcf/peripheral/source/uart/uart.c **** 	}
+ 203:../epcf/peripheral/source/uart/uart.c **** }
+ 693              		.loc 1 203 0
+ 694 02ae 1846     		mov	r0, r3	@, <retval>
+ 695 02b0 05B0     		add	sp, sp, #20	@,,
+ 696              	.LCFI38:
+ 697              		.cfi_def_cfa_offset 4
+ 698              		@ sp needed	@
+ 699 02b2 5DF804FB 		ldr	pc, [sp], #4	@
+ 700              		.cfi_endproc
+ 701              	.LFE50:
+ 702              		.size	epcf_uart_extGetDeviceCount, .-epcf_uart_extGetDeviceCount
+ 703              	.Letext0:
+ 704              		.file 2 "/usr/include/newlib/machine/_default_types.h"
+ 705              		.file 3 "/usr/include/newlib/sys/_stdint.h"
+ 706              		.file 4 "/home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/./common/types.h"
+ 707              		.file 5 "../epcf/peripheral/source/uart/./uart_hidden.h"
+ 708              		.file 6 "/home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/peripheral/include/./uart/uart
+ 709              		.file 7 "/home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/utils/include/epcf_fifo.h"
+ARM GAS  /tmp/ccuihVGC.s 			page 17
+
+
+ 710              		.file 8 "../pcf/include/private/arch/arm/cm3/nxp/lpc1768/./../../../../arm/cm3/nxp/lpc1768/lpc1768
+ 711 02b6 00BF     		.section	.debug_info,"",%progbits
+ 712              	.Ldebug_info0:
+ 713 0000 7B080000 		.4byte	0x87b
+ 714 0004 0200     		.2byte	0x2
+ 715 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 716 000a 04       		.byte	0x4
+ 717 000b 01       		.uleb128 0x1
+ 718 000c 7E010000 		.4byte	.LASF118
+ 719 0010 01       		.byte	0x1
+ 720 0011 44050000 		.4byte	.LASF119
+ 721 0015 94070000 		.4byte	.LASF120
+ 722 0019 00000000 		.4byte	.Ltext0
+ 723 001d B6020000 		.4byte	.Letext0
+ 724 0021 00000000 		.4byte	.Ldebug_line0
+ 725 0025 02       		.uleb128 0x2
+ 726 0026 04       		.byte	0x4
+ 727 0027 07       		.byte	0x7
+ 728 0028 B8040000 		.4byte	.LASF0
+ 729 002c 03       		.uleb128 0x3
+ 730 002d 04       		.byte	0x4
+ 731 002e 05       		.byte	0x5
+ 732 002f 696E7400 		.ascii	"int\000"
+ 733 0033 04       		.uleb128 0x4
+ 734 0034 7B030000 		.4byte	.LASF2
+ 735 0038 02       		.byte	0x2
+ 736 0039 1B       		.byte	0x1b
+ 737 003a 3E000000 		.4byte	0x3e
+ 738 003e 02       		.uleb128 0x2
+ 739 003f 01       		.byte	0x1
+ 740 0040 06       		.byte	0x6
+ 741 0041 72040000 		.4byte	.LASF1
+ 742 0045 04       		.uleb128 0x4
+ 743 0046 1D030000 		.4byte	.LASF3
+ 744 004a 02       		.byte	0x2
+ 745 004b 1D       		.byte	0x1d
+ 746 004c 50000000 		.4byte	0x50
+ 747 0050 02       		.uleb128 0x2
+ 748 0051 01       		.byte	0x1
+ 749 0052 08       		.byte	0x8
+ 750 0053 09040000 		.4byte	.LASF4
+ 751 0057 02       		.uleb128 0x2
+ 752 0058 02       		.byte	0x2
+ 753 0059 05       		.byte	0x5
+ 754 005a AA000000 		.4byte	.LASF5
+ 755 005e 02       		.uleb128 0x2
+ 756 005f 02       		.byte	0x2
+ 757 0060 07       		.byte	0x7
+ 758 0061 6A050000 		.4byte	.LASF6
+ 759 0065 04       		.uleb128 0x4
+ 760 0066 08070000 		.4byte	.LASF7
+ 761 006a 02       		.byte	0x2
+ 762 006b 3F       		.byte	0x3f
+ 763 006c 70000000 		.4byte	0x70
+ 764 0070 02       		.uleb128 0x2
+ 765 0071 04       		.byte	0x4
+ 766 0072 05       		.byte	0x5
+ARM GAS  /tmp/ccuihVGC.s 			page 18
+
+
+ 767 0073 C1020000 		.4byte	.LASF8
+ 768 0077 04       		.uleb128 0x4
+ 769 0078 FB000000 		.4byte	.LASF9
+ 770 007c 02       		.byte	0x2
+ 771 007d 41       		.byte	0x41
+ 772 007e 82000000 		.4byte	0x82
+ 773 0082 02       		.uleb128 0x2
+ 774 0083 04       		.byte	0x4
+ 775 0084 07       		.byte	0x7
+ 776 0085 F2020000 		.4byte	.LASF10
+ 777 0089 02       		.uleb128 0x2
+ 778 008a 08       		.byte	0x8
+ 779 008b 05       		.byte	0x5
+ 780 008c 9E020000 		.4byte	.LASF11
+ 781 0090 02       		.uleb128 0x2
+ 782 0091 08       		.byte	0x8
+ 783 0092 07       		.byte	0x7
+ 784 0093 7E040000 		.4byte	.LASF12
+ 785 0097 02       		.uleb128 0x2
+ 786 0098 04       		.byte	0x4
+ 787 0099 07       		.byte	0x7
+ 788 009a DB000000 		.4byte	.LASF13
+ 789 009e 05       		.uleb128 0x5
+ 790 009f 04       		.byte	0x4
+ 791 00a0 02       		.uleb128 0x2
+ 792 00a1 01       		.byte	0x1
+ 793 00a2 08       		.byte	0x8
+ 794 00a3 BA050000 		.4byte	.LASF14
+ 795 00a7 04       		.uleb128 0x4
+ 796 00a8 75000000 		.4byte	.LASF15
+ 797 00ac 03       		.byte	0x3
+ 798 00ad 13       		.byte	0x13
+ 799 00ae 33000000 		.4byte	0x33
+ 800 00b2 04       		.uleb128 0x4
+ 801 00b3 66010000 		.4byte	.LASF16
+ 802 00b7 03       		.byte	0x3
+ 803 00b8 14       		.byte	0x14
+ 804 00b9 45000000 		.4byte	0x45
+ 805 00bd 04       		.uleb128 0x4
+ 806 00be D4050000 		.4byte	.LASF17
+ 807 00c2 03       		.byte	0x3
+ 808 00c3 1F       		.byte	0x1f
+ 809 00c4 65000000 		.4byte	0x65
+ 810 00c8 04       		.uleb128 0x4
+ 811 00c9 AF040000 		.4byte	.LASF18
+ 812 00cd 03       		.byte	0x3
+ 813 00ce 20       		.byte	0x20
+ 814 00cf 77000000 		.4byte	0x77
+ 815 00d3 02       		.uleb128 0x2
+ 816 00d4 04       		.byte	0x4
+ 817 00d5 04       		.byte	0x4
+ 818 00d6 7A020000 		.4byte	.LASF19
+ 819 00da 06       		.uleb128 0x6
+ 820 00db 01       		.byte	0x1
+ 821 00dc 04       		.byte	0x4
+ 822 00dd 06       		.byte	0x6
+ 823 00de F5000000 		.4byte	0xf5
+ARM GAS  /tmp/ccuihVGC.s 			page 19
+
+
+ 824 00e2 07       		.uleb128 0x7
+ 825 00e3 DA070000 		.4byte	.LASF20
+ 826 00e7 00       		.sleb128 0
+ 827 00e8 07       		.uleb128 0x7
+ 828 00e9 97000000 		.4byte	.LASF21
+ 829 00ed 01       		.sleb128 1
+ 830 00ee 07       		.uleb128 0x7
+ 831 00ef F7030000 		.4byte	.LASF22
+ 832 00f3 02       		.sleb128 2
+ 833 00f4 00       		.byte	0
+ 834 00f5 04       		.uleb128 0x4
+ 835 00f6 8E020000 		.4byte	.LASF23
+ 836 00fa 04       		.byte	0x4
+ 837 00fb 0A       		.byte	0xa
+ 838 00fc DA000000 		.4byte	0xda
+ 839 0100 06       		.uleb128 0x6
+ 840 0101 01       		.byte	0x1
+ 841 0102 04       		.byte	0x4
+ 842 0103 12       		.byte	0x12
+ 843 0104 27010000 		.4byte	0x127
+ 844 0108 07       		.uleb128 0x7
+ 845 0109 C5040000 		.4byte	.LASF24
+ 846 010d 00       		.sleb128 0
+ 847 010e 07       		.uleb128 0x7
+ 848 010f 12070000 		.4byte	.LASF25
+ 849 0113 01       		.sleb128 1
+ 850 0114 07       		.uleb128 0x7
+ 851 0115 39060000 		.4byte	.LASF26
+ 852 0119 02       		.sleb128 2
+ 853 011a 07       		.uleb128 0x7
+ 854 011b 90030000 		.4byte	.LASF27
+ 855 011f 03       		.sleb128 3
+ 856 0120 07       		.uleb128 0x7
+ 857 0121 0F060000 		.4byte	.LASF28
+ 858 0125 04       		.sleb128 4
+ 859 0126 00       		.byte	0
+ 860 0127 04       		.uleb128 0x4
+ 861 0128 DC040000 		.4byte	.LASF29
+ 862 012c 04       		.byte	0x4
+ 863 012d 18       		.byte	0x18
+ 864 012e 00010000 		.4byte	0x100
+ 865 0132 08       		.uleb128 0x8
+ 866 0133 08       		.byte	0x8
+ 867 0134 04       		.byte	0x4
+ 868 0135 1D       		.byte	0x1d
+ 869 0136 57010000 		.4byte	0x157
+ 870 013a 09       		.uleb128 0x9
+ 871 013b EB060000 		.4byte	.LASF30
+ 872 013f 04       		.byte	0x4
+ 873 0140 1F       		.byte	0x1f
+ 874 0141 C8000000 		.4byte	0xc8
+ 875 0145 02       		.byte	0x2
+ 876 0146 23       		.byte	0x23
+ 877 0147 00       		.uleb128 0
+ 878 0148 09       		.uleb128 0x9
+ 879 0149 D7040000 		.4byte	.LASF31
+ 880 014d 04       		.byte	0x4
+ARM GAS  /tmp/ccuihVGC.s 			page 20
+
+
+ 881 014e 20       		.byte	0x20
+ 882 014f 27010000 		.4byte	0x127
+ 883 0153 02       		.byte	0x2
+ 884 0154 23       		.byte	0x23
+ 885 0155 04       		.uleb128 0x4
+ 886 0156 00       		.byte	0
+ 887 0157 04       		.uleb128 0x4
+ 888 0158 A1030000 		.4byte	.LASF32
+ 889 015c 04       		.byte	0x4
+ 890 015d 21       		.byte	0x21
+ 891 015e 32010000 		.4byte	0x132
+ 892 0162 0A       		.uleb128 0xa
+ 893 0163 73070000 		.4byte	.LASF67
+ 894 0167 1C       		.byte	0x1c
+ 895 0168 05       		.byte	0x5
+ 896 0169 1A       		.byte	0x1a
+ 897 016a DF010000 		.4byte	0x1df
+ 898 016e 09       		.uleb128 0x9
+ 899 016f 52070000 		.4byte	.LASF33
+ 900 0173 05       		.byte	0x5
+ 901 0174 1C       		.byte	0x1c
+ 902 0175 14050000 		.4byte	0x514
+ 903 0179 02       		.byte	0x2
+ 904 017a 23       		.byte	0x23
+ 905 017b 00       		.uleb128 0
+ 906 017c 09       		.uleb128 0x9
+ 907 017d 6E000000 		.4byte	.LASF34
+ 908 0181 05       		.byte	0x5
+ 909 0182 1D       		.byte	0x1d
+ 910 0183 B2000000 		.4byte	0xb2
+ 911 0187 02       		.byte	0x2
+ 912 0188 23       		.byte	0x23
+ 913 0189 04       		.uleb128 0x4
+ 914 018a 09       		.uleb128 0x9
+ 915 018b 5C080000 		.4byte	.LASF35
+ 916 018f 05       		.byte	0x5
+ 917 0190 1E       		.byte	0x1e
+ 918 0191 9E000000 		.4byte	0x9e
+ 919 0195 02       		.byte	0x2
+ 920 0196 23       		.byte	0x23
+ 921 0197 08       		.uleb128 0x8
+ 922 0198 09       		.uleb128 0x9
+ 923 0199 89070000 		.4byte	.LASF36
+ 924 019d 05       		.byte	0x5
+ 925 019e 1F       		.byte	0x1f
+ 926 019f F5000000 		.4byte	0xf5
+ 927 01a3 02       		.byte	0x2
+ 928 01a4 23       		.byte	0x23
+ 929 01a5 0C       		.uleb128 0xc
+ 930 01a6 09       		.uleb128 0x9
+ 931 01a7 E7030000 		.4byte	.LASF37
+ 932 01ab 05       		.byte	0x5
+ 933 01ac 20       		.byte	0x20
+ 934 01ad F5000000 		.4byte	0xf5
+ 935 01b1 02       		.byte	0x2
+ 936 01b2 23       		.byte	0x23
+ 937 01b3 0D       		.uleb128 0xd
+ARM GAS  /tmp/ccuihVGC.s 			page 21
+
+
+ 938 01b4 09       		.uleb128 0x9
+ 939 01b5 63000000 		.4byte	.LASF38
+ 940 01b9 05       		.byte	0x5
+ 941 01ba 21       		.byte	0x21
+ 942 01bb 67050000 		.4byte	0x567
+ 943 01bf 02       		.byte	0x2
+ 944 01c0 23       		.byte	0x23
+ 945 01c1 10       		.uleb128 0x10
+ 946 01c2 09       		.uleb128 0x9
+ 947 01c3 2A000000 		.4byte	.LASF39
+ 948 01c7 05       		.byte	0x5
+ 949 01c8 22       		.byte	0x22
+ 950 01c9 67050000 		.4byte	0x567
+ 951 01cd 02       		.byte	0x2
+ 952 01ce 23       		.byte	0x23
+ 953 01cf 14       		.uleb128 0x14
+ 954 01d0 09       		.uleb128 0x9
+ 955 01d1 15000000 		.4byte	.LASF40
+ 956 01d5 05       		.byte	0x5
+ 957 01d6 24       		.byte	0x24
+ 958 01d7 B2000000 		.4byte	0xb2
+ 959 01db 02       		.byte	0x2
+ 960 01dc 23       		.byte	0x23
+ 961 01dd 18       		.uleb128 0x18
+ 962 01de 00       		.byte	0
+ 963 01df 06       		.uleb128 0x6
+ 964 01e0 01       		.byte	0x1
+ 965 01e1 06       		.byte	0x6
+ 966 01e2 0F       		.byte	0xf
+ 967 01e3 18020000 		.4byte	0x218
+ 968 01e7 07       		.uleb128 0x7
+ 969 01e8 CA020000 		.4byte	.LASF41
+ 970 01ec 00       		.sleb128 0
+ 971 01ed 07       		.uleb128 0x7
+ 972 01ee 5A030000 		.4byte	.LASF42
+ 973 01f2 01       		.sleb128 1
+ 974 01f3 07       		.uleb128 0x7
+ 975 01f4 2A080000 		.4byte	.LASF43
+ 976 01f8 02       		.sleb128 2
+ 977 01f9 07       		.uleb128 0x7
+ 978 01fa 15050000 		.4byte	.LASF44
+ 979 01fe 03       		.sleb128 3
+ 980 01ff 07       		.uleb128 0x7
+ 981 0200 04030000 		.4byte	.LASF45
+ 982 0204 04       		.sleb128 4
+ 983 0205 07       		.uleb128 0x7
+ 984 0206 35000000 		.4byte	.LASF46
+ 985 020a 05       		.sleb128 5
+ 986 020b 07       		.uleb128 0x7
+ 987 020c 95040000 		.4byte	.LASF47
+ 988 0210 06       		.sleb128 6
+ 989 0211 07       		.uleb128 0x7
+ 990 0212 A4060000 		.4byte	.LASF48
+ 991 0216 07       		.sleb128 7
+ 992 0217 00       		.byte	0
+ 993 0218 04       		.uleb128 0x4
+ 994 0219 D6060000 		.4byte	.LASF49
+ARM GAS  /tmp/ccuihVGC.s 			page 22
+
+
+ 995 021d 06       		.byte	0x6
+ 996 021e 18       		.byte	0x18
+ 997 021f DF010000 		.4byte	0x1df
+ 998 0223 06       		.uleb128 0x6
+ 999 0224 01       		.byte	0x1
+ 1000 0225 06       		.byte	0x6
+ 1001 0226 1C       		.byte	0x1c
+ 1002 0227 4A020000 		.4byte	0x24a
+ 1003 022b 07       		.uleb128 0x7
+ 1004 022c 45030000 		.4byte	.LASF50
+ 1005 0230 05       		.sleb128 5
+ 1006 0231 07       		.uleb128 0x7
+ 1007 0232 00000000 		.4byte	.LASF51
+ 1008 0236 06       		.sleb128 6
+ 1009 0237 07       		.uleb128 0x7
+ 1010 0238 3A020000 		.4byte	.LASF52
+ 1011 023c 07       		.sleb128 7
+ 1012 023d 07       		.uleb128 0x7
+ 1013 023e 4F020000 		.4byte	.LASF53
+ 1014 0242 08       		.sleb128 8
+ 1015 0243 07       		.uleb128 0x7
+ 1016 0244 ED040000 		.4byte	.LASF54
+ 1017 0248 09       		.sleb128 9
+ 1018 0249 00       		.byte	0
+ 1019 024a 04       		.uleb128 0x4
+ 1020 024b DC050000 		.4byte	.LASF55
+ 1021 024f 06       		.byte	0x6
+ 1022 0250 22       		.byte	0x22
+ 1023 0251 23020000 		.4byte	0x223
+ 1024 0255 06       		.uleb128 0x6
+ 1025 0256 01       		.byte	0x1
+ 1026 0257 06       		.byte	0x6
+ 1027 0258 26       		.byte	0x26
+ 1028 0259 82020000 		.4byte	0x282
+ 1029 025d 07       		.uleb128 0x7
+ 1030 025e C0060000 		.4byte	.LASF56
+ 1031 0262 00       		.sleb128 0
+ 1032 0263 07       		.uleb128 0x7
+ 1033 0264 24070000 		.4byte	.LASF57
+ 1034 0268 01       		.sleb128 1
+ 1035 0269 07       		.uleb128 0x7
+ 1036 026a 64020000 		.4byte	.LASF58
+ 1037 026e 02       		.sleb128 2
+ 1038 026f 07       		.uleb128 0x7
+ 1039 0270 BF050000 		.4byte	.LASF59
+ 1040 0274 03       		.sleb128 3
+ 1041 0275 07       		.uleb128 0x7
+ 1042 0276 06010000 		.4byte	.LASF60
+ 1043 027a 04       		.sleb128 4
+ 1044 027b 07       		.uleb128 0x7
+ 1045 027c 17040000 		.4byte	.LASF61
+ 1046 0280 05       		.sleb128 5
+ 1047 0281 00       		.byte	0
+ 1048 0282 04       		.uleb128 0x4
+ 1049 0283 91060000 		.4byte	.LASF62
+ 1050 0287 06       		.byte	0x6
+ 1051 0288 2D       		.byte	0x2d
+ARM GAS  /tmp/ccuihVGC.s 			page 23
+
+
+ 1052 0289 55020000 		.4byte	0x255
+ 1053 028d 06       		.uleb128 0x6
+ 1054 028e 01       		.byte	0x1
+ 1055 028f 06       		.byte	0x6
+ 1056 0290 31       		.byte	0x31
+ 1057 0291 A8020000 		.4byte	0x2a8
+ 1058 0295 07       		.uleb128 0x7
+ 1059 0296 B4000000 		.4byte	.LASF63
+ 1060 029a 01       		.sleb128 1
+ 1061 029b 07       		.uleb128 0x7
+ 1062 029c AC020000 		.4byte	.LASF64
+ 1063 02a0 02       		.sleb128 2
+ 1064 02a1 07       		.uleb128 0x7
+ 1065 02a2 17020000 		.4byte	.LASF65
+ 1066 02a6 03       		.sleb128 3
+ 1067 02a7 00       		.byte	0
+ 1068 02a8 04       		.uleb128 0x4
+ 1069 02a9 4E000000 		.4byte	.LASF66
+ 1070 02ad 06       		.byte	0x6
+ 1071 02ae 35       		.byte	0x35
+ 1072 02af 8D020000 		.4byte	0x28d
+ 1073 02b3 0A       		.uleb128 0xa
+ 1074 02b4 84030000 		.4byte	.LASF68
+ 1075 02b8 14       		.byte	0x14
+ 1076 02b9 06       		.byte	0x6
+ 1077 02ba 3E       		.byte	0x3e
+ 1078 02bb 3E030000 		.4byte	0x33e
+ 1079 02bf 09       		.uleb128 0x9
+ 1080 02c0 6E000000 		.4byte	.LASF34
+ 1081 02c4 06       		.byte	0x6
+ 1082 02c5 40       		.byte	0x40
+ 1083 02c6 B2000000 		.4byte	0xb2
+ 1084 02ca 02       		.byte	0x2
+ 1085 02cb 23       		.byte	0x23
+ 1086 02cc 00       		.uleb128 0
+ 1087 02cd 09       		.uleb128 0x9
+ 1088 02ce 72030000 		.4byte	.LASF69
+ 1089 02d2 06       		.byte	0x6
+ 1090 02d3 42       		.byte	0x42
+ 1091 02d4 18020000 		.4byte	0x218
+ 1092 02d8 02       		.byte	0x2
+ 1093 02d9 23       		.byte	0x23
+ 1094 02da 01       		.uleb128 0x1
+ 1095 02db 09       		.uleb128 0x9
+ 1096 02dc 88060000 		.4byte	.LASF70
+ 1097 02e0 06       		.byte	0x6
+ 1098 02e1 44       		.byte	0x44
+ 1099 02e2 4A020000 		.4byte	0x24a
+ 1100 02e6 02       		.byte	0x2
+ 1101 02e7 23       		.byte	0x23
+ 1102 02e8 02       		.uleb128 0x2
+ 1103 02e9 09       		.uleb128 0x9
+ 1104 02ea 27030000 		.4byte	.LASF71
+ 1105 02ee 06       		.byte	0x6
+ 1106 02ef 46       		.byte	0x46
+ 1107 02f0 82020000 		.4byte	0x282
+ 1108 02f4 02       		.byte	0x2
+ARM GAS  /tmp/ccuihVGC.s 			page 24
+
+
+ 1109 02f5 23       		.byte	0x23
+ 1110 02f6 03       		.uleb128 0x3
+ 1111 02f7 09       		.uleb128 0x9
+ 1112 02f8 8E000000 		.4byte	.LASF72
+ 1113 02fc 06       		.byte	0x6
+ 1114 02fd 48       		.byte	0x48
+ 1115 02fe A8020000 		.4byte	0x2a8
+ 1116 0302 02       		.byte	0x2
+ 1117 0303 23       		.byte	0x23
+ 1118 0304 04       		.uleb128 0x4
+ 1119 0305 09       		.uleb128 0x9
+ 1120 0306 E7030000 		.4byte	.LASF37
+ 1121 030a 06       		.byte	0x6
+ 1122 030b 4A       		.byte	0x4a
+ 1123 030c F5000000 		.4byte	0xf5
+ 1124 0310 02       		.byte	0x2
+ 1125 0311 23       		.byte	0x23
+ 1126 0312 05       		.uleb128 0x5
+ 1127 0313 09       		.uleb128 0x9
+ 1128 0314 59010000 		.4byte	.LASF73
+ 1129 0318 06       		.byte	0x6
+ 1130 0319 4C       		.byte	0x4c
+ 1131 031a C8000000 		.4byte	0xc8
+ 1132 031e 02       		.byte	0x2
+ 1133 031f 23       		.byte	0x23
+ 1134 0320 08       		.uleb128 0x8
+ 1135 0321 09       		.uleb128 0x9
+ 1136 0322 FB060000 		.4byte	.LASF74
+ 1137 0326 06       		.byte	0x6
+ 1138 0327 4F       		.byte	0x4f
+ 1139 0328 C8000000 		.4byte	0xc8
+ 1140 032c 02       		.byte	0x2
+ 1141 032d 23       		.byte	0x23
+ 1142 032e 0C       		.uleb128 0xc
+ 1143 032f 09       		.uleb128 0x9
+ 1144 0330 1E080000 		.4byte	.LASF75
+ 1145 0334 06       		.byte	0x6
+ 1146 0335 52       		.byte	0x52
+ 1147 0336 9E000000 		.4byte	0x9e
+ 1148 033a 02       		.byte	0x2
+ 1149 033b 23       		.byte	0x23
+ 1150 033c 10       		.uleb128 0x10
+ 1151 033d 00       		.byte	0
+ 1152 033e 04       		.uleb128 0x4
+ 1153 033f 6A060000 		.4byte	.LASF76
+ 1154 0343 06       		.byte	0x6
+ 1155 0344 53       		.byte	0x53
+ 1156 0345 B3020000 		.4byte	0x2b3
+ 1157 0349 04       		.uleb128 0x4
+ 1158 034a 80020000 		.4byte	.LASF77
+ 1159 034e 07       		.byte	0x7
+ 1160 034f 0D       		.byte	0xd
+ 1161 0350 54030000 		.4byte	0x354
+ 1162 0354 0B       		.uleb128 0xb
+ 1163 0355 CE070000 		.4byte	.LASF121
+ 1164 0359 01       		.byte	0x1
+ 1165 035a 04       		.uleb128 0x4
+ARM GAS  /tmp/ccuihVGC.s 			page 25
+
+
+ 1166 035b 1C010000 		.4byte	.LASF78
+ 1167 035f 05       		.byte	0x5
+ 1168 0360 0C       		.byte	0xc
+ 1169 0361 65030000 		.4byte	0x365
+ 1170 0365 0A       		.uleb128 0xa
+ 1171 0366 95050000 		.4byte	.LASF79
+ 1172 036a 30       		.byte	0x30
+ 1173 036b 05       		.byte	0x5
+ 1174 036c 28       		.byte	0x28
+ 1175 036d 1A040000 		.4byte	0x41a
+ 1176 0371 09       		.uleb128 0x9
+ 1177 0372 0E020000 		.4byte	.LASF80
+ 1178 0376 05       		.byte	0x5
+ 1179 0377 2A       		.byte	0x2a
+ 1180 0378 1A040000 		.4byte	0x41a
+ 1181 037c 02       		.byte	0x2
+ 1182 037d 23       		.byte	0x23
+ 1183 037e 00       		.uleb128 0
+ 1184 037f 09       		.uleb128 0x9
+ 1185 0380 F1060000 		.4byte	.LASF81
+ 1186 0384 05       		.byte	0x5
+ 1187 0385 2B       		.byte	0x2b
+ 1188 0386 4C040000 		.4byte	0x44c
+ 1189 038a 02       		.byte	0x2
+ 1190 038b 23       		.byte	0x23
+ 1191 038c 04       		.uleb128 0x4
+ 1192 038d 09       		.uleb128 0x9
+ 1193 038e 42080000 		.4byte	.LASF82
+ 1194 0392 05       		.byte	0x5
+ 1195 0393 2C       		.byte	0x2c
+ 1196 0394 87040000 		.4byte	0x487
+ 1197 0398 02       		.byte	0x2
+ 1198 0399 23       		.byte	0x23
+ 1199 039a 08       		.uleb128 0x8
+ 1200 039b 09       		.uleb128 0x9
+ 1201 039c 78060000 		.4byte	.LASF83
+ 1202 03a0 05       		.byte	0x5
+ 1203 03a1 2D       		.byte	0x2d
+ 1204 03a2 92040000 		.4byte	0x492
+ 1205 03a6 02       		.byte	0x2
+ 1206 03a7 23       		.byte	0x23
+ 1207 03a8 0C       		.uleb128 0xc
+ 1208 03a9 09       		.uleb128 0x9
+ 1209 03aa DE030000 		.4byte	.LASF84
+ 1210 03ae 05       		.byte	0x5
+ 1211 03af 2E       		.byte	0x2e
+ 1212 03b0 BD040000 		.4byte	0x4bd
+ 1213 03b4 02       		.byte	0x2
+ 1214 03b5 23       		.byte	0x23
+ 1215 03b6 10       		.uleb128 0x10
+ 1216 03b7 09       		.uleb128 0x9
+ 1217 03b8 6C080000 		.4byte	.LASF85
+ 1218 03bc 05       		.byte	0x5
+ 1219 03bd 2F       		.byte	0x2f
+ 1220 03be F3040000 		.4byte	0x4f3
+ 1221 03c2 02       		.byte	0x2
+ 1222 03c3 23       		.byte	0x23
+ARM GAS  /tmp/ccuihVGC.s 			page 26
+
+
+ 1223 03c4 14       		.uleb128 0x14
+ 1224 03c5 09       		.uleb128 0x9
+ 1225 03c6 A8050000 		.4byte	.LASF86
+ 1226 03ca 05       		.byte	0x5
+ 1227 03cb 30       		.byte	0x30
+ 1228 03cc 1A050000 		.4byte	0x51a
+ 1229 03d0 02       		.byte	0x2
+ 1230 03d1 23       		.byte	0x23
+ 1231 03d2 18       		.uleb128 0x18
+ 1232 03d3 09       		.uleb128 0x9
+ 1233 03d4 7C000000 		.4byte	.LASF87
+ 1234 03d8 05       		.byte	0x5
+ 1235 03d9 31       		.byte	0x31
+ 1236 03da 3B050000 		.4byte	0x53b
+ 1237 03de 02       		.byte	0x2
+ 1238 03df 23       		.byte	0x23
+ 1239 03e0 1C       		.uleb128 0x1c
+ 1240 03e1 09       		.uleb128 0x9
+ 1241 03e2 F1050000 		.4byte	.LASF88
+ 1242 03e6 05       		.byte	0x5
+ 1243 03e7 32       		.byte	0x32
+ 1244 03e8 1A050000 		.4byte	0x51a
+ 1245 03ec 02       		.byte	0x2
+ 1246 03ed 23       		.byte	0x23
+ 1247 03ee 20       		.uleb128 0x20
+ 1248 03ef 09       		.uleb128 0x9
+ 1249 03f0 C9000000 		.4byte	.LASF89
+ 1250 03f4 05       		.byte	0x5
+ 1251 03f5 33       		.byte	0x33
+ 1252 03f6 3B050000 		.4byte	0x53b
+ 1253 03fa 02       		.byte	0x2
+ 1254 03fb 23       		.byte	0x23
+ 1255 03fc 24       		.uleb128 0x24
+ 1256 03fd 09       		.uleb128 0x9
+ 1257 03fe 14080000 		.4byte	.LASF90
+ 1258 0402 05       		.byte	0x5
+ 1259 0403 34       		.byte	0x34
+ 1260 0404 5C050000 		.4byte	0x55c
+ 1261 0408 02       		.byte	0x2
+ 1262 0409 23       		.byte	0x23
+ 1263 040a 28       		.uleb128 0x28
+ 1264 040b 09       		.uleb128 0x9
+ 1265 040c 1E080000 		.4byte	.LASF75
+ 1266 0410 05       		.byte	0x5
+ 1267 0411 35       		.byte	0x35
+ 1268 0412 9E000000 		.4byte	0x9e
+ 1269 0416 02       		.byte	0x2
+ 1270 0417 23       		.byte	0x23
+ 1271 0418 2C       		.uleb128 0x2c
+ 1272 0419 00       		.byte	0
+ 1273 041a 04       		.uleb128 0x4
+ 1274 041b FE010000 		.4byte	.LASF91
+ 1275 041f 05       		.byte	0x5
+ 1276 0420 10       		.byte	0x10
+ 1277 0421 25040000 		.4byte	0x425
+ 1278 0425 0C       		.uleb128 0xc
+ 1279 0426 04       		.byte	0x4
+ARM GAS  /tmp/ccuihVGC.s 			page 27
+
+
+ 1280 0427 2B040000 		.4byte	0x42b
+ 1281 042b 0D       		.uleb128 0xd
+ 1282 042c 01       		.byte	0x1
+ 1283 042d A7000000 		.4byte	0xa7
+ 1284 0431 40040000 		.4byte	0x440
+ 1285 0435 0E       		.uleb128 0xe
+ 1286 0436 40040000 		.4byte	0x440
+ 1287 043a 0E       		.uleb128 0xe
+ 1288 043b 46040000 		.4byte	0x446
+ 1289 043f 00       		.byte	0
+ 1290 0440 0C       		.uleb128 0xc
+ 1291 0441 04       		.byte	0x4
+ 1292 0442 62010000 		.4byte	0x162
+ 1293 0446 0C       		.uleb128 0xc
+ 1294 0447 04       		.byte	0x4
+ 1295 0448 3E030000 		.4byte	0x33e
+ 1296 044c 04       		.uleb128 0x4
+ 1297 044d 7D050000 		.4byte	.LASF92
+ 1298 0451 05       		.byte	0x5
+ 1299 0452 11       		.byte	0x11
+ 1300 0453 57040000 		.4byte	0x457
+ 1301 0457 0C       		.uleb128 0xc
+ 1302 0458 04       		.byte	0x4
+ 1303 0459 5D040000 		.4byte	0x45d
+ 1304 045d 0D       		.uleb128 0xd
+ 1305 045e 01       		.byte	0x1
+ 1306 045f BD000000 		.4byte	0xbd
+ 1307 0463 7C040000 		.4byte	0x47c
+ 1308 0467 0E       		.uleb128 0xe
+ 1309 0468 40040000 		.4byte	0x440
+ 1310 046c 0E       		.uleb128 0xe
+ 1311 046d 7C040000 		.4byte	0x47c
+ 1312 0471 0E       		.uleb128 0xe
+ 1313 0472 C8000000 		.4byte	0xc8
+ 1314 0476 0E       		.uleb128 0xe
+ 1315 0477 57010000 		.4byte	0x157
+ 1316 047b 00       		.byte	0
+ 1317 047c 0C       		.uleb128 0xc
+ 1318 047d 04       		.byte	0x4
+ 1319 047e 82040000 		.4byte	0x482
+ 1320 0482 0F       		.uleb128 0xf
+ 1321 0483 B2000000 		.4byte	0xb2
+ 1322 0487 04       		.uleb128 0x4
+ 1323 0488 FB070000 		.4byte	.LASF93
+ 1324 048c 05       		.byte	0x5
+ 1325 048d 12       		.byte	0x12
+ 1326 048e 57040000 		.4byte	0x457
+ 1327 0492 04       		.uleb128 0x4
+ 1328 0493 22060000 		.4byte	.LASF94
+ 1329 0497 05       		.byte	0x5
+ 1330 0498 13       		.byte	0x13
+ 1331 0499 9D040000 		.4byte	0x49d
+ 1332 049d 0C       		.uleb128 0xc
+ 1333 049e 04       		.byte	0x4
+ 1334 049f A3040000 		.4byte	0x4a3
+ 1335 04a3 0D       		.uleb128 0xd
+ 1336 04a4 01       		.byte	0x1
+ARM GAS  /tmp/ccuihVGC.s 			page 28
+
+
+ 1337 04a5 BD000000 		.4byte	0xbd
+ 1338 04a9 BD040000 		.4byte	0x4bd
+ 1339 04ad 0E       		.uleb128 0xe
+ 1340 04ae 40040000 		.4byte	0x440
+ 1341 04b2 0E       		.uleb128 0xe
+ 1342 04b3 7C040000 		.4byte	0x47c
+ 1343 04b7 0E       		.uleb128 0xe
+ 1344 04b8 57010000 		.4byte	0x157
+ 1345 04bc 00       		.byte	0
+ 1346 04bd 04       		.uleb128 0x4
+ 1347 04be 6E010000 		.4byte	.LASF95
+ 1348 04c2 05       		.byte	0x5
+ 1349 04c3 14       		.byte	0x14
+ 1350 04c4 C8040000 		.4byte	0x4c8
+ 1351 04c8 0C       		.uleb128 0xc
+ 1352 04c9 04       		.byte	0x4
+ 1353 04ca CE040000 		.4byte	0x4ce
+ 1354 04ce 0D       		.uleb128 0xd
+ 1355 04cf 01       		.byte	0x1
+ 1356 04d0 BD000000 		.4byte	0xbd
+ 1357 04d4 ED040000 		.4byte	0x4ed
+ 1358 04d8 0E       		.uleb128 0xe
+ 1359 04d9 40040000 		.4byte	0x440
+ 1360 04dd 0E       		.uleb128 0xe
+ 1361 04de ED040000 		.4byte	0x4ed
+ 1362 04e2 0E       		.uleb128 0xe
+ 1363 04e3 C8000000 		.4byte	0xc8
+ 1364 04e7 0E       		.uleb128 0xe
+ 1365 04e8 57010000 		.4byte	0x157
+ 1366 04ec 00       		.byte	0
+ 1367 04ed 0C       		.uleb128 0xc
+ 1368 04ee 04       		.byte	0x4
+ 1369 04ef B2000000 		.4byte	0xb2
+ 1370 04f3 04       		.uleb128 0x4
+ 1371 04f4 50060000 		.4byte	.LASF96
+ 1372 04f8 05       		.byte	0x5
+ 1373 04f9 15       		.byte	0x15
+ 1374 04fa FE040000 		.4byte	0x4fe
+ 1375 04fe 0C       		.uleb128 0xc
+ 1376 04ff 04       		.byte	0x4
+ 1377 0500 04050000 		.4byte	0x504
+ 1378 0504 0D       		.uleb128 0xd
+ 1379 0505 01       		.byte	0x1
+ 1380 0506 C8000000 		.4byte	0xc8
+ 1381 050a 14050000 		.4byte	0x514
+ 1382 050e 0E       		.uleb128 0xe
+ 1383 050f 14050000 		.4byte	0x514
+ 1384 0513 00       		.byte	0
+ 1385 0514 0C       		.uleb128 0xc
+ 1386 0515 04       		.byte	0x4
+ 1387 0516 5A030000 		.4byte	0x35a
+ 1388 051a 04       		.uleb128 0x4
+ 1389 051b AC030000 		.4byte	.LASF97
+ 1390 051f 05       		.byte	0x5
+ 1391 0520 16       		.byte	0x16
+ 1392 0521 25050000 		.4byte	0x525
+ 1393 0525 0C       		.uleb128 0xc
+ARM GAS  /tmp/ccuihVGC.s 			page 29
+
+
+ 1394 0526 04       		.byte	0x4
+ 1395 0527 2B050000 		.4byte	0x52b
+ 1396 052b 0D       		.uleb128 0xd
+ 1397 052c 01       		.byte	0x1
+ 1398 052d A7000000 		.4byte	0xa7
+ 1399 0531 3B050000 		.4byte	0x53b
+ 1400 0535 0E       		.uleb128 0xe
+ 1401 0536 40040000 		.4byte	0x440
+ 1402 053a 00       		.byte	0
+ 1403 053b 04       		.uleb128 0x4
+ 1404 053c 2E030000 		.4byte	.LASF98
+ 1405 0540 05       		.byte	0x5
+ 1406 0541 17       		.byte	0x17
+ 1407 0542 46050000 		.4byte	0x546
+ 1408 0546 0C       		.uleb128 0xc
+ 1409 0547 04       		.byte	0x4
+ 1410 0548 4C050000 		.4byte	0x54c
+ 1411 054c 0D       		.uleb128 0xd
+ 1412 054d 01       		.byte	0x1
+ 1413 054e BD000000 		.4byte	0xbd
+ 1414 0552 5C050000 		.4byte	0x55c
+ 1415 0556 0E       		.uleb128 0xe
+ 1416 0557 40040000 		.4byte	0x440
+ 1417 055b 00       		.byte	0
+ 1418 055c 04       		.uleb128 0x4
+ 1419 055d 04050000 		.4byte	.LASF99
+ 1420 0561 05       		.byte	0x5
+ 1421 0562 18       		.byte	0x18
+ 1422 0563 25050000 		.4byte	0x525
+ 1423 0567 0C       		.uleb128 0xc
+ 1424 0568 04       		.byte	0x4
+ 1425 0569 49030000 		.4byte	0x349
+ 1426 056d 10       		.uleb128 0x10
+ 1427 056e 01       		.byte	0x1
+ 1428 056f E4000000 		.4byte	.LASF102
+ 1429 0573 01       		.byte	0x1
+ 1430 0574 0F       		.byte	0xf
+ 1431 0575 01       		.byte	0x1
+ 1432 0576 40040000 		.4byte	0x440
+ 1433 057a 00000000 		.4byte	.LFB40
+ 1434 057e 58000000 		.4byte	.LFE40
+ 1435 0582 00000000 		.4byte	.LLST0
+ 1436 0586 01       		.byte	0x1
+ 1437 0587 B6050000 		.4byte	0x5b6
+ 1438 058b 11       		.uleb128 0x11
+ 1439 058c 03060000 		.4byte	.LASF104
+ 1440 0590 01       		.byte	0x1
+ 1441 0591 0F       		.byte	0xf
+ 1442 0592 46040000 		.4byte	0x446
+ 1443 0596 02       		.byte	0x2
+ 1444 0597 91       		.byte	0x91
+ 1445 0598 6C       		.sleb128 -20
+ 1446 0599 12       		.uleb128 0x12
+ 1447 059a 2E020000 		.4byte	.LASF100
+ 1448 059e 01       		.byte	0x1
+ 1449 059f 11       		.byte	0x11
+ 1450 05a0 40040000 		.4byte	0x440
+ARM GAS  /tmp/ccuihVGC.s 			page 30
+
+
+ 1451 05a4 02       		.byte	0x2
+ 1452 05a5 91       		.byte	0x91
+ 1453 05a6 70       		.sleb128 -16
+ 1454 05a7 12       		.uleb128 0x12
+ 1455 05a8 8E050000 		.4byte	.LASF101
+ 1456 05ac 01       		.byte	0x1
+ 1457 05ad 12       		.byte	0x12
+ 1458 05ae A7000000 		.4byte	0xa7
+ 1459 05b2 02       		.byte	0x2
+ 1460 05b3 91       		.byte	0x91
+ 1461 05b4 77       		.sleb128 -9
+ 1462 05b5 00       		.byte	0
+ 1463 05b6 10       		.uleb128 0x10
+ 1464 05b7 01       		.byte	0x1
+ 1465 05b8 63070000 		.4byte	.LASF103
+ 1466 05bc 01       		.byte	0x1
+ 1467 05bd 40       		.byte	0x40
+ 1468 05be 01       		.byte	0x1
+ 1469 05bf A7000000 		.4byte	0xa7
+ 1470 05c3 58000000 		.4byte	.LFB41
+ 1471 05c7 98000000 		.4byte	.LFE41
+ 1472 05cb 38000000 		.4byte	.LLST1
+ 1473 05cf 01       		.byte	0x1
+ 1474 05d0 F1050000 		.4byte	0x5f1
+ 1475 05d4 11       		.uleb128 0x11
+ 1476 05d5 2E020000 		.4byte	.LASF100
+ 1477 05d9 01       		.byte	0x1
+ 1478 05da 40       		.byte	0x40
+ 1479 05db 40040000 		.4byte	0x440
+ 1480 05df 02       		.byte	0x2
+ 1481 05e0 91       		.byte	0x91
+ 1482 05e1 6C       		.sleb128 -20
+ 1483 05e2 12       		.uleb128 0x12
+ 1484 05e3 8E050000 		.4byte	.LASF101
+ 1485 05e7 01       		.byte	0x1
+ 1486 05e8 42       		.byte	0x42
+ 1487 05e9 A7000000 		.4byte	0xa7
+ 1488 05ed 02       		.byte	0x2
+ 1489 05ee 91       		.byte	0x91
+ 1490 05ef 77       		.sleb128 -9
+ 1491 05f0 00       		.byte	0
+ 1492 05f1 10       		.uleb128 0x10
+ 1493 05f2 01       		.byte	0x1
+ 1494 05f3 E2020000 		.4byte	.LASF105
+ 1495 05f7 01       		.byte	0x1
+ 1496 05f8 4F       		.byte	0x4f
+ 1497 05f9 01       		.byte	0x1
+ 1498 05fa BD000000 		.4byte	0xbd
+ 1499 05fe 98000000 		.4byte	.LFB42
+ 1500 0602 EA000000 		.4byte	.LFE42
+ 1501 0606 70000000 		.4byte	.LLST2
+ 1502 060a 01       		.byte	0x1
+ 1503 060b 56060000 		.4byte	0x656
+ 1504 060f 11       		.uleb128 0x11
+ 1505 0610 2E020000 		.4byte	.LASF100
+ 1506 0614 01       		.byte	0x1
+ 1507 0615 4F       		.byte	0x4f
+ARM GAS  /tmp/ccuihVGC.s 			page 31
+
+
+ 1508 0616 40040000 		.4byte	0x440
+ 1509 061a 02       		.byte	0x2
+ 1510 061b 91       		.byte	0x91
+ 1511 061c 64       		.sleb128 -28
+ 1512 061d 11       		.uleb128 0x11
+ 1513 061e 4B060000 		.4byte	.LASF106
+ 1514 0622 01       		.byte	0x1
+ 1515 0623 4F       		.byte	0x4f
+ 1516 0624 7C040000 		.4byte	0x47c
+ 1517 0628 02       		.byte	0x2
+ 1518 0629 91       		.byte	0x91
+ 1519 062a 60       		.sleb128 -32
+ 1520 062b 11       		.uleb128 0x11
+ 1521 062c BB060000 		.4byte	.LASF107
+ 1522 0630 01       		.byte	0x1
+ 1523 0631 4F       		.byte	0x4f
+ 1524 0632 C8000000 		.4byte	0xc8
+ 1525 0636 02       		.byte	0x2
+ 1526 0637 91       		.byte	0x91
+ 1527 0638 5C       		.sleb128 -36
+ 1528 0639 11       		.uleb128 0x11
+ 1529 063a 54080000 		.4byte	.LASF108
+ 1530 063e 01       		.byte	0x1
+ 1531 063f 4F       		.byte	0x4f
+ 1532 0640 57010000 		.4byte	0x157
+ 1533 0644 02       		.byte	0x2
+ 1534 0645 91       		.byte	0x91
+ 1535 0646 7C       		.sleb128 -4
+ 1536 0647 12       		.uleb128 0x12
+ 1537 0648 82070000 		.4byte	.LASF109
+ 1538 064c 01       		.byte	0x1
+ 1539 064d 51       		.byte	0x51
+ 1540 064e BD000000 		.4byte	0xbd
+ 1541 0652 02       		.byte	0x2
+ 1542 0653 91       		.byte	0x91
+ 1543 0654 6C       		.sleb128 -20
+ 1544 0655 00       		.byte	0
+ 1545 0656 10       		.uleb128 0x10
+ 1546 0657 01       		.byte	0x1
+ 1547 0658 2E050000 		.4byte	.LASF110
+ 1548 065c 01       		.byte	0x1
+ 1549 065d 5E       		.byte	0x5e
+ 1550 065e 01       		.byte	0x1
+ 1551 065f BD000000 		.4byte	0xbd
+ 1552 0663 EC000000 		.4byte	.LFB43
+ 1553 0667 30010000 		.4byte	.LFE43
+ 1554 066b CC000000 		.4byte	.LLST3
+ 1555 066f 01       		.byte	0x1
+ 1556 0670 AD060000 		.4byte	0x6ad
+ 1557 0674 11       		.uleb128 0x11
+ 1558 0675 2E020000 		.4byte	.LASF100
+ 1559 0679 01       		.byte	0x1
+ 1560 067a 5E       		.byte	0x5e
+ 1561 067b 40040000 		.4byte	0x440
+ 1562 067f 02       		.byte	0x2
+ 1563 0680 91       		.byte	0x91
+ 1564 0681 6C       		.sleb128 -20
+ARM GAS  /tmp/ccuihVGC.s 			page 32
+
+
+ 1565 0682 11       		.uleb128 0x11
+ 1566 0683 4B060000 		.4byte	.LASF106
+ 1567 0687 01       		.byte	0x1
+ 1568 0688 5E       		.byte	0x5e
+ 1569 0689 7C040000 		.4byte	0x47c
+ 1570 068d 02       		.byte	0x2
+ 1571 068e 91       		.byte	0x91
+ 1572 068f 68       		.sleb128 -24
+ 1573 0690 11       		.uleb128 0x11
+ 1574 0691 54080000 		.4byte	.LASF108
+ 1575 0695 01       		.byte	0x1
+ 1576 0696 5E       		.byte	0x5e
+ 1577 0697 57010000 		.4byte	0x157
+ 1578 069b 02       		.byte	0x2
+ 1579 069c 91       		.byte	0x91
+ 1580 069d 60       		.sleb128 -32
+ 1581 069e 12       		.uleb128 0x12
+ 1582 069f 82070000 		.4byte	.LASF109
+ 1583 06a3 01       		.byte	0x1
+ 1584 06a4 60       		.byte	0x60
+ 1585 06a5 BD000000 		.4byte	0xbd
+ 1586 06a9 02       		.byte	0x2
+ 1587 06aa 91       		.byte	0x91
+ 1588 06ab 74       		.sleb128 -12
+ 1589 06ac 00       		.byte	0
+ 1590 06ad 10       		.uleb128 0x10
+ 1591 06ae 01       		.byte	0x1
+ 1592 06af 63040000 		.4byte	.LASF111
+ 1593 06b3 01       		.byte	0x1
+ 1594 06b4 6D       		.byte	0x6d
+ 1595 06b5 01       		.byte	0x1
+ 1596 06b6 BD000000 		.4byte	0xbd
+ 1597 06ba 30010000 		.4byte	.LFB44
+ 1598 06be 82010000 		.4byte	.LFE44
+ 1599 06c2 04010000 		.4byte	.LLST4
+ 1600 06c6 01       		.byte	0x1
+ 1601 06c7 12070000 		.4byte	0x712
+ 1602 06cb 11       		.uleb128 0x11
+ 1603 06cc 2E020000 		.4byte	.LASF100
+ 1604 06d0 01       		.byte	0x1
+ 1605 06d1 6D       		.byte	0x6d
+ 1606 06d2 40040000 		.4byte	0x440
+ 1607 06d6 02       		.byte	0x2
+ 1608 06d7 91       		.byte	0x91
+ 1609 06d8 64       		.sleb128 -28
+ 1610 06d9 11       		.uleb128 0x11
+ 1611 06da 4B060000 		.4byte	.LASF106
+ 1612 06de 01       		.byte	0x1
+ 1613 06df 6D       		.byte	0x6d
+ 1614 06e0 ED040000 		.4byte	0x4ed
+ 1615 06e4 02       		.byte	0x2
+ 1616 06e5 91       		.byte	0x91
+ 1617 06e6 60       		.sleb128 -32
+ 1618 06e7 11       		.uleb128 0x11
+ 1619 06e8 BB060000 		.4byte	.LASF107
+ 1620 06ec 01       		.byte	0x1
+ 1621 06ed 6D       		.byte	0x6d
+ARM GAS  /tmp/ccuihVGC.s 			page 33
+
+
+ 1622 06ee C8000000 		.4byte	0xc8
+ 1623 06f2 02       		.byte	0x2
+ 1624 06f3 91       		.byte	0x91
+ 1625 06f4 5C       		.sleb128 -36
+ 1626 06f5 11       		.uleb128 0x11
+ 1627 06f6 54080000 		.4byte	.LASF108
+ 1628 06fa 01       		.byte	0x1
+ 1629 06fb 6D       		.byte	0x6d
+ 1630 06fc 57010000 		.4byte	0x157
+ 1631 0700 02       		.byte	0x2
+ 1632 0701 91       		.byte	0x91
+ 1633 0702 7C       		.sleb128 -4
+ 1634 0703 12       		.uleb128 0x12
+ 1635 0704 82070000 		.4byte	.LASF109
+ 1636 0708 01       		.byte	0x1
+ 1637 0709 6F       		.byte	0x6f
+ 1638 070a BD000000 		.4byte	0xbd
+ 1639 070e 02       		.byte	0x2
+ 1640 070f 91       		.byte	0x91
+ 1641 0710 6C       		.sleb128 -20
+ 1642 0711 00       		.byte	0
+ 1643 0712 13       		.uleb128 0x13
+ 1644 0713 01       		.byte	0x1
+ 1645 0714 39070000 		.4byte	.LASF122
+ 1646 0718 01       		.byte	0x1
+ 1647 0719 7C       		.byte	0x7c
+ 1648 071a B2000000 		.4byte	0xb2
+ 1649 071e 84010000 		.4byte	.LFB45
+ 1650 0722 A4010000 		.4byte	.LFE45
+ 1651 0726 60010000 		.4byte	.LLST5
+ 1652 072a 01       		.byte	0x1
+ 1653 072b 3E070000 		.4byte	0x73e
+ 1654 072f 12       		.uleb128 0x12
+ 1655 0730 82070000 		.4byte	.LASF109
+ 1656 0734 01       		.byte	0x1
+ 1657 0735 7E       		.byte	0x7e
+ 1658 0736 B2000000 		.4byte	0xb2
+ 1659 073a 02       		.byte	0x2
+ 1660 073b 91       		.byte	0x91
+ 1661 073c 77       		.sleb128 -9
+ 1662 073d 00       		.byte	0
+ 1663 073e 10       		.uleb128 0x10
+ 1664 073f 01       		.byte	0x1
+ 1665 0740 C3030000 		.4byte	.LASF112
+ 1666 0744 01       		.byte	0x1
+ 1667 0745 84       		.byte	0x84
+ 1668 0746 01       		.byte	0x1
+ 1669 0747 BD000000 		.4byte	0xbd
+ 1670 074b A4010000 		.4byte	.LFB46
+ 1671 074f D6010000 		.4byte	.LFE46
+ 1672 0753 98010000 		.4byte	.LLST6
+ 1673 0757 01       		.byte	0x1
+ 1674 0758 79070000 		.4byte	0x779
+ 1675 075c 11       		.uleb128 0x11
+ 1676 075d 2E020000 		.4byte	.LASF100
+ 1677 0761 01       		.byte	0x1
+ 1678 0762 84       		.byte	0x84
+ARM GAS  /tmp/ccuihVGC.s 			page 34
+
+
+ 1679 0763 40040000 		.4byte	0x440
+ 1680 0767 02       		.byte	0x2
+ 1681 0768 91       		.byte	0x91
+ 1682 0769 6C       		.sleb128 -20
+ 1683 076a 12       		.uleb128 0x12
+ 1684 076b 82070000 		.4byte	.LASF109
+ 1685 076f 01       		.byte	0x1
+ 1686 0770 86       		.byte	0x86
+ 1687 0771 BD000000 		.4byte	0xbd
+ 1688 0775 02       		.byte	0x2
+ 1689 0776 91       		.byte	0x91
+ 1690 0777 74       		.sleb128 -12
+ 1691 0778 00       		.byte	0
+ 1692 0779 10       		.uleb128 0x10
+ 1693 077a 01       		.byte	0x1
+ 1694 077b 31010000 		.4byte	.LASF113
+ 1695 077f 01       		.byte	0x1
+ 1696 0780 93       		.byte	0x93
+ 1697 0781 01       		.byte	0x1
+ 1698 0782 A7000000 		.4byte	0xa7
+ 1699 0786 D8010000 		.4byte	.LFB47
+ 1700 078a 18020000 		.4byte	.LFE47
+ 1701 078e D0010000 		.4byte	.LLST7
+ 1702 0792 01       		.byte	0x1
+ 1703 0793 B4070000 		.4byte	0x7b4
+ 1704 0797 11       		.uleb128 0x11
+ 1705 0798 2E020000 		.4byte	.LASF100
+ 1706 079c 01       		.byte	0x1
+ 1707 079d 93       		.byte	0x93
+ 1708 079e 40040000 		.4byte	0x440
+ 1709 07a2 02       		.byte	0x2
+ 1710 07a3 91       		.byte	0x91
+ 1711 07a4 6C       		.sleb128 -20
+ 1712 07a5 12       		.uleb128 0x12
+ 1713 07a6 82070000 		.4byte	.LASF109
+ 1714 07aa 01       		.byte	0x1
+ 1715 07ab 95       		.byte	0x95
+ 1716 07ac A7000000 		.4byte	0xa7
+ 1717 07b0 02       		.byte	0x2
+ 1718 07b1 91       		.byte	0x91
+ 1719 07b2 77       		.sleb128 -9
+ 1720 07b3 00       		.byte	0
+ 1721 07b4 10       		.uleb128 0x10
+ 1722 07b5 01       		.byte	0x1
+ 1723 07b6 48040000 		.4byte	.LASF114
+ 1724 07ba 01       		.byte	0x1
+ 1725 07bb A2       		.byte	0xa2
+ 1726 07bc 01       		.byte	0x1
+ 1727 07bd BD000000 		.4byte	0xbd
+ 1728 07c1 18020000 		.4byte	.LFB48
+ 1729 07c5 4A020000 		.4byte	.LFE48
+ 1730 07c9 08020000 		.4byte	.LLST8
+ 1731 07cd 01       		.byte	0x1
+ 1732 07ce EF070000 		.4byte	0x7ef
+ 1733 07d2 11       		.uleb128 0x11
+ 1734 07d3 2E020000 		.4byte	.LASF100
+ 1735 07d7 01       		.byte	0x1
+ARM GAS  /tmp/ccuihVGC.s 			page 35
+
+
+ 1736 07d8 A2       		.byte	0xa2
+ 1737 07d9 40040000 		.4byte	0x440
+ 1738 07dd 02       		.byte	0x2
+ 1739 07de 91       		.byte	0x91
+ 1740 07df 6C       		.sleb128 -20
+ 1741 07e0 12       		.uleb128 0x12
+ 1742 07e1 82070000 		.4byte	.LASF109
+ 1743 07e5 01       		.byte	0x1
+ 1744 07e6 A4       		.byte	0xa4
+ 1745 07e7 BD000000 		.4byte	0xbd
+ 1746 07eb 02       		.byte	0x2
+ 1747 07ec 91       		.byte	0x91
+ 1748 07ed 74       		.sleb128 -12
+ 1749 07ee 00       		.byte	0
+ 1750 07ef 10       		.uleb128 0x10
+ 1751 07f0 01       		.byte	0x1
+ 1752 07f1 E6010000 		.4byte	.LASF115
+ 1753 07f5 01       		.byte	0x1
+ 1754 07f6 B1       		.byte	0xb1
+ 1755 07f7 01       		.byte	0x1
+ 1756 07f8 A7000000 		.4byte	0xa7
+ 1757 07fc 4C020000 		.4byte	.LFB49
+ 1758 0800 8C020000 		.4byte	.LFE49
+ 1759 0804 40020000 		.4byte	.LLST9
+ 1760 0808 01       		.byte	0x1
+ 1761 0809 2A080000 		.4byte	0x82a
+ 1762 080d 11       		.uleb128 0x11
+ 1763 080e 2E020000 		.4byte	.LASF100
+ 1764 0812 01       		.byte	0x1
+ 1765 0813 B1       		.byte	0xb1
+ 1766 0814 40040000 		.4byte	0x440
+ 1767 0818 02       		.byte	0x2
+ 1768 0819 91       		.byte	0x91
+ 1769 081a 6C       		.sleb128 -20
+ 1770 081b 12       		.uleb128 0x12
+ 1771 081c 82070000 		.4byte	.LASF109
+ 1772 0820 01       		.byte	0x1
+ 1773 0821 B3       		.byte	0xb3
+ 1774 0822 A7000000 		.4byte	0xa7
+ 1775 0826 02       		.byte	0x2
+ 1776 0827 91       		.byte	0x91
+ 1777 0828 77       		.sleb128 -9
+ 1778 0829 00       		.byte	0
+ 1779 082a 10       		.uleb128 0x10
+ 1780 082b 01       		.byte	0x1
+ 1781 082c 2C040000 		.4byte	.LASF116
+ 1782 0830 01       		.byte	0x1
+ 1783 0831 C0       		.byte	0xc0
+ 1784 0832 01       		.byte	0x1
+ 1785 0833 C8000000 		.4byte	0xc8
+ 1786 0837 8C020000 		.4byte	.LFB50
+ 1787 083b B6020000 		.4byte	.LFE50
+ 1788 083f 78020000 		.4byte	.LLST10
+ 1789 0843 01       		.byte	0x1
+ 1790 0844 65080000 		.4byte	0x865
+ 1791 0848 11       		.uleb128 0x11
+ 1792 0849 49010000 		.4byte	.LASF117
+ARM GAS  /tmp/ccuihVGC.s 			page 36
+
+
+ 1793 084d 01       		.byte	0x1
+ 1794 084e C0       		.byte	0xc0
+ 1795 084f 65080000 		.4byte	0x865
+ 1796 0853 02       		.byte	0x2
+ 1797 0854 91       		.byte	0x91
+ 1798 0855 6C       		.sleb128 -20
+ 1799 0856 12       		.uleb128 0x12
+ 1800 0857 82070000 		.4byte	.LASF109
+ 1801 085b 01       		.byte	0x1
+ 1802 085c C2       		.byte	0xc2
+ 1803 085d C8000000 		.4byte	0xc8
+ 1804 0861 02       		.byte	0x2
+ 1805 0862 91       		.byte	0x91
+ 1806 0863 74       		.sleb128 -12
+ 1807 0864 00       		.byte	0
+ 1808 0865 0C       		.uleb128 0xc
+ 1809 0866 04       		.byte	0x4
+ 1810 0867 65030000 		.4byte	0x365
+ 1811 086b 14       		.uleb128 0x14
+ 1812 086c EE070000 		.4byte	.LASF123
+ 1813 0870 08       		.byte	0x8
+ 1814 0871 E602     		.2byte	0x2e6
+ 1815 0873 79080000 		.4byte	0x879
+ 1816 0877 01       		.byte	0x1
+ 1817 0878 01       		.byte	0x1
+ 1818 0879 15       		.uleb128 0x15
+ 1819 087a BD000000 		.4byte	0xbd
+ 1820 087e 00       		.byte	0
+ 1821              		.section	.debug_abbrev,"",%progbits
+ 1822              	.Ldebug_abbrev0:
+ 1823 0000 01       		.uleb128 0x1
+ 1824 0001 11       		.uleb128 0x11
+ 1825 0002 01       		.byte	0x1
+ 1826 0003 25       		.uleb128 0x25
+ 1827 0004 0E       		.uleb128 0xe
+ 1828 0005 13       		.uleb128 0x13
+ 1829 0006 0B       		.uleb128 0xb
+ 1830 0007 03       		.uleb128 0x3
+ 1831 0008 0E       		.uleb128 0xe
+ 1832 0009 1B       		.uleb128 0x1b
+ 1833 000a 0E       		.uleb128 0xe
+ 1834 000b 11       		.uleb128 0x11
+ 1835 000c 01       		.uleb128 0x1
+ 1836 000d 12       		.uleb128 0x12
+ 1837 000e 01       		.uleb128 0x1
+ 1838 000f 10       		.uleb128 0x10
+ 1839 0010 06       		.uleb128 0x6
+ 1840 0011 00       		.byte	0
+ 1841 0012 00       		.byte	0
+ 1842 0013 02       		.uleb128 0x2
+ 1843 0014 24       		.uleb128 0x24
+ 1844 0015 00       		.byte	0
+ 1845 0016 0B       		.uleb128 0xb
+ 1846 0017 0B       		.uleb128 0xb
+ 1847 0018 3E       		.uleb128 0x3e
+ 1848 0019 0B       		.uleb128 0xb
+ 1849 001a 03       		.uleb128 0x3
+ARM GAS  /tmp/ccuihVGC.s 			page 37
+
+
+ 1850 001b 0E       		.uleb128 0xe
+ 1851 001c 00       		.byte	0
+ 1852 001d 00       		.byte	0
+ 1853 001e 03       		.uleb128 0x3
+ 1854 001f 24       		.uleb128 0x24
+ 1855 0020 00       		.byte	0
+ 1856 0021 0B       		.uleb128 0xb
+ 1857 0022 0B       		.uleb128 0xb
+ 1858 0023 3E       		.uleb128 0x3e
+ 1859 0024 0B       		.uleb128 0xb
+ 1860 0025 03       		.uleb128 0x3
+ 1861 0026 08       		.uleb128 0x8
+ 1862 0027 00       		.byte	0
+ 1863 0028 00       		.byte	0
+ 1864 0029 04       		.uleb128 0x4
+ 1865 002a 16       		.uleb128 0x16
+ 1866 002b 00       		.byte	0
+ 1867 002c 03       		.uleb128 0x3
+ 1868 002d 0E       		.uleb128 0xe
+ 1869 002e 3A       		.uleb128 0x3a
+ 1870 002f 0B       		.uleb128 0xb
+ 1871 0030 3B       		.uleb128 0x3b
+ 1872 0031 0B       		.uleb128 0xb
+ 1873 0032 49       		.uleb128 0x49
+ 1874 0033 13       		.uleb128 0x13
+ 1875 0034 00       		.byte	0
+ 1876 0035 00       		.byte	0
+ 1877 0036 05       		.uleb128 0x5
+ 1878 0037 0F       		.uleb128 0xf
+ 1879 0038 00       		.byte	0
+ 1880 0039 0B       		.uleb128 0xb
+ 1881 003a 0B       		.uleb128 0xb
+ 1882 003b 00       		.byte	0
+ 1883 003c 00       		.byte	0
+ 1884 003d 06       		.uleb128 0x6
+ 1885 003e 04       		.uleb128 0x4
+ 1886 003f 01       		.byte	0x1
+ 1887 0040 0B       		.uleb128 0xb
+ 1888 0041 0B       		.uleb128 0xb
+ 1889 0042 3A       		.uleb128 0x3a
+ 1890 0043 0B       		.uleb128 0xb
+ 1891 0044 3B       		.uleb128 0x3b
+ 1892 0045 0B       		.uleb128 0xb
+ 1893 0046 01       		.uleb128 0x1
+ 1894 0047 13       		.uleb128 0x13
+ 1895 0048 00       		.byte	0
+ 1896 0049 00       		.byte	0
+ 1897 004a 07       		.uleb128 0x7
+ 1898 004b 28       		.uleb128 0x28
+ 1899 004c 00       		.byte	0
+ 1900 004d 03       		.uleb128 0x3
+ 1901 004e 0E       		.uleb128 0xe
+ 1902 004f 1C       		.uleb128 0x1c
+ 1903 0050 0D       		.uleb128 0xd
+ 1904 0051 00       		.byte	0
+ 1905 0052 00       		.byte	0
+ 1906 0053 08       		.uleb128 0x8
+ARM GAS  /tmp/ccuihVGC.s 			page 38
+
+
+ 1907 0054 13       		.uleb128 0x13
+ 1908 0055 01       		.byte	0x1
+ 1909 0056 0B       		.uleb128 0xb
+ 1910 0057 0B       		.uleb128 0xb
+ 1911 0058 3A       		.uleb128 0x3a
+ 1912 0059 0B       		.uleb128 0xb
+ 1913 005a 3B       		.uleb128 0x3b
+ 1914 005b 0B       		.uleb128 0xb
+ 1915 005c 01       		.uleb128 0x1
+ 1916 005d 13       		.uleb128 0x13
+ 1917 005e 00       		.byte	0
+ 1918 005f 00       		.byte	0
+ 1919 0060 09       		.uleb128 0x9
+ 1920 0061 0D       		.uleb128 0xd
+ 1921 0062 00       		.byte	0
+ 1922 0063 03       		.uleb128 0x3
+ 1923 0064 0E       		.uleb128 0xe
+ 1924 0065 3A       		.uleb128 0x3a
+ 1925 0066 0B       		.uleb128 0xb
+ 1926 0067 3B       		.uleb128 0x3b
+ 1927 0068 0B       		.uleb128 0xb
+ 1928 0069 49       		.uleb128 0x49
+ 1929 006a 13       		.uleb128 0x13
+ 1930 006b 38       		.uleb128 0x38
+ 1931 006c 0A       		.uleb128 0xa
+ 1932 006d 00       		.byte	0
+ 1933 006e 00       		.byte	0
+ 1934 006f 0A       		.uleb128 0xa
+ 1935 0070 13       		.uleb128 0x13
+ 1936 0071 01       		.byte	0x1
+ 1937 0072 03       		.uleb128 0x3
+ 1938 0073 0E       		.uleb128 0xe
+ 1939 0074 0B       		.uleb128 0xb
+ 1940 0075 0B       		.uleb128 0xb
+ 1941 0076 3A       		.uleb128 0x3a
+ 1942 0077 0B       		.uleb128 0xb
+ 1943 0078 3B       		.uleb128 0x3b
+ 1944 0079 0B       		.uleb128 0xb
+ 1945 007a 01       		.uleb128 0x1
+ 1946 007b 13       		.uleb128 0x13
+ 1947 007c 00       		.byte	0
+ 1948 007d 00       		.byte	0
+ 1949 007e 0B       		.uleb128 0xb
+ 1950 007f 13       		.uleb128 0x13
+ 1951 0080 00       		.byte	0
+ 1952 0081 03       		.uleb128 0x3
+ 1953 0082 0E       		.uleb128 0xe
+ 1954 0083 3C       		.uleb128 0x3c
+ 1955 0084 0C       		.uleb128 0xc
+ 1956 0085 00       		.byte	0
+ 1957 0086 00       		.byte	0
+ 1958 0087 0C       		.uleb128 0xc
+ 1959 0088 0F       		.uleb128 0xf
+ 1960 0089 00       		.byte	0
+ 1961 008a 0B       		.uleb128 0xb
+ 1962 008b 0B       		.uleb128 0xb
+ 1963 008c 49       		.uleb128 0x49
+ARM GAS  /tmp/ccuihVGC.s 			page 39
+
+
+ 1964 008d 13       		.uleb128 0x13
+ 1965 008e 00       		.byte	0
+ 1966 008f 00       		.byte	0
+ 1967 0090 0D       		.uleb128 0xd
+ 1968 0091 15       		.uleb128 0x15
+ 1969 0092 01       		.byte	0x1
+ 1970 0093 27       		.uleb128 0x27
+ 1971 0094 0C       		.uleb128 0xc
+ 1972 0095 49       		.uleb128 0x49
+ 1973 0096 13       		.uleb128 0x13
+ 1974 0097 01       		.uleb128 0x1
+ 1975 0098 13       		.uleb128 0x13
+ 1976 0099 00       		.byte	0
+ 1977 009a 00       		.byte	0
+ 1978 009b 0E       		.uleb128 0xe
+ 1979 009c 05       		.uleb128 0x5
+ 1980 009d 00       		.byte	0
+ 1981 009e 49       		.uleb128 0x49
+ 1982 009f 13       		.uleb128 0x13
+ 1983 00a0 00       		.byte	0
+ 1984 00a1 00       		.byte	0
+ 1985 00a2 0F       		.uleb128 0xf
+ 1986 00a3 26       		.uleb128 0x26
+ 1987 00a4 00       		.byte	0
+ 1988 00a5 49       		.uleb128 0x49
+ 1989 00a6 13       		.uleb128 0x13
+ 1990 00a7 00       		.byte	0
+ 1991 00a8 00       		.byte	0
+ 1992 00a9 10       		.uleb128 0x10
+ 1993 00aa 2E       		.uleb128 0x2e
+ 1994 00ab 01       		.byte	0x1
+ 1995 00ac 3F       		.uleb128 0x3f
+ 1996 00ad 0C       		.uleb128 0xc
+ 1997 00ae 03       		.uleb128 0x3
+ 1998 00af 0E       		.uleb128 0xe
+ 1999 00b0 3A       		.uleb128 0x3a
+ 2000 00b1 0B       		.uleb128 0xb
+ 2001 00b2 3B       		.uleb128 0x3b
+ 2002 00b3 0B       		.uleb128 0xb
+ 2003 00b4 27       		.uleb128 0x27
+ 2004 00b5 0C       		.uleb128 0xc
+ 2005 00b6 49       		.uleb128 0x49
+ 2006 00b7 13       		.uleb128 0x13
+ 2007 00b8 11       		.uleb128 0x11
+ 2008 00b9 01       		.uleb128 0x1
+ 2009 00ba 12       		.uleb128 0x12
+ 2010 00bb 01       		.uleb128 0x1
+ 2011 00bc 40       		.uleb128 0x40
+ 2012 00bd 06       		.uleb128 0x6
+ 2013 00be 9642     		.uleb128 0x2116
+ 2014 00c0 0C       		.uleb128 0xc
+ 2015 00c1 01       		.uleb128 0x1
+ 2016 00c2 13       		.uleb128 0x13
+ 2017 00c3 00       		.byte	0
+ 2018 00c4 00       		.byte	0
+ 2019 00c5 11       		.uleb128 0x11
+ 2020 00c6 05       		.uleb128 0x5
+ARM GAS  /tmp/ccuihVGC.s 			page 40
+
+
+ 2021 00c7 00       		.byte	0
+ 2022 00c8 03       		.uleb128 0x3
+ 2023 00c9 0E       		.uleb128 0xe
+ 2024 00ca 3A       		.uleb128 0x3a
+ 2025 00cb 0B       		.uleb128 0xb
+ 2026 00cc 3B       		.uleb128 0x3b
+ 2027 00cd 0B       		.uleb128 0xb
+ 2028 00ce 49       		.uleb128 0x49
+ 2029 00cf 13       		.uleb128 0x13
+ 2030 00d0 02       		.uleb128 0x2
+ 2031 00d1 0A       		.uleb128 0xa
+ 2032 00d2 00       		.byte	0
+ 2033 00d3 00       		.byte	0
+ 2034 00d4 12       		.uleb128 0x12
+ 2035 00d5 34       		.uleb128 0x34
+ 2036 00d6 00       		.byte	0
+ 2037 00d7 03       		.uleb128 0x3
+ 2038 00d8 0E       		.uleb128 0xe
+ 2039 00d9 3A       		.uleb128 0x3a
+ 2040 00da 0B       		.uleb128 0xb
+ 2041 00db 3B       		.uleb128 0x3b
+ 2042 00dc 0B       		.uleb128 0xb
+ 2043 00dd 49       		.uleb128 0x49
+ 2044 00de 13       		.uleb128 0x13
+ 2045 00df 02       		.uleb128 0x2
+ 2046 00e0 0A       		.uleb128 0xa
+ 2047 00e1 00       		.byte	0
+ 2048 00e2 00       		.byte	0
+ 2049 00e3 13       		.uleb128 0x13
+ 2050 00e4 2E       		.uleb128 0x2e
+ 2051 00e5 01       		.byte	0x1
+ 2052 00e6 3F       		.uleb128 0x3f
+ 2053 00e7 0C       		.uleb128 0xc
+ 2054 00e8 03       		.uleb128 0x3
+ 2055 00e9 0E       		.uleb128 0xe
+ 2056 00ea 3A       		.uleb128 0x3a
+ 2057 00eb 0B       		.uleb128 0xb
+ 2058 00ec 3B       		.uleb128 0x3b
+ 2059 00ed 0B       		.uleb128 0xb
+ 2060 00ee 49       		.uleb128 0x49
+ 2061 00ef 13       		.uleb128 0x13
+ 2062 00f0 11       		.uleb128 0x11
+ 2063 00f1 01       		.uleb128 0x1
+ 2064 00f2 12       		.uleb128 0x12
+ 2065 00f3 01       		.uleb128 0x1
+ 2066 00f4 40       		.uleb128 0x40
+ 2067 00f5 06       		.uleb128 0x6
+ 2068 00f6 9642     		.uleb128 0x2116
+ 2069 00f8 0C       		.uleb128 0xc
+ 2070 00f9 01       		.uleb128 0x1
+ 2071 00fa 13       		.uleb128 0x13
+ 2072 00fb 00       		.byte	0
+ 2073 00fc 00       		.byte	0
+ 2074 00fd 14       		.uleb128 0x14
+ 2075 00fe 34       		.uleb128 0x34
+ 2076 00ff 00       		.byte	0
+ 2077 0100 03       		.uleb128 0x3
+ARM GAS  /tmp/ccuihVGC.s 			page 41
+
+
+ 2078 0101 0E       		.uleb128 0xe
+ 2079 0102 3A       		.uleb128 0x3a
+ 2080 0103 0B       		.uleb128 0xb
+ 2081 0104 3B       		.uleb128 0x3b
+ 2082 0105 05       		.uleb128 0x5
+ 2083 0106 49       		.uleb128 0x49
+ 2084 0107 13       		.uleb128 0x13
+ 2085 0108 3F       		.uleb128 0x3f
+ 2086 0109 0C       		.uleb128 0xc
+ 2087 010a 3C       		.uleb128 0x3c
+ 2088 010b 0C       		.uleb128 0xc
+ 2089 010c 00       		.byte	0
+ 2090 010d 00       		.byte	0
+ 2091 010e 15       		.uleb128 0x15
+ 2092 010f 35       		.uleb128 0x35
+ 2093 0110 00       		.byte	0
+ 2094 0111 49       		.uleb128 0x49
+ 2095 0112 13       		.uleb128 0x13
+ 2096 0113 00       		.byte	0
+ 2097 0114 00       		.byte	0
+ 2098 0115 00       		.byte	0
+ 2099              		.section	.debug_loc,"",%progbits
+ 2100              	.Ldebug_loc0:
+ 2101              	.LLST0:
+ 2102 0000 00000000 		.4byte	.LFB40-.Ltext0
+ 2103 0004 02000000 		.4byte	.LCFI0-.Ltext0
+ 2104 0008 0200     		.2byte	0x2
+ 2105 000a 7D       		.byte	0x7d
+ 2106 000b 00       		.sleb128 0
+ 2107 000c 02000000 		.4byte	.LCFI0-.Ltext0
+ 2108 0010 04000000 		.4byte	.LCFI1-.Ltext0
+ 2109 0014 0200     		.2byte	0x2
+ 2110 0016 7D       		.byte	0x7d
+ 2111 0017 04       		.sleb128 4
+ 2112 0018 04000000 		.4byte	.LCFI1-.Ltext0
+ 2113 001c 54000000 		.4byte	.LCFI2-.Ltext0
+ 2114 0020 0200     		.2byte	0x2
+ 2115 0022 7D       		.byte	0x7d
+ 2116 0023 18       		.sleb128 24
+ 2117 0024 54000000 		.4byte	.LCFI2-.Ltext0
+ 2118 0028 58000000 		.4byte	.LFE40-.Ltext0
+ 2119 002c 0200     		.2byte	0x2
+ 2120 002e 7D       		.byte	0x7d
+ 2121 002f 04       		.sleb128 4
+ 2122 0030 00000000 		.4byte	0
+ 2123 0034 00000000 		.4byte	0
+ 2124              	.LLST1:
+ 2125 0038 58000000 		.4byte	.LFB41-.Ltext0
+ 2126 003c 5A000000 		.4byte	.LCFI3-.Ltext0
+ 2127 0040 0200     		.2byte	0x2
+ 2128 0042 7D       		.byte	0x7d
+ 2129 0043 00       		.sleb128 0
+ 2130 0044 5A000000 		.4byte	.LCFI3-.Ltext0
+ 2131 0048 5C000000 		.4byte	.LCFI4-.Ltext0
+ 2132 004c 0200     		.2byte	0x2
+ 2133 004e 7D       		.byte	0x7d
+ 2134 004f 04       		.sleb128 4
+ARM GAS  /tmp/ccuihVGC.s 			page 42
+
+
+ 2135 0050 5C000000 		.4byte	.LCFI4-.Ltext0
+ 2136 0054 94000000 		.4byte	.LCFI5-.Ltext0
+ 2137 0058 0200     		.2byte	0x2
+ 2138 005a 7D       		.byte	0x7d
+ 2139 005b 18       		.sleb128 24
+ 2140 005c 94000000 		.4byte	.LCFI5-.Ltext0
+ 2141 0060 98000000 		.4byte	.LFE41-.Ltext0
+ 2142 0064 0200     		.2byte	0x2
+ 2143 0066 7D       		.byte	0x7d
+ 2144 0067 04       		.sleb128 4
+ 2145 0068 00000000 		.4byte	0
+ 2146 006c 00000000 		.4byte	0
+ 2147              	.LLST2:
+ 2148 0070 98000000 		.4byte	.LFB42-.Ltext0
+ 2149 0074 9A000000 		.4byte	.LCFI6-.Ltext0
+ 2150 0078 0200     		.2byte	0x2
+ 2151 007a 7D       		.byte	0x7d
+ 2152 007b 00       		.sleb128 0
+ 2153 007c 9A000000 		.4byte	.LCFI6-.Ltext0
+ 2154 0080 9C000000 		.4byte	.LCFI7-.Ltext0
+ 2155 0084 0200     		.2byte	0x2
+ 2156 0086 7D       		.byte	0x7d
+ 2157 0087 08       		.sleb128 8
+ 2158 0088 9C000000 		.4byte	.LCFI7-.Ltext0
+ 2159 008c 9E000000 		.4byte	.LCFI8-.Ltext0
+ 2160 0090 0200     		.2byte	0x2
+ 2161 0092 7D       		.byte	0x7d
+ 2162 0093 10       		.sleb128 16
+ 2163 0094 9E000000 		.4byte	.LCFI8-.Ltext0
+ 2164 0098 E2000000 		.4byte	.LCFI9-.Ltext0
+ 2165 009c 0200     		.2byte	0x2
+ 2166 009e 7D       		.byte	0x7d
+ 2167 009f 30       		.sleb128 48
+ 2168 00a0 E2000000 		.4byte	.LCFI9-.Ltext0
+ 2169 00a4 E6000000 		.4byte	.LCFI10-.Ltext0
+ 2170 00a8 0200     		.2byte	0x2
+ 2171 00aa 7D       		.byte	0x7d
+ 2172 00ab 10       		.sleb128 16
+ 2173 00ac E6000000 		.4byte	.LCFI10-.Ltext0
+ 2174 00b0 E8000000 		.4byte	.LCFI11-.Ltext0
+ 2175 00b4 0200     		.2byte	0x2
+ 2176 00b6 7D       		.byte	0x7d
+ 2177 00b7 08       		.sleb128 8
+ 2178 00b8 E8000000 		.4byte	.LCFI11-.Ltext0
+ 2179 00bc EA000000 		.4byte	.LFE42-.Ltext0
+ 2180 00c0 0200     		.2byte	0x2
+ 2181 00c2 7D       		.byte	0x7d
+ 2182 00c3 00       		.sleb128 0
+ 2183 00c4 00000000 		.4byte	0
+ 2184 00c8 00000000 		.4byte	0
+ 2185              	.LLST3:
+ 2186 00cc EC000000 		.4byte	.LFB43-.Ltext0
+ 2187 00d0 EE000000 		.4byte	.LCFI12-.Ltext0
+ 2188 00d4 0200     		.2byte	0x2
+ 2189 00d6 7D       		.byte	0x7d
+ 2190 00d7 00       		.sleb128 0
+ 2191 00d8 EE000000 		.4byte	.LCFI12-.Ltext0
+ARM GAS  /tmp/ccuihVGC.s 			page 43
+
+
+ 2192 00dc F0000000 		.4byte	.LCFI13-.Ltext0
+ 2193 00e0 0200     		.2byte	0x2
+ 2194 00e2 7D       		.byte	0x7d
+ 2195 00e3 08       		.sleb128 8
+ 2196 00e4 F0000000 		.4byte	.LCFI13-.Ltext0
+ 2197 00e8 2E010000 		.4byte	.LCFI14-.Ltext0
+ 2198 00ec 0200     		.2byte	0x2
+ 2199 00ee 7D       		.byte	0x7d
+ 2200 00ef 20       		.sleb128 32
+ 2201 00f0 2E010000 		.4byte	.LCFI14-.Ltext0
+ 2202 00f4 30010000 		.4byte	.LFE43-.Ltext0
+ 2203 00f8 0200     		.2byte	0x2
+ 2204 00fa 7D       		.byte	0x7d
+ 2205 00fb 08       		.sleb128 8
+ 2206 00fc 00000000 		.4byte	0
+ 2207 0100 00000000 		.4byte	0
+ 2208              	.LLST4:
+ 2209 0104 30010000 		.4byte	.LFB44-.Ltext0
+ 2210 0108 32010000 		.4byte	.LCFI15-.Ltext0
+ 2211 010c 0200     		.2byte	0x2
+ 2212 010e 7D       		.byte	0x7d
+ 2213 010f 00       		.sleb128 0
+ 2214 0110 32010000 		.4byte	.LCFI15-.Ltext0
+ 2215 0114 34010000 		.4byte	.LCFI16-.Ltext0
+ 2216 0118 0200     		.2byte	0x2
+ 2217 011a 7D       		.byte	0x7d
+ 2218 011b 08       		.sleb128 8
+ 2219 011c 34010000 		.4byte	.LCFI16-.Ltext0
+ 2220 0120 36010000 		.4byte	.LCFI17-.Ltext0
+ 2221 0124 0200     		.2byte	0x2
+ 2222 0126 7D       		.byte	0x7d
+ 2223 0127 10       		.sleb128 16
+ 2224 0128 36010000 		.4byte	.LCFI17-.Ltext0
+ 2225 012c 7A010000 		.4byte	.LCFI18-.Ltext0
+ 2226 0130 0200     		.2byte	0x2
+ 2227 0132 7D       		.byte	0x7d
+ 2228 0133 30       		.sleb128 48
+ 2229 0134 7A010000 		.4byte	.LCFI18-.Ltext0
+ 2230 0138 7E010000 		.4byte	.LCFI19-.Ltext0
+ 2231 013c 0200     		.2byte	0x2
+ 2232 013e 7D       		.byte	0x7d
+ 2233 013f 10       		.sleb128 16
+ 2234 0140 7E010000 		.4byte	.LCFI19-.Ltext0
+ 2235 0144 80010000 		.4byte	.LCFI20-.Ltext0
+ 2236 0148 0200     		.2byte	0x2
+ 2237 014a 7D       		.byte	0x7d
+ 2238 014b 08       		.sleb128 8
+ 2239 014c 80010000 		.4byte	.LCFI20-.Ltext0
+ 2240 0150 82010000 		.4byte	.LFE44-.Ltext0
+ 2241 0154 0200     		.2byte	0x2
+ 2242 0156 7D       		.byte	0x7d
+ 2243 0157 00       		.sleb128 0
+ 2244 0158 00000000 		.4byte	0
+ 2245 015c 00000000 		.4byte	0
+ 2246              	.LLST5:
+ 2247 0160 84010000 		.4byte	.LFB45-.Ltext0
+ 2248 0164 86010000 		.4byte	.LCFI21-.Ltext0
+ARM GAS  /tmp/ccuihVGC.s 			page 44
+
+
+ 2249 0168 0200     		.2byte	0x2
+ 2250 016a 7D       		.byte	0x7d
+ 2251 016b 00       		.sleb128 0
+ 2252 016c 86010000 		.4byte	.LCFI21-.Ltext0
+ 2253 0170 88010000 		.4byte	.LCFI22-.Ltext0
+ 2254 0174 0200     		.2byte	0x2
+ 2255 0176 7D       		.byte	0x7d
+ 2256 0177 04       		.sleb128 4
+ 2257 0178 88010000 		.4byte	.LCFI22-.Ltext0
+ 2258 017c A0010000 		.4byte	.LCFI23-.Ltext0
+ 2259 0180 0200     		.2byte	0x2
+ 2260 0182 7D       		.byte	0x7d
+ 2261 0183 10       		.sleb128 16
+ 2262 0184 A0010000 		.4byte	.LCFI23-.Ltext0
+ 2263 0188 A4010000 		.4byte	.LFE45-.Ltext0
+ 2264 018c 0200     		.2byte	0x2
+ 2265 018e 7D       		.byte	0x7d
+ 2266 018f 04       		.sleb128 4
+ 2267 0190 00000000 		.4byte	0
+ 2268 0194 00000000 		.4byte	0
+ 2269              	.LLST6:
+ 2270 0198 A4010000 		.4byte	.LFB46-.Ltext0
+ 2271 019c A6010000 		.4byte	.LCFI24-.Ltext0
+ 2272 01a0 0200     		.2byte	0x2
+ 2273 01a2 7D       		.byte	0x7d
+ 2274 01a3 00       		.sleb128 0
+ 2275 01a4 A6010000 		.4byte	.LCFI24-.Ltext0
+ 2276 01a8 A8010000 		.4byte	.LCFI25-.Ltext0
+ 2277 01ac 0200     		.2byte	0x2
+ 2278 01ae 7D       		.byte	0x7d
+ 2279 01af 04       		.sleb128 4
+ 2280 01b0 A8010000 		.4byte	.LCFI25-.Ltext0
+ 2281 01b4 D2010000 		.4byte	.LCFI26-.Ltext0
+ 2282 01b8 0200     		.2byte	0x2
+ 2283 01ba 7D       		.byte	0x7d
+ 2284 01bb 18       		.sleb128 24
+ 2285 01bc D2010000 		.4byte	.LCFI26-.Ltext0
+ 2286 01c0 D6010000 		.4byte	.LFE46-.Ltext0
+ 2287 01c4 0200     		.2byte	0x2
+ 2288 01c6 7D       		.byte	0x7d
+ 2289 01c7 04       		.sleb128 4
+ 2290 01c8 00000000 		.4byte	0
+ 2291 01cc 00000000 		.4byte	0
+ 2292              	.LLST7:
+ 2293 01d0 D8010000 		.4byte	.LFB47-.Ltext0
+ 2294 01d4 DA010000 		.4byte	.LCFI27-.Ltext0
+ 2295 01d8 0200     		.2byte	0x2
+ 2296 01da 7D       		.byte	0x7d
+ 2297 01db 00       		.sleb128 0
+ 2298 01dc DA010000 		.4byte	.LCFI27-.Ltext0
+ 2299 01e0 DC010000 		.4byte	.LCFI28-.Ltext0
+ 2300 01e4 0200     		.2byte	0x2
+ 2301 01e6 7D       		.byte	0x7d
+ 2302 01e7 04       		.sleb128 4
+ 2303 01e8 DC010000 		.4byte	.LCFI28-.Ltext0
+ 2304 01ec 14020000 		.4byte	.LCFI29-.Ltext0
+ 2305 01f0 0200     		.2byte	0x2
+ARM GAS  /tmp/ccuihVGC.s 			page 45
+
+
+ 2306 01f2 7D       		.byte	0x7d
+ 2307 01f3 18       		.sleb128 24
+ 2308 01f4 14020000 		.4byte	.LCFI29-.Ltext0
+ 2309 01f8 18020000 		.4byte	.LFE47-.Ltext0
+ 2310 01fc 0200     		.2byte	0x2
+ 2311 01fe 7D       		.byte	0x7d
+ 2312 01ff 04       		.sleb128 4
+ 2313 0200 00000000 		.4byte	0
+ 2314 0204 00000000 		.4byte	0
+ 2315              	.LLST8:
+ 2316 0208 18020000 		.4byte	.LFB48-.Ltext0
+ 2317 020c 1A020000 		.4byte	.LCFI30-.Ltext0
+ 2318 0210 0200     		.2byte	0x2
+ 2319 0212 7D       		.byte	0x7d
+ 2320 0213 00       		.sleb128 0
+ 2321 0214 1A020000 		.4byte	.LCFI30-.Ltext0
+ 2322 0218 1C020000 		.4byte	.LCFI31-.Ltext0
+ 2323 021c 0200     		.2byte	0x2
+ 2324 021e 7D       		.byte	0x7d
+ 2325 021f 04       		.sleb128 4
+ 2326 0220 1C020000 		.4byte	.LCFI31-.Ltext0
+ 2327 0224 46020000 		.4byte	.LCFI32-.Ltext0
+ 2328 0228 0200     		.2byte	0x2
+ 2329 022a 7D       		.byte	0x7d
+ 2330 022b 18       		.sleb128 24
+ 2331 022c 46020000 		.4byte	.LCFI32-.Ltext0
+ 2332 0230 4A020000 		.4byte	.LFE48-.Ltext0
+ 2333 0234 0200     		.2byte	0x2
+ 2334 0236 7D       		.byte	0x7d
+ 2335 0237 04       		.sleb128 4
+ 2336 0238 00000000 		.4byte	0
+ 2337 023c 00000000 		.4byte	0
+ 2338              	.LLST9:
+ 2339 0240 4C020000 		.4byte	.LFB49-.Ltext0
+ 2340 0244 4E020000 		.4byte	.LCFI33-.Ltext0
+ 2341 0248 0200     		.2byte	0x2
+ 2342 024a 7D       		.byte	0x7d
+ 2343 024b 00       		.sleb128 0
+ 2344 024c 4E020000 		.4byte	.LCFI33-.Ltext0
+ 2345 0250 50020000 		.4byte	.LCFI34-.Ltext0
+ 2346 0254 0200     		.2byte	0x2
+ 2347 0256 7D       		.byte	0x7d
+ 2348 0257 04       		.sleb128 4
+ 2349 0258 50020000 		.4byte	.LCFI34-.Ltext0
+ 2350 025c 88020000 		.4byte	.LCFI35-.Ltext0
+ 2351 0260 0200     		.2byte	0x2
+ 2352 0262 7D       		.byte	0x7d
+ 2353 0263 18       		.sleb128 24
+ 2354 0264 88020000 		.4byte	.LCFI35-.Ltext0
+ 2355 0268 8C020000 		.4byte	.LFE49-.Ltext0
+ 2356 026c 0200     		.2byte	0x2
+ 2357 026e 7D       		.byte	0x7d
+ 2358 026f 04       		.sleb128 4
+ 2359 0270 00000000 		.4byte	0
+ 2360 0274 00000000 		.4byte	0
+ 2361              	.LLST10:
+ 2362 0278 8C020000 		.4byte	.LFB50-.Ltext0
+ARM GAS  /tmp/ccuihVGC.s 			page 46
+
+
+ 2363 027c 8E020000 		.4byte	.LCFI36-.Ltext0
+ 2364 0280 0200     		.2byte	0x2
+ 2365 0282 7D       		.byte	0x7d
+ 2366 0283 00       		.sleb128 0
+ 2367 0284 8E020000 		.4byte	.LCFI36-.Ltext0
+ 2368 0288 90020000 		.4byte	.LCFI37-.Ltext0
+ 2369 028c 0200     		.2byte	0x2
+ 2370 028e 7D       		.byte	0x7d
+ 2371 028f 04       		.sleb128 4
+ 2372 0290 90020000 		.4byte	.LCFI37-.Ltext0
+ 2373 0294 B2020000 		.4byte	.LCFI38-.Ltext0
+ 2374 0298 0200     		.2byte	0x2
+ 2375 029a 7D       		.byte	0x7d
+ 2376 029b 18       		.sleb128 24
+ 2377 029c B2020000 		.4byte	.LCFI38-.Ltext0
+ 2378 02a0 B6020000 		.4byte	.LFE50-.Ltext0
+ 2379 02a4 0200     		.2byte	0x2
+ 2380 02a6 7D       		.byte	0x7d
+ 2381 02a7 04       		.sleb128 4
+ 2382 02a8 00000000 		.4byte	0
+ 2383 02ac 00000000 		.4byte	0
+ 2384              		.section	.debug_aranges,"",%progbits
+ 2385 0000 1C000000 		.4byte	0x1c
+ 2386 0004 0200     		.2byte	0x2
+ 2387 0006 00000000 		.4byte	.Ldebug_info0
+ 2388 000a 04       		.byte	0x4
+ 2389 000b 00       		.byte	0
+ 2390 000c 0000     		.2byte	0
+ 2391 000e 0000     		.2byte	0
+ 2392 0010 00000000 		.4byte	.Ltext0
+ 2393 0014 B6020000 		.4byte	.Letext0-.Ltext0
+ 2394 0018 00000000 		.4byte	0
+ 2395 001c 00000000 		.4byte	0
+ 2396              		.section	.debug_line,"",%progbits
+ 2397              	.Ldebug_line0:
+ 2398 0000 93020000 		.section	.debug_str,"MS",%progbits,1
+ 2398      02002C02 
+ 2398      00000201 
+ 2398      FB0E0D00 
+ 2398      01010101 
+ 2399              	.LASF51:
+ 2400 0000 656E4550 		.ascii	"enEPCFUartDatabits_6\000"
+ 2400      43465561 
+ 2400      72744461 
+ 2400      74616269 
+ 2400      74735F36 
+ 2401              	.LASF40:
+ 2402 0015 65787465 		.ascii	"extendedUartDeviceId\000"
+ 2402      6E646564 
+ 2402      55617274 
+ 2402      44657669 
+ 2402      63654964 
+ 2403              	.LASF39:
+ 2404 002a 75617274 		.ascii	"uartRxFifo\000"
+ 2404      52784669 
+ 2404      666F00
+ 2405              	.LASF46:
+ARM GAS  /tmp/ccuihVGC.s 			page 47
+
+
+ 2406 0035 656E4550 		.ascii	"enEPCFUartBaudrate_57600\000"
+ 2406      43465561 
+ 2406      72744261 
+ 2406      75647261 
+ 2406      74655F35 
+ 2407              	.LASF66:
+ 2408 004e 456E4550 		.ascii	"EnEPCFUartStopBits_t\000"
+ 2408      43465561 
+ 2408      72745374 
+ 2408      6F704269 
+ 2408      74735F74 
+ 2409              	.LASF38:
+ 2410 0063 75617274 		.ascii	"uartTxFifo\000"
+ 2410      54784669 
+ 2410      666F00
+ 2411              	.LASF34:
+ 2412 006e 75617274 		.ascii	"uartId\000"
+ 2412      496400
+ 2413              	.LASF15:
+ 2414 0075 696E7438 		.ascii	"int8_t\000"
+ 2414      5F7400
+ 2415              	.LASF87:
+ 2416 007c 75617274 		.ascii	"uartRxBufferCount\000"
+ 2416      52784275 
+ 2416      66666572 
+ 2416      436F756E 
+ 2416      7400
+ 2417              	.LASF72:
+ 2418 008e 73746F70 		.ascii	"stopBits\000"
+ 2418      42697473 
+ 2418      00
+ 2419              	.LASF21:
+ 2420 0097 656E4550 		.ascii	"enEPCFBoolean_True\000"
+ 2420      4346426F 
+ 2420      6F6C6561 
+ 2420      6E5F5472 
+ 2420      756500
+ 2421              	.LASF5:
+ 2422 00aa 73686F72 		.ascii	"short int\000"
+ 2422      7420696E 
+ 2422      7400
+ 2423              	.LASF63:
+ 2424 00b4 656E4550 		.ascii	"enEPCFUartStopBits_1\000"
+ 2424      43465561 
+ 2424      72745374 
+ 2424      6F704269 
+ 2424      74735F31 
+ 2425              	.LASF89:
+ 2426 00c9 75617274 		.ascii	"uartTxBufferCount\000"
+ 2426      54784275 
+ 2426      66666572 
+ 2426      436F756E 
+ 2426      7400
+ 2427              	.LASF13:
+ 2428 00db 73697A65 		.ascii	"sizetype\000"
+ 2428      74797065 
+ 2428      00
+ARM GAS  /tmp/ccuihVGC.s 			page 48
+
+
+ 2429              	.LASF102:
+ 2430 00e4 65706366 		.ascii	"epcf_uart_createNative\000"
+ 2430      5F756172 
+ 2430      745F6372 
+ 2430      65617465 
+ 2430      4E617469 
+ 2431              	.LASF9:
+ 2432 00fb 5F5F7569 		.ascii	"__uint32_t\000"
+ 2432      6E743332 
+ 2432      5F7400
+ 2433              	.LASF60:
+ 2434 0106 656E4550 		.ascii	"enEPCFUartParity_Zero\000"
+ 2434      43465561 
+ 2434      72745061 
+ 2434      72697479 
+ 2434      5F5A6572 
+ 2435              	.LASF78:
+ 2436 011c 45504346 		.ascii	"EPCFUartController_t\000"
+ 2436      55617274 
+ 2436      436F6E74 
+ 2436      726F6C6C 
+ 2436      65725F74 
+ 2437              	.LASF113:
+ 2438 0131 65706366 		.ascii	"epcf_uart_rxBufferFlush\000"
+ 2438      5F756172 
+ 2438      745F7278 
+ 2438      42756666 
+ 2438      6572466C 
+ 2439              	.LASF117:
+ 2440 0149 70556172 		.ascii	"pUartController\000"
+ 2440      74436F6E 
+ 2440      74726F6C 
+ 2440      6C657200 
+ 2441              	.LASF73:
+ 2442 0159 74784275 		.ascii	"txBufferSize\000"
+ 2442      66666572 
+ 2442      53697A65 
+ 2442      00
+ 2443              	.LASF16:
+ 2444 0166 75696E74 		.ascii	"uint8_t\000"
+ 2444      385F7400 
+ 2445              	.LASF95:
+ 2446 016e 65706366 		.ascii	"epcfUartRead_fp\000"
+ 2446      55617274 
+ 2446      52656164 
+ 2446      5F667000 
+ 2447              	.LASF118:
+ 2448 017e 474E5520 		.ascii	"GNU C 4.9.3 20150529 (prerelease) -mcpu=cortex-m3 -"
+ 2448      4320342E 
+ 2448      392E3320 
+ 2448      32303135 
+ 2448      30353239 
+ 2449 01b1 6D746875 		.ascii	"mthumb -gdwarf-2 -O0 -std=gnu99 -fomit-frame-pointe"
+ 2449      6D62202D 
+ 2449      67647761 
+ 2449      72662D32 
+ 2449      202D4F30 
+ARM GAS  /tmp/ccuihVGC.s 			page 49
+
+
+ 2450 01e4 7200     		.ascii	"r\000"
+ 2451              	.LASF115:
+ 2452 01e6 65706366 		.ascii	"epcf_uart_txBufferFlush\000"
+ 2452      5F756172 
+ 2452      745F7478 
+ 2452      42756666 
+ 2452      6572466C 
+ 2453              	.LASF91:
+ 2454 01fe 65706366 		.ascii	"epcfUartInit_fp\000"
+ 2454      55617274 
+ 2454      496E6974 
+ 2454      5F667000 
+ 2455              	.LASF80:
+ 2456 020e 75617274 		.ascii	"uartInit\000"
+ 2456      496E6974 
+ 2456      00
+ 2457              	.LASF65:
+ 2458 0217 656E4550 		.ascii	"enEPCFUartStopBits_Max\000"
+ 2458      43465561 
+ 2458      72745374 
+ 2458      6F704269 
+ 2458      74735F4D 
+ 2459              	.LASF100:
+ 2460 022e 70556172 		.ascii	"pUartDevice\000"
+ 2460      74446576 
+ 2460      69636500 
+ 2461              	.LASF52:
+ 2462 023a 656E4550 		.ascii	"enEPCFUartDatabits_7\000"
+ 2462      43465561 
+ 2462      72744461 
+ 2462      74616269 
+ 2462      74735F37 
+ 2463              	.LASF53:
+ 2464 024f 656E4550 		.ascii	"enEPCFUartDatabits_8\000"
+ 2464      43465561 
+ 2464      72744461 
+ 2464      74616269 
+ 2464      74735F38 
+ 2465              	.LASF58:
+ 2466 0264 656E4550 		.ascii	"enEPCFUartParity_Even\000"
+ 2466      43465561 
+ 2466      72745061 
+ 2466      72697479 
+ 2466      5F457665 
+ 2467              	.LASF19:
+ 2468 027a 666C6F61 		.ascii	"float\000"
+ 2468      7400
+ 2469              	.LASF77:
+ 2470 0280 50434646 		.ascii	"PCFFifoDesc_t\000"
+ 2470      69666F44 
+ 2470      6573635F 
+ 2470      7400
+ 2471              	.LASF23:
+ 2472 028e 456E4550 		.ascii	"EnEPCFBoolean_t\000"
+ 2472      4346426F 
+ 2472      6F6C6561 
+ 2472      6E5F7400 
+ARM GAS  /tmp/ccuihVGC.s 			page 50
+
+
+ 2473              	.LASF11:
+ 2474 029e 6C6F6E67 		.ascii	"long long int\000"
+ 2474      206C6F6E 
+ 2474      6720696E 
+ 2474      7400
+ 2475              	.LASF64:
+ 2476 02ac 656E4550 		.ascii	"enEPCFUartStopBits_2\000"
+ 2476      43465561 
+ 2476      72745374 
+ 2476      6F704269 
+ 2476      74735F32 
+ 2477              	.LASF8:
+ 2478 02c1 6C6F6E67 		.ascii	"long int\000"
+ 2478      20696E74 
+ 2478      00
+ 2479              	.LASF41:
+ 2480 02ca 656E4550 		.ascii	"enEPCFUartBaudrate_2400\000"
+ 2480      43465561 
+ 2480      72744261 
+ 2480      75647261 
+ 2480      74655F32 
+ 2481              	.LASF105:
+ 2482 02e2 65706366 		.ascii	"epcf_uart_write\000"
+ 2482      5F756172 
+ 2482      745F7772 
+ 2482      69746500 
+ 2483              	.LASF10:
+ 2484 02f2 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2484      20756E73 
+ 2484      69676E65 
+ 2484      6420696E 
+ 2484      7400
+ 2485              	.LASF45:
+ 2486 0304 656E4550 		.ascii	"enEPCFUartBaudrate_38400\000"
+ 2486      43465561 
+ 2486      72744261 
+ 2486      75647261 
+ 2486      74655F33 
+ 2487              	.LASF3:
+ 2488 031d 5F5F7569 		.ascii	"__uint8_t\000"
+ 2488      6E74385F 
+ 2488      7400
+ 2489              	.LASF71:
+ 2490 0327 70617269 		.ascii	"parity\000"
+ 2490      747900
+ 2491              	.LASF98:
+ 2492 032e 65706366 		.ascii	"epcfUartBufferCount_fp\000"
+ 2492      55617274 
+ 2492      42756666 
+ 2492      6572436F 
+ 2492      756E745F 
+ 2493              	.LASF50:
+ 2494 0345 656E4550 		.ascii	"enEPCFUartDatabits_5\000"
+ 2494      43465561 
+ 2494      72744461 
+ 2494      74616269 
+ 2494      74735F35 
+ARM GAS  /tmp/ccuihVGC.s 			page 51
+
+
+ 2495              	.LASF42:
+ 2496 035a 656E4550 		.ascii	"enEPCFUartBaudrate_4800\000"
+ 2496      43465561 
+ 2496      72744261 
+ 2496      75647261 
+ 2496      74655F34 
+ 2497              	.LASF69:
+ 2498 0372 62617564 		.ascii	"baudrate\000"
+ 2498      72617465 
+ 2498      00
+ 2499              	.LASF2:
+ 2500 037b 5F5F696E 		.ascii	"__int8_t\000"
+ 2500      74385F74 
+ 2500      00
+ 2501              	.LASF68:
+ 2502 0384 45504346 		.ascii	"EPCFUartCfg\000"
+ 2502      55617274 
+ 2502      43666700 
+ 2503              	.LASF27:
+ 2504 0390 656E4550 		.ascii	"enEPCFTimeUnit_s\000"
+ 2504      43465469 
+ 2504      6D65556E 
+ 2504      69745F73 
+ 2504      00
+ 2505              	.LASF32:
+ 2506 03a1 45504346 		.ascii	"EPCFTime_t\000"
+ 2506      54696D65 
+ 2506      5F7400
+ 2507              	.LASF97:
+ 2508 03ac 65706366 		.ascii	"epcfUartBufferFlush_fp\000"
+ 2508      55617274 
+ 2508      42756666 
+ 2508      6572466C 
+ 2508      7573685F 
+ 2509              	.LASF112:
+ 2510 03c3 65706366 		.ascii	"epcf_uart_getRxBufferCount\000"
+ 2510      5F756172 
+ 2510      745F6765 
+ 2510      74527842 
+ 2510      75666665 
+ 2511              	.LASF84:
+ 2512 03de 75617274 		.ascii	"uartRead\000"
+ 2512      52656164 
+ 2512      00
+ 2513              	.LASF37:
+ 2514 03e7 696E7465 		.ascii	"interruptEnable\000"
+ 2514      72727570 
+ 2514      74456E61 
+ 2514      626C6500 
+ 2515              	.LASF22:
+ 2516 03f7 656E4550 		.ascii	"enEPCFBoolean_Max\000"
+ 2516      4346426F 
+ 2516      6F6C6561 
+ 2516      6E5F4D61 
+ 2516      7800
+ 2517              	.LASF4:
+ 2518 0409 756E7369 		.ascii	"unsigned char\000"
+ARM GAS  /tmp/ccuihVGC.s 			page 52
+
+
+ 2518      676E6564 
+ 2518      20636861 
+ 2518      7200
+ 2519              	.LASF61:
+ 2520 0417 656E4550 		.ascii	"enEPCFUartParity_Max\000"
+ 2520      43465561 
+ 2520      72745061 
+ 2520      72697479 
+ 2520      5F4D6178 
+ 2521              	.LASF116:
+ 2522 042c 65706366 		.ascii	"epcf_uart_extGetDeviceCount\000"
+ 2522      5F756172 
+ 2522      745F6578 
+ 2522      74476574 
+ 2522      44657669 
+ 2523              	.LASF114:
+ 2524 0448 65706366 		.ascii	"epcf_uart_getTxBufferCount\000"
+ 2524      5F756172 
+ 2524      745F6765 
+ 2524      74547842 
+ 2524      75666665 
+ 2525              	.LASF111:
+ 2526 0463 65706366 		.ascii	"epcf_uart_read\000"
+ 2526      5F756172 
+ 2526      745F7265 
+ 2526      616400
+ 2527              	.LASF1:
+ 2528 0472 7369676E 		.ascii	"signed char\000"
+ 2528      65642063 
+ 2528      68617200 
+ 2529              	.LASF12:
+ 2530 047e 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2530      206C6F6E 
+ 2530      6720756E 
+ 2530      7369676E 
+ 2530      65642069 
+ 2531              	.LASF47:
+ 2532 0495 656E4550 		.ascii	"enEPCFUartBaudrate_115200\000"
+ 2532      43465561 
+ 2532      72744261 
+ 2532      75647261 
+ 2532      74655F31 
+ 2533              	.LASF18:
+ 2534 04af 75696E74 		.ascii	"uint32_t\000"
+ 2534      33325F74 
+ 2534      00
+ 2535              	.LASF0:
+ 2536 04b8 756E7369 		.ascii	"unsigned int\000"
+ 2536      676E6564 
+ 2536      20696E74 
+ 2536      00
+ 2537              	.LASF24:
+ 2538 04c5 656E4550 		.ascii	"enEPCFTimeUnit_ns\000"
+ 2538      43465469 
+ 2538      6D65556E 
+ 2538      69745F6E 
+ 2538      7300
+ARM GAS  /tmp/ccuihVGC.s 			page 53
+
+
+ 2539              	.LASF31:
+ 2540 04d7 756E6974 		.ascii	"unit\000"
+ 2540      00
+ 2541              	.LASF29:
+ 2542 04dc 456E4550 		.ascii	"EnEPCFTimeUnit_t\000"
+ 2542      43465469 
+ 2542      6D65556E 
+ 2542      69745F74 
+ 2542      00
+ 2543              	.LASF54:
+ 2544 04ed 656E4550 		.ascii	"enEPCFUartDatabits_Max\000"
+ 2544      43465561 
+ 2544      72744461 
+ 2544      74616269 
+ 2544      74735F4D 
+ 2545              	.LASF99:
+ 2546 0504 65706366 		.ascii	"epcfUartClose_fp\000"
+ 2546      55617274 
+ 2546      436C6F73 
+ 2546      655F6670 
+ 2546      00
+ 2547              	.LASF44:
+ 2548 0515 656E4550 		.ascii	"enEPCFUartBaudrate_19200\000"
+ 2548      43465561 
+ 2548      72744261 
+ 2548      75647261 
+ 2548      74655F31 
+ 2549              	.LASF110:
+ 2550 052e 65706366 		.ascii	"epcf_uart_writeString\000"
+ 2550      5F756172 
+ 2550      745F7772 
+ 2550      69746553 
+ 2550      7472696E 
+ 2551              	.LASF119:
+ 2552 0544 2E2E2F65 		.ascii	"../epcf/peripheral/source/uart/uart.c\000"
+ 2552      7063662F 
+ 2552      70657269 
+ 2552      70686572 
+ 2552      616C2F73 
+ 2553              	.LASF6:
+ 2554 056a 73686F72 		.ascii	"short unsigned int\000"
+ 2554      7420756E 
+ 2554      7369676E 
+ 2554      65642069 
+ 2554      6E7400
+ 2555              	.LASF92:
+ 2556 057d 65706366 		.ascii	"epcfUartWrite_fp\000"
+ 2556      55617274 
+ 2556      57726974 
+ 2556      655F6670 
+ 2556      00
+ 2557              	.LASF101:
+ 2558 058e 73746174 		.ascii	"status\000"
+ 2558      757300
+ 2559              	.LASF79:
+ 2560 0595 45504346 		.ascii	"EPCFUartController\000"
+ 2560      55617274 
+ARM GAS  /tmp/ccuihVGC.s 			page 54
+
+
+ 2560      436F6E74 
+ 2560      726F6C6C 
+ 2560      657200
+ 2561              	.LASF86:
+ 2562 05a8 75617274 		.ascii	"uartRxBufferFlush\000"
+ 2562      52784275 
+ 2562      66666572 
+ 2562      466C7573 
+ 2562      6800
+ 2563              	.LASF14:
+ 2564 05ba 63686172 		.ascii	"char\000"
+ 2564      00
+ 2565              	.LASF59:
+ 2566 05bf 656E4550 		.ascii	"enEPCFUartParity_One\000"
+ 2566      43465561 
+ 2566      72745061 
+ 2566      72697479 
+ 2566      5F4F6E65 
+ 2567              	.LASF17:
+ 2568 05d4 696E7433 		.ascii	"int32_t\000"
+ 2568      325F7400 
+ 2569              	.LASF55:
+ 2570 05dc 456E4550 		.ascii	"EnEPCFUartDataBits_t\000"
+ 2570      43465561 
+ 2570      72744461 
+ 2570      74614269 
+ 2570      74735F74 
+ 2571              	.LASF88:
+ 2572 05f1 75617274 		.ascii	"uartTxBufferFlush\000"
+ 2572      54784275 
+ 2572      66666572 
+ 2572      466C7573 
+ 2572      6800
+ 2573              	.LASF104:
+ 2574 0603 70556172 		.ascii	"pUartConfig\000"
+ 2574      74436F6E 
+ 2574      66696700 
+ 2575              	.LASF28:
+ 2576 060f 656E4550 		.ascii	"enEPCFTimeUnit_Max\000"
+ 2576      43465469 
+ 2576      6D65556E 
+ 2576      69745F4D 
+ 2576      617800
+ 2577              	.LASF94:
+ 2578 0622 65706366 		.ascii	"epcfUartWriteString_fp\000"
+ 2578      55617274 
+ 2578      57726974 
+ 2578      65537472 
+ 2578      696E675F 
+ 2579              	.LASF26:
+ 2580 0639 656E4550 		.ascii	"enEPCFTimeUnit_ms\000"
+ 2580      43465469 
+ 2580      6D65556E 
+ 2580      69745F6D 
+ 2580      7300
+ 2581              	.LASF106:
+ 2582 064b 64617461 		.ascii	"data\000"
+ARM GAS  /tmp/ccuihVGC.s 			page 55
+
+
+ 2582      00
+ 2583              	.LASF96:
+ 2584 0650 65706366 		.ascii	"epcfUartGetDeviceCount_fp\000"
+ 2584      55617274 
+ 2584      47657444 
+ 2584      65766963 
+ 2584      65436F75 
+ 2585              	.LASF76:
+ 2586 066a 45504346 		.ascii	"EPCFUartCfg_t\000"
+ 2586      55617274 
+ 2586      4366675F 
+ 2586      7400
+ 2587              	.LASF83:
+ 2588 0678 75617274 		.ascii	"uartWriteString\000"
+ 2588      57726974 
+ 2588      65537472 
+ 2588      696E6700 
+ 2589              	.LASF70:
+ 2590 0688 64617461 		.ascii	"dataBits\000"
+ 2590      42697473 
+ 2590      00
+ 2591              	.LASF62:
+ 2592 0691 456E4550 		.ascii	"EnEPCFUartParity_t\000"
+ 2592      43465561 
+ 2592      72745061 
+ 2592      72697479 
+ 2592      5F7400
+ 2593              	.LASF48:
+ 2594 06a4 656E4550 		.ascii	"enEPCFUartBaudrate_Max\000"
+ 2594      43465561 
+ 2594      72744261 
+ 2594      75647261 
+ 2594      74655F4D 
+ 2595              	.LASF107:
+ 2596 06bb 73697A65 		.ascii	"size\000"
+ 2596      00
+ 2597              	.LASF56:
+ 2598 06c0 656E4550 		.ascii	"enEPCFUartParity_None\000"
+ 2598      43465561 
+ 2598      72745061 
+ 2598      72697479 
+ 2598      5F4E6F6E 
+ 2599              	.LASF49:
+ 2600 06d6 456E4550 		.ascii	"EnEPCFUartBaudrate_t\000"
+ 2600      43465561 
+ 2600      72744261 
+ 2600      75647261 
+ 2600      74655F74 
+ 2601              	.LASF30:
+ 2602 06eb 636F756E 		.ascii	"count\000"
+ 2602      7400
+ 2603              	.LASF81:
+ 2604 06f1 75617274 		.ascii	"uartWrite\000"
+ 2604      57726974 
+ 2604      6500
+ 2605              	.LASF74:
+ 2606 06fb 72784275 		.ascii	"rxBufferSize\000"
+ARM GAS  /tmp/ccuihVGC.s 			page 56
+
+
+ 2606      66666572 
+ 2606      53697A65 
+ 2606      00
+ 2607              	.LASF7:
+ 2608 0708 5F5F696E 		.ascii	"__int32_t\000"
+ 2608      7433325F 
+ 2608      7400
+ 2609              	.LASF25:
+ 2610 0712 656E4550 		.ascii	"enEPCFTimeUnit_us\000"
+ 2610      43465469 
+ 2610      6D65556E 
+ 2610      69745F75 
+ 2610      7300
+ 2611              	.LASF57:
+ 2612 0724 656E4550 		.ascii	"enEPCFUartparity_Odd\000"
+ 2612      43465561 
+ 2612      72747061 
+ 2612      72697479 
+ 2612      5F4F6464 
+ 2613              	.LASF122:
+ 2614 0739 65706366 		.ascii	"epcf_uart_getDeviceCount\000"
+ 2614      5F756172 
+ 2614      745F6765 
+ 2614      74446576 
+ 2614      69636543 
+ 2615              	.LASF33:
+ 2616 0752 636F6E74 		.ascii	"controllerConfig\000"
+ 2616      726F6C6C 
+ 2616      6572436F 
+ 2616      6E666967 
+ 2616      00
+ 2617              	.LASF103:
+ 2618 0763 65706366 		.ascii	"epcf_uart_close\000"
+ 2618      5F756172 
+ 2618      745F636C 
+ 2618      6F736500 
+ 2619              	.LASF67:
+ 2620 0773 45504346 		.ascii	"EPCFUartDevice\000"
+ 2620      55617274 
+ 2620      44657669 
+ 2620      636500
+ 2621              	.LASF109:
+ 2622 0782 72657456 		.ascii	"retVal\000"
+ 2622      616C00
+ 2623              	.LASF36:
+ 2624 0789 75617274 		.ascii	"uartChBusy\000"
+ 2624      43684275 
+ 2624      737900
+ 2625              	.LASF120:
+ 2626 0794 2F686F6D 		.ascii	"/home/majorviraj/Desktop/Self_balancing/codes/Blink"
+ 2626      652F6D61 
+ 2626      6A6F7276 
+ 2626      6972616A 
+ 2626      2F446573 
+ 2627 07c7 30312F61 		.ascii	"01/app\000"
+ 2627      707000
+ 2628              	.LASF121:
+ARM GAS  /tmp/ccuihVGC.s 			page 57
+
+
+ 2629 07ce 50434646 		.ascii	"PCFFifoDesc\000"
+ 2629      69666F44 
+ 2629      65736300 
+ 2630              	.LASF20:
+ 2631 07da 656E4550 		.ascii	"enEPCFBoolean_False\000"
+ 2631      4346426F 
+ 2631      6F6C6561 
+ 2631      6E5F4661 
+ 2631      6C736500 
+ 2632              	.LASF123:
+ 2633 07ee 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 2633      52784275 
+ 2633      66666572 
+ 2633      00
+ 2634              	.LASF93:
+ 2635 07fb 65706366 		.ascii	"epcfUartWriteBlocking_fp\000"
+ 2635      55617274 
+ 2635      57726974 
+ 2635      65426C6F 
+ 2635      636B696E 
+ 2636              	.LASF90:
+ 2637 0814 75617274 		.ascii	"uartClose\000"
+ 2637      436C6F73 
+ 2637      6500
+ 2638              	.LASF75:
+ 2639 081e 68617264 		.ascii	"hardwareCfg\000"
+ 2639      77617265 
+ 2639      43666700 
+ 2640              	.LASF43:
+ 2641 082a 656E4550 		.ascii	"enEPCFUartBaudrate_9600\000"
+ 2641      43465561 
+ 2641      72744261 
+ 2641      75647261 
+ 2641      74655F39 
+ 2642              	.LASF82:
+ 2643 0842 75617274 		.ascii	"uartWriteBlocking\000"
+ 2643      57726974 
+ 2643      65426C6F 
+ 2643      636B696E 
+ 2643      6700
+ 2644              	.LASF108:
+ 2645 0854 74696D65 		.ascii	"timeout\000"
+ 2645      6F757400 
+ 2646              	.LASF35:
+ 2647 085c 75617274 		.ascii	"uartChannelAddr\000"
+ 2647      4368616E 
+ 2647      6E656C41 
+ 2647      64647200 
+ 2648              	.LASF85:
+ 2649 086c 75617274 		.ascii	"uartGetDeviceCount\000"
+ 2649      47657444 
+ 2649      65766963 
+ 2649      65436F75 
+ 2649      6E7400
+ 2650              		.ident	"GCC: (15:4.9.3+svn231177-1) 4.9.3 20150529 (prerelease)"
+ARM GAS  /tmp/ccuihVGC.s 			page 58
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 uart.c
+     /tmp/ccuihVGC.s:48     .text:0000000000000000 $t
+     /tmp/ccuihVGC.s:53     .text:0000000000000000 epcf_uart_createNative
+     /tmp/ccuihVGC.s:129    .text:0000000000000058 epcf_uart_close
+     /tmp/ccuihVGC.s:185    .text:0000000000000098 epcf_uart_write
+     /tmp/ccuihVGC.s:263    .text:00000000000000ec epcf_uart_writeString
+     /tmp/ccuihVGC.s:326    .text:0000000000000130 epcf_uart_read
+     /tmp/ccuihVGC.s:404    .text:0000000000000184 epcf_uart_getDeviceCount
+     /tmp/ccuihVGC.s:441    .text:00000000000001a4 epcf_uart_getRxBufferCount
+     /tmp/ccuihVGC.s:494    .text:00000000000001d8 epcf_uart_rxBufferFlush
+     /tmp/ccuihVGC.s:550    .text:0000000000000218 epcf_uart_getTxBufferCount
+     /tmp/ccuihVGC.s:603    .text:000000000000024c epcf_uart_txBufferFlush
+     /tmp/ccuihVGC.s:659    .text:000000000000028c epcf_uart_extGetDeviceCount
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+epcf_uart_nativeGetDeviceCount
+malloc
+epcf_uart_nativeInit
+epcf_uart_nativeClose
+epcf_uart_nativeWrite
+epcf_uart_nativeWriteString
+epcf_uart_nativeRead
+epcf_uart_nativeGetRxBufferCount
+epcf_uart_nativeRxBufferFlush
+epcf_uart_nativeGetTxBufferCount
+epcf_uart_nativeTxBufferFlush

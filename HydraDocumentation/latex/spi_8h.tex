@@ -1,0 +1,642 @@
+\hypertarget{spi_8h}{}\section{epcf\+\_\+project/epcf/peripheral/include/spi/spi.h File Reference}
+\label{spi_8h}\index{epcf\+\_\+project/epcf/peripheral/include/spi/spi.\+h@{epcf\+\_\+project/epcf/peripheral/include/spi/spi.\+h}}
+
+
+This file is used to configure a Spi device.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structEPCFSpiCfg__t}{E\+P\+C\+F\+Spi\+Cfg\+\_\+t}}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}\label{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}} 
+typedef struct \mbox{\hyperlink{structEPCFSpiDevice}{E\+P\+C\+F\+Spi\+Device}} \mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Spi device. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{spi_8h_a236709e1f18b5113eef01990887fe91b}{En\+E\+P\+C\+F\+Spi\+Mode\+\_\+t}} \{ \mbox{\hyperlink{spi_8h_a236709e1f18b5113eef01990887fe91bacdbc8bec858f772da33a69df22ec9daa}{en\+E\+P\+C\+F\+Spi\+Mode\+\_\+\+Master}}, 
+\mbox{\hyperlink{spi_8h_a236709e1f18b5113eef01990887fe91ba87c2dae9a5e628fa9461bbcf82b2d376}{en\+E\+P\+C\+F\+Spi\+Mode\+\_\+\+Slave}}, 
+\mbox{\hyperlink{spi_8h_a236709e1f18b5113eef01990887fe91ba557df7f67e5fb38f81848270979c2fdd}{en\+E\+P\+C\+F\+Spi\+Mode\+\_\+\+Max}}
+ \}
+\begin{DoxyCompactList}\small\item\em Spi mode. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{spi_8h_ab09c9cb12602a4eaf6e6814aecb7f69d}{En\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+t}} \{ \newline
+\mbox{\hyperlink{spi_8h_ab09c9cb12602a4eaf6e6814aecb7f69da330aa195543757149c965d861753993b}{en\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+0}}, 
+\mbox{\hyperlink{spi_8h_ab09c9cb12602a4eaf6e6814aecb7f69daf6c5e80c2223f596ce34f5e1ea68ea9a}{en\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+1}}, 
+\mbox{\hyperlink{spi_8h_ab09c9cb12602a4eaf6e6814aecb7f69dafe926f575f5c4f26b51c99f49b4bd856}{en\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+2}}, 
+\mbox{\hyperlink{spi_8h_ab09c9cb12602a4eaf6e6814aecb7f69da2e6d6860b03fc36e2e58eb0e54433d46}{en\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+3}}, 
+\newline
+\mbox{\hyperlink{spi_8h_ab09c9cb12602a4eaf6e6814aecb7f69da3d47c36bb3b9634b0e8cd4bd631dbecb}{en\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+\+Max}}
+ \}
+\begin{DoxyCompactList}\small\item\em Spi clock modes. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{spi_8h_a5669bc3ec8d7e355a15f0b6e37a0ff7b}{En\+E\+P\+C\+F\+Spi\+Bit\+Order\+\_\+t}} \{ \mbox{\hyperlink{spi_8h_a5669bc3ec8d7e355a15f0b6e37a0ff7ba654e7c75bc3a480ec0b372ab37d45436}{en\+E\+P\+C\+F\+Spi\+Bit\+Order\+\_\+\+Msb}}, 
+\mbox{\hyperlink{spi_8h_a5669bc3ec8d7e355a15f0b6e37a0ff7ba4e02ebe7b1f5dce6f7cbc84170cac996}{en\+E\+P\+C\+F\+Spi\+Bit\+Order\+\_\+\+Lsb}}, 
+\mbox{\hyperlink{spi_8h_a5669bc3ec8d7e355a15f0b6e37a0ff7ba83ea2ca2f6798fa7e96b1cfb91faae55}{en\+E\+P\+C\+F\+Spi\+Bit\+Order\+\_\+\+Max}}
+ \}
+\begin{DoxyCompactList}\small\item\em Data order of spi data exchange. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74}{En\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+t}} \{ \newline
+\mbox{\hyperlink{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74a3ee8b30e89d5baabef3801c9bae362e7}{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+4}}, 
+\mbox{\hyperlink{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74acc0e0d357dcdafa34a54201465bdb068}{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+5}}, 
+\mbox{\hyperlink{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74ae76de327e6151b1bf9398146f8260af3}{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+6}}, 
+\mbox{\hyperlink{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74ae9d8cca39f20da470579b93b8d496730}{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+7}}, 
+\newline
+\mbox{\hyperlink{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74aac0e5f68b90ed8bf2e3a12aa86318e8c}{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+8}}, 
+\mbox{\hyperlink{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74a960d347f0a4e5e5498f9dc2b456f43ca}{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+9}}, 
+\mbox{\hyperlink{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74aec7dcd8249c7b02fc8af95c23d5863d7}{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+10}}, 
+\mbox{\hyperlink{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74a8d40a494a6c7a76edccfa8c47cecae00}{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+11}}, 
+\newline
+\mbox{\hyperlink{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74a264ea1f0b7c5df1015d2a0200aab8348}{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+12}}, 
+\mbox{\hyperlink{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74a1070ad3816b1c692f9384105327900cf}{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+13}}, 
+\mbox{\hyperlink{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74a6161e35f33a6c1e3f91cff6b4bc0fe11}{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+14}}, 
+\mbox{\hyperlink{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74a4ed1962e85b58613042b2a2d5be78692}{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+15}}, 
+\newline
+\mbox{\hyperlink{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74a1a0ca84f5dd31aafaf6d51a50959f200}{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+16}}, 
+\mbox{\hyperlink{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74a61c5a07a1280ce77eb0561b32767a7d1}{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+\+Max}}
+ \}
+\item 
+enum \mbox{\hyperlink{spi_8h_a270c561e7d4dc10fee5b99a87b3d4e5d}{En\+E\+P\+C\+F\+Spi\+Int\+Type}} \{ \mbox{\hyperlink{spi_8h_a270c561e7d4dc10fee5b99a87b3d4e5dad8a70406a862f6e6fd08d9ca5cb4a667}{en\+E\+P\+C\+F\+Spi\+Int\+Rx\+\_\+\+Overrun}}, 
+\mbox{\hyperlink{spi_8h_a270c561e7d4dc10fee5b99a87b3d4e5da73f0c8ed623d190229e1294b80ece81e}{en\+E\+P\+C\+F\+Spi\+Int\+Rx\+\_\+\+Timeout}}, 
+\mbox{\hyperlink{spi_8h_a270c561e7d4dc10fee5b99a87b3d4e5da98bfb538cc70cc3c2c07dd3e2a0ce4f3}{en\+E\+P\+C\+F\+Spi\+Int\+Rx\+\_\+\+Buff\+Half\+Full}}, 
+\mbox{\hyperlink{spi_8h_a270c561e7d4dc10fee5b99a87b3d4e5da498d929215c3b4c38eeec8b858b20da9}{en\+E\+P\+C\+F\+Spi\+Int\+\_\+\+Max}}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$ \mbox{\hyperlink{spi_8h_a418ebdaad333a7cfa90d00d429faf1ae}{epcf\+\_\+spi\+\_\+create\+Native}} (\mbox{\hyperlink{structEPCFSpiCfg__t}{E\+P\+C\+F\+Spi\+Cfg\+\_\+t}} $\ast$p\+Spi\+Config)
+\begin{DoxyCompactList}\small\item\em This function is used to create an spi device. Call this function in beginning to initialize the device. This function allocates memory for the device using malloc() function call and returns a pointer to the device. Pass this device pointer while calling spi functions. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{spi_8h_ad28b8780e75f9a0fd238291447e8a4cf}{epcf\+\_\+spi\+\_\+register\+Slave\+Device}} (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$p\+Spi\+Device, E\+P\+C\+F\+Port\+Pin\+\_\+t slave\+Select\+Pin)
+\begin{DoxyCompactList}\small\item\em This function is used to register a spi slave device. Call this function once in the begining to register slave\+Select\+Pin of the slave device should be registered before doing any read write operation for that device. The function will return a slave\+Id which can be used to select and unselect the slave device using epcf\+\_\+spi\+\_\+slave\+Select and epcf\+\_\+spi\+\_\+slave\+De\+Select function respectively. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{spi_8h_a9fbe02b68bad7a5aba34264c5731c234}{epcf\+\_\+spi\+\_\+de\+Register\+Slave\+Device}} (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$p\+Spi\+Device, uint8\+\_\+t slave\+Id)
+\begin{DoxyCompactList}\small\item\em This function is used to unregister a spi slave device. No operation on the slave device is possible once it is unregistered. Register the slave device again to operate on the device once it is unregistered. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{spi_8h_a8b274135b17faf771815b1e5f2909b31}{epcf\+\_\+spi\+\_\+slave\+Select}} (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$p\+Spi\+Device, uint8\+\_\+t slave\+Id)
+\begin{DoxyCompactList}\small\item\em This function is used to select the slave device on the spi bus before starting any communication with the device. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{spi_8h_a90cf5feaf6b13908851c3264df5c9405}{epcf\+\_\+spi\+\_\+slave\+De\+Select}} (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$p\+Spi\+Device, uint8\+\_\+t slave\+Id)
+\begin{DoxyCompactList}\small\item\em This function is used to unselect the slave device after communication with the device is finished. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{spi_8h_a792532296a93636fde4b30e1cda82aca}{epcf\+\_\+spi\+\_\+exchange}} (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$p\+Spi\+Device, uint16\+\_\+t tx\+Data, uint16\+\_\+t $\ast$rx\+Data, E\+P\+C\+F\+Time\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em This function is used to exchange a single frame over spi bus. It can be used in both master and slave mode. The size of the frame is according to setting of the data\+Bits field in spi configuration. The calling function will be blocked until the data frame is exchanged or timeout has occurred. The function is a blocking call in both interrupt and polling mode. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{spi_8h_a067baf1e065e651159c87670fca2336d}{epcf\+\_\+spi\+\_\+write}} (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$p\+Spi\+Device, const uint8\+\_\+t $\ast$data, uint32\+\_\+t size, E\+P\+C\+F\+Time\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em This function is used to send data on spi bus. It can be used in both master and slave mode. In Interrupt mode, data transmission will be asynchronous and the data is transmitted using internal software buffer. The function will be non blocking and will return after initiating data transmission. Use epcf\+\_\+spi\+\_\+get\+Tx\+Buffer\+Count function to check the status of the transmit buffer. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{spi_8h_add28918493fe97abb634840047a9d65a}{epcf\+\_\+spi\+\_\+read}} (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$p\+Spi\+Device, uint8\+\_\+t $\ast$data, uint32\+\_\+t size, E\+P\+C\+F\+Time\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em This function is used to read data on spi bus. This function can be used in both master and slave mode. In Interrupt mode, data receiving is asynchronous and data is received in an internal software buffer. Use epcf\+\_\+spi\+\_\+get\+Rx\+Buffer\+Count function to get receive buffer count. When the count is equal to the required number of bytes to be read, call epcf\+\_\+spi\+\_\+read function to read the buffer. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{spi_8h_a74d33135fde22d6a199596af503cfd7e}{epcf\+\_\+spi\+\_\+int\+Enable}} (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$p\+Spi\+Device, \mbox{\hyperlink{spi_8h_a270c561e7d4dc10fee5b99a87b3d4e5d}{En\+E\+P\+C\+F\+Spi\+Int\+Type}} int\+Type)
+\begin{DoxyCompactList}\small\item\em This function is used to enable the spi interrupt.\+It can be disabled by a call to the function epcf\+Native\+Spi\+Int\+Disable. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{spi_8h_afc395b3cca7808342d741b2eb9ee7929}{epcf\+\_\+spi\+\_\+int\+Disable}} (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$p\+Spi\+Device, \mbox{\hyperlink{spi_8h_a270c561e7d4dc10fee5b99a87b3d4e5d}{En\+E\+P\+C\+F\+Spi\+Int\+Type}} int\+Type)
+\begin{DoxyCompactList}\small\item\em This function is used to disable the spi interrupt.\+It can be enable by a call to the function epcf\+Native\+Spi\+Int\+Enable. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{spi_8h_a4d294f72c2127f0cf71d1e0f5772f137}{epcf\+\_\+spi\+\_\+get\+Rx\+Buffer\+Count}} (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$p\+Spi\+Device)
+\item 
+int8\+\_\+t \mbox{\hyperlink{spi_8h_a9d5307b8726ae2facf01cf5bc0ff15b2}{epcf\+\_\+spi\+\_\+rx\+Buffer\+Flush}} (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$p\+Spi\+Device)
+\item 
+int32\+\_\+t \mbox{\hyperlink{spi_8h_aca145d8c830302ac631c8988c5213cf4}{epcf\+\_\+spi\+\_\+get\+Tx\+Buffer\+Count}} (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$p\+Spi\+Device)
+\item 
+int8\+\_\+t \mbox{\hyperlink{spi_8h_a02c2f27d5829139f7f02b52c7b414671}{epcf\+\_\+spi\+\_\+tx\+Buffer\+Flush}} (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$p\+Spi\+Device)
+\item 
+int8\+\_\+t \mbox{\hyperlink{spi_8h_a6eaa379aa69133277ef3b0b557e0d1b0}{epcf\+\_\+spi\+\_\+close}} (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$p\+Spi\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to close the spi device. It will free the memory allocated by the spi device. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{spi_8h_a050d7585f7957c76bb1f98a639a7b31d}{epcf\+\_\+spi\+\_\+get\+Device\+Count}} ()
+\begin{DoxyCompactList}\small\item\em This function is used to get the total number of available spi devices. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file is used to configure a Spi device. 
+
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{spi_8h_a5669bc3ec8d7e355a15f0b6e37a0ff7b}\label{spi_8h_a5669bc3ec8d7e355a15f0b6e37a0ff7b}} 
+\index{spi.\+h@{spi.\+h}!En\+E\+P\+C\+F\+Spi\+Bit\+Order\+\_\+t@{En\+E\+P\+C\+F\+Spi\+Bit\+Order\+\_\+t}}
+\index{En\+E\+P\+C\+F\+Spi\+Bit\+Order\+\_\+t@{En\+E\+P\+C\+F\+Spi\+Bit\+Order\+\_\+t}!spi.\+h@{spi.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Spi\+Bit\+Order\+\_\+t}{EnEPCFSpiBitOrder\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{spi_8h_a5669bc3ec8d7e355a15f0b6e37a0ff7b}{En\+E\+P\+C\+F\+Spi\+Bit\+Order\+\_\+t}}}
+
+
+
+Data order of spi data exchange. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Spi\+Bit\+Order\+\_\+\+Msb@{en\+E\+P\+C\+F\+Spi\+Bit\+Order\+\_\+\+Msb}!spi.\+h@{spi.\+h}}\index{spi.\+h@{spi.\+h}!en\+E\+P\+C\+F\+Spi\+Bit\+Order\+\_\+\+Msb@{en\+E\+P\+C\+F\+Spi\+Bit\+Order\+\_\+\+Msb}}}\mbox{\Hypertarget{spi_8h_a5669bc3ec8d7e355a15f0b6e37a0ff7ba654e7c75bc3a480ec0b372ab37d45436}\label{spi_8h_a5669bc3ec8d7e355a15f0b6e37a0ff7ba654e7c75bc3a480ec0b372ab37d45436}} 
+en\+E\+P\+C\+F\+Spi\+Bit\+Order\+\_\+\+Msb&Most significant bit first \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Spi\+Bit\+Order\+\_\+\+Lsb@{en\+E\+P\+C\+F\+Spi\+Bit\+Order\+\_\+\+Lsb}!spi.\+h@{spi.\+h}}\index{spi.\+h@{spi.\+h}!en\+E\+P\+C\+F\+Spi\+Bit\+Order\+\_\+\+Lsb@{en\+E\+P\+C\+F\+Spi\+Bit\+Order\+\_\+\+Lsb}}}\mbox{\Hypertarget{spi_8h_a5669bc3ec8d7e355a15f0b6e37a0ff7ba4e02ebe7b1f5dce6f7cbc84170cac996}\label{spi_8h_a5669bc3ec8d7e355a15f0b6e37a0ff7ba4e02ebe7b1f5dce6f7cbc84170cac996}} 
+en\+E\+P\+C\+F\+Spi\+Bit\+Order\+\_\+\+Lsb&Least significant bit first \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Spi\+Bit\+Order\+\_\+\+Max@{en\+E\+P\+C\+F\+Spi\+Bit\+Order\+\_\+\+Max}!spi.\+h@{spi.\+h}}\index{spi.\+h@{spi.\+h}!en\+E\+P\+C\+F\+Spi\+Bit\+Order\+\_\+\+Max@{en\+E\+P\+C\+F\+Spi\+Bit\+Order\+\_\+\+Max}}}\mbox{\Hypertarget{spi_8h_a5669bc3ec8d7e355a15f0b6e37a0ff7ba83ea2ca2f6798fa7e96b1cfb91faae55}\label{spi_8h_a5669bc3ec8d7e355a15f0b6e37a0ff7ba83ea2ca2f6798fa7e96b1cfb91faae55}} 
+en\+E\+P\+C\+F\+Spi\+Bit\+Order\+\_\+\+Max&Special value for boundary checking \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{spi_8h_ab09c9cb12602a4eaf6e6814aecb7f69d}\label{spi_8h_ab09c9cb12602a4eaf6e6814aecb7f69d}} 
+\index{spi.\+h@{spi.\+h}!En\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+t@{En\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+t}}
+\index{En\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+t@{En\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+t}!spi.\+h@{spi.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+t}{EnEPCFSpiClockMode\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{spi_8h_ab09c9cb12602a4eaf6e6814aecb7f69d}{En\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+t}}}
+
+
+
+Spi clock modes. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+0@{en\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+0}!spi.\+h@{spi.\+h}}\index{spi.\+h@{spi.\+h}!en\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+0@{en\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+0}}}\mbox{\Hypertarget{spi_8h_ab09c9cb12602a4eaf6e6814aecb7f69da330aa195543757149c965d861753993b}\label{spi_8h_ab09c9cb12602a4eaf6e6814aecb7f69da330aa195543757149c965d861753993b}} 
+en\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+0&Spi clock mode 0\+: Phase 0, Polarity 0 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+1@{en\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+1}!spi.\+h@{spi.\+h}}\index{spi.\+h@{spi.\+h}!en\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+1@{en\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+1}}}\mbox{\Hypertarget{spi_8h_ab09c9cb12602a4eaf6e6814aecb7f69daf6c5e80c2223f596ce34f5e1ea68ea9a}\label{spi_8h_ab09c9cb12602a4eaf6e6814aecb7f69daf6c5e80c2223f596ce34f5e1ea68ea9a}} 
+en\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+1&Spi clock mode 1\+: Phase 0, Polarity 1 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+2@{en\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+2}!spi.\+h@{spi.\+h}}\index{spi.\+h@{spi.\+h}!en\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+2@{en\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+2}}}\mbox{\Hypertarget{spi_8h_ab09c9cb12602a4eaf6e6814aecb7f69dafe926f575f5c4f26b51c99f49b4bd856}\label{spi_8h_ab09c9cb12602a4eaf6e6814aecb7f69dafe926f575f5c4f26b51c99f49b4bd856}} 
+en\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+2&Spi clock mode 2\+: Phase 1, Polarity 0 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+3@{en\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+3}!spi.\+h@{spi.\+h}}\index{spi.\+h@{spi.\+h}!en\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+3@{en\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+3}}}\mbox{\Hypertarget{spi_8h_ab09c9cb12602a4eaf6e6814aecb7f69da2e6d6860b03fc36e2e58eb0e54433d46}\label{spi_8h_ab09c9cb12602a4eaf6e6814aecb7f69da2e6d6860b03fc36e2e58eb0e54433d46}} 
+en\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+3&Spi clock mode 3\+: Phase 1, Polarity 1 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+\+Max@{en\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+\+Max}!spi.\+h@{spi.\+h}}\index{spi.\+h@{spi.\+h}!en\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+\+Max@{en\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+\+Max}}}\mbox{\Hypertarget{spi_8h_ab09c9cb12602a4eaf6e6814aecb7f69da3d47c36bb3b9634b0e8cd4bd631dbecb}\label{spi_8h_ab09c9cb12602a4eaf6e6814aecb7f69da3d47c36bb3b9634b0e8cd4bd631dbecb}} 
+en\+E\+P\+C\+F\+Spi\+Clock\+Mode\+\_\+\+Max&Special value for boundary checking \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74}\label{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74}} 
+\index{spi.\+h@{spi.\+h}!En\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+t@{En\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+t}}
+\index{En\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+t@{En\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+t}!spi.\+h@{spi.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+t}{EnEPCFSpiDataBits\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74}{En\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+t}}}
+
+Number of data bits in spi frame \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+4@{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+4}!spi.\+h@{spi.\+h}}\index{spi.\+h@{spi.\+h}!en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+4@{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+4}}}\mbox{\Hypertarget{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74a3ee8b30e89d5baabef3801c9bae362e7}\label{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74a3ee8b30e89d5baabef3801c9bae362e7}} 
+en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+4&4 data bits \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+5@{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+5}!spi.\+h@{spi.\+h}}\index{spi.\+h@{spi.\+h}!en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+5@{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+5}}}\mbox{\Hypertarget{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74acc0e0d357dcdafa34a54201465bdb068}\label{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74acc0e0d357dcdafa34a54201465bdb068}} 
+en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+5&5 data bits \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+6@{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+6}!spi.\+h@{spi.\+h}}\index{spi.\+h@{spi.\+h}!en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+6@{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+6}}}\mbox{\Hypertarget{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74ae76de327e6151b1bf9398146f8260af3}\label{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74ae76de327e6151b1bf9398146f8260af3}} 
+en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+6&6 data bits \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+7@{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+7}!spi.\+h@{spi.\+h}}\index{spi.\+h@{spi.\+h}!en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+7@{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+7}}}\mbox{\Hypertarget{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74ae9d8cca39f20da470579b93b8d496730}\label{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74ae9d8cca39f20da470579b93b8d496730}} 
+en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+7&7 data bits \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+8@{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+8}!spi.\+h@{spi.\+h}}\index{spi.\+h@{spi.\+h}!en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+8@{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+8}}}\mbox{\Hypertarget{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74aac0e5f68b90ed8bf2e3a12aa86318e8c}\label{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74aac0e5f68b90ed8bf2e3a12aa86318e8c}} 
+en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+8&8 data bits \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+9@{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+9}!spi.\+h@{spi.\+h}}\index{spi.\+h@{spi.\+h}!en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+9@{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+9}}}\mbox{\Hypertarget{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74a960d347f0a4e5e5498f9dc2b456f43ca}\label{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74a960d347f0a4e5e5498f9dc2b456f43ca}} 
+en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+9&9 data bits \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+10@{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+10}!spi.\+h@{spi.\+h}}\index{spi.\+h@{spi.\+h}!en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+10@{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+10}}}\mbox{\Hypertarget{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74aec7dcd8249c7b02fc8af95c23d5863d7}\label{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74aec7dcd8249c7b02fc8af95c23d5863d7}} 
+en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+10&10 data bits \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+11@{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+11}!spi.\+h@{spi.\+h}}\index{spi.\+h@{spi.\+h}!en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+11@{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+11}}}\mbox{\Hypertarget{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74a8d40a494a6c7a76edccfa8c47cecae00}\label{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74a8d40a494a6c7a76edccfa8c47cecae00}} 
+en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+11&11 data bits \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+12@{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+12}!spi.\+h@{spi.\+h}}\index{spi.\+h@{spi.\+h}!en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+12@{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+12}}}\mbox{\Hypertarget{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74a264ea1f0b7c5df1015d2a0200aab8348}\label{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74a264ea1f0b7c5df1015d2a0200aab8348}} 
+en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+12&12 data bits \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+13@{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+13}!spi.\+h@{spi.\+h}}\index{spi.\+h@{spi.\+h}!en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+13@{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+13}}}\mbox{\Hypertarget{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74a1070ad3816b1c692f9384105327900cf}\label{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74a1070ad3816b1c692f9384105327900cf}} 
+en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+13&13 data bits \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+14@{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+14}!spi.\+h@{spi.\+h}}\index{spi.\+h@{spi.\+h}!en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+14@{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+14}}}\mbox{\Hypertarget{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74a6161e35f33a6c1e3f91cff6b4bc0fe11}\label{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74a6161e35f33a6c1e3f91cff6b4bc0fe11}} 
+en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+14&14 data bits \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+15@{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+15}!spi.\+h@{spi.\+h}}\index{spi.\+h@{spi.\+h}!en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+15@{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+15}}}\mbox{\Hypertarget{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74a4ed1962e85b58613042b2a2d5be78692}\label{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74a4ed1962e85b58613042b2a2d5be78692}} 
+en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+15&15 data bits \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+16@{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+16}!spi.\+h@{spi.\+h}}\index{spi.\+h@{spi.\+h}!en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+16@{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+16}}}\mbox{\Hypertarget{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74a1a0ca84f5dd31aafaf6d51a50959f200}\label{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74a1a0ca84f5dd31aafaf6d51a50959f200}} 
+en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+16&16 data bits \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+\+Max@{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+\+Max}!spi.\+h@{spi.\+h}}\index{spi.\+h@{spi.\+h}!en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+\+Max@{en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+\+Max}}}\mbox{\Hypertarget{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74a61c5a07a1280ce77eb0561b32767a7d1}\label{spi_8h_a10cc73e5172b31534f1e7adfc0da0a74a61c5a07a1280ce77eb0561b32767a7d1}} 
+en\+E\+P\+C\+F\+Spi\+Data\+Bits\+\_\+\+Max&Special value for boundary checking \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{spi_8h_a270c561e7d4dc10fee5b99a87b3d4e5d}\label{spi_8h_a270c561e7d4dc10fee5b99a87b3d4e5d}} 
+\index{spi.\+h@{spi.\+h}!En\+E\+P\+C\+F\+Spi\+Int\+Type@{En\+E\+P\+C\+F\+Spi\+Int\+Type}}
+\index{En\+E\+P\+C\+F\+Spi\+Int\+Type@{En\+E\+P\+C\+F\+Spi\+Int\+Type}!spi.\+h@{spi.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Spi\+Int\+Type}{EnEPCFSpiIntType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{spi_8h_a270c561e7d4dc10fee5b99a87b3d4e5d}{En\+E\+P\+C\+F\+Spi\+Int\+Type}}}
+
+Interrupt type \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Spi\+Int\+Rx\+\_\+\+Overrun@{en\+E\+P\+C\+F\+Spi\+Int\+Rx\+\_\+\+Overrun}!spi.\+h@{spi.\+h}}\index{spi.\+h@{spi.\+h}!en\+E\+P\+C\+F\+Spi\+Int\+Rx\+\_\+\+Overrun@{en\+E\+P\+C\+F\+Spi\+Int\+Rx\+\_\+\+Overrun}}}\mbox{\Hypertarget{spi_8h_a270c561e7d4dc10fee5b99a87b3d4e5dad8a70406a862f6e6fd08d9ca5cb4a667}\label{spi_8h_a270c561e7d4dc10fee5b99a87b3d4e5dad8a70406a862f6e6fd08d9ca5cb4a667}} 
+en\+E\+P\+C\+F\+Spi\+Int\+Rx\+\_\+\+Overrun&Enable receive overrun interrupt \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Spi\+Int\+Rx\+\_\+\+Timeout@{en\+E\+P\+C\+F\+Spi\+Int\+Rx\+\_\+\+Timeout}!spi.\+h@{spi.\+h}}\index{spi.\+h@{spi.\+h}!en\+E\+P\+C\+F\+Spi\+Int\+Rx\+\_\+\+Timeout@{en\+E\+P\+C\+F\+Spi\+Int\+Rx\+\_\+\+Timeout}}}\mbox{\Hypertarget{spi_8h_a270c561e7d4dc10fee5b99a87b3d4e5da73f0c8ed623d190229e1294b80ece81e}\label{spi_8h_a270c561e7d4dc10fee5b99a87b3d4e5da73f0c8ed623d190229e1294b80ece81e}} 
+en\+E\+P\+C\+F\+Spi\+Int\+Rx\+\_\+\+Timeout&Enable receive timeout interrupt \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Spi\+Int\+Rx\+\_\+\+Buff\+Half\+Full@{en\+E\+P\+C\+F\+Spi\+Int\+Rx\+\_\+\+Buff\+Half\+Full}!spi.\+h@{spi.\+h}}\index{spi.\+h@{spi.\+h}!en\+E\+P\+C\+F\+Spi\+Int\+Rx\+\_\+\+Buff\+Half\+Full@{en\+E\+P\+C\+F\+Spi\+Int\+Rx\+\_\+\+Buff\+Half\+Full}}}\mbox{\Hypertarget{spi_8h_a270c561e7d4dc10fee5b99a87b3d4e5da98bfb538cc70cc3c2c07dd3e2a0ce4f3}\label{spi_8h_a270c561e7d4dc10fee5b99a87b3d4e5da98bfb538cc70cc3c2c07dd3e2a0ce4f3}} 
+en\+E\+P\+C\+F\+Spi\+Int\+Rx\+\_\+\+Buff\+Half\+Full&Enable receive buffer half full interrupt \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Spi\+Int\+\_\+\+Max@{en\+E\+P\+C\+F\+Spi\+Int\+\_\+\+Max}!spi.\+h@{spi.\+h}}\index{spi.\+h@{spi.\+h}!en\+E\+P\+C\+F\+Spi\+Int\+\_\+\+Max@{en\+E\+P\+C\+F\+Spi\+Int\+\_\+\+Max}}}\mbox{\Hypertarget{spi_8h_a270c561e7d4dc10fee5b99a87b3d4e5da498d929215c3b4c38eeec8b858b20da9}\label{spi_8h_a270c561e7d4dc10fee5b99a87b3d4e5da498d929215c3b4c38eeec8b858b20da9}} 
+en\+E\+P\+C\+F\+Spi\+Int\+\_\+\+Max&Special value for boundary checking \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{spi_8h_a236709e1f18b5113eef01990887fe91b}\label{spi_8h_a236709e1f18b5113eef01990887fe91b}} 
+\index{spi.\+h@{spi.\+h}!En\+E\+P\+C\+F\+Spi\+Mode\+\_\+t@{En\+E\+P\+C\+F\+Spi\+Mode\+\_\+t}}
+\index{En\+E\+P\+C\+F\+Spi\+Mode\+\_\+t@{En\+E\+P\+C\+F\+Spi\+Mode\+\_\+t}!spi.\+h@{spi.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Spi\+Mode\+\_\+t}{EnEPCFSpiMode\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{spi_8h_a236709e1f18b5113eef01990887fe91b}{En\+E\+P\+C\+F\+Spi\+Mode\+\_\+t}}}
+
+
+
+Spi mode. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Spi\+Mode\+\_\+\+Master@{en\+E\+P\+C\+F\+Spi\+Mode\+\_\+\+Master}!spi.\+h@{spi.\+h}}\index{spi.\+h@{spi.\+h}!en\+E\+P\+C\+F\+Spi\+Mode\+\_\+\+Master@{en\+E\+P\+C\+F\+Spi\+Mode\+\_\+\+Master}}}\mbox{\Hypertarget{spi_8h_a236709e1f18b5113eef01990887fe91bacdbc8bec858f772da33a69df22ec9daa}\label{spi_8h_a236709e1f18b5113eef01990887fe91bacdbc8bec858f772da33a69df22ec9daa}} 
+en\+E\+P\+C\+F\+Spi\+Mode\+\_\+\+Master&Spi in master mode \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Spi\+Mode\+\_\+\+Slave@{en\+E\+P\+C\+F\+Spi\+Mode\+\_\+\+Slave}!spi.\+h@{spi.\+h}}\index{spi.\+h@{spi.\+h}!en\+E\+P\+C\+F\+Spi\+Mode\+\_\+\+Slave@{en\+E\+P\+C\+F\+Spi\+Mode\+\_\+\+Slave}}}\mbox{\Hypertarget{spi_8h_a236709e1f18b5113eef01990887fe91ba87c2dae9a5e628fa9461bbcf82b2d376}\label{spi_8h_a236709e1f18b5113eef01990887fe91ba87c2dae9a5e628fa9461bbcf82b2d376}} 
+en\+E\+P\+C\+F\+Spi\+Mode\+\_\+\+Slave&Spi in slave mode \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Spi\+Mode\+\_\+\+Max@{en\+E\+P\+C\+F\+Spi\+Mode\+\_\+\+Max}!spi.\+h@{spi.\+h}}\index{spi.\+h@{spi.\+h}!en\+E\+P\+C\+F\+Spi\+Mode\+\_\+\+Max@{en\+E\+P\+C\+F\+Spi\+Mode\+\_\+\+Max}}}\mbox{\Hypertarget{spi_8h_a236709e1f18b5113eef01990887fe91ba557df7f67e5fb38f81848270979c2fdd}\label{spi_8h_a236709e1f18b5113eef01990887fe91ba557df7f67e5fb38f81848270979c2fdd}} 
+en\+E\+P\+C\+F\+Spi\+Mode\+\_\+\+Max&Special value for boundary checking \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{spi_8h_a6eaa379aa69133277ef3b0b557e0d1b0}\label{spi_8h_a6eaa379aa69133277ef3b0b557e0d1b0}} 
+\index{spi.\+h@{spi.\+h}!epcf\+\_\+spi\+\_\+close@{epcf\+\_\+spi\+\_\+close}}
+\index{epcf\+\_\+spi\+\_\+close@{epcf\+\_\+spi\+\_\+close}!spi.\+h@{spi.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+spi\+\_\+close()}{epcf\_spi\_close()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+spi\+\_\+close (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$}]{p\+Spi\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to close the spi device. It will free the memory allocated by the spi device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Spi\+Device} & Pointer to the spi device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{spi_8h_a418ebdaad333a7cfa90d00d429faf1ae}\label{spi_8h_a418ebdaad333a7cfa90d00d429faf1ae}} 
+\index{spi.\+h@{spi.\+h}!epcf\+\_\+spi\+\_\+create\+Native@{epcf\+\_\+spi\+\_\+create\+Native}}
+\index{epcf\+\_\+spi\+\_\+create\+Native@{epcf\+\_\+spi\+\_\+create\+Native}!spi.\+h@{spi.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+spi\+\_\+create\+Native()}{epcf\_spi\_createNative()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}}$\ast$ epcf\+\_\+spi\+\_\+create\+Native (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFSpiCfg__t}{E\+P\+C\+F\+Spi\+Cfg\+\_\+t}} $\ast$}]{p\+Spi\+Config }\end{DoxyParamCaption})}
+
+
+
+This function is used to create an spi device. Call this function in beginning to initialize the device. This function allocates memory for the device using malloc() function call and returns a pointer to the device. Pass this device pointer while calling spi functions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Spi\+Config} & Pointer to the spi configuration structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+On success, it return the pointer to spi device. On error, it returns N\+U\+LL. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{spi_8h_a9fbe02b68bad7a5aba34264c5731c234}\label{spi_8h_a9fbe02b68bad7a5aba34264c5731c234}} 
+\index{spi.\+h@{spi.\+h}!epcf\+\_\+spi\+\_\+de\+Register\+Slave\+Device@{epcf\+\_\+spi\+\_\+de\+Register\+Slave\+Device}}
+\index{epcf\+\_\+spi\+\_\+de\+Register\+Slave\+Device@{epcf\+\_\+spi\+\_\+de\+Register\+Slave\+Device}!spi.\+h@{spi.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+spi\+\_\+de\+Register\+Slave\+Device()}{epcf\_spi\_deRegisterSlaveDevice()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+spi\+\_\+de\+Register\+Slave\+Device (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$}]{p\+Spi\+Device,  }\item[{uint8\+\_\+t}]{slave\+Id }\end{DoxyParamCaption})}
+
+
+
+This function is used to unregister a spi slave device. No operation on the slave device is possible once it is unregistered. Register the slave device again to operate on the device once it is unregistered. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Spi\+Device} & Pointer to the spi device \\
+\hline
+{\em slave\+Id} & slave\+Id returned by epcf\+\_\+spi\+\_\+register\+Slave\+Device function\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use this function only when using spi in master mode. 
+\end{DoxyNote}
+\mbox{\Hypertarget{spi_8h_a792532296a93636fde4b30e1cda82aca}\label{spi_8h_a792532296a93636fde4b30e1cda82aca}} 
+\index{spi.\+h@{spi.\+h}!epcf\+\_\+spi\+\_\+exchange@{epcf\+\_\+spi\+\_\+exchange}}
+\index{epcf\+\_\+spi\+\_\+exchange@{epcf\+\_\+spi\+\_\+exchange}!spi.\+h@{spi.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+spi\+\_\+exchange()}{epcf\_spi\_exchange()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+spi\+\_\+exchange (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$}]{p\+Spi\+Device,  }\item[{uint16\+\_\+t}]{tx\+Data,  }\item[{uint16\+\_\+t $\ast$}]{rx\+Data,  }\item[{E\+P\+C\+F\+Time\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+
+
+This function is used to exchange a single frame over spi bus. It can be used in both master and slave mode. The size of the frame is according to setting of the data\+Bits field in spi configuration. The calling function will be blocked until the data frame is exchanged or timeout has occurred. The function is a blocking call in both interrupt and polling mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Spi\+Device} & Pointer to the spi device \\
+\hline
+{\em tx\+Data} & data frame to be transmitted \\
+\hline
+{\em rx\+Data} & Pointer to the data frame where received data will be stored \\
+\hline
+{\em timeout} & timeout value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns 1 when frame is successfully exchanged. Check status code in case return value is less than 0. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Master mode(master write)\+:
+\begin{DoxyEnumerate}
+\item Call epcf\+\_\+spi\+\_\+slave\+Select function to select the slave device.
+\item Call epcf\+\_\+spi\+\_\+exchange function to exchange a single frame from the slave device.
+\item Call epcf\+\_\+spi\+\_\+slave\+De\+Select function to unselect the slave device.
+\end{DoxyEnumerate}
+\end{DoxyNote}
+Slave mode(\+Slave write)\+: Call this function to write data to the master device. \mbox{\Hypertarget{spi_8h_a050d7585f7957c76bb1f98a639a7b31d}\label{spi_8h_a050d7585f7957c76bb1f98a639a7b31d}} 
+\index{spi.\+h@{spi.\+h}!epcf\+\_\+spi\+\_\+get\+Device\+Count@{epcf\+\_\+spi\+\_\+get\+Device\+Count}}
+\index{epcf\+\_\+spi\+\_\+get\+Device\+Count@{epcf\+\_\+spi\+\_\+get\+Device\+Count}!spi.\+h@{spi.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+spi\+\_\+get\+Device\+Count()}{epcf\_spi\_getDeviceCount()}}
+{\footnotesize\ttfamily uint8\+\_\+t epcf\+\_\+spi\+\_\+get\+Device\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function is used to get the total number of available spi devices. 
+
+\begin{DoxyReturn}{Returns}
+Returns the number of available spi devices. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{spi_8h_a4d294f72c2127f0cf71d1e0f5772f137}\label{spi_8h_a4d294f72c2127f0cf71d1e0f5772f137}} 
+\index{spi.\+h@{spi.\+h}!epcf\+\_\+spi\+\_\+get\+Rx\+Buffer\+Count@{epcf\+\_\+spi\+\_\+get\+Rx\+Buffer\+Count}}
+\index{epcf\+\_\+spi\+\_\+get\+Rx\+Buffer\+Count@{epcf\+\_\+spi\+\_\+get\+Rx\+Buffer\+Count}!spi.\+h@{spi.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+spi\+\_\+get\+Rx\+Buffer\+Count()}{epcf\_spi\_getRxBufferCount()}}
+{\footnotesize\ttfamily int32\+\_\+t epcf\+\_\+spi\+\_\+get\+Rx\+Buffer\+Count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$}]{p\+Spi\+Device }\end{DoxyParamCaption})}
+
+This function is used to get number of bytes received in spi receive buffer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Spi\+Device} & Pointer to the spi device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return total number of received bytes
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use this function only when spi is configured in interrupt mode 
+\end{DoxyNote}
+\mbox{\Hypertarget{spi_8h_aca145d8c830302ac631c8988c5213cf4}\label{spi_8h_aca145d8c830302ac631c8988c5213cf4}} 
+\index{spi.\+h@{spi.\+h}!epcf\+\_\+spi\+\_\+get\+Tx\+Buffer\+Count@{epcf\+\_\+spi\+\_\+get\+Tx\+Buffer\+Count}}
+\index{epcf\+\_\+spi\+\_\+get\+Tx\+Buffer\+Count@{epcf\+\_\+spi\+\_\+get\+Tx\+Buffer\+Count}!spi.\+h@{spi.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+spi\+\_\+get\+Tx\+Buffer\+Count()}{epcf\_spi\_getTxBufferCount()}}
+{\footnotesize\ttfamily int32\+\_\+t epcf\+\_\+spi\+\_\+get\+Tx\+Buffer\+Count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$}]{p\+Spi\+Device }\end{DoxyParamCaption})}
+
+This function is used to get number of bytes pending in spi transmit buffer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Spi\+Device} & Pointer to the spi device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return total number of pending bytes
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use this function only when spi is configured in interrupt mode 
+\end{DoxyNote}
+\mbox{\Hypertarget{spi_8h_afc395b3cca7808342d741b2eb9ee7929}\label{spi_8h_afc395b3cca7808342d741b2eb9ee7929}} 
+\index{spi.\+h@{spi.\+h}!epcf\+\_\+spi\+\_\+int\+Disable@{epcf\+\_\+spi\+\_\+int\+Disable}}
+\index{epcf\+\_\+spi\+\_\+int\+Disable@{epcf\+\_\+spi\+\_\+int\+Disable}!spi.\+h@{spi.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+spi\+\_\+int\+Disable()}{epcf\_spi\_intDisable()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+spi\+\_\+int\+Disable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$}]{p\+Spi\+Device,  }\item[{\mbox{\hyperlink{spi_8h_a270c561e7d4dc10fee5b99a87b3d4e5d}{En\+E\+P\+C\+F\+Spi\+Int\+Type}}}]{int\+Type }\end{DoxyParamCaption})}
+
+
+
+This function is used to disable the spi interrupt.\+It can be enable by a call to the function epcf\+Native\+Spi\+Int\+Enable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Spi\+Device} & Pointer to the spi device. \\
+\hline
+{\em int\+Type} & type of interrupt\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{spi_8h_a74d33135fde22d6a199596af503cfd7e}\label{spi_8h_a74d33135fde22d6a199596af503cfd7e}} 
+\index{spi.\+h@{spi.\+h}!epcf\+\_\+spi\+\_\+int\+Enable@{epcf\+\_\+spi\+\_\+int\+Enable}}
+\index{epcf\+\_\+spi\+\_\+int\+Enable@{epcf\+\_\+spi\+\_\+int\+Enable}!spi.\+h@{spi.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+spi\+\_\+int\+Enable()}{epcf\_spi\_intEnable()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+spi\+\_\+int\+Enable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$}]{p\+Spi\+Device,  }\item[{\mbox{\hyperlink{spi_8h_a270c561e7d4dc10fee5b99a87b3d4e5d}{En\+E\+P\+C\+F\+Spi\+Int\+Type}}}]{int\+Type }\end{DoxyParamCaption})}
+
+
+
+This function is used to enable the spi interrupt.\+It can be disabled by a call to the function epcf\+Native\+Spi\+Int\+Disable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Spi\+Device} & Pointer to the spi device. \\
+\hline
+{\em int\+Type} & type of interrupt\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{spi_8h_add28918493fe97abb634840047a9d65a}\label{spi_8h_add28918493fe97abb634840047a9d65a}} 
+\index{spi.\+h@{spi.\+h}!epcf\+\_\+spi\+\_\+read@{epcf\+\_\+spi\+\_\+read}}
+\index{epcf\+\_\+spi\+\_\+read@{epcf\+\_\+spi\+\_\+read}!spi.\+h@{spi.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+spi\+\_\+read()}{epcf\_spi\_read()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+spi\+\_\+read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$}]{p\+Spi\+Device,  }\item[{uint8\+\_\+t $\ast$}]{data,  }\item[{uint32\+\_\+t}]{size,  }\item[{E\+P\+C\+F\+Time\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+
+
+This function is used to read data on spi bus. This function can be used in both master and slave mode. In Interrupt mode, data receiving is asynchronous and data is received in an internal software buffer. Use epcf\+\_\+spi\+\_\+get\+Rx\+Buffer\+Count function to get receive buffer count. When the count is equal to the required number of bytes to be read, call epcf\+\_\+spi\+\_\+read function to read the buffer. 
+
+In Polling mode, data receiving will be synchronous and calling function will be blocked until all the data is received or timeout has occurred.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Spi\+Device} & Pointer to the spi device \\
+\hline
+{\em data} & Pointer to buffer where data to be read is stored \\
+\hline
+{\em size} & Total number of bytes to be read \\
+\hline
+{\em timeout} & timeout value.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return number of bytes read over spi bus. Check status code if return value is less than 0. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+If value of data\+Bits is set to greater than 8 bits. Then, 2 consecutive bytes will represent 1 single frame. In this case value of size should be in a multiple of 2. If the value of size is an odd value, then a 0 is padded as the last byte of the data.
+\end{DoxyNote}
+Master mode(master read)\+:
+\begin{DoxyEnumerate}
+\item Call epcf\+\_\+spi\+\_\+slave\+Select function to select the slave device.
+\item Call epcf\+\_\+spi\+\_\+read function to read data from the slave.
+\item Call epcf\+\_\+spi\+\_\+slave\+De\+Select function to de-\/select the slave device after data reception is completed.
+\end{DoxyEnumerate}
+
+Slave mode(slave read)\+: Call this function to read data received from the master device. \mbox{\Hypertarget{spi_8h_ad28b8780e75f9a0fd238291447e8a4cf}\label{spi_8h_ad28b8780e75f9a0fd238291447e8a4cf}} 
+\index{spi.\+h@{spi.\+h}!epcf\+\_\+spi\+\_\+register\+Slave\+Device@{epcf\+\_\+spi\+\_\+register\+Slave\+Device}}
+\index{epcf\+\_\+spi\+\_\+register\+Slave\+Device@{epcf\+\_\+spi\+\_\+register\+Slave\+Device}!spi.\+h@{spi.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+spi\+\_\+register\+Slave\+Device()}{epcf\_spi\_registerSlaveDevice()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+spi\+\_\+register\+Slave\+Device (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$}]{p\+Spi\+Device,  }\item[{E\+P\+C\+F\+Port\+Pin\+\_\+t}]{slave\+Select\+Pin }\end{DoxyParamCaption})}
+
+
+
+This function is used to register a spi slave device. Call this function once in the begining to register slave\+Select\+Pin of the slave device should be registered before doing any read write operation for that device. The function will return a slave\+Id which can be used to select and unselect the slave device using epcf\+\_\+spi\+\_\+slave\+Select and epcf\+\_\+spi\+\_\+slave\+De\+Select function respectively. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Spi\+Device} & Pointer to the spi device \\
+\hline
+{\em slave\+Select\+Pin} & slave\+Select\+Pin information of the slave device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return slave\+Id. Check status code in case return value is less than 0. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use this function only when using spi in master mode. 
+\end{DoxyNote}
+\mbox{\Hypertarget{spi_8h_a9d5307b8726ae2facf01cf5bc0ff15b2}\label{spi_8h_a9d5307b8726ae2facf01cf5bc0ff15b2}} 
+\index{spi.\+h@{spi.\+h}!epcf\+\_\+spi\+\_\+rx\+Buffer\+Flush@{epcf\+\_\+spi\+\_\+rx\+Buffer\+Flush}}
+\index{epcf\+\_\+spi\+\_\+rx\+Buffer\+Flush@{epcf\+\_\+spi\+\_\+rx\+Buffer\+Flush}!spi.\+h@{spi.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+spi\+\_\+rx\+Buffer\+Flush()}{epcf\_spi\_rxBufferFlush()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+spi\+\_\+rx\+Buffer\+Flush (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$}]{p\+Spi\+Device }\end{DoxyParamCaption})}
+
+This function is used to flush spi receive buffer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Spi\+Device} & Pointer to the spi device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use this function only when spi is configured in interrupt mode 
+\end{DoxyNote}
+\mbox{\Hypertarget{spi_8h_a90cf5feaf6b13908851c3264df5c9405}\label{spi_8h_a90cf5feaf6b13908851c3264df5c9405}} 
+\index{spi.\+h@{spi.\+h}!epcf\+\_\+spi\+\_\+slave\+De\+Select@{epcf\+\_\+spi\+\_\+slave\+De\+Select}}
+\index{epcf\+\_\+spi\+\_\+slave\+De\+Select@{epcf\+\_\+spi\+\_\+slave\+De\+Select}!spi.\+h@{spi.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+spi\+\_\+slave\+De\+Select()}{epcf\_spi\_slaveDeSelect()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+spi\+\_\+slave\+De\+Select (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$}]{p\+Spi\+Device,  }\item[{uint8\+\_\+t}]{slave\+Id }\end{DoxyParamCaption})}
+
+
+
+This function is used to unselect the slave device after communication with the device is finished. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Spi\+Device} & Pointer to the spi device \\
+\hline
+{\em slave\+Id} & slave\+Id of the slave device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use this function only when using spi in master mode. 
+\end{DoxyNote}
+\mbox{\Hypertarget{spi_8h_a8b274135b17faf771815b1e5f2909b31}\label{spi_8h_a8b274135b17faf771815b1e5f2909b31}} 
+\index{spi.\+h@{spi.\+h}!epcf\+\_\+spi\+\_\+slave\+Select@{epcf\+\_\+spi\+\_\+slave\+Select}}
+\index{epcf\+\_\+spi\+\_\+slave\+Select@{epcf\+\_\+spi\+\_\+slave\+Select}!spi.\+h@{spi.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+spi\+\_\+slave\+Select()}{epcf\_spi\_slaveSelect()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+spi\+\_\+slave\+Select (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$}]{p\+Spi\+Device,  }\item[{uint8\+\_\+t}]{slave\+Id }\end{DoxyParamCaption})}
+
+
+
+This function is used to select the slave device on the spi bus before starting any communication with the device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Spi\+Device} & Pointer to the spi device \\
+\hline
+{\em slave\+Id} & slave\+Id of the slave device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use this function only when using spi in master mode. 
+\end{DoxyNote}
+\mbox{\Hypertarget{spi_8h_a02c2f27d5829139f7f02b52c7b414671}\label{spi_8h_a02c2f27d5829139f7f02b52c7b414671}} 
+\index{spi.\+h@{spi.\+h}!epcf\+\_\+spi\+\_\+tx\+Buffer\+Flush@{epcf\+\_\+spi\+\_\+tx\+Buffer\+Flush}}
+\index{epcf\+\_\+spi\+\_\+tx\+Buffer\+Flush@{epcf\+\_\+spi\+\_\+tx\+Buffer\+Flush}!spi.\+h@{spi.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+spi\+\_\+tx\+Buffer\+Flush()}{epcf\_spi\_txBufferFlush()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+spi\+\_\+tx\+Buffer\+Flush (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$}]{p\+Spi\+Device }\end{DoxyParamCaption})}
+
+This function is used to flush spi transmit buffer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Spi\+Device} & Pointer to the spi device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use this function only when spi is configured in interrupt mode 
+\end{DoxyNote}
+\mbox{\Hypertarget{spi_8h_a067baf1e065e651159c87670fca2336d}\label{spi_8h_a067baf1e065e651159c87670fca2336d}} 
+\index{spi.\+h@{spi.\+h}!epcf\+\_\+spi\+\_\+write@{epcf\+\_\+spi\+\_\+write}}
+\index{epcf\+\_\+spi\+\_\+write@{epcf\+\_\+spi\+\_\+write}!spi.\+h@{spi.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+spi\+\_\+write()}{epcf\_spi\_write()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+spi\+\_\+write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$}]{p\+Spi\+Device,  }\item[{const uint8\+\_\+t $\ast$}]{data,  }\item[{uint32\+\_\+t}]{size,  }\item[{E\+P\+C\+F\+Time\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+
+
+This function is used to send data on spi bus. It can be used in both master and slave mode. In Interrupt mode, data transmission will be asynchronous and the data is transmitted using internal software buffer. The function will be non blocking and will return after initiating data transmission. Use epcf\+\_\+spi\+\_\+get\+Tx\+Buffer\+Count function to check the status of the transmit buffer. 
+
+In Polling mode, data transmission will be synchronous and calling function will be blocked until all the data is transmitted or timeout has occurred.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Spi\+Device} & Pointer to the spi device \\
+\hline
+{\em data} & Pointer to buffer where data to be written is stored \\
+\hline
+{\em size} & Total number of bytes to send \\
+\hline
+{\em timeout} & timeout value.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return total number of bytes send over spi bus. Check status code if return value is less than 0. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+If value of data\+Bits is set to greater than 8 bits. Then, 2 consecutive bytes will represent 1 single frame. In this case value of size should be in a multiple of 2. If the value of size is an odd value, then a 0 is padded as the last byte of the data.
+\end{DoxyNote}
+Master mode(master write)\+:
+\begin{DoxyEnumerate}
+\item Call epcf\+\_\+spi\+\_\+slave\+Select function to select the slave device.
+\item Call epcf\+\_\+spi\+\_\+write function to send data to the slave.
+\item Call epcf\+\_\+spi\+\_\+slave\+De\+Select function to de-\/select the slave device after data transmission is completed.
+\end{DoxyEnumerate}
+
+Slave mode(\+Slave write)\+: Call this function to write data to the master device. 

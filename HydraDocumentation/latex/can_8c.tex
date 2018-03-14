@@ -1,0 +1,48 @@
+\hypertarget{can_8c}{}\section{epcf\+\_\+project/epcf/peripheral/source/can/can.c File Reference}
+\label{can_8c}\index{epcf\+\_\+project/epcf/peripheral/source/can/can.\+c@{epcf\+\_\+project/epcf/peripheral/source/can/can.\+c}}
+
+
+This file is used to configure a C\+AN device.  
+
+
+{\ttfamily \#include \char`\"{}pcf.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{can_8c_a285666a58c866622f344bf24947e7245}\label{can_8c_a285666a58c866622f344bf24947e7245}} 
+\#define {\bfseries \+\_\+\+\_\+\+E\+P\+C\+F\+\_\+\+P\+R\+I\+V\+A\+T\+E\+\_\+\+C\+A\+N\+\_\+\+H\+\_\+\+I\+N\+C\+L\+U\+DE}~P\+C\+F\+\_\+\+C\+O\+N\+D\+I\+T\+I\+O\+N\+A\+L\+\_\+\+I\+N\+C\+L\+U\+D\+E\+\_\+\+F\+I\+LE(E\+P\+C\+F\+\_\+\+D\+I\+R\+\_\+\+P\+A\+TH/,peripheral/source/,can/,can\+\_\+hidden.\+h)
+\item 
+\mbox{\Hypertarget{can_8c_a305b4438dd59de51530c5ab1d3e4addc}\label{can_8c_a305b4438dd59de51530c5ab1d3e4addc}} 
+\#define {\bfseries C\+A\+N\+\_\+\+G\+E\+T\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+C\+O\+U\+NT}()~epcf\+Native\+Can\+Get\+Device\+Count()
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}} $\ast$ \mbox{\hyperlink{can_8c_a1154a6cc3005b349fd65d61793efb94b}{epcf\+\_\+can\+\_\+create\+Native}} (\mbox{\hyperlink{structEPCFCanCfg__t}{E\+P\+C\+F\+Can\+Cfg\+\_\+t}} $\ast$p\+Can\+Config)
+\begin{DoxyCompactList}\small\item\em This function is used to create a can device. Call this function in beginning to initialize the can device. This function allocates memory for the device using malloc() function call and returns a pointer to the device. Pass this device pointer while calling can functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file is used to configure a C\+AN device. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{can_8c_a1154a6cc3005b349fd65d61793efb94b}\label{can_8c_a1154a6cc3005b349fd65d61793efb94b}} 
+\index{can.\+c@{can.\+c}!epcf\+\_\+can\+\_\+create\+Native@{epcf\+\_\+can\+\_\+create\+Native}}
+\index{epcf\+\_\+can\+\_\+create\+Native@{epcf\+\_\+can\+\_\+create\+Native}!can.\+c@{can.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+can\+\_\+create\+Native()}{epcf\_can\_createNative()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structEPCFCanDevice}{E\+P\+C\+F\+Can\+Device\+\_\+t}}$\ast$ epcf\+\_\+can\+\_\+create\+Native (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFCanCfg__t}{E\+P\+C\+F\+Can\+Cfg\+\_\+t}} $\ast$}]{p\+Can\+Config }\end{DoxyParamCaption})}
+
+
+
+This function is used to create a can device. Call this function in beginning to initialize the can device. This function allocates memory for the device using malloc() function call and returns a pointer to the device. Pass this device pointer while calling can functions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Can\+Config} & Pointer to the can configuration structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+On success, it return the pointer to can device. On error, it returns N\+U\+LL. 
+\end{DoxyReturn}

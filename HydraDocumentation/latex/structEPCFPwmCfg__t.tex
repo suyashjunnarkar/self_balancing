@@ -1,0 +1,67 @@
+\hypertarget{structEPCFPwmCfg__t}{}\section{E\+P\+C\+F\+Pwm\+Cfg\+\_\+t Struct Reference}
+\label{structEPCFPwmCfg__t}\index{E\+P\+C\+F\+Pwm\+Cfg\+\_\+t@{E\+P\+C\+F\+Pwm\+Cfg\+\_\+t}}
+
+
+Pwm configuration structure Example to configure pwm\+:  
+
+
+
+
+{\ttfamily \#include $<$pwm.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structEPCFPwmCfg__t_aae8573680c5550161c6b4b057983cc08}{pwm\+Id}}
+\item 
+\mbox{\hyperlink{pwm_8h_adc2248862ed98f44dfc603f88fee97be}{En\+E\+P\+C\+F\+Pwm\+Width\+\_\+t}} \mbox{\hyperlink{structEPCFPwmCfg__t_a3b231f06daf2114252bafcaaf953fbfb}{pwm\+Width}}
+\item 
+E\+P\+C\+F\+Time\+\_\+t \mbox{\hyperlink{structEPCFPwmCfg__t_af87e716fc1cbe8316b4b69923b7e9b73}{resolution}}
+\item 
+En\+E\+P\+C\+F\+Boolean\+\_\+t \mbox{\hyperlink{structEPCFPwmCfg__t_af2a23b801262e2e4d3e46aab36729f6e}{interrupt\+Enable}}
+\item 
+void $\ast$ \mbox{\hyperlink{structEPCFPwmCfg__t_a70a240b5d4b540336cccf1f5b4b0f55f}{hardware\+Cfg}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Pwm configuration structure Example to configure pwm\+: 
+
+\mbox{\hyperlink{structEPCFPwmCfg__t}{E\+P\+C\+F\+Pwm\+Cfg\+\_\+t}} pwm\+Config = \{ 0, // pwm id 0 en\+E\+P\+C\+F\+Pwm\+Width\+\_\+8, // 8-\/bit pwm width \{250,en\+E\+P\+C\+F\+Time\+Unit\+\_\+ns\}, // resolution set to 0.\+25 microseconds en\+E\+P\+C\+F\+Boolean\+True, // enable interrupt N\+U\+LL // No hardware specific config \}; 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structEPCFPwmCfg__t_a70a240b5d4b540336cccf1f5b4b0f55f}\label{structEPCFPwmCfg__t_a70a240b5d4b540336cccf1f5b4b0f55f}} 
+\index{E\+P\+C\+F\+Pwm\+Cfg\+\_\+t@{E\+P\+C\+F\+Pwm\+Cfg\+\_\+t}!hardware\+Cfg@{hardware\+Cfg}}
+\index{hardware\+Cfg@{hardware\+Cfg}!E\+P\+C\+F\+Pwm\+Cfg\+\_\+t@{E\+P\+C\+F\+Pwm\+Cfg\+\_\+t}}
+\subsubsection{\texorpdfstring{hardware\+Cfg}{hardwareCfg}}
+{\footnotesize\ttfamily void$\ast$ E\+P\+C\+F\+Pwm\+Cfg\+\_\+t\+::hardware\+Cfg}
+
+Hardware platform specific configuration, Pass N\+U\+LL for default configuration \mbox{\Hypertarget{structEPCFPwmCfg__t_af2a23b801262e2e4d3e46aab36729f6e}\label{structEPCFPwmCfg__t_af2a23b801262e2e4d3e46aab36729f6e}} 
+\index{E\+P\+C\+F\+Pwm\+Cfg\+\_\+t@{E\+P\+C\+F\+Pwm\+Cfg\+\_\+t}!interrupt\+Enable@{interrupt\+Enable}}
+\index{interrupt\+Enable@{interrupt\+Enable}!E\+P\+C\+F\+Pwm\+Cfg\+\_\+t@{E\+P\+C\+F\+Pwm\+Cfg\+\_\+t}}
+\subsubsection{\texorpdfstring{interrupt\+Enable}{interruptEnable}}
+{\footnotesize\ttfamily En\+E\+P\+C\+F\+Boolean\+\_\+t E\+P\+C\+F\+Pwm\+Cfg\+\_\+t\+::interrupt\+Enable}
+
+Specifies to enable pwm interrupt or not en\+E\+P\+C\+F\+Boolean\+True = To enable pwm interrupt en\+E\+P\+C\+F\+Boolean\+False = To disable pwm interrupt \mbox{\Hypertarget{structEPCFPwmCfg__t_aae8573680c5550161c6b4b057983cc08}\label{structEPCFPwmCfg__t_aae8573680c5550161c6b4b057983cc08}} 
+\index{E\+P\+C\+F\+Pwm\+Cfg\+\_\+t@{E\+P\+C\+F\+Pwm\+Cfg\+\_\+t}!pwm\+Id@{pwm\+Id}}
+\index{pwm\+Id@{pwm\+Id}!E\+P\+C\+F\+Pwm\+Cfg\+\_\+t@{E\+P\+C\+F\+Pwm\+Cfg\+\_\+t}}
+\subsubsection{\texorpdfstring{pwm\+Id}{pwmId}}
+{\footnotesize\ttfamily uint8\+\_\+t E\+P\+C\+F\+Pwm\+Cfg\+\_\+t\+::pwm\+Id}
+
+Pwm Id. Refer to platform specific header file for appropriate pwm id \mbox{\Hypertarget{structEPCFPwmCfg__t_a3b231f06daf2114252bafcaaf953fbfb}\label{structEPCFPwmCfg__t_a3b231f06daf2114252bafcaaf953fbfb}} 
+\index{E\+P\+C\+F\+Pwm\+Cfg\+\_\+t@{E\+P\+C\+F\+Pwm\+Cfg\+\_\+t}!pwm\+Width@{pwm\+Width}}
+\index{pwm\+Width@{pwm\+Width}!E\+P\+C\+F\+Pwm\+Cfg\+\_\+t@{E\+P\+C\+F\+Pwm\+Cfg\+\_\+t}}
+\subsubsection{\texorpdfstring{pwm\+Width}{pwmWidth}}
+{\footnotesize\ttfamily \mbox{\hyperlink{pwm_8h_adc2248862ed98f44dfc603f88fee97be}{En\+E\+P\+C\+F\+Pwm\+Width\+\_\+t}} E\+P\+C\+F\+Pwm\+Cfg\+\_\+t\+::pwm\+Width}
+
+Specifies the width of the pwm device \mbox{\Hypertarget{structEPCFPwmCfg__t_af87e716fc1cbe8316b4b69923b7e9b73}\label{structEPCFPwmCfg__t_af87e716fc1cbe8316b4b69923b7e9b73}} 
+\index{E\+P\+C\+F\+Pwm\+Cfg\+\_\+t@{E\+P\+C\+F\+Pwm\+Cfg\+\_\+t}!resolution@{resolution}}
+\index{resolution@{resolution}!E\+P\+C\+F\+Pwm\+Cfg\+\_\+t@{E\+P\+C\+F\+Pwm\+Cfg\+\_\+t}}
+\subsubsection{\texorpdfstring{resolution}{resolution}}
+{\footnotesize\ttfamily E\+P\+C\+F\+Time\+\_\+t E\+P\+C\+F\+Pwm\+Cfg\+\_\+t\+::resolution}
+
+Specifies the resolution for the pwm. Resolution refers to the mimimum time which is elapsed after every clock cycle. You can define maximum period of pwm by setting appropriate resolution value. Also,frequency of the pwm device is inverse of the pwm period. Pwm period = resolution x (2$^\wedge$pwm\+Width). Pwm frequency = 1/\+Pwm period For example\+: Consider an 8-\/bit pwm device with resolution = 0.\+25 microseconds. Then,the maximum period of the pwm device is equal to 0.\+25 x 256 = 64 microseconds. To set 0.\+25 microseconds as the resolution, set time unit to en\+E\+P\+C\+F\+Time\+Unit\+\_\+ns and set 250 as the count. Maximum Pwm frequency = 1/64 microseconds = 15.\+6khz Refer to platform specific header file for supported values of resolution. Refer to \char`\"{}../../common/types.\+h\char`\"{} header file for the definition of \mbox{\hyperlink{}{E\+P\+C\+F\+Time\+\_\+t}} structure. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+epcf\+\_\+project/epcf/peripheral/include/pwm/\mbox{\hyperlink{pwm_8h}{pwm.\+h}}\end{DoxyCompactItemize}

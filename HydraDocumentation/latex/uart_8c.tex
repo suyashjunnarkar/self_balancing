@@ -1,0 +1,258 @@
+\hypertarget{uart_8c}{}\section{epcf\+\_\+project/epcf/peripheral/source/uart/uart.c File Reference}
+\label{uart_8c}\index{epcf\+\_\+project/epcf/peripheral/source/uart/uart.\+c@{epcf\+\_\+project/epcf/peripheral/source/uart/uart.\+c}}
+
+
+This file is used to configure a U\+A\+RT device.  
+
+
+{\ttfamily \#include \char`\"{}pcf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}./uart\+\_\+hidden.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{uart_8c_a83fec052dfd6ab2d064f81eeb7f2db69}\label{uart_8c_a83fec052dfd6ab2d064f81eeb7f2db69}} 
+\#define {\bfseries \+\_\+\+\_\+\+E\+P\+C\+F\+\_\+\+U\+T\+I\+L\+\_\+\+F\+I\+F\+O\+\_\+\+I\+N\+C\+L\+U\+DE}~P\+C\+F\+\_\+\+C\+O\+N\+D\+I\+T\+I\+O\+N\+A\+L\+\_\+\+I\+N\+C\+L\+U\+D\+E\+\_\+\+F\+I\+LE(E\+P\+C\+F\+\_\+\+D\+I\+R\+\_\+\+P\+A\+TH/,utils/,include/,epcf\+\_\+fifo.\+h)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{uart_8h_ac9ec9e319ac81863d7c03f9b5f65b423}{E\+P\+C\+F\+Uart\+Device\+\_\+t}} $\ast$ \mbox{\hyperlink{uart_8c_aaacfd07a33e8060b8acf2a8a4e17924d}{epcf\+\_\+uart\+\_\+create\+Native}} (\mbox{\hyperlink{structEPCFUartCfg}{E\+P\+C\+F\+Uart\+Cfg\+\_\+t}} $\ast$p\+Uart\+Config)
+\begin{DoxyCompactList}\small\item\em This function is used to create an uart device. Call this function in beginning to initialize the device. This function allocates memory for the device using malloc() function call and returns a pointer to the device. Pass this device pointer while calling uart functions. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{uart_8c_a43f5e90dda2ee0090d3f4556ee78f739}{epcf\+\_\+uart\+\_\+close}} (\mbox{\hyperlink{uart_8h_ac9ec9e319ac81863d7c03f9b5f65b423}{E\+P\+C\+F\+Uart\+Device\+\_\+t}} $\ast$p\+Uart\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to close the uart device. It will free the memory allocated by the uart device. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{uart_8c_a995f3c9ed32f18ef7aa69b8966983116}{epcf\+\_\+uart\+\_\+write}} (\mbox{\hyperlink{uart_8h_ac9ec9e319ac81863d7c03f9b5f65b423}{E\+P\+C\+F\+Uart\+Device\+\_\+t}} $\ast$p\+Uart\+Device, const uint8\+\_\+t $\ast$data, uint32\+\_\+t size, E\+P\+C\+F\+Time\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em This function is used to send data over uart channel. Use this function in interrupt mode. Data transmission will be asynchronous and the data is transmmitted using internal software buffer. The function will be non blocking and will return after initiating data transmission. Use epcf\+\_\+uart\+\_\+get\+Tx\+Buffer\+Count function to check the status of the transmit buffer. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{uart_8c_ab122d792b78dbf161bb312b572376a62}{epcf\+\_\+uart\+\_\+write\+String}} (\mbox{\hyperlink{uart_8h_ac9ec9e319ac81863d7c03f9b5f65b423}{E\+P\+C\+F\+Uart\+Device\+\_\+t}} $\ast$p\+Uart\+Device, const uint8\+\_\+t $\ast$data, E\+P\+C\+F\+Time\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em This function is used to write string data on uart channel. In Interrupt mode, data transmission will be asynchronous and the data is transmmitted using internal software buffer. The function will be non blocking and will return after initiating data transmission. Use epcf\+\_\+uart\+\_\+get\+Tx\+Buffer\+Count function to check the status of the transmit buffer. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{uart_8c_aa4b4fe3d04fe4bdfbfa0cfd48f36cdb0}{epcf\+\_\+uart\+\_\+read}} (\mbox{\hyperlink{uart_8h_ac9ec9e319ac81863d7c03f9b5f65b423}{E\+P\+C\+F\+Uart\+Device\+\_\+t}} $\ast$p\+Uart\+Device, uint8\+\_\+t $\ast$data, uint32\+\_\+t size, E\+P\+C\+F\+Time\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em This function is used to read data on uart channel. In Interrupt mode, data receiving is asyncronous and data is received in an internal software buffer. Use epcf\+\_\+uart\+\_\+get\+Rx\+Buffer\+Count function to get receive buffer count. When the count is equal to the required number of bytes to be read, call E\+P\+C\+F\+\_\+\+U\+A\+R\+T\+\_\+\+R\+E\+AD function to read the buffer. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{uart_8c_a0c361423caa8763f433cd901c849b5a1}{epcf\+\_\+uart\+\_\+get\+Device\+Count}} ()
+\begin{DoxyCompactList}\small\item\em This function is used to get the total number of available uart devices. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{uart_8c_ad4a0268b4e7376e25abd321394f839f8}{epcf\+\_\+uart\+\_\+get\+Rx\+Buffer\+Count}} (\mbox{\hyperlink{uart_8h_ac9ec9e319ac81863d7c03f9b5f65b423}{E\+P\+C\+F\+Uart\+Device\+\_\+t}} $\ast$p\+Uart\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to get number of bytes received in uart receive buffer. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{uart_8c_a62e6b2c3091eadc80a3340f7c2386c9f}{epcf\+\_\+uart\+\_\+rx\+Buffer\+Flush}} (\mbox{\hyperlink{uart_8h_ac9ec9e319ac81863d7c03f9b5f65b423}{E\+P\+C\+F\+Uart\+Device\+\_\+t}} $\ast$p\+Uart\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to flush uart receive buffer. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{uart_8c_a5aa7a2490d3e0041f24a15d60c450371}{epcf\+\_\+uart\+\_\+get\+Tx\+Buffer\+Count}} (\mbox{\hyperlink{uart_8h_ac9ec9e319ac81863d7c03f9b5f65b423}{E\+P\+C\+F\+Uart\+Device\+\_\+t}} $\ast$p\+Uart\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to get number of bytes pending in uart transmit buffer. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{uart_8c_a8c61e55ba45e0f819499596519ea8b49}{epcf\+\_\+uart\+\_\+tx\+Buffer\+Flush}} (\mbox{\hyperlink{uart_8h_ac9ec9e319ac81863d7c03f9b5f65b423}{E\+P\+C\+F\+Uart\+Device\+\_\+t}} $\ast$p\+Uart\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to flush uart transmit buffer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{uart_8c_af45a02191e355de7199bdc621e289ba1}\label{uart_8c_af45a02191e355de7199bdc621e289ba1}} 
+uint32\+\_\+t {\bfseries epcf\+\_\+uart\+\_\+ext\+Get\+Device\+Count} (\mbox{\hyperlink{structEPCFUartController}{E\+P\+C\+F\+Uart\+Controller\+\_\+t}} $\ast$p\+Uart\+Controller)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file is used to configure a U\+A\+RT device. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{uart_8c_a43f5e90dda2ee0090d3f4556ee78f739}\label{uart_8c_a43f5e90dda2ee0090d3f4556ee78f739}} 
+\index{uart.\+c@{uart.\+c}!epcf\+\_\+uart\+\_\+close@{epcf\+\_\+uart\+\_\+close}}
+\index{epcf\+\_\+uart\+\_\+close@{epcf\+\_\+uart\+\_\+close}!uart.\+c@{uart.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+uart\+\_\+close()}{epcf\_uart\_close()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+uart\+\_\+close (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{uart_8h_ac9ec9e319ac81863d7c03f9b5f65b423}{E\+P\+C\+F\+Uart\+Device\+\_\+t}} $\ast$}]{p\+Uart\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to close the uart device. It will free the memory allocated by the uart device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Uart\+Device} & Pointer to the uart device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{uart_8c_aaacfd07a33e8060b8acf2a8a4e17924d}\label{uart_8c_aaacfd07a33e8060b8acf2a8a4e17924d}} 
+\index{uart.\+c@{uart.\+c}!epcf\+\_\+uart\+\_\+create\+Native@{epcf\+\_\+uart\+\_\+create\+Native}}
+\index{epcf\+\_\+uart\+\_\+create\+Native@{epcf\+\_\+uart\+\_\+create\+Native}!uart.\+c@{uart.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+uart\+\_\+create\+Native()}{epcf\_uart\_createNative()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{uart_8h_ac9ec9e319ac81863d7c03f9b5f65b423}{E\+P\+C\+F\+Uart\+Device\+\_\+t}}$\ast$ epcf\+\_\+uart\+\_\+create\+Native (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFUartCfg}{E\+P\+C\+F\+Uart\+Cfg\+\_\+t}} $\ast$}]{p\+Uart\+Config }\end{DoxyParamCaption})}
+
+
+
+This function is used to create an uart device. Call this function in beginning to initialize the device. This function allocates memory for the device using malloc() function call and returns a pointer to the device. Pass this device pointer while calling uart functions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Uart\+Config} & Pointer to the uart configuration structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+On success, it return the pointer to uart device. On error, it returns N\+U\+LL. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{uart_8c_a0c361423caa8763f433cd901c849b5a1}\label{uart_8c_a0c361423caa8763f433cd901c849b5a1}} 
+\index{uart.\+c@{uart.\+c}!epcf\+\_\+uart\+\_\+get\+Device\+Count@{epcf\+\_\+uart\+\_\+get\+Device\+Count}}
+\index{epcf\+\_\+uart\+\_\+get\+Device\+Count@{epcf\+\_\+uart\+\_\+get\+Device\+Count}!uart.\+c@{uart.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+uart\+\_\+get\+Device\+Count()}{epcf\_uart\_getDeviceCount()}}
+{\footnotesize\ttfamily uint8\+\_\+t epcf\+\_\+uart\+\_\+get\+Device\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function is used to get the total number of available uart devices. 
+
+\begin{DoxyReturn}{Returns}
+Returns the number of available uart devices. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{uart_8c_ad4a0268b4e7376e25abd321394f839f8}\label{uart_8c_ad4a0268b4e7376e25abd321394f839f8}} 
+\index{uart.\+c@{uart.\+c}!epcf\+\_\+uart\+\_\+get\+Rx\+Buffer\+Count@{epcf\+\_\+uart\+\_\+get\+Rx\+Buffer\+Count}}
+\index{epcf\+\_\+uart\+\_\+get\+Rx\+Buffer\+Count@{epcf\+\_\+uart\+\_\+get\+Rx\+Buffer\+Count}!uart.\+c@{uart.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+uart\+\_\+get\+Rx\+Buffer\+Count()}{epcf\_uart\_getRxBufferCount()}}
+{\footnotesize\ttfamily int32\+\_\+t epcf\+\_\+uart\+\_\+get\+Rx\+Buffer\+Count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{uart_8h_ac9ec9e319ac81863d7c03f9b5f65b423}{E\+P\+C\+F\+Uart\+Device\+\_\+t}} $\ast$}]{p\+Uart\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to get number of bytes received in uart receive buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Uart\+Device} & Pointer to uart device structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return total number of received bytes
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use this function only when uart is configured in interrupt mode. 
+\end{DoxyNote}
+\mbox{\Hypertarget{uart_8c_a5aa7a2490d3e0041f24a15d60c450371}\label{uart_8c_a5aa7a2490d3e0041f24a15d60c450371}} 
+\index{uart.\+c@{uart.\+c}!epcf\+\_\+uart\+\_\+get\+Tx\+Buffer\+Count@{epcf\+\_\+uart\+\_\+get\+Tx\+Buffer\+Count}}
+\index{epcf\+\_\+uart\+\_\+get\+Tx\+Buffer\+Count@{epcf\+\_\+uart\+\_\+get\+Tx\+Buffer\+Count}!uart.\+c@{uart.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+uart\+\_\+get\+Tx\+Buffer\+Count()}{epcf\_uart\_getTxBufferCount()}}
+{\footnotesize\ttfamily int32\+\_\+t epcf\+\_\+uart\+\_\+get\+Tx\+Buffer\+Count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{uart_8h_ac9ec9e319ac81863d7c03f9b5f65b423}{E\+P\+C\+F\+Uart\+Device\+\_\+t}} $\ast$}]{p\+Uart\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to get number of bytes pending in uart transmit buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Uart\+Device} & Pointer to uart device structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return total number of pending bytes
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use this function only when uart is configured in interrupt mode. 
+\end{DoxyNote}
+\mbox{\Hypertarget{uart_8c_aa4b4fe3d04fe4bdfbfa0cfd48f36cdb0}\label{uart_8c_aa4b4fe3d04fe4bdfbfa0cfd48f36cdb0}} 
+\index{uart.\+c@{uart.\+c}!epcf\+\_\+uart\+\_\+read@{epcf\+\_\+uart\+\_\+read}}
+\index{epcf\+\_\+uart\+\_\+read@{epcf\+\_\+uart\+\_\+read}!uart.\+c@{uart.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+uart\+\_\+read()}{epcf\_uart\_read()}}
+{\footnotesize\ttfamily int32\+\_\+t epcf\+\_\+uart\+\_\+read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{uart_8h_ac9ec9e319ac81863d7c03f9b5f65b423}{E\+P\+C\+F\+Uart\+Device\+\_\+t}} $\ast$}]{p\+Uart\+Device,  }\item[{uint8\+\_\+t $\ast$}]{data,  }\item[{uint32\+\_\+t}]{size,  }\item[{E\+P\+C\+F\+Time\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+
+
+This function is used to read data on uart channel. In Interrupt mode, data receiving is asyncronous and data is received in an internal software buffer. Use epcf\+\_\+uart\+\_\+get\+Rx\+Buffer\+Count function to get receive buffer count. When the count is equal to the required number of bytes to be read, call E\+P\+C\+F\+\_\+\+U\+A\+R\+T\+\_\+\+R\+E\+AD function to read the buffer. 
+
+In Polling mode, data receiving will be synchronous and calling function will be blocked until all the data is received or timeout has occurred.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Uart\+Device} & Pointer to uart device structure. \\
+\hline
+{\em data} & Pointer to buffer where data to be stored after read operation. \\
+\hline
+{\em size} & Total number of bytes to send \\
+\hline
+{\em timeout} & Timeout value.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return total number of bytes read over uart channel. Check status code in case return value is less than 0. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{uart_8c_a62e6b2c3091eadc80a3340f7c2386c9f}\label{uart_8c_a62e6b2c3091eadc80a3340f7c2386c9f}} 
+\index{uart.\+c@{uart.\+c}!epcf\+\_\+uart\+\_\+rx\+Buffer\+Flush@{epcf\+\_\+uart\+\_\+rx\+Buffer\+Flush}}
+\index{epcf\+\_\+uart\+\_\+rx\+Buffer\+Flush@{epcf\+\_\+uart\+\_\+rx\+Buffer\+Flush}!uart.\+c@{uart.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+uart\+\_\+rx\+Buffer\+Flush()}{epcf\_uart\_rxBufferFlush()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+uart\+\_\+rx\+Buffer\+Flush (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{uart_8h_ac9ec9e319ac81863d7c03f9b5f65b423}{E\+P\+C\+F\+Uart\+Device\+\_\+t}} $\ast$}]{p\+Uart\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to flush uart receive buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Uart\+Device} & Pointer to uart device structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use this function only when uart is configured in interrupt mode. 
+\end{DoxyNote}
+\mbox{\Hypertarget{uart_8c_a8c61e55ba45e0f819499596519ea8b49}\label{uart_8c_a8c61e55ba45e0f819499596519ea8b49}} 
+\index{uart.\+c@{uart.\+c}!epcf\+\_\+uart\+\_\+tx\+Buffer\+Flush@{epcf\+\_\+uart\+\_\+tx\+Buffer\+Flush}}
+\index{epcf\+\_\+uart\+\_\+tx\+Buffer\+Flush@{epcf\+\_\+uart\+\_\+tx\+Buffer\+Flush}!uart.\+c@{uart.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+uart\+\_\+tx\+Buffer\+Flush()}{epcf\_uart\_txBufferFlush()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+uart\+\_\+tx\+Buffer\+Flush (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{uart_8h_ac9ec9e319ac81863d7c03f9b5f65b423}{E\+P\+C\+F\+Uart\+Device\+\_\+t}} $\ast$}]{p\+Uart\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to flush uart transmit buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Uart\+Device} & Pointer to uart device structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use this function only when uart is configured in interrupt mode. 
+\end{DoxyNote}
+\mbox{\Hypertarget{uart_8c_a995f3c9ed32f18ef7aa69b8966983116}\label{uart_8c_a995f3c9ed32f18ef7aa69b8966983116}} 
+\index{uart.\+c@{uart.\+c}!epcf\+\_\+uart\+\_\+write@{epcf\+\_\+uart\+\_\+write}}
+\index{epcf\+\_\+uart\+\_\+write@{epcf\+\_\+uart\+\_\+write}!uart.\+c@{uart.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+uart\+\_\+write()}{epcf\_uart\_write()}}
+{\footnotesize\ttfamily int32\+\_\+t epcf\+\_\+uart\+\_\+write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{uart_8h_ac9ec9e319ac81863d7c03f9b5f65b423}{E\+P\+C\+F\+Uart\+Device\+\_\+t}} $\ast$}]{p\+Uart\+Device,  }\item[{const uint8\+\_\+t $\ast$}]{data,  }\item[{uint32\+\_\+t}]{size,  }\item[{E\+P\+C\+F\+Time\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+
+
+This function is used to send data over uart channel. Use this function in interrupt mode. Data transmission will be asynchronous and the data is transmmitted using internal software buffer. The function will be non blocking and will return after initiating data transmission. Use epcf\+\_\+uart\+\_\+get\+Tx\+Buffer\+Count function to check the status of the transmit buffer. 
+
+In Polling mode, data transmission will be synchronous and calling function will be blocked until all the data is transmitted or timeout has occurred.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Uart\+Device} & Pointer to uart device structure. \\
+\hline
+{\em data} & Pointer to buffer where data to be written is stored. \\
+\hline
+{\em size} & Total number of bytes to send \\
+\hline
+{\em timeout} & Timeout value.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return total number of bytes sent over uart channel. Check status code in case return value is less than 0. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{uart_8c_ab122d792b78dbf161bb312b572376a62}\label{uart_8c_ab122d792b78dbf161bb312b572376a62}} 
+\index{uart.\+c@{uart.\+c}!epcf\+\_\+uart\+\_\+write\+String@{epcf\+\_\+uart\+\_\+write\+String}}
+\index{epcf\+\_\+uart\+\_\+write\+String@{epcf\+\_\+uart\+\_\+write\+String}!uart.\+c@{uart.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+uart\+\_\+write\+String()}{epcf\_uart\_writeString()}}
+{\footnotesize\ttfamily int32\+\_\+t epcf\+\_\+uart\+\_\+write\+String (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{uart_8h_ac9ec9e319ac81863d7c03f9b5f65b423}{E\+P\+C\+F\+Uart\+Device\+\_\+t}} $\ast$}]{p\+Uart\+Device,  }\item[{const uint8\+\_\+t $\ast$}]{data,  }\item[{E\+P\+C\+F\+Time\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+
+
+This function is used to write string data on uart channel. In Interrupt mode, data transmission will be asynchronous and the data is transmmitted using internal software buffer. The function will be non blocking and will return after initiating data transmission. Use epcf\+\_\+uart\+\_\+get\+Tx\+Buffer\+Count function to check the status of the transmit buffer. 
+
+In Polling mode, data transmission will be synchronous and calling function will be blocked until all the data is transmitted or timeout has occurred.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Uart\+Device} & Pointer to uart device structure. \\
+\hline
+{\em data} & Pointer to buffer where string to be written is stored. \\
+\hline
+{\em timeout} & Timeout value.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return total number of bytes sent over uart channel. Check status code in case return value is less than 0. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}

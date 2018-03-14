@@ -1,0 +1,503 @@
+\hypertarget{pwm_8h}{}\section{epcf\+\_\+project/epcf/peripheral/include/pwm/pwm.h File Reference}
+\label{pwm_8h}\index{epcf\+\_\+project/epcf/peripheral/include/pwm/pwm.\+h@{epcf\+\_\+project/epcf/peripheral/include/pwm/pwm.\+h}}
+
+
+This file is used to configure a P\+WM device.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structEPCFPwmCfg__t}{E\+P\+C\+F\+Pwm\+Cfg\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Pwm configuration structure Example to configure pwm\+: \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}\label{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}} 
+typedef struct \mbox{\hyperlink{structEPCFPwmDevice}{E\+P\+C\+F\+Pwm\+Device}} \mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Pwm device. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3}{En\+E\+P\+C\+F\+Pwm\+Channel\+\_\+t}} \{ \newline
+\mbox{\hyperlink{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3a1b139d6d57c83a1fc872ce913f29840d}{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+0}} =0, 
+\mbox{\hyperlink{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3a03e60ba1780e81e75ef437b2bddbc4fe}{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+1}}, 
+\mbox{\hyperlink{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3aa4a360c1faf68848d13702ef2e932f3b}{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+2}}, 
+\mbox{\hyperlink{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3a5fbb42d01aae1ab1c5ed0adf9629d211}{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+3}}, 
+\newline
+\mbox{\hyperlink{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3a21715ee7a5cc3f7fbfaf43232f659516}{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+4}}, 
+\mbox{\hyperlink{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3ae077edd73728292fe6ff7dc0ea8c72cf}{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+5}}, 
+\mbox{\hyperlink{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3a093ef2224b73c6b7d3db8a0cd84f6160}{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+6}}, 
+\mbox{\hyperlink{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3a9d924ff6cf3c3dee64dd484524a49df6}{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+7}}, 
+\newline
+\mbox{\hyperlink{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3a4914d214e363199164a1409027ce91d4}{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+8}}, 
+\mbox{\hyperlink{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3a93f79a8b1c28bc02068c84988bd5c9cd}{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+9}}, 
+\mbox{\hyperlink{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3a8ddff8ee418a3d51d4daa428bc1fe0be}{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+10}}, 
+\mbox{\hyperlink{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3aa67cbfd17cc407fcb72115eee88fcfa9}{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+11}}, 
+\newline
+\mbox{\hyperlink{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3a3c3122e5c32b3b3ea5dbdae0d9b2c1a8}{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+12}}, 
+\mbox{\hyperlink{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3a925053ab3ba273af34d1bc2ef243ba43}{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+13}}, 
+\mbox{\hyperlink{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3aabfdbb0dc2a473f2c8ddd584f7d8d621}{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+14}}, 
+\mbox{\hyperlink{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3acc8b6d84d11531d5a2ec807b21aa345b}{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+15}}, 
+\newline
+\mbox{\hyperlink{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3abbe567b1353b30ac81bcff972cc46183}{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+\+Max}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration for Channel number. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{pwm_8h_adc2248862ed98f44dfc603f88fee97be}{En\+E\+P\+C\+F\+Pwm\+Width\+\_\+t}} \{ \newline
+\mbox{\hyperlink{pwm_8h_adc2248862ed98f44dfc603f88fee97bea121da74696f53a44ef6e63b54ff45a6d}{en\+E\+P\+C\+F\+Pwm\+Width\+\_\+8}}, 
+\mbox{\hyperlink{pwm_8h_adc2248862ed98f44dfc603f88fee97beabc65cf6f9b65ac3b4fc4b42f6774f6c2}{en\+E\+P\+C\+F\+Pwm\+Width\+\_\+16}}, 
+\mbox{\hyperlink{pwm_8h_adc2248862ed98f44dfc603f88fee97bea575ebc3eb5049227985a33ddca15a882}{en\+E\+P\+C\+F\+Pwm\+Width\+\_\+32}}, 
+\mbox{\hyperlink{pwm_8h_adc2248862ed98f44dfc603f88fee97beac6251a1be8b676a5152201f8c19bfb6d}{en\+E\+P\+C\+F\+Pwm\+Width\+\_\+64}}, 
+\newline
+\mbox{\hyperlink{pwm_8h_adc2248862ed98f44dfc603f88fee97bea322c18f5a60cf5cdfb0d629be0dbf432}{en\+E\+P\+C\+F\+Pwm\+Width\+\_\+\+Max}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration for Pwm width. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{pwm_8h_abfc16ab9143ae2808f1309abc276f13e}{En\+E\+P\+C\+F\+Pwm\+Output\+Signal\+\_\+t}} \{ \mbox{\hyperlink{pwm_8h_abfc16ab9143ae2808f1309abc276f13ea04e6c4c1882ae5e5b223b0c010b2e24b}{en\+E\+P\+C\+F\+Pwm\+Output\+Signal\+\_\+\+Normal}}, 
+\mbox{\hyperlink{pwm_8h_abfc16ab9143ae2808f1309abc276f13ea55b21bbb0be3e1dd5d10de75aa880dae}{en\+E\+P\+C\+F\+Pwm\+Output\+Signal\+\_\+\+Inverted}}, 
+\mbox{\hyperlink{pwm_8h_abfc16ab9143ae2808f1309abc276f13eac27fb528673e739323651f705933802b}{en\+E\+P\+C\+F\+Pwm\+Output\+Signal\+\_\+\+Max}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration for Pwm signal generated on the output pin. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{pwm_8h_a0fd1055e3fcb0ac5ace14814052ce134}{En\+E\+P\+C\+F\+Pwm\+Interrupt\+Source\+\_\+t}} \{ \mbox{\hyperlink{pwm_8h_a0fd1055e3fcb0ac5ace14814052ce134aa1a65f001e6048eb546e9d32afcbf1cd}{en\+E\+P\+C\+F\+Pwm\+Pulse\+\_\+\+Start}}, 
+\mbox{\hyperlink{pwm_8h_a0fd1055e3fcb0ac5ace14814052ce134a1ba6ed49e4f9748880c1827692f2a1a3}{en\+E\+P\+C\+F\+Pwm\+Pulse\+\_\+\+End}}, 
+\mbox{\hyperlink{pwm_8h_a0fd1055e3fcb0ac5ace14814052ce134aa029fc4d71b8fdfbafc4ed52878a54ce}{en\+E\+P\+C\+F\+Pwm\+Interrupt\+Source\+\_\+\+Max}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration for interrupt source. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{pwm_8h_a5c5be6bc6393ff9b180b81321a3293c4}{En\+E\+P\+C\+F\+Pwm\+State\+\_\+t}} \{ \mbox{\hyperlink{pwm_8h_a5c5be6bc6393ff9b180b81321a3293c4af62dd774c19c24fbb279d1ad37612b20}{en\+E\+P\+C\+F\+Pwm\+State\+\_\+\+Stopped}} = 0, 
+\mbox{\hyperlink{pwm_8h_a5c5be6bc6393ff9b180b81321a3293c4a84569f139ada23a67a3fdb28448d1f88}{en\+E\+P\+C\+F\+Pwm\+State\+\_\+\+Running}}, 
+\mbox{\hyperlink{pwm_8h_a5c5be6bc6393ff9b180b81321a3293c4af50c31977f373d5cfe74bd346d0ff841}{en\+E\+P\+C\+F\+Pwm\+State\+\_\+\+Max}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration for current state of pwm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}} $\ast$ \mbox{\hyperlink{pwm_8h_a8ca32177a859845dcc8014c2b9b62fe9}{epcf\+\_\+pwm\+\_\+create\+Native}} (\mbox{\hyperlink{structEPCFPwmCfg__t}{E\+P\+C\+F\+Pwm\+Cfg\+\_\+t}} $\ast$p\+Pwm\+Config)
+\begin{DoxyCompactList}\small\item\em This function is used to create a pwm device. Call this function in beginning to initialize the pwm device. This function allocates memory for the device using malloc() function call and returns a pointer to the device. Pass this device pointer while calling pwm functions. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{pwm_8h_a62bf7f5b36033532d735c3975d27ffaa}{epcf\+\_\+pwm\+\_\+start}} (\mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}} $\ast$p\+Pwm\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to start the pwm device. Pwm starts generating the output signal according to channel configuration. It can be stopped by a call to the function epcf\+\_\+pwm\+\_\+stop. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{pwm_8h_ac4070d470f9666982ada471b44942b66}{epcf\+\_\+pwm\+\_\+stop}} (\mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}} $\ast$p\+Pwm\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to stop the running pwm device. The pwm signal is stopped and can be started again by a call to the function epcf\+\_\+pwm\+\_\+start. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{pwm_8h_a04ba03a0081ef4a8aa9992e2b347d33e}{epcf\+\_\+pwm\+\_\+attach\+Callback}} (\mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}} $\ast$p\+Pwm\+Device, \mbox{\hyperlink{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3}{En\+E\+P\+C\+F\+Pwm\+Channel\+\_\+t}} channel, \mbox{\hyperlink{pwm_8h_a0fd1055e3fcb0ac5ace14814052ce134}{En\+E\+P\+C\+F\+Pwm\+Interrupt\+Source\+\_\+t}} interrupt\+Source, epcf\+Callback\+\_\+fp callback)
+\begin{DoxyCompactList}\small\item\em This function is used to attach a pwm callback for the specific pwm interrupt source. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{pwm_8h_a97916c8374e807b23236bc6cfa20e307}{epcf\+\_\+pwm\+\_\+detach\+Callback}} (\mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}} $\ast$p\+Pwm\+Device, uint8\+\_\+t callback\+Id)
+\begin{DoxyCompactList}\small\item\em This function is used to detach the pwm callback for the specific pwm interrupt source. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{pwm_8h_acc5e4b7cecea11f632e219b01ddd2d73}{epcf\+\_\+pwm\+\_\+set\+Period}} (\mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}} $\ast$p\+Pwm\+Device, E\+P\+C\+F\+Time\+\_\+t period)
+\begin{DoxyCompactList}\small\item\em This function is used to change period of the pwm device. A period is the time it takes for a signal to complete an on-\/and-\/off cycle. Period value should be less than the maximum pwm period which is defined by the resolution value in pwm configuration. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{pwm_8h_a1b75a16ee8406e7292b0727aabc2bea6}{epcf\+\_\+pwm\+\_\+set\+Duty\+Cycle}} (\mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}} $\ast$p\+Pwm\+Device, \mbox{\hyperlink{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3}{En\+E\+P\+C\+F\+Pwm\+Channel\+\_\+t}} channel, uint8\+\_\+t duty\+Cycle, \mbox{\hyperlink{pwm_8h_abfc16ab9143ae2808f1309abc276f13e}{En\+E\+P\+C\+F\+Pwm\+Output\+Signal\+\_\+t}} signal)
+\begin{DoxyCompactList}\small\item\em This function is used to enable pwm output channel and pulse width. It can be used to generate a pwm signal for a specific pulse width on the respective pwm channel. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{pwm_8h_abe80c2df7ce455364397376e30f81dff}{epcf\+\_\+pwm\+\_\+close}} (\mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}} $\ast$p\+Pwm\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to close the pwm device. It will free the memory allocated by the pwm device. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{pwm_8h_a71e2db1abaa44f1a8cbacb31b08a33cd}{epcf\+\_\+pwm\+\_\+get\+Device\+Count}} ()
+\begin{DoxyCompactList}\small\item\em This function is used to get the total number of available pwm devices. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{pwm_8h_a5c5be6bc6393ff9b180b81321a3293c4}{En\+E\+P\+C\+F\+Pwm\+State\+\_\+t}} \mbox{\hyperlink{pwm_8h_a09a859ecc6302cf9eaff02e36c6a7389}{epcf\+\_\+pwm\+\_\+get\+State}} (\mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}} $\ast$p\+Pwm\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to get the current state of the pwm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file is used to configure a P\+WM device. 
+
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3}\label{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3}} 
+\index{pwm.\+h@{pwm.\+h}!En\+E\+P\+C\+F\+Pwm\+Channel\+\_\+t@{En\+E\+P\+C\+F\+Pwm\+Channel\+\_\+t}}
+\index{En\+E\+P\+C\+F\+Pwm\+Channel\+\_\+t@{En\+E\+P\+C\+F\+Pwm\+Channel\+\_\+t}!pwm.\+h@{pwm.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Pwm\+Channel\+\_\+t}{EnEPCFPwmChannel\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3}{En\+E\+P\+C\+F\+Pwm\+Channel\+\_\+t}}}
+
+
+
+Enumeration for Channel number. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+0@{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+0}!pwm.\+h@{pwm.\+h}}\index{pwm.\+h@{pwm.\+h}!en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+0@{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+0}}}\mbox{\Hypertarget{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3a1b139d6d57c83a1fc872ce913f29840d}\label{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3a1b139d6d57c83a1fc872ce913f29840d}} 
+en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+0&Channel number 0 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+1@{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+1}!pwm.\+h@{pwm.\+h}}\index{pwm.\+h@{pwm.\+h}!en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+1@{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+1}}}\mbox{\Hypertarget{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3a03e60ba1780e81e75ef437b2bddbc4fe}\label{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3a03e60ba1780e81e75ef437b2bddbc4fe}} 
+en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+1&Channel number 1 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+2@{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+2}!pwm.\+h@{pwm.\+h}}\index{pwm.\+h@{pwm.\+h}!en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+2@{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+2}}}\mbox{\Hypertarget{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3aa4a360c1faf68848d13702ef2e932f3b}\label{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3aa4a360c1faf68848d13702ef2e932f3b}} 
+en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+2&Channel number 2 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+3@{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+3}!pwm.\+h@{pwm.\+h}}\index{pwm.\+h@{pwm.\+h}!en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+3@{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+3}}}\mbox{\Hypertarget{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3a5fbb42d01aae1ab1c5ed0adf9629d211}\label{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3a5fbb42d01aae1ab1c5ed0adf9629d211}} 
+en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+3&Channel number 3 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+4@{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+4}!pwm.\+h@{pwm.\+h}}\index{pwm.\+h@{pwm.\+h}!en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+4@{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+4}}}\mbox{\Hypertarget{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3a21715ee7a5cc3f7fbfaf43232f659516}\label{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3a21715ee7a5cc3f7fbfaf43232f659516}} 
+en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+4&Channel number 4 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+5@{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+5}!pwm.\+h@{pwm.\+h}}\index{pwm.\+h@{pwm.\+h}!en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+5@{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+5}}}\mbox{\Hypertarget{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3ae077edd73728292fe6ff7dc0ea8c72cf}\label{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3ae077edd73728292fe6ff7dc0ea8c72cf}} 
+en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+5&Channel number 5 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+6@{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+6}!pwm.\+h@{pwm.\+h}}\index{pwm.\+h@{pwm.\+h}!en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+6@{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+6}}}\mbox{\Hypertarget{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3a093ef2224b73c6b7d3db8a0cd84f6160}\label{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3a093ef2224b73c6b7d3db8a0cd84f6160}} 
+en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+6&Channel number 6 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+7@{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+7}!pwm.\+h@{pwm.\+h}}\index{pwm.\+h@{pwm.\+h}!en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+7@{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+7}}}\mbox{\Hypertarget{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3a9d924ff6cf3c3dee64dd484524a49df6}\label{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3a9d924ff6cf3c3dee64dd484524a49df6}} 
+en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+7&Channel number 7 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+8@{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+8}!pwm.\+h@{pwm.\+h}}\index{pwm.\+h@{pwm.\+h}!en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+8@{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+8}}}\mbox{\Hypertarget{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3a4914d214e363199164a1409027ce91d4}\label{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3a4914d214e363199164a1409027ce91d4}} 
+en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+8&Channel number 8 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+9@{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+9}!pwm.\+h@{pwm.\+h}}\index{pwm.\+h@{pwm.\+h}!en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+9@{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+9}}}\mbox{\Hypertarget{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3a93f79a8b1c28bc02068c84988bd5c9cd}\label{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3a93f79a8b1c28bc02068c84988bd5c9cd}} 
+en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+9&Channel number 9 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+10@{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+10}!pwm.\+h@{pwm.\+h}}\index{pwm.\+h@{pwm.\+h}!en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+10@{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+10}}}\mbox{\Hypertarget{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3a8ddff8ee418a3d51d4daa428bc1fe0be}\label{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3a8ddff8ee418a3d51d4daa428bc1fe0be}} 
+en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+10&Channel number 10 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+11@{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+11}!pwm.\+h@{pwm.\+h}}\index{pwm.\+h@{pwm.\+h}!en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+11@{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+11}}}\mbox{\Hypertarget{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3aa67cbfd17cc407fcb72115eee88fcfa9}\label{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3aa67cbfd17cc407fcb72115eee88fcfa9}} 
+en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+11&Channel number 11 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+12@{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+12}!pwm.\+h@{pwm.\+h}}\index{pwm.\+h@{pwm.\+h}!en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+12@{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+12}}}\mbox{\Hypertarget{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3a3c3122e5c32b3b3ea5dbdae0d9b2c1a8}\label{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3a3c3122e5c32b3b3ea5dbdae0d9b2c1a8}} 
+en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+12&Channel number 12 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+13@{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+13}!pwm.\+h@{pwm.\+h}}\index{pwm.\+h@{pwm.\+h}!en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+13@{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+13}}}\mbox{\Hypertarget{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3a925053ab3ba273af34d1bc2ef243ba43}\label{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3a925053ab3ba273af34d1bc2ef243ba43}} 
+en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+13&Channel number 13 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+14@{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+14}!pwm.\+h@{pwm.\+h}}\index{pwm.\+h@{pwm.\+h}!en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+14@{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+14}}}\mbox{\Hypertarget{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3aabfdbb0dc2a473f2c8ddd584f7d8d621}\label{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3aabfdbb0dc2a473f2c8ddd584f7d8d621}} 
+en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+14&Channel number 14 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+15@{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+15}!pwm.\+h@{pwm.\+h}}\index{pwm.\+h@{pwm.\+h}!en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+15@{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+15}}}\mbox{\Hypertarget{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3acc8b6d84d11531d5a2ec807b21aa345b}\label{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3acc8b6d84d11531d5a2ec807b21aa345b}} 
+en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+15&Channel number 15 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+\+Max@{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+\+Max}!pwm.\+h@{pwm.\+h}}\index{pwm.\+h@{pwm.\+h}!en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+\+Max@{en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+\+Max}}}\mbox{\Hypertarget{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3abbe567b1353b30ac81bcff972cc46183}\label{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3abbe567b1353b30ac81bcff972cc46183}} 
+en\+E\+P\+C\+F\+Pwm\+Channel\+\_\+\+Max&Special value for boundary checking \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{pwm_8h_a0fd1055e3fcb0ac5ace14814052ce134}\label{pwm_8h_a0fd1055e3fcb0ac5ace14814052ce134}} 
+\index{pwm.\+h@{pwm.\+h}!En\+E\+P\+C\+F\+Pwm\+Interrupt\+Source\+\_\+t@{En\+E\+P\+C\+F\+Pwm\+Interrupt\+Source\+\_\+t}}
+\index{En\+E\+P\+C\+F\+Pwm\+Interrupt\+Source\+\_\+t@{En\+E\+P\+C\+F\+Pwm\+Interrupt\+Source\+\_\+t}!pwm.\+h@{pwm.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Pwm\+Interrupt\+Source\+\_\+t}{EnEPCFPwmInterruptSource\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pwm_8h_a0fd1055e3fcb0ac5ace14814052ce134}{En\+E\+P\+C\+F\+Pwm\+Interrupt\+Source\+\_\+t}}}
+
+
+
+Enumeration for interrupt source. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pwm\+Pulse\+\_\+\+Start@{en\+E\+P\+C\+F\+Pwm\+Pulse\+\_\+\+Start}!pwm.\+h@{pwm.\+h}}\index{pwm.\+h@{pwm.\+h}!en\+E\+P\+C\+F\+Pwm\+Pulse\+\_\+\+Start@{en\+E\+P\+C\+F\+Pwm\+Pulse\+\_\+\+Start}}}\mbox{\Hypertarget{pwm_8h_a0fd1055e3fcb0ac5ace14814052ce134aa1a65f001e6048eb546e9d32afcbf1cd}\label{pwm_8h_a0fd1055e3fcb0ac5ace14814052ce134aa1a65f001e6048eb546e9d32afcbf1cd}} 
+en\+E\+P\+C\+F\+Pwm\+Pulse\+\_\+\+Start&Interrupt when pwm pulse starts \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pwm\+Pulse\+\_\+\+End@{en\+E\+P\+C\+F\+Pwm\+Pulse\+\_\+\+End}!pwm.\+h@{pwm.\+h}}\index{pwm.\+h@{pwm.\+h}!en\+E\+P\+C\+F\+Pwm\+Pulse\+\_\+\+End@{en\+E\+P\+C\+F\+Pwm\+Pulse\+\_\+\+End}}}\mbox{\Hypertarget{pwm_8h_a0fd1055e3fcb0ac5ace14814052ce134a1ba6ed49e4f9748880c1827692f2a1a3}\label{pwm_8h_a0fd1055e3fcb0ac5ace14814052ce134a1ba6ed49e4f9748880c1827692f2a1a3}} 
+en\+E\+P\+C\+F\+Pwm\+Pulse\+\_\+\+End&Interrupt when pwm pulse ends \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pwm\+Interrupt\+Source\+\_\+\+Max@{en\+E\+P\+C\+F\+Pwm\+Interrupt\+Source\+\_\+\+Max}!pwm.\+h@{pwm.\+h}}\index{pwm.\+h@{pwm.\+h}!en\+E\+P\+C\+F\+Pwm\+Interrupt\+Source\+\_\+\+Max@{en\+E\+P\+C\+F\+Pwm\+Interrupt\+Source\+\_\+\+Max}}}\mbox{\Hypertarget{pwm_8h_a0fd1055e3fcb0ac5ace14814052ce134aa029fc4d71b8fdfbafc4ed52878a54ce}\label{pwm_8h_a0fd1055e3fcb0ac5ace14814052ce134aa029fc4d71b8fdfbafc4ed52878a54ce}} 
+en\+E\+P\+C\+F\+Pwm\+Interrupt\+Source\+\_\+\+Max&Special value for boundary checking \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{pwm_8h_abfc16ab9143ae2808f1309abc276f13e}\label{pwm_8h_abfc16ab9143ae2808f1309abc276f13e}} 
+\index{pwm.\+h@{pwm.\+h}!En\+E\+P\+C\+F\+Pwm\+Output\+Signal\+\_\+t@{En\+E\+P\+C\+F\+Pwm\+Output\+Signal\+\_\+t}}
+\index{En\+E\+P\+C\+F\+Pwm\+Output\+Signal\+\_\+t@{En\+E\+P\+C\+F\+Pwm\+Output\+Signal\+\_\+t}!pwm.\+h@{pwm.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Pwm\+Output\+Signal\+\_\+t}{EnEPCFPwmOutputSignal\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pwm_8h_abfc16ab9143ae2808f1309abc276f13e}{En\+E\+P\+C\+F\+Pwm\+Output\+Signal\+\_\+t}}}
+
+
+
+Enumeration for Pwm signal generated on the output pin. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pwm\+Output\+Signal\+\_\+\+Normal@{en\+E\+P\+C\+F\+Pwm\+Output\+Signal\+\_\+\+Normal}!pwm.\+h@{pwm.\+h}}\index{pwm.\+h@{pwm.\+h}!en\+E\+P\+C\+F\+Pwm\+Output\+Signal\+\_\+\+Normal@{en\+E\+P\+C\+F\+Pwm\+Output\+Signal\+\_\+\+Normal}}}\mbox{\Hypertarget{pwm_8h_abfc16ab9143ae2808f1309abc276f13ea04e6c4c1882ae5e5b223b0c010b2e24b}\label{pwm_8h_abfc16ab9143ae2808f1309abc276f13ea04e6c4c1882ae5e5b223b0c010b2e24b}} 
+en\+E\+P\+C\+F\+Pwm\+Output\+Signal\+\_\+\+Normal&Normal signal output \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pwm\+Output\+Signal\+\_\+\+Inverted@{en\+E\+P\+C\+F\+Pwm\+Output\+Signal\+\_\+\+Inverted}!pwm.\+h@{pwm.\+h}}\index{pwm.\+h@{pwm.\+h}!en\+E\+P\+C\+F\+Pwm\+Output\+Signal\+\_\+\+Inverted@{en\+E\+P\+C\+F\+Pwm\+Output\+Signal\+\_\+\+Inverted}}}\mbox{\Hypertarget{pwm_8h_abfc16ab9143ae2808f1309abc276f13ea55b21bbb0be3e1dd5d10de75aa880dae}\label{pwm_8h_abfc16ab9143ae2808f1309abc276f13ea55b21bbb0be3e1dd5d10de75aa880dae}} 
+en\+E\+P\+C\+F\+Pwm\+Output\+Signal\+\_\+\+Inverted&Inverted signal output \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pwm\+Output\+Signal\+\_\+\+Max@{en\+E\+P\+C\+F\+Pwm\+Output\+Signal\+\_\+\+Max}!pwm.\+h@{pwm.\+h}}\index{pwm.\+h@{pwm.\+h}!en\+E\+P\+C\+F\+Pwm\+Output\+Signal\+\_\+\+Max@{en\+E\+P\+C\+F\+Pwm\+Output\+Signal\+\_\+\+Max}}}\mbox{\Hypertarget{pwm_8h_abfc16ab9143ae2808f1309abc276f13eac27fb528673e739323651f705933802b}\label{pwm_8h_abfc16ab9143ae2808f1309abc276f13eac27fb528673e739323651f705933802b}} 
+en\+E\+P\+C\+F\+Pwm\+Output\+Signal\+\_\+\+Max&Special value for boundary checking \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{pwm_8h_a5c5be6bc6393ff9b180b81321a3293c4}\label{pwm_8h_a5c5be6bc6393ff9b180b81321a3293c4}} 
+\index{pwm.\+h@{pwm.\+h}!En\+E\+P\+C\+F\+Pwm\+State\+\_\+t@{En\+E\+P\+C\+F\+Pwm\+State\+\_\+t}}
+\index{En\+E\+P\+C\+F\+Pwm\+State\+\_\+t@{En\+E\+P\+C\+F\+Pwm\+State\+\_\+t}!pwm.\+h@{pwm.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Pwm\+State\+\_\+t}{EnEPCFPwmState\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pwm_8h_a5c5be6bc6393ff9b180b81321a3293c4}{En\+E\+P\+C\+F\+Pwm\+State\+\_\+t}}}
+
+
+
+Enumeration for current state of pwm. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pwm\+State\+\_\+\+Stopped@{en\+E\+P\+C\+F\+Pwm\+State\+\_\+\+Stopped}!pwm.\+h@{pwm.\+h}}\index{pwm.\+h@{pwm.\+h}!en\+E\+P\+C\+F\+Pwm\+State\+\_\+\+Stopped@{en\+E\+P\+C\+F\+Pwm\+State\+\_\+\+Stopped}}}\mbox{\Hypertarget{pwm_8h_a5c5be6bc6393ff9b180b81321a3293c4af62dd774c19c24fbb279d1ad37612b20}\label{pwm_8h_a5c5be6bc6393ff9b180b81321a3293c4af62dd774c19c24fbb279d1ad37612b20}} 
+en\+E\+P\+C\+F\+Pwm\+State\+\_\+\+Stopped&pwm is stopped, no user callback will get called \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pwm\+State\+\_\+\+Running@{en\+E\+P\+C\+F\+Pwm\+State\+\_\+\+Running}!pwm.\+h@{pwm.\+h}}\index{pwm.\+h@{pwm.\+h}!en\+E\+P\+C\+F\+Pwm\+State\+\_\+\+Running@{en\+E\+P\+C\+F\+Pwm\+State\+\_\+\+Running}}}\mbox{\Hypertarget{pwm_8h_a5c5be6bc6393ff9b180b81321a3293c4a84569f139ada23a67a3fdb28448d1f88}\label{pwm_8h_a5c5be6bc6393ff9b180b81321a3293c4a84569f139ada23a67a3fdb28448d1f88}} 
+en\+E\+P\+C\+F\+Pwm\+State\+\_\+\+Running&pwm is running (operational), user callback(s) will get called at respective period \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pwm\+State\+\_\+\+Max@{en\+E\+P\+C\+F\+Pwm\+State\+\_\+\+Max}!pwm.\+h@{pwm.\+h}}\index{pwm.\+h@{pwm.\+h}!en\+E\+P\+C\+F\+Pwm\+State\+\_\+\+Max@{en\+E\+P\+C\+F\+Pwm\+State\+\_\+\+Max}}}\mbox{\Hypertarget{pwm_8h_a5c5be6bc6393ff9b180b81321a3293c4af50c31977f373d5cfe74bd346d0ff841}\label{pwm_8h_a5c5be6bc6393ff9b180b81321a3293c4af50c31977f373d5cfe74bd346d0ff841}} 
+en\+E\+P\+C\+F\+Pwm\+State\+\_\+\+Max&Special value for boundary checking \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{pwm_8h_adc2248862ed98f44dfc603f88fee97be}\label{pwm_8h_adc2248862ed98f44dfc603f88fee97be}} 
+\index{pwm.\+h@{pwm.\+h}!En\+E\+P\+C\+F\+Pwm\+Width\+\_\+t@{En\+E\+P\+C\+F\+Pwm\+Width\+\_\+t}}
+\index{En\+E\+P\+C\+F\+Pwm\+Width\+\_\+t@{En\+E\+P\+C\+F\+Pwm\+Width\+\_\+t}!pwm.\+h@{pwm.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Pwm\+Width\+\_\+t}{EnEPCFPwmWidth\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pwm_8h_adc2248862ed98f44dfc603f88fee97be}{En\+E\+P\+C\+F\+Pwm\+Width\+\_\+t}}}
+
+
+
+Enumeration for Pwm width. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pwm\+Width\+\_\+8@{en\+E\+P\+C\+F\+Pwm\+Width\+\_\+8}!pwm.\+h@{pwm.\+h}}\index{pwm.\+h@{pwm.\+h}!en\+E\+P\+C\+F\+Pwm\+Width\+\_\+8@{en\+E\+P\+C\+F\+Pwm\+Width\+\_\+8}}}\mbox{\Hypertarget{pwm_8h_adc2248862ed98f44dfc603f88fee97bea121da74696f53a44ef6e63b54ff45a6d}\label{pwm_8h_adc2248862ed98f44dfc603f88fee97bea121da74696f53a44ef6e63b54ff45a6d}} 
+en\+E\+P\+C\+F\+Pwm\+Width\+\_\+8&8-\/bit pwm device \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pwm\+Width\+\_\+16@{en\+E\+P\+C\+F\+Pwm\+Width\+\_\+16}!pwm.\+h@{pwm.\+h}}\index{pwm.\+h@{pwm.\+h}!en\+E\+P\+C\+F\+Pwm\+Width\+\_\+16@{en\+E\+P\+C\+F\+Pwm\+Width\+\_\+16}}}\mbox{\Hypertarget{pwm_8h_adc2248862ed98f44dfc603f88fee97beabc65cf6f9b65ac3b4fc4b42f6774f6c2}\label{pwm_8h_adc2248862ed98f44dfc603f88fee97beabc65cf6f9b65ac3b4fc4b42f6774f6c2}} 
+en\+E\+P\+C\+F\+Pwm\+Width\+\_\+16&16-\/bit pwm device \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pwm\+Width\+\_\+32@{en\+E\+P\+C\+F\+Pwm\+Width\+\_\+32}!pwm.\+h@{pwm.\+h}}\index{pwm.\+h@{pwm.\+h}!en\+E\+P\+C\+F\+Pwm\+Width\+\_\+32@{en\+E\+P\+C\+F\+Pwm\+Width\+\_\+32}}}\mbox{\Hypertarget{pwm_8h_adc2248862ed98f44dfc603f88fee97bea575ebc3eb5049227985a33ddca15a882}\label{pwm_8h_adc2248862ed98f44dfc603f88fee97bea575ebc3eb5049227985a33ddca15a882}} 
+en\+E\+P\+C\+F\+Pwm\+Width\+\_\+32&32-\/bit pwm device \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pwm\+Width\+\_\+64@{en\+E\+P\+C\+F\+Pwm\+Width\+\_\+64}!pwm.\+h@{pwm.\+h}}\index{pwm.\+h@{pwm.\+h}!en\+E\+P\+C\+F\+Pwm\+Width\+\_\+64@{en\+E\+P\+C\+F\+Pwm\+Width\+\_\+64}}}\mbox{\Hypertarget{pwm_8h_adc2248862ed98f44dfc603f88fee97beac6251a1be8b676a5152201f8c19bfb6d}\label{pwm_8h_adc2248862ed98f44dfc603f88fee97beac6251a1be8b676a5152201f8c19bfb6d}} 
+en\+E\+P\+C\+F\+Pwm\+Width\+\_\+64&64-\/bit pwm device \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Pwm\+Width\+\_\+\+Max@{en\+E\+P\+C\+F\+Pwm\+Width\+\_\+\+Max}!pwm.\+h@{pwm.\+h}}\index{pwm.\+h@{pwm.\+h}!en\+E\+P\+C\+F\+Pwm\+Width\+\_\+\+Max@{en\+E\+P\+C\+F\+Pwm\+Width\+\_\+\+Max}}}\mbox{\Hypertarget{pwm_8h_adc2248862ed98f44dfc603f88fee97bea322c18f5a60cf5cdfb0d629be0dbf432}\label{pwm_8h_adc2248862ed98f44dfc603f88fee97bea322c18f5a60cf5cdfb0d629be0dbf432}} 
+en\+E\+P\+C\+F\+Pwm\+Width\+\_\+\+Max&Special value for boundary checking \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{pwm_8h_a04ba03a0081ef4a8aa9992e2b347d33e}\label{pwm_8h_a04ba03a0081ef4a8aa9992e2b347d33e}} 
+\index{pwm.\+h@{pwm.\+h}!epcf\+\_\+pwm\+\_\+attach\+Callback@{epcf\+\_\+pwm\+\_\+attach\+Callback}}
+\index{epcf\+\_\+pwm\+\_\+attach\+Callback@{epcf\+\_\+pwm\+\_\+attach\+Callback}!pwm.\+h@{pwm.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+pwm\+\_\+attach\+Callback()}{epcf\_pwm\_attachCallback()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+pwm\+\_\+attach\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}} $\ast$}]{p\+Pwm\+Device,  }\item[{\mbox{\hyperlink{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3}{En\+E\+P\+C\+F\+Pwm\+Channel\+\_\+t}}}]{channel,  }\item[{\mbox{\hyperlink{pwm_8h_a0fd1055e3fcb0ac5ace14814052ce134}{En\+E\+P\+C\+F\+Pwm\+Interrupt\+Source\+\_\+t}}}]{interrupt\+Source,  }\item[{epcf\+Callback\+\_\+fp}]{callback }\end{DoxyParamCaption})}
+
+
+
+This function is used to attach a pwm callback for the specific pwm interrupt source. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Pwm\+Device} & Pointer to the pwm device returned after successful creation of the pwm device \\
+\hline
+{\em interrupt\+Source} & Interrupt source for the callback. \\
+\hline
+{\em callback} & User callback to be called at the specified interrupt source \\
+\hline
+{\em channel} & Pwm output channel\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return callback Id.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Call this function before starting the pwm device using epcf\+\_\+pwm\+\_\+start function. To attach a callback if pwm has already started\+:
+\begin{DoxyEnumerate}
+\item Stop the pwm device.
+\item Attach a callback.
+\item Start the pwm device again. 
+\end{DoxyEnumerate}
+\end{DoxyNote}
+\mbox{\Hypertarget{pwm_8h_abe80c2df7ce455364397376e30f81dff}\label{pwm_8h_abe80c2df7ce455364397376e30f81dff}} 
+\index{pwm.\+h@{pwm.\+h}!epcf\+\_\+pwm\+\_\+close@{epcf\+\_\+pwm\+\_\+close}}
+\index{epcf\+\_\+pwm\+\_\+close@{epcf\+\_\+pwm\+\_\+close}!pwm.\+h@{pwm.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+pwm\+\_\+close()}{epcf\_pwm\_close()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+pwm\+\_\+close (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}} $\ast$}]{p\+Pwm\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to close the pwm device. It will free the memory allocated by the pwm device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Pwm\+Device} & Pointer to the pwm device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{pwm_8h_a8ca32177a859845dcc8014c2b9b62fe9}\label{pwm_8h_a8ca32177a859845dcc8014c2b9b62fe9}} 
+\index{pwm.\+h@{pwm.\+h}!epcf\+\_\+pwm\+\_\+create\+Native@{epcf\+\_\+pwm\+\_\+create\+Native}}
+\index{epcf\+\_\+pwm\+\_\+create\+Native@{epcf\+\_\+pwm\+\_\+create\+Native}!pwm.\+h@{pwm.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+pwm\+\_\+create\+Native()}{epcf\_pwm\_createNative()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}}$\ast$ epcf\+\_\+pwm\+\_\+create\+Native (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFPwmCfg__t}{E\+P\+C\+F\+Pwm\+Cfg\+\_\+t}} $\ast$}]{p\+Pwm\+Config }\end{DoxyParamCaption})}
+
+
+
+This function is used to create a pwm device. Call this function in beginning to initialize the pwm device. This function allocates memory for the device using malloc() function call and returns a pointer to the device. Pass this device pointer while calling pwm functions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Pwm\+Config} & Pointer to the pwm configuration structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+On success, it returns a pointer to the pwm device. On error, it returns N\+U\+LL. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{pwm_8h_a97916c8374e807b23236bc6cfa20e307}\label{pwm_8h_a97916c8374e807b23236bc6cfa20e307}} 
+\index{pwm.\+h@{pwm.\+h}!epcf\+\_\+pwm\+\_\+detach\+Callback@{epcf\+\_\+pwm\+\_\+detach\+Callback}}
+\index{epcf\+\_\+pwm\+\_\+detach\+Callback@{epcf\+\_\+pwm\+\_\+detach\+Callback}!pwm.\+h@{pwm.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+pwm\+\_\+detach\+Callback()}{epcf\_pwm\_detachCallback()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+pwm\+\_\+detach\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}} $\ast$}]{p\+Pwm\+Device,  }\item[{uint8\+\_\+t}]{callback\+Id }\end{DoxyParamCaption})}
+
+
+
+This function is used to detach the pwm callback for the specific pwm interrupt source. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Pwm\+Device} & Pointer to the pwm device. \\
+\hline
+{\em callback\+Id} & callback\+Id returned by epcf\+\_\+pwm\+\_\+attach\+Callback function.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Call this function before starting the pwm device using epcf\+\_\+pwm\+\_\+start function. To detach a callback if pwm has already started\+:
+\begin{DoxyEnumerate}
+\item Stop the pwm device.
+\item Detach the callback.
+\item Start the pwm device again. 
+\end{DoxyEnumerate}
+\end{DoxyNote}
+\mbox{\Hypertarget{pwm_8h_a71e2db1abaa44f1a8cbacb31b08a33cd}\label{pwm_8h_a71e2db1abaa44f1a8cbacb31b08a33cd}} 
+\index{pwm.\+h@{pwm.\+h}!epcf\+\_\+pwm\+\_\+get\+Device\+Count@{epcf\+\_\+pwm\+\_\+get\+Device\+Count}}
+\index{epcf\+\_\+pwm\+\_\+get\+Device\+Count@{epcf\+\_\+pwm\+\_\+get\+Device\+Count}!pwm.\+h@{pwm.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+pwm\+\_\+get\+Device\+Count()}{epcf\_pwm\_getDeviceCount()}}
+{\footnotesize\ttfamily uint8\+\_\+t epcf\+\_\+pwm\+\_\+get\+Device\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function is used to get the total number of available pwm devices. 
+
+\begin{DoxyReturn}{Returns}
+Returns the number of available pwm devices. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{pwm_8h_a09a859ecc6302cf9eaff02e36c6a7389}\label{pwm_8h_a09a859ecc6302cf9eaff02e36c6a7389}} 
+\index{pwm.\+h@{pwm.\+h}!epcf\+\_\+pwm\+\_\+get\+State@{epcf\+\_\+pwm\+\_\+get\+State}}
+\index{epcf\+\_\+pwm\+\_\+get\+State@{epcf\+\_\+pwm\+\_\+get\+State}!pwm.\+h@{pwm.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+pwm\+\_\+get\+State()}{epcf\_pwm\_getState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{pwm_8h_a5c5be6bc6393ff9b180b81321a3293c4}{En\+E\+P\+C\+F\+Pwm\+State\+\_\+t}} epcf\+\_\+pwm\+\_\+get\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}} $\ast$}]{p\+Pwm\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to get the current state of the pwm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Pwm\+Device} & Pointer to the pwm device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return pwm state 
+\end{DoxyReturn}
+\mbox{\Hypertarget{pwm_8h_a1b75a16ee8406e7292b0727aabc2bea6}\label{pwm_8h_a1b75a16ee8406e7292b0727aabc2bea6}} 
+\index{pwm.\+h@{pwm.\+h}!epcf\+\_\+pwm\+\_\+set\+Duty\+Cycle@{epcf\+\_\+pwm\+\_\+set\+Duty\+Cycle}}
+\index{epcf\+\_\+pwm\+\_\+set\+Duty\+Cycle@{epcf\+\_\+pwm\+\_\+set\+Duty\+Cycle}!pwm.\+h@{pwm.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+pwm\+\_\+set\+Duty\+Cycle()}{epcf\_pwm\_setDutyCycle()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+pwm\+\_\+set\+Duty\+Cycle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}} $\ast$}]{p\+Pwm\+Device,  }\item[{\mbox{\hyperlink{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3}{En\+E\+P\+C\+F\+Pwm\+Channel\+\_\+t}}}]{channel,  }\item[{uint8\+\_\+t}]{duty\+Cycle,  }\item[{\mbox{\hyperlink{pwm_8h_abfc16ab9143ae2808f1309abc276f13e}{En\+E\+P\+C\+F\+Pwm\+Output\+Signal\+\_\+t}}}]{signal }\end{DoxyParamCaption})}
+
+
+
+This function is used to enable pwm output channel and pulse width. It can be used to generate a pwm signal for a specific pulse width on the respective pwm channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Pwm\+Device} & Pointer to the pwm device. \\
+\hline
+{\em channel} & Pwm output channel. \\
+\hline
+{\em duty\+Cycle} & Set the duty cycle of the pwm signal. \\
+\hline
+{\em signal} & To select whether the normal or inverted signal will occur on the pwm output pin.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Call this function before starting the pwm device using epcf\+\_\+pwm\+\_\+start function. 
+\end{DoxyNote}
+\mbox{\Hypertarget{pwm_8h_acc5e4b7cecea11f632e219b01ddd2d73}\label{pwm_8h_acc5e4b7cecea11f632e219b01ddd2d73}} 
+\index{pwm.\+h@{pwm.\+h}!epcf\+\_\+pwm\+\_\+set\+Period@{epcf\+\_\+pwm\+\_\+set\+Period}}
+\index{epcf\+\_\+pwm\+\_\+set\+Period@{epcf\+\_\+pwm\+\_\+set\+Period}!pwm.\+h@{pwm.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+pwm\+\_\+set\+Period()}{epcf\_pwm\_setPeriod()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+pwm\+\_\+set\+Period (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}} $\ast$}]{p\+Pwm\+Device,  }\item[{E\+P\+C\+F\+Time\+\_\+t}]{period }\end{DoxyParamCaption})}
+
+
+
+This function is used to change period of the pwm device. A period is the time it takes for a signal to complete an on-\/and-\/off cycle. Period value should be less than the maximum pwm period which is defined by the resolution value in pwm configuration. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Pwm\+Device} & Pointer to the pwm device. \\
+\hline
+{\em period} & Period of the pwm device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Call this function before starting the pwm device using epcf\+\_\+pwm\+\_\+start function.
+\end{DoxyNote}
+\begin{DoxyRemark}{Remarks}
+Refer to platform specific header file for the actual behaviour of this function. 
+\end{DoxyRemark}
+\mbox{\Hypertarget{pwm_8h_a62bf7f5b36033532d735c3975d27ffaa}\label{pwm_8h_a62bf7f5b36033532d735c3975d27ffaa}} 
+\index{pwm.\+h@{pwm.\+h}!epcf\+\_\+pwm\+\_\+start@{epcf\+\_\+pwm\+\_\+start}}
+\index{epcf\+\_\+pwm\+\_\+start@{epcf\+\_\+pwm\+\_\+start}!pwm.\+h@{pwm.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+pwm\+\_\+start()}{epcf\_pwm\_start()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+pwm\+\_\+start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}} $\ast$}]{p\+Pwm\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to start the pwm device. Pwm starts generating the output signal according to channel configuration. It can be stopped by a call to the function epcf\+\_\+pwm\+\_\+stop. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Pwm\+Device} & Pointer to the pwm device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{pwm_8h_ac4070d470f9666982ada471b44942b66}\label{pwm_8h_ac4070d470f9666982ada471b44942b66}} 
+\index{pwm.\+h@{pwm.\+h}!epcf\+\_\+pwm\+\_\+stop@{epcf\+\_\+pwm\+\_\+stop}}
+\index{epcf\+\_\+pwm\+\_\+stop@{epcf\+\_\+pwm\+\_\+stop}!pwm.\+h@{pwm.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+pwm\+\_\+stop()}{epcf\_pwm\_stop()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+pwm\+\_\+stop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}} $\ast$}]{p\+Pwm\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to stop the running pwm device. The pwm signal is stopped and can be started again by a call to the function epcf\+\_\+pwm\+\_\+start. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Pwm\+Device} & Pointer to the pwm device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}

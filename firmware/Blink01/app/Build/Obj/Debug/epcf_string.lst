@@ -1,0 +1,3696 @@
+ARM GAS  /tmp/ccfV9k9H.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1	@ Tag_ABI_FP_denormal
+   5              		.eabi_attribute 21, 1	@ Tag_ABI_FP_exceptions
+   6              		.eabi_attribute 23, 3	@ Tag_ABI_FP_number_model
+   7              		.eabi_attribute 24, 1	@ Tag_ABI_align8_needed
+   8              		.eabi_attribute 25, 1	@ Tag_ABI_align8_preserved
+   9              		.eabi_attribute 26, 1	@ Tag_ABI_enum_size
+  10              		.eabi_attribute 30, 6	@ Tag_ABI_optimization_goals
+  11              		.eabi_attribute 34, 1	@ Tag_CPU_unaligned_access
+  12              		.eabi_attribute 18, 4	@ Tag_ABI_PCS_wchar_t
+  13              		.file	"epcf_string.c"
+  14              	@ GNU C (15:4.9.3+svn231177-1) version 4.9.3 20150529 (prerelease) (arm-none-eabi)
+  15              	@	compiled by GNU C version 5.2.1 20151129, GMP version 6.1.0, MPFR version 3.1.3, MPC version 1.0.
+  16              	@ warning: MPFR header version 3.1.3 differs from library version 3.1.4.
+  17              	@ GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+  18              	@ options passed:  -I . -I ./include -I ../pcf/include -imultilib armv7-m
+  19              	@ -MD Build/Obj/Debug/epcf_string.d -MF Build/.dep/epcf_string.o.d -MP
+  20              	@ -MQ Build/Obj/Debug/epcf_string.o -D__USES_INITFINI__
+  21              	@ ../epcf/utils/source/epcf_string.c -mcpu=cortex-m3 -mthumb
+  22              	@ -auxbase-strip Build/Obj/Debug/epcf_string.o -gdwarf-2 -O0 -Wall -Wno-cpp
+  23              	@ -std=gnu99 -fomit-frame-pointer -fverbose-asm
+  24              	@ options enabled:  -faggressive-loop-optimizations -fauto-inc-dec -fcommon
+  25              	@ -fdelete-null-pointer-checks -fdwarf2-cfi-asm -fearly-inlining
+  26              	@ -feliminate-unused-debug-types -ffunction-cse -fgcse-lm -fgnu-runtime
+  27              	@ -fgnu-unique -fident -finline-atomics -fira-hoist-pressure
+  28              	@ -fira-share-save-slots -fira-share-spill-slots -fivopts
+  29              	@ -fkeep-static-consts -fleading-underscore -flifetime-dse -fmath-errno
+  30              	@ -fmerge-debug-strings -fomit-frame-pointer -fpeephole
+  31              	@ -fprefetch-loop-arrays -freg-struct-return
+  32              	@ -fsched-critical-path-heuristic -fsched-dep-count-heuristic
+  33              	@ -fsched-group-heuristic -fsched-interblock -fsched-last-insn-heuristic
+  34              	@ -fsched-rank-heuristic -fsched-spec -fsched-spec-insn-heuristic
+  35              	@ -fsched-stalled-insns-dep -fshow-column -fsigned-zeros
+  36              	@ -fsplit-ivs-in-unroller -fstrict-volatile-bitfields -fsync-libcalls
+  37              	@ -ftrapping-math -ftree-coalesce-vars -ftree-cselim -ftree-forwprop
+  38              	@ -ftree-loop-if-convert -ftree-loop-im -ftree-loop-ivcanon
+  39              	@ -ftree-loop-optimize -ftree-parallelize-loops= -ftree-phiprop
+  40              	@ -ftree-reassoc -ftree-scev-cprop -funit-at-a-time -fverbose-asm
+  41              	@ -fzero-initialized-in-bss -mfix-cortex-m3-ldrd -mlittle-endian -mlra
+  42              	@ -mpic-data-is-text-relative -msched-prolog -mthumb -munaligned-access
+  43              	@ -mvectorize-with-neon-quad
+  44              	
+  45              		.text
+  46              	.Ltext0:
+  47              		.cfi_sections	.debug_frame
+  48              		.bss
+  49              		.align	2
+  50              	tokString:
+  51 0000 00000000 		.space	256
+  51      00000000 
+  51      00000000 
+  51      00000000 
+  51      00000000 
+  52              		.align	1
+  53              	is:
+ARM GAS  /tmp/ccfV9k9H.s 			page 2
+
+
+  54 0100 0000     		.space	2
+  55              		.align	1
+  56              	len:
+  57 0102 0000     		.space	2
+  58              		.text
+  59              		.align	2
+  60              		.global	pcfStringTokenize
+  61              		.thumb
+  62              		.thumb_func
+  63              		.type	pcfStringTokenize, %function
+  64              	pcfStringTokenize:
+  65              	.LFB40:
+  66              		.file 1 "../epcf/utils/source/epcf_string.c"
+   1:../epcf/utils/source/epcf_string.c **** #include "pcf.h"
+   2:../epcf/utils/source/epcf_string.c **** 
+   3:../epcf/utils/source/epcf_string.c **** #define __EPCF_UTILS_STRING_INCLUDE PCF_CONDITIONAL_INCLUDE_FILE(EPCF_DIR_PATH/,utils/,include/,epc
+   4:../epcf/utils/source/epcf_string.c **** #include __EPCF_UTILS_STRING_INCLUDE
+   5:../epcf/utils/source/epcf_string.c **** #undef __EPCF_UTILS_STRING_INCLUDE
+   6:../epcf/utils/source/epcf_string.c **** 
+   7:../epcf/utils/source/epcf_string.c **** static uint8_t tokString[256];
+   8:../epcf/utils/source/epcf_string.c **** static uint16_t is,len;
+   9:../epcf/utils/source/epcf_string.c **** 
+  10:../epcf/utils/source/epcf_string.c **** uint8_t* pcfStringTokenize(uint8_t* str, const uint8_t* token)
+  11:../epcf/utils/source/epcf_string.c **** {
+  67              		.loc 1 11 0
+  68              		.cfi_startproc
+  69              		@ args = 0, pretend = 0, frame = 24
+  70              		@ frame_needed = 0, uses_anonymous_args = 0
+  71              		@ link register save eliminated.
+  72 0000 86B0     		sub	sp, sp, #24	@,,
+  73              	.LCFI0:
+  74              		.cfi_def_cfa_offset 24
+  75 0002 0190     		str	r0, [sp, #4]	@ str, str
+  76 0004 0091     		str	r1, [sp]	@ token, token
+  12:../epcf/utils/source/epcf_string.c ****     uint16_t index2 = 0, loop = 0, temp, index=0;
+  77              		.loc 1 12 0
+  78 0006 0023     		movs	r3, #0	@ tmp152,
+  79 0008 ADF81630 		strh	r3, [sp, #22]	@ movhi	@ tmp151, index2
+  80 000c 0023     		movs	r3, #0	@ tmp154,
+  81 000e ADF81430 		strh	r3, [sp, #20]	@ movhi	@ tmp153, loop
+  82 0012 0023     		movs	r3, #0	@ tmp156,
+  83 0014 ADF81030 		strh	r3, [sp, #16]	@ movhi	@ tmp155, index
+  13:../epcf/utils/source/epcf_string.c ****     uint8_t result = 0;
+  84              		.loc 1 13 0
+  85 0018 0023     		movs	r3, #0	@ tmp157,
+  86 001a 8DF80F30 		strb	r3, [sp, #15]	@ tmp158, result
+  14:../epcf/utils/source/epcf_string.c ****     if((token == NULL))
+  87              		.loc 1 14 0
+  88 001e 009B     		ldr	r3, [sp]	@ tmp159, token
+  89 0020 002B     		cmp	r3, #0	@ tmp159,
+  90 0022 01D1     		bne	.L2	@,
+  15:../epcf/utils/source/epcf_string.c ****     {
+  16:../epcf/utils/source/epcf_string.c ****         return 0;
+  91              		.loc 1 16 0
+  92 0024 0023     		movs	r3, #0	@ D.6530,
+  93 0026 9EE0     		b	.L3	@
+  94              	.L2:
+ARM GAS  /tmp/ccfV9k9H.s 			page 3
+
+
+  17:../epcf/utils/source/epcf_string.c ****     }
+  18:../epcf/utils/source/epcf_string.c **** 	index++;
+  95              		.loc 1 18 0
+  96 0028 BDF81030 		ldrh	r3, [sp, #16]	@ D.6531, index
+  97 002c 0133     		adds	r3, r3, #1	@ tmp160, D.6531,
+  98 002e ADF81030 		strh	r3, [sp, #16]	@ movhi	@ tmp161, index
+  19:../epcf/utils/source/epcf_string.c **** 	is = index;
+  99              		.loc 1 19 0
+ 100 0032 4E4A     		ldr	r2, .L17	@ tmp162,
+ 101 0034 BDF81030 		ldrh	r3, [sp, #16]	@ movhi	@ tmp163, index
+ 102 0038 1380     		strh	r3, [r2]	@ movhi	@ tmp163, is
+  20:../epcf/utils/source/epcf_string.c **** 	if(str != NULL)
+ 103              		.loc 1 20 0
+ 104 003a 019B     		ldr	r3, [sp, #4]	@ tmp164, str
+ 105 003c 002B     		cmp	r3, #0	@ tmp164,
+ 106 003e 28D0     		beq	.L4	@,
+  21:../epcf/utils/source/epcf_string.c **** 	{
+  22:../epcf/utils/source/epcf_string.c **** 		len = 0;
+ 107              		.loc 1 22 0
+ 108 0040 4B4B     		ldr	r3, .L17+4	@ tmp165,
+ 109 0042 0022     		movs	r2, #0	@ tmp167,
+ 110 0044 1A80     		strh	r2, [r3]	@ movhi	@ tmp166, len
+  23:../epcf/utils/source/epcf_string.c **** 		is = 0;
+ 111              		.loc 1 23 0
+ 112 0046 494B     		ldr	r3, .L17	@ tmp168,
+ 113 0048 0022     		movs	r2, #0	@ tmp170,
+ 114 004a 1A80     		strh	r2, [r3]	@ movhi	@ tmp169, is
+  24:../epcf/utils/source/epcf_string.c **** 		index = 0;
+ 115              		.loc 1 24 0
+ 116 004c 0023     		movs	r3, #0	@ tmp172,
+ 117 004e ADF81030 		strh	r3, [sp, #16]	@ movhi	@ tmp171, index
+  25:../epcf/utils/source/epcf_string.c **** 		while(str[len] != 0)
+ 118              		.loc 1 25 0
+ 119 0052 10E0     		b	.L5	@
+ 120              	.L6:
+  26:../epcf/utils/source/epcf_string.c **** 		{
+  27:../epcf/utils/source/epcf_string.c **** 			tokString[len] = str[len];
+ 121              		.loc 1 27 0
+ 122 0054 464B     		ldr	r3, .L17+4	@ tmp173,
+ 123 0056 1B88     		ldrh	r3, [r3]	@ D.6531, len
+ 124 0058 1A46     		mov	r2, r3	@ D.6534, D.6531
+ 125 005a 454B     		ldr	r3, .L17+4	@ tmp174,
+ 126 005c 1B88     		ldrh	r3, [r3]	@ D.6531, len
+ 127 005e 1946     		mov	r1, r3	@ D.6532, D.6531
+ 128 0060 019B     		ldr	r3, [sp, #4]	@ tmp175, str
+ 129 0062 0B44     		add	r3, r3, r1	@ D.6530, D.6532
+ 130 0064 1978     		ldrb	r1, [r3]	@ zero_extendqisi2	@ D.6533, *_28
+ 131 0066 434B     		ldr	r3, .L17+8	@ tmp176,
+ 132 0068 9954     		strb	r1, [r3, r2]	@ tmp177, tokString
+  28:../epcf/utils/source/epcf_string.c **** 			len++;
+ 133              		.loc 1 28 0
+ 134 006a 414B     		ldr	r3, .L17+4	@ tmp178,
+ 135 006c 1B88     		ldrh	r3, [r3]	@ D.6531, len
+ 136 006e 0133     		adds	r3, r3, #1	@ tmp179, D.6531,
+ 137 0070 9AB2     		uxth	r2, r3	@ D.6531, tmp179
+ 138 0072 3F4B     		ldr	r3, .L17+4	@ tmp180,
+ 139 0074 1A80     		strh	r2, [r3]	@ movhi	@ tmp181, len
+ARM GAS  /tmp/ccfV9k9H.s 			page 4
+
+
+ 140              	.L5:
+  25:../epcf/utils/source/epcf_string.c **** 		while(str[len] != 0)
+ 141              		.loc 1 25 0
+ 142 0076 3E4B     		ldr	r3, .L17+4	@ tmp182,
+ 143 0078 1B88     		ldrh	r3, [r3]	@ D.6531, len
+ 144 007a 1A46     		mov	r2, r3	@ D.6532, D.6531
+ 145 007c 019B     		ldr	r3, [sp, #4]	@ tmp183, str
+ 146 007e 1344     		add	r3, r3, r2	@ D.6530, D.6532
+ 147 0080 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2	@ D.6533, *_22
+ 148 0082 002B     		cmp	r3, #0	@ D.6533,
+ 149 0084 E6D1     		bne	.L6	@,
+  29:../epcf/utils/source/epcf_string.c **** 		}
+  30:../epcf/utils/source/epcf_string.c **** 		tokString[len] = 0;
+ 150              		.loc 1 30 0
+ 151 0086 3A4B     		ldr	r3, .L17+4	@ tmp184,
+ 152 0088 1B88     		ldrh	r3, [r3]	@ D.6531, len
+ 153 008a 1A46     		mov	r2, r3	@ D.6534, D.6531
+ 154 008c 394B     		ldr	r3, .L17+8	@ tmp185,
+ 155 008e 0021     		movs	r1, #0	@ tmp186,
+ 156 0090 9954     		strb	r1, [r3, r2]	@ tmp187, tokString
+ 157              	.L4:
+  31:../epcf/utils/source/epcf_string.c **** 	}
+  32:../epcf/utils/source/epcf_string.c ****   
+  33:../epcf/utils/source/epcf_string.c ****     while(tokString[index] != 0)
+ 158              		.loc 1 33 0
+ 159 0092 61E0     		b	.L7	@
+ 160              	.L16:
+  34:../epcf/utils/source/epcf_string.c ****     {
+  35:../epcf/utils/source/epcf_string.c ****         loop = 0;
+ 161              		.loc 1 35 0
+ 162 0094 0023     		movs	r3, #0	@ tmp189,
+ 163 0096 ADF81430 		strh	r3, [sp, #20]	@ movhi	@ tmp188, loop
+  36:../epcf/utils/source/epcf_string.c ****         index2 = index;
+ 164              		.loc 1 36 0
+ 165 009a BDF81030 		ldrh	r3, [sp, #16]	@ movhi	@ tmp190, index
+ 166 009e ADF81630 		strh	r3, [sp, #22]	@ movhi	@ tmp190, index2
+ 167              	.L12:
+  37:../epcf/utils/source/epcf_string.c ****         while(1)
+  38:../epcf/utils/source/epcf_string.c ****         {
+  39:../epcf/utils/source/epcf_string.c ****             if(tokString[index2] != token[loop])
+ 168              		.loc 1 39 0
+ 169 00a2 BDF81630 		ldrh	r3, [sp, #22]	@ D.6534, index2
+ 170 00a6 334A     		ldr	r2, .L17+8	@ tmp191,
+ 171 00a8 D25C     		ldrb	r2, [r2, r3]	@ zero_extendqisi2	@ D.6533, tokString
+ 172 00aa BDF81430 		ldrh	r3, [sp, #20]	@ D.6532, loop
+ 173 00ae 0099     		ldr	r1, [sp]	@ tmp192, token
+ 174 00b0 0B44     		add	r3, r3, r1	@ D.6535, tmp192
+ 175 00b2 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2	@ D.6533, *_42
+ 176 00b4 9A42     		cmp	r2, r3	@ D.6533, D.6533
+ 177 00b6 00D0     		beq	.L8	@,
+  40:../epcf/utils/source/epcf_string.c ****             {
+  41:../epcf/utils/source/epcf_string.c ****                 break;
+ 178              		.loc 1 41 0
+ 179 00b8 1CE0     		b	.L9	@
+ 180              	.L8:
+  42:../epcf/utils/source/epcf_string.c ****             }
+  43:../epcf/utils/source/epcf_string.c ****             loop++;
+ARM GAS  /tmp/ccfV9k9H.s 			page 5
+
+
+ 181              		.loc 1 43 0
+ 182 00ba BDF81430 		ldrh	r3, [sp, #20]	@ D.6531, loop
+ 183 00be 0133     		adds	r3, r3, #1	@ tmp193, D.6531,
+ 184 00c0 ADF81430 		strh	r3, [sp, #20]	@ movhi	@ tmp194, loop
+  44:../epcf/utils/source/epcf_string.c ****             index2++;
+ 185              		.loc 1 44 0
+ 186 00c4 BDF81630 		ldrh	r3, [sp, #22]	@ D.6531, index2
+ 187 00c8 0133     		adds	r3, r3, #1	@ tmp195, D.6531,
+ 188 00ca ADF81630 		strh	r3, [sp, #22]	@ movhi	@ tmp196, index2
+  45:../epcf/utils/source/epcf_string.c ****             if(tokString[index2] == 0)
+ 189              		.loc 1 45 0
+ 190 00ce BDF81630 		ldrh	r3, [sp, #22]	@ D.6534, index2
+ 191 00d2 284A     		ldr	r2, .L17+8	@ tmp197,
+ 192 00d4 D35C     		ldrb	r3, [r2, r3]	@ zero_extendqisi2	@ D.6533, tokString
+ 193 00d6 002B     		cmp	r3, #0	@ D.6533,
+ 194 00d8 00D1     		bne	.L10	@,
+  46:../epcf/utils/source/epcf_string.c ****                 break;
+ 195              		.loc 1 46 0
+ 196 00da 0BE0     		b	.L9	@
+ 197              	.L10:
+  47:../epcf/utils/source/epcf_string.c ****             if(token[loop] == 0)
+ 198              		.loc 1 47 0
+ 199 00dc BDF81430 		ldrh	r3, [sp, #20]	@ D.6532, loop
+ 200 00e0 009A     		ldr	r2, [sp]	@ tmp198, token
+ 201 00e2 1344     		add	r3, r3, r2	@ D.6535, tmp198
+ 202 00e4 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2	@ D.6533, *_51
+ 203 00e6 002B     		cmp	r3, #0	@ D.6533,
+ 204 00e8 03D1     		bne	.L11	@,
+  48:../epcf/utils/source/epcf_string.c ****             {
+  49:../epcf/utils/source/epcf_string.c ****                 result = 1;
+ 205              		.loc 1 49 0
+ 206 00ea 0123     		movs	r3, #1	@ tmp199,
+ 207 00ec 8DF80F30 		strb	r3, [sp, #15]	@ tmp200, result
+  50:../epcf/utils/source/epcf_string.c ****                 break;
+ 208              		.loc 1 50 0
+ 209 00f0 00E0     		b	.L9	@
+ 210              	.L11:
+  51:../epcf/utils/source/epcf_string.c ****             }
+  52:../epcf/utils/source/epcf_string.c ****         }
+ 211              		.loc 1 52 0
+ 212 00f2 D6E7     		b	.L12	@
+ 213              	.L9:
+  53:../epcf/utils/source/epcf_string.c ****         if(result == 1)
+ 214              		.loc 1 53 0
+ 215 00f4 9DF80F30 		ldrb	r3, [sp, #15]	@ zero_extendqisi2	@ tmp201, result
+ 216 00f8 012B     		cmp	r3, #1	@ tmp201,
+ 217 00fa 1CD1     		bne	.L13	@,
+  54:../epcf/utils/source/epcf_string.c ****         {
+  55:../epcf/utils/source/epcf_string.c ****             for(temp = 0; temp < loop; temp++)
+ 218              		.loc 1 55 0
+ 219 00fc 0023     		movs	r3, #0	@ tmp203,
+ 220 00fe ADF81230 		strh	r3, [sp, #18]	@ movhi	@ tmp202, temp
+ 221 0102 0CE0     		b	.L14	@
+ 222              	.L15:
+  56:../epcf/utils/source/epcf_string.c ****             {
+  57:../epcf/utils/source/epcf_string.c ****                 tokString[index+temp] = 0;
+ 223              		.loc 1 57 0 discriminator 3
+ARM GAS  /tmp/ccfV9k9H.s 			page 6
+
+
+ 224 0104 BDF81020 		ldrh	r2, [sp, #16]	@ D.6534, index
+ 225 0108 BDF81230 		ldrh	r3, [sp, #18]	@ D.6534, temp
+ 226 010c 1344     		add	r3, r3, r2	@ D.6534, D.6534
+ 227 010e 194A     		ldr	r2, .L17+8	@ tmp204,
+ 228 0110 0021     		movs	r1, #0	@ tmp205,
+ 229 0112 D154     		strb	r1, [r2, r3]	@ tmp206, tokString
+  55:../epcf/utils/source/epcf_string.c ****             {
+ 230              		.loc 1 55 0 discriminator 3
+ 231 0114 BDF81230 		ldrh	r3, [sp, #18]	@ D.6531, temp
+ 232 0118 0133     		adds	r3, r3, #1	@ tmp207, D.6531,
+ 233 011a ADF81230 		strh	r3, [sp, #18]	@ movhi	@ tmp208, temp
+ 234              	.L14:
+  55:../epcf/utils/source/epcf_string.c ****             {
+ 235              		.loc 1 55 0 is_stmt 0 discriminator 1
+ 236 011e BDF81220 		ldrh	r2, [sp, #18]	@ tmp209, temp
+ 237 0122 BDF81430 		ldrh	r3, [sp, #20]	@ tmp210, loop
+ 238 0126 9A42     		cmp	r2, r3	@ tmp209, tmp210
+ 239 0128 ECD3     		bcc	.L15	@,
+  58:../epcf/utils/source/epcf_string.c ****             }
+  59:../epcf/utils/source/epcf_string.c ****             return &tokString[is];
+ 240              		.loc 1 59 0 is_stmt 1
+ 241 012a 104B     		ldr	r3, .L17	@ tmp211,
+ 242 012c 1B88     		ldrh	r3, [r3]	@ D.6531, is
+ 243 012e 1A46     		mov	r2, r3	@ D.6534, D.6531
+ 244 0130 104B     		ldr	r3, .L17+8	@ tmp212,
+ 245 0132 1344     		add	r3, r3, r2	@ D.6530, D.6534
+ 246 0134 17E0     		b	.L3	@
+ 247              	.L13:
+  60:../epcf/utils/source/epcf_string.c ****         }
+  61:../epcf/utils/source/epcf_string.c ****         index++;
+ 248              		.loc 1 61 0
+ 249 0136 BDF81030 		ldrh	r3, [sp, #16]	@ D.6531, index
+ 250 013a 0133     		adds	r3, r3, #1	@ tmp213, D.6531,
+ 251 013c ADF81030 		strh	r3, [sp, #16]	@ movhi	@ tmp214, index
+  62:../epcf/utils/source/epcf_string.c **** 			if(index >= len)
+ 252              		.loc 1 62 0
+ 253 0140 0B4B     		ldr	r3, .L17+4	@ tmp215,
+ 254 0142 1B88     		ldrh	r3, [r3]	@ D.6531, len
+ 255 0144 BDF81020 		ldrh	r2, [sp, #16]	@ tmp216, index
+ 256 0148 9A42     		cmp	r2, r3	@ tmp216, D.6531
+ 257 014a 05D3     		bcc	.L7	@,
+  63:../epcf/utils/source/epcf_string.c **** 				return &tokString[is];
+ 258              		.loc 1 63 0
+ 259 014c 074B     		ldr	r3, .L17	@ tmp217,
+ 260 014e 1B88     		ldrh	r3, [r3]	@ D.6531, is
+ 261 0150 1A46     		mov	r2, r3	@ D.6534, D.6531
+ 262 0152 084B     		ldr	r3, .L17+8	@ tmp218,
+ 263 0154 1344     		add	r3, r3, r2	@ D.6530, D.6534
+ 264 0156 06E0     		b	.L3	@
+ 265              	.L7:
+  33:../epcf/utils/source/epcf_string.c ****     {
+ 266              		.loc 1 33 0
+ 267 0158 BDF81030 		ldrh	r3, [sp, #16]	@ D.6534, index
+ 268 015c 054A     		ldr	r2, .L17+8	@ tmp219,
+ 269 015e D35C     		ldrb	r3, [r2, r3]	@ zero_extendqisi2	@ D.6533, tokString
+ 270 0160 002B     		cmp	r3, #0	@ D.6533,
+ 271 0162 97D1     		bne	.L16	@,
+ARM GAS  /tmp/ccfV9k9H.s 			page 7
+
+
+  64:../epcf/utils/source/epcf_string.c ****     }
+  65:../epcf/utils/source/epcf_string.c **** 		
+  66:../epcf/utils/source/epcf_string.c ****     return 0;
+ 272              		.loc 1 66 0
+ 273 0164 0023     		movs	r3, #0	@ D.6530,
+ 274              	.L3:
+  67:../epcf/utils/source/epcf_string.c **** }
+ 275              		.loc 1 67 0
+ 276 0166 1846     		mov	r0, r3	@, <retval>
+ 277 0168 06B0     		add	sp, sp, #24	@,,
+ 278              	.LCFI1:
+ 279              		.cfi_def_cfa_offset 0
+ 280              		@ sp needed	@
+ 281 016a 7047     		bx	lr	@
+ 282              	.L18:
+ 283              		.align	2
+ 284              	.L17:
+ 285 016c 00010000 		.word	is
+ 286 0170 02010000 		.word	len
+ 287 0174 00000000 		.word	tokString
+ 288              		.cfi_endproc
+ 289              	.LFE40:
+ 290              		.size	pcfStringTokenize, .-pcfStringTokenize
+ 291              		.align	2
+ 292              		.global	pcfStrLen
+ 293              		.thumb
+ 294              		.thumb_func
+ 295              		.type	pcfStrLen, %function
+ 296              	pcfStrLen:
+ 297              	.LFB41:
+  68:../epcf/utils/source/epcf_string.c **** 
+  69:../epcf/utils/source/epcf_string.c **** uint32_t pcfStrLen(const uint8_t* str)
+  70:../epcf/utils/source/epcf_string.c **** {
+ 298              		.loc 1 70 0
+ 299              		.cfi_startproc
+ 300              		@ args = 0, pretend = 0, frame = 16
+ 301              		@ frame_needed = 0, uses_anonymous_args = 0
+ 302              		@ link register save eliminated.
+ 303 0178 84B0     		sub	sp, sp, #16	@,,
+ 304              	.LCFI2:
+ 305              		.cfi_def_cfa_offset 16
+ 306 017a 0190     		str	r0, [sp, #4]	@ str, str
+  71:../epcf/utils/source/epcf_string.c **** 	uint32_t index = 0;
+ 307              		.loc 1 71 0
+ 308 017c 0023     		movs	r3, #0	@ tmp114,
+ 309 017e 0393     		str	r3, [sp, #12]	@ tmp114, index
+  72:../epcf/utils/source/epcf_string.c **** #if (PF_UTILS_DEBUG == 1)
+  73:../epcf/utils/source/epcf_string.c **** 	if(str == 0)
+  74:../epcf/utils/source/epcf_string.c **** 	{
+  75:../epcf/utils/source/epcf_string.c **** 		return 0;
+  76:../epcf/utils/source/epcf_string.c **** 	}	
+  77:../epcf/utils/source/epcf_string.c **** #endif	// #if (PF_UTILS_DEBUG == 1)
+  78:../epcf/utils/source/epcf_string.c **** 
+  79:../epcf/utils/source/epcf_string.c **** 	while(*(str + index) != 0)
+ 310              		.loc 1 79 0
+ 311 0180 02E0     		b	.L20	@
+ 312              	.L21:
+ARM GAS  /tmp/ccfV9k9H.s 			page 8
+
+
+  80:../epcf/utils/source/epcf_string.c **** 	{
+  81:../epcf/utils/source/epcf_string.c **** 		index++;
+ 313              		.loc 1 81 0
+ 314 0182 039B     		ldr	r3, [sp, #12]	@ tmp116, index
+ 315 0184 0133     		adds	r3, r3, #1	@ tmp115, tmp116,
+ 316 0186 0393     		str	r3, [sp, #12]	@ tmp115, index
+ 317              	.L20:
+  79:../epcf/utils/source/epcf_string.c **** 	{
+ 318              		.loc 1 79 0
+ 319 0188 019A     		ldr	r2, [sp, #4]	@ tmp117, str
+ 320 018a 039B     		ldr	r3, [sp, #12]	@ tmp118, index
+ 321 018c 1344     		add	r3, r3, r2	@ D.6536, tmp117
+ 322 018e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2	@ D.6537, *_4
+ 323 0190 002B     		cmp	r3, #0	@ D.6537,
+ 324 0192 F6D1     		bne	.L21	@,
+  82:../epcf/utils/source/epcf_string.c **** 	}
+  83:../epcf/utils/source/epcf_string.c **** 	
+  84:../epcf/utils/source/epcf_string.c **** 	return index;
+ 325              		.loc 1 84 0
+ 326 0194 039B     		ldr	r3, [sp, #12]	@ D.6538, index
+  85:../epcf/utils/source/epcf_string.c **** }
+ 327              		.loc 1 85 0
+ 328 0196 1846     		mov	r0, r3	@, <retval>
+ 329 0198 04B0     		add	sp, sp, #16	@,,
+ 330              	.LCFI3:
+ 331              		.cfi_def_cfa_offset 0
+ 332              		@ sp needed	@
+ 333 019a 7047     		bx	lr	@
+ 334              		.cfi_endproc
+ 335              	.LFE41:
+ 336              		.size	pcfStrLen, .-pcfStrLen
+ 337              		.align	2
+ 338              		.global	pcfStrCopy
+ 339              		.thumb
+ 340              		.thumb_func
+ 341              		.type	pcfStrCopy, %function
+ 342              	pcfStrCopy:
+ 343              	.LFB42:
+  86:../epcf/utils/source/epcf_string.c **** 
+  87:../epcf/utils/source/epcf_string.c **** uint32_t pcfStrCopy(uint8_t* dest, const uint8_t* src)
+  88:../epcf/utils/source/epcf_string.c **** {
+ 344              		.loc 1 88 0
+ 345              		.cfi_startproc
+ 346              		@ args = 0, pretend = 0, frame = 16
+ 347              		@ frame_needed = 0, uses_anonymous_args = 0
+ 348              		@ link register save eliminated.
+ 349 019c 84B0     		sub	sp, sp, #16	@,,
+ 350              	.LCFI4:
+ 351              		.cfi_def_cfa_offset 16
+ 352 019e 0190     		str	r0, [sp, #4]	@ dest, dest
+ 353 01a0 0091     		str	r1, [sp]	@ src, src
+  89:../epcf/utils/source/epcf_string.c **** 	uint32_t count = 0;
+ 354              		.loc 1 89 0
+ 355 01a2 0023     		movs	r3, #0	@ tmp117,
+ 356 01a4 0393     		str	r3, [sp, #12]	@ tmp117, count
+  90:../epcf/utils/source/epcf_string.c **** #if (PF_UTILS_DEBUG == 1)
+  91:../epcf/utils/source/epcf_string.c **** 	if((dest == 0) || (src == 0))
+ARM GAS  /tmp/ccfV9k9H.s 			page 9
+
+
+  92:../epcf/utils/source/epcf_string.c **** 	{
+  93:../epcf/utils/source/epcf_string.c **** 		return 0;
+  94:../epcf/utils/source/epcf_string.c **** 	}	
+  95:../epcf/utils/source/epcf_string.c **** #endif	// #if (PF_UTILS_DEBUG == 1)
+  96:../epcf/utils/source/epcf_string.c **** 	while(*(src+count) != 0)
+ 357              		.loc 1 96 0
+ 358 01a6 0AE0     		b	.L24	@
+ 359              	.L25:
+  97:../epcf/utils/source/epcf_string.c **** 	{
+  98:../epcf/utils/source/epcf_string.c **** 		*(dest+count) = *(src+count);
+ 360              		.loc 1 98 0
+ 361 01a8 019A     		ldr	r2, [sp, #4]	@ tmp118, dest
+ 362 01aa 039B     		ldr	r3, [sp, #12]	@ tmp119, count
+ 363 01ac 1344     		add	r3, r3, r2	@ D.6541, tmp118
+ 364 01ae 0099     		ldr	r1, [sp]	@ tmp120, src
+ 365 01b0 039A     		ldr	r2, [sp, #12]	@ tmp121, count
+ 366 01b2 0A44     		add	r2, r2, r1	@ D.6539, tmp120
+ 367 01b4 1278     		ldrb	r2, [r2]	@ zero_extendqisi2	@ D.6540, *_8
+ 368 01b6 1A70     		strb	r2, [r3]	@ tmp122, *_7
+  99:../epcf/utils/source/epcf_string.c **** 		count++;
+ 369              		.loc 1 99 0
+ 370 01b8 039B     		ldr	r3, [sp, #12]	@ tmp124, count
+ 371 01ba 0133     		adds	r3, r3, #1	@ tmp123, tmp124,
+ 372 01bc 0393     		str	r3, [sp, #12]	@ tmp123, count
+ 373              	.L24:
+  96:../epcf/utils/source/epcf_string.c **** 	{
+ 374              		.loc 1 96 0
+ 375 01be 009A     		ldr	r2, [sp]	@ tmp125, src
+ 376 01c0 039B     		ldr	r3, [sp, #12]	@ tmp126, count
+ 377 01c2 1344     		add	r3, r3, r2	@ D.6539, tmp125
+ 378 01c4 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2	@ D.6540, *_4
+ 379 01c6 002B     		cmp	r3, #0	@ D.6540,
+ 380 01c8 EED1     		bne	.L25	@,
+ 100:../epcf/utils/source/epcf_string.c **** 	}
+ 101:../epcf/utils/source/epcf_string.c **** 	return count;
+ 381              		.loc 1 101 0
+ 382 01ca 039B     		ldr	r3, [sp, #12]	@ D.6542, count
+ 102:../epcf/utils/source/epcf_string.c **** }
+ 383              		.loc 1 102 0
+ 384 01cc 1846     		mov	r0, r3	@, <retval>
+ 385 01ce 04B0     		add	sp, sp, #16	@,,
+ 386              	.LCFI5:
+ 387              		.cfi_def_cfa_offset 0
+ 388              		@ sp needed	@
+ 389 01d0 7047     		bx	lr	@
+ 390              		.cfi_endproc
+ 391              	.LFE42:
+ 392              		.size	pcfStrCopy, .-pcfStrCopy
+ 393 01d2 00BF     		.align	2
+ 394              		.global	pcfStrReverse
+ 395              		.thumb
+ 396              		.thumb_func
+ 397              		.type	pcfStrReverse, %function
+ 398              	pcfStrReverse:
+ 399              	.LFB43:
+ 103:../epcf/utils/source/epcf_string.c **** 
+ 104:../epcf/utils/source/epcf_string.c **** int8_t pcfStrReverse(uint8_t * str)
+ARM GAS  /tmp/ccfV9k9H.s 			page 10
+
+
+ 105:../epcf/utils/source/epcf_string.c **** {
+ 400              		.loc 1 105 0
+ 401              		.cfi_startproc
+ 402              		@ args = 0, pretend = 0, frame = 16
+ 403              		@ frame_needed = 0, uses_anonymous_args = 0
+ 404 01d4 00B5     		push	{lr}	@
+ 405              	.LCFI6:
+ 406              		.cfi_def_cfa_offset 4
+ 407              		.cfi_offset 14, -4
+ 408 01d6 85B0     		sub	sp, sp, #20	@,,
+ 409              	.LCFI7:
+ 410              		.cfi_def_cfa_offset 24
+ 411 01d8 0190     		str	r0, [sp, #4]	@ str, str
+ 106:../epcf/utils/source/epcf_string.c **** 	uint8_t i, j,ch;
+ 107:../epcf/utils/source/epcf_string.c **** #if (PF_UTILS_DEBUG == 1)
+ 108:../epcf/utils/source/epcf_string.c **** 	if(str == 0)
+ 109:../epcf/utils/source/epcf_string.c **** 	{
+ 110:../epcf/utils/source/epcf_string.c **** 		return -2;
+ 111:../epcf/utils/source/epcf_string.c **** 	}	
+ 112:../epcf/utils/source/epcf_string.c **** #endif	// #if (PF_UTILS_DEBUG == 1)	
+ 113:../epcf/utils/source/epcf_string.c **** 	for (i = 0, j = pcfStrLen(str)-1; i<j; i++, j--) 
+ 412              		.loc 1 113 0
+ 413 01da 0023     		movs	r3, #0	@ tmp125,
+ 414 01dc 8DF80F30 		strb	r3, [sp, #15]	@ tmp126, i
+ 415 01e0 0198     		ldr	r0, [sp, #4]	@, str
+ 416 01e2 FFF7FEFF 		bl	pcfStrLen	@
+ 417 01e6 0346     		mov	r3, r0	@ D.6543,
+ 418 01e8 DBB2     		uxtb	r3, r3	@ D.6544, D.6543
+ 419 01ea 013B     		subs	r3, r3, #1	@ tmp127, D.6544,
+ 420 01ec 8DF80E30 		strb	r3, [sp, #14]	@ tmp128, j
+ 421 01f0 21E0     		b	.L28	@
+ 422              	.L29:
+ 114:../epcf/utils/source/epcf_string.c **** 	{
+ 115:../epcf/utils/source/epcf_string.c **** 		ch = str[i];
+ 423              		.loc 1 115 0 discriminator 3
+ 424 01f2 9DF80F30 		ldrb	r3, [sp, #15]	@ zero_extendqisi2	@ D.6545, i
+ 425 01f6 019A     		ldr	r2, [sp, #4]	@ tmp129, str
+ 426 01f8 1344     		add	r3, r3, r2	@ D.6546, tmp129
+ 427 01fa 1B78     		ldrb	r3, [r3]	@ tmp130, *_9
+ 428 01fc 8DF80D30 		strb	r3, [sp, #13]	@ tmp130, ch
+ 116:../epcf/utils/source/epcf_string.c **** 		str[i] = str[j];
+ 429              		.loc 1 116 0 discriminator 3
+ 430 0200 9DF80F30 		ldrb	r3, [sp, #15]	@ zero_extendqisi2	@ D.6545, i
+ 431 0204 019A     		ldr	r2, [sp, #4]	@ tmp131, str
+ 432 0206 1344     		add	r3, r3, r2	@ D.6546, tmp131
+ 433 0208 9DF80E20 		ldrb	r2, [sp, #14]	@ zero_extendqisi2	@ D.6545, j
+ 434 020c 0199     		ldr	r1, [sp, #4]	@ tmp132, str
+ 435 020e 0A44     		add	r2, r2, r1	@ D.6546, tmp132
+ 436 0210 1278     		ldrb	r2, [r2]	@ zero_extendqisi2	@ D.6544, *_14
+ 437 0212 1A70     		strb	r2, [r3]	@ tmp133, *_12
+ 117:../epcf/utils/source/epcf_string.c **** 		str[j] = ch;
+ 438              		.loc 1 117 0 discriminator 3
+ 439 0214 9DF80E30 		ldrb	r3, [sp, #14]	@ zero_extendqisi2	@ D.6545, j
+ 440 0218 019A     		ldr	r2, [sp, #4]	@ tmp134, str
+ 441 021a 1344     		add	r3, r3, r2	@ D.6546, tmp134
+ 442 021c 9DF80D20 		ldrb	r2, [sp, #13]	@ tmp135, ch
+ 443 0220 1A70     		strb	r2, [r3]	@ tmp135, *_17
+ARM GAS  /tmp/ccfV9k9H.s 			page 11
+
+
+ 113:../epcf/utils/source/epcf_string.c **** 	{
+ 444              		.loc 1 113 0 discriminator 3
+ 445 0222 9DF80F30 		ldrb	r3, [sp, #15]	@ zero_extendqisi2	@ D.6544, i
+ 446 0226 0133     		adds	r3, r3, #1	@ tmp136, D.6544,
+ 447 0228 8DF80F30 		strb	r3, [sp, #15]	@ tmp137, i
+ 448 022c 9DF80E30 		ldrb	r3, [sp, #14]	@ zero_extendqisi2	@ D.6544, j
+ 449 0230 013B     		subs	r3, r3, #1	@ tmp138, D.6544,
+ 450 0232 8DF80E30 		strb	r3, [sp, #14]	@ tmp139, j
+ 451              	.L28:
+ 113:../epcf/utils/source/epcf_string.c **** 	{
+ 452              		.loc 1 113 0 is_stmt 0 discriminator 1
+ 453 0236 9DF80F20 		ldrb	r2, [sp, #15]	@ zero_extendqisi2	@ tmp140, i
+ 454 023a 9DF80E30 		ldrb	r3, [sp, #14]	@ zero_extendqisi2	@ tmp141, j
+ 455 023e 9A42     		cmp	r2, r3	@ tmp140, tmp141
+ 456 0240 D7D3     		bcc	.L29	@,
+ 118:../epcf/utils/source/epcf_string.c **** 	}
+ 119:../epcf/utils/source/epcf_string.c **** 	
+ 120:../epcf/utils/source/epcf_string.c **** 	return 0;
+ 457              		.loc 1 120 0 is_stmt 1
+ 458 0242 0023     		movs	r3, #0	@ D.6547,
+ 459 0244 5BB2     		sxtb	r3, r3	@ tmp143, D.6547
+ 121:../epcf/utils/source/epcf_string.c **** }
+ 460              		.loc 1 121 0
+ 461 0246 1846     		mov	r0, r3	@, <retval>
+ 462 0248 05B0     		add	sp, sp, #20	@,,
+ 463              	.LCFI8:
+ 464              		.cfi_def_cfa_offset 4
+ 465              		@ sp needed	@
+ 466 024a 5DF804FB 		ldr	pc, [sp], #4	@
+ 467              		.cfi_endproc
+ 468              	.LFE43:
+ 469              		.size	pcfStrReverse, .-pcfStrReverse
+ 470 024e 00BF     		.align	2
+ 471              		.global	pcfMemCopy
+ 472              		.thumb
+ 473              		.thumb_func
+ 474              		.type	pcfMemCopy, %function
+ 475              	pcfMemCopy:
+ 476              	.LFB44:
+ 122:../epcf/utils/source/epcf_string.c **** //const
+ 123:../epcf/utils/source/epcf_string.c **** int8_t pcfMemCopy(void* dest, const void* src, uint32_t num)
+ 124:../epcf/utils/source/epcf_string.c **** {
+ 477              		.loc 1 124 0
+ 478              		.cfi_startproc
+ 479              		@ args = 0, pretend = 0, frame = 24
+ 480              		@ frame_needed = 0, uses_anonymous_args = 0
+ 481              		@ link register save eliminated.
+ 482 0250 86B0     		sub	sp, sp, #24	@,,
+ 483              	.LCFI9:
+ 484              		.cfi_def_cfa_offset 24
+ 485 0252 0390     		str	r0, [sp, #12]	@ dest, dest
+ 486 0254 0291     		str	r1, [sp, #8]	@ src, src
+ 487 0256 0192     		str	r2, [sp, #4]	@ num, num
+ 125:../epcf/utils/source/epcf_string.c **** 	uint32_t index;
+ 126:../epcf/utils/source/epcf_string.c **** #if (PF_UTILS_DEBUG == 1)
+ 127:../epcf/utils/source/epcf_string.c **** 	if( (src == 0) || (dest == 0) || (num == 0) )
+ 128:../epcf/utils/source/epcf_string.c **** 	{
+ARM GAS  /tmp/ccfV9k9H.s 			page 12
+
+
+ 129:../epcf/utils/source/epcf_string.c **** 		return -2; 		//enStatusInvArgs
+ 130:../epcf/utils/source/epcf_string.c **** 	}	
+ 131:../epcf/utils/source/epcf_string.c **** #endif	// #if (PF_UTILS_DEBUG == 1)
+ 132:../epcf/utils/source/epcf_string.c **** 
+ 133:../epcf/utils/source/epcf_string.c **** 	for(index = 0; index < num; index++)	
+ 488              		.loc 1 133 0
+ 489 0258 0023     		movs	r3, #0	@ tmp115,
+ 490 025a 0593     		str	r3, [sp, #20]	@ tmp115, index
+ 491 025c 0AE0     		b	.L32	@
+ 492              	.L33:
+ 134:../epcf/utils/source/epcf_string.c **** 	{
+ 135:../epcf/utils/source/epcf_string.c **** 		*(((uint8_t*)dest) + index) = *(((const uint8_t*)src) + index);
+ 493              		.loc 1 135 0 discriminator 3
+ 494 025e 039A     		ldr	r2, [sp, #12]	@ tmp116, dest
+ 495 0260 059B     		ldr	r3, [sp, #20]	@ tmp117, index
+ 496 0262 1344     		add	r3, r3, r2	@ D.6548, tmp116
+ 497 0264 0299     		ldr	r1, [sp, #8]	@ tmp118, src
+ 498 0266 059A     		ldr	r2, [sp, #20]	@ tmp119, index
+ 499 0268 0A44     		add	r2, r2, r1	@ D.6549, tmp118
+ 500 026a 1278     		ldrb	r2, [r2]	@ zero_extendqisi2	@ D.6550, *_7
+ 501 026c 1A70     		strb	r2, [r3]	@ tmp120, *_5
+ 133:../epcf/utils/source/epcf_string.c **** 	{
+ 502              		.loc 1 133 0 discriminator 3
+ 503 026e 059B     		ldr	r3, [sp, #20]	@ tmp122, index
+ 504 0270 0133     		adds	r3, r3, #1	@ tmp121, tmp122,
+ 505 0272 0593     		str	r3, [sp, #20]	@ tmp121, index
+ 506              	.L32:
+ 133:../epcf/utils/source/epcf_string.c **** 	{
+ 507              		.loc 1 133 0 is_stmt 0 discriminator 1
+ 508 0274 059A     		ldr	r2, [sp, #20]	@ tmp123, index
+ 509 0276 019B     		ldr	r3, [sp, #4]	@ tmp124, num
+ 510 0278 9A42     		cmp	r2, r3	@ tmp123, tmp124
+ 511 027a F0D3     		bcc	.L33	@,
+ 136:../epcf/utils/source/epcf_string.c **** 	}
+ 137:../epcf/utils/source/epcf_string.c **** 	
+ 138:../epcf/utils/source/epcf_string.c **** 	return 0;		//enStatusSuccess
+ 512              		.loc 1 138 0 is_stmt 1
+ 513 027c 0023     		movs	r3, #0	@ D.6551,
+ 514 027e 5BB2     		sxtb	r3, r3	@ tmp126, D.6551
+ 139:../epcf/utils/source/epcf_string.c **** }
+ 515              		.loc 1 139 0
+ 516 0280 1846     		mov	r0, r3	@, <retval>
+ 517 0282 06B0     		add	sp, sp, #24	@,,
+ 518              	.LCFI10:
+ 519              		.cfi_def_cfa_offset 0
+ 520              		@ sp needed	@
+ 521 0284 7047     		bx	lr	@
+ 522              		.cfi_endproc
+ 523              	.LFE44:
+ 524              		.size	pcfMemCopy, .-pcfMemCopy
+ 525 0286 00BF     		.align	2
+ 526              		.global	pcfMemSet
+ 527              		.thumb
+ 528              		.thumb_func
+ 529              		.type	pcfMemSet, %function
+ 530              	pcfMemSet:
+ 531              	.LFB45:
+ARM GAS  /tmp/ccfV9k9H.s 			page 13
+
+
+ 140:../epcf/utils/source/epcf_string.c **** 
+ 141:../epcf/utils/source/epcf_string.c **** int8_t pcfMemSet(void* ptr, uint8_t value, uint32_t num)
+ 142:../epcf/utils/source/epcf_string.c **** {
+ 532              		.loc 1 142 0
+ 533              		.cfi_startproc
+ 534              		@ args = 0, pretend = 0, frame = 24
+ 535              		@ frame_needed = 0, uses_anonymous_args = 0
+ 536              		@ link register save eliminated.
+ 537 0288 86B0     		sub	sp, sp, #24	@,,
+ 538              	.LCFI11:
+ 539              		.cfi_def_cfa_offset 24
+ 540 028a 0390     		str	r0, [sp, #12]	@ ptr, ptr
+ 541 028c 0B46     		mov	r3, r1	@ tmp113, value
+ 542 028e 0192     		str	r2, [sp, #4]	@ num, num
+ 543 0290 8DF80B30 		strb	r3, [sp, #11]	@ tmp114, value
+ 143:../epcf/utils/source/epcf_string.c **** 	uint32_t index;
+ 144:../epcf/utils/source/epcf_string.c **** #if (PF_UTILS_DEBUG == 1)
+ 145:../epcf/utils/source/epcf_string.c **** 	if( (ptr == 0) || (num == 0) )
+ 146:../epcf/utils/source/epcf_string.c **** 	{
+ 147:../epcf/utils/source/epcf_string.c **** 		return -2; 
+ 148:../epcf/utils/source/epcf_string.c **** 	}	
+ 149:../epcf/utils/source/epcf_string.c **** #endif	// #if (PF_UTILS_DEBUG == 1)
+ 150:../epcf/utils/source/epcf_string.c **** 
+ 151:../epcf/utils/source/epcf_string.c **** 	for(index = 0; index < num; index++)	
+ 544              		.loc 1 151 0
+ 545 0294 0023     		movs	r3, #0	@ tmp115,
+ 546 0296 0593     		str	r3, [sp, #20]	@ tmp115, index
+ 547 0298 08E0     		b	.L36	@
+ 548              	.L37:
+ 152:../epcf/utils/source/epcf_string.c **** 	{
+ 153:../epcf/utils/source/epcf_string.c **** 		*(((uint8_t*)ptr) + index) = value;
+ 549              		.loc 1 153 0 discriminator 3
+ 550 029a 039A     		ldr	r2, [sp, #12]	@ tmp116, ptr
+ 551 029c 059B     		ldr	r3, [sp, #20]	@ tmp117, index
+ 552 029e 1344     		add	r3, r3, r2	@ D.6552, tmp116
+ 553 02a0 9DF80B20 		ldrb	r2, [sp, #11]	@ tmp118, value
+ 554 02a4 1A70     		strb	r2, [r3]	@ tmp118, *_5
+ 151:../epcf/utils/source/epcf_string.c **** 	{
+ 555              		.loc 1 151 0 discriminator 3
+ 556 02a6 059B     		ldr	r3, [sp, #20]	@ tmp120, index
+ 557 02a8 0133     		adds	r3, r3, #1	@ tmp119, tmp120,
+ 558 02aa 0593     		str	r3, [sp, #20]	@ tmp119, index
+ 559              	.L36:
+ 151:../epcf/utils/source/epcf_string.c **** 	{
+ 560              		.loc 1 151 0 is_stmt 0 discriminator 1
+ 561 02ac 059A     		ldr	r2, [sp, #20]	@ tmp121, index
+ 562 02ae 019B     		ldr	r3, [sp, #4]	@ tmp122, num
+ 563 02b0 9A42     		cmp	r2, r3	@ tmp121, tmp122
+ 564 02b2 F2D3     		bcc	.L37	@,
+ 154:../epcf/utils/source/epcf_string.c **** 	}
+ 155:../epcf/utils/source/epcf_string.c **** 	
+ 156:../epcf/utils/source/epcf_string.c **** 	return 0;
+ 565              		.loc 1 156 0 is_stmt 1
+ 566 02b4 0023     		movs	r3, #0	@ D.6553,
+ 567 02b6 5BB2     		sxtb	r3, r3	@ tmp124, D.6553
+ 157:../epcf/utils/source/epcf_string.c **** }
+ 568              		.loc 1 157 0
+ARM GAS  /tmp/ccfV9k9H.s 			page 14
+
+
+ 569 02b8 1846     		mov	r0, r3	@, <retval>
+ 570 02ba 06B0     		add	sp, sp, #24	@,,
+ 571              	.LCFI12:
+ 572              		.cfi_def_cfa_offset 0
+ 573              		@ sp needed	@
+ 574 02bc 7047     		bx	lr	@
+ 575              		.cfi_endproc
+ 576              	.LFE45:
+ 577              		.size	pcfMemSet, .-pcfMemSet
+ 578 02be 00BF     		.align	2
+ 579              		.global	pcfMemCompare
+ 580              		.thumb
+ 581              		.thumb_func
+ 582              		.type	pcfMemCompare, %function
+ 583              	pcfMemCompare:
+ 584              	.LFB46:
+ 158:../epcf/utils/source/epcf_string.c **** 
+ 159:../epcf/utils/source/epcf_string.c **** EnEPCFBoolean_t pcfMemCompare( const void* ptr1, const void* ptr2, uint32_t num)
+ 160:../epcf/utils/source/epcf_string.c **** {
+ 585              		.loc 1 160 0
+ 586              		.cfi_startproc
+ 587              		@ args = 0, pretend = 0, frame = 24
+ 588              		@ frame_needed = 0, uses_anonymous_args = 0
+ 589              		@ link register save eliminated.
+ 590 02c0 86B0     		sub	sp, sp, #24	@,,
+ 591              	.LCFI13:
+ 592              		.cfi_def_cfa_offset 24
+ 593 02c2 0390     		str	r0, [sp, #12]	@ ptr1, ptr1
+ 594 02c4 0291     		str	r1, [sp, #8]	@ ptr2, ptr2
+ 595 02c6 0192     		str	r2, [sp, #4]	@ num, num
+ 161:../epcf/utils/source/epcf_string.c **** 	uint32_t index;
+ 162:../epcf/utils/source/epcf_string.c **** #if (PF_UTILS_DEBUG == 1)
+ 163:../epcf/utils/source/epcf_string.c **** 	if( (ptr1 == 0) || (ptr2 == 0) || (num == 0) )
+ 164:../epcf/utils/source/epcf_string.c **** 	{
+ 165:../epcf/utils/source/epcf_string.c **** 		return false;
+ 166:../epcf/utils/source/epcf_string.c **** 	}	
+ 167:../epcf/utils/source/epcf_string.c **** #endif	// #if (PF_UTILS_DEBUG == 1)
+ 168:../epcf/utils/source/epcf_string.c **** 
+ 169:../epcf/utils/source/epcf_string.c **** 	for(index = 0; index < num; index++)	
+ 596              		.loc 1 169 0
+ 597 02c8 0023     		movs	r3, #0	@ tmp116,
+ 598 02ca 0593     		str	r3, [sp, #20]	@ tmp116, index
+ 599 02cc 0EE0     		b	.L40	@
+ 600              	.L43:
+ 170:../epcf/utils/source/epcf_string.c **** 	{
+ 171:../epcf/utils/source/epcf_string.c **** 		if( *(((const uint8_t*)ptr1) + index) != *(((const uint8_t*)ptr2) + index) )
+ 601              		.loc 1 171 0
+ 602 02ce 039A     		ldr	r2, [sp, #12]	@ tmp117, ptr1
+ 603 02d0 059B     		ldr	r3, [sp, #20]	@ tmp118, index
+ 604 02d2 1344     		add	r3, r3, r2	@ D.6555, tmp117
+ 605 02d4 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2	@ D.6556, *_6
+ 606 02d6 0299     		ldr	r1, [sp, #8]	@ tmp119, ptr2
+ 607 02d8 059B     		ldr	r3, [sp, #20]	@ tmp120, index
+ 608 02da 0B44     		add	r3, r3, r1	@ D.6555, tmp119
+ 609 02dc 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2	@ D.6556, *_9
+ 610 02de 9A42     		cmp	r2, r3	@ D.6556, D.6556
+ 611 02e0 01D0     		beq	.L41	@,
+ARM GAS  /tmp/ccfV9k9H.s 			page 15
+
+
+ 172:../epcf/utils/source/epcf_string.c **** 		{
+ 173:../epcf/utils/source/epcf_string.c **** 			return false;
+ 612              		.loc 1 173 0
+ 613 02e2 0023     		movs	r3, #0	@ D.6554,
+ 614 02e4 07E0     		b	.L42	@
+ 615              	.L41:
+ 169:../epcf/utils/source/epcf_string.c **** 	{
+ 616              		.loc 1 169 0 discriminator 2
+ 617 02e6 059B     		ldr	r3, [sp, #20]	@ tmp122, index
+ 618 02e8 0133     		adds	r3, r3, #1	@ tmp121, tmp122,
+ 619 02ea 0593     		str	r3, [sp, #20]	@ tmp121, index
+ 620              	.L40:
+ 169:../epcf/utils/source/epcf_string.c **** 	{
+ 621              		.loc 1 169 0 is_stmt 0 discriminator 1
+ 622 02ec 059A     		ldr	r2, [sp, #20]	@ tmp123, index
+ 623 02ee 019B     		ldr	r3, [sp, #4]	@ tmp124, num
+ 624 02f0 9A42     		cmp	r2, r3	@ tmp123, tmp124
+ 625 02f2 ECD3     		bcc	.L43	@,
+ 174:../epcf/utils/source/epcf_string.c **** 		}
+ 175:../epcf/utils/source/epcf_string.c **** 	}
+ 176:../epcf/utils/source/epcf_string.c **** 	
+ 177:../epcf/utils/source/epcf_string.c **** 	return true;
+ 626              		.loc 1 177 0 is_stmt 1
+ 627 02f4 0123     		movs	r3, #1	@ D.6554,
+ 628              	.L42:
+ 178:../epcf/utils/source/epcf_string.c **** }
+ 629              		.loc 1 178 0
+ 630 02f6 1846     		mov	r0, r3	@, <retval>
+ 631 02f8 06B0     		add	sp, sp, #24	@,,
+ 632              	.LCFI14:
+ 633              		.cfi_def_cfa_offset 0
+ 634              		@ sp needed	@
+ 635 02fa 7047     		bx	lr	@
+ 636              		.cfi_endproc
+ 637              	.LFE46:
+ 638              		.size	pcfMemCompare, .-pcfMemCompare
+ 639              		.global	__aeabi_fcmplt
+ 640              		.global	__aeabi_fcmpeq
+ 641              		.global	__aeabi_fmul
+ 642              		.global	__aeabi_fcmpge
+ 643              		.global	__aeabi_dmul
+ 644              		.global	__aeabi_f2d
+ 645              		.global	__aeabi_dadd
+ 646              		.global	__aeabi_d2f
+ 647              		.global	__aeabi_f2iz
+ 648              		.global	__aeabi_i2f
+ 649              		.global	__aeabi_fsub
+ 650              		.align	2
+ 651              		.global	pcfFtoA
+ 652              		.thumb
+ 653              		.thumb_func
+ 654              		.type	pcfFtoA, %function
+ 655              	pcfFtoA:
+ 656              	.LFB47:
+ 179:../epcf/utils/source/epcf_string.c **** 
+ 180:../epcf/utils/source/epcf_string.c **** int8_t pcfFtoA(float x, uint8_t* str)
+ 181:../epcf/utils/source/epcf_string.c **** {
+ARM GAS  /tmp/ccfV9k9H.s 			page 16
+
+
+ 657              		.loc 1 181 0
+ 658              		.cfi_startproc
+ 659              		@ args = 0, pretend = 0, frame = 32
+ 660              		@ frame_needed = 0, uses_anonymous_args = 0
+ 661 02fc 30B5     		push	{r4, r5, lr}	@
+ 662              	.LCFI15:
+ 663              		.cfi_def_cfa_offset 12
+ 664              		.cfi_offset 4, -12
+ 665              		.cfi_offset 5, -8
+ 666              		.cfi_offset 14, -4
+ 667 02fe 89B0     		sub	sp, sp, #36	@,,
+ 668              	.LCFI16:
+ 669              		.cfi_def_cfa_offset 48
+ 670 0300 0190     		str	r0, [sp, #4]	@ float	@ x, x
+ 671 0302 0091     		str	r1, [sp]	@ str, str
+ 182:../epcf/utils/source/epcf_string.c **** 	short ie=0,precission=6,i, k;
+ 672              		.loc 1 182 0
+ 673 0304 0023     		movs	r3, #0	@ tmp146,
+ 674 0306 ADF81E30 		strh	r3, [sp, #30]	@ movhi	@ tmp145, ie
+ 675 030a 0623     		movs	r3, #6	@ tmp148,
+ 676 030c ADF81C30 		strh	r3, [sp, #28]	@ movhi	@ tmp147, precission
+ 183:../epcf/utils/source/epcf_string.c ****  	double y=1;
+ 677              		.loc 1 183 0
+ 678 0310 4FF00002 		mov	r2, #0	@ tmp149,
+ 679 0314 864B     		ldr	r3, .L67+8	@,
+ 680 0316 CDE90423 		strd	r2, [sp, #16]	@ tmp149,,
+ 184:../epcf/utils/source/epcf_string.c ****  		
+ 185:../epcf/utils/source/epcf_string.c **** #if (PF_UTILS_DEBUG == 1)
+ 186:../epcf/utils/source/epcf_string.c **** 	if(str == 0)
+ 187:../epcf/utils/source/epcf_string.c **** 	{
+ 188:../epcf/utils/source/epcf_string.c **** 		return -2;
+ 189:../epcf/utils/source/epcf_string.c **** 	}	
+ 190:../epcf/utils/source/epcf_string.c **** #endif	// #if (PF_UTILS_DEBUG == 1)
+ 191:../epcf/utils/source/epcf_string.c **** 	
+ 192:../epcf/utils/source/epcf_string.c **** 	if( x < 0) 	/* if x negative, write minus and reverse */
+ 681              		.loc 1 192 0
+ 682 031a 0198     		ldr	r0, [sp, #4]	@ float	@, x
+ 683 031c 4FF00001 		mov	r1, #0	@,
+ 684 0320 FFF7FEFF 		bl	__aeabi_fcmplt	@
+ 685 0324 0346     		mov	r3, r0	@ tmp150,
+ 686 0326 002B     		cmp	r3, #0	@ tmp150,
+ 687 0328 08D0     		beq	.L45	@,
+ 193:../epcf/utils/source/epcf_string.c ****  	{
+ 194:../epcf/utils/source/epcf_string.c ****  	  *str++ = '-';
+ 688              		.loc 1 194 0
+ 689 032a 009B     		ldr	r3, [sp]	@ D.6557, str
+ 690 032c 5A1C     		adds	r2, r3, #1	@ tmp151, D.6557,
+ 691 032e 0092     		str	r2, [sp]	@ tmp151, str
+ 692 0330 2D22     		movs	r2, #45	@ tmp152,
+ 693 0332 1A70     		strb	r2, [r3]	@ tmp153, *_26
+ 195:../epcf/utils/source/epcf_string.c ****  	  x = -x;
+ 694              		.loc 1 195 0
+ 695 0334 019B     		ldr	r3, [sp, #4]	@ tmp155, x
+ 696 0336 83F00043 		eor	r3, r3, #-2147483648	@ tmp154, tmp155,
+ 697 033a 0193     		str	r3, [sp, #4]	@ float	@ tmp156, x
+ 698              	.L45:
+ 196:../epcf/utils/source/epcf_string.c ****  	}
+ARM GAS  /tmp/ccfV9k9H.s 			page 17
+
+
+ 197:../epcf/utils/source/epcf_string.c **** 
+ 198:../epcf/utils/source/epcf_string.c ****  	if(x!=0.0f)		//if (x<0.0) then increment by 10 till betwen 1.0 and 10.0
+ 699              		.loc 1 198 0
+ 700 033c 0198     		ldr	r0, [sp, #4]	@ float	@, x
+ 701 033e 4FF00001 		mov	r1, #0	@,
+ 702 0342 FFF7FEFF 		bl	__aeabi_fcmpeq	@
+ 703 0346 0346     		mov	r3, r0	@ tmp157,
+ 704 0348 002B     		cmp	r3, #0	@ tmp157,
+ 705 034a 15D1     		bne	.L47	@,
+ 199:../epcf/utils/source/epcf_string.c ****  	{
+ 200:../epcf/utils/source/epcf_string.c ****  		while(x < 1.0f)  
+ 706              		.loc 1 200 0
+ 707 034c 0CE0     		b	.L49	@
+ 708              	.L50:
+ 201:../epcf/utils/source/epcf_string.c ****  		{
+ 202:../epcf/utils/source/epcf_string.c ****  		  x =x* 10.0f;
+ 709              		.loc 1 202 0
+ 710 034e 0198     		ldr	r0, [sp, #4]	@ float	@, x
+ 711 0350 7849     		ldr	r1, .L67+12	@,
+ 712 0352 FFF7FEFF 		bl	__aeabi_fmul	@
+ 713 0356 0346     		mov	r3, r0	@ tmp158,
+ 714 0358 0193     		str	r3, [sp, #4]	@ float	@ tmp158, x
+ 203:../epcf/utils/source/epcf_string.c ****  		  ie--;
+ 715              		.loc 1 203 0
+ 716 035a BDF81E30 		ldrh	r3, [sp, #30]	@ D.6558, ie
+ 717 035e 9BB2     		uxth	r3, r3	@ D.6559, D.6558
+ 718 0360 013B     		subs	r3, r3, #1	@ tmp159, D.6559,
+ 719 0362 9BB2     		uxth	r3, r3	@ D.6559, tmp159
+ 720 0364 ADF81E30 		strh	r3, [sp, #30]	@ movhi	@ tmp160, ie
+ 721              	.L49:
+ 200:../epcf/utils/source/epcf_string.c ****  		{
+ 722              		.loc 1 200 0
+ 723 0368 0198     		ldr	r0, [sp, #4]	@ float	@, x
+ 724 036a 4FF07E51 		mov	r1, #1065353216	@,
+ 725 036e FFF7FEFF 		bl	__aeabi_fcmplt	@
+ 726 0372 0346     		mov	r3, r0	@ tmp161,
+ 727 0374 002B     		cmp	r3, #0	@ tmp161,
+ 728 0376 EAD1     		bne	.L50	@,
+ 729              	.L47:
+ 204:../epcf/utils/source/epcf_string.c ****  		}
+ 205:../epcf/utils/source/epcf_string.c ****  	}
+ 206:../epcf/utils/source/epcf_string.c ****  	while(x >= 10.0f)	 //if x>10 then let's shift it down
+ 730              		.loc 1 206 0
+ 731 0378 0CE0     		b	.L51	@
+ 732              	.L52:
+ 207:../epcf/utils/source/epcf_string.c ****  	{
+ 208:../epcf/utils/source/epcf_string.c ****  		x = x*(1.0f/10.0f);
+ 733              		.loc 1 208 0
+ 734 037a 0198     		ldr	r0, [sp, #4]	@ float	@, x
+ 735 037c 6E49     		ldr	r1, .L67+16	@,
+ 736 037e FFF7FEFF 		bl	__aeabi_fmul	@
+ 737 0382 0346     		mov	r3, r0	@ tmp162,
+ 738 0384 0193     		str	r3, [sp, #4]	@ float	@ tmp162, x
+ 209:../epcf/utils/source/epcf_string.c ****  		ie++;
+ 739              		.loc 1 209 0
+ 740 0386 BDF81E30 		ldrh	r3, [sp, #30]	@ D.6558, ie
+ 741 038a 9BB2     		uxth	r3, r3	@ D.6559, D.6558
+ARM GAS  /tmp/ccfV9k9H.s 			page 18
+
+
+ 742 038c 0133     		adds	r3, r3, #1	@ tmp163, D.6559,
+ 743 038e 9BB2     		uxth	r3, r3	@ D.6559, tmp163
+ 744 0390 ADF81E30 		strh	r3, [sp, #30]	@ movhi	@ tmp164, ie
+ 745              	.L51:
+ 206:../epcf/utils/source/epcf_string.c ****  	{
+ 746              		.loc 1 206 0
+ 747 0394 0198     		ldr	r0, [sp, #4]	@ float	@, x
+ 748 0396 6749     		ldr	r1, .L67+12	@,
+ 749 0398 FFF7FEFF 		bl	__aeabi_fcmpge	@
+ 750 039c 0346     		mov	r3, r0	@ tmp165,
+ 751 039e 002B     		cmp	r3, #0	@ tmp165,
+ 752 03a0 EBD1     		bne	.L52	@,
+ 210:../epcf/utils/source/epcf_string.c ****  	}
+ 211:../epcf/utils/source/epcf_string.c **** 	/* rounding fraction part. add this fraction to get exact fraction value */
+ 212:../epcf/utils/source/epcf_string.c ****  	for(i = 1; i < precission; i++)	//find least significant digit
+ 753              		.loc 1 212 0
+ 754 03a2 0123     		movs	r3, #1	@ tmp167,
+ 755 03a4 ADF81A30 		strh	r3, [sp, #26]	@ movhi	@ tmp166, i
+ 756 03a8 11E0     		b	.L53	@
+ 757              	.L54:
+ 213:../epcf/utils/source/epcf_string.c ****  	  y = y *(1.0f/10.0f); 		          //multiply by 1/10 is faster than divides
+ 758              		.loc 1 213 0 discriminator 3
+ 759 03aa DDE90401 		ldrd	r0, [sp, #16]	@,,
+ 760 03ae 5EA3     		adr	r3, .L67	@,
+ 761 03b0 D3E90023 		ldrd	r2, [r3]	@,
+ 762 03b4 FFF7FEFF 		bl	__aeabi_dmul	@
+ 763 03b8 0246     		mov	r2, r0	@ tmp168,
+ 764 03ba 0B46     		mov	r3, r1	@,
+ 765 03bc CDE90423 		strd	r2, [sp, #16]	@ tmp168,,
+ 212:../epcf/utils/source/epcf_string.c ****  	  y = y *(1.0f/10.0f); 		          //multiply by 1/10 is faster than divides
+ 766              		.loc 1 212 0 discriminator 3
+ 767 03c0 BDF81A30 		ldrh	r3, [sp, #26]	@ D.6558, i
+ 768 03c4 9BB2     		uxth	r3, r3	@ D.6559, D.6558
+ 769 03c6 0133     		adds	r3, r3, #1	@ tmp169, D.6559,
+ 770 03c8 9BB2     		uxth	r3, r3	@ D.6559, tmp169
+ 771 03ca ADF81A30 		strh	r3, [sp, #26]	@ movhi	@ tmp170, i
+ 772              	.L53:
+ 212:../epcf/utils/source/epcf_string.c ****  	  y = y *(1.0f/10.0f); 		          //multiply by 1/10 is faster than divides
+ 773              		.loc 1 212 0 is_stmt 0 discriminator 1
+ 774 03ce BDF91A20 		ldrsh	r2, [sp, #26]	@ tmp171, i
+ 775 03d2 BDF91C30 		ldrsh	r3, [sp, #28]	@ tmp172, precission
+ 776 03d6 9A42     		cmp	r2, r3	@ tmp171, tmp172
+ 777 03d8 E7DB     		blt	.L54	@,
+ 214:../epcf/utils/source/epcf_string.c ****  	 
+ 215:../epcf/utils/source/epcf_string.c ****   	x = x+ y *(1.0f/2.0f);			      //add rounding
+ 778              		.loc 1 215 0 is_stmt 1
+ 779 03da 0198     		ldr	r0, [sp, #4]	@ float	@, x
+ 780 03dc FFF7FEFF 		bl	__aeabi_f2d	@
+ 781 03e0 0446     		mov	r4, r0	@ D.6560,
+ 782 03e2 0D46     		mov	r5, r1	@ D.6560,
+ 783 03e4 DDE90401 		ldrd	r0, [sp, #16]	@,,
+ 784 03e8 4FF00002 		mov	r2, #0	@,
+ 785 03ec 534B     		ldr	r3, .L67+20	@,
+ 786 03ee FFF7FEFF 		bl	__aeabi_dmul	@
+ 787 03f2 0246     		mov	r2, r0	@ tmp173,
+ 788 03f4 0B46     		mov	r3, r1	@,
+ 789 03f6 2046     		mov	r0, r4	@, D.6560
+ARM GAS  /tmp/ccfV9k9H.s 			page 19
+
+
+ 790 03f8 2946     		mov	r1, r5	@, D.6560
+ 791 03fa FFF7FEFF 		bl	__aeabi_dadd	@
+ 792 03fe 0246     		mov	r2, r0	@ tmp174,
+ 793 0400 0B46     		mov	r3, r1	@,
+ 794 0402 1046     		mov	r0, r2	@, D.6560
+ 795 0404 1946     		mov	r1, r3	@, D.6560
+ 796 0406 FFF7FEFF 		bl	__aeabi_d2f	@
+ 797 040a 0346     		mov	r3, r0	@ tmp175,
+ 798 040c 0193     		str	r3, [sp, #4]	@ float	@ tmp175, x
+ 216:../epcf/utils/source/epcf_string.c ****  	/* repair rounding  */
+ 217:../epcf/utils/source/epcf_string.c ****  	if(x >= 10.0f) 
+ 799              		.loc 1 217 0
+ 800 040e 0198     		ldr	r0, [sp, #4]	@ float	@, x
+ 801 0410 4849     		ldr	r1, .L67+12	@,
+ 802 0412 FFF7FEFF 		bl	__aeabi_fcmpge	@
+ 803 0416 0346     		mov	r3, r0	@ tmp176,
+ 804 0418 002B     		cmp	r3, #0	@ tmp176,
+ 805 041a 10D0     		beq	.L55	@,
+ 218:../epcf/utils/source/epcf_string.c ****  	{
+ 219:../epcf/utils/source/epcf_string.c **** 		x = 1.0f; 
+ 806              		.loc 1 219 0
+ 807 041c 4FF07E53 		mov	r3, #1065353216	@ tmp177,
+ 808 0420 0193     		str	r3, [sp, #4]	@ float	@ tmp177, x
+ 220:../epcf/utils/source/epcf_string.c ****  		ie++;
+ 809              		.loc 1 220 0
+ 810 0422 BDF81E30 		ldrh	r3, [sp, #30]	@ D.6558, ie
+ 811 0426 9BB2     		uxth	r3, r3	@ D.6559, D.6558
+ 812 0428 0133     		adds	r3, r3, #1	@ tmp178, D.6559,
+ 813 042a 9BB2     		uxth	r3, r3	@ D.6559, tmp178
+ 814 042c ADF81E30 		strh	r3, [sp, #30]	@ movhi	@ tmp179, ie
+ 221:../epcf/utils/source/epcf_string.c ****  		precission++;
+ 815              		.loc 1 221 0
+ 816 0430 BDF81C30 		ldrh	r3, [sp, #28]	@ D.6558, precission
+ 817 0434 9BB2     		uxth	r3, r3	@ D.6559, D.6558
+ 818 0436 0133     		adds	r3, r3, #1	@ tmp180, D.6559,
+ 819 0438 9BB2     		uxth	r3, r3	@ D.6559, tmp180
+ 820 043a ADF81C30 		strh	r3, [sp, #28]	@ movhi	@ tmp181, precission
+ 821              	.L55:
+ 222:../epcf/utils/source/epcf_string.c ****  	} 	
+ 223:../epcf/utils/source/epcf_string.c **** 	
+ 224:../epcf/utils/source/epcf_string.c ****  	/*check and see if the number is less than 1.0*/
+ 225:../epcf/utils/source/epcf_string.c **** 	if(ie<0)
+ 822              		.loc 1 225 0
+ 823 043e BDF91E30 		ldrsh	r3, [sp, #30]	@ tmp182, ie
+ 824 0442 002B     		cmp	r3, #0	@ tmp182,
+ 825 0444 20DA     		bge	.L57	@,
+ 226:../epcf/utils/source/epcf_string.c ****  	{
+ 227:../epcf/utils/source/epcf_string.c ****  		*str++ = '0'; 
+ 826              		.loc 1 227 0
+ 827 0446 009B     		ldr	r3, [sp]	@ D.6557, str
+ 828 0448 5A1C     		adds	r2, r3, #1	@ tmp183, D.6557,
+ 829 044a 0092     		str	r2, [sp]	@ tmp183, str
+ 830 044c 3022     		movs	r2, #48	@ tmp184,
+ 831 044e 1A70     		strb	r2, [r3]	@ tmp185, *_58
+ 228:../epcf/utils/source/epcf_string.c ****  		*str++ = '.';
+ 832              		.loc 1 228 0
+ 833 0450 009B     		ldr	r3, [sp]	@ D.6557, str
+ARM GAS  /tmp/ccfV9k9H.s 			page 20
+
+
+ 834 0452 5A1C     		adds	r2, r3, #1	@ tmp186, D.6557,
+ 835 0454 0092     		str	r2, [sp]	@ tmp186, str
+ 836 0456 2E22     		movs	r2, #46	@ tmp187,
+ 837 0458 1A70     		strb	r2, [r3]	@ tmp188, *_60
+ 229:../epcf/utils/source/epcf_string.c ****  	
+ 230:../epcf/utils/source/epcf_string.c ****  		for(i = -1; i > ie; i--)
+ 838              		.loc 1 230 0
+ 839 045a 4FF6FF73 		movw	r3, #65535	@ tmp190,
+ 840 045e ADF81A30 		strh	r3, [sp, #26]	@ movhi	@ tmp189, i
+ 841 0462 0BE0     		b	.L58	@
+ 842              	.L59:
+ 231:../epcf/utils/source/epcf_string.c ****  			*str++ = '0';
+ 843              		.loc 1 231 0 discriminator 3
+ 844 0464 009B     		ldr	r3, [sp]	@ D.6557, str
+ 845 0466 5A1C     		adds	r2, r3, #1	@ tmp191, D.6557,
+ 846 0468 0092     		str	r2, [sp]	@ tmp191, str
+ 847 046a 3022     		movs	r2, #48	@ tmp192,
+ 848 046c 1A70     		strb	r2, [r3]	@ tmp193, *_63
+ 230:../epcf/utils/source/epcf_string.c ****  			*str++ = '0';
+ 849              		.loc 1 230 0 discriminator 3
+ 850 046e BDF81A30 		ldrh	r3, [sp, #26]	@ D.6558, i
+ 851 0472 9BB2     		uxth	r3, r3	@ D.6559, D.6558
+ 852 0474 013B     		subs	r3, r3, #1	@ tmp194, D.6559,
+ 853 0476 9BB2     		uxth	r3, r3	@ D.6559, tmp194
+ 854 0478 ADF81A30 		strh	r3, [sp, #26]	@ movhi	@ tmp195, i
+ 855              	.L58:
+ 230:../epcf/utils/source/epcf_string.c ****  			*str++ = '0';
+ 856              		.loc 1 230 0 is_stmt 0 discriminator 1
+ 857 047c BDF91A20 		ldrsh	r2, [sp, #26]	@ tmp196, i
+ 858 0480 BDF91E30 		ldrsh	r3, [sp, #30]	@ tmp197, ie
+ 859 0484 9A42     		cmp	r2, r3	@ tmp196, tmp197
+ 860 0486 EDDC     		bgt	.L59	@,
+ 861              	.L57:
+ 232:../epcf/utils/source/epcf_string.c ****  	}
+ 233:../epcf/utils/source/epcf_string.c ****  
+ 234:../epcf/utils/source/epcf_string.c ****  	for(i=0; i < precission; i++)   	//for each digit 
+ 862              		.loc 1 234 0 is_stmt 1
+ 863 0488 0023     		movs	r3, #0	@ tmp199,
+ 864 048a ADF81A30 		strh	r3, [sp, #26]	@ movhi	@ tmp198, i
+ 865 048e 39E0     		b	.L60	@
+ 866              	.L62:
+ 867              	.LBB2:
+ 235:../epcf/utils/source/epcf_string.c ****  	{
+ 236:../epcf/utils/source/epcf_string.c ****  		float b;
+ 237:../epcf/utils/source/epcf_string.c ****  		k = x;						    //k = most significant digit
+ 868              		.loc 1 237 0
+ 869 0490 0198     		ldr	r0, [sp, #4]	@ float	@, x
+ 870 0492 FFF7FEFF 		bl	__aeabi_f2iz	@
+ 871 0496 0346     		mov	r3, r0	@ tmp200,
+ 872 0498 ADF80E30 		strh	r3, [sp, #14]	@ movhi	@ tmp201, k
+ 238:../epcf/utils/source/epcf_string.c ****  		*str++ = k + '0';			//output the char representation
+ 873              		.loc 1 238 0
+ 874 049c 009B     		ldr	r3, [sp]	@ D.6557, str
+ 875 049e 5A1C     		adds	r2, r3, #1	@ tmp202, D.6557,
+ 876 04a0 0092     		str	r2, [sp]	@ tmp202, str
+ 877 04a2 BDF80E20 		ldrh	r2, [sp, #14]	@ movhi	@ tmp203, k
+ 878 04a6 D2B2     		uxtb	r2, r2	@ D.6561, tmp203
+ARM GAS  /tmp/ccfV9k9H.s 			page 21
+
+
+ 879 04a8 3032     		adds	r2, r2, #48	@ tmp204, D.6561,
+ 880 04aa D2B2     		uxtb	r2, r2	@ D.6561, tmp204
+ 881 04ac 1A70     		strb	r2, [r3]	@ tmp205, *_71
+ 239:../epcf/utils/source/epcf_string.c ****   
+ 240:../epcf/utils/source/epcf_string.c **** 		if(i==ie)
+ 882              		.loc 1 240 0
+ 883 04ae BDF91A20 		ldrsh	r2, [sp, #26]	@ tmp206, i
+ 884 04b2 BDF91E30 		ldrsh	r3, [sp, #30]	@ tmp207, ie
+ 885 04b6 9A42     		cmp	r2, r3	@ tmp206, tmp207
+ 886 04b8 04D1     		bne	.L61	@,
+ 241:../epcf/utils/source/epcf_string.c ****  			*str++ = '.';			  //output a decimal point
+ 887              		.loc 1 241 0
+ 888 04ba 009B     		ldr	r3, [sp]	@ D.6557, str
+ 889 04bc 5A1C     		adds	r2, r3, #1	@ tmp208, D.6557,
+ 890 04be 0092     		str	r2, [sp]	@ tmp208, str
+ 891 04c0 2E22     		movs	r2, #46	@ tmp209,
+ 892 04c2 1A70     		strb	r2, [r3]	@ tmp210, *_75
+ 893              	.L61:
+ 242:../epcf/utils/source/epcf_string.c **** 		
+ 243:../epcf/utils/source/epcf_string.c ****  		b =( float)k;                      
+ 894              		.loc 1 243 0 discriminator 2
+ 895 04c4 BDF90E30 		ldrsh	r3, [sp, #14]	@ tmp211, k
+ 896 04c8 1846     		mov	r0, r3	@, tmp211
+ 897 04ca FFF7FEFF 		bl	__aeabi_i2f	@
+ 898 04ce 0346     		mov	r3, r0	@ tmp212,
+ 899 04d0 0293     		str	r3, [sp, #8]	@ float	@ tmp212, b
+ 244:../epcf/utils/source/epcf_string.c ****  		b = b*10.0f;							//multiply by 10 before subtraction to remove errors from limited number of b
+ 900              		.loc 1 244 0 discriminator 2
+ 901 04d2 0298     		ldr	r0, [sp, #8]	@ float	@, b
+ 902 04d4 1749     		ldr	r1, .L67+12	@,
+ 903 04d6 FFF7FEFF 		bl	__aeabi_fmul	@
+ 904 04da 0346     		mov	r3, r0	@ tmp213,
+ 905 04dc 0293     		str	r3, [sp, #8]	@ float	@ tmp213, b
+ 245:../epcf/utils/source/epcf_string.c ****  		x = x*10.0f;
+ 906              		.loc 1 245 0 discriminator 2
+ 907 04de 0198     		ldr	r0, [sp, #4]	@ float	@, x
+ 908 04e0 1449     		ldr	r1, .L67+12	@,
+ 909 04e2 FFF7FEFF 		bl	__aeabi_fmul	@
+ 910 04e6 0346     		mov	r3, r0	@ tmp214,
+ 911 04e8 0193     		str	r3, [sp, #4]	@ float	@ tmp214, x
+ 246:../epcf/utils/source/epcf_string.c ****  		x = x - b;				      //subtract k from x		
+ 912              		.loc 1 246 0 discriminator 2
+ 913 04ea 0198     		ldr	r0, [sp, #4]	@ float	@, x
+ 914 04ec 0299     		ldr	r1, [sp, #8]	@ float	@, b
+ 915 04ee FFF7FEFF 		bl	__aeabi_fsub	@
+ 916 04f2 0346     		mov	r3, r0	@ tmp215,
+ 917 04f4 0193     		str	r3, [sp, #4]	@ float	@ tmp215, x
+ 918              	.LBE2:
+ 234:../epcf/utils/source/epcf_string.c ****  	{
+ 919              		.loc 1 234 0 discriminator 2
+ 920 04f6 BDF81A30 		ldrh	r3, [sp, #26]	@ D.6558, i
+ 921 04fa 9BB2     		uxth	r3, r3	@ D.6559, D.6558
+ 922 04fc 0133     		adds	r3, r3, #1	@ tmp216, D.6559,
+ 923 04fe 9BB2     		uxth	r3, r3	@ D.6559, tmp216
+ 924 0500 ADF81A30 		strh	r3, [sp, #26]	@ movhi	@ tmp217, i
+ 925              	.L60:
+ 234:../epcf/utils/source/epcf_string.c ****  	{
+ARM GAS  /tmp/ccfV9k9H.s 			page 22
+
+
+ 926              		.loc 1 234 0 is_stmt 0 discriminator 1
+ 927 0504 BDF91A20 		ldrsh	r2, [sp, #26]	@ tmp218, i
+ 928 0508 BDF91C30 		ldrsh	r3, [sp, #28]	@ tmp219, precission
+ 929 050c 9A42     		cmp	r2, r3	@ tmp218, tmp219
+ 930 050e BFDB     		blt	.L62	@,
+ 247:../epcf/utils/source/epcf_string.c ****  	}
+ 248:../epcf/utils/source/epcf_string.c **** 	*str++ = '\0';
+ 931              		.loc 1 248 0 is_stmt 1
+ 932 0510 009B     		ldr	r3, [sp]	@ D.6557, str
+ 933 0512 5A1C     		adds	r2, r3, #1	@ tmp220, D.6557,
+ 934 0514 0092     		str	r2, [sp]	@ tmp220, str
+ 935 0516 0022     		movs	r2, #0	@ tmp221,
+ 936 0518 1A70     		strb	r2, [r3]	@ tmp222, *_85
+ 249:../epcf/utils/source/epcf_string.c **** 	return 0;
+ 937              		.loc 1 249 0
+ 938 051a 0023     		movs	r3, #0	@ D.6562,
+ 939 051c 5BB2     		sxtb	r3, r3	@ tmp224, D.6562
+ 250:../epcf/utils/source/epcf_string.c **** }
+ 940              		.loc 1 250 0
+ 941 051e 1846     		mov	r0, r3	@, <retval>
+ 942 0520 09B0     		add	sp, sp, #36	@,,
+ 943              	.LCFI17:
+ 944              		.cfi_def_cfa_offset 12
+ 945              		@ sp needed	@
+ 946 0522 30BD     		pop	{r4, r5, pc}	@
+ 947              	.L68:
+ 948 0524 AFF30080 		.align	3
+ 949              	.L67:
+ 950 0528 000000A0 		.word	2684354560
+ 951 052c 9999B93F 		.word	1069128089
+ 952 0530 0000F03F 		.word	1072693248
+ 953 0534 00002041 		.word	1092616192
+ 954 0538 CDCCCC3D 		.word	1036831949
+ 955 053c 0000E03F 		.word	1071644672
+ 956              		.cfi_endproc
+ 957              	.LFE47:
+ 958              		.size	pcfFtoA, .-pcfFtoA
+ 959              		.align	2
+ 960              		.global	pcfAtoI
+ 961              		.thumb
+ 962              		.thumb_func
+ 963              		.type	pcfAtoI, %function
+ 964              	pcfAtoI:
+ 965              	.LFB48:
+ 251:../epcf/utils/source/epcf_string.c **** 
+ 252:../epcf/utils/source/epcf_string.c **** int8_t pcfAtoI(const uint8_t* str, uint32_t* num)
+ 253:../epcf/utils/source/epcf_string.c **** {
+ 966              		.loc 1 253 0
+ 967              		.cfi_startproc
+ 968              		@ args = 0, pretend = 0, frame = 16
+ 969              		@ frame_needed = 0, uses_anonymous_args = 0
+ 970              		@ link register save eliminated.
+ 971 0540 84B0     		sub	sp, sp, #16	@,,
+ 972              	.LCFI18:
+ 973              		.cfi_def_cfa_offset 16
+ 974 0542 0190     		str	r0, [sp, #4]	@ str, str
+ 975 0544 0091     		str	r1, [sp]	@ num, num
+ARM GAS  /tmp/ccfV9k9H.s 			page 23
+
+
+ 254:../epcf/utils/source/epcf_string.c **** 	uint32_t k = 0;
+ 976              		.loc 1 254 0
+ 977 0546 0023     		movs	r3, #0	@ tmp119,
+ 978 0548 0393     		str	r3, [sp, #12]	@ tmp119, k
+ 255:../epcf/utils/source/epcf_string.c **** #if (PF_UTILS_DEBUG == 1)
+ 256:../epcf/utils/source/epcf_string.c **** 	if( (str == 0) || (num == 0) )
+ 257:../epcf/utils/source/epcf_string.c **** 	{
+ 258:../epcf/utils/source/epcf_string.c **** 		return -2;
+ 259:../epcf/utils/source/epcf_string.c **** 	}	
+ 260:../epcf/utils/source/epcf_string.c **** #endif	// #if (PF_UTILS_DEBUG == 1)
+ 261:../epcf/utils/source/epcf_string.c **** 	
+ 262:../epcf/utils/source/epcf_string.c **** 	while (*str) 
+ 979              		.loc 1 262 0
+ 980 054a 0CE0     		b	.L70	@
+ 981              	.L71:
+ 263:../epcf/utils/source/epcf_string.c **** 	{
+ 264:../epcf/utils/source/epcf_string.c **** 			k = (k<<3)+(k<<1)+(*str)-'0';
+ 982              		.loc 1 264 0
+ 983 054c 039B     		ldr	r3, [sp, #12]	@ tmp120, k
+ 984 054e DA00     		lsls	r2, r3, #3	@ D.6564, tmp120,
+ 985 0550 039B     		ldr	r3, [sp, #12]	@ tmp121, k
+ 986 0552 5B00     		lsls	r3, r3, #1	@ D.6564, tmp121,
+ 987 0554 1344     		add	r3, r3, r2	@ D.6564, D.6564
+ 988 0556 019A     		ldr	r2, [sp, #4]	@ tmp122, str
+ 989 0558 1278     		ldrb	r2, [r2]	@ zero_extendqisi2	@ D.6563, *str_1
+ 990 055a 1344     		add	r3, r3, r2	@ D.6564, D.6564
+ 991 055c 303B     		subs	r3, r3, #48	@ tmp123, D.6564,
+ 992 055e 0393     		str	r3, [sp, #12]	@ tmp123, k
+ 265:../epcf/utils/source/epcf_string.c **** 			str++;
+ 993              		.loc 1 265 0
+ 994 0560 019B     		ldr	r3, [sp, #4]	@ tmp125, str
+ 995 0562 0133     		adds	r3, r3, #1	@ tmp124, tmp125,
+ 996 0564 0193     		str	r3, [sp, #4]	@ tmp124, str
+ 997              	.L70:
+ 262:../epcf/utils/source/epcf_string.c **** 	{
+ 998              		.loc 1 262 0
+ 999 0566 019B     		ldr	r3, [sp, #4]	@ tmp126, str
+ 1000 0568 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2	@ D.6563, *str_1
+ 1001 056a 002B     		cmp	r3, #0	@ D.6563,
+ 1002 056c EED1     		bne	.L71	@,
+ 266:../epcf/utils/source/epcf_string.c **** 	}
+ 267:../epcf/utils/source/epcf_string.c **** 	*num = k;
+ 1003              		.loc 1 267 0
+ 1004 056e 009B     		ldr	r3, [sp]	@ tmp127, num
+ 1005 0570 039A     		ldr	r2, [sp, #12]	@ tmp128, k
+ 1006 0572 1A60     		str	r2, [r3]	@ tmp128, *num_14(D)
+ 268:../epcf/utils/source/epcf_string.c **** 	
+ 269:../epcf/utils/source/epcf_string.c **** 	return 0;
+ 1007              		.loc 1 269 0
+ 1008 0574 0023     		movs	r3, #0	@ D.6565,
+ 1009 0576 5BB2     		sxtb	r3, r3	@ tmp130, D.6565
+ 270:../epcf/utils/source/epcf_string.c **** }
+ 1010              		.loc 1 270 0
+ 1011 0578 1846     		mov	r0, r3	@, <retval>
+ 1012 057a 04B0     		add	sp, sp, #16	@,,
+ 1013              	.LCFI19:
+ 1014              		.cfi_def_cfa_offset 0
+ARM GAS  /tmp/ccfV9k9H.s 			page 24
+
+
+ 1015              		@ sp needed	@
+ 1016 057c 7047     		bx	lr	@
+ 1017              		.cfi_endproc
+ 1018              	.LFE48:
+ 1019              		.size	pcfAtoI, .-pcfAtoI
+ 1020              		.global	__aeabi_fadd
+ 1021              		.global	__aeabi_fdiv
+ 1022 057e 00BF     		.align	2
+ 1023              		.global	pcfAtoF
+ 1024              		.thumb
+ 1025              		.thumb_func
+ 1026              		.type	pcfAtoF, %function
+ 1027              	pcfAtoF:
+ 1028              	.LFB49:
+ 271:../epcf/utils/source/epcf_string.c **** 
+ 272:../epcf/utils/source/epcf_string.c **** int8_t pcfAtoF(const uint8_t* str, float* num)
+ 273:../epcf/utils/source/epcf_string.c **** {
+ 1029              		.loc 1 273 0
+ 1030              		.cfi_startproc
+ 1031              		@ args = 0, pretend = 0, frame = 16
+ 1032              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1033 0580 10B5     		push	{r4, lr}	@
+ 1034              	.LCFI20:
+ 1035              		.cfi_def_cfa_offset 8
+ 1036              		.cfi_offset 4, -8
+ 1037              		.cfi_offset 14, -4
+ 1038 0582 84B0     		sub	sp, sp, #16	@,,
+ 1039              	.LCFI21:
+ 1040              		.cfi_def_cfa_offset 24
+ 1041 0584 0190     		str	r0, [sp, #4]	@ str, str
+ 1042 0586 0091     		str	r1, [sp]	@ num, num
+ 274:../epcf/utils/source/epcf_string.c **** 	float result=0;
+ 1043              		.loc 1 274 0
+ 1044 0588 4FF00003 		mov	r3, #0	@ tmp131,
+ 1045 058c 0393     		str	r3, [sp, #12]	@ float	@ tmp131, result
+ 275:../epcf/utils/source/epcf_string.c **** 	uint16_t sLen = pcfStrLen(str);
+ 1046              		.loc 1 275 0
+ 1047 058e 0198     		ldr	r0, [sp, #4]	@, str
+ 1048 0590 FFF7FEFF 		bl	pcfStrLen	@
+ 1049 0594 0346     		mov	r3, r0	@ D.6566,
+ 1050 0596 ADF80830 		strh	r3, [sp, #8]	@ movhi	@ tmp132, sLen
+ 276:../epcf/utils/source/epcf_string.c **** 	uint8_t dotpos=0,i;
+ 1051              		.loc 1 276 0
+ 1052 059a 0023     		movs	r3, #0	@ tmp133,
+ 1053 059c 8DF80B30 		strb	r3, [sp, #11]	@ tmp134, dotpos
+ 277:../epcf/utils/source/epcf_string.c **** #if (PF_UTILS_DEBUG == 1)
+ 278:../epcf/utils/source/epcf_string.c **** 	if( (str == 0) || (num == 0) )
+ 279:../epcf/utils/source/epcf_string.c **** 	{
+ 280:../epcf/utils/source/epcf_string.c **** 		return -2;
+ 281:../epcf/utils/source/epcf_string.c **** 	}	
+ 282:../epcf/utils/source/epcf_string.c **** #endif	// #if (PF_UTILS_DEBUG == 1)	
+ 283:../epcf/utils/source/epcf_string.c **** 	if((str[0] == '-') || (str[0] == '+'))
+ 1054              		.loc 1 283 0
+ 1055 05a0 019B     		ldr	r3, [sp, #4]	@ tmp135, str
+ 1056 05a2 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2	@ D.6567, *str_11(D)
+ 1057 05a4 2D2B     		cmp	r3, #45	@ D.6567,
+ 1058 05a6 03D0     		beq	.L74	@,
+ARM GAS  /tmp/ccfV9k9H.s 			page 25
+
+
+ 1059              		.loc 1 283 0 is_stmt 0 discriminator 1
+ 1060 05a8 019B     		ldr	r3, [sp, #4]	@ tmp136, str
+ 1061 05aa 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2	@ D.6567, *str_11(D)
+ 1062 05ac 2B2B     		cmp	r3, #43	@ D.6567,
+ 1063 05ae 03D1     		bne	.L75	@,
+ 1064              	.L74:
+ 284:../epcf/utils/source/epcf_string.c **** 	{
+ 285:../epcf/utils/source/epcf_string.c **** 		i=1;
+ 1065              		.loc 1 285 0 is_stmt 1
+ 1066 05b0 0123     		movs	r3, #1	@ tmp137,
+ 1067 05b2 8DF80A30 		strb	r3, [sp, #10]	@ tmp138, i
+ 1068 05b6 02E0     		b	.L76	@
+ 1069              	.L75:
+ 286:../epcf/utils/source/epcf_string.c **** 	}
+ 287:../epcf/utils/source/epcf_string.c **** 	else
+ 288:../epcf/utils/source/epcf_string.c **** 	{
+ 289:../epcf/utils/source/epcf_string.c **** 		i=0;
+ 1070              		.loc 1 289 0
+ 1071 05b8 0023     		movs	r3, #0	@ tmp139,
+ 1072 05ba 8DF80A30 		strb	r3, [sp, #10]	@ tmp140, i
+ 1073              	.L76:
+ 290:../epcf/utils/source/epcf_string.c **** 	}
+ 291:../epcf/utils/source/epcf_string.c **** 	for(;i<sLen;i++)
+ 1074              		.loc 1 291 0
+ 1075 05be 2CE0     		b	.L77	@
+ 1076              	.L80:
+ 292:../epcf/utils/source/epcf_string.c **** 	{
+ 293:../epcf/utils/source/epcf_string.c **** 		if(str[i]=='.')
+ 1077              		.loc 1 293 0
+ 1078 05c0 9DF80A30 		ldrb	r3, [sp, #10]	@ zero_extendqisi2	@ D.6569, i
+ 1079 05c4 019A     		ldr	r2, [sp, #4]	@ tmp141, str
+ 1080 05c6 1344     		add	r3, r3, r2	@ D.6570, tmp141
+ 1081 05c8 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2	@ D.6567, *_21
+ 1082 05ca 2E2B     		cmp	r3, #46	@ D.6567,
+ 1083 05cc 0AD1     		bne	.L78	@,
+ 294:../epcf/utils/source/epcf_string.c **** 		{
+ 295:../epcf/utils/source/epcf_string.c **** 			dotpos = sLen-i-1;
+ 1084              		.loc 1 295 0
+ 1085 05ce BDF80830 		ldrh	r3, [sp, #8]	@ movhi	@ tmp142, sLen
+ 1086 05d2 DAB2     		uxtb	r2, r3	@ D.6567, tmp142
+ 1087 05d4 9DF80A30 		ldrb	r3, [sp, #10]	@ tmp143, i
+ 1088 05d8 D31A     		subs	r3, r2, r3	@ tmp144, D.6567, tmp143
+ 1089 05da DBB2     		uxtb	r3, r3	@ D.6567, tmp144
+ 1090 05dc 013B     		subs	r3, r3, #1	@ tmp145, D.6567,
+ 1091 05de 8DF80B30 		strb	r3, [sp, #11]	@ tmp146, dotpos
+ 1092 05e2 15E0     		b	.L79	@
+ 1093              	.L78:
+ 296:../epcf/utils/source/epcf_string.c **** 		}
+ 297:../epcf/utils/source/epcf_string.c **** 		else
+ 298:../epcf/utils/source/epcf_string.c **** 		{
+ 299:../epcf/utils/source/epcf_string.c **** 			result = (result * 10.0f) + (str[i] - '0');
+ 1094              		.loc 1 299 0
+ 1095 05e4 0398     		ldr	r0, [sp, #12]	@ float	@, result
+ 1096 05e6 1F49     		ldr	r1, .L85	@,
+ 1097 05e8 FFF7FEFF 		bl	__aeabi_fmul	@
+ 1098 05ec 0346     		mov	r3, r0	@ tmp147,
+ 1099 05ee 1C46     		mov	r4, r3	@ D.6571, tmp147
+ARM GAS  /tmp/ccfV9k9H.s 			page 26
+
+
+ 1100 05f0 9DF80A30 		ldrb	r3, [sp, #10]	@ zero_extendqisi2	@ D.6569, i
+ 1101 05f4 019A     		ldr	r2, [sp, #4]	@ tmp148, str
+ 1102 05f6 1344     		add	r3, r3, r2	@ D.6570, tmp148
+ 1103 05f8 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2	@ D.6567, *_28
+ 1104 05fa 303B     		subs	r3, r3, #48	@ D.6572, D.6572,
+ 1105 05fc 1846     		mov	r0, r3	@, D.6572
+ 1106 05fe FFF7FEFF 		bl	__aeabi_i2f	@
+ 1107 0602 0346     		mov	r3, r0	@ D.6571,
+ 1108 0604 2046     		mov	r0, r4	@, D.6571
+ 1109 0606 1946     		mov	r1, r3	@, D.6571
+ 1110 0608 FFF7FEFF 		bl	__aeabi_fadd	@
+ 1111 060c 0346     		mov	r3, r0	@ tmp149,
+ 1112 060e 0393     		str	r3, [sp, #12]	@ float	@ tmp149, result
+ 1113              	.L79:
+ 291:../epcf/utils/source/epcf_string.c **** 	{
+ 1114              		.loc 1 291 0
+ 1115 0610 9DF80A30 		ldrb	r3, [sp, #10]	@ zero_extendqisi2	@ D.6567, i
+ 1116 0614 0133     		adds	r3, r3, #1	@ tmp150, D.6567,
+ 1117 0616 8DF80A30 		strb	r3, [sp, #10]	@ tmp151, i
+ 1118              	.L77:
+ 291:../epcf/utils/source/epcf_string.c **** 	{
+ 1119              		.loc 1 291 0 is_stmt 0 discriminator 1
+ 1120 061a 9DF80A30 		ldrb	r3, [sp, #10]	@ zero_extendqisi2	@ tmp153, i
+ 1121 061e 9BB2     		uxth	r3, r3	@ D.6568, tmp152
+ 1122 0620 BDF80820 		ldrh	r2, [sp, #8]	@ tmp154, sLen
+ 1123 0624 9A42     		cmp	r2, r3	@ tmp154, D.6568
+ 1124 0626 CBD8     		bhi	.L80	@,
+ 300:../epcf/utils/source/epcf_string.c **** 		}
+ 301:../epcf/utils/source/epcf_string.c **** 	}
+ 302:../epcf/utils/source/epcf_string.c **** 	while(dotpos--)
+ 1125              		.loc 1 302 0 is_stmt 1
+ 1126 0628 05E0     		b	.L81	@
+ 1127              	.L82:
+ 303:../epcf/utils/source/epcf_string.c **** 	{
+ 304:../epcf/utils/source/epcf_string.c **** 		result /= 10.0f;
+ 1128              		.loc 1 304 0
+ 1129 062a 0398     		ldr	r0, [sp, #12]	@ float	@, result
+ 1130 062c 0D49     		ldr	r1, .L85	@,
+ 1131 062e FFF7FEFF 		bl	__aeabi_fdiv	@
+ 1132 0632 0346     		mov	r3, r0	@ tmp155,
+ 1133 0634 0393     		str	r3, [sp, #12]	@ float	@ tmp155, result
+ 1134              	.L81:
+ 302:../epcf/utils/source/epcf_string.c **** 	{
+ 1135              		.loc 1 302 0
+ 1136 0636 9DF80B30 		ldrb	r3, [sp, #11]	@ zero_extendqisi2	@ D.6567, dotpos
+ 1137 063a 5A1E     		subs	r2, r3, #1	@ tmp156, D.6567,
+ 1138 063c 8DF80B20 		strb	r2, [sp, #11]	@ tmp157, dotpos
+ 1139 0640 002B     		cmp	r3, #0	@ D.6567,
+ 1140 0642 F2D1     		bne	.L82	@,
+ 305:../epcf/utils/source/epcf_string.c **** 	}
+ 306:../epcf/utils/source/epcf_string.c **** 	if(str[0] == '-')
+ 1141              		.loc 1 306 0
+ 1142 0644 019B     		ldr	r3, [sp, #4]	@ tmp158, str
+ 1143 0646 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2	@ D.6567, *str_11(D)
+ 1144 0648 2D2B     		cmp	r3, #45	@ D.6567,
+ 1145 064a 03D1     		bne	.L83	@,
+ 307:../epcf/utils/source/epcf_string.c **** 	{
+ARM GAS  /tmp/ccfV9k9H.s 			page 27
+
+
+ 308:../epcf/utils/source/epcf_string.c **** 		result *= -1;
+ 1146              		.loc 1 308 0
+ 1147 064c 039B     		ldr	r3, [sp, #12]	@ tmp160, result
+ 1148 064e 83F00043 		eor	r3, r3, #-2147483648	@ tmp159, tmp160,
+ 1149 0652 0393     		str	r3, [sp, #12]	@ float	@ tmp161, result
+ 1150              	.L83:
+ 309:../epcf/utils/source/epcf_string.c **** 	}
+ 310:../epcf/utils/source/epcf_string.c **** 	
+ 311:../epcf/utils/source/epcf_string.c **** 	*num = result;
+ 1151              		.loc 1 311 0
+ 1152 0654 009B     		ldr	r3, [sp]	@ tmp162, num
+ 1153 0656 039A     		ldr	r2, [sp, #12]	@ float	@ tmp163, result
+ 1154 0658 1A60     		str	r2, [r3]	@ float	@ tmp163, *num_41(D)
+ 312:../epcf/utils/source/epcf_string.c **** 	
+ 313:../epcf/utils/source/epcf_string.c **** 	return 0;
+ 1155              		.loc 1 313 0
+ 1156 065a 0023     		movs	r3, #0	@ D.6573,
+ 1157 065c 5BB2     		sxtb	r3, r3	@ tmp165, D.6573
+ 314:../epcf/utils/source/epcf_string.c **** }
+ 1158              		.loc 1 314 0
+ 1159 065e 1846     		mov	r0, r3	@, <retval>
+ 1160 0660 04B0     		add	sp, sp, #16	@,,
+ 1161              	.LCFI22:
+ 1162              		.cfi_def_cfa_offset 8
+ 1163              		@ sp needed	@
+ 1164 0662 10BD     		pop	{r4, pc}	@
+ 1165              	.L86:
+ 1166              		.align	2
+ 1167              	.L85:
+ 1168 0664 00002041 		.word	1092616192
+ 1169              		.cfi_endproc
+ 1170              	.LFE49:
+ 1171              		.size	pcfAtoF, .-pcfAtoF
+ 1172              		.align	2
+ 1173              		.global	pcfItoA
+ 1174              		.thumb
+ 1175              		.thumb_func
+ 1176              		.type	pcfItoA, %function
+ 1177              	pcfItoA:
+ 1178              	.LFB50:
+ 315:../epcf/utils/source/epcf_string.c **** 
+ 316:../epcf/utils/source/epcf_string.c **** int8_t pcfItoA(long num, uint8_t* str)
+ 317:../epcf/utils/source/epcf_string.c **** {
+ 1179              		.loc 1 317 0
+ 1180              		.cfi_startproc
+ 1181              		@ args = 0, pretend = 0, frame = 16
+ 1182              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1183 0668 00B5     		push	{lr}	@
+ 1184              	.LCFI23:
+ 1185              		.cfi_def_cfa_offset 4
+ 1186              		.cfi_offset 14, -4
+ 1187 066a 85B0     		sub	sp, sp, #20	@,,
+ 1188              	.LCFI24:
+ 1189              		.cfi_def_cfa_offset 24
+ 1190 066c 0190     		str	r0, [sp, #4]	@ num, num
+ 1191 066e 0091     		str	r1, [sp]	@ str, str
+ 318:../epcf/utils/source/epcf_string.c **** 	long i=0, sign;
+ARM GAS  /tmp/ccfV9k9H.s 			page 28
+
+
+ 1192              		.loc 1 318 0
+ 1193 0670 0023     		movs	r3, #0	@ tmp123,
+ 1194 0672 0393     		str	r3, [sp, #12]	@ tmp123, i
+ 319:../epcf/utils/source/epcf_string.c **** #if (PF_UTILS_DEBUG == 1)
+ 320:../epcf/utils/source/epcf_string.c **** 	if( (str == 0) || (num == 0) )
+ 321:../epcf/utils/source/epcf_string.c **** 	{
+ 322:../epcf/utils/source/epcf_string.c **** 		return -2;
+ 323:../epcf/utils/source/epcf_string.c **** 	}	
+ 324:../epcf/utils/source/epcf_string.c **** #endif	// #if (PF_UTILS_DEBUG == 1)	
+ 325:../epcf/utils/source/epcf_string.c **** 	
+ 326:../epcf/utils/source/epcf_string.c **** 	sign = num;
+ 1195              		.loc 1 326 0
+ 1196 0674 019B     		ldr	r3, [sp, #4]	@ tmp124, num
+ 1197 0676 0293     		str	r3, [sp, #8]	@ tmp124, sign
+ 327:../epcf/utils/source/epcf_string.c **** 	if (num < 0)  			// record sign
+ 1198              		.loc 1 327 0
+ 1199 0678 019B     		ldr	r3, [sp, #4]	@ tmp125, num
+ 1200 067a 002B     		cmp	r3, #0	@ tmp125,
+ 1201 067c 02DA     		bge	.L88	@,
+ 328:../epcf/utils/source/epcf_string.c **** 	{
+ 329:../epcf/utils/source/epcf_string.c **** 		num = -num;         // make num positive
+ 1202              		.loc 1 329 0
+ 1203 067e 019B     		ldr	r3, [sp, #4]	@ tmp127, num
+ 1204 0680 5B42     		negs	r3, r3	@ tmp126, tmp127
+ 1205 0682 0193     		str	r3, [sp, #4]	@ tmp126, num
+ 1206              	.L88:
+ 330:../epcf/utils/source/epcf_string.c **** 	}		
+ 331:../epcf/utils/source/epcf_string.c **** 	do 
+ 332:../epcf/utils/source/epcf_string.c **** 	{    
+ 333:../epcf/utils/source/epcf_string.c **** 		// generate digits in reverse order
+ 334:../epcf/utils/source/epcf_string.c **** 		str[i++] = num % 10 + '0';   // get next digit
+ 1207              		.loc 1 334 0 discriminator 1
+ 1208 0684 039B     		ldr	r3, [sp, #12]	@ D.6574, i
+ 1209 0686 5A1C     		adds	r2, r3, #1	@ tmp128, D.6574,
+ 1210 0688 0392     		str	r2, [sp, #12]	@ tmp128, i
+ 1211 068a 1A46     		mov	r2, r3	@ D.6575, D.6574
+ 1212 068c 009B     		ldr	r3, [sp]	@ tmp129, str
+ 1213 068e 9818     		adds	r0, r3, r2	@ D.6576, tmp129, D.6575
+ 1214 0690 019A     		ldr	r2, [sp, #4]	@ tmp130, num
+ 1215 0692 194B     		ldr	r3, .L91	@ tmp132,
+ 1216 0694 83FB0213 		smull	r1, r3, r3, r2	@ tmp156, tmp131, tmp132, tmp130
+ 1217 0698 9910     		asrs	r1, r3, #2	@ tmp133, tmp131,
+ 1218 069a D317     		asrs	r3, r2, #31	@ tmp134, tmp130,
+ 1219 069c C91A     		subs	r1, r1, r3	@ D.6574, tmp133, tmp134
+ 1220 069e 0B46     		mov	r3, r1	@ tmp135, D.6574
+ 1221 06a0 9B00     		lsls	r3, r3, #2	@ tmp135, tmp135,
+ 1222 06a2 0B44     		add	r3, r3, r1	@ tmp135, D.6574
+ 1223 06a4 5B00     		lsls	r3, r3, #1	@ tmp136, tmp135,
+ 1224 06a6 D11A     		subs	r1, r2, r3	@ D.6574, tmp130, tmp135
+ 1225 06a8 CBB2     		uxtb	r3, r1	@ D.6577, D.6574
+ 1226 06aa 3033     		adds	r3, r3, #48	@ tmp137, D.6577,
+ 1227 06ac DBB2     		uxtb	r3, r3	@ D.6577, tmp137
+ 1228 06ae 0370     		strb	r3, [r0]	@ tmp138, *_12
+ 335:../epcf/utils/source/epcf_string.c **** 	} while ((num /= 10) > 0);     	// delete it
+ 1229              		.loc 1 335 0 discriminator 1
+ 1230 06b0 019B     		ldr	r3, [sp, #4]	@ tmp140, num
+ 1231 06b2 114A     		ldr	r2, .L91	@ tmp142,
+ARM GAS  /tmp/ccfV9k9H.s 			page 29
+
+
+ 1232 06b4 82FB0312 		smull	r1, r2, r2, r3	@ tmp157, tmp141, tmp142, tmp140
+ 1233 06b8 9210     		asrs	r2, r2, #2	@ tmp143, tmp141,
+ 1234 06ba DB17     		asrs	r3, r3, #31	@ tmp144, tmp140,
+ 1235 06bc D31A     		subs	r3, r2, r3	@ tmp139, tmp143, tmp144
+ 1236 06be 0193     		str	r3, [sp, #4]	@ tmp139, num
+ 1237 06c0 019B     		ldr	r3, [sp, #4]	@ tmp145, num
+ 1238 06c2 002B     		cmp	r3, #0	@ tmp145,
+ 1239 06c4 DEDC     		bgt	.L88	@,
+ 336:../epcf/utils/source/epcf_string.c **** 			
+ 337:../epcf/utils/source/epcf_string.c **** 	if (sign < 0)
+ 1240              		.loc 1 337 0
+ 1241 06c6 029B     		ldr	r3, [sp, #8]	@ tmp146, sign
+ 1242 06c8 002B     		cmp	r3, #0	@ tmp146,
+ 1243 06ca 07DA     		bge	.L89	@,
+ 338:../epcf/utils/source/epcf_string.c **** 	{
+ 339:../epcf/utils/source/epcf_string.c **** 		str[i++] = '-';
+ 1244              		.loc 1 339 0
+ 1245 06cc 039B     		ldr	r3, [sp, #12]	@ D.6574, i
+ 1246 06ce 5A1C     		adds	r2, r3, #1	@ tmp147, D.6574,
+ 1247 06d0 0392     		str	r2, [sp, #12]	@ tmp147, i
+ 1248 06d2 1A46     		mov	r2, r3	@ D.6575, D.6574
+ 1249 06d4 009B     		ldr	r3, [sp]	@ tmp148, str
+ 1250 06d6 1344     		add	r3, r3, r2	@ D.6576, D.6575
+ 1251 06d8 2D22     		movs	r2, #45	@ tmp149,
+ 1252 06da 1A70     		strb	r2, [r3]	@ tmp150, *_20
+ 1253              	.L89:
+ 340:../epcf/utils/source/epcf_string.c **** 	}
+ 341:../epcf/utils/source/epcf_string.c **** 	str[i] = '\0';
+ 1254              		.loc 1 341 0
+ 1255 06dc 039B     		ldr	r3, [sp, #12]	@ D.6575, i
+ 1256 06de 009A     		ldr	r2, [sp]	@ tmp151, str
+ 1257 06e0 1344     		add	r3, r3, r2	@ D.6576, tmp151
+ 1258 06e2 0022     		movs	r2, #0	@ tmp152,
+ 1259 06e4 1A70     		strb	r2, [r3]	@ tmp153, *_22
+ 342:../epcf/utils/source/epcf_string.c **** 	pcfStrReverse(str);
+ 1260              		.loc 1 342 0
+ 1261 06e6 0098     		ldr	r0, [sp]	@, str
+ 1262 06e8 FFF7FEFF 		bl	pcfStrReverse	@
+ 343:../epcf/utils/source/epcf_string.c **** 	
+ 344:../epcf/utils/source/epcf_string.c **** 	return 0;
+ 1263              		.loc 1 344 0
+ 1264 06ec 0023     		movs	r3, #0	@ D.6578,
+ 1265 06ee 5BB2     		sxtb	r3, r3	@ tmp155, D.6578
+ 345:../epcf/utils/source/epcf_string.c **** }
+ 1266              		.loc 1 345 0
+ 1267 06f0 1846     		mov	r0, r3	@, <retval>
+ 1268 06f2 05B0     		add	sp, sp, #20	@,,
+ 1269              	.LCFI25:
+ 1270              		.cfi_def_cfa_offset 4
+ 1271              		@ sp needed	@
+ 1272 06f4 5DF804FB 		ldr	pc, [sp], #4	@
+ 1273              	.L92:
+ 1274              		.align	2
+ 1275              	.L91:
+ 1276 06f8 67666666 		.word	1717986919
+ 1277              		.cfi_endproc
+ 1278              	.LFE50:
+ARM GAS  /tmp/ccfV9k9H.s 			page 30
+
+
+ 1279              		.size	pcfItoA, .-pcfItoA
+ 1280              		.align	2
+ 1281              		.global	pcfStrCat
+ 1282              		.thumb
+ 1283              		.thumb_func
+ 1284              		.type	pcfStrCat, %function
+ 1285              	pcfStrCat:
+ 1286              	.LFB51:
+ 346:../epcf/utils/source/epcf_string.c **** 
+ 347:../epcf/utils/source/epcf_string.c **** uint8_t pcfStrCat(uint8_t *dest, const uint8_t *src)
+ 348:../epcf/utils/source/epcf_string.c **** {
+ 1287              		.loc 1 348 0
+ 1288              		.cfi_startproc
+ 1289              		@ args = 0, pretend = 0, frame = 24
+ 1290              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1291              		@ link register save eliminated.
+ 1292 06fc 86B0     		sub	sp, sp, #24	@,,
+ 1293              	.LCFI26:
+ 1294              		.cfi_def_cfa_offset 24
+ 1295 06fe 0190     		str	r0, [sp, #4]	@ dest, dest
+ 1296 0700 0091     		str	r1, [sp]	@ src, src
+ 349:../epcf/utils/source/epcf_string.c **** 	uint32_t destCount=0, srcCount=0, index;
+ 1297              		.loc 1 349 0
+ 1298 0702 0023     		movs	r3, #0	@ tmp120,
+ 1299 0704 0593     		str	r3, [sp, #20]	@ tmp120, destCount
+ 1300 0706 0023     		movs	r3, #0	@ tmp121,
+ 1301 0708 0493     		str	r3, [sp, #16]	@ tmp121, srcCount
+ 350:../epcf/utils/source/epcf_string.c **** 
+ 351:../epcf/utils/source/epcf_string.c **** 	while(*(dest + destCount) != 0)
+ 1302              		.loc 1 351 0
+ 1303 070a 02E0     		b	.L94	@
+ 1304              	.L95:
+ 352:../epcf/utils/source/epcf_string.c **** 	{
+ 353:../epcf/utils/source/epcf_string.c **** 		destCount++;
+ 1305              		.loc 1 353 0
+ 1306 070c 059B     		ldr	r3, [sp, #20]	@ tmp123, destCount
+ 1307 070e 0133     		adds	r3, r3, #1	@ tmp122, tmp123,
+ 1308 0710 0593     		str	r3, [sp, #20]	@ tmp122, destCount
+ 1309              	.L94:
+ 351:../epcf/utils/source/epcf_string.c **** 	{
+ 1310              		.loc 1 351 0
+ 1311 0712 019A     		ldr	r2, [sp, #4]	@ tmp124, dest
+ 1312 0714 059B     		ldr	r3, [sp, #20]	@ tmp125, destCount
+ 1313 0716 1344     		add	r3, r3, r2	@ D.6579, tmp124
+ 1314 0718 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2	@ D.6580, *_7
+ 1315 071a 002B     		cmp	r3, #0	@ D.6580,
+ 1316 071c F6D1     		bne	.L95	@,
+ 354:../epcf/utils/source/epcf_string.c **** 	}
+ 355:../epcf/utils/source/epcf_string.c **** 
+ 356:../epcf/utils/source/epcf_string.c **** 	while(*(src + srcCount) != 0)
+ 1317              		.loc 1 356 0
+ 1318 071e 02E0     		b	.L96	@
+ 1319              	.L97:
+ 357:../epcf/utils/source/epcf_string.c **** 	{
+ 358:../epcf/utils/source/epcf_string.c **** 		srcCount++;
+ 1320              		.loc 1 358 0
+ 1321 0720 049B     		ldr	r3, [sp, #16]	@ tmp127, srcCount
+ARM GAS  /tmp/ccfV9k9H.s 			page 31
+
+
+ 1322 0722 0133     		adds	r3, r3, #1	@ tmp126, tmp127,
+ 1323 0724 0493     		str	r3, [sp, #16]	@ tmp126, srcCount
+ 1324              	.L96:
+ 356:../epcf/utils/source/epcf_string.c **** 	{
+ 1325              		.loc 1 356 0
+ 1326 0726 009A     		ldr	r2, [sp]	@ tmp128, src
+ 1327 0728 049B     		ldr	r3, [sp, #16]	@ tmp129, srcCount
+ 1328 072a 1344     		add	r3, r3, r2	@ D.6581, tmp128
+ 1329 072c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2	@ D.6580, *_11
+ 1330 072e 002B     		cmp	r3, #0	@ D.6580,
+ 1331 0730 F6D1     		bne	.L97	@,
+ 359:../epcf/utils/source/epcf_string.c **** 	}
+ 360:../epcf/utils/source/epcf_string.c **** 
+ 361:../epcf/utils/source/epcf_string.c **** 	for(index=0; index<srcCount; index++)
+ 1332              		.loc 1 361 0
+ 1333 0732 0023     		movs	r3, #0	@ tmp130,
+ 1334 0734 0393     		str	r3, [sp, #12]	@ tmp130, index
+ 1335 0736 0CE0     		b	.L98	@
+ 1336              	.L99:
+ 362:../epcf/utils/source/epcf_string.c **** 	{
+ 363:../epcf/utils/source/epcf_string.c **** 		*((dest+destCount)+ index) = *(src + index);
+ 1337              		.loc 1 363 0 discriminator 3
+ 1338 0738 059A     		ldr	r2, [sp, #20]	@ tmp131, destCount
+ 1339 073a 039B     		ldr	r3, [sp, #12]	@ tmp132, index
+ 1340 073c 1344     		add	r3, r3, r2	@ D.6582, tmp131
+ 1341 073e 019A     		ldr	r2, [sp, #4]	@ tmp133, dest
+ 1342 0740 1344     		add	r3, r3, r2	@ D.6579, tmp133
+ 1343 0742 0099     		ldr	r1, [sp]	@ tmp134, src
+ 1344 0744 039A     		ldr	r2, [sp, #12]	@ tmp135, index
+ 1345 0746 0A44     		add	r2, r2, r1	@ D.6581, tmp134
+ 1346 0748 1278     		ldrb	r2, [r2]	@ zero_extendqisi2	@ D.6580, *_17
+ 1347 074a 1A70     		strb	r2, [r3]	@ tmp136, *_16
+ 361:../epcf/utils/source/epcf_string.c **** 	{
+ 1348              		.loc 1 361 0 discriminator 3
+ 1349 074c 039B     		ldr	r3, [sp, #12]	@ tmp138, index
+ 1350 074e 0133     		adds	r3, r3, #1	@ tmp137, tmp138,
+ 1351 0750 0393     		str	r3, [sp, #12]	@ tmp137, index
+ 1352              	.L98:
+ 361:../epcf/utils/source/epcf_string.c **** 	{
+ 1353              		.loc 1 361 0 is_stmt 0 discriminator 1
+ 1354 0752 039A     		ldr	r2, [sp, #12]	@ tmp139, index
+ 1355 0754 049B     		ldr	r3, [sp, #16]	@ tmp140, srcCount
+ 1356 0756 9A42     		cmp	r2, r3	@ tmp139, tmp140
+ 1357 0758 EED3     		bcc	.L99	@,
+ 364:../epcf/utils/source/epcf_string.c **** 	}
+ 365:../epcf/utils/source/epcf_string.c **** 
+ 366:../epcf/utils/source/epcf_string.c **** 	return 0;
+ 1358              		.loc 1 366 0 is_stmt 1
+ 1359 075a 0023     		movs	r3, #0	@ D.6583,
+ 367:../epcf/utils/source/epcf_string.c **** }
+ 1360              		.loc 1 367 0
+ 1361 075c 1846     		mov	r0, r3	@, <retval>
+ 1362 075e 06B0     		add	sp, sp, #24	@,,
+ 1363              	.LCFI27:
+ 1364              		.cfi_def_cfa_offset 0
+ 1365              		@ sp needed	@
+ 1366 0760 7047     		bx	lr	@
+ARM GAS  /tmp/ccfV9k9H.s 			page 32
+
+
+ 1367              		.cfi_endproc
+ 1368              	.LFE51:
+ 1369              		.size	pcfStrCat, .-pcfStrCat
+ 1370              	.Letext0:
+ 1371              		.file 2 "/usr/include/newlib/machine/_default_types.h"
+ 1372              		.file 3 "/usr/include/newlib/sys/_stdint.h"
+ 1373              		.file 4 "/home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/./common/types.h"
+ 1374              		.file 5 "../pcf/include/private/arch/arm/cm3/nxp/lpc1768/./../../../../arm/cm3/nxp/lpc1768/lpc1768
+ 1375 0762 00BF     		.section	.debug_info,"",%progbits
+ 1376              	.Ldebug_info0:
+ 1377 0000 01060000 		.4byte	0x601
+ 1378 0004 0200     		.2byte	0x2
+ 1379 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 1380 000a 04       		.byte	0x4
+ 1381 000b 01       		.uleb128 0x1
+ 1382 000c 7B000000 		.4byte	.LASF57
+ 1383 0010 01       		.byte	0x1
+ 1384 0011 ED000000 		.4byte	.LASF58
+ 1385 0015 A4020000 		.4byte	.LASF59
+ 1386 0019 00000000 		.4byte	.Ltext0
+ 1387 001d 62070000 		.4byte	.Letext0
+ 1388 0021 00000000 		.4byte	.Ldebug_line0
+ 1389 0025 02       		.uleb128 0x2
+ 1390 0026 04       		.byte	0x4
+ 1391 0027 07       		.byte	0x7
+ 1392 0028 BC010000 		.4byte	.LASF0
+ 1393 002c 03       		.uleb128 0x3
+ 1394 002d 04       		.byte	0x4
+ 1395 002e 05       		.byte	0x5
+ 1396 002f 696E7400 		.ascii	"int\000"
+ 1397 0033 04       		.uleb128 0x4
+ 1398 0034 0E020000 		.4byte	.LASF2
+ 1399 0038 02       		.byte	0x2
+ 1400 0039 1B       		.byte	0x1b
+ 1401 003a 3E000000 		.4byte	0x3e
+ 1402 003e 02       		.uleb128 0x2
+ 1403 003f 01       		.byte	0x1
+ 1404 0040 06       		.byte	0x6
+ 1405 0041 77010000 		.4byte	.LASF1
+ 1406 0045 04       		.uleb128 0x4
+ 1407 0046 45010000 		.4byte	.LASF3
+ 1408 004a 02       		.byte	0x2
+ 1409 004b 1D       		.byte	0x1d
+ 1410 004c 50000000 		.4byte	0x50
+ 1411 0050 02       		.uleb128 0x2
+ 1412 0051 01       		.byte	0x1
+ 1413 0052 08       		.byte	0x8
+ 1414 0053 64010000 		.4byte	.LASF4
+ 1415 0057 02       		.uleb128 0x2
+ 1416 0058 02       		.byte	0x2
+ 1417 0059 05       		.byte	0x5
+ 1418 005a 3D000000 		.4byte	.LASF5
+ 1419 005e 04       		.uleb128 0x4
+ 1420 005f 62000000 		.4byte	.LASF6
+ 1421 0063 02       		.byte	0x2
+ 1422 0064 2B       		.byte	0x2b
+ 1423 0065 69000000 		.4byte	0x69
+ARM GAS  /tmp/ccfV9k9H.s 			page 33
+
+
+ 1424 0069 02       		.uleb128 0x2
+ 1425 006a 02       		.byte	0x2
+ 1426 006b 07       		.byte	0x7
+ 1427 006c FB010000 		.4byte	.LASF7
+ 1428 0070 04       		.uleb128 0x4
+ 1429 0071 86020000 		.4byte	.LASF8
+ 1430 0075 02       		.byte	0x2
+ 1431 0076 3F       		.byte	0x3f
+ 1432 0077 7B000000 		.4byte	0x7b
+ 1433 007b 02       		.uleb128 0x2
+ 1434 007c 04       		.byte	0x4
+ 1435 007d 05       		.byte	0x5
+ 1436 007e 3C010000 		.4byte	.LASF9
+ 1437 0082 04       		.uleb128 0x4
+ 1438 0083 57000000 		.4byte	.LASF10
+ 1439 0087 02       		.byte	0x2
+ 1440 0088 41       		.byte	0x41
+ 1441 0089 8D000000 		.4byte	0x8d
+ 1442 008d 02       		.uleb128 0x2
+ 1443 008e 04       		.byte	0x4
+ 1444 008f 07       		.byte	0x7
+ 1445 0090 E4010000 		.4byte	.LASF11
+ 1446 0094 02       		.uleb128 0x2
+ 1447 0095 08       		.byte	0x8
+ 1448 0096 05       		.byte	0x5
+ 1449 0097 26010000 		.4byte	.LASF12
+ 1450 009b 02       		.uleb128 0x2
+ 1451 009c 08       		.byte	0x8
+ 1452 009d 07       		.byte	0x7
+ 1453 009e 91010000 		.4byte	.LASF13
+ 1454 00a2 02       		.uleb128 0x2
+ 1455 00a3 04       		.byte	0x4
+ 1456 00a4 07       		.byte	0x7
+ 1457 00a5 47000000 		.4byte	.LASF14
+ 1458 00a9 05       		.uleb128 0x5
+ 1459 00aa 04       		.byte	0x4
+ 1460 00ab 02       		.uleb128 0x2
+ 1461 00ac 01       		.byte	0x1
+ 1462 00ad 08       		.byte	0x8
+ 1463 00ae 17020000 		.4byte	.LASF15
+ 1464 00b2 06       		.uleb128 0x6
+ 1465 00b3 04       		.byte	0x4
+ 1466 00b4 B8000000 		.4byte	0xb8
+ 1467 00b8 07       		.uleb128 0x7
+ 1468 00b9 04       		.uleb128 0x4
+ 1469 00ba 2B000000 		.4byte	.LASF16
+ 1470 00be 03       		.byte	0x3
+ 1471 00bf 13       		.byte	0x13
+ 1472 00c0 33000000 		.4byte	0x33
+ 1473 00c4 04       		.uleb128 0x4
+ 1474 00c5 73000000 		.4byte	.LASF17
+ 1475 00c9 03       		.byte	0x3
+ 1476 00ca 14       		.byte	0x14
+ 1477 00cb 45000000 		.4byte	0x45
+ 1478 00cf 04       		.uleb128 0x4
+ 1479 00d0 C9010000 		.4byte	.LASF18
+ 1480 00d4 03       		.byte	0x3
+ARM GAS  /tmp/ccfV9k9H.s 			page 34
+
+
+ 1481 00d5 1A       		.byte	0x1a
+ 1482 00d6 5E000000 		.4byte	0x5e
+ 1483 00da 04       		.uleb128 0x4
+ 1484 00db 1C020000 		.4byte	.LASF19
+ 1485 00df 03       		.byte	0x3
+ 1486 00e0 1F       		.byte	0x1f
+ 1487 00e1 70000000 		.4byte	0x70
+ 1488 00e5 04       		.uleb128 0x4
+ 1489 00e6 A8010000 		.4byte	.LASF20
+ 1490 00ea 03       		.byte	0x3
+ 1491 00eb 20       		.byte	0x20
+ 1492 00ec 82000000 		.4byte	0x82
+ 1493 00f0 02       		.uleb128 0x2
+ 1494 00f1 04       		.byte	0x4
+ 1495 00f2 04       		.byte	0x4
+ 1496 00f3 10010000 		.4byte	.LASF21
+ 1497 00f7 08       		.uleb128 0x8
+ 1498 00f8 01       		.byte	0x1
+ 1499 00f9 04       		.byte	0x4
+ 1500 00fa 06       		.byte	0x6
+ 1501 00fb 12010000 		.4byte	0x112
+ 1502 00ff 09       		.uleb128 0x9
+ 1503 0100 E7020000 		.4byte	.LASF22
+ 1504 0104 00       		.sleb128 0
+ 1505 0105 09       		.uleb128 0x9
+ 1506 0106 34020000 		.4byte	.LASF23
+ 1507 010a 01       		.sleb128 1
+ 1508 010b 09       		.uleb128 0x9
+ 1509 010c 6E020000 		.4byte	.LASF24
+ 1510 0110 02       		.sleb128 2
+ 1511 0111 00       		.byte	0
+ 1512 0112 04       		.uleb128 0x4
+ 1513 0113 16010000 		.4byte	.LASF25
+ 1514 0117 04       		.byte	0x4
+ 1515 0118 0A       		.byte	0xa
+ 1516 0119 F7000000 		.4byte	0xf7
+ 1517 011d 0A       		.uleb128 0xa
+ 1518 011e 01       		.byte	0x1
+ 1519 011f D2010000 		.4byte	.LASF32
+ 1520 0123 01       		.byte	0x1
+ 1521 0124 0A       		.byte	0xa
+ 1522 0125 01       		.byte	0x1
+ 1523 0126 9E010000 		.4byte	0x19e
+ 1524 012a 00000000 		.4byte	.LFB40
+ 1525 012e 78010000 		.4byte	.LFE40
+ 1526 0132 00000000 		.4byte	.LLST0
+ 1527 0136 01       		.byte	0x1
+ 1528 0137 9E010000 		.4byte	0x19e
+ 1529 013b 0B       		.uleb128 0xb
+ 1530 013c 73747200 		.ascii	"str\000"
+ 1531 0140 01       		.byte	0x1
+ 1532 0141 0A       		.byte	0xa
+ 1533 0142 9E010000 		.4byte	0x19e
+ 1534 0146 02       		.byte	0x2
+ 1535 0147 91       		.byte	0x91
+ 1536 0148 6C       		.sleb128 -20
+ 1537 0149 0C       		.uleb128 0xc
+ARM GAS  /tmp/ccfV9k9H.s 			page 35
+
+
+ 1538 014a 0E000000 		.4byte	.LASF26
+ 1539 014e 01       		.byte	0x1
+ 1540 014f 0A       		.byte	0xa
+ 1541 0150 A4010000 		.4byte	0x1a4
+ 1542 0154 02       		.byte	0x2
+ 1543 0155 91       		.byte	0x91
+ 1544 0156 68       		.sleb128 -24
+ 1545 0157 0D       		.uleb128 0xd
+ 1546 0158 50000000 		.4byte	.LASF27
+ 1547 015c 01       		.byte	0x1
+ 1548 015d 0C       		.byte	0xc
+ 1549 015e CF000000 		.4byte	0xcf
+ 1550 0162 02       		.byte	0x2
+ 1551 0163 91       		.byte	0x91
+ 1552 0164 7E       		.sleb128 -2
+ 1553 0165 0D       		.uleb128 0xd
+ 1554 0166 72010000 		.4byte	.LASF28
+ 1555 016a 01       		.byte	0x1
+ 1556 016b 0C       		.byte	0xc
+ 1557 016c CF000000 		.4byte	0xcf
+ 1558 0170 02       		.byte	0x2
+ 1559 0171 91       		.byte	0x91
+ 1560 0172 7C       		.sleb128 -4
+ 1561 0173 0D       		.uleb128 0xd
+ 1562 0174 38000000 		.4byte	.LASF29
+ 1563 0178 01       		.byte	0x1
+ 1564 0179 0C       		.byte	0xc
+ 1565 017a CF000000 		.4byte	0xcf
+ 1566 017e 02       		.byte	0x2
+ 1567 017f 91       		.byte	0x91
+ 1568 0180 7A       		.sleb128 -6
+ 1569 0181 0D       		.uleb128 0xd
+ 1570 0182 32000000 		.4byte	.LASF30
+ 1571 0186 01       		.byte	0x1
+ 1572 0187 0C       		.byte	0xc
+ 1573 0188 CF000000 		.4byte	0xcf
+ 1574 018c 02       		.byte	0x2
+ 1575 018d 91       		.byte	0x91
+ 1576 018e 78       		.sleb128 -8
+ 1577 018f 0D       		.uleb128 0xd
+ 1578 0190 14000000 		.4byte	.LASF31
+ 1579 0194 01       		.byte	0x1
+ 1580 0195 0D       		.byte	0xd
+ 1581 0196 C4000000 		.4byte	0xc4
+ 1582 019a 02       		.byte	0x2
+ 1583 019b 91       		.byte	0x91
+ 1584 019c 77       		.sleb128 -9
+ 1585 019d 00       		.byte	0
+ 1586 019e 06       		.uleb128 0x6
+ 1587 019f 04       		.byte	0x4
+ 1588 01a0 C4000000 		.4byte	0xc4
+ 1589 01a4 06       		.uleb128 0x6
+ 1590 01a5 04       		.byte	0x4
+ 1591 01a6 AA010000 		.4byte	0x1aa
+ 1592 01aa 0E       		.uleb128 0xe
+ 1593 01ab C4000000 		.4byte	0xc4
+ 1594 01af 0A       		.uleb128 0xa
+ARM GAS  /tmp/ccfV9k9H.s 			page 36
+
+
+ 1595 01b0 01       		.byte	0x1
+ 1596 01b1 58020000 		.4byte	.LASF33
+ 1597 01b5 01       		.byte	0x1
+ 1598 01b6 45       		.byte	0x45
+ 1599 01b7 01       		.byte	0x1
+ 1600 01b8 E5000000 		.4byte	0xe5
+ 1601 01bc 78010000 		.4byte	.LFB41
+ 1602 01c0 9C010000 		.4byte	.LFE41
+ 1603 01c4 2C000000 		.4byte	.LLST1
+ 1604 01c8 01       		.byte	0x1
+ 1605 01c9 EA010000 		.4byte	0x1ea
+ 1606 01cd 0B       		.uleb128 0xb
+ 1607 01ce 73747200 		.ascii	"str\000"
+ 1608 01d2 01       		.byte	0x1
+ 1609 01d3 45       		.byte	0x45
+ 1610 01d4 A4010000 		.4byte	0x1a4
+ 1611 01d8 02       		.byte	0x2
+ 1612 01d9 91       		.byte	0x91
+ 1613 01da 74       		.sleb128 -12
+ 1614 01db 0D       		.uleb128 0xd
+ 1615 01dc 32000000 		.4byte	.LASF30
+ 1616 01e0 01       		.byte	0x1
+ 1617 01e1 47       		.byte	0x47
+ 1618 01e2 E5000000 		.4byte	0xe5
+ 1619 01e6 02       		.byte	0x2
+ 1620 01e7 91       		.byte	0x91
+ 1621 01e8 7C       		.sleb128 -4
+ 1622 01e9 00       		.byte	0
+ 1623 01ea 0A       		.uleb128 0xa
+ 1624 01eb 01       		.byte	0x1
+ 1625 01ec 4F010000 		.4byte	.LASF34
+ 1626 01f0 01       		.byte	0x1
+ 1627 01f1 57       		.byte	0x57
+ 1628 01f2 01       		.byte	0x1
+ 1629 01f3 E5000000 		.4byte	0xe5
+ 1630 01f7 9C010000 		.4byte	.LFB42
+ 1631 01fb D2010000 		.4byte	.LFE42
+ 1632 01ff 58000000 		.4byte	.LLST2
+ 1633 0203 01       		.byte	0x1
+ 1634 0204 33020000 		.4byte	0x233
+ 1635 0208 0C       		.uleb128 0xc
+ 1636 0209 1B000000 		.4byte	.LASF35
+ 1637 020d 01       		.byte	0x1
+ 1638 020e 57       		.byte	0x57
+ 1639 020f 9E010000 		.4byte	0x19e
+ 1640 0213 02       		.byte	0x2
+ 1641 0214 91       		.byte	0x91
+ 1642 0215 74       		.sleb128 -12
+ 1643 0216 0B       		.uleb128 0xb
+ 1644 0217 73726300 		.ascii	"src\000"
+ 1645 021b 01       		.byte	0x1
+ 1646 021c 57       		.byte	0x57
+ 1647 021d A4010000 		.4byte	0x1a4
+ 1648 0221 02       		.byte	0x2
+ 1649 0222 91       		.byte	0x91
+ 1650 0223 70       		.sleb128 -16
+ 1651 0224 0D       		.uleb128 0xd
+ARM GAS  /tmp/ccfV9k9H.s 			page 37
+
+
+ 1652 0225 80020000 		.4byte	.LASF36
+ 1653 0229 01       		.byte	0x1
+ 1654 022a 59       		.byte	0x59
+ 1655 022b E5000000 		.4byte	0xe5
+ 1656 022f 02       		.byte	0x2
+ 1657 0230 91       		.byte	0x91
+ 1658 0231 7C       		.sleb128 -4
+ 1659 0232 00       		.byte	0
+ 1660 0233 0F       		.uleb128 0xf
+ 1661 0234 01       		.byte	0x1
+ 1662 0235 00000000 		.4byte	.LASF37
+ 1663 0239 01       		.byte	0x1
+ 1664 023a 68       		.byte	0x68
+ 1665 023b 01       		.byte	0x1
+ 1666 023c B9000000 		.4byte	0xb9
+ 1667 0240 D4010000 		.4byte	.LFB43
+ 1668 0244 4E020000 		.4byte	.LFE43
+ 1669 0248 84000000 		.4byte	.LLST3
+ 1670 024c 01       		.byte	0x1
+ 1671 024d 85020000 		.4byte	0x285
+ 1672 0251 0B       		.uleb128 0xb
+ 1673 0252 73747200 		.ascii	"str\000"
+ 1674 0256 01       		.byte	0x1
+ 1675 0257 68       		.byte	0x68
+ 1676 0258 9E010000 		.4byte	0x19e
+ 1677 025c 02       		.byte	0x2
+ 1678 025d 91       		.byte	0x91
+ 1679 025e 6C       		.sleb128 -20
+ 1680 025f 10       		.uleb128 0x10
+ 1681 0260 6900     		.ascii	"i\000"
+ 1682 0262 01       		.byte	0x1
+ 1683 0263 6A       		.byte	0x6a
+ 1684 0264 C4000000 		.4byte	0xc4
+ 1685 0268 02       		.byte	0x2
+ 1686 0269 91       		.byte	0x91
+ 1687 026a 77       		.sleb128 -9
+ 1688 026b 10       		.uleb128 0x10
+ 1689 026c 6A00     		.ascii	"j\000"
+ 1690 026e 01       		.byte	0x1
+ 1691 026f 6A       		.byte	0x6a
+ 1692 0270 C4000000 		.4byte	0xc4
+ 1693 0274 02       		.byte	0x2
+ 1694 0275 91       		.byte	0x91
+ 1695 0276 76       		.sleb128 -10
+ 1696 0277 10       		.uleb128 0x10
+ 1697 0278 636800   		.ascii	"ch\000"
+ 1698 027b 01       		.byte	0x1
+ 1699 027c 6A       		.byte	0x6a
+ 1700 027d C4000000 		.4byte	0xc4
+ 1701 0281 02       		.byte	0x2
+ 1702 0282 91       		.byte	0x91
+ 1703 0283 75       		.sleb128 -11
+ 1704 0284 00       		.byte	0
+ 1705 0285 0A       		.uleb128 0xa
+ 1706 0286 01       		.byte	0x1
+ 1707 0287 B1010000 		.4byte	.LASF38
+ 1708 028b 01       		.byte	0x1
+ARM GAS  /tmp/ccfV9k9H.s 			page 38
+
+
+ 1709 028c 7B       		.byte	0x7b
+ 1710 028d 01       		.byte	0x1
+ 1711 028e B9000000 		.4byte	0xb9
+ 1712 0292 50020000 		.4byte	.LFB44
+ 1713 0296 86020000 		.4byte	.LFE44
+ 1714 029a BC000000 		.4byte	.LLST4
+ 1715 029e 01       		.byte	0x1
+ 1716 029f DC020000 		.4byte	0x2dc
+ 1717 02a3 0C       		.uleb128 0xc
+ 1718 02a4 1B000000 		.4byte	.LASF35
+ 1719 02a8 01       		.byte	0x1
+ 1720 02a9 7B       		.byte	0x7b
+ 1721 02aa A9000000 		.4byte	0xa9
+ 1722 02ae 02       		.byte	0x2
+ 1723 02af 91       		.byte	0x91
+ 1724 02b0 74       		.sleb128 -12
+ 1725 02b1 0B       		.uleb128 0xb
+ 1726 02b2 73726300 		.ascii	"src\000"
+ 1727 02b6 01       		.byte	0x1
+ 1728 02b7 7B       		.byte	0x7b
+ 1729 02b8 B2000000 		.4byte	0xb2
+ 1730 02bc 02       		.byte	0x2
+ 1731 02bd 91       		.byte	0x91
+ 1732 02be 70       		.sleb128 -16
+ 1733 02bf 0B       		.uleb128 0xb
+ 1734 02c0 6E756D00 		.ascii	"num\000"
+ 1735 02c4 01       		.byte	0x1
+ 1736 02c5 7B       		.byte	0x7b
+ 1737 02c6 E5000000 		.4byte	0xe5
+ 1738 02ca 02       		.byte	0x2
+ 1739 02cb 91       		.byte	0x91
+ 1740 02cc 6C       		.sleb128 -20
+ 1741 02cd 0D       		.uleb128 0xd
+ 1742 02ce 32000000 		.4byte	.LASF30
+ 1743 02d2 01       		.byte	0x1
+ 1744 02d3 7D       		.byte	0x7d
+ 1745 02d4 E5000000 		.4byte	0xe5
+ 1746 02d8 02       		.byte	0x2
+ 1747 02d9 91       		.byte	0x91
+ 1748 02da 7C       		.sleb128 -4
+ 1749 02db 00       		.byte	0
+ 1750 02dc 0A       		.uleb128 0xa
+ 1751 02dd 01       		.byte	0x1
+ 1752 02de 5A010000 		.4byte	.LASF39
+ 1753 02e2 01       		.byte	0x1
+ 1754 02e3 8D       		.byte	0x8d
+ 1755 02e4 01       		.byte	0x1
+ 1756 02e5 B9000000 		.4byte	0xb9
+ 1757 02e9 88020000 		.4byte	.LFB45
+ 1758 02ed BE020000 		.4byte	.LFE45
+ 1759 02f1 E8000000 		.4byte	.LLST5
+ 1760 02f5 01       		.byte	0x1
+ 1761 02f6 33030000 		.4byte	0x333
+ 1762 02fa 0B       		.uleb128 0xb
+ 1763 02fb 70747200 		.ascii	"ptr\000"
+ 1764 02ff 01       		.byte	0x1
+ 1765 0300 8D       		.byte	0x8d
+ARM GAS  /tmp/ccfV9k9H.s 			page 39
+
+
+ 1766 0301 A9000000 		.4byte	0xa9
+ 1767 0305 02       		.byte	0x2
+ 1768 0306 91       		.byte	0x91
+ 1769 0307 74       		.sleb128 -12
+ 1770 0308 0C       		.uleb128 0xc
+ 1771 0309 6D000000 		.4byte	.LASF40
+ 1772 030d 01       		.byte	0x1
+ 1773 030e 8D       		.byte	0x8d
+ 1774 030f C4000000 		.4byte	0xc4
+ 1775 0313 02       		.byte	0x2
+ 1776 0314 91       		.byte	0x91
+ 1777 0315 73       		.sleb128 -13
+ 1778 0316 0B       		.uleb128 0xb
+ 1779 0317 6E756D00 		.ascii	"num\000"
+ 1780 031b 01       		.byte	0x1
+ 1781 031c 8D       		.byte	0x8d
+ 1782 031d E5000000 		.4byte	0xe5
+ 1783 0321 02       		.byte	0x2
+ 1784 0322 91       		.byte	0x91
+ 1785 0323 6C       		.sleb128 -20
+ 1786 0324 0D       		.uleb128 0xd
+ 1787 0325 32000000 		.4byte	.LASF30
+ 1788 0329 01       		.byte	0x1
+ 1789 032a 8F       		.byte	0x8f
+ 1790 032b E5000000 		.4byte	0xe5
+ 1791 032f 02       		.byte	0x2
+ 1792 0330 91       		.byte	0x91
+ 1793 0331 7C       		.sleb128 -4
+ 1794 0332 00       		.byte	0
+ 1795 0333 0A       		.uleb128 0xa
+ 1796 0334 01       		.byte	0x1
+ 1797 0335 83010000 		.4byte	.LASF41
+ 1798 0339 01       		.byte	0x1
+ 1799 033a 9F       		.byte	0x9f
+ 1800 033b 01       		.byte	0x1
+ 1801 033c 12010000 		.4byte	0x112
+ 1802 0340 C0020000 		.4byte	.LFB46
+ 1803 0344 FC020000 		.4byte	.LFE46
+ 1804 0348 14010000 		.4byte	.LLST6
+ 1805 034c 01       		.byte	0x1
+ 1806 034d 8A030000 		.4byte	0x38a
+ 1807 0351 0C       		.uleb128 0xc
+ 1808 0352 9A020000 		.4byte	.LASF42
+ 1809 0356 01       		.byte	0x1
+ 1810 0357 9F       		.byte	0x9f
+ 1811 0358 B2000000 		.4byte	0xb2
+ 1812 035c 02       		.byte	0x2
+ 1813 035d 91       		.byte	0x91
+ 1814 035e 74       		.sleb128 -12
+ 1815 035f 0C       		.uleb128 0xc
+ 1816 0360 9F020000 		.4byte	.LASF43
+ 1817 0364 01       		.byte	0x1
+ 1818 0365 9F       		.byte	0x9f
+ 1819 0366 B2000000 		.4byte	0xb2
+ 1820 036a 02       		.byte	0x2
+ 1821 036b 91       		.byte	0x91
+ 1822 036c 70       		.sleb128 -16
+ARM GAS  /tmp/ccfV9k9H.s 			page 40
+
+
+ 1823 036d 0B       		.uleb128 0xb
+ 1824 036e 6E756D00 		.ascii	"num\000"
+ 1825 0372 01       		.byte	0x1
+ 1826 0373 9F       		.byte	0x9f
+ 1827 0374 E5000000 		.4byte	0xe5
+ 1828 0378 02       		.byte	0x2
+ 1829 0379 91       		.byte	0x91
+ 1830 037a 6C       		.sleb128 -20
+ 1831 037b 0D       		.uleb128 0xd
+ 1832 037c 32000000 		.4byte	.LASF30
+ 1833 0380 01       		.byte	0x1
+ 1834 0381 A1       		.byte	0xa1
+ 1835 0382 E5000000 		.4byte	0xe5
+ 1836 0386 02       		.byte	0x2
+ 1837 0387 91       		.byte	0x91
+ 1838 0388 7C       		.sleb128 -4
+ 1839 0389 00       		.byte	0
+ 1840 038a 0F       		.uleb128 0xf
+ 1841 038b 01       		.byte	0x1
+ 1842 038c 08030000 		.4byte	.LASF44
+ 1843 0390 01       		.byte	0x1
+ 1844 0391 B4       		.byte	0xb4
+ 1845 0392 01       		.byte	0x1
+ 1846 0393 B9000000 		.4byte	0xb9
+ 1847 0397 FC020000 		.4byte	.LFB47
+ 1848 039b 40050000 		.4byte	.LFE47
+ 1849 039f 40010000 		.4byte	.LLST7
+ 1850 03a3 01       		.byte	0x1
+ 1851 03a4 18040000 		.4byte	0x418
+ 1852 03a8 0B       		.uleb128 0xb
+ 1853 03a9 7800     		.ascii	"x\000"
+ 1854 03ab 01       		.byte	0x1
+ 1855 03ac B4       		.byte	0xb4
+ 1856 03ad F0000000 		.4byte	0xf0
+ 1857 03b1 02       		.byte	0x2
+ 1858 03b2 91       		.byte	0x91
+ 1859 03b3 54       		.sleb128 -44
+ 1860 03b4 0B       		.uleb128 0xb
+ 1861 03b5 73747200 		.ascii	"str\000"
+ 1862 03b9 01       		.byte	0x1
+ 1863 03ba B4       		.byte	0xb4
+ 1864 03bb 9E010000 		.4byte	0x19e
+ 1865 03bf 02       		.byte	0x2
+ 1866 03c0 91       		.byte	0x91
+ 1867 03c1 50       		.sleb128 -48
+ 1868 03c2 10       		.uleb128 0x10
+ 1869 03c3 696500   		.ascii	"ie\000"
+ 1870 03c6 01       		.byte	0x1
+ 1871 03c7 B6       		.byte	0xb6
+ 1872 03c8 57000000 		.4byte	0x57
+ 1873 03cc 02       		.byte	0x2
+ 1874 03cd 91       		.byte	0x91
+ 1875 03ce 6E       		.sleb128 -18
+ 1876 03cf 0D       		.uleb128 0xd
+ 1877 03d0 20000000 		.4byte	.LASF45
+ 1878 03d4 01       		.byte	0x1
+ 1879 03d5 B6       		.byte	0xb6
+ARM GAS  /tmp/ccfV9k9H.s 			page 41
+
+
+ 1880 03d6 57000000 		.4byte	0x57
+ 1881 03da 02       		.byte	0x2
+ 1882 03db 91       		.byte	0x91
+ 1883 03dc 6C       		.sleb128 -20
+ 1884 03dd 10       		.uleb128 0x10
+ 1885 03de 6900     		.ascii	"i\000"
+ 1886 03e0 01       		.byte	0x1
+ 1887 03e1 B6       		.byte	0xb6
+ 1888 03e2 57000000 		.4byte	0x57
+ 1889 03e6 02       		.byte	0x2
+ 1890 03e7 91       		.byte	0x91
+ 1891 03e8 6A       		.sleb128 -22
+ 1892 03e9 10       		.uleb128 0x10
+ 1893 03ea 6B00     		.ascii	"k\000"
+ 1894 03ec 01       		.byte	0x1
+ 1895 03ed B6       		.byte	0xb6
+ 1896 03ee 57000000 		.4byte	0x57
+ 1897 03f2 02       		.byte	0x2
+ 1898 03f3 91       		.byte	0x91
+ 1899 03f4 5E       		.sleb128 -34
+ 1900 03f5 10       		.uleb128 0x10
+ 1901 03f6 7900     		.ascii	"y\000"
+ 1902 03f8 01       		.byte	0x1
+ 1903 03f9 B7       		.byte	0xb7
+ 1904 03fa 18040000 		.4byte	0x418
+ 1905 03fe 02       		.byte	0x2
+ 1906 03ff 91       		.byte	0x91
+ 1907 0400 60       		.sleb128 -32
+ 1908 0401 11       		.uleb128 0x11
+ 1909 0402 90040000 		.4byte	.LBB2
+ 1910 0406 F6040000 		.4byte	.LBE2
+ 1911 040a 10       		.uleb128 0x10
+ 1912 040b 6200     		.ascii	"b\000"
+ 1913 040d 01       		.byte	0x1
+ 1914 040e EC       		.byte	0xec
+ 1915 040f F0000000 		.4byte	0xf0
+ 1916 0413 02       		.byte	0x2
+ 1917 0414 91       		.byte	0x91
+ 1918 0415 58       		.sleb128 -40
+ 1919 0416 00       		.byte	0
+ 1920 0417 00       		.byte	0
+ 1921 0418 02       		.uleb128 0x2
+ 1922 0419 08       		.byte	0x8
+ 1923 041a 04       		.byte	0x4
+ 1924 041b 67020000 		.4byte	.LASF46
+ 1925 041f 0A       		.uleb128 0xa
+ 1926 0420 01       		.byte	0x1
+ 1927 0421 2C020000 		.4byte	.LASF47
+ 1928 0425 01       		.byte	0x1
+ 1929 0426 FC       		.byte	0xfc
+ 1930 0427 01       		.byte	0x1
+ 1931 0428 B9000000 		.4byte	0xb9
+ 1932 042c 40050000 		.4byte	.LFB48
+ 1933 0430 7E050000 		.4byte	.LFE48
+ 1934 0434 78010000 		.4byte	.LLST8
+ 1935 0438 01       		.byte	0x1
+ 1936 0439 66040000 		.4byte	0x466
+ARM GAS  /tmp/ccfV9k9H.s 			page 42
+
+
+ 1937 043d 0B       		.uleb128 0xb
+ 1938 043e 73747200 		.ascii	"str\000"
+ 1939 0442 01       		.byte	0x1
+ 1940 0443 FC       		.byte	0xfc
+ 1941 0444 A4010000 		.4byte	0x1a4
+ 1942 0448 02       		.byte	0x2
+ 1943 0449 91       		.byte	0x91
+ 1944 044a 74       		.sleb128 -12
+ 1945 044b 0B       		.uleb128 0xb
+ 1946 044c 6E756D00 		.ascii	"num\000"
+ 1947 0450 01       		.byte	0x1
+ 1948 0451 FC       		.byte	0xfc
+ 1949 0452 66040000 		.4byte	0x466
+ 1950 0456 02       		.byte	0x2
+ 1951 0457 91       		.byte	0x91
+ 1952 0458 70       		.sleb128 -16
+ 1953 0459 10       		.uleb128 0x10
+ 1954 045a 6B00     		.ascii	"k\000"
+ 1955 045c 01       		.byte	0x1
+ 1956 045d FE       		.byte	0xfe
+ 1957 045e E5000000 		.4byte	0xe5
+ 1958 0462 02       		.byte	0x2
+ 1959 0463 91       		.byte	0x91
+ 1960 0464 7C       		.sleb128 -4
+ 1961 0465 00       		.byte	0
+ 1962 0466 06       		.uleb128 0x6
+ 1963 0467 04       		.byte	0x4
+ 1964 0468 E5000000 		.4byte	0xe5
+ 1965 046c 12       		.uleb128 0x12
+ 1966 046d 01       		.byte	0x1
+ 1967 046e 24020000 		.4byte	.LASF48
+ 1968 0472 01       		.byte	0x1
+ 1969 0473 1001     		.2byte	0x110
+ 1970 0475 01       		.byte	0x1
+ 1971 0476 B9000000 		.4byte	0xb9
+ 1972 047a 80050000 		.4byte	.LFB49
+ 1973 047e 68060000 		.4byte	.LFE49
+ 1974 0482 A4010000 		.4byte	.LLST9
+ 1975 0486 01       		.byte	0x1
+ 1976 0487 E4040000 		.4byte	0x4e4
+ 1977 048b 13       		.uleb128 0x13
+ 1978 048c 73747200 		.ascii	"str\000"
+ 1979 0490 01       		.byte	0x1
+ 1980 0491 1001     		.2byte	0x110
+ 1981 0493 A4010000 		.4byte	0x1a4
+ 1982 0497 02       		.byte	0x2
+ 1983 0498 91       		.byte	0x91
+ 1984 0499 6C       		.sleb128 -20
+ 1985 049a 13       		.uleb128 0x13
+ 1986 049b 6E756D00 		.ascii	"num\000"
+ 1987 049f 01       		.byte	0x1
+ 1988 04a0 1001     		.2byte	0x110
+ 1989 04a2 E4040000 		.4byte	0x4e4
+ 1990 04a6 02       		.byte	0x2
+ 1991 04a7 91       		.byte	0x91
+ 1992 04a8 68       		.sleb128 -24
+ 1993 04a9 14       		.uleb128 0x14
+ARM GAS  /tmp/ccfV9k9H.s 			page 43
+
+
+ 1994 04aa 14000000 		.4byte	.LASF31
+ 1995 04ae 01       		.byte	0x1
+ 1996 04af 1201     		.2byte	0x112
+ 1997 04b1 F0000000 		.4byte	0xf0
+ 1998 04b5 02       		.byte	0x2
+ 1999 04b6 91       		.byte	0x91
+ 2000 04b7 74       		.sleb128 -12
+ 2001 04b8 14       		.uleb128 0x14
+ 2002 04b9 F6010000 		.4byte	.LASF49
+ 2003 04bd 01       		.byte	0x1
+ 2004 04be 1301     		.2byte	0x113
+ 2005 04c0 CF000000 		.4byte	0xcf
+ 2006 04c4 02       		.byte	0x2
+ 2007 04c5 91       		.byte	0x91
+ 2008 04c6 70       		.sleb128 -16
+ 2009 04c7 14       		.uleb128 0x14
+ 2010 04c8 47020000 		.4byte	.LASF50
+ 2011 04cc 01       		.byte	0x1
+ 2012 04cd 1401     		.2byte	0x114
+ 2013 04cf C4000000 		.4byte	0xc4
+ 2014 04d3 02       		.byte	0x2
+ 2015 04d4 91       		.byte	0x91
+ 2016 04d5 73       		.sleb128 -13
+ 2017 04d6 15       		.uleb128 0x15
+ 2018 04d7 6900     		.ascii	"i\000"
+ 2019 04d9 01       		.byte	0x1
+ 2020 04da 1401     		.2byte	0x114
+ 2021 04dc C4000000 		.4byte	0xc4
+ 2022 04e0 02       		.byte	0x2
+ 2023 04e1 91       		.byte	0x91
+ 2024 04e2 72       		.sleb128 -14
+ 2025 04e3 00       		.byte	0
+ 2026 04e4 06       		.uleb128 0x6
+ 2027 04e5 04       		.byte	0x4
+ 2028 04e6 F0000000 		.4byte	0xf0
+ 2029 04ea 12       		.uleb128 0x12
+ 2030 04eb 01       		.byte	0x1
+ 2031 04ec 34010000 		.4byte	.LASF51
+ 2032 04f0 01       		.byte	0x1
+ 2033 04f1 3C01     		.2byte	0x13c
+ 2034 04f3 01       		.byte	0x1
+ 2035 04f4 B9000000 		.4byte	0xb9
+ 2036 04f8 68060000 		.4byte	.LFB50
+ 2037 04fc FC060000 		.4byte	.LFE50
+ 2038 0500 DC010000 		.4byte	.LLST10
+ 2039 0504 01       		.byte	0x1
+ 2040 0505 44050000 		.4byte	0x544
+ 2041 0509 13       		.uleb128 0x13
+ 2042 050a 6E756D00 		.ascii	"num\000"
+ 2043 050e 01       		.byte	0x1
+ 2044 050f 3C01     		.2byte	0x13c
+ 2045 0511 7B000000 		.4byte	0x7b
+ 2046 0515 02       		.byte	0x2
+ 2047 0516 91       		.byte	0x91
+ 2048 0517 6C       		.sleb128 -20
+ 2049 0518 13       		.uleb128 0x13
+ 2050 0519 73747200 		.ascii	"str\000"
+ARM GAS  /tmp/ccfV9k9H.s 			page 44
+
+
+ 2051 051d 01       		.byte	0x1
+ 2052 051e 3C01     		.2byte	0x13c
+ 2053 0520 9E010000 		.4byte	0x19e
+ 2054 0524 02       		.byte	0x2
+ 2055 0525 91       		.byte	0x91
+ 2056 0526 68       		.sleb128 -24
+ 2057 0527 15       		.uleb128 0x15
+ 2058 0528 6900     		.ascii	"i\000"
+ 2059 052a 01       		.byte	0x1
+ 2060 052b 3E01     		.2byte	0x13e
+ 2061 052d 7B000000 		.4byte	0x7b
+ 2062 0531 02       		.byte	0x2
+ 2063 0532 91       		.byte	0x91
+ 2064 0533 74       		.sleb128 -12
+ 2065 0534 14       		.uleb128 0x14
+ 2066 0535 62020000 		.4byte	.LASF52
+ 2067 0539 01       		.byte	0x1
+ 2068 053a 3E01     		.2byte	0x13e
+ 2069 053c 7B000000 		.4byte	0x7b
+ 2070 0540 02       		.byte	0x2
+ 2071 0541 91       		.byte	0x91
+ 2072 0542 70       		.sleb128 -16
+ 2073 0543 00       		.byte	0
+ 2074 0544 16       		.uleb128 0x16
+ 2075 0545 01       		.byte	0x1
+ 2076 0546 4E020000 		.4byte	.LASF53
+ 2077 054a 01       		.byte	0x1
+ 2078 054b 5B01     		.2byte	0x15b
+ 2079 054d 01       		.byte	0x1
+ 2080 054e C4000000 		.4byte	0xc4
+ 2081 0552 FC060000 		.4byte	.LFB51
+ 2082 0556 62070000 		.4byte	.LFE51
+ 2083 055a 14020000 		.4byte	.LLST11
+ 2084 055e 01       		.byte	0x1
+ 2085 055f AF050000 		.4byte	0x5af
+ 2086 0563 17       		.uleb128 0x17
+ 2087 0564 1B000000 		.4byte	.LASF35
+ 2088 0568 01       		.byte	0x1
+ 2089 0569 5B01     		.2byte	0x15b
+ 2090 056b 9E010000 		.4byte	0x19e
+ 2091 056f 02       		.byte	0x2
+ 2092 0570 91       		.byte	0x91
+ 2093 0571 6C       		.sleb128 -20
+ 2094 0572 13       		.uleb128 0x13
+ 2095 0573 73726300 		.ascii	"src\000"
+ 2096 0577 01       		.byte	0x1
+ 2097 0578 5B01     		.2byte	0x15b
+ 2098 057a A4010000 		.4byte	0x1a4
+ 2099 057e 02       		.byte	0x2
+ 2100 057f 91       		.byte	0x91
+ 2101 0580 68       		.sleb128 -24
+ 2102 0581 14       		.uleb128 0x14
+ 2103 0582 90020000 		.4byte	.LASF54
+ 2104 0586 01       		.byte	0x1
+ 2105 0587 5D01     		.2byte	0x15d
+ 2106 0589 E5000000 		.4byte	0xe5
+ 2107 058d 02       		.byte	0x2
+ARM GAS  /tmp/ccfV9k9H.s 			page 45
+
+
+ 2108 058e 91       		.byte	0x91
+ 2109 058f 7C       		.sleb128 -4
+ 2110 0590 14       		.uleb128 0x14
+ 2111 0591 DE020000 		.4byte	.LASF55
+ 2112 0595 01       		.byte	0x1
+ 2113 0596 5D01     		.2byte	0x15d
+ 2114 0598 E5000000 		.4byte	0xe5
+ 2115 059c 02       		.byte	0x2
+ 2116 059d 91       		.byte	0x91
+ 2117 059e 78       		.sleb128 -8
+ 2118 059f 14       		.uleb128 0x14
+ 2119 05a0 32000000 		.4byte	.LASF30
+ 2120 05a4 01       		.byte	0x1
+ 2121 05a5 5D01     		.2byte	0x15d
+ 2122 05a7 E5000000 		.4byte	0xe5
+ 2123 05ab 02       		.byte	0x2
+ 2124 05ac 91       		.byte	0x91
+ 2125 05ad 74       		.sleb128 -12
+ 2126 05ae 00       		.byte	0
+ 2127 05af 18       		.uleb128 0x18
+ 2128 05b0 C4000000 		.4byte	0xc4
+ 2129 05b4 BF050000 		.4byte	0x5bf
+ 2130 05b8 19       		.uleb128 0x19
+ 2131 05b9 A2000000 		.4byte	0xa2
+ 2132 05bd FF       		.byte	0xff
+ 2133 05be 00       		.byte	0
+ 2134 05bf 0D       		.uleb128 0xd
+ 2135 05c0 E3000000 		.4byte	.LASF56
+ 2136 05c4 01       		.byte	0x1
+ 2137 05c5 07       		.byte	0x7
+ 2138 05c6 AF050000 		.4byte	0x5af
+ 2139 05ca 05       		.byte	0x5
+ 2140 05cb 03       		.byte	0x3
+ 2141 05cc 00000000 		.4byte	tokString
+ 2142 05d0 10       		.uleb128 0x10
+ 2143 05d1 697300   		.ascii	"is\000"
+ 2144 05d4 01       		.byte	0x1
+ 2145 05d5 08       		.byte	0x8
+ 2146 05d6 CF000000 		.4byte	0xcf
+ 2147 05da 05       		.byte	0x5
+ 2148 05db 03       		.byte	0x3
+ 2149 05dc 00010000 		.4byte	is
+ 2150 05e0 10       		.uleb128 0x10
+ 2151 05e1 6C656E00 		.ascii	"len\000"
+ 2152 05e5 01       		.byte	0x1
+ 2153 05e6 08       		.byte	0x8
+ 2154 05e7 CF000000 		.4byte	0xcf
+ 2155 05eb 05       		.byte	0x5
+ 2156 05ec 03       		.byte	0x3
+ 2157 05ed 02010000 		.4byte	len
+ 2158 05f1 1A       		.uleb128 0x1a
+ 2159 05f2 FB020000 		.4byte	.LASF60
+ 2160 05f6 05       		.byte	0x5
+ 2161 05f7 E602     		.2byte	0x2e6
+ 2162 05f9 FF050000 		.4byte	0x5ff
+ 2163 05fd 01       		.byte	0x1
+ 2164 05fe 01       		.byte	0x1
+ARM GAS  /tmp/ccfV9k9H.s 			page 46
+
+
+ 2165 05ff 1B       		.uleb128 0x1b
+ 2166 0600 DA000000 		.4byte	0xda
+ 2167 0604 00       		.byte	0
+ 2168              		.section	.debug_abbrev,"",%progbits
+ 2169              	.Ldebug_abbrev0:
+ 2170 0000 01       		.uleb128 0x1
+ 2171 0001 11       		.uleb128 0x11
+ 2172 0002 01       		.byte	0x1
+ 2173 0003 25       		.uleb128 0x25
+ 2174 0004 0E       		.uleb128 0xe
+ 2175 0005 13       		.uleb128 0x13
+ 2176 0006 0B       		.uleb128 0xb
+ 2177 0007 03       		.uleb128 0x3
+ 2178 0008 0E       		.uleb128 0xe
+ 2179 0009 1B       		.uleb128 0x1b
+ 2180 000a 0E       		.uleb128 0xe
+ 2181 000b 11       		.uleb128 0x11
+ 2182 000c 01       		.uleb128 0x1
+ 2183 000d 12       		.uleb128 0x12
+ 2184 000e 01       		.uleb128 0x1
+ 2185 000f 10       		.uleb128 0x10
+ 2186 0010 06       		.uleb128 0x6
+ 2187 0011 00       		.byte	0
+ 2188 0012 00       		.byte	0
+ 2189 0013 02       		.uleb128 0x2
+ 2190 0014 24       		.uleb128 0x24
+ 2191 0015 00       		.byte	0
+ 2192 0016 0B       		.uleb128 0xb
+ 2193 0017 0B       		.uleb128 0xb
+ 2194 0018 3E       		.uleb128 0x3e
+ 2195 0019 0B       		.uleb128 0xb
+ 2196 001a 03       		.uleb128 0x3
+ 2197 001b 0E       		.uleb128 0xe
+ 2198 001c 00       		.byte	0
+ 2199 001d 00       		.byte	0
+ 2200 001e 03       		.uleb128 0x3
+ 2201 001f 24       		.uleb128 0x24
+ 2202 0020 00       		.byte	0
+ 2203 0021 0B       		.uleb128 0xb
+ 2204 0022 0B       		.uleb128 0xb
+ 2205 0023 3E       		.uleb128 0x3e
+ 2206 0024 0B       		.uleb128 0xb
+ 2207 0025 03       		.uleb128 0x3
+ 2208 0026 08       		.uleb128 0x8
+ 2209 0027 00       		.byte	0
+ 2210 0028 00       		.byte	0
+ 2211 0029 04       		.uleb128 0x4
+ 2212 002a 16       		.uleb128 0x16
+ 2213 002b 00       		.byte	0
+ 2214 002c 03       		.uleb128 0x3
+ 2215 002d 0E       		.uleb128 0xe
+ 2216 002e 3A       		.uleb128 0x3a
+ 2217 002f 0B       		.uleb128 0xb
+ 2218 0030 3B       		.uleb128 0x3b
+ 2219 0031 0B       		.uleb128 0xb
+ 2220 0032 49       		.uleb128 0x49
+ 2221 0033 13       		.uleb128 0x13
+ARM GAS  /tmp/ccfV9k9H.s 			page 47
+
+
+ 2222 0034 00       		.byte	0
+ 2223 0035 00       		.byte	0
+ 2224 0036 05       		.uleb128 0x5
+ 2225 0037 0F       		.uleb128 0xf
+ 2226 0038 00       		.byte	0
+ 2227 0039 0B       		.uleb128 0xb
+ 2228 003a 0B       		.uleb128 0xb
+ 2229 003b 00       		.byte	0
+ 2230 003c 00       		.byte	0
+ 2231 003d 06       		.uleb128 0x6
+ 2232 003e 0F       		.uleb128 0xf
+ 2233 003f 00       		.byte	0
+ 2234 0040 0B       		.uleb128 0xb
+ 2235 0041 0B       		.uleb128 0xb
+ 2236 0042 49       		.uleb128 0x49
+ 2237 0043 13       		.uleb128 0x13
+ 2238 0044 00       		.byte	0
+ 2239 0045 00       		.byte	0
+ 2240 0046 07       		.uleb128 0x7
+ 2241 0047 26       		.uleb128 0x26
+ 2242 0048 00       		.byte	0
+ 2243 0049 00       		.byte	0
+ 2244 004a 00       		.byte	0
+ 2245 004b 08       		.uleb128 0x8
+ 2246 004c 04       		.uleb128 0x4
+ 2247 004d 01       		.byte	0x1
+ 2248 004e 0B       		.uleb128 0xb
+ 2249 004f 0B       		.uleb128 0xb
+ 2250 0050 3A       		.uleb128 0x3a
+ 2251 0051 0B       		.uleb128 0xb
+ 2252 0052 3B       		.uleb128 0x3b
+ 2253 0053 0B       		.uleb128 0xb
+ 2254 0054 01       		.uleb128 0x1
+ 2255 0055 13       		.uleb128 0x13
+ 2256 0056 00       		.byte	0
+ 2257 0057 00       		.byte	0
+ 2258 0058 09       		.uleb128 0x9
+ 2259 0059 28       		.uleb128 0x28
+ 2260 005a 00       		.byte	0
+ 2261 005b 03       		.uleb128 0x3
+ 2262 005c 0E       		.uleb128 0xe
+ 2263 005d 1C       		.uleb128 0x1c
+ 2264 005e 0D       		.uleb128 0xd
+ 2265 005f 00       		.byte	0
+ 2266 0060 00       		.byte	0
+ 2267 0061 0A       		.uleb128 0xa
+ 2268 0062 2E       		.uleb128 0x2e
+ 2269 0063 01       		.byte	0x1
+ 2270 0064 3F       		.uleb128 0x3f
+ 2271 0065 0C       		.uleb128 0xc
+ 2272 0066 03       		.uleb128 0x3
+ 2273 0067 0E       		.uleb128 0xe
+ 2274 0068 3A       		.uleb128 0x3a
+ 2275 0069 0B       		.uleb128 0xb
+ 2276 006a 3B       		.uleb128 0x3b
+ 2277 006b 0B       		.uleb128 0xb
+ 2278 006c 27       		.uleb128 0x27
+ARM GAS  /tmp/ccfV9k9H.s 			page 48
+
+
+ 2279 006d 0C       		.uleb128 0xc
+ 2280 006e 49       		.uleb128 0x49
+ 2281 006f 13       		.uleb128 0x13
+ 2282 0070 11       		.uleb128 0x11
+ 2283 0071 01       		.uleb128 0x1
+ 2284 0072 12       		.uleb128 0x12
+ 2285 0073 01       		.uleb128 0x1
+ 2286 0074 40       		.uleb128 0x40
+ 2287 0075 06       		.uleb128 0x6
+ 2288 0076 9742     		.uleb128 0x2117
+ 2289 0078 0C       		.uleb128 0xc
+ 2290 0079 01       		.uleb128 0x1
+ 2291 007a 13       		.uleb128 0x13
+ 2292 007b 00       		.byte	0
+ 2293 007c 00       		.byte	0
+ 2294 007d 0B       		.uleb128 0xb
+ 2295 007e 05       		.uleb128 0x5
+ 2296 007f 00       		.byte	0
+ 2297 0080 03       		.uleb128 0x3
+ 2298 0081 08       		.uleb128 0x8
+ 2299 0082 3A       		.uleb128 0x3a
+ 2300 0083 0B       		.uleb128 0xb
+ 2301 0084 3B       		.uleb128 0x3b
+ 2302 0085 0B       		.uleb128 0xb
+ 2303 0086 49       		.uleb128 0x49
+ 2304 0087 13       		.uleb128 0x13
+ 2305 0088 02       		.uleb128 0x2
+ 2306 0089 0A       		.uleb128 0xa
+ 2307 008a 00       		.byte	0
+ 2308 008b 00       		.byte	0
+ 2309 008c 0C       		.uleb128 0xc
+ 2310 008d 05       		.uleb128 0x5
+ 2311 008e 00       		.byte	0
+ 2312 008f 03       		.uleb128 0x3
+ 2313 0090 0E       		.uleb128 0xe
+ 2314 0091 3A       		.uleb128 0x3a
+ 2315 0092 0B       		.uleb128 0xb
+ 2316 0093 3B       		.uleb128 0x3b
+ 2317 0094 0B       		.uleb128 0xb
+ 2318 0095 49       		.uleb128 0x49
+ 2319 0096 13       		.uleb128 0x13
+ 2320 0097 02       		.uleb128 0x2
+ 2321 0098 0A       		.uleb128 0xa
+ 2322 0099 00       		.byte	0
+ 2323 009a 00       		.byte	0
+ 2324 009b 0D       		.uleb128 0xd
+ 2325 009c 34       		.uleb128 0x34
+ 2326 009d 00       		.byte	0
+ 2327 009e 03       		.uleb128 0x3
+ 2328 009f 0E       		.uleb128 0xe
+ 2329 00a0 3A       		.uleb128 0x3a
+ 2330 00a1 0B       		.uleb128 0xb
+ 2331 00a2 3B       		.uleb128 0x3b
+ 2332 00a3 0B       		.uleb128 0xb
+ 2333 00a4 49       		.uleb128 0x49
+ 2334 00a5 13       		.uleb128 0x13
+ 2335 00a6 02       		.uleb128 0x2
+ARM GAS  /tmp/ccfV9k9H.s 			page 49
+
+
+ 2336 00a7 0A       		.uleb128 0xa
+ 2337 00a8 00       		.byte	0
+ 2338 00a9 00       		.byte	0
+ 2339 00aa 0E       		.uleb128 0xe
+ 2340 00ab 26       		.uleb128 0x26
+ 2341 00ac 00       		.byte	0
+ 2342 00ad 49       		.uleb128 0x49
+ 2343 00ae 13       		.uleb128 0x13
+ 2344 00af 00       		.byte	0
+ 2345 00b0 00       		.byte	0
+ 2346 00b1 0F       		.uleb128 0xf
+ 2347 00b2 2E       		.uleb128 0x2e
+ 2348 00b3 01       		.byte	0x1
+ 2349 00b4 3F       		.uleb128 0x3f
+ 2350 00b5 0C       		.uleb128 0xc
+ 2351 00b6 03       		.uleb128 0x3
+ 2352 00b7 0E       		.uleb128 0xe
+ 2353 00b8 3A       		.uleb128 0x3a
+ 2354 00b9 0B       		.uleb128 0xb
+ 2355 00ba 3B       		.uleb128 0x3b
+ 2356 00bb 0B       		.uleb128 0xb
+ 2357 00bc 27       		.uleb128 0x27
+ 2358 00bd 0C       		.uleb128 0xc
+ 2359 00be 49       		.uleb128 0x49
+ 2360 00bf 13       		.uleb128 0x13
+ 2361 00c0 11       		.uleb128 0x11
+ 2362 00c1 01       		.uleb128 0x1
+ 2363 00c2 12       		.uleb128 0x12
+ 2364 00c3 01       		.uleb128 0x1
+ 2365 00c4 40       		.uleb128 0x40
+ 2366 00c5 06       		.uleb128 0x6
+ 2367 00c6 9642     		.uleb128 0x2116
+ 2368 00c8 0C       		.uleb128 0xc
+ 2369 00c9 01       		.uleb128 0x1
+ 2370 00ca 13       		.uleb128 0x13
+ 2371 00cb 00       		.byte	0
+ 2372 00cc 00       		.byte	0
+ 2373 00cd 10       		.uleb128 0x10
+ 2374 00ce 34       		.uleb128 0x34
+ 2375 00cf 00       		.byte	0
+ 2376 00d0 03       		.uleb128 0x3
+ 2377 00d1 08       		.uleb128 0x8
+ 2378 00d2 3A       		.uleb128 0x3a
+ 2379 00d3 0B       		.uleb128 0xb
+ 2380 00d4 3B       		.uleb128 0x3b
+ 2381 00d5 0B       		.uleb128 0xb
+ 2382 00d6 49       		.uleb128 0x49
+ 2383 00d7 13       		.uleb128 0x13
+ 2384 00d8 02       		.uleb128 0x2
+ 2385 00d9 0A       		.uleb128 0xa
+ 2386 00da 00       		.byte	0
+ 2387 00db 00       		.byte	0
+ 2388 00dc 11       		.uleb128 0x11
+ 2389 00dd 0B       		.uleb128 0xb
+ 2390 00de 01       		.byte	0x1
+ 2391 00df 11       		.uleb128 0x11
+ 2392 00e0 01       		.uleb128 0x1
+ARM GAS  /tmp/ccfV9k9H.s 			page 50
+
+
+ 2393 00e1 12       		.uleb128 0x12
+ 2394 00e2 01       		.uleb128 0x1
+ 2395 00e3 00       		.byte	0
+ 2396 00e4 00       		.byte	0
+ 2397 00e5 12       		.uleb128 0x12
+ 2398 00e6 2E       		.uleb128 0x2e
+ 2399 00e7 01       		.byte	0x1
+ 2400 00e8 3F       		.uleb128 0x3f
+ 2401 00e9 0C       		.uleb128 0xc
+ 2402 00ea 03       		.uleb128 0x3
+ 2403 00eb 0E       		.uleb128 0xe
+ 2404 00ec 3A       		.uleb128 0x3a
+ 2405 00ed 0B       		.uleb128 0xb
+ 2406 00ee 3B       		.uleb128 0x3b
+ 2407 00ef 05       		.uleb128 0x5
+ 2408 00f0 27       		.uleb128 0x27
+ 2409 00f1 0C       		.uleb128 0xc
+ 2410 00f2 49       		.uleb128 0x49
+ 2411 00f3 13       		.uleb128 0x13
+ 2412 00f4 11       		.uleb128 0x11
+ 2413 00f5 01       		.uleb128 0x1
+ 2414 00f6 12       		.uleb128 0x12
+ 2415 00f7 01       		.uleb128 0x1
+ 2416 00f8 40       		.uleb128 0x40
+ 2417 00f9 06       		.uleb128 0x6
+ 2418 00fa 9642     		.uleb128 0x2116
+ 2419 00fc 0C       		.uleb128 0xc
+ 2420 00fd 01       		.uleb128 0x1
+ 2421 00fe 13       		.uleb128 0x13
+ 2422 00ff 00       		.byte	0
+ 2423 0100 00       		.byte	0
+ 2424 0101 13       		.uleb128 0x13
+ 2425 0102 05       		.uleb128 0x5
+ 2426 0103 00       		.byte	0
+ 2427 0104 03       		.uleb128 0x3
+ 2428 0105 08       		.uleb128 0x8
+ 2429 0106 3A       		.uleb128 0x3a
+ 2430 0107 0B       		.uleb128 0xb
+ 2431 0108 3B       		.uleb128 0x3b
+ 2432 0109 05       		.uleb128 0x5
+ 2433 010a 49       		.uleb128 0x49
+ 2434 010b 13       		.uleb128 0x13
+ 2435 010c 02       		.uleb128 0x2
+ 2436 010d 0A       		.uleb128 0xa
+ 2437 010e 00       		.byte	0
+ 2438 010f 00       		.byte	0
+ 2439 0110 14       		.uleb128 0x14
+ 2440 0111 34       		.uleb128 0x34
+ 2441 0112 00       		.byte	0
+ 2442 0113 03       		.uleb128 0x3
+ 2443 0114 0E       		.uleb128 0xe
+ 2444 0115 3A       		.uleb128 0x3a
+ 2445 0116 0B       		.uleb128 0xb
+ 2446 0117 3B       		.uleb128 0x3b
+ 2447 0118 05       		.uleb128 0x5
+ 2448 0119 49       		.uleb128 0x49
+ 2449 011a 13       		.uleb128 0x13
+ARM GAS  /tmp/ccfV9k9H.s 			page 51
+
+
+ 2450 011b 02       		.uleb128 0x2
+ 2451 011c 0A       		.uleb128 0xa
+ 2452 011d 00       		.byte	0
+ 2453 011e 00       		.byte	0
+ 2454 011f 15       		.uleb128 0x15
+ 2455 0120 34       		.uleb128 0x34
+ 2456 0121 00       		.byte	0
+ 2457 0122 03       		.uleb128 0x3
+ 2458 0123 08       		.uleb128 0x8
+ 2459 0124 3A       		.uleb128 0x3a
+ 2460 0125 0B       		.uleb128 0xb
+ 2461 0126 3B       		.uleb128 0x3b
+ 2462 0127 05       		.uleb128 0x5
+ 2463 0128 49       		.uleb128 0x49
+ 2464 0129 13       		.uleb128 0x13
+ 2465 012a 02       		.uleb128 0x2
+ 2466 012b 0A       		.uleb128 0xa
+ 2467 012c 00       		.byte	0
+ 2468 012d 00       		.byte	0
+ 2469 012e 16       		.uleb128 0x16
+ 2470 012f 2E       		.uleb128 0x2e
+ 2471 0130 01       		.byte	0x1
+ 2472 0131 3F       		.uleb128 0x3f
+ 2473 0132 0C       		.uleb128 0xc
+ 2474 0133 03       		.uleb128 0x3
+ 2475 0134 0E       		.uleb128 0xe
+ 2476 0135 3A       		.uleb128 0x3a
+ 2477 0136 0B       		.uleb128 0xb
+ 2478 0137 3B       		.uleb128 0x3b
+ 2479 0138 05       		.uleb128 0x5
+ 2480 0139 27       		.uleb128 0x27
+ 2481 013a 0C       		.uleb128 0xc
+ 2482 013b 49       		.uleb128 0x49
+ 2483 013c 13       		.uleb128 0x13
+ 2484 013d 11       		.uleb128 0x11
+ 2485 013e 01       		.uleb128 0x1
+ 2486 013f 12       		.uleb128 0x12
+ 2487 0140 01       		.uleb128 0x1
+ 2488 0141 40       		.uleb128 0x40
+ 2489 0142 06       		.uleb128 0x6
+ 2490 0143 9742     		.uleb128 0x2117
+ 2491 0145 0C       		.uleb128 0xc
+ 2492 0146 01       		.uleb128 0x1
+ 2493 0147 13       		.uleb128 0x13
+ 2494 0148 00       		.byte	0
+ 2495 0149 00       		.byte	0
+ 2496 014a 17       		.uleb128 0x17
+ 2497 014b 05       		.uleb128 0x5
+ 2498 014c 00       		.byte	0
+ 2499 014d 03       		.uleb128 0x3
+ 2500 014e 0E       		.uleb128 0xe
+ 2501 014f 3A       		.uleb128 0x3a
+ 2502 0150 0B       		.uleb128 0xb
+ 2503 0151 3B       		.uleb128 0x3b
+ 2504 0152 05       		.uleb128 0x5
+ 2505 0153 49       		.uleb128 0x49
+ 2506 0154 13       		.uleb128 0x13
+ARM GAS  /tmp/ccfV9k9H.s 			page 52
+
+
+ 2507 0155 02       		.uleb128 0x2
+ 2508 0156 0A       		.uleb128 0xa
+ 2509 0157 00       		.byte	0
+ 2510 0158 00       		.byte	0
+ 2511 0159 18       		.uleb128 0x18
+ 2512 015a 01       		.uleb128 0x1
+ 2513 015b 01       		.byte	0x1
+ 2514 015c 49       		.uleb128 0x49
+ 2515 015d 13       		.uleb128 0x13
+ 2516 015e 01       		.uleb128 0x1
+ 2517 015f 13       		.uleb128 0x13
+ 2518 0160 00       		.byte	0
+ 2519 0161 00       		.byte	0
+ 2520 0162 19       		.uleb128 0x19
+ 2521 0163 21       		.uleb128 0x21
+ 2522 0164 00       		.byte	0
+ 2523 0165 49       		.uleb128 0x49
+ 2524 0166 13       		.uleb128 0x13
+ 2525 0167 2F       		.uleb128 0x2f
+ 2526 0168 0B       		.uleb128 0xb
+ 2527 0169 00       		.byte	0
+ 2528 016a 00       		.byte	0
+ 2529 016b 1A       		.uleb128 0x1a
+ 2530 016c 34       		.uleb128 0x34
+ 2531 016d 00       		.byte	0
+ 2532 016e 03       		.uleb128 0x3
+ 2533 016f 0E       		.uleb128 0xe
+ 2534 0170 3A       		.uleb128 0x3a
+ 2535 0171 0B       		.uleb128 0xb
+ 2536 0172 3B       		.uleb128 0x3b
+ 2537 0173 05       		.uleb128 0x5
+ 2538 0174 49       		.uleb128 0x49
+ 2539 0175 13       		.uleb128 0x13
+ 2540 0176 3F       		.uleb128 0x3f
+ 2541 0177 0C       		.uleb128 0xc
+ 2542 0178 3C       		.uleb128 0x3c
+ 2543 0179 0C       		.uleb128 0xc
+ 2544 017a 00       		.byte	0
+ 2545 017b 00       		.byte	0
+ 2546 017c 1B       		.uleb128 0x1b
+ 2547 017d 35       		.uleb128 0x35
+ 2548 017e 00       		.byte	0
+ 2549 017f 49       		.uleb128 0x49
+ 2550 0180 13       		.uleb128 0x13
+ 2551 0181 00       		.byte	0
+ 2552 0182 00       		.byte	0
+ 2553 0183 00       		.byte	0
+ 2554              		.section	.debug_loc,"",%progbits
+ 2555              	.Ldebug_loc0:
+ 2556              	.LLST0:
+ 2557 0000 00000000 		.4byte	.LFB40-.Ltext0
+ 2558 0004 02000000 		.4byte	.LCFI0-.Ltext0
+ 2559 0008 0200     		.2byte	0x2
+ 2560 000a 7D       		.byte	0x7d
+ 2561 000b 00       		.sleb128 0
+ 2562 000c 02000000 		.4byte	.LCFI0-.Ltext0
+ 2563 0010 6A010000 		.4byte	.LCFI1-.Ltext0
+ARM GAS  /tmp/ccfV9k9H.s 			page 53
+
+
+ 2564 0014 0200     		.2byte	0x2
+ 2565 0016 7D       		.byte	0x7d
+ 2566 0017 18       		.sleb128 24
+ 2567 0018 6A010000 		.4byte	.LCFI1-.Ltext0
+ 2568 001c 78010000 		.4byte	.LFE40-.Ltext0
+ 2569 0020 0200     		.2byte	0x2
+ 2570 0022 7D       		.byte	0x7d
+ 2571 0023 00       		.sleb128 0
+ 2572 0024 00000000 		.4byte	0
+ 2573 0028 00000000 		.4byte	0
+ 2574              	.LLST1:
+ 2575 002c 78010000 		.4byte	.LFB41-.Ltext0
+ 2576 0030 7A010000 		.4byte	.LCFI2-.Ltext0
+ 2577 0034 0200     		.2byte	0x2
+ 2578 0036 7D       		.byte	0x7d
+ 2579 0037 00       		.sleb128 0
+ 2580 0038 7A010000 		.4byte	.LCFI2-.Ltext0
+ 2581 003c 9A010000 		.4byte	.LCFI3-.Ltext0
+ 2582 0040 0200     		.2byte	0x2
+ 2583 0042 7D       		.byte	0x7d
+ 2584 0043 10       		.sleb128 16
+ 2585 0044 9A010000 		.4byte	.LCFI3-.Ltext0
+ 2586 0048 9C010000 		.4byte	.LFE41-.Ltext0
+ 2587 004c 0200     		.2byte	0x2
+ 2588 004e 7D       		.byte	0x7d
+ 2589 004f 00       		.sleb128 0
+ 2590 0050 00000000 		.4byte	0
+ 2591 0054 00000000 		.4byte	0
+ 2592              	.LLST2:
+ 2593 0058 9C010000 		.4byte	.LFB42-.Ltext0
+ 2594 005c 9E010000 		.4byte	.LCFI4-.Ltext0
+ 2595 0060 0200     		.2byte	0x2
+ 2596 0062 7D       		.byte	0x7d
+ 2597 0063 00       		.sleb128 0
+ 2598 0064 9E010000 		.4byte	.LCFI4-.Ltext0
+ 2599 0068 D0010000 		.4byte	.LCFI5-.Ltext0
+ 2600 006c 0200     		.2byte	0x2
+ 2601 006e 7D       		.byte	0x7d
+ 2602 006f 10       		.sleb128 16
+ 2603 0070 D0010000 		.4byte	.LCFI5-.Ltext0
+ 2604 0074 D2010000 		.4byte	.LFE42-.Ltext0
+ 2605 0078 0200     		.2byte	0x2
+ 2606 007a 7D       		.byte	0x7d
+ 2607 007b 00       		.sleb128 0
+ 2608 007c 00000000 		.4byte	0
+ 2609 0080 00000000 		.4byte	0
+ 2610              	.LLST3:
+ 2611 0084 D4010000 		.4byte	.LFB43-.Ltext0
+ 2612 0088 D6010000 		.4byte	.LCFI6-.Ltext0
+ 2613 008c 0200     		.2byte	0x2
+ 2614 008e 7D       		.byte	0x7d
+ 2615 008f 00       		.sleb128 0
+ 2616 0090 D6010000 		.4byte	.LCFI6-.Ltext0
+ 2617 0094 D8010000 		.4byte	.LCFI7-.Ltext0
+ 2618 0098 0200     		.2byte	0x2
+ 2619 009a 7D       		.byte	0x7d
+ 2620 009b 04       		.sleb128 4
+ARM GAS  /tmp/ccfV9k9H.s 			page 54
+
+
+ 2621 009c D8010000 		.4byte	.LCFI7-.Ltext0
+ 2622 00a0 4A020000 		.4byte	.LCFI8-.Ltext0
+ 2623 00a4 0200     		.2byte	0x2
+ 2624 00a6 7D       		.byte	0x7d
+ 2625 00a7 18       		.sleb128 24
+ 2626 00a8 4A020000 		.4byte	.LCFI8-.Ltext0
+ 2627 00ac 4E020000 		.4byte	.LFE43-.Ltext0
+ 2628 00b0 0200     		.2byte	0x2
+ 2629 00b2 7D       		.byte	0x7d
+ 2630 00b3 04       		.sleb128 4
+ 2631 00b4 00000000 		.4byte	0
+ 2632 00b8 00000000 		.4byte	0
+ 2633              	.LLST4:
+ 2634 00bc 50020000 		.4byte	.LFB44-.Ltext0
+ 2635 00c0 52020000 		.4byte	.LCFI9-.Ltext0
+ 2636 00c4 0200     		.2byte	0x2
+ 2637 00c6 7D       		.byte	0x7d
+ 2638 00c7 00       		.sleb128 0
+ 2639 00c8 52020000 		.4byte	.LCFI9-.Ltext0
+ 2640 00cc 84020000 		.4byte	.LCFI10-.Ltext0
+ 2641 00d0 0200     		.2byte	0x2
+ 2642 00d2 7D       		.byte	0x7d
+ 2643 00d3 18       		.sleb128 24
+ 2644 00d4 84020000 		.4byte	.LCFI10-.Ltext0
+ 2645 00d8 86020000 		.4byte	.LFE44-.Ltext0
+ 2646 00dc 0200     		.2byte	0x2
+ 2647 00de 7D       		.byte	0x7d
+ 2648 00df 00       		.sleb128 0
+ 2649 00e0 00000000 		.4byte	0
+ 2650 00e4 00000000 		.4byte	0
+ 2651              	.LLST5:
+ 2652 00e8 88020000 		.4byte	.LFB45-.Ltext0
+ 2653 00ec 8A020000 		.4byte	.LCFI11-.Ltext0
+ 2654 00f0 0200     		.2byte	0x2
+ 2655 00f2 7D       		.byte	0x7d
+ 2656 00f3 00       		.sleb128 0
+ 2657 00f4 8A020000 		.4byte	.LCFI11-.Ltext0
+ 2658 00f8 BC020000 		.4byte	.LCFI12-.Ltext0
+ 2659 00fc 0200     		.2byte	0x2
+ 2660 00fe 7D       		.byte	0x7d
+ 2661 00ff 18       		.sleb128 24
+ 2662 0100 BC020000 		.4byte	.LCFI12-.Ltext0
+ 2663 0104 BE020000 		.4byte	.LFE45-.Ltext0
+ 2664 0108 0200     		.2byte	0x2
+ 2665 010a 7D       		.byte	0x7d
+ 2666 010b 00       		.sleb128 0
+ 2667 010c 00000000 		.4byte	0
+ 2668 0110 00000000 		.4byte	0
+ 2669              	.LLST6:
+ 2670 0114 C0020000 		.4byte	.LFB46-.Ltext0
+ 2671 0118 C2020000 		.4byte	.LCFI13-.Ltext0
+ 2672 011c 0200     		.2byte	0x2
+ 2673 011e 7D       		.byte	0x7d
+ 2674 011f 00       		.sleb128 0
+ 2675 0120 C2020000 		.4byte	.LCFI13-.Ltext0
+ 2676 0124 FA020000 		.4byte	.LCFI14-.Ltext0
+ 2677 0128 0200     		.2byte	0x2
+ARM GAS  /tmp/ccfV9k9H.s 			page 55
+
+
+ 2678 012a 7D       		.byte	0x7d
+ 2679 012b 18       		.sleb128 24
+ 2680 012c FA020000 		.4byte	.LCFI14-.Ltext0
+ 2681 0130 FC020000 		.4byte	.LFE46-.Ltext0
+ 2682 0134 0200     		.2byte	0x2
+ 2683 0136 7D       		.byte	0x7d
+ 2684 0137 00       		.sleb128 0
+ 2685 0138 00000000 		.4byte	0
+ 2686 013c 00000000 		.4byte	0
+ 2687              	.LLST7:
+ 2688 0140 FC020000 		.4byte	.LFB47-.Ltext0
+ 2689 0144 FE020000 		.4byte	.LCFI15-.Ltext0
+ 2690 0148 0200     		.2byte	0x2
+ 2691 014a 7D       		.byte	0x7d
+ 2692 014b 00       		.sleb128 0
+ 2693 014c FE020000 		.4byte	.LCFI15-.Ltext0
+ 2694 0150 00030000 		.4byte	.LCFI16-.Ltext0
+ 2695 0154 0200     		.2byte	0x2
+ 2696 0156 7D       		.byte	0x7d
+ 2697 0157 0C       		.sleb128 12
+ 2698 0158 00030000 		.4byte	.LCFI16-.Ltext0
+ 2699 015c 22050000 		.4byte	.LCFI17-.Ltext0
+ 2700 0160 0200     		.2byte	0x2
+ 2701 0162 7D       		.byte	0x7d
+ 2702 0163 30       		.sleb128 48
+ 2703 0164 22050000 		.4byte	.LCFI17-.Ltext0
+ 2704 0168 40050000 		.4byte	.LFE47-.Ltext0
+ 2705 016c 0200     		.2byte	0x2
+ 2706 016e 7D       		.byte	0x7d
+ 2707 016f 0C       		.sleb128 12
+ 2708 0170 00000000 		.4byte	0
+ 2709 0174 00000000 		.4byte	0
+ 2710              	.LLST8:
+ 2711 0178 40050000 		.4byte	.LFB48-.Ltext0
+ 2712 017c 42050000 		.4byte	.LCFI18-.Ltext0
+ 2713 0180 0200     		.2byte	0x2
+ 2714 0182 7D       		.byte	0x7d
+ 2715 0183 00       		.sleb128 0
+ 2716 0184 42050000 		.4byte	.LCFI18-.Ltext0
+ 2717 0188 7C050000 		.4byte	.LCFI19-.Ltext0
+ 2718 018c 0200     		.2byte	0x2
+ 2719 018e 7D       		.byte	0x7d
+ 2720 018f 10       		.sleb128 16
+ 2721 0190 7C050000 		.4byte	.LCFI19-.Ltext0
+ 2722 0194 7E050000 		.4byte	.LFE48-.Ltext0
+ 2723 0198 0200     		.2byte	0x2
+ 2724 019a 7D       		.byte	0x7d
+ 2725 019b 00       		.sleb128 0
+ 2726 019c 00000000 		.4byte	0
+ 2727 01a0 00000000 		.4byte	0
+ 2728              	.LLST9:
+ 2729 01a4 80050000 		.4byte	.LFB49-.Ltext0
+ 2730 01a8 82050000 		.4byte	.LCFI20-.Ltext0
+ 2731 01ac 0200     		.2byte	0x2
+ 2732 01ae 7D       		.byte	0x7d
+ 2733 01af 00       		.sleb128 0
+ 2734 01b0 82050000 		.4byte	.LCFI20-.Ltext0
+ARM GAS  /tmp/ccfV9k9H.s 			page 56
+
+
+ 2735 01b4 84050000 		.4byte	.LCFI21-.Ltext0
+ 2736 01b8 0200     		.2byte	0x2
+ 2737 01ba 7D       		.byte	0x7d
+ 2738 01bb 08       		.sleb128 8
+ 2739 01bc 84050000 		.4byte	.LCFI21-.Ltext0
+ 2740 01c0 62060000 		.4byte	.LCFI22-.Ltext0
+ 2741 01c4 0200     		.2byte	0x2
+ 2742 01c6 7D       		.byte	0x7d
+ 2743 01c7 18       		.sleb128 24
+ 2744 01c8 62060000 		.4byte	.LCFI22-.Ltext0
+ 2745 01cc 68060000 		.4byte	.LFE49-.Ltext0
+ 2746 01d0 0200     		.2byte	0x2
+ 2747 01d2 7D       		.byte	0x7d
+ 2748 01d3 08       		.sleb128 8
+ 2749 01d4 00000000 		.4byte	0
+ 2750 01d8 00000000 		.4byte	0
+ 2751              	.LLST10:
+ 2752 01dc 68060000 		.4byte	.LFB50-.Ltext0
+ 2753 01e0 6A060000 		.4byte	.LCFI23-.Ltext0
+ 2754 01e4 0200     		.2byte	0x2
+ 2755 01e6 7D       		.byte	0x7d
+ 2756 01e7 00       		.sleb128 0
+ 2757 01e8 6A060000 		.4byte	.LCFI23-.Ltext0
+ 2758 01ec 6C060000 		.4byte	.LCFI24-.Ltext0
+ 2759 01f0 0200     		.2byte	0x2
+ 2760 01f2 7D       		.byte	0x7d
+ 2761 01f3 04       		.sleb128 4
+ 2762 01f4 6C060000 		.4byte	.LCFI24-.Ltext0
+ 2763 01f8 F4060000 		.4byte	.LCFI25-.Ltext0
+ 2764 01fc 0200     		.2byte	0x2
+ 2765 01fe 7D       		.byte	0x7d
+ 2766 01ff 18       		.sleb128 24
+ 2767 0200 F4060000 		.4byte	.LCFI25-.Ltext0
+ 2768 0204 FC060000 		.4byte	.LFE50-.Ltext0
+ 2769 0208 0200     		.2byte	0x2
+ 2770 020a 7D       		.byte	0x7d
+ 2771 020b 04       		.sleb128 4
+ 2772 020c 00000000 		.4byte	0
+ 2773 0210 00000000 		.4byte	0
+ 2774              	.LLST11:
+ 2775 0214 FC060000 		.4byte	.LFB51-.Ltext0
+ 2776 0218 FE060000 		.4byte	.LCFI26-.Ltext0
+ 2777 021c 0200     		.2byte	0x2
+ 2778 021e 7D       		.byte	0x7d
+ 2779 021f 00       		.sleb128 0
+ 2780 0220 FE060000 		.4byte	.LCFI26-.Ltext0
+ 2781 0224 60070000 		.4byte	.LCFI27-.Ltext0
+ 2782 0228 0200     		.2byte	0x2
+ 2783 022a 7D       		.byte	0x7d
+ 2784 022b 18       		.sleb128 24
+ 2785 022c 60070000 		.4byte	.LCFI27-.Ltext0
+ 2786 0230 62070000 		.4byte	.LFE51-.Ltext0
+ 2787 0234 0200     		.2byte	0x2
+ 2788 0236 7D       		.byte	0x7d
+ 2789 0237 00       		.sleb128 0
+ 2790 0238 00000000 		.4byte	0
+ 2791 023c 00000000 		.4byte	0
+ARM GAS  /tmp/ccfV9k9H.s 			page 57
+
+
+ 2792              		.section	.debug_aranges,"",%progbits
+ 2793 0000 1C000000 		.4byte	0x1c
+ 2794 0004 0200     		.2byte	0x2
+ 2795 0006 00000000 		.4byte	.Ldebug_info0
+ 2796 000a 04       		.byte	0x4
+ 2797 000b 00       		.byte	0
+ 2798 000c 0000     		.2byte	0
+ 2799 000e 0000     		.2byte	0
+ 2800 0010 00000000 		.4byte	.Ltext0
+ 2801 0014 62070000 		.4byte	.Letext0-.Ltext0
+ 2802 0018 00000000 		.4byte	0
+ 2803 001c 00000000 		.4byte	0
+ 2804              		.section	.debug_line,"",%progbits
+ 2805              	.Ldebug_line0:
+ 2806 0000 CC020000 		.section	.debug_str,"MS",%progbits,1
+ 2806      02004001 
+ 2806      00000201 
+ 2806      FB0E0D00 
+ 2806      01010101 
+ 2807              	.LASF37:
+ 2808 0000 70636653 		.ascii	"pcfStrReverse\000"
+ 2808      74725265 
+ 2808      76657273 
+ 2808      6500
+ 2809              	.LASF26:
+ 2810 000e 746F6B65 		.ascii	"token\000"
+ 2810      6E00
+ 2811              	.LASF31:
+ 2812 0014 72657375 		.ascii	"result\000"
+ 2812      6C7400
+ 2813              	.LASF35:
+ 2814 001b 64657374 		.ascii	"dest\000"
+ 2814      00
+ 2815              	.LASF45:
+ 2816 0020 70726563 		.ascii	"precission\000"
+ 2816      69737369 
+ 2816      6F6E00
+ 2817              	.LASF16:
+ 2818 002b 696E7438 		.ascii	"int8_t\000"
+ 2818      5F7400
+ 2819              	.LASF30:
+ 2820 0032 696E6465 		.ascii	"index\000"
+ 2820      7800
+ 2821              	.LASF29:
+ 2822 0038 74656D70 		.ascii	"temp\000"
+ 2822      00
+ 2823              	.LASF5:
+ 2824 003d 73686F72 		.ascii	"short int\000"
+ 2824      7420696E 
+ 2824      7400
+ 2825              	.LASF14:
+ 2826 0047 73697A65 		.ascii	"sizetype\000"
+ 2826      74797065 
+ 2826      00
+ 2827              	.LASF27:
+ 2828 0050 696E6465 		.ascii	"index2\000"
+ 2828      783200
+ARM GAS  /tmp/ccfV9k9H.s 			page 58
+
+
+ 2829              	.LASF10:
+ 2830 0057 5F5F7569 		.ascii	"__uint32_t\000"
+ 2830      6E743332 
+ 2830      5F7400
+ 2831              	.LASF6:
+ 2832 0062 5F5F7569 		.ascii	"__uint16_t\000"
+ 2832      6E743136 
+ 2832      5F7400
+ 2833              	.LASF40:
+ 2834 006d 76616C75 		.ascii	"value\000"
+ 2834      6500
+ 2835              	.LASF17:
+ 2836 0073 75696E74 		.ascii	"uint8_t\000"
+ 2836      385F7400 
+ 2837              	.LASF57:
+ 2838 007b 474E5520 		.ascii	"GNU C 4.9.3 20150529 (prerelease) -mcpu=cortex-m3 -"
+ 2838      4320342E 
+ 2838      392E3320 
+ 2838      32303135 
+ 2838      30353239 
+ 2839 00ae 6D746875 		.ascii	"mthumb -gdwarf-2 -O0 -std=gnu99 -fomit-frame-pointe"
+ 2839      6D62202D 
+ 2839      67647761 
+ 2839      72662D32 
+ 2839      202D4F30 
+ 2840 00e1 7200     		.ascii	"r\000"
+ 2841              	.LASF56:
+ 2842 00e3 746F6B53 		.ascii	"tokString\000"
+ 2842      7472696E 
+ 2842      6700
+ 2843              	.LASF58:
+ 2844 00ed 2E2E2F65 		.ascii	"../epcf/utils/source/epcf_string.c\000"
+ 2844      7063662F 
+ 2844      7574696C 
+ 2844      732F736F 
+ 2844      75726365 
+ 2845              	.LASF21:
+ 2846 0110 666C6F61 		.ascii	"float\000"
+ 2846      7400
+ 2847              	.LASF25:
+ 2848 0116 456E4550 		.ascii	"EnEPCFBoolean_t\000"
+ 2848      4346426F 
+ 2848      6F6C6561 
+ 2848      6E5F7400 
+ 2849              	.LASF12:
+ 2850 0126 6C6F6E67 		.ascii	"long long int\000"
+ 2850      206C6F6E 
+ 2850      6720696E 
+ 2850      7400
+ 2851              	.LASF51:
+ 2852 0134 70636649 		.ascii	"pcfItoA\000"
+ 2852      746F4100 
+ 2853              	.LASF9:
+ 2854 013c 6C6F6E67 		.ascii	"long int\000"
+ 2854      20696E74 
+ 2854      00
+ 2855              	.LASF3:
+ARM GAS  /tmp/ccfV9k9H.s 			page 59
+
+
+ 2856 0145 5F5F7569 		.ascii	"__uint8_t\000"
+ 2856      6E74385F 
+ 2856      7400
+ 2857              	.LASF34:
+ 2858 014f 70636653 		.ascii	"pcfStrCopy\000"
+ 2858      7472436F 
+ 2858      707900
+ 2859              	.LASF39:
+ 2860 015a 7063664D 		.ascii	"pcfMemSet\000"
+ 2860      656D5365 
+ 2860      7400
+ 2861              	.LASF4:
+ 2862 0164 756E7369 		.ascii	"unsigned char\000"
+ 2862      676E6564 
+ 2862      20636861 
+ 2862      7200
+ 2863              	.LASF28:
+ 2864 0172 6C6F6F70 		.ascii	"loop\000"
+ 2864      00
+ 2865              	.LASF1:
+ 2866 0177 7369676E 		.ascii	"signed char\000"
+ 2866      65642063 
+ 2866      68617200 
+ 2867              	.LASF41:
+ 2868 0183 7063664D 		.ascii	"pcfMemCompare\000"
+ 2868      656D436F 
+ 2868      6D706172 
+ 2868      6500
+ 2869              	.LASF13:
+ 2870 0191 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2870      206C6F6E 
+ 2870      6720756E 
+ 2870      7369676E 
+ 2870      65642069 
+ 2871              	.LASF20:
+ 2872 01a8 75696E74 		.ascii	"uint32_t\000"
+ 2872      33325F74 
+ 2872      00
+ 2873              	.LASF38:
+ 2874 01b1 7063664D 		.ascii	"pcfMemCopy\000"
+ 2874      656D436F 
+ 2874      707900
+ 2875              	.LASF0:
+ 2876 01bc 756E7369 		.ascii	"unsigned int\000"
+ 2876      676E6564 
+ 2876      20696E74 
+ 2876      00
+ 2877              	.LASF18:
+ 2878 01c9 75696E74 		.ascii	"uint16_t\000"
+ 2878      31365F74 
+ 2878      00
+ 2879              	.LASF32:
+ 2880 01d2 70636653 		.ascii	"pcfStringTokenize\000"
+ 2880      7472696E 
+ 2880      67546F6B 
+ 2880      656E697A 
+ 2880      6500
+ARM GAS  /tmp/ccfV9k9H.s 			page 60
+
+
+ 2881              	.LASF11:
+ 2882 01e4 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2882      20756E73 
+ 2882      69676E65 
+ 2882      6420696E 
+ 2882      7400
+ 2883              	.LASF49:
+ 2884 01f6 734C656E 		.ascii	"sLen\000"
+ 2884      00
+ 2885              	.LASF7:
+ 2886 01fb 73686F72 		.ascii	"short unsigned int\000"
+ 2886      7420756E 
+ 2886      7369676E 
+ 2886      65642069 
+ 2886      6E7400
+ 2887              	.LASF2:
+ 2888 020e 5F5F696E 		.ascii	"__int8_t\000"
+ 2888      74385F74 
+ 2888      00
+ 2889              	.LASF15:
+ 2890 0217 63686172 		.ascii	"char\000"
+ 2890      00
+ 2891              	.LASF19:
+ 2892 021c 696E7433 		.ascii	"int32_t\000"
+ 2892      325F7400 
+ 2893              	.LASF48:
+ 2894 0224 70636641 		.ascii	"pcfAtoF\000"
+ 2894      746F4600 
+ 2895              	.LASF47:
+ 2896 022c 70636641 		.ascii	"pcfAtoI\000"
+ 2896      746F4900 
+ 2897              	.LASF23:
+ 2898 0234 656E4550 		.ascii	"enEPCFBoolean_True\000"
+ 2898      4346426F 
+ 2898      6F6C6561 
+ 2898      6E5F5472 
+ 2898      756500
+ 2899              	.LASF50:
+ 2900 0247 646F7470 		.ascii	"dotpos\000"
+ 2900      6F7300
+ 2901              	.LASF53:
+ 2902 024e 70636653 		.ascii	"pcfStrCat\000"
+ 2902      74724361 
+ 2902      7400
+ 2903              	.LASF33:
+ 2904 0258 70636653 		.ascii	"pcfStrLen\000"
+ 2904      74724C65 
+ 2904      6E00
+ 2905              	.LASF52:
+ 2906 0262 7369676E 		.ascii	"sign\000"
+ 2906      00
+ 2907              	.LASF46:
+ 2908 0267 646F7562 		.ascii	"double\000"
+ 2908      6C6500
+ 2909              	.LASF24:
+ 2910 026e 656E4550 		.ascii	"enEPCFBoolean_Max\000"
+ 2910      4346426F 
+ARM GAS  /tmp/ccfV9k9H.s 			page 61
+
+
+ 2910      6F6C6561 
+ 2910      6E5F4D61 
+ 2910      7800
+ 2911              	.LASF36:
+ 2912 0280 636F756E 		.ascii	"count\000"
+ 2912      7400
+ 2913              	.LASF8:
+ 2914 0286 5F5F696E 		.ascii	"__int32_t\000"
+ 2914      7433325F 
+ 2914      7400
+ 2915              	.LASF54:
+ 2916 0290 64657374 		.ascii	"destCount\000"
+ 2916      436F756E 
+ 2916      7400
+ 2917              	.LASF42:
+ 2918 029a 70747231 		.ascii	"ptr1\000"
+ 2918      00
+ 2919              	.LASF43:
+ 2920 029f 70747232 		.ascii	"ptr2\000"
+ 2920      00
+ 2921              	.LASF59:
+ 2922 02a4 2F686F6D 		.ascii	"/home/majorviraj/Desktop/Self_balancing/codes/Blink"
+ 2922      652F6D61 
+ 2922      6A6F7276 
+ 2922      6972616A 
+ 2922      2F446573 
+ 2923 02d7 30312F61 		.ascii	"01/app\000"
+ 2923      707000
+ 2924              	.LASF55:
+ 2925 02de 73726343 		.ascii	"srcCount\000"
+ 2925      6F756E74 
+ 2925      00
+ 2926              	.LASF22:
+ 2927 02e7 656E4550 		.ascii	"enEPCFBoolean_False\000"
+ 2927      4346426F 
+ 2927      6F6C6561 
+ 2927      6E5F4661 
+ 2927      6C736500 
+ 2928              	.LASF60:
+ 2929 02fb 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 2929      52784275 
+ 2929      66666572 
+ 2929      00
+ 2930              	.LASF44:
+ 2931 0308 70636646 		.ascii	"pcfFtoA\000"
+ 2931      746F4100 
+ 2932              		.ident	"GCC: (15:4.9.3+svn231177-1) 4.9.3 20150529 (prerelease)"
+ARM GAS  /tmp/ccfV9k9H.s 			page 62
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 epcf_string.c
+     /tmp/ccfV9k9H.s:49     .bss:0000000000000000 $d
+     /tmp/ccfV9k9H.s:50     .bss:0000000000000000 tokString
+     /tmp/ccfV9k9H.s:53     .bss:0000000000000100 is
+     /tmp/ccfV9k9H.s:56     .bss:0000000000000102 len
+     /tmp/ccfV9k9H.s:59     .text:0000000000000000 $t
+     /tmp/ccfV9k9H.s:64     .text:0000000000000000 pcfStringTokenize
+     /tmp/ccfV9k9H.s:285    .text:000000000000016c $d
+     /tmp/ccfV9k9H.s:291    .text:0000000000000178 $t
+     /tmp/ccfV9k9H.s:296    .text:0000000000000178 pcfStrLen
+     /tmp/ccfV9k9H.s:342    .text:000000000000019c pcfStrCopy
+     /tmp/ccfV9k9H.s:398    .text:00000000000001d4 pcfStrReverse
+     /tmp/ccfV9k9H.s:475    .text:0000000000000250 pcfMemCopy
+     /tmp/ccfV9k9H.s:530    .text:0000000000000288 pcfMemSet
+     /tmp/ccfV9k9H.s:583    .text:00000000000002c0 pcfMemCompare
+     /tmp/ccfV9k9H.s:655    .text:00000000000002fc pcfFtoA
+     /tmp/ccfV9k9H.s:950    .text:0000000000000528 $d
+     /tmp/ccfV9k9H.s:959    .text:0000000000000540 $t
+     /tmp/ccfV9k9H.s:964    .text:0000000000000540 pcfAtoI
+     /tmp/ccfV9k9H.s:1027   .text:0000000000000580 pcfAtoF
+     /tmp/ccfV9k9H.s:1168   .text:0000000000000664 $d
+     /tmp/ccfV9k9H.s:1172   .text:0000000000000668 $t
+     /tmp/ccfV9k9H.s:1177   .text:0000000000000668 pcfItoA
+     /tmp/ccfV9k9H.s:1276   .text:00000000000006f8 $d
+     /tmp/ccfV9k9H.s:1280   .text:00000000000006fc $t
+     /tmp/ccfV9k9H.s:1285   .text:00000000000006fc pcfStrCat
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+__aeabi_fcmplt
+__aeabi_fcmpeq
+__aeabi_fmul
+__aeabi_fcmpge
+__aeabi_dmul
+__aeabi_f2d
+__aeabi_dadd
+__aeabi_d2f
+__aeabi_f2iz
+__aeabi_i2f
+__aeabi_fsub
+__aeabi_fadd
+__aeabi_fdiv

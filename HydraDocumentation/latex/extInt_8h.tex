@@ -1,0 +1,228 @@
+\hypertarget{extInt_8h}{}\section{epcf\+\_\+project/epcf/peripheral/include/ext\+Int/ext\+Int.h File Reference}
+\label{extInt_8h}\index{epcf\+\_\+project/epcf/peripheral/include/ext\+Int/ext\+Int.\+h@{epcf\+\_\+project/epcf/peripheral/include/ext\+Int/ext\+Int.\+h}}
+
+
+This file is used to configure an External Interrupt device.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structEPCFExtIntCfg__t}{E\+P\+C\+F\+Ext\+Int\+Cfg\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em External interrupt configuration structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{extInt_8h_adb145a26c2b73043d9daf41c76ffb1a0}\label{extInt_8h_adb145a26c2b73043d9daf41c76ffb1a0}} 
+typedef struct \mbox{\hyperlink{structEPCFExtIntDevice}{E\+P\+C\+F\+Ext\+Int\+Device}} \mbox{\hyperlink{extInt_8h_adb145a26c2b73043d9daf41c76ffb1a0}{E\+P\+C\+F\+Ext\+Int\+Device\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em External interrupt device. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{extInt_8h_ad333fc40b8eb8a629c8ac27ad03b3245}{En\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+t}} \{ \newline
+\mbox{\hyperlink{extInt_8h_ad333fc40b8eb8a629c8ac27ad03b3245aff0c95d7834a9656911391fe3d290290}{en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+Falling\+Edge}}, 
+\mbox{\hyperlink{extInt_8h_ad333fc40b8eb8a629c8ac27ad03b3245a47b340048db41f0f590e5f0fdd2cc692}{en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+Rising\+Edge}}, 
+\mbox{\hyperlink{extInt_8h_ad333fc40b8eb8a629c8ac27ad03b3245a72402974dbf176095bae4285e4ab5805}{en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+Both\+Edge}}, 
+\mbox{\hyperlink{extInt_8h_ad333fc40b8eb8a629c8ac27ad03b3245a37b6da0b1c9e4837a01c3b45c390c02c}{en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+Low\+Level}}, 
+\newline
+\mbox{\hyperlink{extInt_8h_ad333fc40b8eb8a629c8ac27ad03b3245a870c9e31a8d5d3c18d8dbc471bd1d167}{en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+High\+Level}}, 
+\mbox{\hyperlink{extInt_8h_ad333fc40b8eb8a629c8ac27ad03b3245a79c79d94752ba6df23e1ad2765296a96}{en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+Max}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration for external interrupt mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{extInt_8h_adb145a26c2b73043d9daf41c76ffb1a0}{E\+P\+C\+F\+Ext\+Int\+Device\+\_\+t}} $\ast$ \mbox{\hyperlink{extInt_8h_a9a06a459af334c41ec420ba83a200658}{epcf\+\_\+ext\+Int\+\_\+create\+Native}} (\mbox{\hyperlink{structEPCFExtIntCfg__t}{E\+P\+C\+F\+Ext\+Int\+Cfg\+\_\+t}} $\ast$p\+Ext\+Int\+Config)
+\begin{DoxyCompactList}\small\item\em This function is used to create an external interrupt device. Call this function in beginning to initialize the external interrupt. This function allocates memory for the device using malloc() function call and returns a pointer to the device. Pass this device pointer while calling external interrupt functions. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{extInt_8h_af148b7aaf13c4f428978d54b550efd90}{epcf\+\_\+ext\+Int\+\_\+enable}} (\mbox{\hyperlink{extInt_8h_adb145a26c2b73043d9daf41c76ffb1a0}{E\+P\+C\+F\+Ext\+Int\+Device\+\_\+t}} $\ast$p\+Ext\+Int\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to enable the external interrupt device. User callback, if attached will be called when the status of pin changes according to mode of the device. It can be disabled by a call to the function \mbox{\hyperlink{extInt_8h_a8659c22341158f5372999254d2017e03}{epcf\+\_\+ext\+Int\+\_\+disable()}}. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{extInt_8h_a8659c22341158f5372999254d2017e03}{epcf\+\_\+ext\+Int\+\_\+disable}} (\mbox{\hyperlink{extInt_8h_adb145a26c2b73043d9daf41c76ffb1a0}{E\+P\+C\+F\+Ext\+Int\+Device\+\_\+t}} $\ast$p\+Ext\+Int\+Device) extern int8\+\_\+t epcf\+\_\+ext\+Int\+\_\+attach\+Callback(\mbox{\hyperlink{extInt_8h_adb145a26c2b73043d9daf41c76ffb1a0}{E\+P\+C\+F\+Ext\+Int\+Device\+\_\+t}} $\ast$p\+Ext\+Int\+Device
+\begin{DoxyCompactList}\small\item\em This function is used to disable the external interrupt device. User callback will not get called after the device has been disabled. The device can be enabled again by a call to the function \mbox{\hyperlink{extInt_8h_af148b7aaf13c4f428978d54b550efd90}{epcf\+\_\+ext\+Int\+\_\+enable()}}. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{extInt_8h_abda85e6919c631d45b39f22184bcd528}{epcf\+\_\+ext\+Int\+\_\+detach\+Callback}} (\mbox{\hyperlink{extInt_8h_adb145a26c2b73043d9daf41c76ffb1a0}{E\+P\+C\+F\+Ext\+Int\+Device\+\_\+t}} $\ast$p\+Ext\+Int\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to detach an external interrupt callback for the device. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{extInt_8h_a380e06a2287602adac9e3785d5e42d6b}{epcf\+\_\+ext\+Int\+\_\+close}} (\mbox{\hyperlink{extInt_8h_adb145a26c2b73043d9daf41c76ffb1a0}{E\+P\+C\+F\+Ext\+Int\+Device\+\_\+t}} $\ast$p\+Ext\+Int\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to close the external interrupt device. It will free the memory allocated by the external interrupt device. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{extInt_8h_a13174d5a34271f76f5d4f6395d0529e9}{epcf\+\_\+ext\+Int\+\_\+get\+Device\+Count}} ()
+\begin{DoxyCompactList}\small\item\em This function is used to get total number of available external interrupt devices. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{extInt_8h_a5d252e7b5ffe3f41bb546031ef98bbe4}\label{extInt_8h_a5d252e7b5ffe3f41bb546031ef98bbe4}} 
+int8\+\_\+t epcf\+Callback\+\_\+fp {\bfseries p\+Callback}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file is used to configure an External Interrupt device. 
+
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{extInt_8h_ad333fc40b8eb8a629c8ac27ad03b3245}\label{extInt_8h_ad333fc40b8eb8a629c8ac27ad03b3245}} 
+\index{ext\+Int.\+h@{ext\+Int.\+h}!En\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+t@{En\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+t}}
+\index{En\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+t@{En\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+t}!ext\+Int.\+h@{ext\+Int.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+t}{EnEPCFExtIntMode\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{extInt_8h_ad333fc40b8eb8a629c8ac27ad03b3245}{En\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+t}}}
+
+
+
+Enumeration for external interrupt mode. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+Falling\+Edge@{en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+Falling\+Edge}!ext\+Int.\+h@{ext\+Int.\+h}}\index{ext\+Int.\+h@{ext\+Int.\+h}!en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+Falling\+Edge@{en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+Falling\+Edge}}}\mbox{\Hypertarget{extInt_8h_ad333fc40b8eb8a629c8ac27ad03b3245aff0c95d7834a9656911391fe3d290290}\label{extInt_8h_ad333fc40b8eb8a629c8ac27ad03b3245aff0c95d7834a9656911391fe3d290290}} 
+en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+Falling\+Edge&Falling edge triggered interrupt \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+Rising\+Edge@{en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+Rising\+Edge}!ext\+Int.\+h@{ext\+Int.\+h}}\index{ext\+Int.\+h@{ext\+Int.\+h}!en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+Rising\+Edge@{en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+Rising\+Edge}}}\mbox{\Hypertarget{extInt_8h_ad333fc40b8eb8a629c8ac27ad03b3245a47b340048db41f0f590e5f0fdd2cc692}\label{extInt_8h_ad333fc40b8eb8a629c8ac27ad03b3245a47b340048db41f0f590e5f0fdd2cc692}} 
+en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+Rising\+Edge&Rising edge triggered interrupt \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+Both\+Edge@{en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+Both\+Edge}!ext\+Int.\+h@{ext\+Int.\+h}}\index{ext\+Int.\+h@{ext\+Int.\+h}!en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+Both\+Edge@{en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+Both\+Edge}}}\mbox{\Hypertarget{extInt_8h_ad333fc40b8eb8a629c8ac27ad03b3245a72402974dbf176095bae4285e4ab5805}\label{extInt_8h_ad333fc40b8eb8a629c8ac27ad03b3245a72402974dbf176095bae4285e4ab5805}} 
+en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+Both\+Edge&Interrupt on both edge \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+Low\+Level@{en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+Low\+Level}!ext\+Int.\+h@{ext\+Int.\+h}}\index{ext\+Int.\+h@{ext\+Int.\+h}!en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+Low\+Level@{en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+Low\+Level}}}\mbox{\Hypertarget{extInt_8h_ad333fc40b8eb8a629c8ac27ad03b3245a37b6da0b1c9e4837a01c3b45c390c02c}\label{extInt_8h_ad333fc40b8eb8a629c8ac27ad03b3245a37b6da0b1c9e4837a01c3b45c390c02c}} 
+en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+Low\+Level&Low level triggered interrupt \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+High\+Level@{en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+High\+Level}!ext\+Int.\+h@{ext\+Int.\+h}}\index{ext\+Int.\+h@{ext\+Int.\+h}!en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+High\+Level@{en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+High\+Level}}}\mbox{\Hypertarget{extInt_8h_ad333fc40b8eb8a629c8ac27ad03b3245a870c9e31a8d5d3c18d8dbc471bd1d167}\label{extInt_8h_ad333fc40b8eb8a629c8ac27ad03b3245a870c9e31a8d5d3c18d8dbc471bd1d167}} 
+en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+High\+Level&High level triggered interrupt \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+Max@{en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+Max}!ext\+Int.\+h@{ext\+Int.\+h}}\index{ext\+Int.\+h@{ext\+Int.\+h}!en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+Max@{en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+Max}}}\mbox{\Hypertarget{extInt_8h_ad333fc40b8eb8a629c8ac27ad03b3245a79c79d94752ba6df23e1ad2765296a96}\label{extInt_8h_ad333fc40b8eb8a629c8ac27ad03b3245a79c79d94752ba6df23e1ad2765296a96}} 
+en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+Max&Special value for boundary checking \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{extInt_8h_a380e06a2287602adac9e3785d5e42d6b}\label{extInt_8h_a380e06a2287602adac9e3785d5e42d6b}} 
+\index{ext\+Int.\+h@{ext\+Int.\+h}!epcf\+\_\+ext\+Int\+\_\+close@{epcf\+\_\+ext\+Int\+\_\+close}}
+\index{epcf\+\_\+ext\+Int\+\_\+close@{epcf\+\_\+ext\+Int\+\_\+close}!ext\+Int.\+h@{ext\+Int.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+ext\+Int\+\_\+close()}{epcf\_extInt\_close()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+ext\+Int\+\_\+close (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{extInt_8h_adb145a26c2b73043d9daf41c76ffb1a0}{E\+P\+C\+F\+Ext\+Int\+Device\+\_\+t}} $\ast$}]{p\+Ext\+Int\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to close the external interrupt device. It will free the memory allocated by the external interrupt device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Ext\+Int\+Device} & Pointer to the external interrupt device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{extInt_8h_a9a06a459af334c41ec420ba83a200658}\label{extInt_8h_a9a06a459af334c41ec420ba83a200658}} 
+\index{ext\+Int.\+h@{ext\+Int.\+h}!epcf\+\_\+ext\+Int\+\_\+create\+Native@{epcf\+\_\+ext\+Int\+\_\+create\+Native}}
+\index{epcf\+\_\+ext\+Int\+\_\+create\+Native@{epcf\+\_\+ext\+Int\+\_\+create\+Native}!ext\+Int.\+h@{ext\+Int.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+ext\+Int\+\_\+create\+Native()}{epcf\_extInt\_createNative()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{extInt_8h_adb145a26c2b73043d9daf41c76ffb1a0}{E\+P\+C\+F\+Ext\+Int\+Device\+\_\+t}}$\ast$ epcf\+\_\+ext\+Int\+\_\+create\+Native (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFExtIntCfg__t}{E\+P\+C\+F\+Ext\+Int\+Cfg\+\_\+t}} $\ast$}]{p\+Ext\+Int\+Config }\end{DoxyParamCaption})}
+
+
+
+This function is used to create an external interrupt device. Call this function in beginning to initialize the external interrupt. This function allocates memory for the device using malloc() function call and returns a pointer to the device. Pass this device pointer while calling external interrupt functions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Ext\+Int\+Config} & Pointer to the external interrupt configuration structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+On success, it return the pointer to external interrupt device. On error, it returns N\+U\+LL. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{extInt_8h_abda85e6919c631d45b39f22184bcd528}\label{extInt_8h_abda85e6919c631d45b39f22184bcd528}} 
+\index{ext\+Int.\+h@{ext\+Int.\+h}!epcf\+\_\+ext\+Int\+\_\+detach\+Callback@{epcf\+\_\+ext\+Int\+\_\+detach\+Callback}}
+\index{epcf\+\_\+ext\+Int\+\_\+detach\+Callback@{epcf\+\_\+ext\+Int\+\_\+detach\+Callback}!ext\+Int.\+h@{ext\+Int.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+ext\+Int\+\_\+detach\+Callback()}{epcf\_extInt\_detachCallback()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+ext\+Int\+\_\+detach\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{extInt_8h_adb145a26c2b73043d9daf41c76ffb1a0}{E\+P\+C\+F\+Ext\+Int\+Device\+\_\+t}} $\ast$}]{p\+Ext\+Int\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to detach an external interrupt callback for the device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Ext\+Int\+Device} & Pointer to the external interrupt device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Call this function before enabling the external interrupt device. To detach a callback if external interrupt has already enabled\+:
+\begin{DoxyEnumerate}
+\item Disable external interrupt device.
+\item Detach the callback.
+\item Enable external interrupt device again. 
+\end{DoxyEnumerate}
+\end{DoxyNote}
+\mbox{\Hypertarget{extInt_8h_a8659c22341158f5372999254d2017e03}\label{extInt_8h_a8659c22341158f5372999254d2017e03}} 
+\index{ext\+Int.\+h@{ext\+Int.\+h}!epcf\+\_\+ext\+Int\+\_\+disable@{epcf\+\_\+ext\+Int\+\_\+disable}}
+\index{epcf\+\_\+ext\+Int\+\_\+disable@{epcf\+\_\+ext\+Int\+\_\+disable}!ext\+Int.\+h@{ext\+Int.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+ext\+Int\+\_\+disable()}{epcf\_extInt\_disable()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+ext\+Int\+\_\+disable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{extInt_8h_adb145a26c2b73043d9daf41c76ffb1a0}{E\+P\+C\+F\+Ext\+Int\+Device\+\_\+t}} $\ast$}]{p\+Ext\+Int\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to disable the external interrupt device. User callback will not get called after the device has been disabled. The device can be enabled again by a call to the function \mbox{\hyperlink{extInt_8h_af148b7aaf13c4f428978d54b550efd90}{epcf\+\_\+ext\+Int\+\_\+enable()}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Ext\+Int\+Device} & Pointer to the external interrupt device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. This function is used to attach an external interrupt callback according to the interrupt mode selected while configuring the device.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Ext\+Int\+Device} & Pointer to the external interrupt device. \\
+\hline
+{\em callback} & User callback to be called\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return callback\+Id.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Call this function before enabling the external interrupt device. To attach a callback if external interrupt has already enabled\+:
+\begin{DoxyEnumerate}
+\item Disable external interrupt device.
+\item Attach a callback.
+\item Enable external interrupt device again. 
+\end{DoxyEnumerate}
+\end{DoxyNote}
+\mbox{\Hypertarget{extInt_8h_af148b7aaf13c4f428978d54b550efd90}\label{extInt_8h_af148b7aaf13c4f428978d54b550efd90}} 
+\index{ext\+Int.\+h@{ext\+Int.\+h}!epcf\+\_\+ext\+Int\+\_\+enable@{epcf\+\_\+ext\+Int\+\_\+enable}}
+\index{epcf\+\_\+ext\+Int\+\_\+enable@{epcf\+\_\+ext\+Int\+\_\+enable}!ext\+Int.\+h@{ext\+Int.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+ext\+Int\+\_\+enable()}{epcf\_extInt\_enable()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+ext\+Int\+\_\+enable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{extInt_8h_adb145a26c2b73043d9daf41c76ffb1a0}{E\+P\+C\+F\+Ext\+Int\+Device\+\_\+t}} $\ast$}]{p\+Ext\+Int\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to enable the external interrupt device. User callback, if attached will be called when the status of pin changes according to mode of the device. It can be disabled by a call to the function \mbox{\hyperlink{extInt_8h_a8659c22341158f5372999254d2017e03}{epcf\+\_\+ext\+Int\+\_\+disable()}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Ext\+Int\+Device} & Pointer to the external interrupt device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{extInt_8h_a13174d5a34271f76f5d4f6395d0529e9}\label{extInt_8h_a13174d5a34271f76f5d4f6395d0529e9}} 
+\index{ext\+Int.\+h@{ext\+Int.\+h}!epcf\+\_\+ext\+Int\+\_\+get\+Device\+Count@{epcf\+\_\+ext\+Int\+\_\+get\+Device\+Count}}
+\index{epcf\+\_\+ext\+Int\+\_\+get\+Device\+Count@{epcf\+\_\+ext\+Int\+\_\+get\+Device\+Count}!ext\+Int.\+h@{ext\+Int.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+ext\+Int\+\_\+get\+Device\+Count()}{epcf\_extInt\_getDeviceCount()}}
+{\footnotesize\ttfamily uint8\+\_\+t epcf\+\_\+ext\+Int\+\_\+get\+Device\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function is used to get total number of available external interrupt devices. 
+
+\begin{DoxyReturn}{Returns}
+Returns the number of available external interrupt devices. 
+\end{DoxyReturn}

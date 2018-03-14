@@ -1,0 +1,48 @@
+\hypertarget{structEPCFExtIntCfg__t}{}\section{E\+P\+C\+F\+Ext\+Int\+Cfg\+\_\+t Struct Reference}
+\label{structEPCFExtIntCfg__t}\index{E\+P\+C\+F\+Ext\+Int\+Cfg\+\_\+t@{E\+P\+C\+F\+Ext\+Int\+Cfg\+\_\+t}}
+
+
+External interrupt configuration structure.  
+
+
+
+
+{\ttfamily \#include $<$ext\+Int.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structEPCFExtIntCfg__t_a41dfc60867e5caf6f0dd6c88811628eb}\label{structEPCFExtIntCfg__t_a41dfc60867e5caf6f0dd6c88811628eb}} 
+uint8\+\_\+t {\bfseries ext\+Int\+Id}
+\item 
+\mbox{\hyperlink{extInt_8h_ad333fc40b8eb8a629c8ac27ad03b3245}{En\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+t}} \mbox{\hyperlink{structEPCFExtIntCfg__t_a0c4178dcdefa4b7386746928b63a586c}{mode}}
+\item 
+void $\ast$ \mbox{\hyperlink{structEPCFExtIntCfg__t_acbc9a6b2e0864c0a428b33f70ce61d9e}{hardware\+Cfg}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+External interrupt configuration structure. 
+
+Example to configure external Interrupt device\+:
+
+\mbox{\hyperlink{structEPCFExtIntCfg__t}{E\+P\+C\+F\+Ext\+Int\+Cfg\+\_\+t}} ext\+Int\+Config = \{ 0, // ext\+Int id 0 en\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+\+Rising\+Edge, // trigger interrupt on every rising edge N\+U\+LL // No hardware specific config \}; 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structEPCFExtIntCfg__t_acbc9a6b2e0864c0a428b33f70ce61d9e}\label{structEPCFExtIntCfg__t_acbc9a6b2e0864c0a428b33f70ce61d9e}} 
+\index{E\+P\+C\+F\+Ext\+Int\+Cfg\+\_\+t@{E\+P\+C\+F\+Ext\+Int\+Cfg\+\_\+t}!hardware\+Cfg@{hardware\+Cfg}}
+\index{hardware\+Cfg@{hardware\+Cfg}!E\+P\+C\+F\+Ext\+Int\+Cfg\+\_\+t@{E\+P\+C\+F\+Ext\+Int\+Cfg\+\_\+t}}
+\subsubsection{\texorpdfstring{hardware\+Cfg}{hardwareCfg}}
+{\footnotesize\ttfamily void$\ast$ E\+P\+C\+F\+Ext\+Int\+Cfg\+\_\+t\+::hardware\+Cfg}
+
+External interrupt mode \mbox{\Hypertarget{structEPCFExtIntCfg__t_a0c4178dcdefa4b7386746928b63a586c}\label{structEPCFExtIntCfg__t_a0c4178dcdefa4b7386746928b63a586c}} 
+\index{E\+P\+C\+F\+Ext\+Int\+Cfg\+\_\+t@{E\+P\+C\+F\+Ext\+Int\+Cfg\+\_\+t}!mode@{mode}}
+\index{mode@{mode}!E\+P\+C\+F\+Ext\+Int\+Cfg\+\_\+t@{E\+P\+C\+F\+Ext\+Int\+Cfg\+\_\+t}}
+\subsubsection{\texorpdfstring{mode}{mode}}
+{\footnotesize\ttfamily \mbox{\hyperlink{extInt_8h_ad333fc40b8eb8a629c8ac27ad03b3245}{En\+E\+P\+C\+F\+Ext\+Int\+Mode\+\_\+t}} E\+P\+C\+F\+Ext\+Int\+Cfg\+\_\+t\+::mode}
+
+External interrupt Id. Refer to platform specific header file for appropriate interrupt id 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+epcf\+\_\+project/epcf/peripheral/include/ext\+Int/\mbox{\hyperlink{extInt_8h}{ext\+Int.\+h}}\end{DoxyCompactItemize}

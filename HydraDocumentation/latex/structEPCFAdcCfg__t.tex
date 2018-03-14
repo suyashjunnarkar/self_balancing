@@ -1,0 +1,69 @@
+\hypertarget{structEPCFAdcCfg__t}{}\section{E\+P\+C\+F\+Adc\+Cfg\+\_\+t Struct Reference}
+\label{structEPCFAdcCfg__t}\index{E\+P\+C\+F\+Adc\+Cfg\+\_\+t@{E\+P\+C\+F\+Adc\+Cfg\+\_\+t}}
+
+
+Adc configuration structure.  
+
+
+
+
+{\ttfamily \#include $<$adc.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structEPCFAdcCfg__t_ab6d63cd9ea88de1b04aacaf21ff2141c}{adc\+Id}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structEPCFAdcCfg__t_aa1e97380601c94cb2f1a7cc0bc3dbfe2}{ref\+Vtg}}
+\item 
+\mbox{\hyperlink{adc_8h_a95ed8e489525daf80ac43f789951d323}{En\+E\+P\+C\+F\+Adc\+Width\+\_\+t}} \mbox{\hyperlink{structEPCFAdcCfg__t_a6a46a2be012c39266a8084121babc9db}{adc\+Width}}
+\item 
+En\+E\+P\+C\+F\+Boolean\+\_\+t \mbox{\hyperlink{structEPCFAdcCfg__t_a2703092e7b7fb0b69c00cc9baa50c254}{interrupt\+Enable}}
+\item 
+void $\ast$ \mbox{\hyperlink{structEPCFAdcCfg__t_a67140923ad20ae39df63cf6cb0560f73}{hardware\+Cfg}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Adc configuration structure. 
+
+Example to configure adc device\+:
+
+\mbox{\hyperlink{structEPCFAdcCfg__t}{E\+P\+C\+F\+Adc\+Cfg\+\_\+t}} adc\+Config = \{ 0, // adc id 0 5000, // reference voltage = 5 volts en\+E\+P\+C\+F\+Adc\+Width\+\_\+10, // 10-\/bit adc width en\+E\+P\+C\+F\+Adc\+Channel\+\_\+0 $\vert$ en\+E\+P\+C\+F\+Adc\+Channel\+\_\+3, // channel0 and channel3 enabled en\+E\+P\+C\+F\+Boolean\+True, // enable interrupt N\+U\+LL // No hardware specific config \}; 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structEPCFAdcCfg__t_ab6d63cd9ea88de1b04aacaf21ff2141c}\label{structEPCFAdcCfg__t_ab6d63cd9ea88de1b04aacaf21ff2141c}} 
+\index{E\+P\+C\+F\+Adc\+Cfg\+\_\+t@{E\+P\+C\+F\+Adc\+Cfg\+\_\+t}!adc\+Id@{adc\+Id}}
+\index{adc\+Id@{adc\+Id}!E\+P\+C\+F\+Adc\+Cfg\+\_\+t@{E\+P\+C\+F\+Adc\+Cfg\+\_\+t}}
+\subsubsection{\texorpdfstring{adc\+Id}{adcId}}
+{\footnotesize\ttfamily uint8\+\_\+t E\+P\+C\+F\+Adc\+Cfg\+\_\+t\+::adc\+Id}
+
+Adc Id. Refer to platform specific header file for appropriate adc id \mbox{\Hypertarget{structEPCFAdcCfg__t_a6a46a2be012c39266a8084121babc9db}\label{structEPCFAdcCfg__t_a6a46a2be012c39266a8084121babc9db}} 
+\index{E\+P\+C\+F\+Adc\+Cfg\+\_\+t@{E\+P\+C\+F\+Adc\+Cfg\+\_\+t}!adc\+Width@{adc\+Width}}
+\index{adc\+Width@{adc\+Width}!E\+P\+C\+F\+Adc\+Cfg\+\_\+t@{E\+P\+C\+F\+Adc\+Cfg\+\_\+t}}
+\subsubsection{\texorpdfstring{adc\+Width}{adcWidth}}
+{\footnotesize\ttfamily \mbox{\hyperlink{adc_8h_a95ed8e489525daf80ac43f789951d323}{En\+E\+P\+C\+F\+Adc\+Width\+\_\+t}} E\+P\+C\+F\+Adc\+Cfg\+\_\+t\+::adc\+Width}
+
+output data width of adc device supported by controller. It specifies the number of bits of accuracy of the result. Resolution of an adc is determined by the reference voltage and adc width. The resolution defines the smallest voltage change that can be measured by the adc. For example\+: Consider an 8-\/bit adc with reference voltage = 5 volts. Now, adc resolution is equal to 5/256 = 19.\+5 milli\+Volts. Resolution can be improved by reducing reference voltage or by increasing adc\+Width. However, by reducing the reference voltage, maximum voltage that can be measured by adc is also reduced. \mbox{\Hypertarget{structEPCFAdcCfg__t_a67140923ad20ae39df63cf6cb0560f73}\label{structEPCFAdcCfg__t_a67140923ad20ae39df63cf6cb0560f73}} 
+\index{E\+P\+C\+F\+Adc\+Cfg\+\_\+t@{E\+P\+C\+F\+Adc\+Cfg\+\_\+t}!hardware\+Cfg@{hardware\+Cfg}}
+\index{hardware\+Cfg@{hardware\+Cfg}!E\+P\+C\+F\+Adc\+Cfg\+\_\+t@{E\+P\+C\+F\+Adc\+Cfg\+\_\+t}}
+\subsubsection{\texorpdfstring{hardware\+Cfg}{hardwareCfg}}
+{\footnotesize\ttfamily void$\ast$ E\+P\+C\+F\+Adc\+Cfg\+\_\+t\+::hardware\+Cfg}
+
+Hardware platform specific configuration. Define an enum for the various trigger sources depending upon the specific hardware device to trigger data conversion. Define an enum for polarity of the trigger edge to trigger data conversion. \mbox{\Hypertarget{structEPCFAdcCfg__t_a2703092e7b7fb0b69c00cc9baa50c254}\label{structEPCFAdcCfg__t_a2703092e7b7fb0b69c00cc9baa50c254}} 
+\index{E\+P\+C\+F\+Adc\+Cfg\+\_\+t@{E\+P\+C\+F\+Adc\+Cfg\+\_\+t}!interrupt\+Enable@{interrupt\+Enable}}
+\index{interrupt\+Enable@{interrupt\+Enable}!E\+P\+C\+F\+Adc\+Cfg\+\_\+t@{E\+P\+C\+F\+Adc\+Cfg\+\_\+t}}
+\subsubsection{\texorpdfstring{interrupt\+Enable}{interruptEnable}}
+{\footnotesize\ttfamily En\+E\+P\+C\+F\+Boolean\+\_\+t E\+P\+C\+F\+Adc\+Cfg\+\_\+t\+::interrupt\+Enable}
+
+Specifies to enable adc interrupt or not en\+E\+P\+C\+F\+Boolean\+True = To enable adc interrupt en\+E\+P\+C\+F\+Boolean\+False = To disable adc interrupt \mbox{\Hypertarget{structEPCFAdcCfg__t_aa1e97380601c94cb2f1a7cc0bc3dbfe2}\label{structEPCFAdcCfg__t_aa1e97380601c94cb2f1a7cc0bc3dbfe2}} 
+\index{E\+P\+C\+F\+Adc\+Cfg\+\_\+t@{E\+P\+C\+F\+Adc\+Cfg\+\_\+t}!ref\+Vtg@{ref\+Vtg}}
+\index{ref\+Vtg@{ref\+Vtg}!E\+P\+C\+F\+Adc\+Cfg\+\_\+t@{E\+P\+C\+F\+Adc\+Cfg\+\_\+t}}
+\subsubsection{\texorpdfstring{ref\+Vtg}{refVtg}}
+{\footnotesize\ttfamily uint32\+\_\+t E\+P\+C\+F\+Adc\+Cfg\+\_\+t\+::ref\+Vtg}
+
+Adc reference voltage in millivolts 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+epcf\+\_\+project/epcf/peripheral/include/adc/\mbox{\hyperlink{adc_8h}{adc.\+h}}\end{DoxyCompactItemize}

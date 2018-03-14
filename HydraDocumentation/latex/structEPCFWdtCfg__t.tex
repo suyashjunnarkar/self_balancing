@@ -1,0 +1,54 @@
+\hypertarget{structEPCFWdtCfg__t}{}\section{E\+P\+C\+F\+Wdt\+Cfg\+\_\+t Struct Reference}
+\label{structEPCFWdtCfg__t}\index{E\+P\+C\+F\+Wdt\+Cfg\+\_\+t@{E\+P\+C\+F\+Wdt\+Cfg\+\_\+t}}
+
+
+{\ttfamily \#include $<$wdt.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structEPCFWdtCfg__t_afb08d8e549acea72e3b2091c14ce1c0f}{wdt\+Id}}
+\item 
+\mbox{\hyperlink{wdt_8h_a8b33815c75d82ba29955d84f9aead2ab}{En\+E\+P\+C\+F\+Wdt\+Width\+\_\+t}} \mbox{\hyperlink{structEPCFWdtCfg__t_a0348efcb6bf2915041241dd217b2a307}{wdt\+Width}}
+\item 
+E\+P\+C\+F\+Time\+\_\+t \mbox{\hyperlink{structEPCFWdtCfg__t_a0e7100e352a728e5e840767cb9d92a24}{resolution}}
+\item 
+void $\ast$ \mbox{\hyperlink{structEPCFWdtCfg__t_a84516ee152df4a371dd6ebfea7418004}{hardware\+Cfg}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Wdt configuration structure Example to configure watchdog timer\+:
+
+\mbox{\hyperlink{structEPCFWdtCfg__t}{E\+P\+C\+F\+Wdt\+Cfg\+\_\+t}} wdt\+Config = \{ 0, // wdt id 0 en\+E\+P\+C\+F\+Wdt\+Width\+\_\+8, // 8-\/bit wdt width \{250,en\+E\+P\+C\+F\+Time\+Unit\+\_\+ns\}, // resolution set to 0.\+25 microseconds N\+U\+LL // No hardware specific config \}; 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structEPCFWdtCfg__t_a84516ee152df4a371dd6ebfea7418004}\label{structEPCFWdtCfg__t_a84516ee152df4a371dd6ebfea7418004}} 
+\index{E\+P\+C\+F\+Wdt\+Cfg\+\_\+t@{E\+P\+C\+F\+Wdt\+Cfg\+\_\+t}!hardware\+Cfg@{hardware\+Cfg}}
+\index{hardware\+Cfg@{hardware\+Cfg}!E\+P\+C\+F\+Wdt\+Cfg\+\_\+t@{E\+P\+C\+F\+Wdt\+Cfg\+\_\+t}}
+\subsubsection{\texorpdfstring{hardware\+Cfg}{hardwareCfg}}
+{\footnotesize\ttfamily void$\ast$ E\+P\+C\+F\+Wdt\+Cfg\+\_\+t\+::hardware\+Cfg}
+
+Hardware platform specific configuration \mbox{\Hypertarget{structEPCFWdtCfg__t_a0e7100e352a728e5e840767cb9d92a24}\label{structEPCFWdtCfg__t_a0e7100e352a728e5e840767cb9d92a24}} 
+\index{E\+P\+C\+F\+Wdt\+Cfg\+\_\+t@{E\+P\+C\+F\+Wdt\+Cfg\+\_\+t}!resolution@{resolution}}
+\index{resolution@{resolution}!E\+P\+C\+F\+Wdt\+Cfg\+\_\+t@{E\+P\+C\+F\+Wdt\+Cfg\+\_\+t}}
+\subsubsection{\texorpdfstring{resolution}{resolution}}
+{\footnotesize\ttfamily E\+P\+C\+F\+Time\+\_\+t E\+P\+C\+F\+Wdt\+Cfg\+\_\+t\+::resolution}
+
+Specifies the resolution for the watchdog timer. Resolution refers to the minimum time which is elapsed after every clock cycle. You can define maximum period of timer by setting appropriate resolution value. Wdt period = resolution x (2$^\wedge$timer\+Width). For example\+: Consider an 8-\/bit timer with resolution = 0.\+25 microseconds. Then,the maximum period of the timer is equal to 0.\+25 x 256 = 64 microseconds. To set 0.\+25 microseconds as the resolution, set time unit to en\+E\+P\+C\+F\+Time\+Unit\+\_\+ns and set 250 as the count. Refer to platform specific header file for supported values of resolution. Refer to \char`\"{}../../common/types.\+h\char`\"{} header file for the definition of \mbox{\hyperlink{}{E\+P\+C\+F\+Time\+\_\+t}} structure. \mbox{\Hypertarget{structEPCFWdtCfg__t_afb08d8e549acea72e3b2091c14ce1c0f}\label{structEPCFWdtCfg__t_afb08d8e549acea72e3b2091c14ce1c0f}} 
+\index{E\+P\+C\+F\+Wdt\+Cfg\+\_\+t@{E\+P\+C\+F\+Wdt\+Cfg\+\_\+t}!wdt\+Id@{wdt\+Id}}
+\index{wdt\+Id@{wdt\+Id}!E\+P\+C\+F\+Wdt\+Cfg\+\_\+t@{E\+P\+C\+F\+Wdt\+Cfg\+\_\+t}}
+\subsubsection{\texorpdfstring{wdt\+Id}{wdtId}}
+{\footnotesize\ttfamily uint8\+\_\+t E\+P\+C\+F\+Wdt\+Cfg\+\_\+t\+::wdt\+Id}
+
+Wdt Id. Refer to platform specific header file for appropriate wdt id \mbox{\Hypertarget{structEPCFWdtCfg__t_a0348efcb6bf2915041241dd217b2a307}\label{structEPCFWdtCfg__t_a0348efcb6bf2915041241dd217b2a307}} 
+\index{E\+P\+C\+F\+Wdt\+Cfg\+\_\+t@{E\+P\+C\+F\+Wdt\+Cfg\+\_\+t}!wdt\+Width@{wdt\+Width}}
+\index{wdt\+Width@{wdt\+Width}!E\+P\+C\+F\+Wdt\+Cfg\+\_\+t@{E\+P\+C\+F\+Wdt\+Cfg\+\_\+t}}
+\subsubsection{\texorpdfstring{wdt\+Width}{wdtWidth}}
+{\footnotesize\ttfamily \mbox{\hyperlink{wdt_8h_a8b33815c75d82ba29955d84f9aead2ab}{En\+E\+P\+C\+F\+Wdt\+Width\+\_\+t}} E\+P\+C\+F\+Wdt\+Cfg\+\_\+t\+::wdt\+Width}
+
+Specifies the width of the wdt device 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+epcf\+\_\+project/epcf/peripheral/include/wdt/\mbox{\hyperlink{wdt_8h}{wdt.\+h}}\end{DoxyCompactItemize}

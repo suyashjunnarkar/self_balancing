@@ -1,0 +1,79 @@
+\hypertarget{spi__hidden_8h}{}\section{epcf\+\_\+project/epcf/peripheral/source/spi/spi\+\_\+hidden.h File Reference}
+\label{spi__hidden_8h}\index{epcf\+\_\+project/epcf/peripheral/source/spi/spi\+\_\+hidden.\+h@{epcf\+\_\+project/epcf/peripheral/source/spi/spi\+\_\+hidden.\+h}}
+
+
+hidden header file for S\+PI Driver Description for L\+P\+C1768. This file is for internal use and will not be shared with the user. It contains Spi\+Device and Spi\+Controller structure definition.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structEPCFSpiDevice}{E\+P\+C\+F\+Spi\+Device}}
+\item 
+struct \mbox{\hyperlink{structEPCFSpiController}{E\+P\+C\+F\+Spi\+Controller}}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{spi__hidden_8h_a32d819cd1c46dcfb30089e33fdca1311}\label{spi__hidden_8h_a32d819cd1c46dcfb30089e33fdca1311}} 
+typedef struct \mbox{\hyperlink{structEPCFSpiController}{E\+P\+C\+F\+Spi\+Controller}} {\bfseries E\+P\+C\+F\+Spi\+Controller\+\_\+t}
+\item 
+\mbox{\Hypertarget{spi__hidden_8h_a7bb251eca0c0226bb3fd854366b9e9ef}\label{spi__hidden_8h_a7bb251eca0c0226bb3fd854366b9e9ef}} 
+typedef struct \mbox{\hyperlink{structEPCFSpiDevice}{E\+P\+C\+F\+Spi\+Device}} {\bfseries E\+P\+C\+F\+Spi\+Device\+\_\+t}
+\item 
+\mbox{\Hypertarget{spi__hidden_8h_a820c5d804a39423efdecbf618029f53f}\label{spi__hidden_8h_a820c5d804a39423efdecbf618029f53f}} 
+typedef struct E\+P\+C\+F\+Adapter {\bfseries E\+P\+C\+F\+Adapter\+\_\+t}
+\item 
+\mbox{\Hypertarget{spi__hidden_8h_a6512af2cf869244a772cc90abbf1e7da}\label{spi__hidden_8h_a6512af2cf869244a772cc90abbf1e7da}} 
+typedef int8\+\_\+t($\ast$ {\bfseries epcf\+Spi\+Init\+\_\+fp}) (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$, \mbox{\hyperlink{structEPCFSpiCfg__t}{E\+P\+C\+F\+Spi\+Cfg\+\_\+t}} $\ast$)
+\item 
+\mbox{\Hypertarget{spi__hidden_8h_ad23a09bd9ee5e87ae79f44b8da0ad351}\label{spi__hidden_8h_ad23a09bd9ee5e87ae79f44b8da0ad351}} 
+typedef int8\+\_\+t($\ast$ {\bfseries epcf\+Spi\+Register\+Slave\+Device\+\_\+fp}) (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$, E\+P\+C\+F\+Port\+Pin\+\_\+t)
+\item 
+\mbox{\Hypertarget{spi__hidden_8h_afa72cdcb9e712bb0821a85a46eda0c65}\label{spi__hidden_8h_afa72cdcb9e712bb0821a85a46eda0c65}} 
+typedef int8\+\_\+t($\ast$ {\bfseries epcf\+Spi\+De\+Register\+Slave\+Device\+\_\+fp}) (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$, uint8\+\_\+t)
+\item 
+\mbox{\Hypertarget{spi__hidden_8h_a98adb10d41a5937c1e098a6d83da9ed5}\label{spi__hidden_8h_a98adb10d41a5937c1e098a6d83da9ed5}} 
+typedef int8\+\_\+t($\ast$ {\bfseries epcf\+Spi\+Slave\+Select\+\_\+fp}) (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$, uint8\+\_\+t)
+\item 
+\mbox{\Hypertarget{spi__hidden_8h_af8eb237645ccf155252a147fddf3c97f}\label{spi__hidden_8h_af8eb237645ccf155252a147fddf3c97f}} 
+typedef int8\+\_\+t($\ast$ {\bfseries epcf\+Spi\+Slave\+De\+Select\+\_\+fp}) (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$, uint8\+\_\+t)
+\item 
+\mbox{\Hypertarget{spi__hidden_8h_a0303a1b7b3a7ddc59e887e52c0200799}\label{spi__hidden_8h_a0303a1b7b3a7ddc59e887e52c0200799}} 
+typedef int8\+\_\+t($\ast$ {\bfseries epcf\+Spi\+Exchange\+\_\+fp}) (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$, uint16\+\_\+t, uint16\+\_\+t $\ast$, E\+P\+C\+F\+Time\+\_\+t)
+\item 
+\mbox{\Hypertarget{spi__hidden_8h_a23c8056f002be3afc081026c968771ae}\label{spi__hidden_8h_a23c8056f002be3afc081026c968771ae}} 
+typedef int32\+\_\+t($\ast$ {\bfseries epcf\+Spi\+Write\+\_\+fp}) (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$, const uint8\+\_\+t $\ast$, uint32\+\_\+t, E\+P\+C\+F\+Time\+\_\+t)
+\item 
+\mbox{\Hypertarget{spi__hidden_8h_a4488f4aa5e47f8f6cab7b7522d146a1e}\label{spi__hidden_8h_a4488f4aa5e47f8f6cab7b7522d146a1e}} 
+typedef int32\+\_\+t($\ast$ {\bfseries epcf\+Spi\+Read\+\_\+fp}) (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$, uint8\+\_\+t $\ast$, uint32\+\_\+t, E\+P\+C\+F\+Time\+\_\+t)
+\item 
+\mbox{\Hypertarget{spi__hidden_8h_a0f614579fd766855d00a13de697b4af2}\label{spi__hidden_8h_a0f614579fd766855d00a13de697b4af2}} 
+typedef int32\+\_\+t($\ast$ {\bfseries epcf\+Spi\+Get\+Rx\+Buffer\+Count\+\_\+fp}) (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$)
+\item 
+\mbox{\Hypertarget{spi__hidden_8h_a4ef250fd70bef8ca8be8bcc969ba5b49}\label{spi__hidden_8h_a4ef250fd70bef8ca8be8bcc969ba5b49}} 
+typedef int8\+\_\+t($\ast$ {\bfseries epcf\+Spi\+Rx\+Buffer\+Flush\+\_\+fp}) (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$)
+\item 
+\mbox{\Hypertarget{spi__hidden_8h_a427e579840c42d924d0dde2b368dc7ce}\label{spi__hidden_8h_a427e579840c42d924d0dde2b368dc7ce}} 
+typedef int32\+\_\+t($\ast$ {\bfseries epcf\+Spi\+Get\+Tx\+Buffer\+Count\+\_\+fp}) (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$)
+\item 
+\mbox{\Hypertarget{spi__hidden_8h_a21327cac67c5a70dbd908f6e6b74ac61}\label{spi__hidden_8h_a21327cac67c5a70dbd908f6e6b74ac61}} 
+typedef int8\+\_\+t($\ast$ {\bfseries epcf\+Spi\+Tx\+Buffer\+Flush\+\_\+fp}) (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$)
+\item 
+\mbox{\Hypertarget{spi__hidden_8h_a20b6343dab794fafbdf176efa79549cc}\label{spi__hidden_8h_a20b6343dab794fafbdf176efa79549cc}} 
+typedef int8\+\_\+t($\ast$ {\bfseries epcf\+Spi\+Int\+Enable\+\_\+fp}) (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$, \mbox{\hyperlink{spi_8h_a270c561e7d4dc10fee5b99a87b3d4e5d}{En\+E\+P\+C\+F\+Spi\+Int\+Type}})
+\item 
+\mbox{\Hypertarget{spi__hidden_8h_a00946af01a1392e88cf9c33f353fa9b4}\label{spi__hidden_8h_a00946af01a1392e88cf9c33f353fa9b4}} 
+typedef int8\+\_\+t($\ast$ {\bfseries epcf\+Spi\+Int\+Disable\+\_\+fp}) (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$, \mbox{\hyperlink{spi_8h_a270c561e7d4dc10fee5b99a87b3d4e5d}{En\+E\+P\+C\+F\+Spi\+Int\+Type}})
+\item 
+\mbox{\Hypertarget{spi__hidden_8h_ac1f6fd891c7dc5ba22c2c69f3f602d15}\label{spi__hidden_8h_ac1f6fd891c7dc5ba22c2c69f3f602d15}} 
+typedef int8\+\_\+t($\ast$ {\bfseries epcf\+Spi\+Close\+\_\+fp}) (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$)
+\item 
+\mbox{\Hypertarget{spi__hidden_8h_aa56d91eccb643fbd32787705a89886de}\label{spi__hidden_8h_aa56d91eccb643fbd32787705a89886de}} 
+typedef uint8\+\_\+t($\ast$ {\bfseries epcf\+Spi\+Get\+Device\+Count\+\_\+fp}) (\mbox{\hyperlink{structEPCFSpiController}{E\+P\+C\+F\+Spi\+Controller\+\_\+t}} $\ast$p\+Spi\+Controller)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+hidden header file for S\+PI Driver Description for L\+P\+C1768. This file is for internal use and will not be shared with the user. It contains Spi\+Device and Spi\+Controller structure definition. 
+

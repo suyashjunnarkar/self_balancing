@@ -1,0 +1,75 @@
+\hypertarget{structEPCFCanCfg__t}{}\section{E\+P\+C\+F\+Can\+Cfg\+\_\+t Struct Reference}
+\label{structEPCFCanCfg__t}\index{E\+P\+C\+F\+Can\+Cfg\+\_\+t@{E\+P\+C\+F\+Can\+Cfg\+\_\+t}}
+
+
+C\+AN configuration structure.  
+
+
+
+
+{\ttfamily \#include $<$can.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structEPCFCanCfg__t_a66231ee69af11845a8bb8f37488c39c7}{can\+Id}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structEPCFCanCfg__t_a46a8db33ee1fcee6d9648a406fa6dfe2}{baudrate}}
+\item 
+\mbox{\hyperlink{can_8h_a62829201a68b21def737cc94b7e20803}{En\+E\+P\+C\+F\+Int\+Type\+\_\+t}} \mbox{\hyperlink{structEPCFCanCfg__t_a4127f7b6a5c2955945c76439a4a1cf46}{interrupt}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structEPCFCanCfg__t_a51b05993d7024d2f9509d08107f43823}{tx\+Buffer\+Size}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structEPCFCanCfg__t_aec4941edd2881599b4e1ecf5931cac29}{rx\+Buffer\+Size}}
+\item 
+void $\ast$ \mbox{\hyperlink{structEPCFCanCfg__t_af8295786602b4ea0f5872bbc21912dee}{hardware\+Cfg}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+C\+AN configuration structure. 
+
+Can configuration structure Example to configure can device \mbox{\hyperlink{structEPCFCanCfg__t}{E\+P\+C\+F\+Can\+Cfg\+\_\+t}} can\+Config = \{ 0, // can id 0 1000000, // 1 Mbit/s baudrate en\+E\+P\+C\+F\+Can\+Int\+Type\+\_\+\+RI // Receive Interrupt Enable 256, // Tx buffer size = 256 bytes 256, // Rx buffer size = 256 bytes N\+U\+LL // No hardware specific config \};Can Message structure Example to configure can message \mbox{\hyperlink{structEPCFCanCfg__t}{E\+P\+C\+F\+Can\+Cfg\+\_\+t}} can\+Config = \{ en\+E\+P\+C\+F\+Can\+Frame\+Format\+\_\+\+Extended , // Entended format identifier 0x00001234, // identifier en\+E\+P\+C\+F\+Can\+Length\+\_\+8byte, // Length of data feild=8\+Bytes send\+Data, // 8 byte data En\+E\+P\+C\+F\+Can\+Frame\+Type\+\_\+\+Data\+Frame // Frame type= Data frame for data transmission. \}; 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structEPCFCanCfg__t_a46a8db33ee1fcee6d9648a406fa6dfe2}\label{structEPCFCanCfg__t_a46a8db33ee1fcee6d9648a406fa6dfe2}} 
+\index{E\+P\+C\+F\+Can\+Cfg\+\_\+t@{E\+P\+C\+F\+Can\+Cfg\+\_\+t}!baudrate@{baudrate}}
+\index{baudrate@{baudrate}!E\+P\+C\+F\+Can\+Cfg\+\_\+t@{E\+P\+C\+F\+Can\+Cfg\+\_\+t}}
+\subsubsection{\texorpdfstring{baudrate}{baudrate}}
+{\footnotesize\ttfamily uint32\+\_\+t E\+P\+C\+F\+Can\+Cfg\+\_\+t\+::baudrate}
+
+Baudrate for C\+AN communication in bits/second.\+Baudrate can set upto 1megabits/second. Some of the Standard baud rates are 125 kbit/s, 250 kbit/s, 500 kbit/s and 1 Mbit/s. \mbox{\Hypertarget{structEPCFCanCfg__t_a66231ee69af11845a8bb8f37488c39c7}\label{structEPCFCanCfg__t_a66231ee69af11845a8bb8f37488c39c7}} 
+\index{E\+P\+C\+F\+Can\+Cfg\+\_\+t@{E\+P\+C\+F\+Can\+Cfg\+\_\+t}!can\+Id@{can\+Id}}
+\index{can\+Id@{can\+Id}!E\+P\+C\+F\+Can\+Cfg\+\_\+t@{E\+P\+C\+F\+Can\+Cfg\+\_\+t}}
+\subsubsection{\texorpdfstring{can\+Id}{canId}}
+{\footnotesize\ttfamily uint8\+\_\+t E\+P\+C\+F\+Can\+Cfg\+\_\+t\+::can\+Id}
+
+Can Id. Refer to platform specific header file for appropriate can id \mbox{\Hypertarget{structEPCFCanCfg__t_af8295786602b4ea0f5872bbc21912dee}\label{structEPCFCanCfg__t_af8295786602b4ea0f5872bbc21912dee}} 
+\index{E\+P\+C\+F\+Can\+Cfg\+\_\+t@{E\+P\+C\+F\+Can\+Cfg\+\_\+t}!hardware\+Cfg@{hardware\+Cfg}}
+\index{hardware\+Cfg@{hardware\+Cfg}!E\+P\+C\+F\+Can\+Cfg\+\_\+t@{E\+P\+C\+F\+Can\+Cfg\+\_\+t}}
+\subsubsection{\texorpdfstring{hardware\+Cfg}{hardwareCfg}}
+{\footnotesize\ttfamily void$\ast$ E\+P\+C\+F\+Can\+Cfg\+\_\+t\+::hardware\+Cfg}
+
+Hardware platform specific configuration, pass N\+U\+LL for default configuration \mbox{\Hypertarget{structEPCFCanCfg__t_a4127f7b6a5c2955945c76439a4a1cf46}\label{structEPCFCanCfg__t_a4127f7b6a5c2955945c76439a4a1cf46}} 
+\index{E\+P\+C\+F\+Can\+Cfg\+\_\+t@{E\+P\+C\+F\+Can\+Cfg\+\_\+t}!interrupt@{interrupt}}
+\index{interrupt@{interrupt}!E\+P\+C\+F\+Can\+Cfg\+\_\+t@{E\+P\+C\+F\+Can\+Cfg\+\_\+t}}
+\subsubsection{\texorpdfstring{interrupt}{interrupt}}
+{\footnotesize\ttfamily \mbox{\hyperlink{can_8h_a62829201a68b21def737cc94b7e20803}{En\+E\+P\+C\+F\+Int\+Type\+\_\+t}} E\+P\+C\+F\+Can\+Cfg\+\_\+t\+::interrupt}
+
+This enum describe Interrupt type to be used. \mbox{\Hypertarget{structEPCFCanCfg__t_aec4941edd2881599b4e1ecf5931cac29}\label{structEPCFCanCfg__t_aec4941edd2881599b4e1ecf5931cac29}} 
+\index{E\+P\+C\+F\+Can\+Cfg\+\_\+t@{E\+P\+C\+F\+Can\+Cfg\+\_\+t}!rx\+Buffer\+Size@{rx\+Buffer\+Size}}
+\index{rx\+Buffer\+Size@{rx\+Buffer\+Size}!E\+P\+C\+F\+Can\+Cfg\+\_\+t@{E\+P\+C\+F\+Can\+Cfg\+\_\+t}}
+\subsubsection{\texorpdfstring{rx\+Buffer\+Size}{rxBufferSize}}
+{\footnotesize\ttfamily uint32\+\_\+t E\+P\+C\+F\+Can\+Cfg\+\_\+t\+::rx\+Buffer\+Size}
+
+Specifies the receive buffer size in bytes when using can in interrupt mode Pass 0 when using can in polling mode \mbox{\Hypertarget{structEPCFCanCfg__t_a51b05993d7024d2f9509d08107f43823}\label{structEPCFCanCfg__t_a51b05993d7024d2f9509d08107f43823}} 
+\index{E\+P\+C\+F\+Can\+Cfg\+\_\+t@{E\+P\+C\+F\+Can\+Cfg\+\_\+t}!tx\+Buffer\+Size@{tx\+Buffer\+Size}}
+\index{tx\+Buffer\+Size@{tx\+Buffer\+Size}!E\+P\+C\+F\+Can\+Cfg\+\_\+t@{E\+P\+C\+F\+Can\+Cfg\+\_\+t}}
+\subsubsection{\texorpdfstring{tx\+Buffer\+Size}{txBufferSize}}
+{\footnotesize\ttfamily uint32\+\_\+t E\+P\+C\+F\+Can\+Cfg\+\_\+t\+::tx\+Buffer\+Size}
+
+Specifies the transmit buffer size in bytes when using can in interrupt mode Pass 0 when using can in polling mode 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+epcf\+\_\+project/epcf/peripheral/include/can/\mbox{\hyperlink{can_8h}{can.\+h}}\end{DoxyCompactItemize}

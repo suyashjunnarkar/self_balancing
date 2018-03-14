@@ -1,0 +1,264 @@
+\hypertarget{pwm_8c}{}\section{epcf\+\_\+project/epcf/peripheral/source/pwm/pwm.c File Reference}
+\label{pwm_8c}\index{epcf\+\_\+project/epcf/peripheral/source/pwm/pwm.\+c@{epcf\+\_\+project/epcf/peripheral/source/pwm/pwm.\+c}}
+
+
+This file is used to configure a P\+WM device.  
+
+
+{\ttfamily \#include \char`\"{}pcf.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{pwm_8c_a50ac6db41b73917e74e4662fa755a2aa}\label{pwm_8c_a50ac6db41b73917e74e4662fa755a2aa}} 
+\#define {\bfseries \+\_\+\+\_\+\+E\+P\+C\+F\+\_\+\+P\+R\+I\+V\+A\+T\+E\+\_\+\+P\+W\+M\+\_\+\+H\+\_\+\+I\+N\+C\+L\+U\+DE}~P\+C\+F\+\_\+\+C\+O\+N\+D\+I\+T\+I\+O\+N\+A\+L\+\_\+\+I\+N\+C\+L\+U\+D\+E\+\_\+\+F\+I\+LE(E\+P\+C\+F\+\_\+\+D\+I\+R\+\_\+\+P\+A\+TH/,peripheral/source/,pwm/,pwm\+\_\+hidden.\+h)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}} $\ast$ \mbox{\hyperlink{pwm_8c_a8ca32177a859845dcc8014c2b9b62fe9}{epcf\+\_\+pwm\+\_\+create\+Native}} (\mbox{\hyperlink{structEPCFPwmCfg__t}{E\+P\+C\+F\+Pwm\+Cfg\+\_\+t}} $\ast$p\+Pwm\+Config)
+\begin{DoxyCompactList}\small\item\em This function is used to create a pwm device. Call this function in beginning to initialize the pwm device. This function allocates memory for the device using malloc() function call and returns a pointer to the device. Pass this device pointer while calling pwm functions. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{pwm_8c_a62bf7f5b36033532d735c3975d27ffaa}{epcf\+\_\+pwm\+\_\+start}} (\mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}} $\ast$p\+Pwm\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to start the pwm device. Pwm starts generating the output signal according to channel configuration. It can be stopped by a call to the function epcf\+\_\+pwm\+\_\+stop. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{pwm_8c_ac4070d470f9666982ada471b44942b66}{epcf\+\_\+pwm\+\_\+stop}} (\mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}} $\ast$p\+Pwm\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to stop the running pwm device. The pwm signal is stopped and can be started again by a call to the function epcf\+\_\+pwm\+\_\+start. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{pwm_8c_a04ba03a0081ef4a8aa9992e2b347d33e}{epcf\+\_\+pwm\+\_\+attach\+Callback}} (\mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}} $\ast$p\+Pwm\+Device, \mbox{\hyperlink{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3}{En\+E\+P\+C\+F\+Pwm\+Channel\+\_\+t}} channel, \mbox{\hyperlink{pwm_8h_a0fd1055e3fcb0ac5ace14814052ce134}{En\+E\+P\+C\+F\+Pwm\+Interrupt\+Source\+\_\+t}} interrupt\+Source, epcf\+Callback\+\_\+fp callback)
+\begin{DoxyCompactList}\small\item\em This function is used to attach a pwm callback for the specific pwm interrupt source. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{pwm_8c_a97916c8374e807b23236bc6cfa20e307}{epcf\+\_\+pwm\+\_\+detach\+Callback}} (\mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}} $\ast$p\+Pwm\+Device, uint8\+\_\+t callback\+Id)
+\begin{DoxyCompactList}\small\item\em This function is used to detach the pwm callback for the specific pwm interrupt source. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{pwm_8c_acc5e4b7cecea11f632e219b01ddd2d73}{epcf\+\_\+pwm\+\_\+set\+Period}} (\mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}} $\ast$p\+Pwm\+Device, E\+P\+C\+F\+Time\+\_\+t period)
+\begin{DoxyCompactList}\small\item\em This function is used to change period of the pwm device. A period is the time it takes for a signal to complete an on-\/and-\/off cycle. Period value should be less than the maximum pwm period which is defined by the resolution value in pwm configuration. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{pwm_8c_a1b75a16ee8406e7292b0727aabc2bea6}{epcf\+\_\+pwm\+\_\+set\+Duty\+Cycle}} (\mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}} $\ast$p\+Pwm\+Device, \mbox{\hyperlink{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3}{En\+E\+P\+C\+F\+Pwm\+Channel\+\_\+t}} channel, uint8\+\_\+t duty\+Cycle, \mbox{\hyperlink{pwm_8h_abfc16ab9143ae2808f1309abc276f13e}{En\+E\+P\+C\+F\+Pwm\+Output\+Signal\+\_\+t}} signal)
+\begin{DoxyCompactList}\small\item\em This function is used to enable pwm output channel and pulse width. It can be used to generate a pwm signal for a specific pulse width on the respective pwm channel. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{pwm_8c_abe80c2df7ce455364397376e30f81dff}{epcf\+\_\+pwm\+\_\+close}} (\mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}} $\ast$p\+Pwm\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to close the pwm device. It will free the memory allocated by the pwm device. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{pwm_8c_a71e2db1abaa44f1a8cbacb31b08a33cd}{epcf\+\_\+pwm\+\_\+get\+Device\+Count}} ()
+\begin{DoxyCompactList}\small\item\em This function is used to get the total number of available pwm devices. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{pwm_8h_a5c5be6bc6393ff9b180b81321a3293c4}{En\+E\+P\+C\+F\+Pwm\+State\+\_\+t}} \mbox{\hyperlink{pwm_8c_a09a859ecc6302cf9eaff02e36c6a7389}{epcf\+\_\+pwm\+\_\+get\+State}} (\mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}} $\ast$p\+Pwm\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to get the current state of the pwm. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{pwm_8c_a2cb60f12ae1ec5dd707ce9c42babb727}\label{pwm_8c_a2cb60f12ae1ec5dd707ce9c42babb727}} 
+uint8\+\_\+t {\bfseries epcf\+\_\+pwm\+\_\+ext\+Get\+Device\+Count} (E\+P\+C\+F\+Pwm\+Controller\+\_\+t $\ast$p\+Pwm\+Controller)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file is used to configure a P\+WM device. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{pwm_8c_a04ba03a0081ef4a8aa9992e2b347d33e}\label{pwm_8c_a04ba03a0081ef4a8aa9992e2b347d33e}} 
+\index{pwm.\+c@{pwm.\+c}!epcf\+\_\+pwm\+\_\+attach\+Callback@{epcf\+\_\+pwm\+\_\+attach\+Callback}}
+\index{epcf\+\_\+pwm\+\_\+attach\+Callback@{epcf\+\_\+pwm\+\_\+attach\+Callback}!pwm.\+c@{pwm.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+pwm\+\_\+attach\+Callback()}{epcf\_pwm\_attachCallback()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+pwm\+\_\+attach\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}} $\ast$}]{p\+Pwm\+Device,  }\item[{\mbox{\hyperlink{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3}{En\+E\+P\+C\+F\+Pwm\+Channel\+\_\+t}}}]{channel,  }\item[{\mbox{\hyperlink{pwm_8h_a0fd1055e3fcb0ac5ace14814052ce134}{En\+E\+P\+C\+F\+Pwm\+Interrupt\+Source\+\_\+t}}}]{interrupt\+Source,  }\item[{epcf\+Callback\+\_\+fp}]{callback }\end{DoxyParamCaption})}
+
+
+
+This function is used to attach a pwm callback for the specific pwm interrupt source. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Pwm\+Device} & Pointer to the pwm device returned after successful creation of the pwm device \\
+\hline
+{\em interrupt\+Source} & Interrupt source for the callback. \\
+\hline
+{\em callback} & User callback to be called at the specified interrupt source \\
+\hline
+{\em channel} & Pwm output channel\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return callback Id.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Call this function before starting the pwm device using epcf\+\_\+pwm\+\_\+start function. To attach a callback if pwm has already started\+:
+\begin{DoxyEnumerate}
+\item Stop the pwm device.
+\item Attach a callback.
+\item Start the pwm device again. 
+\end{DoxyEnumerate}
+\end{DoxyNote}
+\mbox{\Hypertarget{pwm_8c_abe80c2df7ce455364397376e30f81dff}\label{pwm_8c_abe80c2df7ce455364397376e30f81dff}} 
+\index{pwm.\+c@{pwm.\+c}!epcf\+\_\+pwm\+\_\+close@{epcf\+\_\+pwm\+\_\+close}}
+\index{epcf\+\_\+pwm\+\_\+close@{epcf\+\_\+pwm\+\_\+close}!pwm.\+c@{pwm.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+pwm\+\_\+close()}{epcf\_pwm\_close()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+pwm\+\_\+close (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}} $\ast$}]{p\+Pwm\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to close the pwm device. It will free the memory allocated by the pwm device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Pwm\+Device} & Pointer to the pwm device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{pwm_8c_a8ca32177a859845dcc8014c2b9b62fe9}\label{pwm_8c_a8ca32177a859845dcc8014c2b9b62fe9}} 
+\index{pwm.\+c@{pwm.\+c}!epcf\+\_\+pwm\+\_\+create\+Native@{epcf\+\_\+pwm\+\_\+create\+Native}}
+\index{epcf\+\_\+pwm\+\_\+create\+Native@{epcf\+\_\+pwm\+\_\+create\+Native}!pwm.\+c@{pwm.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+pwm\+\_\+create\+Native()}{epcf\_pwm\_createNative()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}}$\ast$ epcf\+\_\+pwm\+\_\+create\+Native (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFPwmCfg__t}{E\+P\+C\+F\+Pwm\+Cfg\+\_\+t}} $\ast$}]{p\+Pwm\+Config }\end{DoxyParamCaption})}
+
+
+
+This function is used to create a pwm device. Call this function in beginning to initialize the pwm device. This function allocates memory for the device using malloc() function call and returns a pointer to the device. Pass this device pointer while calling pwm functions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Pwm\+Config} & Pointer to the pwm configuration structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+On success, it returns a pointer to the pwm device. On error, it returns N\+U\+LL. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{pwm_8c_a97916c8374e807b23236bc6cfa20e307}\label{pwm_8c_a97916c8374e807b23236bc6cfa20e307}} 
+\index{pwm.\+c@{pwm.\+c}!epcf\+\_\+pwm\+\_\+detach\+Callback@{epcf\+\_\+pwm\+\_\+detach\+Callback}}
+\index{epcf\+\_\+pwm\+\_\+detach\+Callback@{epcf\+\_\+pwm\+\_\+detach\+Callback}!pwm.\+c@{pwm.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+pwm\+\_\+detach\+Callback()}{epcf\_pwm\_detachCallback()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+pwm\+\_\+detach\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}} $\ast$}]{p\+Pwm\+Device,  }\item[{uint8\+\_\+t}]{callback\+Id }\end{DoxyParamCaption})}
+
+
+
+This function is used to detach the pwm callback for the specific pwm interrupt source. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Pwm\+Device} & Pointer to the pwm device. \\
+\hline
+{\em callback\+Id} & callback\+Id returned by epcf\+\_\+pwm\+\_\+attach\+Callback function.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Call this function before starting the pwm device using epcf\+\_\+pwm\+\_\+start function. To detach a callback if pwm has already started\+:
+\begin{DoxyEnumerate}
+\item Stop the pwm device.
+\item Detach the callback.
+\item Start the pwm device again. 
+\end{DoxyEnumerate}
+\end{DoxyNote}
+\mbox{\Hypertarget{pwm_8c_a71e2db1abaa44f1a8cbacb31b08a33cd}\label{pwm_8c_a71e2db1abaa44f1a8cbacb31b08a33cd}} 
+\index{pwm.\+c@{pwm.\+c}!epcf\+\_\+pwm\+\_\+get\+Device\+Count@{epcf\+\_\+pwm\+\_\+get\+Device\+Count}}
+\index{epcf\+\_\+pwm\+\_\+get\+Device\+Count@{epcf\+\_\+pwm\+\_\+get\+Device\+Count}!pwm.\+c@{pwm.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+pwm\+\_\+get\+Device\+Count()}{epcf\_pwm\_getDeviceCount()}}
+{\footnotesize\ttfamily uint8\+\_\+t epcf\+\_\+pwm\+\_\+get\+Device\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function is used to get the total number of available pwm devices. 
+
+\begin{DoxyReturn}{Returns}
+Returns the number of available pwm devices. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{pwm_8c_a09a859ecc6302cf9eaff02e36c6a7389}\label{pwm_8c_a09a859ecc6302cf9eaff02e36c6a7389}} 
+\index{pwm.\+c@{pwm.\+c}!epcf\+\_\+pwm\+\_\+get\+State@{epcf\+\_\+pwm\+\_\+get\+State}}
+\index{epcf\+\_\+pwm\+\_\+get\+State@{epcf\+\_\+pwm\+\_\+get\+State}!pwm.\+c@{pwm.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+pwm\+\_\+get\+State()}{epcf\_pwm\_getState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{pwm_8h_a5c5be6bc6393ff9b180b81321a3293c4}{En\+E\+P\+C\+F\+Pwm\+State\+\_\+t}} epcf\+\_\+pwm\+\_\+get\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}} $\ast$}]{p\+Pwm\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to get the current state of the pwm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Pwm\+Device} & Pointer to the pwm device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return pwm state 
+\end{DoxyReturn}
+\mbox{\Hypertarget{pwm_8c_a1b75a16ee8406e7292b0727aabc2bea6}\label{pwm_8c_a1b75a16ee8406e7292b0727aabc2bea6}} 
+\index{pwm.\+c@{pwm.\+c}!epcf\+\_\+pwm\+\_\+set\+Duty\+Cycle@{epcf\+\_\+pwm\+\_\+set\+Duty\+Cycle}}
+\index{epcf\+\_\+pwm\+\_\+set\+Duty\+Cycle@{epcf\+\_\+pwm\+\_\+set\+Duty\+Cycle}!pwm.\+c@{pwm.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+pwm\+\_\+set\+Duty\+Cycle()}{epcf\_pwm\_setDutyCycle()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+pwm\+\_\+set\+Duty\+Cycle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}} $\ast$}]{p\+Pwm\+Device,  }\item[{\mbox{\hyperlink{pwm_8h_a6541c2098d67d3cd22a77af9d2f549b3}{En\+E\+P\+C\+F\+Pwm\+Channel\+\_\+t}}}]{channel,  }\item[{uint8\+\_\+t}]{duty\+Cycle,  }\item[{\mbox{\hyperlink{pwm_8h_abfc16ab9143ae2808f1309abc276f13e}{En\+E\+P\+C\+F\+Pwm\+Output\+Signal\+\_\+t}}}]{signal }\end{DoxyParamCaption})}
+
+
+
+This function is used to enable pwm output channel and pulse width. It can be used to generate a pwm signal for a specific pulse width on the respective pwm channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Pwm\+Device} & Pointer to the pwm device. \\
+\hline
+{\em channel} & Pwm output channel. \\
+\hline
+{\em duty\+Cycle} & Set the duty cycle of the pwm signal. \\
+\hline
+{\em signal} & To select whether the normal or inverted signal will occur on the pwm output pin.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Call this function before starting the pwm device using epcf\+\_\+pwm\+\_\+start function. 
+\end{DoxyNote}
+\mbox{\Hypertarget{pwm_8c_acc5e4b7cecea11f632e219b01ddd2d73}\label{pwm_8c_acc5e4b7cecea11f632e219b01ddd2d73}} 
+\index{pwm.\+c@{pwm.\+c}!epcf\+\_\+pwm\+\_\+set\+Period@{epcf\+\_\+pwm\+\_\+set\+Period}}
+\index{epcf\+\_\+pwm\+\_\+set\+Period@{epcf\+\_\+pwm\+\_\+set\+Period}!pwm.\+c@{pwm.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+pwm\+\_\+set\+Period()}{epcf\_pwm\_setPeriod()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+pwm\+\_\+set\+Period (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}} $\ast$}]{p\+Pwm\+Device,  }\item[{E\+P\+C\+F\+Time\+\_\+t}]{period }\end{DoxyParamCaption})}
+
+
+
+This function is used to change period of the pwm device. A period is the time it takes for a signal to complete an on-\/and-\/off cycle. Period value should be less than the maximum pwm period which is defined by the resolution value in pwm configuration. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Pwm\+Device} & Pointer to the pwm device. \\
+\hline
+{\em period} & Period of the pwm device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Call this function before starting the pwm device using epcf\+\_\+pwm\+\_\+start function.
+\end{DoxyNote}
+\begin{DoxyRemark}{Remarks}
+Refer to platform specific header file for the actual behaviour of this function. 
+\end{DoxyRemark}
+\mbox{\Hypertarget{pwm_8c_a62bf7f5b36033532d735c3975d27ffaa}\label{pwm_8c_a62bf7f5b36033532d735c3975d27ffaa}} 
+\index{pwm.\+c@{pwm.\+c}!epcf\+\_\+pwm\+\_\+start@{epcf\+\_\+pwm\+\_\+start}}
+\index{epcf\+\_\+pwm\+\_\+start@{epcf\+\_\+pwm\+\_\+start}!pwm.\+c@{pwm.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+pwm\+\_\+start()}{epcf\_pwm\_start()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+pwm\+\_\+start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}} $\ast$}]{p\+Pwm\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to start the pwm device. Pwm starts generating the output signal according to channel configuration. It can be stopped by a call to the function epcf\+\_\+pwm\+\_\+stop. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Pwm\+Device} & Pointer to the pwm device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{pwm_8c_ac4070d470f9666982ada471b44942b66}\label{pwm_8c_ac4070d470f9666982ada471b44942b66}} 
+\index{pwm.\+c@{pwm.\+c}!epcf\+\_\+pwm\+\_\+stop@{epcf\+\_\+pwm\+\_\+stop}}
+\index{epcf\+\_\+pwm\+\_\+stop@{epcf\+\_\+pwm\+\_\+stop}!pwm.\+c@{pwm.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+pwm\+\_\+stop()}{epcf\_pwm\_stop()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+pwm\+\_\+stop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pwm_8h_abd3d1ae36771bd77ae3977afa3679e28}{E\+P\+C\+F\+Pwm\+Device\+\_\+t}} $\ast$}]{p\+Pwm\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to stop the running pwm device. The pwm signal is stopped and can be started again by a call to the function epcf\+\_\+pwm\+\_\+start. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Pwm\+Device} & Pointer to the pwm device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}

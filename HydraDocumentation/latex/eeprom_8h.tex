@@ -1,0 +1,403 @@
+\hypertarget{eeprom_8h}{}\section{epcf\+\_\+project/epcf/peripheral/include/eeprom/eeprom.h File Reference}
+\label{eeprom_8h}\index{epcf\+\_\+project/epcf/peripheral/include/eeprom/eeprom.\+h@{epcf\+\_\+project/epcf/peripheral/include/eeprom/eeprom.\+h}}
+
+
+This file is used to configure a Eeprom device.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structEPCFEepromCfg__t}{E\+P\+C\+F\+Eeprom\+Cfg\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Eeprom configuration structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{eeprom_8h_a74e33a7f4bc6f7ab1a817005d6ef6a6a}\label{eeprom_8h_a74e33a7f4bc6f7ab1a817005d6ef6a6a}} 
+typedef struct E\+P\+C\+F\+Eeprom\+Device \mbox{\hyperlink{eeprom_8h_a74e33a7f4bc6f7ab1a817005d6ef6a6a}{E\+P\+C\+F\+Eeprom\+Device\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Eeprom device. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{eeprom_8h_a26c17a51454c6b39295cc9af35b810cf}{En\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+t}} \{ \mbox{\hyperlink{eeprom_8h_a26c17a51454c6b39295cc9af35b810cfad97689116aa14521f60ff6abead2769b}{en\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+8}}, 
+\mbox{\hyperlink{eeprom_8h_a26c17a51454c6b39295cc9af35b810cfa090c3b31c3b07a89b76e5abaa0e3c339}{en\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+16}}, 
+\mbox{\hyperlink{eeprom_8h_a26c17a51454c6b39295cc9af35b810cfae5319965c6e70ef742e5443d649a1d82}{en\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+32}}, 
+\mbox{\hyperlink{eeprom_8h_a26c17a51454c6b39295cc9af35b810cfab27752049d6f632719870ed3ae495e6b}{en\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+\+Max}}
+ \}
+\begin{DoxyCompactList}\small\item\em 8-\/bit read/write mode of eeprom \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{eeprom_8h_a74e33a7f4bc6f7ab1a817005d6ef6a6a}{E\+P\+C\+F\+Eeprom\+Device\+\_\+t}} $\ast$ \mbox{\hyperlink{eeprom_8h_a7346cb343146562d19bb34fbdf09c2b8}{epcf\+\_\+eeprom\+\_\+\+Create\+Native}} (\mbox{\hyperlink{structEPCFEepromCfg__t}{E\+P\+C\+F\+Eeprom\+Cfg\+\_\+t}} $\ast$p\+Eeprom\+Config)
+\begin{DoxyCompactList}\small\item\em This function is used to create an eeprom device. Call this function in beginning to initialize the device. This function allocates memory for the device using malloc() function call and returns a pointer to the device. Pass this device pointer while calling eeprom functions. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{eeprom_8h_a3ba6703616a21bad886a897552913e24}{epcf\+\_\+eeprom\+\_\+write}} (\mbox{\hyperlink{eeprom_8h_a74e33a7f4bc6f7ab1a817005d6ef6a6a}{E\+P\+C\+F\+Eeprom\+Device\+\_\+t}} $\ast$p\+Eeprom\+Device, uint32\+\_\+t offset, uint8\+\_\+t $\ast$data, uint32\+\_\+t size, E\+P\+C\+F\+Time\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em This function is used to write data in eeprom memory. In Interrupt mode, write operation will be asynchronous and the data is written using internal software buffer. The function will be non blocking and will return after initiating data write operation. Use epcf\+\_\+eeprom\+\_\+get\+Tx\+Buffer\+Count function to check the status of the write buffer. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{eeprom_8h_abe10f1df9367fe95f9de952acf7aa330}{epcf\+\_\+eeprom\+\_\+read}} (\mbox{\hyperlink{eeprom_8h_a74e33a7f4bc6f7ab1a817005d6ef6a6a}{E\+P\+C\+F\+Eeprom\+Device\+\_\+t}} $\ast$p\+Eeprom\+Device, uint32\+\_\+t offset, uint8\+\_\+t $\ast$data, uint32\+\_\+t size, E\+P\+C\+F\+Time\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em This function is used to read data from eeprom memory. In Interrupt mode, data read is asyncronous and data is read in an internal software buffer. Use epcf\+\_\+eeprom\+\_\+get\+Rx\+Buffer\+Count function to get read buffer count. When the count is equal to the required number of bytes to be read, call epcf\+\_\+eeprom\+\_\+read function to read the buffer. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{eeprom_8h_ace751110535e88e621b5ca6308244f47}{epcf\+\_\+eeprom\+\_\+erase}} (\mbox{\hyperlink{eeprom_8h_a74e33a7f4bc6f7ab1a817005d6ef6a6a}{E\+P\+C\+F\+Eeprom\+Device\+\_\+t}} $\ast$p\+Eeprom\+Device, uint32\+\_\+t offset, uint32\+\_\+t size, E\+P\+C\+F\+Time\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em This function is used to erase data from eeprom memory. Calling function will be blocked until all the data is erased or timeout has occurred. The function is a blocking call in both interrupt and polling mode. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{eeprom_8h_a37e0f59140af60a63f21e91101affd3b}{epcf\+\_\+eeprom\+\_\+page\+Write}} (\mbox{\hyperlink{eeprom_8h_a74e33a7f4bc6f7ab1a817005d6ef6a6a}{E\+P\+C\+F\+Eeprom\+Device\+\_\+t}} $\ast$p\+Eeprom\+Device, uint32\+\_\+t page\+Address, uint32\+\_\+t offset, uint8\+\_\+t $\ast$data, uint32\+\_\+t size, E\+P\+C\+F\+Time\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em This function is used to write data in a page in eeprom memory. In Interrupt mode, write operation will be asynchronous and the data is written using internal software buffer. The function will be non blocking and will return after initiating data write operation. Use epcf\+\_\+eeprom\+\_\+get\+Tx\+Buffer\+Count function to check the status of the write buffer. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{eeprom_8h_a7863516e7e4705efe930c93249c0e926}{epcf\+\_\+eeprom\+\_\+page\+Read}} (\mbox{\hyperlink{eeprom_8h_a74e33a7f4bc6f7ab1a817005d6ef6a6a}{E\+P\+C\+F\+Eeprom\+Device\+\_\+t}} $\ast$p\+Eeprom\+Device, uint32\+\_\+t page\+Address, uint32\+\_\+t offset, uint8\+\_\+t $\ast$data, uint32\+\_\+t size, E\+P\+C\+F\+Time\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em This function is used to read data from a page in eeprom memory. In Interrupt mode, data read is asyncronous and data is read in an internal software buffer. Use epcf\+\_\+eeprom\+\_\+get\+Rx\+Buffer\+Count function to get read buffer count. When the count is equal to the required number of bytes to be read, call epcf\+\_\+eeprom\+\_\+read function to read the buffer. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{eeprom_8h_a6e431e86b3ea6910c4ea6134a65f46cd}{epcf\+\_\+eeprom\+\_\+page\+Erase}} (\mbox{\hyperlink{eeprom_8h_a74e33a7f4bc6f7ab1a817005d6ef6a6a}{E\+P\+C\+F\+Eeprom\+Device\+\_\+t}} $\ast$p\+Eeprom\+Device, uint32\+\_\+t page\+Address, E\+P\+C\+F\+Time\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em This function is used to erase a page in eeprom memory. Calling function will be blocked until all the data is erased or timeout has occurred. The function is a blocking call in both interrupt and polling mode. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{eeprom_8h_a0c3523b7b6f3d7426c1d2a4cc397fc6b}{epcf\+\_\+eeprom\+\_\+get\+Rx\+Buffer\+Count}} (\mbox{\hyperlink{eeprom_8h_a74e33a7f4bc6f7ab1a817005d6ef6a6a}{E\+P\+C\+F\+Eeprom\+Device\+\_\+t}} $\ast$p\+Eeprom\+Device)
+\item 
+int8\+\_\+t \mbox{\hyperlink{eeprom_8h_afacbd3645a9bcaef7d39ed32ee000cc2}{epcf\+\_\+eeprom\+\_\+rx\+Buffer\+Flush}} (\mbox{\hyperlink{eeprom_8h_a74e33a7f4bc6f7ab1a817005d6ef6a6a}{E\+P\+C\+F\+Eeprom\+Device\+\_\+t}} $\ast$p\+Eeprom\+Device)
+\item 
+int32\+\_\+t \mbox{\hyperlink{eeprom_8h_a3ce4d13f7ee62c49d087b160440edac8}{epcf\+\_\+eeprom\+\_\+get\+Tx\+Buffer\+Count}} (\mbox{\hyperlink{eeprom_8h_a74e33a7f4bc6f7ab1a817005d6ef6a6a}{E\+P\+C\+F\+Eeprom\+Device\+\_\+t}} $\ast$p\+Eeprom\+Device)
+\item 
+int8\+\_\+t \mbox{\hyperlink{eeprom_8h_a2f3d81566bed2588cdf3622a14f64d1e}{epcf\+\_\+eeprom\+\_\+tx\+Buffer\+Flush}} (\mbox{\hyperlink{eeprom_8h_a74e33a7f4bc6f7ab1a817005d6ef6a6a}{E\+P\+C\+F\+Eeprom\+Device\+\_\+t}} $\ast$p\+Eeprom\+Device)
+\item 
+int8\+\_\+t \mbox{\hyperlink{eeprom_8h_adbd656b9d34c5b7ab221748ace6bb762}{epcf\+\_\+eeprom\+\_\+close}} (\mbox{\hyperlink{eeprom_8h_a74e33a7f4bc6f7ab1a817005d6ef6a6a}{E\+P\+C\+F\+Eeprom\+Device\+\_\+t}} $\ast$p\+Eeprom\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to close the eeprom device. It will free the memory allocated by the eeprom device. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{eeprom_8h_af2da8c10632374267cd0ec637806c55d}{epcf\+\_\+eeprom\+\_\+get\+Device\+Count}} ()
+\begin{DoxyCompactList}\small\item\em This function is used to get the total number of available eeprom devices. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file is used to configure a Eeprom device. 
+
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{eeprom_8h_a26c17a51454c6b39295cc9af35b810cf}\label{eeprom_8h_a26c17a51454c6b39295cc9af35b810cf}} 
+\index{eeprom.\+h@{eeprom.\+h}!En\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+t@{En\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+t}}
+\index{En\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+t@{En\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+t}!eeprom.\+h@{eeprom.\+h}}
+\subsubsection{\texorpdfstring{En\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+t}{EnEPCFEepromDataBits\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{eeprom_8h_a26c17a51454c6b39295cc9af35b810cf}{En\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+t}}}
+
+
+
+8-\/bit read/write mode of eeprom 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+8@{en\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+8}!eeprom.\+h@{eeprom.\+h}}\index{eeprom.\+h@{eeprom.\+h}!en\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+8@{en\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+8}}}\mbox{\Hypertarget{eeprom_8h_a26c17a51454c6b39295cc9af35b810cfad97689116aa14521f60ff6abead2769b}\label{eeprom_8h_a26c17a51454c6b39295cc9af35b810cfad97689116aa14521f60ff6abead2769b}} 
+en\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+8&8-\/bits eeprom read/write \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+16@{en\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+16}!eeprom.\+h@{eeprom.\+h}}\index{eeprom.\+h@{eeprom.\+h}!en\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+16@{en\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+16}}}\mbox{\Hypertarget{eeprom_8h_a26c17a51454c6b39295cc9af35b810cfa090c3b31c3b07a89b76e5abaa0e3c339}\label{eeprom_8h_a26c17a51454c6b39295cc9af35b810cfa090c3b31c3b07a89b76e5abaa0e3c339}} 
+en\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+16&16-\/bits eeprom read/write \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+32@{en\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+32}!eeprom.\+h@{eeprom.\+h}}\index{eeprom.\+h@{eeprom.\+h}!en\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+32@{en\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+32}}}\mbox{\Hypertarget{eeprom_8h_a26c17a51454c6b39295cc9af35b810cfae5319965c6e70ef742e5443d649a1d82}\label{eeprom_8h_a26c17a51454c6b39295cc9af35b810cfae5319965c6e70ef742e5443d649a1d82}} 
+en\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+32&32-\/bits eeprom read/write \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{en\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+\+Max@{en\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+\+Max}!eeprom.\+h@{eeprom.\+h}}\index{eeprom.\+h@{eeprom.\+h}!en\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+\+Max@{en\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+\+Max}}}\mbox{\Hypertarget{eeprom_8h_a26c17a51454c6b39295cc9af35b810cfab27752049d6f632719870ed3ae495e6b}\label{eeprom_8h_a26c17a51454c6b39295cc9af35b810cfab27752049d6f632719870ed3ae495e6b}} 
+en\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+\+Max&Special value for boundary checking \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{eeprom_8h_adbd656b9d34c5b7ab221748ace6bb762}\label{eeprom_8h_adbd656b9d34c5b7ab221748ace6bb762}} 
+\index{eeprom.\+h@{eeprom.\+h}!epcf\+\_\+eeprom\+\_\+close@{epcf\+\_\+eeprom\+\_\+close}}
+\index{epcf\+\_\+eeprom\+\_\+close@{epcf\+\_\+eeprom\+\_\+close}!eeprom.\+h@{eeprom.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+eeprom\+\_\+close()}{epcf\_eeprom\_close()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+eeprom\+\_\+close (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{eeprom_8h_a74e33a7f4bc6f7ab1a817005d6ef6a6a}{E\+P\+C\+F\+Eeprom\+Device\+\_\+t}} $\ast$}]{p\+Eeprom\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to close the eeprom device. It will free the memory allocated by the eeprom device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Eeprom\+Device} & Pointer to the eeprom device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{eeprom_8h_a7346cb343146562d19bb34fbdf09c2b8}\label{eeprom_8h_a7346cb343146562d19bb34fbdf09c2b8}} 
+\index{eeprom.\+h@{eeprom.\+h}!epcf\+\_\+eeprom\+\_\+\+Create\+Native@{epcf\+\_\+eeprom\+\_\+\+Create\+Native}}
+\index{epcf\+\_\+eeprom\+\_\+\+Create\+Native@{epcf\+\_\+eeprom\+\_\+\+Create\+Native}!eeprom.\+h@{eeprom.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+eeprom\+\_\+\+Create\+Native()}{epcf\_eeprom\_CreateNative()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{eeprom_8h_a74e33a7f4bc6f7ab1a817005d6ef6a6a}{E\+P\+C\+F\+Eeprom\+Device\+\_\+t}}$\ast$ epcf\+\_\+eeprom\+\_\+\+Create\+Native (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFEepromCfg__t}{E\+P\+C\+F\+Eeprom\+Cfg\+\_\+t}} $\ast$}]{p\+Eeprom\+Config }\end{DoxyParamCaption})}
+
+
+
+This function is used to create an eeprom device. Call this function in beginning to initialize the device. This function allocates memory for the device using malloc() function call and returns a pointer to the device. Pass this device pointer while calling eeprom functions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Eeprom\+Config} & Pointer to the eeprom configuration structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+On success, it return the pointer to eeprom device. On error, it returns N\+U\+LL. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{eeprom_8h_ace751110535e88e621b5ca6308244f47}\label{eeprom_8h_ace751110535e88e621b5ca6308244f47}} 
+\index{eeprom.\+h@{eeprom.\+h}!epcf\+\_\+eeprom\+\_\+erase@{epcf\+\_\+eeprom\+\_\+erase}}
+\index{epcf\+\_\+eeprom\+\_\+erase@{epcf\+\_\+eeprom\+\_\+erase}!eeprom.\+h@{eeprom.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+eeprom\+\_\+erase()}{epcf\_eeprom\_erase()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+eeprom\+\_\+erase (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{eeprom_8h_a74e33a7f4bc6f7ab1a817005d6ef6a6a}{E\+P\+C\+F\+Eeprom\+Device\+\_\+t}} $\ast$}]{p\+Eeprom\+Device,  }\item[{uint32\+\_\+t}]{offset,  }\item[{uint32\+\_\+t}]{size,  }\item[{E\+P\+C\+F\+Time\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+
+
+This function is used to erase data from eeprom memory. Calling function will be blocked until all the data is erased or timeout has occurred. The function is a blocking call in both interrupt and polling mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Eeprom\+Device} & Pointer to the eeprom device \\
+\hline
+{\em offset} & Address offset.\+Refer to platform specific header file for appropriate address range Erase operations to a misaligned address will result in an error response. For example\+: a 32-\/bit(data\+Bits = en\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+32) erase operation to an address offset other than a multiple of 0x4 will result into error. \\
+\hline
+{\em size} & Total number of bytes to erase \\
+\hline
+{\em timeout} & timeout value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return total number of bytes erased from eeprom memory. Check status code if return value is less than 0. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{eeprom_8h_af2da8c10632374267cd0ec637806c55d}\label{eeprom_8h_af2da8c10632374267cd0ec637806c55d}} 
+\index{eeprom.\+h@{eeprom.\+h}!epcf\+\_\+eeprom\+\_\+get\+Device\+Count@{epcf\+\_\+eeprom\+\_\+get\+Device\+Count}}
+\index{epcf\+\_\+eeprom\+\_\+get\+Device\+Count@{epcf\+\_\+eeprom\+\_\+get\+Device\+Count}!eeprom.\+h@{eeprom.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+eeprom\+\_\+get\+Device\+Count()}{epcf\_eeprom\_getDeviceCount()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+eeprom\+\_\+get\+Device\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function is used to get the total number of available eeprom devices. 
+
+\begin{DoxyReturn}{Returns}
+Returns the number of available eeprom devices. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{eeprom_8h_a0c3523b7b6f3d7426c1d2a4cc397fc6b}\label{eeprom_8h_a0c3523b7b6f3d7426c1d2a4cc397fc6b}} 
+\index{eeprom.\+h@{eeprom.\+h}!epcf\+\_\+eeprom\+\_\+get\+Rx\+Buffer\+Count@{epcf\+\_\+eeprom\+\_\+get\+Rx\+Buffer\+Count}}
+\index{epcf\+\_\+eeprom\+\_\+get\+Rx\+Buffer\+Count@{epcf\+\_\+eeprom\+\_\+get\+Rx\+Buffer\+Count}!eeprom.\+h@{eeprom.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+eeprom\+\_\+get\+Rx\+Buffer\+Count()}{epcf\_eeprom\_getRxBufferCount()}}
+{\footnotesize\ttfamily int32\+\_\+t epcf\+\_\+eeprom\+\_\+get\+Rx\+Buffer\+Count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{eeprom_8h_a74e33a7f4bc6f7ab1a817005d6ef6a6a}{E\+P\+C\+F\+Eeprom\+Device\+\_\+t}} $\ast$}]{p\+Eeprom\+Device }\end{DoxyParamCaption})}
+
+This function is used to get number of bytes read in eeprom read buffer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Eeprom\+Device} & Pointer to the eeprom device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return total number of read bytes
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use this function only when eeprom is configured in interrupt mode 
+\end{DoxyNote}
+\mbox{\Hypertarget{eeprom_8h_a3ce4d13f7ee62c49d087b160440edac8}\label{eeprom_8h_a3ce4d13f7ee62c49d087b160440edac8}} 
+\index{eeprom.\+h@{eeprom.\+h}!epcf\+\_\+eeprom\+\_\+get\+Tx\+Buffer\+Count@{epcf\+\_\+eeprom\+\_\+get\+Tx\+Buffer\+Count}}
+\index{epcf\+\_\+eeprom\+\_\+get\+Tx\+Buffer\+Count@{epcf\+\_\+eeprom\+\_\+get\+Tx\+Buffer\+Count}!eeprom.\+h@{eeprom.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+eeprom\+\_\+get\+Tx\+Buffer\+Count()}{epcf\_eeprom\_getTxBufferCount()}}
+{\footnotesize\ttfamily int32\+\_\+t epcf\+\_\+eeprom\+\_\+get\+Tx\+Buffer\+Count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{eeprom_8h_a74e33a7f4bc6f7ab1a817005d6ef6a6a}{E\+P\+C\+F\+Eeprom\+Device\+\_\+t}} $\ast$}]{p\+Eeprom\+Device }\end{DoxyParamCaption})}
+
+This function is used to get number of bytes pending in eeprom write buffer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Eeprom\+Device} & Pointer to the eeprom device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return total number of pending bytes
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use this function only when eeprom is configured in interrupt mode 
+\end{DoxyNote}
+\mbox{\Hypertarget{eeprom_8h_a6e431e86b3ea6910c4ea6134a65f46cd}\label{eeprom_8h_a6e431e86b3ea6910c4ea6134a65f46cd}} 
+\index{eeprom.\+h@{eeprom.\+h}!epcf\+\_\+eeprom\+\_\+page\+Erase@{epcf\+\_\+eeprom\+\_\+page\+Erase}}
+\index{epcf\+\_\+eeprom\+\_\+page\+Erase@{epcf\+\_\+eeprom\+\_\+page\+Erase}!eeprom.\+h@{eeprom.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+eeprom\+\_\+page\+Erase()}{epcf\_eeprom\_pageErase()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+eeprom\+\_\+page\+Erase (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{eeprom_8h_a74e33a7f4bc6f7ab1a817005d6ef6a6a}{E\+P\+C\+F\+Eeprom\+Device\+\_\+t}} $\ast$}]{p\+Eeprom\+Device,  }\item[{uint32\+\_\+t}]{page\+Address,  }\item[{E\+P\+C\+F\+Time\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+
+
+This function is used to erase a page in eeprom memory. Calling function will be blocked until all the data is erased or timeout has occurred. The function is a blocking call in both interrupt and polling mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Eeprom\+Device} & Pointer to the eeprom device \\
+\hline
+{\em page\+Address} & Address of the specific page of eeprom \\
+\hline
+{\em timeout} & timeout value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Check status code if return value is less than 0. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+If page management is not supported in the eeprom this function will return an appropriate error response. 
+\end{DoxyNote}
+\mbox{\Hypertarget{eeprom_8h_a7863516e7e4705efe930c93249c0e926}\label{eeprom_8h_a7863516e7e4705efe930c93249c0e926}} 
+\index{eeprom.\+h@{eeprom.\+h}!epcf\+\_\+eeprom\+\_\+page\+Read@{epcf\+\_\+eeprom\+\_\+page\+Read}}
+\index{epcf\+\_\+eeprom\+\_\+page\+Read@{epcf\+\_\+eeprom\+\_\+page\+Read}!eeprom.\+h@{eeprom.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+eeprom\+\_\+page\+Read()}{epcf\_eeprom\_pageRead()}}
+{\footnotesize\ttfamily int32\+\_\+t epcf\+\_\+eeprom\+\_\+page\+Read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{eeprom_8h_a74e33a7f4bc6f7ab1a817005d6ef6a6a}{E\+P\+C\+F\+Eeprom\+Device\+\_\+t}} $\ast$}]{p\+Eeprom\+Device,  }\item[{uint32\+\_\+t}]{page\+Address,  }\item[{uint32\+\_\+t}]{offset,  }\item[{uint8\+\_\+t $\ast$}]{data,  }\item[{uint32\+\_\+t}]{size,  }\item[{E\+P\+C\+F\+Time\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+
+
+This function is used to read data from a page in eeprom memory. In Interrupt mode, data read is asyncronous and data is read in an internal software buffer. Use epcf\+\_\+eeprom\+\_\+get\+Rx\+Buffer\+Count function to get read buffer count. When the count is equal to the required number of bytes to be read, call epcf\+\_\+eeprom\+\_\+read function to read the buffer. 
+
+In Polling mode, data read will be synchronous and calling function will be blocked until all the data is received or timeout has occurred.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Eeprom\+Device} & Pointer to the eeprom device \\
+\hline
+{\em page\+Address} & Address of the specific page of eeprom \\
+\hline
+{\em offset} & Address offset. Refer to platform specific header file for appropriate address range Read operations to a misaligned address will result in an error response. For example\+: a 32-\/bit(data\+Bits = en\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+32) read operation to an address offset other than a multiple of 0x4 will result into error. \\
+\hline
+{\em data} & Pointer to buffer where data to be read is stored \\
+\hline
+{\em size} & Total number of bytes to be read \\
+\hline
+{\em timeout} & timeout value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return number of bytes read from eeprom memory. Check status code if return value is less than 0. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+If page management is not supported in the eeprom this function will return an appropriate error response. \begin{DoxyVerb}     If value of dataBits is set to greater than 8 bits. Then, 2 consecutive bytes will represent
+     1 single data word. In this case value of size should be in a multiple of 2. If the value of size
+     is an odd value, then a 0 is padded as the last byte of the data.\end{DoxyVerb}
+ 
+\end{DoxyNote}
+\mbox{\Hypertarget{eeprom_8h_a37e0f59140af60a63f21e91101affd3b}\label{eeprom_8h_a37e0f59140af60a63f21e91101affd3b}} 
+\index{eeprom.\+h@{eeprom.\+h}!epcf\+\_\+eeprom\+\_\+page\+Write@{epcf\+\_\+eeprom\+\_\+page\+Write}}
+\index{epcf\+\_\+eeprom\+\_\+page\+Write@{epcf\+\_\+eeprom\+\_\+page\+Write}!eeprom.\+h@{eeprom.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+eeprom\+\_\+page\+Write()}{epcf\_eeprom\_pageWrite()}}
+{\footnotesize\ttfamily int32\+\_\+t epcf\+\_\+eeprom\+\_\+page\+Write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{eeprom_8h_a74e33a7f4bc6f7ab1a817005d6ef6a6a}{E\+P\+C\+F\+Eeprom\+Device\+\_\+t}} $\ast$}]{p\+Eeprom\+Device,  }\item[{uint32\+\_\+t}]{page\+Address,  }\item[{uint32\+\_\+t}]{offset,  }\item[{uint8\+\_\+t $\ast$}]{data,  }\item[{uint32\+\_\+t}]{size,  }\item[{E\+P\+C\+F\+Time\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+
+
+This function is used to write data in a page in eeprom memory. In Interrupt mode, write operation will be asynchronous and the data is written using internal software buffer. The function will be non blocking and will return after initiating data write operation. Use epcf\+\_\+eeprom\+\_\+get\+Tx\+Buffer\+Count function to check the status of the write buffer. 
+
+In Polling mode, data write operation will be synchronous and calling function will be blocked until all the data is written or timeout has occurred.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Eeprom\+Device} & Pointer to the eeprom device \\
+\hline
+{\em page\+Address} & Address of the specific page of eeprom \\
+\hline
+{\em offset} & Address offset.\+Refer to platform specific header file for appropriate address range Write operations to a misaligned address will result in an error response. For example\+: a 32-\/bit(data\+Bits = en\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+32) write operation to an address offset other than a multiple of 0x4 will result into error. \\
+\hline
+{\em data} & Pointer to buffer where data to be written is stored \\
+\hline
+{\em size} & Total number of bytes to write. \\
+\hline
+{\em timeout} & timeout value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return total number of bytes written in eeprom memory. Check status code if return value is less than 0. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+If page management is not supported in the eeprom this function will return an appropriate error response. \begin{DoxyVerb}     If value of dataBits is set to greater than 8 bits. Then, 2 consecutive bytes will represent
+     1 single data word. In this case value of size should be in a multiple of 2. If the value of size
+     is an odd value, then a 0 is padded as the last byte of the data.\end{DoxyVerb}
+ 
+\end{DoxyNote}
+\mbox{\Hypertarget{eeprom_8h_abe10f1df9367fe95f9de952acf7aa330}\label{eeprom_8h_abe10f1df9367fe95f9de952acf7aa330}} 
+\index{eeprom.\+h@{eeprom.\+h}!epcf\+\_\+eeprom\+\_\+read@{epcf\+\_\+eeprom\+\_\+read}}
+\index{epcf\+\_\+eeprom\+\_\+read@{epcf\+\_\+eeprom\+\_\+read}!eeprom.\+h@{eeprom.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+eeprom\+\_\+read()}{epcf\_eeprom\_read()}}
+{\footnotesize\ttfamily int32\+\_\+t epcf\+\_\+eeprom\+\_\+read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{eeprom_8h_a74e33a7f4bc6f7ab1a817005d6ef6a6a}{E\+P\+C\+F\+Eeprom\+Device\+\_\+t}} $\ast$}]{p\+Eeprom\+Device,  }\item[{uint32\+\_\+t}]{offset,  }\item[{uint8\+\_\+t $\ast$}]{data,  }\item[{uint32\+\_\+t}]{size,  }\item[{E\+P\+C\+F\+Time\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+
+
+This function is used to read data from eeprom memory. In Interrupt mode, data read is asyncronous and data is read in an internal software buffer. Use epcf\+\_\+eeprom\+\_\+get\+Rx\+Buffer\+Count function to get read buffer count. When the count is equal to the required number of bytes to be read, call epcf\+\_\+eeprom\+\_\+read function to read the buffer. 
+
+In Polling mode, data read will be synchronous and calling function will be blocked until all the data is received or timeout has occurred.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Eeprom\+Device} & Pointer to the eeprom device \\
+\hline
+{\em offset} & Address offset. Refer to platform specific header file for appropriate address range Read operations to a misaligned address will result in an error response. For example\+: a 32-\/bit(data\+Bits = en\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+32) read operation to an address offset other than a multiple of 0x4 will result into error. \\
+\hline
+{\em data} & Pointer to buffer where data to be read is stored \\
+\hline
+{\em size} & Total number of bytes to be read \\
+\hline
+{\em timeout} & timeout value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return number of bytes read from eeprom memory. Check status code if return value is less than 0. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+If value of data\+Bits is set to greater than 8 bits. Then, 2 consecutive bytes will represent 1 single data word. In this case value of size should be in a multiple of 2. If the value of size is an odd value, then a 0 is padded as the last byte of the data. 
+\end{DoxyNote}
+\mbox{\Hypertarget{eeprom_8h_afacbd3645a9bcaef7d39ed32ee000cc2}\label{eeprom_8h_afacbd3645a9bcaef7d39ed32ee000cc2}} 
+\index{eeprom.\+h@{eeprom.\+h}!epcf\+\_\+eeprom\+\_\+rx\+Buffer\+Flush@{epcf\+\_\+eeprom\+\_\+rx\+Buffer\+Flush}}
+\index{epcf\+\_\+eeprom\+\_\+rx\+Buffer\+Flush@{epcf\+\_\+eeprom\+\_\+rx\+Buffer\+Flush}!eeprom.\+h@{eeprom.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+eeprom\+\_\+rx\+Buffer\+Flush()}{epcf\_eeprom\_rxBufferFlush()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+eeprom\+\_\+rx\+Buffer\+Flush (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{eeprom_8h_a74e33a7f4bc6f7ab1a817005d6ef6a6a}{E\+P\+C\+F\+Eeprom\+Device\+\_\+t}} $\ast$}]{p\+Eeprom\+Device }\end{DoxyParamCaption})}
+
+This function is used to flush eeprom read buffer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Eeprom\+Device} & Pointer to the eeprom device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use this function only when Eeprom is configured in interrupt mode 
+\end{DoxyNote}
+\mbox{\Hypertarget{eeprom_8h_a2f3d81566bed2588cdf3622a14f64d1e}\label{eeprom_8h_a2f3d81566bed2588cdf3622a14f64d1e}} 
+\index{eeprom.\+h@{eeprom.\+h}!epcf\+\_\+eeprom\+\_\+tx\+Buffer\+Flush@{epcf\+\_\+eeprom\+\_\+tx\+Buffer\+Flush}}
+\index{epcf\+\_\+eeprom\+\_\+tx\+Buffer\+Flush@{epcf\+\_\+eeprom\+\_\+tx\+Buffer\+Flush}!eeprom.\+h@{eeprom.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+eeprom\+\_\+tx\+Buffer\+Flush()}{epcf\_eeprom\_txBufferFlush()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+eeprom\+\_\+tx\+Buffer\+Flush (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{eeprom_8h_a74e33a7f4bc6f7ab1a817005d6ef6a6a}{E\+P\+C\+F\+Eeprom\+Device\+\_\+t}} $\ast$}]{p\+Eeprom\+Device }\end{DoxyParamCaption})}
+
+This function is used to flush eeprom write buffer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Eeprom\+Device} & Pointer to the eeprom device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use this function only when eeprom is configured in interrupt mode 
+\end{DoxyNote}
+\mbox{\Hypertarget{eeprom_8h_a3ba6703616a21bad886a897552913e24}\label{eeprom_8h_a3ba6703616a21bad886a897552913e24}} 
+\index{eeprom.\+h@{eeprom.\+h}!epcf\+\_\+eeprom\+\_\+write@{epcf\+\_\+eeprom\+\_\+write}}
+\index{epcf\+\_\+eeprom\+\_\+write@{epcf\+\_\+eeprom\+\_\+write}!eeprom.\+h@{eeprom.\+h}}
+\subsubsection{\texorpdfstring{epcf\+\_\+eeprom\+\_\+write()}{epcf\_eeprom\_write()}}
+{\footnotesize\ttfamily int32\+\_\+t epcf\+\_\+eeprom\+\_\+write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{eeprom_8h_a74e33a7f4bc6f7ab1a817005d6ef6a6a}{E\+P\+C\+F\+Eeprom\+Device\+\_\+t}} $\ast$}]{p\+Eeprom\+Device,  }\item[{uint32\+\_\+t}]{offset,  }\item[{uint8\+\_\+t $\ast$}]{data,  }\item[{uint32\+\_\+t}]{size,  }\item[{E\+P\+C\+F\+Time\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+
+
+This function is used to write data in eeprom memory. In Interrupt mode, write operation will be asynchronous and the data is written using internal software buffer. The function will be non blocking and will return after initiating data write operation. Use epcf\+\_\+eeprom\+\_\+get\+Tx\+Buffer\+Count function to check the status of the write buffer. 
+
+In Polling mode, data write operation will be synchronous and calling function will be blocked until all the data is written or timeout has occurred.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Eeprom\+Device} & Pointer to the eeprom device \\
+\hline
+{\em offset} & Address offset.\+Refer to platform specific header file for appropriate address range Write operations to a misaligned address will result in an error response. For example\+: a 32-\/bit(data\+Bits = en\+E\+P\+C\+F\+Eeprom\+Data\+Bits\+\_\+32) write operation to an address offset other than a multiple of 0x4 will result into error. \\
+\hline
+{\em data} & Pointer to buffer where data to be written is stored \\
+\hline
+{\em size} & Total number of bytes to write \\
+\hline
+{\em timeout} & timeout value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return total number of bytes written in eeprom memory. Check status code if return value is less than 0. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+If value of data\+Bits is set to greater than 8 bits. Then, 2 consecutive bytes will represent 1 single data word. In this case value of size should be in a multiple of 2. If the value of size is an odd value, then a 0 is padded as the last byte of the data. 
+\end{DoxyNote}

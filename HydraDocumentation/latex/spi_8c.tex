@@ -1,0 +1,422 @@
+\hypertarget{spi_8c}{}\section{epcf\+\_\+project/epcf/peripheral/source/spi/spi.c File Reference}
+\label{spi_8c}\index{epcf\+\_\+project/epcf/peripheral/source/spi/spi.\+c@{epcf\+\_\+project/epcf/peripheral/source/spi/spi.\+c}}
+
+
+This file is used to configure a S\+PI device.  
+
+
+{\ttfamily \#include \char`\"{}pcf.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{spi_8c_a219ea3d7a2dd913c70d1917bc5517290}\label{spi_8c_a219ea3d7a2dd913c70d1917bc5517290}} 
+\#define {\bfseries \+\_\+\+\_\+\+E\+P\+C\+F\+\_\+\+S\+P\+I\+\_\+\+H\+I\+D\+D\+E\+N\+\_\+\+I\+N\+C\+L\+U\+DE}~P\+C\+F\+\_\+\+C\+O\+N\+D\+I\+T\+I\+O\+N\+A\+L\+\_\+\+I\+N\+C\+L\+U\+D\+E\+\_\+\+F\+I\+LE(E\+P\+C\+F\+\_\+\+D\+I\+R\+\_\+\+P\+A\+TH/,peripheral/source/,spi/,spi\+\_\+hidden.\+h)
+\item 
+\mbox{\Hypertarget{spi_8c_aabf886c807944d1fc5b254c835774ca7}\label{spi_8c_aabf886c807944d1fc5b254c835774ca7}} 
+\#define {\bfseries \+\_\+\+S\+P\+I\+\_\+\+D\+E\+B\+UG}~P\+C\+F\+\_\+\+E\+N\+A\+B\+LE
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$ \mbox{\hyperlink{spi_8c_a418ebdaad333a7cfa90d00d429faf1ae}{epcf\+\_\+spi\+\_\+create\+Native}} (\mbox{\hyperlink{structEPCFSpiCfg__t}{E\+P\+C\+F\+Spi\+Cfg\+\_\+t}} $\ast$p\+Spi\+Config)
+\begin{DoxyCompactList}\small\item\em This function is used to create an spi device. Call this function in beginning to initialize the device. This function allocates memory for the device using malloc() function call and returns a pointer to the device. Pass this device pointer while calling spi functions. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{spi_8c_a6eaa379aa69133277ef3b0b557e0d1b0}{epcf\+\_\+spi\+\_\+close}} (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$p\+Spi\+Device)
+\begin{DoxyCompactList}\small\item\em This function is used to close the spi device. It will free the memory allocated by the spi device. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{spi_8c_ad28b8780e75f9a0fd238291447e8a4cf}{epcf\+\_\+spi\+\_\+register\+Slave\+Device}} (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$p\+Spi\+Device, E\+P\+C\+F\+Port\+Pin\+\_\+t slave\+Select\+Pin)
+\begin{DoxyCompactList}\small\item\em This function is used to register a spi slave device. Call this function once in the begining to register slave\+Select\+Pin of the slave device should be registered before doing any read write operation for that device. The function will return a slave\+Id which can be used to select and unselect the slave device using epcf\+\_\+spi\+\_\+slave\+Select and epcf\+\_\+spi\+\_\+slave\+De\+Select function respectively. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{spi_8c_a9fbe02b68bad7a5aba34264c5731c234}{epcf\+\_\+spi\+\_\+de\+Register\+Slave\+Device}} (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$p\+Spi\+Device, uint8\+\_\+t slave\+Id)
+\begin{DoxyCompactList}\small\item\em This function is used to unregister a spi slave device. No operation on the slave device is possible once it is unregistered. Register the slave device again to operate on the device once it is unregistered. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{spi_8c_a8b274135b17faf771815b1e5f2909b31}{epcf\+\_\+spi\+\_\+slave\+Select}} (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$p\+Spi\+Device, uint8\+\_\+t slave\+Id)
+\begin{DoxyCompactList}\small\item\em This function is used to select the slave device on the spi bus before starting any communication with the device. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{spi_8c_a90cf5feaf6b13908851c3264df5c9405}{epcf\+\_\+spi\+\_\+slave\+De\+Select}} (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$p\+Spi\+Device, uint8\+\_\+t slave\+Id)
+\begin{DoxyCompactList}\small\item\em This function is used to unselect the slave device after communication with the device is finished. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{spi_8c_a792532296a93636fde4b30e1cda82aca}{epcf\+\_\+spi\+\_\+exchange}} (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$p\+Spi\+Device, uint16\+\_\+t tx\+Data, uint16\+\_\+t $\ast$rx\+Data, E\+P\+C\+F\+Time\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em This function is used to exchange a single frame over spi bus. It can be used in both master and slave mode. The size of the frame is according to setting of the data\+Bits field in spi configuration. The calling function will be blocked until the data frame is exchanged or timeout has occurred. The function is a blocking call in both interrupt and polling mode. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{spi_8c_a067baf1e065e651159c87670fca2336d}{epcf\+\_\+spi\+\_\+write}} (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$p\+Spi\+Device, const uint8\+\_\+t $\ast$data, uint32\+\_\+t size, E\+P\+C\+F\+Time\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em This function is used to send data on spi bus. It can be used in both master and slave mode. In Interrupt mode, data transmission will be asynchronous and the data is transmitted using internal software buffer. The function will be non blocking and will return after initiating data transmission. Use epcf\+\_\+spi\+\_\+get\+Tx\+Buffer\+Count function to check the status of the transmit buffer. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{spi_8c_add28918493fe97abb634840047a9d65a}{epcf\+\_\+spi\+\_\+read}} (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$p\+Spi\+Device, uint8\+\_\+t $\ast$data, uint32\+\_\+t size, E\+P\+C\+F\+Time\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em This function is used to read data on spi bus. This function can be used in both master and slave mode. In Interrupt mode, data receiving is asynchronous and data is received in an internal software buffer. Use epcf\+\_\+spi\+\_\+get\+Rx\+Buffer\+Count function to get receive buffer count. When the count is equal to the required number of bytes to be read, call epcf\+\_\+spi\+\_\+read function to read the buffer. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{spi_8c_a74d33135fde22d6a199596af503cfd7e}{epcf\+\_\+spi\+\_\+int\+Enable}} (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$p\+Spi\+Device, \mbox{\hyperlink{spi_8h_a270c561e7d4dc10fee5b99a87b3d4e5d}{En\+E\+P\+C\+F\+Spi\+Int\+Type}} int\+Type)
+\begin{DoxyCompactList}\small\item\em This function is used to enable the spi interrupt.\+It can be disabled by a call to the function epcf\+Native\+Spi\+Int\+Disable. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{spi_8c_afc395b3cca7808342d741b2eb9ee7929}{epcf\+\_\+spi\+\_\+int\+Disable}} (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$p\+Spi\+Device, \mbox{\hyperlink{spi_8h_a270c561e7d4dc10fee5b99a87b3d4e5d}{En\+E\+P\+C\+F\+Spi\+Int\+Type}} int\+Type)
+\begin{DoxyCompactList}\small\item\em This function is used to disable the spi interrupt.\+It can be enable by a call to the function epcf\+Native\+Spi\+Int\+Enable. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{spi_8c_a4d294f72c2127f0cf71d1e0f5772f137}{epcf\+\_\+spi\+\_\+get\+Rx\+Buffer\+Count}} (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$p\+Spi\+Device)
+\item 
+int8\+\_\+t \mbox{\hyperlink{spi_8c_a9d5307b8726ae2facf01cf5bc0ff15b2}{epcf\+\_\+spi\+\_\+rx\+Buffer\+Flush}} (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$p\+Spi\+Device)
+\item 
+int32\+\_\+t \mbox{\hyperlink{spi_8c_aca145d8c830302ac631c8988c5213cf4}{epcf\+\_\+spi\+\_\+get\+Tx\+Buffer\+Count}} (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$p\+Spi\+Device)
+\item 
+int8\+\_\+t \mbox{\hyperlink{spi_8c_a02c2f27d5829139f7f02b52c7b414671}{epcf\+\_\+spi\+\_\+tx\+Buffer\+Flush}} (\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$p\+Spi\+Device)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{spi_8c_a050d7585f7957c76bb1f98a639a7b31d}{epcf\+\_\+spi\+\_\+get\+Device\+Count}} ()
+\begin{DoxyCompactList}\small\item\em This function is used to get the total number of available spi devices. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file is used to configure a S\+PI device. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{spi_8c_a6eaa379aa69133277ef3b0b557e0d1b0}\label{spi_8c_a6eaa379aa69133277ef3b0b557e0d1b0}} 
+\index{spi.\+c@{spi.\+c}!epcf\+\_\+spi\+\_\+close@{epcf\+\_\+spi\+\_\+close}}
+\index{epcf\+\_\+spi\+\_\+close@{epcf\+\_\+spi\+\_\+close}!spi.\+c@{spi.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+spi\+\_\+close()}{epcf\_spi\_close()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+spi\+\_\+close (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$}]{p\+Spi\+Device }\end{DoxyParamCaption})}
+
+
+
+This function is used to close the spi device. It will free the memory allocated by the spi device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Spi\+Device} & Pointer to the spi device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{spi_8c_a418ebdaad333a7cfa90d00d429faf1ae}\label{spi_8c_a418ebdaad333a7cfa90d00d429faf1ae}} 
+\index{spi.\+c@{spi.\+c}!epcf\+\_\+spi\+\_\+create\+Native@{epcf\+\_\+spi\+\_\+create\+Native}}
+\index{epcf\+\_\+spi\+\_\+create\+Native@{epcf\+\_\+spi\+\_\+create\+Native}!spi.\+c@{spi.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+spi\+\_\+create\+Native()}{epcf\_spi\_createNative()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}}$\ast$ epcf\+\_\+spi\+\_\+create\+Native (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structEPCFSpiCfg__t}{E\+P\+C\+F\+Spi\+Cfg\+\_\+t}} $\ast$}]{p\+Spi\+Config }\end{DoxyParamCaption})}
+
+
+
+This function is used to create an spi device. Call this function in beginning to initialize the device. This function allocates memory for the device using malloc() function call and returns a pointer to the device. Pass this device pointer while calling spi functions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Spi\+Config} & Pointer to the spi configuration structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+On success, it return the pointer to spi device. On error, it returns N\+U\+LL. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{spi_8c_a9fbe02b68bad7a5aba34264c5731c234}\label{spi_8c_a9fbe02b68bad7a5aba34264c5731c234}} 
+\index{spi.\+c@{spi.\+c}!epcf\+\_\+spi\+\_\+de\+Register\+Slave\+Device@{epcf\+\_\+spi\+\_\+de\+Register\+Slave\+Device}}
+\index{epcf\+\_\+spi\+\_\+de\+Register\+Slave\+Device@{epcf\+\_\+spi\+\_\+de\+Register\+Slave\+Device}!spi.\+c@{spi.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+spi\+\_\+de\+Register\+Slave\+Device()}{epcf\_spi\_deRegisterSlaveDevice()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+spi\+\_\+de\+Register\+Slave\+Device (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$}]{p\+Spi\+Device,  }\item[{uint8\+\_\+t}]{slave\+Id }\end{DoxyParamCaption})}
+
+
+
+This function is used to unregister a spi slave device. No operation on the slave device is possible once it is unregistered. Register the slave device again to operate on the device once it is unregistered. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Spi\+Device} & Pointer to the spi device \\
+\hline
+{\em slave\+Id} & slave\+Id returned by epcf\+\_\+spi\+\_\+register\+Slave\+Device function\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use this function only when using spi in master mode. 
+\end{DoxyNote}
+\mbox{\Hypertarget{spi_8c_a792532296a93636fde4b30e1cda82aca}\label{spi_8c_a792532296a93636fde4b30e1cda82aca}} 
+\index{spi.\+c@{spi.\+c}!epcf\+\_\+spi\+\_\+exchange@{epcf\+\_\+spi\+\_\+exchange}}
+\index{epcf\+\_\+spi\+\_\+exchange@{epcf\+\_\+spi\+\_\+exchange}!spi.\+c@{spi.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+spi\+\_\+exchange()}{epcf\_spi\_exchange()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+spi\+\_\+exchange (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$}]{p\+Spi\+Device,  }\item[{uint16\+\_\+t}]{tx\+Data,  }\item[{uint16\+\_\+t $\ast$}]{rx\+Data,  }\item[{E\+P\+C\+F\+Time\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+
+
+This function is used to exchange a single frame over spi bus. It can be used in both master and slave mode. The size of the frame is according to setting of the data\+Bits field in spi configuration. The calling function will be blocked until the data frame is exchanged or timeout has occurred. The function is a blocking call in both interrupt and polling mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Spi\+Device} & Pointer to the spi device \\
+\hline
+{\em tx\+Data} & data frame to be transmitted \\
+\hline
+{\em rx\+Data} & Pointer to the data frame where received data will be stored \\
+\hline
+{\em timeout} & timeout value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns 1 when frame is successfully exchanged. Check status code in case return value is less than 0. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Master mode(master write)\+:
+\begin{DoxyEnumerate}
+\item Call epcf\+\_\+spi\+\_\+slave\+Select function to select the slave device.
+\item Call epcf\+\_\+spi\+\_\+exchange function to exchange a single frame from the slave device.
+\item Call epcf\+\_\+spi\+\_\+slave\+De\+Select function to unselect the slave device.
+\end{DoxyEnumerate}
+\end{DoxyNote}
+Slave mode(\+Slave write)\+: Call this function to write data to the master device. \mbox{\Hypertarget{spi_8c_a050d7585f7957c76bb1f98a639a7b31d}\label{spi_8c_a050d7585f7957c76bb1f98a639a7b31d}} 
+\index{spi.\+c@{spi.\+c}!epcf\+\_\+spi\+\_\+get\+Device\+Count@{epcf\+\_\+spi\+\_\+get\+Device\+Count}}
+\index{epcf\+\_\+spi\+\_\+get\+Device\+Count@{epcf\+\_\+spi\+\_\+get\+Device\+Count}!spi.\+c@{spi.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+spi\+\_\+get\+Device\+Count()}{epcf\_spi\_getDeviceCount()}}
+{\footnotesize\ttfamily uint8\+\_\+t epcf\+\_\+spi\+\_\+get\+Device\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function is used to get the total number of available spi devices. 
+
+\begin{DoxyReturn}{Returns}
+Returns the number of available spi devices. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{spi_8c_a4d294f72c2127f0cf71d1e0f5772f137}\label{spi_8c_a4d294f72c2127f0cf71d1e0f5772f137}} 
+\index{spi.\+c@{spi.\+c}!epcf\+\_\+spi\+\_\+get\+Rx\+Buffer\+Count@{epcf\+\_\+spi\+\_\+get\+Rx\+Buffer\+Count}}
+\index{epcf\+\_\+spi\+\_\+get\+Rx\+Buffer\+Count@{epcf\+\_\+spi\+\_\+get\+Rx\+Buffer\+Count}!spi.\+c@{spi.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+spi\+\_\+get\+Rx\+Buffer\+Count()}{epcf\_spi\_getRxBufferCount()}}
+{\footnotesize\ttfamily int32\+\_\+t epcf\+\_\+spi\+\_\+get\+Rx\+Buffer\+Count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$}]{p\+Spi\+Device }\end{DoxyParamCaption})}
+
+This function is used to get number of bytes received in spi receive buffer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Spi\+Device} & Pointer to the spi device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return total number of received bytes
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use this function only when spi is configured in interrupt mode 
+\end{DoxyNote}
+\mbox{\Hypertarget{spi_8c_aca145d8c830302ac631c8988c5213cf4}\label{spi_8c_aca145d8c830302ac631c8988c5213cf4}} 
+\index{spi.\+c@{spi.\+c}!epcf\+\_\+spi\+\_\+get\+Tx\+Buffer\+Count@{epcf\+\_\+spi\+\_\+get\+Tx\+Buffer\+Count}}
+\index{epcf\+\_\+spi\+\_\+get\+Tx\+Buffer\+Count@{epcf\+\_\+spi\+\_\+get\+Tx\+Buffer\+Count}!spi.\+c@{spi.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+spi\+\_\+get\+Tx\+Buffer\+Count()}{epcf\_spi\_getTxBufferCount()}}
+{\footnotesize\ttfamily int32\+\_\+t epcf\+\_\+spi\+\_\+get\+Tx\+Buffer\+Count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$}]{p\+Spi\+Device }\end{DoxyParamCaption})}
+
+This function is used to get number of bytes pending in spi transmit buffer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Spi\+Device} & Pointer to the spi device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return total number of pending bytes
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use this function only when spi is configured in interrupt mode 
+\end{DoxyNote}
+\mbox{\Hypertarget{spi_8c_afc395b3cca7808342d741b2eb9ee7929}\label{spi_8c_afc395b3cca7808342d741b2eb9ee7929}} 
+\index{spi.\+c@{spi.\+c}!epcf\+\_\+spi\+\_\+int\+Disable@{epcf\+\_\+spi\+\_\+int\+Disable}}
+\index{epcf\+\_\+spi\+\_\+int\+Disable@{epcf\+\_\+spi\+\_\+int\+Disable}!spi.\+c@{spi.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+spi\+\_\+int\+Disable()}{epcf\_spi\_intDisable()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+spi\+\_\+int\+Disable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$}]{p\+Spi\+Device,  }\item[{\mbox{\hyperlink{spi_8h_a270c561e7d4dc10fee5b99a87b3d4e5d}{En\+E\+P\+C\+F\+Spi\+Int\+Type}}}]{int\+Type }\end{DoxyParamCaption})}
+
+
+
+This function is used to disable the spi interrupt.\+It can be enable by a call to the function epcf\+Native\+Spi\+Int\+Enable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Spi\+Device} & Pointer to the spi device. \\
+\hline
+{\em int\+Type} & type of interrupt\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{spi_8c_a74d33135fde22d6a199596af503cfd7e}\label{spi_8c_a74d33135fde22d6a199596af503cfd7e}} 
+\index{spi.\+c@{spi.\+c}!epcf\+\_\+spi\+\_\+int\+Enable@{epcf\+\_\+spi\+\_\+int\+Enable}}
+\index{epcf\+\_\+spi\+\_\+int\+Enable@{epcf\+\_\+spi\+\_\+int\+Enable}!spi.\+c@{spi.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+spi\+\_\+int\+Enable()}{epcf\_spi\_intEnable()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+spi\+\_\+int\+Enable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$}]{p\+Spi\+Device,  }\item[{\mbox{\hyperlink{spi_8h_a270c561e7d4dc10fee5b99a87b3d4e5d}{En\+E\+P\+C\+F\+Spi\+Int\+Type}}}]{int\+Type }\end{DoxyParamCaption})}
+
+
+
+This function is used to enable the spi interrupt.\+It can be disabled by a call to the function epcf\+Native\+Spi\+Int\+Disable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Spi\+Device} & Pointer to the spi device. \\
+\hline
+{\em int\+Type} & type of interrupt\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{spi_8c_add28918493fe97abb634840047a9d65a}\label{spi_8c_add28918493fe97abb634840047a9d65a}} 
+\index{spi.\+c@{spi.\+c}!epcf\+\_\+spi\+\_\+read@{epcf\+\_\+spi\+\_\+read}}
+\index{epcf\+\_\+spi\+\_\+read@{epcf\+\_\+spi\+\_\+read}!spi.\+c@{spi.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+spi\+\_\+read()}{epcf\_spi\_read()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+spi\+\_\+read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$}]{p\+Spi\+Device,  }\item[{uint8\+\_\+t $\ast$}]{data,  }\item[{uint32\+\_\+t}]{size,  }\item[{E\+P\+C\+F\+Time\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+
+
+This function is used to read data on spi bus. This function can be used in both master and slave mode. In Interrupt mode, data receiving is asynchronous and data is received in an internal software buffer. Use epcf\+\_\+spi\+\_\+get\+Rx\+Buffer\+Count function to get receive buffer count. When the count is equal to the required number of bytes to be read, call epcf\+\_\+spi\+\_\+read function to read the buffer. 
+
+In Polling mode, data receiving will be synchronous and calling function will be blocked until all the data is received or timeout has occurred.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Spi\+Device} & Pointer to the spi device \\
+\hline
+{\em data} & Pointer to buffer where data to be read is stored \\
+\hline
+{\em size} & Total number of bytes to be read \\
+\hline
+{\em timeout} & timeout value.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return number of bytes read over spi bus. Check status code if return value is less than 0. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+If value of data\+Bits is set to greater than 8 bits. Then, 2 consecutive bytes will represent 1 single frame. In this case value of size should be in a multiple of 2. If the value of size is an odd value, then a 0 is padded as the last byte of the data.
+\end{DoxyNote}
+Master mode(master read)\+:
+\begin{DoxyEnumerate}
+\item Call epcf\+\_\+spi\+\_\+slave\+Select function to select the slave device.
+\item Call epcf\+\_\+spi\+\_\+read function to read data from the slave.
+\item Call epcf\+\_\+spi\+\_\+slave\+De\+Select function to de-\/select the slave device after data reception is completed.
+\end{DoxyEnumerate}
+
+Slave mode(slave read)\+: Call this function to read data received from the master device. \mbox{\Hypertarget{spi_8c_ad28b8780e75f9a0fd238291447e8a4cf}\label{spi_8c_ad28b8780e75f9a0fd238291447e8a4cf}} 
+\index{spi.\+c@{spi.\+c}!epcf\+\_\+spi\+\_\+register\+Slave\+Device@{epcf\+\_\+spi\+\_\+register\+Slave\+Device}}
+\index{epcf\+\_\+spi\+\_\+register\+Slave\+Device@{epcf\+\_\+spi\+\_\+register\+Slave\+Device}!spi.\+c@{spi.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+spi\+\_\+register\+Slave\+Device()}{epcf\_spi\_registerSlaveDevice()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+spi\+\_\+register\+Slave\+Device (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$}]{p\+Spi\+Device,  }\item[{E\+P\+C\+F\+Port\+Pin\+\_\+t}]{slave\+Select\+Pin }\end{DoxyParamCaption})}
+
+
+
+This function is used to register a spi slave device. Call this function once in the begining to register slave\+Select\+Pin of the slave device should be registered before doing any read write operation for that device. The function will return a slave\+Id which can be used to select and unselect the slave device using epcf\+\_\+spi\+\_\+slave\+Select and epcf\+\_\+spi\+\_\+slave\+De\+Select function respectively. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Spi\+Device} & Pointer to the spi device \\
+\hline
+{\em slave\+Select\+Pin} & slave\+Select\+Pin information of the slave device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return slave\+Id. Check status code in case return value is less than 0. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use this function only when using spi in master mode. 
+\end{DoxyNote}
+\mbox{\Hypertarget{spi_8c_a9d5307b8726ae2facf01cf5bc0ff15b2}\label{spi_8c_a9d5307b8726ae2facf01cf5bc0ff15b2}} 
+\index{spi.\+c@{spi.\+c}!epcf\+\_\+spi\+\_\+rx\+Buffer\+Flush@{epcf\+\_\+spi\+\_\+rx\+Buffer\+Flush}}
+\index{epcf\+\_\+spi\+\_\+rx\+Buffer\+Flush@{epcf\+\_\+spi\+\_\+rx\+Buffer\+Flush}!spi.\+c@{spi.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+spi\+\_\+rx\+Buffer\+Flush()}{epcf\_spi\_rxBufferFlush()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+spi\+\_\+rx\+Buffer\+Flush (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$}]{p\+Spi\+Device }\end{DoxyParamCaption})}
+
+This function is used to flush spi receive buffer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Spi\+Device} & Pointer to the spi device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use this function only when spi is configured in interrupt mode 
+\end{DoxyNote}
+\mbox{\Hypertarget{spi_8c_a90cf5feaf6b13908851c3264df5c9405}\label{spi_8c_a90cf5feaf6b13908851c3264df5c9405}} 
+\index{spi.\+c@{spi.\+c}!epcf\+\_\+spi\+\_\+slave\+De\+Select@{epcf\+\_\+spi\+\_\+slave\+De\+Select}}
+\index{epcf\+\_\+spi\+\_\+slave\+De\+Select@{epcf\+\_\+spi\+\_\+slave\+De\+Select}!spi.\+c@{spi.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+spi\+\_\+slave\+De\+Select()}{epcf\_spi\_slaveDeSelect()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+spi\+\_\+slave\+De\+Select (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$}]{p\+Spi\+Device,  }\item[{uint8\+\_\+t}]{slave\+Id }\end{DoxyParamCaption})}
+
+
+
+This function is used to unselect the slave device after communication with the device is finished. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Spi\+Device} & Pointer to the spi device \\
+\hline
+{\em slave\+Id} & slave\+Id of the slave device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use this function only when using spi in master mode. 
+\end{DoxyNote}
+\mbox{\Hypertarget{spi_8c_a8b274135b17faf771815b1e5f2909b31}\label{spi_8c_a8b274135b17faf771815b1e5f2909b31}} 
+\index{spi.\+c@{spi.\+c}!epcf\+\_\+spi\+\_\+slave\+Select@{epcf\+\_\+spi\+\_\+slave\+Select}}
+\index{epcf\+\_\+spi\+\_\+slave\+Select@{epcf\+\_\+spi\+\_\+slave\+Select}!spi.\+c@{spi.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+spi\+\_\+slave\+Select()}{epcf\_spi\_slaveSelect()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+spi\+\_\+slave\+Select (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$}]{p\+Spi\+Device,  }\item[{uint8\+\_\+t}]{slave\+Id }\end{DoxyParamCaption})}
+
+
+
+This function is used to select the slave device on the spi bus before starting any communication with the device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Spi\+Device} & Pointer to the spi device \\
+\hline
+{\em slave\+Id} & slave\+Id of the slave device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use this function only when using spi in master mode. 
+\end{DoxyNote}
+\mbox{\Hypertarget{spi_8c_a02c2f27d5829139f7f02b52c7b414671}\label{spi_8c_a02c2f27d5829139f7f02b52c7b414671}} 
+\index{spi.\+c@{spi.\+c}!epcf\+\_\+spi\+\_\+tx\+Buffer\+Flush@{epcf\+\_\+spi\+\_\+tx\+Buffer\+Flush}}
+\index{epcf\+\_\+spi\+\_\+tx\+Buffer\+Flush@{epcf\+\_\+spi\+\_\+tx\+Buffer\+Flush}!spi.\+c@{spi.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+spi\+\_\+tx\+Buffer\+Flush()}{epcf\_spi\_txBufferFlush()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+spi\+\_\+tx\+Buffer\+Flush (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$}]{p\+Spi\+Device }\end{DoxyParamCaption})}
+
+This function is used to flush spi transmit buffer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Spi\+Device} & Pointer to the spi device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return status. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use this function only when spi is configured in interrupt mode 
+\end{DoxyNote}
+\mbox{\Hypertarget{spi_8c_a067baf1e065e651159c87670fca2336d}\label{spi_8c_a067baf1e065e651159c87670fca2336d}} 
+\index{spi.\+c@{spi.\+c}!epcf\+\_\+spi\+\_\+write@{epcf\+\_\+spi\+\_\+write}}
+\index{epcf\+\_\+spi\+\_\+write@{epcf\+\_\+spi\+\_\+write}!spi.\+c@{spi.\+c}}
+\subsubsection{\texorpdfstring{epcf\+\_\+spi\+\_\+write()}{epcf\_spi\_write()}}
+{\footnotesize\ttfamily int8\+\_\+t epcf\+\_\+spi\+\_\+write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{spi_8h_a7bb251eca0c0226bb3fd854366b9e9ef}{E\+P\+C\+F\+Spi\+Device\+\_\+t}} $\ast$}]{p\+Spi\+Device,  }\item[{const uint8\+\_\+t $\ast$}]{data,  }\item[{uint32\+\_\+t}]{size,  }\item[{E\+P\+C\+F\+Time\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+
+
+This function is used to send data on spi bus. It can be used in both master and slave mode. In Interrupt mode, data transmission will be asynchronous and the data is transmitted using internal software buffer. The function will be non blocking and will return after initiating data transmission. Use epcf\+\_\+spi\+\_\+get\+Tx\+Buffer\+Count function to check the status of the transmit buffer. 
+
+In Polling mode, data transmission will be synchronous and calling function will be blocked until all the data is transmitted or timeout has occurred.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Spi\+Device} & Pointer to the spi device \\
+\hline
+{\em data} & Pointer to buffer where data to be written is stored \\
+\hline
+{\em size} & Total number of bytes to send \\
+\hline
+{\em timeout} & timeout value.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return total number of bytes send over spi bus. Check status code if return value is less than 0. Refer to \char`\"{}../../common/status.\+h\char`\"{} header file for the appropriate status codes.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+If value of data\+Bits is set to greater than 8 bits. Then, 2 consecutive bytes will represent 1 single frame. In this case value of size should be in a multiple of 2. If the value of size is an odd value, then a 0 is padded as the last byte of the data.
+\end{DoxyNote}
+Master mode(master write)\+:
+\begin{DoxyEnumerate}
+\item Call epcf\+\_\+spi\+\_\+slave\+Select function to select the slave device.
+\item Call epcf\+\_\+spi\+\_\+write function to send data to the slave.
+\item Call epcf\+\_\+spi\+\_\+slave\+De\+Select function to de-\/select the slave device after data transmission is completed.
+\end{DoxyEnumerate}
+
+Slave mode(\+Slave write)\+: Call this function to write data to the master device. 

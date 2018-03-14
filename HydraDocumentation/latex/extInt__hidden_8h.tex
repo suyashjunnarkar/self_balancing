@@ -1,0 +1,52 @@
+\hypertarget{extInt__hidden_8h}{}\section{epcf\+\_\+project/epcf/peripheral/source/ext\+Int/ext\+Int\+\_\+hidden.h File Reference}
+\label{extInt__hidden_8h}\index{epcf\+\_\+project/epcf/peripheral/source/ext\+Int/ext\+Int\+\_\+hidden.\+h@{epcf\+\_\+project/epcf/peripheral/source/ext\+Int/ext\+Int\+\_\+hidden.\+h}}
+
+
+hidden header file for External Interrupt Driver Description for L\+P\+C1768. This file is for internal use and will not be shared with the user. It contains Ext\+Int\+Device and Ext\+Int\+Controller structure definition.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structEPCFExtIntDevice}{E\+P\+C\+F\+Ext\+Int\+Device}}
+\item 
+struct \mbox{\hyperlink{structEPCFExtIntController}{E\+P\+C\+F\+Ext\+Int\+Controller}}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{extInt__hidden_8h_ab50d9f75283bdd75acd3e0085532eb89}\label{extInt__hidden_8h_ab50d9f75283bdd75acd3e0085532eb89}} 
+typedef struct \mbox{\hyperlink{structEPCFExtIntController}{E\+P\+C\+F\+Ext\+Int\+Controller}} {\bfseries E\+P\+C\+F\+Ext\+Int\+Controller\+\_\+t}
+\item 
+\mbox{\Hypertarget{extInt__hidden_8h_adb145a26c2b73043d9daf41c76ffb1a0}\label{extInt__hidden_8h_adb145a26c2b73043d9daf41c76ffb1a0}} 
+typedef struct \mbox{\hyperlink{structEPCFExtIntDevice}{E\+P\+C\+F\+Ext\+Int\+Device}} {\bfseries E\+P\+C\+F\+Ext\+Int\+Device\+\_\+t}
+\item 
+\mbox{\Hypertarget{extInt__hidden_8h_a820c5d804a39423efdecbf618029f53f}\label{extInt__hidden_8h_a820c5d804a39423efdecbf618029f53f}} 
+typedef struct E\+P\+C\+F\+Adapter {\bfseries E\+P\+C\+F\+Adapter\+\_\+t}
+\item 
+\mbox{\Hypertarget{extInt__hidden_8h_a00bff06956dce58b82ed00c43af6e003}\label{extInt__hidden_8h_a00bff06956dce58b82ed00c43af6e003}} 
+typedef int8\+\_\+t($\ast$ {\bfseries epcf\+Ext\+Int\+Init\+\_\+fp}) (\mbox{\hyperlink{extInt_8h_adb145a26c2b73043d9daf41c76ffb1a0}{E\+P\+C\+F\+Ext\+Int\+Device\+\_\+t}} $\ast$, \mbox{\hyperlink{structEPCFExtIntCfg__t}{E\+P\+C\+F\+Ext\+Int\+Cfg\+\_\+t}} $\ast$)
+\item 
+\mbox{\Hypertarget{extInt__hidden_8h_a38a015b5dca9e77520d7fcc0f3e8b53b}\label{extInt__hidden_8h_a38a015b5dca9e77520d7fcc0f3e8b53b}} 
+typedef int8\+\_\+t($\ast$ {\bfseries epcf\+Ext\+Int\+Enable\+\_\+fp}) (\mbox{\hyperlink{extInt_8h_adb145a26c2b73043d9daf41c76ffb1a0}{E\+P\+C\+F\+Ext\+Int\+Device\+\_\+t}} $\ast$)
+\item 
+\mbox{\Hypertarget{extInt__hidden_8h_a2e5a17332dc7c5d18beaa7edd9af331a}\label{extInt__hidden_8h_a2e5a17332dc7c5d18beaa7edd9af331a}} 
+typedef int8\+\_\+t($\ast$ {\bfseries epcf\+Ext\+Int\+Disable\+\_\+fp}) (\mbox{\hyperlink{extInt_8h_adb145a26c2b73043d9daf41c76ffb1a0}{E\+P\+C\+F\+Ext\+Int\+Device\+\_\+t}} $\ast$)
+\item 
+\mbox{\Hypertarget{extInt__hidden_8h_a2fb7e78b1c70bee4d7ff85a6482e1480}\label{extInt__hidden_8h_a2fb7e78b1c70bee4d7ff85a6482e1480}} 
+typedef int8\+\_\+t($\ast$ {\bfseries epcf\+Ext\+Int\+Attach\+Callback\+\_\+fp}) (\mbox{\hyperlink{extInt_8h_adb145a26c2b73043d9daf41c76ffb1a0}{E\+P\+C\+F\+Ext\+Int\+Device\+\_\+t}} $\ast$, epcf\+Callback\+\_\+fp, uint8\+\_\+t)
+\item 
+\mbox{\Hypertarget{extInt__hidden_8h_a7b690011aef1992b14ae9a8eb0e4e1e3}\label{extInt__hidden_8h_a7b690011aef1992b14ae9a8eb0e4e1e3}} 
+typedef int8\+\_\+t($\ast$ {\bfseries epcf\+Ext\+Int\+Detach\+Callback\+\_\+fp}) (\mbox{\hyperlink{extInt_8h_adb145a26c2b73043d9daf41c76ffb1a0}{E\+P\+C\+F\+Ext\+Int\+Device\+\_\+t}} $\ast$, uint8\+\_\+t)
+\item 
+\mbox{\Hypertarget{extInt__hidden_8h_a3e0a3c0ce582de2ba0df0bbc1a284593}\label{extInt__hidden_8h_a3e0a3c0ce582de2ba0df0bbc1a284593}} 
+typedef int8\+\_\+t($\ast$ {\bfseries epcf\+Ext\+Int\+Get\+Device\+Count\+\_\+fp}) (\mbox{\hyperlink{structEPCFExtIntController}{E\+P\+C\+F\+Ext\+Int\+Controller\+\_\+t}} $\ast$)
+\item 
+\mbox{\Hypertarget{extInt__hidden_8h_a72ceb07b332f5321b9ef450c2ac349c9}\label{extInt__hidden_8h_a72ceb07b332f5321b9ef450c2ac349c9}} 
+typedef int8\+\_\+t($\ast$ {\bfseries epcf\+Ext\+Int\+Close\+\_\+fp}) (\mbox{\hyperlink{extInt_8h_adb145a26c2b73043d9daf41c76ffb1a0}{E\+P\+C\+F\+Ext\+Int\+Device\+\_\+t}} $\ast$)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+hidden header file for External Interrupt Driver Description for L\+P\+C1768. This file is for internal use and will not be shared with the user. It contains Ext\+Int\+Device and Ext\+Int\+Controller structure definition. 
+
