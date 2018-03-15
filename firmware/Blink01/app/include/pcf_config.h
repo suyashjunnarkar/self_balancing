@@ -10,7 +10,7 @@
 //This file will be automatically generated for you from the config
 //ui.
 
-#define YOUR_PLATFORM_PATH          /home/majorviraj/Desktop/Self_balancing/codes/Blink01
+#define YOUR_PLATFORM_PATH          ../..
 
 ////////////////////// PCF Info configuration starts /////////////////////////
 

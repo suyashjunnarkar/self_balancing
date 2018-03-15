@@ -32,31 +32,30 @@ Build/Obj/Debug/uart_lpc1768.o: \
  ../pcf/include/private/arch/arm/cm3/nxp/lpc1768/./lpc1768_config.h \
  ../pcf/include/private/os.h ../pcf/include/private/debug.h \
  ../pcf/include/private/debug/gcc.h ../pcf/include/private/info.h \
- /home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/epcf.h \
- /home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/./common/epcfDefs.h \
- /home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/./common/types.h \
- /home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/./common/portpin.h \
- /home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/./common/bitmask.h \
- /home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/./common/status.h \
- include/epcf_board_config.h \
- /home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/./peripheral/include/epcf_peripheral.h \
- /home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/peripheral/include/peripheral.h \
- /home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/peripheral/include/./sysClk/sysClk_config.h \
- /home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/peripheral/include/./sysClk/sysClk.h \
- /home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/native/port/arm/cm3/nxp/lpc1768/include/sysClk/sysClk_lpc1768.h \
- /home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/native/port/arm/cm3/nxp/lpc1768/include/sysClk/sysClk_lpc1768_config.h \
- /home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/peripheral/include/./gpio/gpio_config.h \
- /home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/peripheral/include/./gpio/gpio.h \
- /home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/native/port/arm/cm3/nxp/lpc1768/include/gpio/gpio_lpc1768.h \
- /home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/native/port/arm/cm3/nxp/lpc1768/include/gpio/gpio_lpc1768_config.h \
- /home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/native/port/arm/cm3/nxp/lpc1768/include/pin_lpc1768.h \
- /home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/peripheral/include/./uart/uart_config.h \
- /home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/peripheral/include/./uart/uart.h \
- /home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/native/port/arm/cm3/nxp/lpc1768/include/uart/uart_lpc1768.h \
- /home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/native/port/arm/cm3/nxp/lpc1768/include/uart/uart_lpc1768_config.h \
- /home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/utils/include/epcf_fifo.h \
- /home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/utils/include/epcf_string.h \
- /home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/peripheral/source/uart/uart_hidden.h
+ ../pcf/include/../../epcf/epcf.h \
+ ../pcf/include/../../epcf/./common/epcfDefs.h \
+ ../pcf/include/../../epcf/./common/types.h \
+ ../pcf/include/../../epcf/./common/portpin.h \
+ ../pcf/include/../../epcf/./common/bitmask.h \
+ ../pcf/include/../../epcf/./common/status.h include/epcf_board_config.h \
+ ../pcf/include/../../epcf/./peripheral/include/epcf_peripheral.h \
+ include/../../epcf/peripheral/include/peripheral.h \
+ include/../../epcf/peripheral/include/./sysClk/sysClk_config.h \
+ include/../../epcf/peripheral/include/./sysClk/sysClk.h \
+ include/../../epcf/native/port/arm/cm3/nxp/lpc1768/include/sysClk/sysClk_lpc1768.h \
+ include/../../epcf/native/port/arm/cm3/nxp/lpc1768/include/sysClk/sysClk_lpc1768_config.h \
+ include/../../epcf/peripheral/include/./gpio/gpio_config.h \
+ include/../../epcf/peripheral/include/./gpio/gpio.h \
+ include/../../epcf/native/port/arm/cm3/nxp/lpc1768/include/gpio/gpio_lpc1768.h \
+ include/../../epcf/native/port/arm/cm3/nxp/lpc1768/include/gpio/gpio_lpc1768_config.h \
+ include/../../epcf/native/port/arm/cm3/nxp/lpc1768/include/pin_lpc1768.h \
+ include/../../epcf/peripheral/include/./uart/uart_config.h \
+ include/../../epcf/peripheral/include/./uart/uart.h \
+ include/../../epcf/native/port/arm/cm3/nxp/lpc1768/include/uart/uart_lpc1768.h \
+ include/../../epcf/native/port/arm/cm3/nxp/lpc1768/include/uart/uart_lpc1768_config.h \
+ include/../../epcf/utils/include/epcf_fifo.h \
+ include/../../epcf/utils/include/epcf_string.h \
+ include/../../epcf/peripheral/source/uart/uart_hidden.h
 
 ../pcf/include/pcf.h:
 
@@ -150,52 +149,52 @@ include/pcf_config.h:
 
 ../pcf/include/private/info.h:
 
-/home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/epcf.h:
+../pcf/include/../../epcf/epcf.h:
 
-/home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/./common/epcfDefs.h:
+../pcf/include/../../epcf/./common/epcfDefs.h:
 
-/home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/./common/types.h:
+../pcf/include/../../epcf/./common/types.h:
 
-/home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/./common/portpin.h:
+../pcf/include/../../epcf/./common/portpin.h:
 
-/home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/./common/bitmask.h:
+../pcf/include/../../epcf/./common/bitmask.h:
 
-/home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/./common/status.h:
+../pcf/include/../../epcf/./common/status.h:
 
 include/epcf_board_config.h:
 
-/home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/./peripheral/include/epcf_peripheral.h:
+../pcf/include/../../epcf/./peripheral/include/epcf_peripheral.h:
 
-/home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/peripheral/include/peripheral.h:
+include/../../epcf/peripheral/include/peripheral.h:
 
-/home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/peripheral/include/./sysClk/sysClk_config.h:
+include/../../epcf/peripheral/include/./sysClk/sysClk_config.h:
 
-/home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/peripheral/include/./sysClk/sysClk.h:
+include/../../epcf/peripheral/include/./sysClk/sysClk.h:
 
-/home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/native/port/arm/cm3/nxp/lpc1768/include/sysClk/sysClk_lpc1768.h:
+include/../../epcf/native/port/arm/cm3/nxp/lpc1768/include/sysClk/sysClk_lpc1768.h:
 
-/home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/native/port/arm/cm3/nxp/lpc1768/include/sysClk/sysClk_lpc1768_config.h:
+include/../../epcf/native/port/arm/cm3/nxp/lpc1768/include/sysClk/sysClk_lpc1768_config.h:
 
-/home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/peripheral/include/./gpio/gpio_config.h:
+include/../../epcf/peripheral/include/./gpio/gpio_config.h:
 
-/home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/peripheral/include/./gpio/gpio.h:
+include/../../epcf/peripheral/include/./gpio/gpio.h:
 
-/home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/native/port/arm/cm3/nxp/lpc1768/include/gpio/gpio_lpc1768.h:
+include/../../epcf/native/port/arm/cm3/nxp/lpc1768/include/gpio/gpio_lpc1768.h:
 
-/home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/native/port/arm/cm3/nxp/lpc1768/include/gpio/gpio_lpc1768_config.h:
+include/../../epcf/native/port/arm/cm3/nxp/lpc1768/include/gpio/gpio_lpc1768_config.h:
 
-/home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/native/port/arm/cm3/nxp/lpc1768/include/pin_lpc1768.h:
+include/../../epcf/native/port/arm/cm3/nxp/lpc1768/include/pin_lpc1768.h:
 
-/home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/peripheral/include/./uart/uart_config.h:
+include/../../epcf/peripheral/include/./uart/uart_config.h:
 
-/home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/peripheral/include/./uart/uart.h:
+include/../../epcf/peripheral/include/./uart/uart.h:
 
-/home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/native/port/arm/cm3/nxp/lpc1768/include/uart/uart_lpc1768.h:
+include/../../epcf/native/port/arm/cm3/nxp/lpc1768/include/uart/uart_lpc1768.h:
 
-/home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/native/port/arm/cm3/nxp/lpc1768/include/uart/uart_lpc1768_config.h:
+include/../../epcf/native/port/arm/cm3/nxp/lpc1768/include/uart/uart_lpc1768_config.h:
 
-/home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/utils/include/epcf_fifo.h:
+include/../../epcf/utils/include/epcf_fifo.h:
 
-/home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/utils/include/epcf_string.h:
+include/../../epcf/utils/include/epcf_string.h:
 
-/home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/peripheral/source/uart/uart_hidden.h:
+include/../../epcf/peripheral/source/uart/uart_hidden.h:

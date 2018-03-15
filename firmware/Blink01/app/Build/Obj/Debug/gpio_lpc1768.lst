@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccW15uCt.s 			page 1
+ARM GAS  /tmp/ccSMIOqx.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
   52      00000000 
   52      00000000 
   53              		.data
-ARM GAS  /tmp/ccW15uCt.s 			page 2
+ARM GAS  /tmp/ccSMIOqx.s 			page 2
 
 
   54              		.type	gpioDeviceCount, %object
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
   12:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
   13:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** #define __EPCF_GPIO_MAX_PINS       50   //Maximum No. of pins that can be configured as GPIO in lpc
   14:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
-ARM GAS  /tmp/ccW15uCt.s 			page 3
+ARM GAS  /tmp/ccSMIOqx.s 			page 3
 
 
   15:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** /**
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  106              		.loc 1 47 0
  107 0016 019B     		ldr	r3, [sp, #4]	@ tmp146, pConfig
  108 0018 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2	@ D.6530, pConfig_5(D)->direction
-ARM GAS  /tmp/ccW15uCt.s 			page 4
+ARM GAS  /tmp/ccSMIOqx.s 			page 4
 
 
  109 001a 0393     		str	r3, [sp, #12]	@ D.6531, pPinCfg.direction
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  150              		.loc 1 60 0 is_stmt 0 discriminator 1
  151 0064 019B     		ldr	r3, [sp, #4]	@ tmp159, pConfig
  152 0066 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2	@ D.6534, pConfig_5(D)->portPin.port
-ARM GAS  /tmp/ccW15uCt.s 			page 5
+ARM GAS  /tmp/ccSMIOqx.s 			page 5
 
 
  153 0068 002B     		cmp	r3, #0	@ D.6534,
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  198              		.loc 1 69 0
  199 00a8 019B     		ldr	r3, [sp, #4]	@ tmp166, pConfig
  200 00aa DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2	@ D.6532, pConfig_5(D)->mode
-ARM GAS  /tmp/ccW15uCt.s 			page 6
+ARM GAS  /tmp/ccSMIOqx.s 			page 6
 
 
  201 00ac 032B     		cmp	r3, #3	@ D.6532,
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  241 00f2 8DF81F30 		strb	r3, [sp, #31]	@ tmp179, index
  242              	.L10:
   75:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****         {
-ARM GAS  /tmp/ccW15uCt.s 			page 7
+ARM GAS  /tmp/ccSMIOqx.s 			page 7
 
 
  243              		.loc 1 75 0 is_stmt 0 discriminator 1
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  286              		.type	epcf_gpio_nativeSet, %function
  287              	epcf_gpio_nativeSet:
  288              	.LFB41:
-ARM GAS  /tmp/ccW15uCt.s 			page 8
+ARM GAS  /tmp/ccSMIOqx.s 			page 8
 
 
   94:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  102:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** {
  335              		.loc 1 102 0
  336              		.cfi_startproc
-ARM GAS  /tmp/ccW15uCt.s 			page 9
+ARM GAS  /tmp/ccSMIOqx.s 			page 9
 
 
  337              		@ args = 0, pretend = 0, frame = 8
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  385              		@ link register save eliminated.
  386 018c 84B0     		sub	sp, sp, #16	@,,
  387              	.LCFI7:
-ARM GAS  /tmp/ccW15uCt.s 			page 10
+ARM GAS  /tmp/ccSMIOqx.s 			page 10
 
 
  388              		.cfi_def_cfa_offset 16
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  434              		@ args = 0, pretend = 0, frame = 8
  435              		@ frame_needed = 0, uses_anonymous_args = 0
  436              		@ link register save eliminated.
-ARM GAS  /tmp/ccW15uCt.s 			page 11
+ARM GAS  /tmp/ccSMIOqx.s 			page 11
 
 
  437 01c4 82B0     		sub	sp, sp, #8	@,,
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  490              	.L31:
  118:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     return EPCF_STATUS_SUCCESS;
  491              		.loc 1 118 0 is_stmt 1
-ARM GAS  /tmp/ccW15uCt.s 			page 12
+ARM GAS  /tmp/ccSMIOqx.s 			page 12
 
 
  492 0236 0023     		movs	r3, #0	@ D.6561,
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  537              		.cfi_startproc
  538              		@ args = 0, pretend = 0, frame = 16
  539              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccW15uCt.s 			page 13
+ARM GAS  /tmp/ccSMIOqx.s 			page 13
 
 
  540              		@ link register save eliminated.
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  584 0292 02D0     		beq	.L42	@,
  585 0294 022B     		cmp	r3, #2	@ D.6566,
  586 0296 3CD0     		beq	.L43	@,
-ARM GAS  /tmp/ccW15uCt.s 			page 14
+ARM GAS  /tmp/ccSMIOqx.s 			page 14
 
 
  587 0298 77E0     		b	.L41	@
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  629 02e2 022B     		cmp	r3, #2	@ D.6565,
  630 02e4 14D1     		bne	.L46	@,
  150:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                     {
-ARM GAS  /tmp/ccW15uCt.s 			page 15
+ARM GAS  /tmp/ccSMIOqx.s 			page 15
 
 
  151:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                         PERIPH_GPIOINT->IO0IntEnF |= 1 << pGpioDevice->portPin.pin;
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  160:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****                     if(gpioIntMode[index] == enEPCFGpioIntMode_RisingEdge) //rising edge
  676              		.loc 1 160 0
  677 0332 9DF80F30 		ldrb	r3, [sp, #15]	@ zero_extendqisi2	@ D.6566, index
-ARM GAS  /tmp/ccW15uCt.s 			page 16
+ARM GAS  /tmp/ccSMIOqx.s 			page 16
 
 
  678 0336 1F4A     		ldr	r2, .L52+4	@ tmp222,
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  723 0386 FFE7     		b	.L51	@
  724              	.L49:
  725              	.L51:
-ARM GAS  /tmp/ccW15uCt.s 			page 17
+ARM GAS  /tmp/ccSMIOqx.s 			page 17
 
 
  726 0388 00BF     		nop
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  179:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
  180:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** int8_t epcf_gpio_nativeIntDisable(EPCFGpioDevice_t* pGpioDevice)
  181:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** {
-ARM GAS  /tmp/ccW15uCt.s 			page 18
+ARM GAS  /tmp/ccSMIOqx.s 			page 18
 
 
  769              		.loc 1 181 0
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  815 03dc 0091     		str	r1, [sp]	@ pCallback, pCallback
  190:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** uint8_t index=0;
  816              		.loc 1 190 0
-ARM GAS  /tmp/ccW15uCt.s 			page 19
+ARM GAS  /tmp/ccSMIOqx.s 			page 19
 
 
  817 03de 0023     		movs	r3, #0	@ tmp117,
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  205:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     gpioIntCallbackAttached=enEPCFBoolean_True;
  855              		.loc 1 205 0 is_stmt 1
  856 0426 064B     		ldr	r3, .L64+8	@ tmp131,
-ARM GAS  /tmp/ccW15uCt.s 			page 20
+ARM GAS  /tmp/ccSMIOqx.s 			page 20
 
 
  857 0428 0122     		movs	r2, #1	@ tmp132,
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  901 0454 01D1     		bne	.L67	@,
  216:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****         return EPCF_STATUS_ERROR;
  902              		.loc 1 216 0
-ARM GAS  /tmp/ccW15uCt.s 			page 21
+ARM GAS  /tmp/ccSMIOqx.s 			page 21
 
 
  903 0456 FF23     		movs	r3, #255	@ D.6573,
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  944 049e 0022     		movs	r2, #0	@ tmp134,
  945 04a0 1A70     		strb	r2, [r3]	@ tmp135, gpioIntCallbackAttached
  228:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c **** 
-ARM GAS  /tmp/ccW15uCt.s 			page 22
+ARM GAS  /tmp/ccSMIOqx.s 			page 22
 
 
  229:../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio/gpio_lpc1768.c ****     return EPCF_STATUS_SUCCESS;
@@ -1288,11 +1288,11 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  967              		.file 2 "/usr/include/newlib/machine/_default_types.h"
  968              		.file 3 "/usr/include/newlib/sys/_stdint.h"
  969              		.file 4 "../pcf/include/private/arch/arm/cm3/nxp/lpc1768/./lpc1768_regmap.h"
- 970              		.file 5 "/home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/./common/types.h"
- 971              		.file 6 "/home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/./common/portpin.h"
- 972              		.file 7 "/home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/peripheral/include/./gpio/gpio
- 973              		.file 8 "/home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/peripheral/source/gpio/gpio_hi
- 974              		.file 9 "/home/majorviraj/Desktop/Self_balancing/codes/Blink01/epcf/native/port/arm/cm3/nxp/lpc176
+ 970              		.file 5 "../pcf/include/../../epcf/./common/types.h"
+ 971              		.file 6 "../pcf/include/../../epcf/./common/portpin.h"
+ 972              		.file 7 "./include/../../epcf/peripheral/include/./gpio/gpio.h"
+ 973              		.file 8 "./include/../../epcf/peripheral/source/gpio/gpio_hidden.h"
+ 974              		.file 9 "./include/../../epcf/native/port/arm/cm3/nxp/lpc1768/include/pin_lpc1768.h"
  975              		.file 10 "../pcf/include/private/arch/arm/cm3/nxp/lpc1768/./../../../../arm/cm3/nxp/lpc1768/lpc176
  976              		.section	.debug_info,"",%progbits
  977              	.Ldebug_info0:
@@ -1301,24 +1301,24 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  980 0006 00000000 		.4byte	.Ldebug_abbrev0
  981 000a 04       		.byte	0x4
  982 000b 01       		.uleb128 0x1
- 983 000c 47030000 		.4byte	.LASF120
+ 983 000c 4A030000 		.4byte	.LASF120
  984 0010 01       		.byte	0x1
- 985 0011 39020000 		.4byte	.LASF121
- 986 0015 4C000000 		.4byte	.LASF122
+ 985 0011 3C020000 		.4byte	.LASF121
+ 986 0015 42000000 		.4byte	.LASF122
  987 0019 00000000 		.4byte	.Ltext0
  988 001d B8040000 		.4byte	.Letext0
  989 0021 00000000 		.4byte	.Ldebug_line0
  990 0025 02       		.uleb128 0x2
  991 0026 04       		.byte	0x4
  992 0027 07       		.byte	0x7
- 993 0028 26030000 		.4byte	.LASF0
+ 993 0028 29030000 		.4byte	.LASF0
  994 002c 03       		.uleb128 0x3
  995 002d 04       		.byte	0x4
  996 002e 05       		.byte	0x5
  997 002f 696E7400 		.ascii	"int\000"
  998 0033 04       		.uleb128 0x4
- 999 0034 14010000 		.4byte	.LASF2
-ARM GAS  /tmp/ccW15uCt.s 			page 23
+ 999 0034 17010000 		.4byte	.LASF2
+ARM GAS  /tmp/ccSMIOqx.s 			page 23
 
 
  1000 0038 02       		.byte	0x2
@@ -1327,7 +1327,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1003 003e 02       		.uleb128 0x2
  1004 003f 01       		.byte	0x1
  1005 0040 06       		.byte	0x6
- 1006 0041 52010000 		.4byte	.LASF1
+ 1006 0041 55010000 		.4byte	.LASF1
  1007 0045 04       		.uleb128 0x4
  1008 0046 38000000 		.4byte	.LASF3
  1009 004a 02       		.byte	0x2
@@ -1336,49 +1336,49 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1012 0050 02       		.uleb128 0x2
  1013 0051 01       		.byte	0x1
  1014 0052 08       		.byte	0x8
- 1015 0053 88050000 		.4byte	.LASF4
+ 1015 0053 8B050000 		.4byte	.LASF4
  1016 0057 02       		.uleb128 0x2
  1017 0058 02       		.byte	0x2
  1018 0059 05       		.byte	0x5
- 1019 005a BC050000 		.4byte	.LASF5
+ 1019 005a BF050000 		.4byte	.LASF5
  1020 005e 02       		.uleb128 0x2
  1021 005f 02       		.byte	0x2
  1022 0060 07       		.byte	0x7
- 1023 0061 EC030000 		.4byte	.LASF6
+ 1023 0061 EF030000 		.4byte	.LASF6
  1024 0065 04       		.uleb128 0x4
- 1025 0066 B9060000 		.4byte	.LASF7
+ 1025 0066 BC060000 		.4byte	.LASF7
  1026 006a 02       		.byte	0x2
  1027 006b 3F       		.byte	0x3f
  1028 006c 70000000 		.4byte	0x70
  1029 0070 02       		.uleb128 0x2
  1030 0071 04       		.byte	0x4
  1031 0072 05       		.byte	0x5
- 1032 0073 E5010000 		.4byte	.LASF8
+ 1032 0073 E8010000 		.4byte	.LASF8
  1033 0077 04       		.uleb128 0x4
- 1034 0078 D3020000 		.4byte	.LASF9
+ 1034 0078 D6020000 		.4byte	.LASF9
  1035 007c 02       		.byte	0x2
  1036 007d 41       		.byte	0x41
  1037 007e 82000000 		.4byte	0x82
  1038 0082 02       		.uleb128 0x2
  1039 0083 04       		.byte	0x4
  1040 0084 07       		.byte	0x7
- 1041 0085 AF030000 		.4byte	.LASF10
+ 1041 0085 B2030000 		.4byte	.LASF10
  1042 0089 02       		.uleb128 0x2
  1043 008a 08       		.byte	0x8
  1044 008b 05       		.byte	0x5
- 1045 008c 44010000 		.4byte	.LASF11
+ 1045 008c 47010000 		.4byte	.LASF11
  1046 0090 02       		.uleb128 0x2
  1047 0091 08       		.byte	0x8
  1048 0092 07       		.byte	0x7
- 1049 0093 C7000000 		.4byte	.LASF12
+ 1049 0093 CA000000 		.4byte	.LASF12
  1050 0097 02       		.uleb128 0x2
  1051 0098 04       		.byte	0x4
  1052 0099 07       		.byte	0x7
- 1053 009a 98040000 		.4byte	.LASF13
+ 1053 009a 9B040000 		.4byte	.LASF13
  1054 009e 05       		.uleb128 0x5
  1055 009f 04       		.byte	0x4
  1056 00a0 06       		.uleb128 0x6
-ARM GAS  /tmp/ccW15uCt.s 			page 24
+ARM GAS  /tmp/ccSMIOqx.s 			page 24
 
 
  1057 00a1 04       		.byte	0x4
@@ -1388,31 +1388,31 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1061 00a8 02       		.uleb128 0x2
  1062 00a9 01       		.byte	0x1
  1063 00aa 08       		.byte	0x8
- 1064 00ab A9060000 		.4byte	.LASF14
+ 1064 00ab AC060000 		.4byte	.LASF14
  1065 00af 04       		.uleb128 0x4
- 1066 00b0 3E070000 		.4byte	.LASF15
+ 1066 00b0 41070000 		.4byte	.LASF15
  1067 00b4 03       		.byte	0x3
  1068 00b5 13       		.byte	0x13
  1069 00b6 33000000 		.4byte	0x33
  1070 00ba 04       		.uleb128 0x4
- 1071 00bb FE070000 		.4byte	.LASF16
+ 1071 00bb 01080000 		.4byte	.LASF16
  1072 00bf 03       		.byte	0x3
  1073 00c0 14       		.byte	0x14
  1074 00c1 45000000 		.4byte	0x45
  1075 00c5 04       		.uleb128 0x4
- 1076 00c6 80050000 		.4byte	.LASF17
+ 1076 00c6 83050000 		.4byte	.LASF17
  1077 00ca 03       		.byte	0x3
  1078 00cb 1F       		.byte	0x1f
  1079 00cc 65000000 		.4byte	0x65
  1080 00d0 04       		.uleb128 0x4
- 1081 00d1 65060000 		.4byte	.LASF18
+ 1081 00d1 68060000 		.4byte	.LASF18
  1082 00d5 03       		.byte	0x3
  1083 00d6 20       		.byte	0x20
  1084 00d7 77000000 		.4byte	0x77
  1085 00db 02       		.uleb128 0x2
  1086 00dc 04       		.byte	0x4
  1087 00dd 04       		.byte	0x4
- 1088 00de 26050000 		.4byte	.LASF19
+ 1088 00de 29050000 		.4byte	.LASF19
  1089 00e2 08       		.uleb128 0x8
  1090 00e3 D0000000 		.4byte	0xd0
  1091 00e7 09       		.uleb128 0x9
@@ -1430,7 +1430,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1103 00ff 6D01     		.2byte	0x16d
  1104 0101 BA010000 		.4byte	0x1ba
  1105 0105 0D       		.uleb128 0xd
- 1106 0106 2D040000 		.4byte	.LASF20
+ 1106 0106 30040000 		.4byte	.LASF20
  1107 010a 04       		.byte	0x4
  1108 010b 6F01     		.2byte	0x16f
  1109 010d E7000000 		.4byte	0xe7
@@ -1438,10 +1438,10 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1111 0112 23       		.byte	0x23
  1112 0113 00       		.uleb128 0
  1113 0114 0D       		.uleb128 0xd
-ARM GAS  /tmp/ccW15uCt.s 			page 25
+ARM GAS  /tmp/ccSMIOqx.s 			page 25
 
 
- 1114 0115 63080000 		.4byte	.LASF21
+ 1114 0115 66080000 		.4byte	.LASF21
  1115 0119 04       		.byte	0x4
  1116 011a 7001     		.2byte	0x170
  1117 011c E7000000 		.4byte	0xe7
@@ -1449,7 +1449,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1119 0121 23       		.byte	0x23
  1120 0122 04       		.uleb128 0x4
  1121 0123 0D       		.uleb128 0xd
- 1122 0124 44080000 		.4byte	.LASF22
+ 1122 0124 47080000 		.4byte	.LASF22
  1123 0128 04       		.byte	0x4
  1124 0129 7101     		.2byte	0x171
  1125 012b E7000000 		.4byte	0xe7
@@ -1457,7 +1457,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1127 0130 23       		.byte	0x23
  1128 0131 08       		.uleb128 0x8
  1129 0132 0D       		.uleb128 0xd
- 1130 0133 86000000 		.4byte	.LASF23
+ 1130 0133 89000000 		.4byte	.LASF23
  1131 0137 04       		.byte	0x4
  1132 0138 7201     		.2byte	0x172
  1133 013a E2000000 		.4byte	0xe2
@@ -1465,7 +1465,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1135 013f 23       		.byte	0x23
  1136 0140 0C       		.uleb128 0xc
  1137 0141 0D       		.uleb128 0xd
- 1138 0142 06080000 		.4byte	.LASF24
+ 1138 0142 09080000 		.4byte	.LASF24
  1139 0146 04       		.byte	0x4
  1140 0147 7301     		.2byte	0x173
  1141 0149 E2000000 		.4byte	0xe2
@@ -1473,7 +1473,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1143 014e 23       		.byte	0x23
  1144 014f 10       		.uleb128 0x10
  1145 0150 0D       		.uleb128 0xd
- 1146 0151 F4070000 		.4byte	.LASF25
+ 1146 0151 F7070000 		.4byte	.LASF25
  1147 0155 04       		.byte	0x4
  1148 0156 7401     		.2byte	0x174
  1149 0158 E2000000 		.4byte	0xe2
@@ -1481,7 +1481,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1151 015d 23       		.byte	0x23
  1152 015e 14       		.uleb128 0x14
  1153 015f 0D       		.uleb128 0xd
- 1154 0160 3D050000 		.4byte	.LASF26
+ 1154 0160 40050000 		.4byte	.LASF26
  1155 0164 04       		.byte	0x4
  1156 0165 7501     		.2byte	0x175
  1157 0167 EC000000 		.4byte	0xec
@@ -1489,7 +1489,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1159 016c 23       		.byte	0x23
  1160 016d 18       		.uleb128 0x18
  1161 016e 0D       		.uleb128 0xd
- 1162 016f C1030000 		.4byte	.LASF27
+ 1162 016f C4030000 		.4byte	.LASF27
  1163 0173 04       		.byte	0x4
  1164 0174 7601     		.2byte	0x176
  1165 0176 E7000000 		.4byte	0xe7
@@ -1497,8 +1497,8 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1167 017b 23       		.byte	0x23
  1168 017c 24       		.uleb128 0x24
  1169 017d 0D       		.uleb128 0xd
- 1170 017e 2D020000 		.4byte	.LASF28
-ARM GAS  /tmp/ccW15uCt.s 			page 26
+ 1170 017e 30020000 		.4byte	.LASF28
+ARM GAS  /tmp/ccSMIOqx.s 			page 26
 
 
  1171 0182 04       		.byte	0x4
@@ -1508,7 +1508,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1175 018a 23       		.byte	0x23
  1176 018b 28       		.uleb128 0x28
  1177 018c 0D       		.uleb128 0xd
- 1178 018d 0A010000 		.4byte	.LASF29
+ 1178 018d 0D010000 		.4byte	.LASF29
  1179 0191 04       		.byte	0x4
  1180 0192 7801     		.2byte	0x178
  1181 0194 E2000000 		.4byte	0xe2
@@ -1516,7 +1516,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1183 0199 23       		.byte	0x23
  1184 019a 2C       		.uleb128 0x2c
  1185 019b 0D       		.uleb128 0xd
- 1186 019c 3A080000 		.4byte	.LASF30
+ 1186 019c 3D080000 		.4byte	.LASF30
  1187 01a0 04       		.byte	0x4
  1188 01a1 7901     		.2byte	0x179
  1189 01a3 E2000000 		.4byte	0xe2
@@ -1524,7 +1524,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1191 01a8 23       		.byte	0x23
  1192 01a9 30       		.uleb128 0x30
  1193 01aa 0D       		.uleb128 0xd
- 1194 01ab 24080000 		.4byte	.LASF31
+ 1194 01ab 27080000 		.4byte	.LASF31
  1195 01af 04       		.byte	0x4
  1196 01b0 7A01     		.2byte	0x17a
  1197 01b2 E2000000 		.4byte	0xe2
@@ -1533,7 +1533,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1200 01b8 34       		.uleb128 0x34
  1201 01b9 00       		.byte	0
  1202 01ba 0E       		.uleb128 0xe
- 1203 01bb 1D040000 		.4byte	.LASF32
+ 1203 01bb 20040000 		.4byte	.LASF32
  1204 01bf 04       		.byte	0x4
  1205 01c0 7B01     		.2byte	0x17b
  1206 01c2 FC000000 		.4byte	0xfc
@@ -1543,25 +1543,25 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1210 01c9 06       		.byte	0x6
  1211 01ca E1010000 		.4byte	0x1e1
  1212 01ce 10       		.uleb128 0x10
- 1213 01cf FE040000 		.4byte	.LASF33
+ 1213 01cf 01050000 		.4byte	.LASF33
  1214 01d3 00       		.sleb128 0
  1215 01d4 10       		.uleb128 0x10
- 1216 01d5 52060000 		.4byte	.LASF34
+ 1216 01d5 55060000 		.4byte	.LASF34
  1217 01d9 01       		.sleb128 1
  1218 01da 10       		.uleb128 0x10
- 1219 01db CD030000 		.4byte	.LASF35
+ 1219 01db D0030000 		.4byte	.LASF35
  1220 01df 02       		.sleb128 2
  1221 01e0 00       		.byte	0
  1222 01e1 04       		.uleb128 0x4
- 1223 01e2 0D040000 		.4byte	.LASF36
+ 1223 01e2 10040000 		.4byte	.LASF36
  1224 01e6 05       		.byte	0x5
  1225 01e7 0A       		.byte	0xa
  1226 01e8 C6010000 		.4byte	0x1c6
  1227 01ec 04       		.uleb128 0x4
-ARM GAS  /tmp/ccW15uCt.s 			page 27
+ARM GAS  /tmp/ccSMIOqx.s 			page 27
 
 
- 1228 01ed 64050000 		.4byte	.LASF37
+ 1228 01ed 67050000 		.4byte	.LASF37
  1229 01f1 05       		.byte	0x5
  1230 01f2 0E       		.byte	0xe
  1231 01f3 A0000000 		.4byte	0xa0
@@ -1571,7 +1571,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1235 01fa 47       		.byte	0x47
  1236 01fb 1C020000 		.4byte	0x21c
  1237 01ff 12       		.uleb128 0x12
- 1238 0200 00030000 		.4byte	.LASF38
+ 1238 0200 03030000 		.4byte	.LASF38
  1239 0204 06       		.byte	0x6
  1240 0205 49       		.byte	0x49
  1241 0206 BA000000 		.4byte	0xba
@@ -1588,23 +1588,23 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1252 021a 01       		.uleb128 0x1
  1253 021b 00       		.byte	0
  1254 021c 04       		.uleb128 0x4
- 1255 021d FF030000 		.4byte	.LASF39
+ 1255 021d 02040000 		.4byte	.LASF39
  1256 0221 06       		.byte	0x6
  1257 0222 4B       		.byte	0x4b
  1258 0223 F7010000 		.4byte	0x1f7
  1259 0227 04       		.uleb128 0x4
- 1260 0228 2C050000 		.4byte	.LASF40
+ 1260 0228 2F050000 		.4byte	.LASF40
  1261 022c 07       		.byte	0x7
  1262 022d 0A       		.byte	0xa
  1263 022e 32020000 		.4byte	0x232
  1264 0232 14       		.uleb128 0x14
- 1265 0233 0D070000 		.4byte	.LASF76
+ 1265 0233 10070000 		.4byte	.LASF76
  1266 0237 08       		.byte	0x8
  1267 0238 08       		.byte	0x8
  1268 0239 16       		.byte	0x16
  1269 023a 77020000 		.4byte	0x277
  1270 023e 12       		.uleb128 0x12
- 1271 023f B2010000 		.4byte	.LASF41
+ 1271 023f B5010000 		.4byte	.LASF41
  1272 0243 08       		.byte	0x8
  1273 0244 18       		.byte	0x18
  1274 0245 3D050000 		.4byte	0x53d
@@ -1612,18 +1612,18 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1276 024a 23       		.byte	0x23
  1277 024b 00       		.uleb128 0
  1278 024c 12       		.uleb128 0x12
- 1279 024d 5C050000 		.4byte	.LASF42
+ 1279 024d 5F050000 		.4byte	.LASF42
  1280 0251 08       		.byte	0x8
  1281 0252 19       		.byte	0x19
  1282 0253 1C020000 		.4byte	0x21c
  1283 0257 02       		.byte	0x2
  1284 0258 23       		.byte	0x23
-ARM GAS  /tmp/ccW15uCt.s 			page 28
+ARM GAS  /tmp/ccSMIOqx.s 			page 28
 
 
  1285 0259 04       		.uleb128 0x4
  1286 025a 12       		.uleb128 0x12
- 1287 025b 42000000 		.4byte	.LASF43
+ 1287 025b 7F000000 		.4byte	.LASF43
  1288 025f 08       		.byte	0x8
  1289 0260 1A       		.byte	0x1a
  1290 0261 9C020000 		.4byte	0x29c
@@ -1631,7 +1631,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1292 0266 23       		.byte	0x23
  1293 0267 06       		.uleb128 0x6
  1294 0268 12       		.uleb128 0x12
- 1295 0269 47050000 		.4byte	.LASF44
+ 1295 0269 4A050000 		.4byte	.LASF44
  1296 026d 08       		.byte	0x8
  1297 026e 1C       		.byte	0x1c
  1298 026f BA000000 		.4byte	0xba
@@ -1640,77 +1640,77 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1301 0275 07       		.uleb128 0x7
  1302 0276 00       		.byte	0
  1303 0277 15       		.uleb128 0x15
- 1304 0278 12050000 		.4byte	.LASF50
+ 1304 0278 15050000 		.4byte	.LASF50
  1305 027c 01       		.byte	0x1
  1306 027d 07       		.byte	0x7
  1307 027e 0D       		.byte	0xd
  1308 027f 9C020000 		.4byte	0x29c
  1309 0283 10       		.uleb128 0x10
- 1310 0284 A1040000 		.4byte	.LASF45
+ 1310 0284 A4040000 		.4byte	.LASF45
  1311 0288 00       		.sleb128 0
  1312 0289 10       		.uleb128 0x10
- 1313 028a 87010000 		.4byte	.LASF46
+ 1313 028a 8A010000 		.4byte	.LASF46
  1314 028e 01       		.sleb128 1
  1315 028f 10       		.uleb128 0x10
- 1316 0290 E6020000 		.4byte	.LASF47
+ 1316 0290 E9020000 		.4byte	.LASF47
  1317 0294 02       		.sleb128 2
  1318 0295 10       		.uleb128 0x10
- 1319 0296 90000000 		.4byte	.LASF48
+ 1319 0296 93000000 		.4byte	.LASF48
  1320 029a 03       		.sleb128 3
  1321 029b 00       		.byte	0
  1322 029c 04       		.uleb128 0x4
- 1323 029d 82040000 		.4byte	.LASF49
+ 1323 029d 85040000 		.4byte	.LASF49
  1324 02a1 07       		.byte	0x7
  1325 02a2 13       		.byte	0x13
  1326 02a3 77020000 		.4byte	0x277
  1327 02a7 15       		.uleb128 0x15
- 1328 02a8 96050000 		.4byte	.LASF51
+ 1328 02a8 99050000 		.4byte	.LASF51
  1329 02ac 01       		.byte	0x1
  1330 02ad 07       		.byte	0x7
  1331 02ae 16       		.byte	0x16
  1332 02af D2020000 		.4byte	0x2d2
  1333 02b3 10       		.uleb128 0x10
- 1334 02b4 DE000000 		.4byte	.LASF52
+ 1334 02b4 E1000000 		.4byte	.LASF52
  1335 02b8 00       		.sleb128 0
  1336 02b9 10       		.uleb128 0x10
- 1337 02ba 67040000 		.4byte	.LASF53
+ 1337 02ba 6A040000 		.4byte	.LASF53
  1338 02be 01       		.sleb128 1
  1339 02bf 10       		.uleb128 0x10
- 1340 02c0 F9050000 		.4byte	.LASF54
+ 1340 02c0 FC050000 		.4byte	.LASF54
  1341 02c4 02       		.sleb128 2
-ARM GAS  /tmp/ccW15uCt.s 			page 29
+ARM GAS  /tmp/ccSMIOqx.s 			page 29
 
 
  1342 02c5 10       		.uleb128 0x10
- 1343 02c6 DE050000 		.4byte	.LASF55
+ 1343 02c6 E1050000 		.4byte	.LASF55
  1344 02ca 03       		.sleb128 3
  1345 02cb 10       		.uleb128 0x10
- 1346 02cc 71010000 		.4byte	.LASF56
+ 1346 02cc 74010000 		.4byte	.LASF56
  1347 02d0 04       		.sleb128 4
  1348 02d1 00       		.byte	0
  1349 02d2 04       		.uleb128 0x4
- 1350 02d3 10080000 		.4byte	.LASF57
+ 1350 02d3 13080000 		.4byte	.LASF57
  1351 02d7 07       		.byte	0x7
  1352 02d8 1D       		.byte	0x1d
  1353 02d9 A7020000 		.4byte	0x2a7
  1354 02dd 15       		.uleb128 0x15
- 1355 02de A2010000 		.4byte	.LASF58
+ 1355 02de A5010000 		.4byte	.LASF58
  1356 02e2 01       		.byte	0x1
  1357 02e3 07       		.byte	0x7
  1358 02e4 20       		.byte	0x20
  1359 02e5 FC020000 		.4byte	0x2fc
  1360 02e9 10       		.uleb128 0x10
- 1361 02ea C8070000 		.4byte	.LASF59
+ 1361 02ea CB070000 		.4byte	.LASF59
  1362 02ee 00       		.sleb128 0
  1363 02ef 10       		.uleb128 0x10
- 1364 02f0 45070000 		.4byte	.LASF60
+ 1364 02f0 48070000 		.4byte	.LASF60
  1365 02f4 01       		.sleb128 1
  1366 02f5 10       		.uleb128 0x10
- 1367 02f6 C3010000 		.4byte	.LASF61
+ 1367 02f6 C6010000 		.4byte	.LASF61
  1368 02fa 02       		.sleb128 2
  1369 02fb 00       		.byte	0
  1370 02fc 04       		.uleb128 0x4
- 1371 02fd C4040000 		.4byte	.LASF62
+ 1371 02fd C7040000 		.4byte	.LASF62
  1372 0301 07       		.byte	0x7
  1373 0302 25       		.byte	0x25
  1374 0303 DD020000 		.4byte	0x2dd
@@ -1720,29 +1720,29 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1378 030a 29       		.byte	0x29
  1379 030b 34030000 		.4byte	0x334
  1380 030f 10       		.uleb128 0x10
- 1381 0310 FE010000 		.4byte	.LASF63
+ 1381 0310 01020000 		.4byte	.LASF63
  1382 0314 00       		.sleb128 0
  1383 0315 10       		.uleb128 0x10
  1384 0316 00000000 		.4byte	.LASF64
  1385 031a 01       		.sleb128 1
  1386 031b 10       		.uleb128 0x10
- 1387 031c 37060000 		.4byte	.LASF65
+ 1387 031c 3A060000 		.4byte	.LASF65
  1388 0320 02       		.sleb128 2
  1389 0321 10       		.uleb128 0x10
  1390 0322 1D000000 		.4byte	.LASF66
  1391 0326 03       		.sleb128 3
  1392 0327 10       		.uleb128 0x10
- 1393 0328 DB060000 		.4byte	.LASF67
+ 1393 0328 DE060000 		.4byte	.LASF67
  1394 032c 04       		.sleb128 4
  1395 032d 10       		.uleb128 0x10
- 1396 032e BD020000 		.4byte	.LASF68
+ 1396 032e C0020000 		.4byte	.LASF68
  1397 0332 05       		.sleb128 5
  1398 0333 00       		.byte	0
-ARM GAS  /tmp/ccW15uCt.s 			page 30
+ARM GAS  /tmp/ccSMIOqx.s 			page 30
 
 
  1399 0334 04       		.uleb128 0x4
- 1400 0335 95060000 		.4byte	.LASF69
+ 1400 0335 98060000 		.4byte	.LASF69
  1401 0339 07       		.byte	0x7
  1402 033a 30       		.byte	0x30
  1403 033b 07030000 		.4byte	0x307
@@ -1752,7 +1752,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1407 0342 3B       		.byte	0x3b
  1408 0343 AA030000 		.4byte	0x3aa
  1409 0347 12       		.uleb128 0x12
- 1410 0348 5C050000 		.4byte	.LASF42
+ 1410 0348 5F050000 		.4byte	.LASF42
  1411 034c 07       		.byte	0x7
  1412 034d 3D       		.byte	0x3d
  1413 034e 1C020000 		.4byte	0x21c
@@ -1760,7 +1760,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1415 0353 23       		.byte	0x23
  1416 0354 00       		.uleb128 0
  1417 0355 12       		.uleb128 0x12
- 1418 0356 42000000 		.4byte	.LASF43
+ 1418 0356 7F000000 		.4byte	.LASF43
  1419 035a 07       		.byte	0x7
  1420 035b 3E       		.byte	0x3e
  1421 035c 9C020000 		.4byte	0x29c
@@ -1768,7 +1768,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1423 0361 23       		.byte	0x23
  1424 0362 02       		.uleb128 0x2
  1425 0363 12       		.uleb128 0x12
- 1426 0364 AE060000 		.4byte	.LASF70
+ 1426 0364 B1060000 		.4byte	.LASF70
  1427 0368 07       		.byte	0x7
  1428 0369 3F       		.byte	0x3f
  1429 036a D2020000 		.4byte	0x2d2
@@ -1776,7 +1776,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1431 036f 23       		.byte	0x23
  1432 0370 03       		.uleb128 0x3
  1433 0371 12       		.uleb128 0x12
- 1434 0372 50080000 		.4byte	.LASF71
+ 1434 0372 53080000 		.4byte	.LASF71
  1435 0376 07       		.byte	0x7
  1436 0377 40       		.byte	0x40
  1437 0378 FC020000 		.4byte	0x2fc
@@ -1784,7 +1784,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1439 037d 23       		.byte	0x23
  1440 037e 04       		.uleb128 0x4
  1441 037f 12       		.uleb128 0x12
- 1442 0380 7C020000 		.4byte	.LASF72
+ 1442 0380 7F020000 		.4byte	.LASF72
  1443 0384 07       		.byte	0x7
  1444 0385 41       		.byte	0x41
  1445 0386 E1010000 		.4byte	0x1e1
@@ -1792,18 +1792,18 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1447 038b 23       		.byte	0x23
  1448 038c 05       		.uleb128 0x5
  1449 038d 12       		.uleb128 0x12
- 1450 038e E4030000 		.4byte	.LASF73
+ 1450 038e E7030000 		.4byte	.LASF73
  1451 0392 07       		.byte	0x7
  1452 0393 42       		.byte	0x42
  1453 0394 34030000 		.4byte	0x334
  1454 0398 02       		.byte	0x2
  1455 0399 23       		.byte	0x23
-ARM GAS  /tmp/ccW15uCt.s 			page 31
+ARM GAS  /tmp/ccSMIOqx.s 			page 31
 
 
  1456 039a 06       		.uleb128 0x6
  1457 039b 12       		.uleb128 0x12
- 1458 039c A4070000 		.4byte	.LASF74
+ 1458 039c A7070000 		.4byte	.LASF74
  1459 03a0 07       		.byte	0x7
  1460 03a1 43       		.byte	0x43
  1461 03a2 9E000000 		.4byte	0x9e
@@ -1812,18 +1812,18 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1464 03a8 08       		.uleb128 0x8
  1465 03a9 00       		.byte	0
  1466 03aa 04       		.uleb128 0x4
- 1467 03ab 59040000 		.4byte	.LASF75
+ 1467 03ab 5C040000 		.4byte	.LASF75
  1468 03af 07       		.byte	0x7
  1469 03b0 44       		.byte	0x44
  1470 03b1 3F030000 		.4byte	0x33f
  1471 03b5 14       		.uleb128 0x14
- 1472 03b6 B2020000 		.4byte	.LASF77
+ 1472 03b6 B5020000 		.4byte	.LASF77
  1473 03ba 14       		.byte	0x14
  1474 03bb 09       		.byte	0x9
  1475 03bc 26       		.byte	0x26
  1476 03bd 08040000 		.4byte	0x408
  1477 03c1 12       		.uleb128 0x12
- 1478 03c2 5C050000 		.4byte	.LASF42
+ 1478 03c2 5F050000 		.4byte	.LASF42
  1479 03c6 09       		.byte	0x9
  1480 03c7 28       		.byte	0x28
  1481 03c8 1C020000 		.4byte	0x21c
@@ -1831,7 +1831,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1483 03cd 23       		.byte	0x23
  1484 03ce 00       		.uleb128 0
  1485 03cf 12       		.uleb128 0x12
- 1486 03d0 42000000 		.4byte	.LASF43
+ 1486 03d0 7F000000 		.4byte	.LASF43
  1487 03d4 09       		.byte	0x9
  1488 03d5 29       		.byte	0x29
  1489 03d6 D0000000 		.4byte	0xd0
@@ -1839,7 +1839,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1491 03db 23       		.byte	0x23
  1492 03dc 04       		.uleb128 0x4
  1493 03dd 12       		.uleb128 0x12
- 1494 03de AE060000 		.4byte	.LASF70
+ 1494 03de B1060000 		.4byte	.LASF70
  1495 03e2 09       		.byte	0x9
  1496 03e3 2A       		.byte	0x2a
  1497 03e4 D0000000 		.4byte	0xd0
@@ -1847,7 +1847,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1499 03e9 23       		.byte	0x23
  1500 03ea 08       		.uleb128 0x8
  1501 03eb 12       		.uleb128 0x12
- 1502 03ec 50080000 		.4byte	.LASF71
+ 1502 03ec 53080000 		.4byte	.LASF71
  1503 03f0 09       		.byte	0x9
  1504 03f1 2B       		.byte	0x2b
  1505 03f2 D0000000 		.4byte	0xd0
@@ -1855,10 +1855,10 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1507 03f7 23       		.byte	0x23
  1508 03f8 0C       		.uleb128 0xc
  1509 03f9 12       		.uleb128 0x12
- 1510 03fa C6050000 		.4byte	.LASF78
+ 1510 03fa C9050000 		.4byte	.LASF78
  1511 03fe 09       		.byte	0x9
  1512 03ff 2C       		.byte	0x2c
-ARM GAS  /tmp/ccW15uCt.s 			page 32
+ARM GAS  /tmp/ccSMIOqx.s 			page 32
 
 
  1513 0400 D0000000 		.4byte	0xd0
@@ -1867,23 +1867,23 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1516 0406 10       		.uleb128 0x10
  1517 0407 00       		.byte	0
  1518 0408 04       		.uleb128 0x4
- 1519 0409 97070000 		.4byte	.LASF79
+ 1519 0409 9A070000 		.4byte	.LASF79
  1520 040d 09       		.byte	0x9
  1521 040e 2D       		.byte	0x2d
  1522 040f B5030000 		.4byte	0x3b5
  1523 0413 04       		.uleb128 0x4
- 1524 0414 6F080000 		.4byte	.LASF80
+ 1524 0414 72080000 		.4byte	.LASF80
  1525 0418 08       		.byte	0x8
  1526 0419 0C       		.byte	0xc
  1527 041a 1E040000 		.4byte	0x41e
  1528 041e 14       		.uleb128 0x14
- 1529 041f F7000000 		.4byte	.LASF81
+ 1529 041f FA000000 		.4byte	.LASF81
  1530 0423 1C       		.byte	0x1c
  1531 0424 08       		.byte	0x8
  1532 0425 20       		.byte	0x20
  1533 0426 8D040000 		.4byte	0x48d
  1534 042a 12       		.uleb128 0x12
- 1535 042b 5A080000 		.4byte	.LASF82
+ 1535 042b 5D080000 		.4byte	.LASF82
  1536 042f 08       		.byte	0x8
  1537 0430 22       		.byte	0x22
  1538 0431 8D040000 		.4byte	0x48d
@@ -1891,7 +1891,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1540 0436 23       		.byte	0x23
  1541 0437 00       		.uleb128 0
  1542 0438 12       		.uleb128 0x12
- 1543 0439 51040000 		.4byte	.LASF83
+ 1543 0439 54040000 		.4byte	.LASF83
  1544 043d 08       		.byte	0x8
  1545 043e 23       		.byte	0x23
  1546 043f BF040000 		.4byte	0x4bf
@@ -1899,7 +1899,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1548 0444 23       		.byte	0x23
  1549 0445 04       		.uleb128 0x4
  1550 0446 12       		.uleb128 0x12
- 1551 0447 E6040000 		.4byte	.LASF84
+ 1551 0447 E9040000 		.4byte	.LASF84
  1552 044b 08       		.byte	0x8
  1553 044c 24       		.byte	0x24
  1554 044d E0040000 		.4byte	0x4e0
@@ -1907,7 +1907,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1556 0452 23       		.byte	0x23
  1557 0453 08       		.uleb128 0x8
  1558 0454 12       		.uleb128 0x12
- 1559 0455 BB040000 		.4byte	.LASF85
+ 1559 0455 BE040000 		.4byte	.LASF85
  1560 0459 08       		.byte	0x8
  1561 045a 25       		.byte	0x25
  1562 045b EB040000 		.4byte	0x4eb
@@ -1915,10 +1915,10 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1564 0460 23       		.byte	0x23
  1565 0461 0C       		.uleb128 0xc
  1566 0462 12       		.uleb128 0x12
- 1567 0463 B0070000 		.4byte	.LASF86
+ 1567 0463 B3070000 		.4byte	.LASF86
  1568 0467 08       		.byte	0x8
  1569 0468 26       		.byte	0x26
-ARM GAS  /tmp/ccW15uCt.s 			page 33
+ARM GAS  /tmp/ccSMIOqx.s 			page 33
 
 
  1570 0469 F6040000 		.4byte	0x4f6
@@ -1926,7 +1926,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1572 046e 23       		.byte	0x23
  1573 046f 10       		.uleb128 0x10
  1574 0470 12       		.uleb128 0x12
- 1575 0471 5E010000 		.4byte	.LASF87
+ 1575 0471 61010000 		.4byte	.LASF87
  1576 0475 08       		.byte	0x8
  1577 0476 27       		.byte	0x27
  1578 0477 1C050000 		.4byte	0x51c
@@ -1934,7 +1934,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1580 047c 23       		.byte	0x23
  1581 047d 14       		.uleb128 0x14
  1582 047e 12       		.uleb128 0x12
- 1583 047f A4070000 		.4byte	.LASF74
+ 1583 047f A7070000 		.4byte	.LASF74
  1584 0483 08       		.byte	0x8
  1585 0484 28       		.byte	0x28
  1586 0485 9E000000 		.4byte	0x9e
@@ -1943,7 +1943,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1589 048b 18       		.uleb128 0x18
  1590 048c 00       		.byte	0
  1591 048d 04       		.uleb128 0x4
- 1592 048e EE010000 		.4byte	.LASF88
+ 1592 048e F1010000 		.4byte	.LASF88
  1593 0492 08       		.byte	0x8
  1594 0493 0F       		.byte	0xf
  1595 0494 98040000 		.4byte	0x498
@@ -1966,7 +1966,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1612 04ba 04       		.byte	0x4
  1613 04bb AA030000 		.4byte	0x3aa
  1614 04bf 04       		.uleb128 0x4
- 1615 04c0 A8000000 		.4byte	.LASF89
+ 1615 04c0 AB000000 		.4byte	.LASF89
  1616 04c4 08       		.byte	0x8
  1617 04c5 10       		.byte	0x10
  1618 04c6 CA040000 		.4byte	0x4ca
@@ -1978,23 +1978,23 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1624 04d2 AF000000 		.4byte	0xaf
  1625 04d6 E0040000 		.4byte	0x4e0
  1626 04da 17       		.uleb128 0x17
-ARM GAS  /tmp/ccW15uCt.s 			page 34
+ARM GAS  /tmp/ccSMIOqx.s 			page 34
 
 
  1627 04db B3040000 		.4byte	0x4b3
  1628 04df 00       		.byte	0
  1629 04e0 04       		.uleb128 0x4
- 1630 04e1 1C020000 		.4byte	.LASF90
+ 1630 04e1 1F020000 		.4byte	.LASF90
  1631 04e5 08       		.byte	0x8
  1632 04e6 11       		.byte	0x11
  1633 04e7 CA040000 		.4byte	0x4ca
  1634 04eb 04       		.uleb128 0x4
- 1635 04ec E4070000 		.4byte	.LASF91
+ 1635 04ec E7070000 		.4byte	.LASF91
  1636 04f0 08       		.byte	0x8
  1637 04f1 12       		.byte	0x12
  1638 04f2 CA040000 		.4byte	0x4ca
  1639 04f6 04       		.uleb128 0x4
- 1640 04f7 C3060000 		.4byte	.LASF92
+ 1640 04f7 C6060000 		.4byte	.LASF92
  1641 04fb 08       		.byte	0x8
  1642 04fc 13       		.byte	0x13
  1643 04fd 01050000 		.4byte	0x501
@@ -2011,7 +2011,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1654 0517 9C020000 		.4byte	0x29c
  1655 051b 00       		.byte	0
  1656 051c 04       		.uleb128 0x4
- 1657 051d 2A010000 		.4byte	.LASF93
+ 1657 051d 2D010000 		.4byte	.LASF93
  1658 0521 08       		.byte	0x8
  1659 0522 14       		.byte	0x14
  1660 0523 27050000 		.4byte	0x527
@@ -2030,7 +2030,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1673 053f 13040000 		.4byte	0x413
  1674 0543 18       		.uleb128 0x18
  1675 0544 01       		.byte	0x1
- 1676 0545 05030000 		.4byte	.LASF97
+ 1676 0545 08030000 		.4byte	.LASF97
  1677 0549 01       		.byte	0x1
  1678 054a 28       		.byte	0x28
  1679 054b 01       		.byte	0x1
@@ -2038,13 +2038,13 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1681 0550 00000000 		.4byte	.LFB40
  1682 0554 34010000 		.4byte	.LFE40
  1683 0558 00000000 		.4byte	.LLST0
-ARM GAS  /tmp/ccW15uCt.s 			page 35
+ARM GAS  /tmp/ccSMIOqx.s 			page 35
 
 
  1684 055c 01       		.byte	0x1
  1685 055d 9A050000 		.4byte	0x59a
  1686 0561 19       		.uleb128 0x19
- 1687 0562 3F030000 		.4byte	.LASF99
+ 1687 0562 42030000 		.4byte	.LASF99
  1688 0566 01       		.byte	0x1
  1689 0567 28       		.byte	0x28
  1690 0568 B9040000 		.4byte	0x4b9
@@ -2052,7 +2052,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1692 056d 91       		.byte	0x91
  1693 056e 5C       		.sleb128 -36
  1694 056f 1A       		.uleb128 0x1a
- 1695 0570 DE020000 		.4byte	.LASF94
+ 1695 0570 E1020000 		.4byte	.LASF94
  1696 0574 01       		.byte	0x1
  1697 0575 2A       		.byte	0x2a
  1698 0576 08040000 		.4byte	0x408
@@ -2060,7 +2060,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1700 057b 91       		.byte	0x91
  1701 057c 60       		.sleb128 -32
  1702 057d 1A       		.uleb128 0x1a
- 1703 057e C1070000 		.4byte	.LASF95
+ 1703 057e C4070000 		.4byte	.LASF95
  1704 0582 01       		.byte	0x1
  1705 0583 2B       		.byte	0x2b
  1706 0584 AF000000 		.4byte	0xaf
@@ -2068,7 +2068,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1708 0589 91       		.byte	0x91
  1709 058a 76       		.sleb128 -10
  1710 058b 1A       		.uleb128 0x1a
- 1711 058c B3060000 		.4byte	.LASF96
+ 1711 058c B6060000 		.4byte	.LASF96
  1712 0590 01       		.byte	0x1
  1713 0591 2C       		.byte	0x2c
  1714 0592 AF000000 		.4byte	0xaf
@@ -2078,7 +2078,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1718 0599 00       		.byte	0
  1719 059a 1B       		.uleb128 0x1b
  1720 059b 01       		.byte	0x1
- 1721 059c A8050000 		.4byte	.LASF98
+ 1721 059c AB050000 		.4byte	.LASF98
  1722 05a0 01       		.byte	0x1
  1723 05a1 5F       		.byte	0x5f
  1724 05a2 01       		.byte	0x1
@@ -2089,7 +2089,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1729 05b3 01       		.byte	0x1
  1730 05b4 C7050000 		.4byte	0x5c7
  1731 05b8 19       		.uleb128 0x19
- 1732 05b9 2E080000 		.4byte	.LASF100
+ 1732 05b9 31080000 		.4byte	.LASF100
  1733 05bd 01       		.byte	0x1
  1734 05be 5F       		.byte	0x5f
  1735 05bf C7050000 		.4byte	0x5c7
@@ -2098,14 +2098,14 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1738 05c5 7C       		.sleb128 -4
  1739 05c6 00       		.byte	0
  1740 05c7 06       		.uleb128 0x6
-ARM GAS  /tmp/ccW15uCt.s 			page 36
+ARM GAS  /tmp/ccSMIOqx.s 			page 36
 
 
  1741 05c8 04       		.byte	0x4
  1742 05c9 32020000 		.4byte	0x232
  1743 05cd 1B       		.uleb128 0x1b
  1744 05ce 01       		.byte	0x1
- 1745 05cf F7060000 		.4byte	.LASF101
+ 1745 05cf FA060000 		.4byte	.LASF101
  1746 05d3 01       		.byte	0x1
  1747 05d4 65       		.byte	0x65
  1748 05d5 01       		.byte	0x1
@@ -2116,7 +2116,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1753 05e6 01       		.byte	0x1
  1754 05e7 FA050000 		.4byte	0x5fa
  1755 05eb 19       		.uleb128 0x19
- 1756 05ec 2E080000 		.4byte	.LASF100
+ 1756 05ec 31080000 		.4byte	.LASF100
  1757 05f0 01       		.byte	0x1
  1758 05f1 65       		.byte	0x65
  1759 05f2 C7050000 		.4byte	0x5c7
@@ -2126,7 +2126,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1763 05f9 00       		.byte	0
  1764 05fa 1B       		.uleb128 0x1b
  1765 05fb 01       		.byte	0x1
- 1766 05fc 82070000 		.4byte	.LASF102
+ 1766 05fc 85070000 		.4byte	.LASF102
  1767 0600 01       		.byte	0x1
  1768 0601 6B       		.byte	0x6b
  1769 0602 01       		.byte	0x1
@@ -2137,7 +2137,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1774 0613 01       		.byte	0x1
  1775 0614 35060000 		.4byte	0x635
  1776 0618 19       		.uleb128 0x19
- 1777 0619 2E080000 		.4byte	.LASF100
+ 1777 0619 31080000 		.4byte	.LASF100
  1778 061d 01       		.byte	0x1
  1779 061e 6B       		.byte	0x6b
  1780 061f C7050000 		.4byte	0x5c7
@@ -2145,7 +2145,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1782 0624 91       		.byte	0x91
  1783 0625 74       		.sleb128 -12
  1784 0626 1A       		.uleb128 0x1a
- 1785 0627 DF030000 		.4byte	.LASF103
+ 1785 0627 E2030000 		.4byte	.LASF103
  1786 062b 01       		.byte	0x1
  1787 062c 6D       		.byte	0x6d
  1788 062d C5000000 		.4byte	0xc5
@@ -2155,10 +2155,10 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1792 0634 00       		.byte	0
  1793 0635 1B       		.uleb128 0x1b
  1794 0636 01       		.byte	0x1
- 1795 0637 6E060000 		.4byte	.LASF104
+ 1795 0637 71060000 		.4byte	.LASF104
  1796 063b 01       		.byte	0x1
  1797 063c 73       		.byte	0x73
-ARM GAS  /tmp/ccW15uCt.s 			page 37
+ARM GAS  /tmp/ccSMIOqx.s 			page 37
 
 
  1798 063d 01       		.byte	0x1
@@ -2169,7 +2169,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1803 064e 01       		.byte	0x1
  1804 064f 70060000 		.4byte	0x670
  1805 0653 19       		.uleb128 0x19
- 1806 0654 2E080000 		.4byte	.LASF100
+ 1806 0654 31080000 		.4byte	.LASF100
  1807 0658 01       		.byte	0x1
  1808 0659 73       		.byte	0x73
  1809 065a C7050000 		.4byte	0x5c7
@@ -2177,7 +2177,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1811 065f 91       		.byte	0x91
  1812 0660 7C       		.sleb128 -4
  1813 0661 19       		.uleb128 0x19
- 1814 0662 42000000 		.4byte	.LASF43
+ 1814 0662 7F000000 		.4byte	.LASF43
  1815 0666 01       		.byte	0x1
  1816 0667 73       		.byte	0x73
  1817 0668 9C020000 		.4byte	0x29c
@@ -2187,7 +2187,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1821 066f 00       		.byte	0
  1822 0670 1C       		.uleb128 0x1c
  1823 0671 01       		.byte	0x1
- 1824 0672 18060000 		.4byte	.LASF123
+ 1824 0672 1B060000 		.4byte	.LASF123
  1825 0676 01       		.byte	0x1
  1826 0677 79       		.byte	0x79
  1827 0678 D0000000 		.4byte	0xd0
@@ -2199,7 +2199,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1833 0687 01       		.byte	0x1
  1834 0688 1B       		.uleb128 0x1b
  1835 0689 01       		.byte	0x1
- 1836 068a 37040000 		.4byte	.LASF105
+ 1836 068a 3A040000 		.4byte	.LASF105
  1837 068e 01       		.byte	0x1
  1838 068f 7E       		.byte	0x7e
  1839 0690 01       		.byte	0x1
@@ -2210,7 +2210,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1844 06a1 01       		.byte	0x1
  1845 06a2 C3060000 		.4byte	0x6c3
  1846 06a6 19       		.uleb128 0x19
- 1847 06a7 D2050000 		.4byte	.LASF106
+ 1847 06a7 D5050000 		.4byte	.LASF106
  1848 06ab 01       		.byte	0x1
  1849 06ac 7E       		.byte	0x7e
  1850 06ad C7050000 		.4byte	0x5c7
@@ -2218,10 +2218,10 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1852 06b2 91       		.byte	0x91
  1853 06b3 74       		.sleb128 -12
  1854 06b4 1A       		.uleb128 0x1a
-ARM GAS  /tmp/ccW15uCt.s 			page 38
+ARM GAS  /tmp/ccSMIOqx.s 			page 38
 
 
- 1855 06b5 B3060000 		.4byte	.LASF96
+ 1855 06b5 B6060000 		.4byte	.LASF96
  1856 06b9 01       		.byte	0x1
  1857 06ba 80       		.byte	0x80
  1858 06bb BA000000 		.4byte	0xba
@@ -2231,7 +2231,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1862 06c2 00       		.byte	0
  1863 06c3 1B       		.uleb128 0x1b
  1864 06c4 01       		.byte	0x1
- 1865 06c5 84080000 		.4byte	.LASF107
+ 1865 06c5 87080000 		.4byte	.LASF107
  1866 06c9 01       		.byte	0x1
  1867 06ca B4       		.byte	0xb4
  1868 06cb 01       		.byte	0x1
@@ -2242,7 +2242,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1873 06dc 01       		.byte	0x1
  1874 06dd F0060000 		.4byte	0x6f0
  1875 06e1 19       		.uleb128 0x19
- 1876 06e2 D2050000 		.4byte	.LASF106
+ 1876 06e2 D5050000 		.4byte	.LASF106
  1877 06e6 01       		.byte	0x1
  1878 06e7 B4       		.byte	0xb4
  1879 06e8 C7050000 		.4byte	0x5c7
@@ -2252,7 +2252,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1883 06ef 00       		.byte	0
  1884 06f0 1B       		.uleb128 0x1b
  1885 06f1 01       		.byte	0x1
- 1886 06f2 1C070000 		.4byte	.LASF108
+ 1886 06f2 1F070000 		.4byte	.LASF108
  1887 06f6 01       		.byte	0x1
  1888 06f7 BC       		.byte	0xbc
  1889 06f8 01       		.byte	0x1
@@ -2263,7 +2263,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1894 0709 01       		.byte	0x1
  1895 070a 39070000 		.4byte	0x739
  1896 070e 19       		.uleb128 0x19
- 1897 070f D2050000 		.4byte	.LASF106
+ 1897 070f D5050000 		.4byte	.LASF106
  1898 0713 01       		.byte	0x1
  1899 0714 BC       		.byte	0xbc
  1900 0715 C7050000 		.4byte	0x5c7
@@ -2271,18 +2271,18 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1902 071a 91       		.byte	0x91
  1903 071b 74       		.sleb128 -12
  1904 071c 19       		.uleb128 0x19
- 1905 071d 8B060000 		.4byte	.LASF109
+ 1905 071d 8E060000 		.4byte	.LASF109
  1906 0721 01       		.byte	0x1
  1907 0722 BC       		.byte	0xbc
  1908 0723 EC010000 		.4byte	0x1ec
  1909 0727 02       		.byte	0x2
  1910 0728 91       		.byte	0x91
  1911 0729 70       		.sleb128 -16
-ARM GAS  /tmp/ccW15uCt.s 			page 39
+ARM GAS  /tmp/ccSMIOqx.s 			page 39
 
 
  1912 072a 1A       		.uleb128 0x1a
- 1913 072b B3060000 		.4byte	.LASF96
+ 1913 072b B6060000 		.4byte	.LASF96
  1914 072f 01       		.byte	0x1
  1915 0730 BE       		.byte	0xbe
  1916 0731 BA000000 		.4byte	0xba
@@ -2292,7 +2292,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1920 0738 00       		.byte	0
  1921 0739 1B       		.uleb128 0x1b
  1922 073a 01       		.byte	0x1
- 1923 073b 60070000 		.4byte	.LASF110
+ 1923 073b 63070000 		.4byte	.LASF110
  1924 073f 01       		.byte	0x1
  1925 0740 D3       		.byte	0xd3
  1926 0741 01       		.byte	0x1
@@ -2303,7 +2303,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1931 0752 01       		.byte	0x1
  1932 0753 74070000 		.4byte	0x774
  1933 0757 19       		.uleb128 0x19
- 1934 0758 D2050000 		.4byte	.LASF106
+ 1934 0758 D5050000 		.4byte	.LASF106
  1935 075c 01       		.byte	0x1
  1936 075d D3       		.byte	0xd3
  1937 075e C7050000 		.4byte	0x5c7
@@ -2311,7 +2311,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1939 0763 91       		.byte	0x91
  1940 0764 74       		.sleb128 -12
  1941 0765 1A       		.uleb128 0x1a
- 1942 0766 B3060000 		.4byte	.LASF96
+ 1942 0766 B6060000 		.4byte	.LASF96
  1943 076a 01       		.byte	0x1
  1944 076b D6       		.byte	0xd6
  1945 076c BA000000 		.4byte	0xba
@@ -2327,7 +2327,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1955 0782 29       		.byte	0x29
  1956 0783 00       		.byte	0
  1957 0784 1A       		.uleb128 0x1a
- 1958 0785 33030000 		.4byte	.LASF111
+ 1958 0785 36030000 		.4byte	.LASF111
  1959 0789 01       		.byte	0x1
  1960 078a 18       		.byte	0x18
  1961 078b 74070000 		.4byte	0x774
@@ -2335,10 +2335,10 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1963 0790 03       		.byte	0x3
  1964 0791 00000000 		.4byte	gpioIntMode
  1965 0795 1A       		.uleb128 0x1a
- 1966 0796 B7000000 		.4byte	.LASF112
+ 1966 0796 BA000000 		.4byte	.LASF112
  1967 079a 01       		.byte	0x1
  1968 079b 19       		.byte	0x19
-ARM GAS  /tmp/ccW15uCt.s 			page 40
+ARM GAS  /tmp/ccSMIOqx.s 			page 40
 
 
  1969 079c BA000000 		.4byte	0xba
@@ -2346,7 +2346,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1971 07a1 03       		.byte	0x3
  1972 07a2 00000000 		.4byte	gpioDeviceCount
  1973 07a6 1A       		.uleb128 0x1a
- 1974 07a7 F0040000 		.4byte	.LASF113
+ 1974 07a7 F3040000 		.4byte	.LASF113
  1975 07ab 01       		.byte	0x1
  1976 07ac 1A       		.byte	0x1a
  1977 07ad E1010000 		.4byte	0x1e1
@@ -2361,7 +2361,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1986 07c5 29       		.byte	0x29
  1987 07c6 00       		.byte	0
  1988 07c7 1A       		.uleb128 0x1a
- 1989 07c8 9E020000 		.4byte	.LASF114
+ 1989 07c8 A1020000 		.4byte	.LASF114
  1990 07cc 01       		.byte	0x1
  1991 07cd 1B       		.byte	0x1b
  1992 07ce B7070000 		.4byte	0x7b7
@@ -2369,7 +2369,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  1994 07d3 03       		.byte	0x3
  1995 07d4 2C000000 		.4byte	gpioIntCallbackList
  1996 07d8 1A       		.uleb128 0x1a
- 1997 07d9 86020000 		.4byte	.LASF115
+ 1997 07d9 89020000 		.4byte	.LASF115
  1998 07dd 01       		.byte	0x1
  1999 07de 1C       		.byte	0x1c
  2000 07df E1010000 		.4byte	0x1e1
@@ -2384,7 +2384,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  2009 07f7 29       		.byte	0x29
  2010 07f8 00       		.byte	0
  2011 07f9 1A       		.uleb128 0x1a
- 2012 07fa DA040000 		.4byte	.LASF116
+ 2012 07fa DD040000 		.4byte	.LASF116
  2013 07fe 01       		.byte	0x1
  2014 07ff 1D       		.byte	0x1d
  2015 0800 E9070000 		.4byte	0x7e9
@@ -2392,13 +2392,13 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  2017 0805 03       		.byte	0x3
  2018 0806 D8000000 		.4byte	gpioIntList
  2019 080a 1A       		.uleb128 0x1a
- 2020 080b DB010000 		.4byte	.LASF117
+ 2020 080b DE010000 		.4byte	.LASF117
  2021 080f 01       		.byte	0x1
  2022 0810 1E       		.byte	0x1e
  2023 0811 BA000000 		.4byte	0xba
  2024 0815 05       		.byte	0x5
  2025 0816 03       		.byte	0x3
-ARM GAS  /tmp/ccW15uCt.s 			page 41
+ARM GAS  /tmp/ccSMIOqx.s 			page 41
 
 
  2026 0817 D0020000 		.4byte	gpioIntId
@@ -2410,7 +2410,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  2032 0829 29       		.byte	0x29
  2033 082a 00       		.byte	0
  2034 082b 1A       		.uleb128 0x1a
- 2035 082c 1A030000 		.4byte	.LASF118
+ 2035 082c 1D030000 		.4byte	.LASF118
  2036 0830 01       		.byte	0x1
  2037 0831 1F       		.byte	0x1f
  2038 0832 1B080000 		.4byte	0x81b
@@ -2418,7 +2418,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  2040 0837 03       		.byte	0x3
  2041 0838 D4020000 		.4byte	gpioIntBusy
  2042 083c 1A       		.uleb128 0x1a
- 2043 083d 74050000 		.4byte	.LASF119
+ 2043 083d 77050000 		.4byte	.LASF119
  2044 0841 01       		.byte	0x1
  2045 0842 20       		.byte	0x20
  2046 0843 E1010000 		.4byte	0x1e1
@@ -2426,7 +2426,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  2048 0848 03       		.byte	0x3
  2049 0849 FE020000 		.4byte	gpioIntInit
  2050 084d 1D       		.uleb128 0x1d
- 2051 084e 1D010000 		.4byte	.LASF124
+ 2051 084e 20010000 		.4byte	.LASF124
  2052 0852 0A       		.byte	0xa
  2053 0853 E602     		.2byte	0x2e6
  2054 0855 5B080000 		.4byte	0x85b
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  2080 0012 00       		.byte	0
  2081 0013 02       		.uleb128 0x2
  2082 0014 24       		.uleb128 0x24
-ARM GAS  /tmp/ccW15uCt.s 			page 42
+ARM GAS  /tmp/ccSMIOqx.s 			page 42
 
 
  2083 0015 00       		.byte	0
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  2137 004b 00       		.byte	0
  2138 004c 00       		.byte	0
  2139 004d 08       		.uleb128 0x8
-ARM GAS  /tmp/ccW15uCt.s 			page 43
+ARM GAS  /tmp/ccSMIOqx.s 			page 43
 
 
  2140 004e 35       		.uleb128 0x35
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  2194 0084 13       		.uleb128 0x13
  2195 0085 38       		.uleb128 0x38
  2196 0086 0A       		.uleb128 0xa
-ARM GAS  /tmp/ccW15uCt.s 			page 44
+ARM GAS  /tmp/ccSMIOqx.s 			page 44
 
 
  2197 0087 00       		.byte	0
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  2251 00bd 0E       		.uleb128 0xe
  2252 00be 3A       		.uleb128 0x3a
  2253 00bf 0B       		.uleb128 0xb
-ARM GAS  /tmp/ccW15uCt.s 			page 45
+ARM GAS  /tmp/ccSMIOqx.s 			page 45
 
 
  2254 00c0 3B       		.uleb128 0x3b
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  2308 00f6 15       		.uleb128 0x15
  2309 00f7 01       		.byte	0x1
  2310 00f8 27       		.uleb128 0x27
-ARM GAS  /tmp/ccW15uCt.s 			page 46
+ARM GAS  /tmp/ccSMIOqx.s 			page 46
 
 
  2311 00f9 0C       		.uleb128 0xc
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  2365 0130 00       		.byte	0
  2366 0131 00       		.byte	0
  2367 0132 1A       		.uleb128 0x1a
-ARM GAS  /tmp/ccW15uCt.s 			page 47
+ARM GAS  /tmp/ccSMIOqx.s 			page 47
 
 
  2368 0133 34       		.uleb128 0x34
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  2422 016a 11       		.uleb128 0x11
  2423 016b 01       		.uleb128 0x1
  2424 016c 12       		.uleb128 0x12
-ARM GAS  /tmp/ccW15uCt.s 			page 48
+ARM GAS  /tmp/ccSMIOqx.s 			page 48
 
 
  2425 016d 01       		.uleb128 0x1
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  2479 0042 7D       		.byte	0x7d
  2480 0043 00       		.sleb128 0
  2481 0044 36010000 		.4byte	.LCFI3-.Ltext0
-ARM GAS  /tmp/ccW15uCt.s 			page 49
+ARM GAS  /tmp/ccSMIOqx.s 			page 49
 
 
  2482 0048 58010000 		.4byte	.LCFI4-.Ltext0
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  2536 00cc 3E020000 		.4byte	.LCFI10-.Ltext0
  2537 00d0 0200     		.2byte	0x2
  2538 00d2 7D       		.byte	0x7d
-ARM GAS  /tmp/ccW15uCt.s 			page 50
+ARM GAS  /tmp/ccSMIOqx.s 			page 50
 
 
  2539 00d3 08       		.sleb128 8
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  2593 0157 10       		.sleb128 16
  2594 0158 34040000 		.4byte	.LCFI16-.Ltext0
  2595 015c 44040000 		.4byte	.LFE48-.Ltext0
-ARM GAS  /tmp/ccW15uCt.s 			page 51
+ARM GAS  /tmp/ccSMIOqx.s 			page 51
 
 
  2596 0160 0200     		.2byte	0x2
@@ -3038,8 +3038,8 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  2630 001c 00000000 		.4byte	0
  2631              		.section	.debug_line,"",%progbits
  2632              	.Ldebug_line0:
- 2633 0000 D5030000 		.section	.debug_str,"MS",%progbits,1
- 2633      0200E902 
+ 2633 0000 42030000 		.section	.debug_str,"MS",%progbits,1
+ 2633      02005602 
  2633      00000201 
  2633      FB0E0D00 
  2633      01010101 
@@ -3058,692 +3058,693 @@ ARM GAS  /tmp/ccW15uCt.s 			page 1
  2638              	.LASF3:
  2639 0038 5F5F7569 		.ascii	"__uint8_t\000"
  2639      6E74385F 
-ARM GAS  /tmp/ccW15uCt.s 			page 52
+ARM GAS  /tmp/ccSMIOqx.s 			page 52
 
 
  2639      7400
- 2640              	.LASF43:
- 2641 0042 64697265 		.ascii	"direction\000"
- 2641      6374696F 
- 2641      6E00
- 2642              	.LASF122:
- 2643 004c 2F686F6D 		.ascii	"/home/majorviraj/Desktop/Self_balancing/codes/Blink"
- 2643      652F6D61 
- 2643      6A6F7276 
- 2643      6972616A 
- 2643      2F446573 
- 2644 007f 30312F61 		.ascii	"01/app\000"
- 2644      707000
+ 2640              	.LASF122:
+ 2641 0042 2F686F6D 		.ascii	"/home/majorviraj/Desktop/self_balancing/firmware/Bl"
+ 2641      652F6D61 
+ 2641      6A6F7276 
+ 2641      6972616A 
+ 2641      2F446573 
+ 2642 0075 696E6B30 		.ascii	"ink01/app\000"
+ 2642      312F6170 
+ 2642      7000
+ 2643              	.LASF43:
+ 2644 007f 64697265 		.ascii	"direction\000"
+ 2644      6374696F 
+ 2644      6E00
  2645              	.LASF23:
- 2646 0086 494F3049 		.ascii	"IO0IntClr\000"
+ 2646 0089 494F3049 		.ascii	"IO0IntClr\000"
  2646      6E74436C 
  2646      7200
  2647              	.LASF48:
- 2648 0090 656E4550 		.ascii	"enEPCFGpioDirection_Max\000"
+ 2648 0093 656E4550 		.ascii	"enEPCFGpioDirection_Max\000"
  2648      43464770 
  2648      696F4469 
  2648      72656374 
  2648      696F6E5F 
  2649              	.LASF89:
- 2650 00a8 65706366 		.ascii	"epcfGpioSet_fp\000"
+ 2650 00ab 65706366 		.ascii	"epcfGpioSet_fp\000"
  2650      4770696F 
  2650      5365745F 
  2650      667000
  2651              	.LASF112:
- 2652 00b7 6770696F 		.ascii	"gpioDeviceCount\000"
+ 2652 00ba 6770696F 		.ascii	"gpioDeviceCount\000"
  2652      44657669 
  2652      6365436F 
  2652      756E7400 
  2653              	.LASF12:
- 2654 00c7 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2654 00ca 6C6F6E67 		.ascii	"long long unsigned int\000"
  2654      206C6F6E 
  2654      6720756E 
  2654      7369676E 
  2654      65642069 
  2655              	.LASF52:
- 2656 00de 656E4550 		.ascii	"enEPCFGpioPinMode_PullUp\000"
+ 2656 00e1 656E4550 		.ascii	"enEPCFGpioPinMode_PullUp\000"
  2656      43464770 
  2656      696F5069 
  2656      6E4D6F64 
  2656      655F5075 
  2657              	.LASF81:
- 2658 00f7 45504346 		.ascii	"EPCFGpioController\000"
+ 2658 00fa 45504346 		.ascii	"EPCFGpioController\000"
  2658      4770696F 
  2658      436F6E74 
  2658      726F6C6C 
  2658      657200
  2659              	.LASF29:
- 2660 010a 494F3249 		.ascii	"IO2IntClr\000"
+ 2660 010d 494F3249 		.ascii	"IO2IntClr\000"
  2660      6E74436C 
  2660      7200
  2661              	.LASF2:
- 2662 0114 5F5F696E 		.ascii	"__int8_t\000"
-ARM GAS  /tmp/ccW15uCt.s 			page 53
+ARM GAS  /tmp/ccSMIOqx.s 			page 53
 
 
+ 2662 0117 5F5F696E 		.ascii	"__int8_t\000"
  2662      74385F74 
  2662      00
  2663              	.LASF124:
- 2664 011d 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 2664 0120 49544D5F 		.ascii	"ITM_RxBuffer\000"
  2664      52784275 
  2664      66666572 
  2664      00
  2665              	.LASF93:
- 2666 012a 65706366 		.ascii	"epcfGpioGetDeviceCount_fp\000"
+ 2666 012d 65706366 		.ascii	"epcfGpioGetDeviceCount_fp\000"
  2666      4770696F 
  2666      47657444 
  2666      65766963 
  2666      65436F75 
  2667              	.LASF11:
- 2668 0144 6C6F6E67 		.ascii	"long long int\000"
+ 2668 0147 6C6F6E67 		.ascii	"long long int\000"
  2668      206C6F6E 
  2668      6720696E 
  2668      7400
  2669              	.LASF1:
- 2670 0152 7369676E 		.ascii	"signed char\000"
+ 2670 0155 7369676E 		.ascii	"signed char\000"
  2670      65642063 
  2670      68617200 
  2671              	.LASF87:
- 2672 015e 6770696F 		.ascii	"gpioGetDeviceCount\000"
+ 2672 0161 6770696F 		.ascii	"gpioGetDeviceCount\000"
  2672      47657444 
  2672      65766963 
  2672      65436F75 
  2672      6E7400
  2673              	.LASF56:
- 2674 0171 656E4550 		.ascii	"enEPCFGpioPinMode_Max\000"
+ 2674 0174 656E4550 		.ascii	"enEPCFGpioPinMode_Max\000"
  2674      43464770 
  2674      696F5069 
  2674      6E4D6F64 
  2674      655F4D61 
  2675              	.LASF46:
- 2676 0187 656E4550 		.ascii	"enEPCFGpioDirection_Output\000"
+ 2676 018a 656E4550 		.ascii	"enEPCFGpioDirection_Output\000"
  2676      43464770 
  2676      696F4469 
  2676      72656374 
  2676      696F6E5F 
  2677              	.LASF58:
- 2678 01a2 456E4550 		.ascii	"EnEPCFOpenDrain\000"
+ 2678 01a5 456E4550 		.ascii	"EnEPCFOpenDrain\000"
  2678      43464F70 
  2678      656E4472 
  2678      61696E00 
  2679              	.LASF41:
- 2680 01b2 636F6E74 		.ascii	"controllerConfig\000"
+ 2680 01b5 636F6E74 		.ascii	"controllerConfig\000"
  2680      726F6C6C 
  2680      6572436F 
  2680      6E666967 
  2680      00
  2681              	.LASF61:
- 2682 01c3 656E4550 		.ascii	"enEPCFGpioOpenDrain_Max\000"
+ 2682 01c6 656E4550 		.ascii	"enEPCFGpioOpenDrain_Max\000"
  2682      43464770 
  2682      696F4F70 
  2682      656E4472 
+ARM GAS  /tmp/ccSMIOqx.s 			page 54
+
+
  2682      61696E5F 
-ARM GAS  /tmp/ccW15uCt.s 			page 54
-
-
  2683              	.LASF117:
- 2684 01db 6770696F 		.ascii	"gpioIntId\000"
+ 2684 01de 6770696F 		.ascii	"gpioIntId\000"
  2684      496E7449 
  2684      6400
  2685              	.LASF8:
- 2686 01e5 6C6F6E67 		.ascii	"long int\000"
+ 2686 01e8 6C6F6E67 		.ascii	"long int\000"
  2686      20696E74 
  2686      00
  2687              	.LASF88:
- 2688 01ee 65706366 		.ascii	"epcfGpioInit_fp\000"
+ 2688 01f1 65706366 		.ascii	"epcfGpioInit_fp\000"
  2688      4770696F 
  2688      496E6974 
  2688      5F667000 
  2689              	.LASF63:
- 2690 01fe 656E4550 		.ascii	"enEPCFGpioIntMode_FallingEdge\000"
+ 2690 0201 656E4550 		.ascii	"enEPCFGpioIntMode_FallingEdge\000"
  2690      43464770 
  2690      696F496E 
  2690      744D6F64 
  2690      655F4661 
  2691              	.LASF90:
- 2692 021c 65706366 		.ascii	"epcfGpioClear_fp\000"
+ 2692 021f 65706366 		.ascii	"epcfGpioClear_fp\000"
  2692      4770696F 
  2692      436C6561 
  2692      725F6670 
  2692      00
  2693              	.LASF28:
- 2694 022d 494F3249 		.ascii	"IO2IntStatF\000"
+ 2694 0230 494F3249 		.ascii	"IO2IntStatF\000"
  2694      6E745374 
  2694      61744600 
  2695              	.LASF121:
- 2696 0239 2E2E2F65 		.ascii	"../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio"
+ 2696 023c 2E2E2F65 		.ascii	"../epcf/native/port/arm/cm3/nxp/lpc1768/source/gpio"
  2696      7063662F 
  2696      6E617469 
  2696      76652F70 
  2696      6F72742F 
- 2697 026c 2F677069 		.ascii	"/gpio_lpc1768.c\000"
+ 2697 026f 2F677069 		.ascii	"/gpio_lpc1768.c\000"
  2697      6F5F6C70 
  2697      63313736 
  2697      382E6300 
  2698              	.LASF72:
- 2699 027c 696E7445 		.ascii	"intEnable\000"
+ 2699 027f 696E7445 		.ascii	"intEnable\000"
  2699      6E61626C 
  2699      6500
  2700              	.LASF115:
- 2701 0286 6770696F 		.ascii	"gpioIntCallbackAttached\000"
+ 2701 0289 6770696F 		.ascii	"gpioIntCallbackAttached\000"
  2701      496E7443 
  2701      616C6C62 
  2701      61636B41 
  2701      74746163 
  2702              	.LASF114:
- 2703 029e 6770696F 		.ascii	"gpioIntCallbackList\000"
+ 2703 02a1 6770696F 		.ascii	"gpioIntCallbackList\000"
  2703      496E7443 
  2703      616C6C62 
  2703      61636B4C 
  2703      69737400 
  2704              	.LASF77:
- 2705 02b2 45504346 		.ascii	"EPCFPinCfg\000"
-ARM GAS  /tmp/ccW15uCt.s 			page 55
+ARM GAS  /tmp/ccSMIOqx.s 			page 55
 
 
+ 2705 02b5 45504346 		.ascii	"EPCFPinCfg\000"
  2705      50696E43 
  2705      666700
  2706              	.LASF68:
- 2707 02bd 656E4550 		.ascii	"enEPCFGpioIntMode_Max\000"
+ 2707 02c0 656E4550 		.ascii	"enEPCFGpioIntMode_Max\000"
  2707      43464770 
  2707      696F496E 
  2707      744D6F64 
  2707      655F4D61 
  2708              	.LASF9:
- 2709 02d3 5F5F7569 		.ascii	"__uint32_t\000"
+ 2709 02d6 5F5F7569 		.ascii	"__uint32_t\000"
  2709      6E743332 
  2709      5F7400
  2710              	.LASF94:
- 2711 02de 7050696E 		.ascii	"pPinCfg\000"
+ 2711 02e1 7050696E 		.ascii	"pPinCfg\000"
  2711      43666700 
  2712              	.LASF47:
- 2713 02e6 656E4550 		.ascii	"enEPCFGpioDirection_HighZ\000"
+ 2713 02e9 656E4550 		.ascii	"enEPCFGpioDirection_HighZ\000"
  2713      43464770 
  2713      696F4469 
  2713      72656374 
  2713      696F6E5F 
  2714              	.LASF38:
- 2715 0300 706F7274 		.ascii	"port\000"
+ 2715 0303 706F7274 		.ascii	"port\000"
  2715      00
  2716              	.LASF97:
- 2717 0305 65706366 		.ascii	"epcf_gpio_nativeInit\000"
+ 2717 0308 65706366 		.ascii	"epcf_gpio_nativeInit\000"
  2717      5F677069 
  2717      6F5F6E61 
  2717      74697665 
  2717      496E6974 
  2718              	.LASF118:
- 2719 031a 6770696F 		.ascii	"gpioIntBusy\000"
+ 2719 031d 6770696F 		.ascii	"gpioIntBusy\000"
  2719      496E7442 
  2719      75737900 
  2720              	.LASF0:
- 2721 0326 756E7369 		.ascii	"unsigned int\000"
+ 2721 0329 756E7369 		.ascii	"unsigned int\000"
  2721      676E6564 
  2721      20696E74 
  2721      00
  2722              	.LASF111:
- 2723 0333 6770696F 		.ascii	"gpioIntMode\000"
+ 2723 0336 6770696F 		.ascii	"gpioIntMode\000"
  2723      496E744D 
  2723      6F646500 
  2724              	.LASF99:
- 2725 033f 70436F6E 		.ascii	"pConfig\000"
+ 2725 0342 70436F6E 		.ascii	"pConfig\000"
  2725      66696700 
  2726              	.LASF120:
- 2727 0347 474E5520 		.ascii	"GNU C 4.9.3 20150529 (prerelease) -mcpu=cortex-m3 -"
+ 2727 034a 474E5520 		.ascii	"GNU C 4.9.3 20150529 (prerelease) -mcpu=cortex-m3 -"
  2727      4320342E 
  2727      392E3320 
  2727      32303135 
  2727      30353239 
- 2728 037a 6D746875 		.ascii	"mthumb -gdwarf-2 -O0 -std=gnu99 -fomit-frame-pointe"
+ 2728 037d 6D746875 		.ascii	"mthumb -gdwarf-2 -O0 -std=gnu99 -fomit-frame-pointe"
  2728      6D62202D 
  2728      67647761 
  2728      72662D32 
+ARM GAS  /tmp/ccSMIOqx.s 			page 56
+
+
  2728      202D4F30 
-ARM GAS  /tmp/ccW15uCt.s 			page 56
-
-
- 2729 03ad 7200     		.ascii	"r\000"
+ 2729 03b0 7200     		.ascii	"r\000"
  2730              	.LASF10:
- 2731 03af 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2731 03b2 6C6F6E67 		.ascii	"long unsigned int\000"
  2731      20756E73 
  2731      69676E65 
  2731      6420696E 
  2731      7400
  2732              	.LASF27:
- 2733 03c1 494F3249 		.ascii	"IO2IntStatR\000"
+ 2733 03c4 494F3249 		.ascii	"IO2IntStatR\000"
  2733      6E745374 
  2733      61745200 
  2734              	.LASF35:
- 2735 03cd 656E4550 		.ascii	"enEPCFBoolean_Max\000"
+ 2735 03d0 656E4550 		.ascii	"enEPCFBoolean_Max\000"
  2735      4346426F 
  2735      6F6C6561 
  2735      6E5F4D61 
  2735      7800
  2736              	.LASF103:
- 2737 03df 64617461 		.ascii	"data\000"
+ 2737 03e2 64617461 		.ascii	"data\000"
  2737      00
  2738              	.LASF73:
- 2739 03e4 696E744D 		.ascii	"intMode\000"
+ 2739 03e7 696E744D 		.ascii	"intMode\000"
  2739      6F646500 
  2740              	.LASF6:
- 2741 03ec 73686F72 		.ascii	"short unsigned int\000"
+ 2741 03ef 73686F72 		.ascii	"short unsigned int\000"
  2741      7420756E 
  2741      7369676E 
  2741      65642069 
  2741      6E7400
  2742              	.LASF39:
- 2743 03ff 45504346 		.ascii	"EPCFPortPin_t\000"
+ 2743 0402 45504346 		.ascii	"EPCFPortPin_t\000"
  2743      506F7274 
  2743      50696E5F 
  2743      7400
  2744              	.LASF36:
- 2745 040d 456E4550 		.ascii	"EnEPCFBoolean_t\000"
+ 2745 0410 456E4550 		.ascii	"EnEPCFBoolean_t\000"
  2745      4346426F 
  2745      6F6C6561 
  2745      6E5F7400 
  2746              	.LASF32:
- 2747 041d 4750494F 		.ascii	"GPIOINT_TypeDef\000"
+ 2747 0420 4750494F 		.ascii	"GPIOINT_TypeDef\000"
  2747      494E545F 
  2747      54797065 
  2747      44656600 
  2748              	.LASF20:
- 2749 042d 496E7453 		.ascii	"IntStatus\000"
+ 2749 0430 496E7453 		.ascii	"IntStatus\000"
  2749      74617475 
  2749      7300
  2750              	.LASF105:
- 2751 0437 65706366 		.ascii	"epcf_gpio_nativeIntEnable\000"
+ 2751 043a 65706366 		.ascii	"epcf_gpio_nativeIntEnable\000"
  2751      5F677069 
  2751      6F5F6E61 
  2751      74697665 
  2751      496E7445 
  2752              	.LASF83:
- 2753 0451 6770696F 		.ascii	"gpioSet\000"
+ 2753 0454 6770696F 		.ascii	"gpioSet\000"
+ARM GAS  /tmp/ccSMIOqx.s 			page 57
+
+
  2753      53657400 
-ARM GAS  /tmp/ccW15uCt.s 			page 57
-
-
  2754              	.LASF75:
- 2755 0459 45504346 		.ascii	"EPCFGpioCfg_t\000"
+ 2755 045c 45504346 		.ascii	"EPCFGpioCfg_t\000"
  2755      4770696F 
  2755      4366675F 
  2755      7400
  2756              	.LASF53:
- 2757 0467 656E4550 		.ascii	"enEPCFGpioPinMode_Repeater\000"
+ 2757 046a 656E4550 		.ascii	"enEPCFGpioPinMode_Repeater\000"
  2757      43464770 
  2757      696F5069 
  2757      6E4D6F64 
  2757      655F5265 
  2758              	.LASF49:
- 2759 0482 456E4550 		.ascii	"EnEPCFGpioDirection_t\000"
+ 2759 0485 456E4550 		.ascii	"EnEPCFGpioDirection_t\000"
  2759      43464770 
  2759      696F4469 
  2759      72656374 
  2759      696F6E5F 
  2760              	.LASF13:
- 2761 0498 73697A65 		.ascii	"sizetype\000"
+ 2761 049b 73697A65 		.ascii	"sizetype\000"
  2761      74797065 
  2761      00
  2762              	.LASF45:
- 2763 04a1 656E4550 		.ascii	"enEPCFGpioDirection_Input\000"
+ 2763 04a4 656E4550 		.ascii	"enEPCFGpioDirection_Input\000"
  2763      43464770 
  2763      696F4469 
  2763      72656374 
  2763      696F6E5F 
  2764              	.LASF85:
- 2765 04bb 6770696F 		.ascii	"gpioRead\000"
+ 2765 04be 6770696F 		.ascii	"gpioRead\000"
  2765      52656164 
  2765      00
  2766              	.LASF62:
- 2767 04c4 456E4550 		.ascii	"EnEPCFGpioOpenDrain_t\000"
+ 2767 04c7 456E4550 		.ascii	"EnEPCFGpioOpenDrain_t\000"
  2767      43464770 
  2767      696F4F70 
  2767      656E4472 
  2767      61696E5F 
  2768              	.LASF116:
- 2769 04da 6770696F 		.ascii	"gpioIntList\000"
+ 2769 04dd 6770696F 		.ascii	"gpioIntList\000"
  2769      496E744C 
  2769      69737400 
  2770              	.LASF84:
- 2771 04e6 6770696F 		.ascii	"gpioClear\000"
+ 2771 04e9 6770696F 		.ascii	"gpioClear\000"
  2771      436C6561 
  2771      7200
  2772              	.LASF113:
- 2773 04f0 6770696F 		.ascii	"gpioIntEnable\000"
+ 2773 04f3 6770696F 		.ascii	"gpioIntEnable\000"
  2773      496E7445 
  2773      6E61626C 
  2773      6500
  2774              	.LASF33:
- 2775 04fe 656E4550 		.ascii	"enEPCFBoolean_False\000"
+ 2775 0501 656E4550 		.ascii	"enEPCFBoolean_False\000"
  2775      4346426F 
  2775      6F6C6561 
  2775      6E5F4661 
  2775      6C736500 
+ARM GAS  /tmp/ccSMIOqx.s 			page 58
+
+
  2776              	.LASF50:
-ARM GAS  /tmp/ccW15uCt.s 			page 58
-
-
- 2777 0512 456E4550 		.ascii	"EnEPCFGpioDirection\000"
+ 2777 0515 456E4550 		.ascii	"EnEPCFGpioDirection\000"
  2777      43464770 
  2777      696F4469 
  2777      72656374 
  2777      696F6E00 
  2778              	.LASF19:
- 2779 0526 666C6F61 		.ascii	"float\000"
+ 2779 0529 666C6F61 		.ascii	"float\000"
  2779      7400
  2780              	.LASF40:
- 2781 052c 45504346 		.ascii	"EPCFGpioDevice_t\000"
+ 2781 052f 45504346 		.ascii	"EPCFGpioDevice_t\000"
  2781      4770696F 
  2781      44657669 
  2781      63655F74 
  2781      00
  2782              	.LASF26:
- 2783 053d 52455345 		.ascii	"RESERVED0\000"
+ 2783 0540 52455345 		.ascii	"RESERVED0\000"
  2783      52564544 
  2783      3000
  2784              	.LASF44:
- 2785 0547 65787465 		.ascii	"extendedGpioDeviceId\000"
+ 2785 054a 65787465 		.ascii	"extendedGpioDeviceId\000"
  2785      6E646564 
  2785      4770696F 
  2785      44657669 
  2785      63654964 
  2786              	.LASF42:
- 2787 055c 706F7274 		.ascii	"portPin\000"
+ 2787 055f 706F7274 		.ascii	"portPin\000"
  2787      50696E00 
  2788              	.LASF37:
- 2789 0564 65706366 		.ascii	"epcfCallback_fp\000"
+ 2789 0567 65706366 		.ascii	"epcfCallback_fp\000"
  2789      43616C6C 
  2789      6261636B 
  2789      5F667000 
  2790              	.LASF119:
- 2791 0574 6770696F 		.ascii	"gpioIntInit\000"
+ 2791 0577 6770696F 		.ascii	"gpioIntInit\000"
  2791      496E7449 
  2791      6E697400 
  2792              	.LASF17:
- 2793 0580 696E7433 		.ascii	"int32_t\000"
+ 2793 0583 696E7433 		.ascii	"int32_t\000"
  2793      325F7400 
  2794              	.LASF4:
- 2795 0588 756E7369 		.ascii	"unsigned char\000"
+ 2795 058b 756E7369 		.ascii	"unsigned char\000"
  2795      676E6564 
  2795      20636861 
  2795      7200
  2796              	.LASF51:
- 2797 0596 456E4550 		.ascii	"EnEPCFGpioPinMode\000"
+ 2797 0599 456E4550 		.ascii	"EnEPCFGpioPinMode\000"
  2797      43464770 
  2797      696F5069 
  2797      6E4D6F64 
  2797      6500
  2798              	.LASF98:
- 2799 05a8 65706366 		.ascii	"epcf_gpio_nativeSet\000"
+ 2799 05ab 65706366 		.ascii	"epcf_gpio_nativeSet\000"
  2799      5F677069 
  2799      6F5F6E61 
  2799      74697665 
  2799      53657400 
+ARM GAS  /tmp/ccSMIOqx.s 			page 59
+
+
  2800              	.LASF5:
-ARM GAS  /tmp/ccW15uCt.s 			page 59
-
-
- 2801 05bc 73686F72 		.ascii	"short int\000"
+ 2801 05bf 73686F72 		.ascii	"short int\000"
  2801      7420696E 
  2801      7400
  2802              	.LASF78:
- 2803 05c6 616C7446 		.ascii	"altFunction\000"
+ 2803 05c9 616C7446 		.ascii	"altFunction\000"
  2803      756E6374 
  2803      696F6E00 
  2804              	.LASF106:
- 2805 05d2 70477069 		.ascii	"pGpioDevice\000"
+ 2805 05d5 70477069 		.ascii	"pGpioDevice\000"
  2805      6F446576 
  2805      69636500 
  2806              	.LASF55:
- 2807 05de 656E4550 		.ascii	"enEPCFGpioPinMode_PullDown\000"
+ 2807 05e1 656E4550 		.ascii	"enEPCFGpioPinMode_PullDown\000"
  2807      43464770 
  2807      696F5069 
  2807      6E4D6F64 
  2807      655F5075 
  2808              	.LASF54:
- 2809 05f9 656E4550 		.ascii	"enEPCFGpioPinMode_NoPullUpDown\000"
+ 2809 05fc 656E4550 		.ascii	"enEPCFGpioPinMode_NoPullUpDown\000"
  2809      43464770 
  2809      696F5069 
  2809      6E4D6F64 
  2809      655F4E6F 
  2810              	.LASF123:
- 2811 0618 65706366 		.ascii	"epcf_gpio_nativeGetDeviceCount\000"
+ 2811 061b 65706366 		.ascii	"epcf_gpio_nativeGetDeviceCount\000"
  2811      5F677069 
  2811      6F5F6E61 
  2811      74697665 
  2811      47657444 
  2812              	.LASF65:
- 2813 0637 656E4550 		.ascii	"enEPCFGpioIntMode_BothEdge\000"
+ 2813 063a 656E4550 		.ascii	"enEPCFGpioIntMode_BothEdge\000"
  2813      43464770 
  2813      696F496E 
  2813      744D6F64 
  2813      655F426F 
  2814              	.LASF34:
- 2815 0652 656E4550 		.ascii	"enEPCFBoolean_True\000"
+ 2815 0655 656E4550 		.ascii	"enEPCFBoolean_True\000"
  2815      4346426F 
  2815      6F6C6561 
  2815      6E5F5472 
  2815      756500
  2816              	.LASF18:
- 2817 0665 75696E74 		.ascii	"uint32_t\000"
+ 2817 0668 75696E74 		.ascii	"uint32_t\000"
  2817      33325F74 
  2817      00
  2818              	.LASF104:
- 2819 066e 65706366 		.ascii	"epcf_gpio_nativeSetDirection\000"
+ 2819 0671 65706366 		.ascii	"epcf_gpio_nativeSetDirection\000"
  2819      5F677069 
  2819      6F5F6E61 
  2819      74697665 
  2819      53657444 
  2820              	.LASF109:
- 2821 068b 7043616C 		.ascii	"pCallback\000"
+ 2821 068e 7043616C 		.ascii	"pCallback\000"
  2821      6C626163 
  2821      6B00
  2822              	.LASF69:
- 2823 0695 456E4550 		.ascii	"EnEPCFGpioIntMode_t\000"
-ARM GAS  /tmp/ccW15uCt.s 			page 60
+ARM GAS  /tmp/ccSMIOqx.s 			page 60
 
 
+ 2823 0698 456E4550 		.ascii	"EnEPCFGpioIntMode_t\000"
  2823      43464770 
  2823      696F496E 
  2823      744D6F64 
  2823      655F7400 
  2824              	.LASF14:
- 2825 06a9 63686172 		.ascii	"char\000"
+ 2825 06ac 63686172 		.ascii	"char\000"
  2825      00
  2826              	.LASF70:
- 2827 06ae 6D6F6465 		.ascii	"mode\000"
+ 2827 06b1 6D6F6465 		.ascii	"mode\000"
  2827      00
  2828              	.LASF96:
- 2829 06b3 696E6465 		.ascii	"index\000"
+ 2829 06b6 696E6465 		.ascii	"index\000"
  2829      7800
  2830              	.LASF7:
- 2831 06b9 5F5F696E 		.ascii	"__int32_t\000"
+ 2831 06bc 5F5F696E 		.ascii	"__int32_t\000"
  2831      7433325F 
  2831      7400
  2832              	.LASF92:
- 2833 06c3 65706366 		.ascii	"epcfGpioSetDirection_fp\000"
+ 2833 06c6 65706366 		.ascii	"epcfGpioSetDirection_fp\000"
  2833      4770696F 
  2833      53657444 
  2833      69726563 
  2833      74696F6E 
  2834              	.LASF67:
- 2835 06db 656E4550 		.ascii	"enEPCFGpioIntMode_HighLevel\000"
+ 2835 06de 656E4550 		.ascii	"enEPCFGpioIntMode_HighLevel\000"
  2835      43464770 
  2835      696F496E 
  2835      744D6F64 
  2835      655F4869 
  2836              	.LASF101:
- 2837 06f7 65706366 		.ascii	"epcf_gpio_nativeClear\000"
+ 2837 06fa 65706366 		.ascii	"epcf_gpio_nativeClear\000"
  2837      5F677069 
  2837      6F5F6E61 
  2837      74697665 
  2837      436C6561 
  2838              	.LASF76:
- 2839 070d 45504346 		.ascii	"EPCFGpioDevice\000"
+ 2839 0710 45504346 		.ascii	"EPCFGpioDevice\000"
  2839      4770696F 
  2839      44657669 
  2839      636500
  2840              	.LASF108:
- 2841 071c 65706366 		.ascii	"epcf_gpio_nativeIntAttachCallback\000"
+ 2841 071f 65706366 		.ascii	"epcf_gpio_nativeIntAttachCallback\000"
  2841      5F677069 
  2841      6F5F6E61 
  2841      74697665 
  2841      496E7441 
  2842              	.LASF15:
- 2843 073e 696E7438 		.ascii	"int8_t\000"
+ 2843 0741 696E7438 		.ascii	"int8_t\000"
  2843      5F7400
  2844              	.LASF60:
- 2845 0745 656E4550 		.ascii	"enEPCFGpioOpenDrain_Enable\000"
+ 2845 0748 656E4550 		.ascii	"enEPCFGpioOpenDrain_Enable\000"
  2845      43464770 
  2845      696F4F70 
  2845      656E4472 
  2845      61696E5F 
  2846              	.LASF110:
- 2847 0760 65706366 		.ascii	"epcf_gpio_nativeIntDetachCallback\000"
-ARM GAS  /tmp/ccW15uCt.s 			page 61
+ARM GAS  /tmp/ccSMIOqx.s 			page 61
 
 
+ 2847 0763 65706366 		.ascii	"epcf_gpio_nativeIntDetachCallback\000"
  2847      5F677069 
  2847      6F5F6E61 
  2847      74697665 
  2847      496E7444 
  2848              	.LASF102:
- 2849 0782 65706366 		.ascii	"epcf_gpio_nativeRead\000"
+ 2849 0785 65706366 		.ascii	"epcf_gpio_nativeRead\000"
  2849      5F677069 
  2849      6F5F6E61 
  2849      74697665 
  2849      52656164 
  2850              	.LASF79:
- 2851 0797 45504346 		.ascii	"EPCFPinCfg_t\000"
+ 2851 079a 45504346 		.ascii	"EPCFPinCfg_t\000"
  2851      50696E43 
  2851      66675F74 
  2851      00
  2852              	.LASF74:
- 2853 07a4 68617264 		.ascii	"hardwareCfg\000"
+ 2853 07a7 68617264 		.ascii	"hardwareCfg\000"
  2853      77617265 
  2853      43666700 
  2854              	.LASF86:
- 2855 07b0 6770696F 		.ascii	"gpioSetDirection\000"
+ 2855 07b3 6770696F 		.ascii	"gpioSetDirection\000"
  2855      53657444 
  2855      69726563 
  2855      74696F6E 
  2855      00
  2856              	.LASF95:
- 2857 07c1 73746174 		.ascii	"status\000"
+ 2857 07c4 73746174 		.ascii	"status\000"
  2857      757300
  2858              	.LASF59:
- 2859 07c8 656E4550 		.ascii	"enEPCFGpioOpenDrain_Disable\000"
+ 2859 07cb 656E4550 		.ascii	"enEPCFGpioOpenDrain_Disable\000"
  2859      43464770 
  2859      696F4F70 
  2859      656E4472 
  2859      61696E5F 
  2860              	.LASF91:
- 2861 07e4 65706366 		.ascii	"epcfGpioRead_fp\000"
+ 2861 07e7 65706366 		.ascii	"epcfGpioRead_fp\000"
  2861      4770696F 
  2861      52656164 
  2861      5F667000 
  2862              	.LASF25:
- 2863 07f4 494F3049 		.ascii	"IO0IntEnF\000"
+ 2863 07f7 494F3049 		.ascii	"IO0IntEnF\000"
  2863      6E74456E 
  2863      4600
  2864              	.LASF16:
- 2865 07fe 75696E74 		.ascii	"uint8_t\000"
+ 2865 0801 75696E74 		.ascii	"uint8_t\000"
  2865      385F7400 
  2866              	.LASF24:
- 2867 0806 494F3049 		.ascii	"IO0IntEnR\000"
+ 2867 0809 494F3049 		.ascii	"IO0IntEnR\000"
  2867      6E74456E 
  2867      5200
  2868              	.LASF57:
- 2869 0810 456E4550 		.ascii	"EnEPCFGpioPinMode_t\000"
+ 2869 0813 456E4550 		.ascii	"EnEPCFGpioPinMode_t\000"
  2869      43464770 
  2869      696F5069 
  2869      6E4D6F64 
  2869      655F7400 
+ARM GAS  /tmp/ccSMIOqx.s 			page 62
+
+
  2870              	.LASF31:
-ARM GAS  /tmp/ccW15uCt.s 			page 62
-
-
- 2871 0824 494F3249 		.ascii	"IO2IntEnF\000"
+ 2871 0827 494F3249 		.ascii	"IO2IntEnF\000"
  2871      6E74456E 
  2871      4600
  2872              	.LASF100:
- 2873 082e 70477069 		.ascii	"pGpiodevice\000"
+ 2873 0831 70477069 		.ascii	"pGpiodevice\000"
  2873      6F646576 
  2873      69636500 
  2874              	.LASF30:
- 2875 083a 494F3249 		.ascii	"IO2IntEnR\000"
+ 2875 083d 494F3249 		.ascii	"IO2IntEnR\000"
  2875      6E74456E 
  2875      5200
  2876              	.LASF22:
- 2877 0844 494F3049 		.ascii	"IO0IntStatF\000"
+ 2877 0847 494F3049 		.ascii	"IO0IntStatF\000"
  2877      6E745374 
  2877      61744600 
  2878              	.LASF71:
- 2879 0850 6F70656E 		.ascii	"openDrain\000"
+ 2879 0853 6F70656E 		.ascii	"openDrain\000"
  2879      44726169 
  2879      6E00
  2880              	.LASF82:
- 2881 085a 6770696F 		.ascii	"gpioInit\000"
+ 2881 085d 6770696F 		.ascii	"gpioInit\000"
  2881      496E6974 
  2881      00
  2882              	.LASF21:
- 2883 0863 494F3049 		.ascii	"IO0IntStatR\000"
+ 2883 0866 494F3049 		.ascii	"IO0IntStatR\000"
  2883      6E745374 
  2883      61745200 
  2884              	.LASF80:
- 2885 086f 45504346 		.ascii	"EPCFGpioController_t\000"
+ 2885 0872 45504346 		.ascii	"EPCFGpioController_t\000"
  2885      4770696F 
  2885      436F6E74 
  2885      726F6C6C 
  2885      65725F74 
  2886              	.LASF107:
- 2887 0884 65706366 		.ascii	"epcf_gpio_nativeIntDisable\000"
+ 2887 0887 65706366 		.ascii	"epcf_gpio_nativeIntDisable\000"
  2887      5F677069 
  2887      6F5F6E61 
  2887      74697665 
  2887      496E7444 
  2888              		.ident	"GCC: (15:4.9.3+svn231177-1) 4.9.3 20150529 (prerelease)"
-ARM GAS  /tmp/ccW15uCt.s 			page 63
+ARM GAS  /tmp/ccSMIOqx.s 			page 63
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 gpio_lpc1768.c
-     /tmp/ccW15uCt.s:50     .bss:0000000000000000 $d
-     /tmp/ccW15uCt.s:51     .bss:0000000000000000 gpioIntMode
-     /tmp/ccW15uCt.s:56     .data:0000000000000000 gpioDeviceCount
-     /tmp/ccW15uCt.s:59     .bss:000000000000002a gpioIntEnable
-     /tmp/ccW15uCt.s:62     .bss:000000000000002c gpioIntCallbackList
-     /tmp/ccW15uCt.s:64     .bss:00000000000000d4 gpioIntCallbackAttached
-     /tmp/ccW15uCt.s:67     .bss:00000000000000d8 gpioIntList
-     /tmp/ccW15uCt.s:69     .bss:00000000000002d0 gpioIntId
-     /tmp/ccW15uCt.s:72     .bss:00000000000002d4 gpioIntBusy
-     /tmp/ccW15uCt.s:74     .bss:00000000000002fe gpioIntInit
-     /tmp/ccW15uCt.s:77     .text:0000000000000000 $t
-     /tmp/ccW15uCt.s:82     .text:0000000000000000 epcf_gpio_nativeInit
-     /tmp/ccW15uCt.s:274    .text:0000000000000120 $d
-     /tmp/ccW15uCt.s:282    .text:0000000000000134 $t
-     /tmp/ccW15uCt.s:287    .text:0000000000000134 epcf_gpio_nativeSet
-     /tmp/ccW15uCt.s:324    .text:000000000000015c $d
-     /tmp/ccW15uCt.s:328    .text:0000000000000160 $t
-     /tmp/ccW15uCt.s:333    .text:0000000000000160 epcf_gpio_nativeClear
-     /tmp/ccW15uCt.s:370    .text:0000000000000188 $d
-     /tmp/ccW15uCt.s:374    .text:000000000000018c $t
-     /tmp/ccW15uCt.s:379    .text:000000000000018c epcf_gpio_nativeRead
-     /tmp/ccW15uCt.s:421    .text:00000000000001c0 $d
-     /tmp/ccW15uCt.s:425    .text:00000000000001c4 $t
-     /tmp/ccW15uCt.s:430    .text:00000000000001c4 epcf_gpio_nativeSetDirection
-     /tmp/ccW15uCt.s:509    .text:0000000000000240 epcf_gpio_nativeGetDeviceCount
-     /tmp/ccW15uCt.s:525    .text:0000000000000248 $d
-     /tmp/ccW15uCt.s:529    .text:000000000000024c $t
-     /tmp/ccW15uCt.s:534    .text:000000000000024c epcf_gpio_nativeIntEnable
-     /tmp/ccW15uCt.s:755    .text:00000000000003b0 $d
-     /tmp/ccW15uCt.s:762    .text:00000000000003c0 $t
-     /tmp/ccW15uCt.s:767    .text:00000000000003c0 epcf_gpio_nativeIntDisable
-     /tmp/ccW15uCt.s:795    .text:00000000000003d4 $d
-     /tmp/ccW15uCt.s:799    .text:00000000000003d8 $t
-     /tmp/ccW15uCt.s:804    .text:00000000000003d8 epcf_gpio_nativeIntAttachCallback
-     /tmp/ccW15uCt.s:872    .text:0000000000000438 $d
-     /tmp/ccW15uCt.s:878    .text:0000000000000444 $t
-     /tmp/ccW15uCt.s:883    .text:0000000000000444 epcf_gpio_nativeIntDetachCallback
-     /tmp/ccW15uCt.s:960    .text:00000000000004ac $d
+     /tmp/ccSMIOqx.s:50     .bss:0000000000000000 $d
+     /tmp/ccSMIOqx.s:51     .bss:0000000000000000 gpioIntMode
+     /tmp/ccSMIOqx.s:56     .data:0000000000000000 gpioDeviceCount
+     /tmp/ccSMIOqx.s:59     .bss:000000000000002a gpioIntEnable
+     /tmp/ccSMIOqx.s:62     .bss:000000000000002c gpioIntCallbackList
+     /tmp/ccSMIOqx.s:64     .bss:00000000000000d4 gpioIntCallbackAttached
+     /tmp/ccSMIOqx.s:67     .bss:00000000000000d8 gpioIntList
+     /tmp/ccSMIOqx.s:69     .bss:00000000000002d0 gpioIntId
+     /tmp/ccSMIOqx.s:72     .bss:00000000000002d4 gpioIntBusy
+     /tmp/ccSMIOqx.s:74     .bss:00000000000002fe gpioIntInit
+     /tmp/ccSMIOqx.s:77     .text:0000000000000000 $t
+     /tmp/ccSMIOqx.s:82     .text:0000000000000000 epcf_gpio_nativeInit
+     /tmp/ccSMIOqx.s:274    .text:0000000000000120 $d
+     /tmp/ccSMIOqx.s:282    .text:0000000000000134 $t
+     /tmp/ccSMIOqx.s:287    .text:0000000000000134 epcf_gpio_nativeSet
+     /tmp/ccSMIOqx.s:324    .text:000000000000015c $d
+     /tmp/ccSMIOqx.s:328    .text:0000000000000160 $t
+     /tmp/ccSMIOqx.s:333    .text:0000000000000160 epcf_gpio_nativeClear
+     /tmp/ccSMIOqx.s:370    .text:0000000000000188 $d
+     /tmp/ccSMIOqx.s:374    .text:000000000000018c $t
+     /tmp/ccSMIOqx.s:379    .text:000000000000018c epcf_gpio_nativeRead
+     /tmp/ccSMIOqx.s:421    .text:00000000000001c0 $d
+     /tmp/ccSMIOqx.s:425    .text:00000000000001c4 $t
+     /tmp/ccSMIOqx.s:430    .text:00000000000001c4 epcf_gpio_nativeSetDirection
+     /tmp/ccSMIOqx.s:509    .text:0000000000000240 epcf_gpio_nativeGetDeviceCount
+     /tmp/ccSMIOqx.s:525    .text:0000000000000248 $d
+     /tmp/ccSMIOqx.s:529    .text:000000000000024c $t
+     /tmp/ccSMIOqx.s:534    .text:000000000000024c epcf_gpio_nativeIntEnable
+     /tmp/ccSMIOqx.s:755    .text:00000000000003b0 $d
+     /tmp/ccSMIOqx.s:762    .text:00000000000003c0 $t
+     /tmp/ccSMIOqx.s:767    .text:00000000000003c0 epcf_gpio_nativeIntDisable
+     /tmp/ccSMIOqx.s:795    .text:00000000000003d4 $d
+     /tmp/ccSMIOqx.s:799    .text:00000000000003d8 $t
+     /tmp/ccSMIOqx.s:804    .text:00000000000003d8 epcf_gpio_nativeIntAttachCallback
+     /tmp/ccSMIOqx.s:872    .text:0000000000000438 $d
+     /tmp/ccSMIOqx.s:878    .text:0000000000000444 $t
+     /tmp/ccSMIOqx.s:883    .text:0000000000000444 epcf_gpio_nativeIntDetachCallback
+     /tmp/ccSMIOqx.s:960    .text:00000000000004ac $d
                      .debug_frame:0000000000000010 $d
 
 UNDEFINED SYMBOLS
