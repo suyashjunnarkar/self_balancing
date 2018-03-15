@@ -1,0 +1,2909 @@
+ARM GAS  /tmp/ccTmpiai.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1	@ Tag_ABI_FP_denormal
+   5              		.eabi_attribute 21, 1	@ Tag_ABI_FP_exceptions
+   6              		.eabi_attribute 23, 3	@ Tag_ABI_FP_number_model
+   7              		.eabi_attribute 24, 1	@ Tag_ABI_align8_needed
+   8              		.eabi_attribute 25, 1	@ Tag_ABI_align8_preserved
+   9              		.eabi_attribute 26, 1	@ Tag_ABI_enum_size
+  10              		.eabi_attribute 30, 6	@ Tag_ABI_optimization_goals
+  11              		.eabi_attribute 34, 1	@ Tag_CPU_unaligned_access
+  12              		.eabi_attribute 18, 4	@ Tag_ABI_PCS_wchar_t
+  13              		.file	"i2c.c"
+  14              	@ GNU C (15:4.9.3+svn231177-1) version 4.9.3 20150529 (prerelease) (arm-none-eabi)
+  15              	@	compiled by GNU C version 5.2.1 20151129, GMP version 6.1.0, MPFR version 3.1.3, MPC version 1.0.
+  16              	@ warning: MPFR header version 3.1.3 differs from library version 3.1.4.
+  17              	@ GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+  18              	@ options passed:  -I . -I ./include -I ../pcf/include -imultilib armv7-m
+  19              	@ -MD Build/Obj/Debug/i2c.d -MF Build/.dep/i2c.o.d -MP
+  20              	@ -MQ Build/Obj/Debug/i2c.o -D__USES_INITFINI__
+  21              	@ ../epcf/peripheral/source/i2c/i2c.c -mcpu=cortex-m3 -mthumb
+  22              	@ -auxbase-strip Build/Obj/Debug/i2c.o -gdwarf-2 -O0 -Wall -Wno-cpp
+  23              	@ -std=gnu99 -fomit-frame-pointer -fverbose-asm
+  24              	@ options enabled:  -faggressive-loop-optimizations -fauto-inc-dec -fcommon
+  25              	@ -fdelete-null-pointer-checks -fdwarf2-cfi-asm -fearly-inlining
+  26              	@ -feliminate-unused-debug-types -ffunction-cse -fgcse-lm -fgnu-runtime
+  27              	@ -fgnu-unique -fident -finline-atomics -fira-hoist-pressure
+  28              	@ -fira-share-save-slots -fira-share-spill-slots -fivopts
+  29              	@ -fkeep-static-consts -fleading-underscore -flifetime-dse -fmath-errno
+  30              	@ -fmerge-debug-strings -fomit-frame-pointer -fpeephole
+  31              	@ -fprefetch-loop-arrays -freg-struct-return
+  32              	@ -fsched-critical-path-heuristic -fsched-dep-count-heuristic
+  33              	@ -fsched-group-heuristic -fsched-interblock -fsched-last-insn-heuristic
+  34              	@ -fsched-rank-heuristic -fsched-spec -fsched-spec-insn-heuristic
+  35              	@ -fsched-stalled-insns-dep -fshow-column -fsigned-zeros
+  36              	@ -fsplit-ivs-in-unroller -fstrict-volatile-bitfields -fsync-libcalls
+  37              	@ -ftrapping-math -ftree-coalesce-vars -ftree-cselim -ftree-forwprop
+  38              	@ -ftree-loop-if-convert -ftree-loop-im -ftree-loop-ivcanon
+  39              	@ -ftree-loop-optimize -ftree-parallelize-loops= -ftree-phiprop
+  40              	@ -ftree-reassoc -ftree-scev-cprop -funit-at-a-time -fverbose-asm
+  41              	@ -fzero-initialized-in-bss -mfix-cortex-m3-ldrd -mlittle-endian -mlra
+  42              	@ -mpic-data-is-text-relative -msched-prolog -mthumb -munaligned-access
+  43              	@ -mvectorize-with-neon-quad
+  44              	
+  45              		.text
+  46              	.Ltext0:
+  47              		.cfi_sections	.debug_frame
+  48              		.align	2
+  49              		.global	epcf_i2c_CreateNative
+  50              		.thumb
+  51              		.thumb_func
+  52              		.type	epcf_i2c_CreateNative, %function
+  53              	epcf_i2c_CreateNative:
+  54              	.LFB40:
+  55              		.file 1 "../epcf/peripheral/source/i2c/i2c.c"
+   1:../epcf/peripheral/source/i2c/i2c.c **** /**
+   2:../epcf/peripheral/source/i2c/i2c.c ****  * \file  i2c.c
+ARM GAS  /tmp/ccTmpiai.s 			page 2
+
+
+   3:../epcf/peripheral/source/i2c/i2c.c ****  * \brief This file is used to configure a I2C device
+   4:../epcf/peripheral/source/i2c/i2c.c ****  */
+   5:../epcf/peripheral/source/i2c/i2c.c **** 
+   6:../epcf/peripheral/source/i2c/i2c.c **** #include "pcf.h"
+   7:../epcf/peripheral/source/i2c/i2c.c **** 
+   8:../epcf/peripheral/source/i2c/i2c.c **** #define __EPCF_PRIVATE_I2C_H_INCLUDE PCF_CONDITIONAL_INCLUDE_FILE(EPCF_DIR_PATH/,peripheral/source/
+   9:../epcf/peripheral/source/i2c/i2c.c **** #include  __EPCF_PRIVATE_I2C_H_INCLUDE
+  10:../epcf/peripheral/source/i2c/i2c.c **** #undef __EPCF_PRIVATE_I2C_H_INCLUDE
+  11:../epcf/peripheral/source/i2c/i2c.c **** 
+  12:../epcf/peripheral/source/i2c/i2c.c **** 
+  13:../epcf/peripheral/source/i2c/i2c.c **** EPCFI2cDevice_t* epcf_i2c_CreateNative(EPCFI2cCfg_t* pI2cConfig)
+  14:../epcf/peripheral/source/i2c/i2c.c **** {
+  56              		.loc 1 14 0
+  57              		.cfi_startproc
+  58              		@ args = 0, pretend = 0, frame = 16
+  59              		@ frame_needed = 0, uses_anonymous_args = 0
+  60 0000 00B5     		push	{lr}	@
+  61              	.LCFI0:
+  62              		.cfi_def_cfa_offset 4
+  63              		.cfi_offset 14, -4
+  64 0002 85B0     		sub	sp, sp, #20	@,,
+  65              	.LCFI1:
+  66              		.cfi_def_cfa_offset 24
+  67 0004 0190     		str	r0, [sp, #4]	@ pI2cConfig, pI2cConfig
+  15:../epcf/peripheral/source/i2c/i2c.c ****     EPCFI2cDevice_t* pI2cDevice;
+  16:../epcf/peripheral/source/i2c/i2c.c ****     int8_t status=0;
+  68              		.loc 1 16 0
+  69 0006 0023     		movs	r3, #0	@ tmp113,
+  70 0008 8DF80F30 		strb	r3, [sp, #15]	@ tmp114, status
+  17:../epcf/peripheral/source/i2c/i2c.c **** 
+  18:../epcf/peripheral/source/i2c/i2c.c ****     if(epcf_i2c_nativeGetDeviceCount())
+  71              		.loc 1 18 0
+  72 000c FFF7FEFF 		bl	epcf_i2c_nativeGetDeviceCount	@
+  73 0010 0346     		mov	r3, r0	@ tmp115,
+  74 0012 002B     		cmp	r3, #0	@ D.6388,
+  75 0014 18D0     		beq	.L2	@,
+  19:../epcf/peripheral/source/i2c/i2c.c ****     {
+  20:../epcf/peripheral/source/i2c/i2c.c ****         pI2cDevice = (EPCFI2cDevice_t *)malloc(sizeof(EPCFI2cDevice_t));
+  76              		.loc 1 20 0
+  77 0016 1C20     		movs	r0, #28	@,
+  78 0018 FFF7FEFF 		bl	malloc	@
+  79 001c 0346     		mov	r3, r0	@ tmp116,
+  80 001e 0293     		str	r3, [sp, #8]	@ tmp116, pI2cDevice
+  21:../epcf/peripheral/source/i2c/i2c.c ****         if (pI2cDevice == NULL)
+  81              		.loc 1 21 0
+  82 0020 029B     		ldr	r3, [sp, #8]	@ tmp117, pI2cDevice
+  83 0022 002B     		cmp	r3, #0	@ tmp117,
+  84 0024 01D1     		bne	.L3	@,
+  22:../epcf/peripheral/source/i2c/i2c.c ****             return NULL;
+  85              		.loc 1 22 0
+  86 0026 0023     		movs	r3, #0	@ D.6387,
+  87 0028 0FE0     		b	.L4	@
+  88              	.L3:
+  23:../epcf/peripheral/source/i2c/i2c.c **** 
+  24:../epcf/peripheral/source/i2c/i2c.c ****         status = epcf_i2c_nativeInit(pI2cDevice, pI2cConfig);
+  89              		.loc 1 24 0
+  90 002a 0298     		ldr	r0, [sp, #8]	@, pI2cDevice
+ARM GAS  /tmp/ccTmpiai.s 			page 3
+
+
+  91 002c 0199     		ldr	r1, [sp, #4]	@, pI2cConfig
+  92 002e FFF7FEFF 		bl	epcf_i2c_nativeInit	@
+  93 0032 0346     		mov	r3, r0	@ tmp118,
+  94 0034 8DF80F30 		strb	r3, [sp, #15]	@ tmp119, status
+  25:../epcf/peripheral/source/i2c/i2c.c ****         if(status != 0)
+  95              		.loc 1 25 0
+  96 0038 9DF90F30 		ldrsb	r3, [sp, #15]	@ tmp120, status
+  97 003c 002B     		cmp	r3, #0	@ tmp120,
+  98 003e 01D0     		beq	.L5	@,
+  26:../epcf/peripheral/source/i2c/i2c.c ****             return NULL;
+  99              		.loc 1 26 0
+ 100 0040 0023     		movs	r3, #0	@ D.6387,
+ 101 0042 02E0     		b	.L4	@
+ 102              	.L5:
+  27:../epcf/peripheral/source/i2c/i2c.c **** 
+  28:../epcf/peripheral/source/i2c/i2c.c ****         return pI2cDevice;
+ 103              		.loc 1 28 0
+ 104 0044 029B     		ldr	r3, [sp, #8]	@ D.6387, pI2cDevice
+ 105 0046 00E0     		b	.L4	@
+ 106              	.L2:
+  29:../epcf/peripheral/source/i2c/i2c.c ****     }
+  30:../epcf/peripheral/source/i2c/i2c.c ****     else
+  31:../epcf/peripheral/source/i2c/i2c.c ****         return NULL;
+ 107              		.loc 1 31 0
+ 108 0048 0023     		movs	r3, #0	@ D.6387,
+ 109              	.L4:
+  32:../epcf/peripheral/source/i2c/i2c.c **** }
+ 110              		.loc 1 32 0
+ 111 004a 1846     		mov	r0, r3	@, <retval>
+ 112 004c 05B0     		add	sp, sp, #20	@,,
+ 113              	.LCFI2:
+ 114              		.cfi_def_cfa_offset 4
+ 115              		@ sp needed	@
+ 116 004e 5DF804FB 		ldr	pc, [sp], #4	@
+ 117              		.cfi_endproc
+ 118              	.LFE40:
+ 119              		.size	epcf_i2c_CreateNative, .-epcf_i2c_CreateNative
+ 120 0052 00BF     		.align	2
+ 121              		.global	epcf_i2c_write
+ 122              		.thumb
+ 123              		.thumb_func
+ 124              		.type	epcf_i2c_write, %function
+ 125              	epcf_i2c_write:
+ 126              	.LFB41:
+  33:../epcf/peripheral/source/i2c/i2c.c **** 
+  34:../epcf/peripheral/source/i2c/i2c.c **** #ifdef EPCF_SUPPORT_EXTENDED_I2C
+  35:../epcf/peripheral/source/i2c/i2c.c **** EPCFI2cDevice_t* epcf_i2c_createExtended(EPCFI2cController_t* pI2cController, EPCFI2cCfg_t* pI2cCon
+  36:../epcf/peripheral/source/i2c/i2c.c **** {
+  37:../epcf/peripheral/source/i2c/i2c.c **** 	EPCFI2cDevice_t* pI2cDevice;
+  38:../epcf/peripheral/source/i2c/i2c.c **** 	int8_t status = 0;
+  39:../epcf/peripheral/source/i2c/i2c.c **** 
+  40:../epcf/peripheral/source/i2c/i2c.c **** 	if(epcf_i2c_extGetDeviceCount(pI2cController))
+  41:../epcf/peripheral/source/i2c/i2c.c **** 	{
+  42:../epcf/peripheral/source/i2c/i2c.c **** 		pI2cDevice = (EPCFI2cDevice_t*)malloc(sizeof(EPCFI2cDevice_t));
+  43:../epcf/peripheral/source/i2c/i2c.c **** 		if(pI2cDevice == NULL)
+  44:../epcf/peripheral/source/i2c/i2c.c **** 			return NULL;
+  45:../epcf/peripheral/source/i2c/i2c.c **** 
+ARM GAS  /tmp/ccTmpiai.s 			page 4
+
+
+  46:../epcf/peripheral/source/i2c/i2c.c **** 		pI2cDevice->controllerConfig = pI2cController;
+  47:../epcf/peripheral/source/i2c/i2c.c **** 
+  48:../epcf/peripheral/source/i2c/i2c.c **** 		status = pI2cController->i2cInit(pI2cDevice, pI2cConfig);
+  49:../epcf/peripheral/source/i2c/i2c.c **** 		if(status != 0)
+  50:../epcf/peripheral/source/i2c/i2c.c **** 			return NULL;
+  51:../epcf/peripheral/source/i2c/i2c.c **** 
+  52:../epcf/peripheral/source/i2c/i2c.c **** 		return pI2cDevice;
+  53:../epcf/peripheral/source/i2c/i2c.c **** 	}
+  54:../epcf/peripheral/source/i2c/i2c.c **** 	else
+  55:../epcf/peripheral/source/i2c/i2c.c **** 		return NULL;
+  56:../epcf/peripheral/source/i2c/i2c.c **** }
+  57:../epcf/peripheral/source/i2c/i2c.c **** #endif
+  58:../epcf/peripheral/source/i2c/i2c.c **** 
+  59:../epcf/peripheral/source/i2c/i2c.c **** int32_t epcf_i2c_write(EPCFI2cDevice_t* pI2cDevice,EnEPCFBoolean_t masterEnable,uint8_t slaveAddres
+  60:../epcf/peripheral/source/i2c/i2c.c **** {
+ 127              		.loc 1 60 0
+ 128              		.cfi_startproc
+ 129              		@ args = 16, pretend = 0, frame = 24
+ 130              		@ frame_needed = 0, uses_anonymous_args = 0
+ 131 0054 30B5     		push	{r4, r5, lr}	@
+ 132              	.LCFI3:
+ 133              		.cfi_def_cfa_offset 12
+ 134              		.cfi_offset 4, -12
+ 135              		.cfi_offset 5, -8
+ 136              		.cfi_offset 14, -4
+ 137 0056 8BB0     		sub	sp, sp, #44	@,,
+ 138              	.LCFI4:
+ 139              		.cfi_def_cfa_offset 56
+ 140 0058 0790     		str	r0, [sp, #28]	@ pI2cDevice, pI2cDevice
+ 141 005a 0593     		str	r3, [sp, #20]	@ data, data
+ 142 005c 0B46     		mov	r3, r1	@ tmp114, tmp113
+ 143 005e 8DF81B30 		strb	r3, [sp, #27]	@ tmp114, masterEnable
+ 144 0062 1346     		mov	r3, r2	@ tmp116, tmp115
+ 145 0064 8DF81A30 		strb	r3, [sp, #26]	@ tmp116, slaveAddress
+  61:../epcf/peripheral/source/i2c/i2c.c **** 	int32_t status=0;
+ 146              		.loc 1 61 0
+ 147 0068 0023     		movs	r3, #0	@ tmp117,
+ 148 006a 0993     		str	r3, [sp, #36]	@ tmp117, status
+  62:../epcf/peripheral/source/i2c/i2c.c **** 
+  63:../epcf/peripheral/source/i2c/i2c.c **** 	if(pI2cDevice->controllerConfig == NULL)
+ 149              		.loc 1 63 0
+ 150 006c 079B     		ldr	r3, [sp, #28]	@ tmp118, pI2cDevice
+ 151 006e 1B68     		ldr	r3, [r3]	@ D.6389, pI2cDevice_3(D)->controllerConfig
+ 152 0070 002B     		cmp	r3, #0	@ D.6389,
+ 153 0072 15D1     		bne	.L7	@,
+  64:../epcf/peripheral/source/i2c/i2c.c **** 	{
+  65:../epcf/peripheral/source/i2c/i2c.c **** 		status = epcf_i2c_nativeWrite(pI2cDevice,masterEnable,slaveAddress,data,size,busRelease,timeout);
+ 154              		.loc 1 65 0
+ 155 0074 9DF81B50 		ldrb	r5, [sp, #27]	@ zero_extendqisi2	@ tmp119, masterEnable
+ 156 0078 9DF81A40 		ldrb	r4, [sp, #26]	@ zero_extendqisi2	@ tmp120, slaveAddress
+ 157 007c 0E9B     		ldr	r3, [sp, #56]	@ tmp121, size
+ 158 007e 0093     		str	r3, [sp]	@ tmp121,
+ 159 0080 9DF83C30 		ldrb	r3, [sp, #60]	@ zero_extendqisi2	@ tmp122, busRelease
+ 160 0084 0193     		str	r3, [sp, #4]	@ tmp122,
+ 161 0086 02AA     		add	r2, sp, #8	@ tmp123,,
+ 162 0088 10AB     		add	r3, sp, #64	@ tmp124,,
+ 163 008a 93E80300 		ldmia	r3, {r0, r1}	@ tmp124,,
+ARM GAS  /tmp/ccTmpiai.s 			page 5
+
+
+ 164 008e 82E80300 		stmia	r2, {r0, r1}	@ tmp123,,
+ 165 0092 0798     		ldr	r0, [sp, #28]	@, pI2cDevice
+ 166 0094 2946     		mov	r1, r5	@, tmp119
+ 167 0096 2246     		mov	r2, r4	@, tmp120
+ 168 0098 059B     		ldr	r3, [sp, #20]	@, data
+ 169 009a FFF7FEFF 		bl	epcf_i2c_nativeWrite	@
+ 170 009e 0990     		str	r0, [sp, #36]	@, status
+ 171              	.L7:
+  66:../epcf/peripheral/source/i2c/i2c.c **** 	}
+  67:../epcf/peripheral/source/i2c/i2c.c **** 	else
+  68:../epcf/peripheral/source/i2c/i2c.c **** 	{
+  69:../epcf/peripheral/source/i2c/i2c.c **** //		TODO: controller structure is not defined
+  70:../epcf/peripheral/source/i2c/i2c.c **** 	}
+  71:../epcf/peripheral/source/i2c/i2c.c **** 	return status;
+ 172              		.loc 1 71 0
+ 173 00a0 099B     		ldr	r3, [sp, #36]	@ D.6390, status
+  72:../epcf/peripheral/source/i2c/i2c.c **** }
+ 174              		.loc 1 72 0
+ 175 00a2 1846     		mov	r0, r3	@, <retval>
+ 176 00a4 0BB0     		add	sp, sp, #44	@,,
+ 177              	.LCFI5:
+ 178              		.cfi_def_cfa_offset 12
+ 179              		@ sp needed	@
+ 180 00a6 30BD     		pop	{r4, r5, pc}	@
+ 181              		.cfi_endproc
+ 182              	.LFE41:
+ 183              		.size	epcf_i2c_write, .-epcf_i2c_write
+ 184              		.align	2
+ 185              		.global	epcf_i2c_read
+ 186              		.thumb
+ 187              		.thumb_func
+ 188              		.type	epcf_i2c_read, %function
+ 189              	epcf_i2c_read:
+ 190              	.LFB42:
+  73:../epcf/peripheral/source/i2c/i2c.c **** 
+  74:../epcf/peripheral/source/i2c/i2c.c **** int32_t epcf_i2c_read(EPCFI2cDevice_t* pI2cDevice,EnEPCFBoolean_t masterEnable,uint8_t slaveAddress
+  75:../epcf/peripheral/source/i2c/i2c.c **** {
+ 191              		.loc 1 75 0
+ 192              		.cfi_startproc
+ 193              		@ args = 16, pretend = 0, frame = 24
+ 194              		@ frame_needed = 0, uses_anonymous_args = 0
+ 195 00a8 30B5     		push	{r4, r5, lr}	@
+ 196              	.LCFI6:
+ 197              		.cfi_def_cfa_offset 12
+ 198              		.cfi_offset 4, -12
+ 199              		.cfi_offset 5, -8
+ 200              		.cfi_offset 14, -4
+ 201 00aa 8BB0     		sub	sp, sp, #44	@,,
+ 202              	.LCFI7:
+ 203              		.cfi_def_cfa_offset 56
+ 204 00ac 0790     		str	r0, [sp, #28]	@ pI2cDevice, pI2cDevice
+ 205 00ae 0593     		str	r3, [sp, #20]	@ data, data
+ 206 00b0 0B46     		mov	r3, r1	@ tmp114, tmp113
+ 207 00b2 8DF81B30 		strb	r3, [sp, #27]	@ tmp114, masterEnable
+ 208 00b6 1346     		mov	r3, r2	@ tmp116, tmp115
+ 209 00b8 8DF81A30 		strb	r3, [sp, #26]	@ tmp116, slaveAddress
+  76:../epcf/peripheral/source/i2c/i2c.c **** 	int32_t status=0;
+ARM GAS  /tmp/ccTmpiai.s 			page 6
+
+
+ 210              		.loc 1 76 0
+ 211 00bc 0023     		movs	r3, #0	@ tmp117,
+ 212 00be 0993     		str	r3, [sp, #36]	@ tmp117, status
+  77:../epcf/peripheral/source/i2c/i2c.c **** 
+  78:../epcf/peripheral/source/i2c/i2c.c **** 	if(pI2cDevice->controllerConfig == NULL)
+ 213              		.loc 1 78 0
+ 214 00c0 079B     		ldr	r3, [sp, #28]	@ tmp118, pI2cDevice
+ 215 00c2 1B68     		ldr	r3, [r3]	@ D.6392, pI2cDevice_3(D)->controllerConfig
+ 216 00c4 002B     		cmp	r3, #0	@ D.6392,
+ 217 00c6 15D1     		bne	.L10	@,
+  79:../epcf/peripheral/source/i2c/i2c.c **** 	{
+  80:../epcf/peripheral/source/i2c/i2c.c **** 		status = epcf_i2c_nativeRead(pI2cDevice,masterEnable,slaveAddress,data,size,busRelease,timeout);
+ 218              		.loc 1 80 0
+ 219 00c8 9DF81B50 		ldrb	r5, [sp, #27]	@ zero_extendqisi2	@ tmp119, masterEnable
+ 220 00cc 9DF81A40 		ldrb	r4, [sp, #26]	@ zero_extendqisi2	@ tmp120, slaveAddress
+ 221 00d0 0E9B     		ldr	r3, [sp, #56]	@ tmp121, size
+ 222 00d2 0093     		str	r3, [sp]	@ tmp121,
+ 223 00d4 9DF83C30 		ldrb	r3, [sp, #60]	@ zero_extendqisi2	@ tmp122, busRelease
+ 224 00d8 0193     		str	r3, [sp, #4]	@ tmp122,
+ 225 00da 02AA     		add	r2, sp, #8	@ tmp123,,
+ 226 00dc 10AB     		add	r3, sp, #64	@ tmp124,,
+ 227 00de 93E80300 		ldmia	r3, {r0, r1}	@ tmp124,,
+ 228 00e2 82E80300 		stmia	r2, {r0, r1}	@ tmp123,,
+ 229 00e6 0798     		ldr	r0, [sp, #28]	@, pI2cDevice
+ 230 00e8 2946     		mov	r1, r5	@, tmp119
+ 231 00ea 2246     		mov	r2, r4	@, tmp120
+ 232 00ec 059B     		ldr	r3, [sp, #20]	@, data
+ 233 00ee FFF7FEFF 		bl	epcf_i2c_nativeRead	@
+ 234 00f2 0990     		str	r0, [sp, #36]	@, status
+ 235              	.L10:
+  81:../epcf/peripheral/source/i2c/i2c.c **** 	}
+  82:../epcf/peripheral/source/i2c/i2c.c **** 	else
+  83:../epcf/peripheral/source/i2c/i2c.c **** 	{
+  84:../epcf/peripheral/source/i2c/i2c.c **** //		TODO: controller structure is not defined
+  85:../epcf/peripheral/source/i2c/i2c.c **** 	}
+  86:../epcf/peripheral/source/i2c/i2c.c **** 	return status;
+ 236              		.loc 1 86 0
+ 237 00f4 099B     		ldr	r3, [sp, #36]	@ D.6393, status
+  87:../epcf/peripheral/source/i2c/i2c.c **** }
+ 238              		.loc 1 87 0
+ 239 00f6 1846     		mov	r0, r3	@, <retval>
+ 240 00f8 0BB0     		add	sp, sp, #44	@,,
+ 241              	.LCFI8:
+ 242              		.cfi_def_cfa_offset 12
+ 243              		@ sp needed	@
+ 244 00fa 30BD     		pop	{r4, r5, pc}	@
+ 245              		.cfi_endproc
+ 246              	.LFE42:
+ 247              		.size	epcf_i2c_read, .-epcf_i2c_read
+ 248              		.align	2
+ 249              		.global	epcf_i2c_intEnable
+ 250              		.thumb
+ 251              		.thumb_func
+ 252              		.type	epcf_i2c_intEnable, %function
+ 253              	epcf_i2c_intEnable:
+ 254              	.LFB43:
+  88:../epcf/peripheral/source/i2c/i2c.c **** 
+ARM GAS  /tmp/ccTmpiai.s 			page 7
+
+
+  89:../epcf/peripheral/source/i2c/i2c.c **** int8_t epcf_i2c_intEnable(EPCFI2cDevice_t* pI2cDevice)
+  90:../epcf/peripheral/source/i2c/i2c.c **** {
+ 255              		.loc 1 90 0
+ 256              		.cfi_startproc
+ 257              		@ args = 0, pretend = 0, frame = 16
+ 258              		@ frame_needed = 0, uses_anonymous_args = 0
+ 259 00fc 00B5     		push	{lr}	@
+ 260              	.LCFI9:
+ 261              		.cfi_def_cfa_offset 4
+ 262              		.cfi_offset 14, -4
+ 263 00fe 85B0     		sub	sp, sp, #20	@,,
+ 264              	.LCFI10:
+ 265              		.cfi_def_cfa_offset 24
+ 266 0100 0190     		str	r0, [sp, #4]	@ pI2cDevice, pI2cDevice
+  91:../epcf/peripheral/source/i2c/i2c.c **** 	int8_t status=0;
+ 267              		.loc 1 91 0
+ 268 0102 0023     		movs	r3, #0	@ tmp113,
+ 269 0104 8DF80F30 		strb	r3, [sp, #15]	@ tmp114, status
+  92:../epcf/peripheral/source/i2c/i2c.c **** 
+  93:../epcf/peripheral/source/i2c/i2c.c **** 	if(pI2cDevice->controllerConfig == NULL)
+ 270              		.loc 1 93 0
+ 271 0108 019B     		ldr	r3, [sp, #4]	@ tmp115, pI2cDevice
+ 272 010a 1B68     		ldr	r3, [r3]	@ D.6394, pI2cDevice_3(D)->controllerConfig
+ 273 010c 002B     		cmp	r3, #0	@ D.6394,
+ 274 010e 05D1     		bne	.L13	@,
+  94:../epcf/peripheral/source/i2c/i2c.c **** 	{
+  95:../epcf/peripheral/source/i2c/i2c.c **** 		status = epcf_i2c_nativeIntEnable(pI2cDevice);
+ 275              		.loc 1 95 0
+ 276 0110 0198     		ldr	r0, [sp, #4]	@, pI2cDevice
+ 277 0112 FFF7FEFF 		bl	epcf_i2c_nativeIntEnable	@
+ 278 0116 0346     		mov	r3, r0	@ tmp116,
+ 279 0118 8DF80F30 		strb	r3, [sp, #15]	@ tmp117, status
+ 280              	.L13:
+  96:../epcf/peripheral/source/i2c/i2c.c **** 	}
+  97:../epcf/peripheral/source/i2c/i2c.c **** 	else
+  98:../epcf/peripheral/source/i2c/i2c.c **** 	{
+  99:../epcf/peripheral/source/i2c/i2c.c **** //		TODO: controller structure is not defined
+ 100:../epcf/peripheral/source/i2c/i2c.c **** 	}
+ 101:../epcf/peripheral/source/i2c/i2c.c **** 	return status;
+ 281              		.loc 1 101 0
+ 282 011c 9DF80F30 		ldrb	r3, [sp, #15]	@ zero_extendqisi2	@ D.6395, status
+ 283 0120 5BB2     		sxtb	r3, r3	@ tmp119, D.6395
+ 102:../epcf/peripheral/source/i2c/i2c.c **** }
+ 284              		.loc 1 102 0
+ 285 0122 1846     		mov	r0, r3	@, <retval>
+ 286 0124 05B0     		add	sp, sp, #20	@,,
+ 287              	.LCFI11:
+ 288              		.cfi_def_cfa_offset 4
+ 289              		@ sp needed	@
+ 290 0126 5DF804FB 		ldr	pc, [sp], #4	@
+ 291              		.cfi_endproc
+ 292              	.LFE43:
+ 293              		.size	epcf_i2c_intEnable, .-epcf_i2c_intEnable
+ 294 012a 00BF     		.align	2
+ 295              		.global	epcf_i2c_intDisable
+ 296              		.thumb
+ 297              		.thumb_func
+ARM GAS  /tmp/ccTmpiai.s 			page 8
+
+
+ 298              		.type	epcf_i2c_intDisable, %function
+ 299              	epcf_i2c_intDisable:
+ 300              	.LFB44:
+ 103:../epcf/peripheral/source/i2c/i2c.c **** 
+ 104:../epcf/peripheral/source/i2c/i2c.c **** int8_t epcf_i2c_intDisable(EPCFI2cDevice_t* pI2cDevice)
+ 105:../epcf/peripheral/source/i2c/i2c.c **** {
+ 301              		.loc 1 105 0
+ 302              		.cfi_startproc
+ 303              		@ args = 0, pretend = 0, frame = 16
+ 304              		@ frame_needed = 0, uses_anonymous_args = 0
+ 305 012c 00B5     		push	{lr}	@
+ 306              	.LCFI12:
+ 307              		.cfi_def_cfa_offset 4
+ 308              		.cfi_offset 14, -4
+ 309 012e 85B0     		sub	sp, sp, #20	@,,
+ 310              	.LCFI13:
+ 311              		.cfi_def_cfa_offset 24
+ 312 0130 0190     		str	r0, [sp, #4]	@ pI2cDevice, pI2cDevice
+ 106:../epcf/peripheral/source/i2c/i2c.c **** 	int8_t status=0;
+ 313              		.loc 1 106 0
+ 314 0132 0023     		movs	r3, #0	@ tmp113,
+ 315 0134 8DF80F30 		strb	r3, [sp, #15]	@ tmp114, status
+ 107:../epcf/peripheral/source/i2c/i2c.c **** 
+ 108:../epcf/peripheral/source/i2c/i2c.c **** 	if(pI2cDevice->controllerConfig == NULL)
+ 316              		.loc 1 108 0
+ 317 0138 019B     		ldr	r3, [sp, #4]	@ tmp115, pI2cDevice
+ 318 013a 1B68     		ldr	r3, [r3]	@ D.6396, pI2cDevice_3(D)->controllerConfig
+ 319 013c 002B     		cmp	r3, #0	@ D.6396,
+ 320 013e 05D1     		bne	.L16	@,
+ 109:../epcf/peripheral/source/i2c/i2c.c **** 	{
+ 110:../epcf/peripheral/source/i2c/i2c.c **** 		status = epcf_i2c_nativeIntDisable(pI2cDevice);
+ 321              		.loc 1 110 0
+ 322 0140 0198     		ldr	r0, [sp, #4]	@, pI2cDevice
+ 323 0142 FFF7FEFF 		bl	epcf_i2c_nativeIntDisable	@
+ 324 0146 0346     		mov	r3, r0	@ tmp116,
+ 325 0148 8DF80F30 		strb	r3, [sp, #15]	@ tmp117, status
+ 326              	.L16:
+ 111:../epcf/peripheral/source/i2c/i2c.c **** 	}
+ 112:../epcf/peripheral/source/i2c/i2c.c **** 	else
+ 113:../epcf/peripheral/source/i2c/i2c.c **** 	{
+ 114:../epcf/peripheral/source/i2c/i2c.c **** //		TODO: controller structure is not defined
+ 115:../epcf/peripheral/source/i2c/i2c.c **** 	}
+ 116:../epcf/peripheral/source/i2c/i2c.c **** 	return status;
+ 327              		.loc 1 116 0
+ 328 014c 9DF80F30 		ldrb	r3, [sp, #15]	@ zero_extendqisi2	@ D.6397, status
+ 329 0150 5BB2     		sxtb	r3, r3	@ tmp119, D.6397
+ 117:../epcf/peripheral/source/i2c/i2c.c **** }
+ 330              		.loc 1 117 0
+ 331 0152 1846     		mov	r0, r3	@, <retval>
+ 332 0154 05B0     		add	sp, sp, #20	@,,
+ 333              	.LCFI14:
+ 334              		.cfi_def_cfa_offset 4
+ 335              		@ sp needed	@
+ 336 0156 5DF804FB 		ldr	pc, [sp], #4	@
+ 337              		.cfi_endproc
+ 338              	.LFE44:
+ 339              		.size	epcf_i2c_intDisable, .-epcf_i2c_intDisable
+ARM GAS  /tmp/ccTmpiai.s 			page 9
+
+
+ 340 015a 00BF     		.align	2
+ 341              		.global	epcf_i2c_getRxBufferCount
+ 342              		.thumb
+ 343              		.thumb_func
+ 344              		.type	epcf_i2c_getRxBufferCount, %function
+ 345              	epcf_i2c_getRxBufferCount:
+ 346              	.LFB45:
+ 118:../epcf/peripheral/source/i2c/i2c.c **** 
+ 119:../epcf/peripheral/source/i2c/i2c.c **** int32_t epcf_i2c_getRxBufferCount(EPCFI2cDevice_t* pI2cDevice)
+ 120:../epcf/peripheral/source/i2c/i2c.c **** {
+ 347              		.loc 1 120 0
+ 348              		.cfi_startproc
+ 349              		@ args = 0, pretend = 0, frame = 16
+ 350              		@ frame_needed = 0, uses_anonymous_args = 0
+ 351 015c 00B5     		push	{lr}	@
+ 352              	.LCFI15:
+ 353              		.cfi_def_cfa_offset 4
+ 354              		.cfi_offset 14, -4
+ 355 015e 85B0     		sub	sp, sp, #20	@,,
+ 356              	.LCFI16:
+ 357              		.cfi_def_cfa_offset 24
+ 358 0160 0190     		str	r0, [sp, #4]	@ pI2cDevice, pI2cDevice
+ 121:../epcf/peripheral/source/i2c/i2c.c **** 	int32_t status=0;
+ 359              		.loc 1 121 0
+ 360 0162 0023     		movs	r3, #0	@ tmp113,
+ 361 0164 0393     		str	r3, [sp, #12]	@ tmp113, status
+ 122:../epcf/peripheral/source/i2c/i2c.c **** 
+ 123:../epcf/peripheral/source/i2c/i2c.c **** 	if(pI2cDevice->controllerConfig == NULL)
+ 362              		.loc 1 123 0
+ 363 0166 019B     		ldr	r3, [sp, #4]	@ tmp114, pI2cDevice
+ 364 0168 1B68     		ldr	r3, [r3]	@ D.6398, pI2cDevice_3(D)->controllerConfig
+ 365 016a 002B     		cmp	r3, #0	@ D.6398,
+ 366 016c 03D1     		bne	.L19	@,
+ 124:../epcf/peripheral/source/i2c/i2c.c **** 	{
+ 125:../epcf/peripheral/source/i2c/i2c.c **** 		status = epcf_i2c_nativeGetRxBufferCount(pI2cDevice);
+ 367              		.loc 1 125 0
+ 368 016e 0198     		ldr	r0, [sp, #4]	@, pI2cDevice
+ 369 0170 FFF7FEFF 		bl	epcf_i2c_nativeGetRxBufferCount	@
+ 370 0174 0390     		str	r0, [sp, #12]	@, status
+ 371              	.L19:
+ 126:../epcf/peripheral/source/i2c/i2c.c **** 	}
+ 127:../epcf/peripheral/source/i2c/i2c.c **** 	else
+ 128:../epcf/peripheral/source/i2c/i2c.c **** 	{
+ 129:../epcf/peripheral/source/i2c/i2c.c **** //		TODO: controller structure is not defined
+ 130:../epcf/peripheral/source/i2c/i2c.c **** 	}
+ 131:../epcf/peripheral/source/i2c/i2c.c **** 	return status;
+ 372              		.loc 1 131 0
+ 373 0176 039B     		ldr	r3, [sp, #12]	@ D.6399, status
+ 132:../epcf/peripheral/source/i2c/i2c.c **** }
+ 374              		.loc 1 132 0
+ 375 0178 1846     		mov	r0, r3	@, <retval>
+ 376 017a 05B0     		add	sp, sp, #20	@,,
+ 377              	.LCFI17:
+ 378              		.cfi_def_cfa_offset 4
+ 379              		@ sp needed	@
+ 380 017c 5DF804FB 		ldr	pc, [sp], #4	@
+ 381              		.cfi_endproc
+ARM GAS  /tmp/ccTmpiai.s 			page 10
+
+
+ 382              	.LFE45:
+ 383              		.size	epcf_i2c_getRxBufferCount, .-epcf_i2c_getRxBufferCount
+ 384              		.align	2
+ 385              		.global	epcf_i2c_rxBufferFlush
+ 386              		.thumb
+ 387              		.thumb_func
+ 388              		.type	epcf_i2c_rxBufferFlush, %function
+ 389              	epcf_i2c_rxBufferFlush:
+ 390              	.LFB46:
+ 133:../epcf/peripheral/source/i2c/i2c.c **** 
+ 134:../epcf/peripheral/source/i2c/i2c.c **** int8_t epcf_i2c_rxBufferFlush(EPCFI2cDevice_t* pI2cDevice)
+ 135:../epcf/peripheral/source/i2c/i2c.c **** {
+ 391              		.loc 1 135 0
+ 392              		.cfi_startproc
+ 393              		@ args = 0, pretend = 0, frame = 16
+ 394              		@ frame_needed = 0, uses_anonymous_args = 0
+ 395 0180 00B5     		push	{lr}	@
+ 396              	.LCFI18:
+ 397              		.cfi_def_cfa_offset 4
+ 398              		.cfi_offset 14, -4
+ 399 0182 85B0     		sub	sp, sp, #20	@,,
+ 400              	.LCFI19:
+ 401              		.cfi_def_cfa_offset 24
+ 402 0184 0190     		str	r0, [sp, #4]	@ pI2cDevice, pI2cDevice
+ 136:../epcf/peripheral/source/i2c/i2c.c **** 	int8_t status=0;
+ 403              		.loc 1 136 0
+ 404 0186 0023     		movs	r3, #0	@ tmp113,
+ 405 0188 8DF80F30 		strb	r3, [sp, #15]	@ tmp114, status
+ 137:../epcf/peripheral/source/i2c/i2c.c **** 
+ 138:../epcf/peripheral/source/i2c/i2c.c **** 	if(pI2cDevice->controllerConfig == NULL)
+ 406              		.loc 1 138 0
+ 407 018c 019B     		ldr	r3, [sp, #4]	@ tmp115, pI2cDevice
+ 408 018e 1B68     		ldr	r3, [r3]	@ D.6400, pI2cDevice_3(D)->controllerConfig
+ 409 0190 002B     		cmp	r3, #0	@ D.6400,
+ 410 0192 05D1     		bne	.L22	@,
+ 139:../epcf/peripheral/source/i2c/i2c.c **** 	{
+ 140:../epcf/peripheral/source/i2c/i2c.c **** 		status = epcf_i2c_nativeRxBufferFlush(pI2cDevice);
+ 411              		.loc 1 140 0
+ 412 0194 0198     		ldr	r0, [sp, #4]	@, pI2cDevice
+ 413 0196 FFF7FEFF 		bl	epcf_i2c_nativeRxBufferFlush	@
+ 414 019a 0346     		mov	r3, r0	@ tmp116,
+ 415 019c 8DF80F30 		strb	r3, [sp, #15]	@ tmp117, status
+ 416              	.L22:
+ 141:../epcf/peripheral/source/i2c/i2c.c **** 	}
+ 142:../epcf/peripheral/source/i2c/i2c.c **** 	else
+ 143:../epcf/peripheral/source/i2c/i2c.c **** 	{
+ 144:../epcf/peripheral/source/i2c/i2c.c **** //		TODO: controller structure is not defined
+ 145:../epcf/peripheral/source/i2c/i2c.c **** 	}
+ 146:../epcf/peripheral/source/i2c/i2c.c **** 	return status;
+ 417              		.loc 1 146 0
+ 418 01a0 9DF80F30 		ldrb	r3, [sp, #15]	@ zero_extendqisi2	@ D.6401, status
+ 419 01a4 5BB2     		sxtb	r3, r3	@ tmp119, D.6401
+ 147:../epcf/peripheral/source/i2c/i2c.c **** }
+ 420              		.loc 1 147 0
+ 421 01a6 1846     		mov	r0, r3	@, <retval>
+ 422 01a8 05B0     		add	sp, sp, #20	@,,
+ 423              	.LCFI20:
+ARM GAS  /tmp/ccTmpiai.s 			page 11
+
+
+ 424              		.cfi_def_cfa_offset 4
+ 425              		@ sp needed	@
+ 426 01aa 5DF804FB 		ldr	pc, [sp], #4	@
+ 427              		.cfi_endproc
+ 428              	.LFE46:
+ 429              		.size	epcf_i2c_rxBufferFlush, .-epcf_i2c_rxBufferFlush
+ 430 01ae 00BF     		.align	2
+ 431              		.global	epcf_i2c_getTxBufferCount
+ 432              		.thumb
+ 433              		.thumb_func
+ 434              		.type	epcf_i2c_getTxBufferCount, %function
+ 435              	epcf_i2c_getTxBufferCount:
+ 436              	.LFB47:
+ 148:../epcf/peripheral/source/i2c/i2c.c **** 
+ 149:../epcf/peripheral/source/i2c/i2c.c **** int32_t epcf_i2c_getTxBufferCount(EPCFI2cDevice_t* pI2cDevice)
+ 150:../epcf/peripheral/source/i2c/i2c.c **** {
+ 437              		.loc 1 150 0
+ 438              		.cfi_startproc
+ 439              		@ args = 0, pretend = 0, frame = 16
+ 440              		@ frame_needed = 0, uses_anonymous_args = 0
+ 441 01b0 00B5     		push	{lr}	@
+ 442              	.LCFI21:
+ 443              		.cfi_def_cfa_offset 4
+ 444              		.cfi_offset 14, -4
+ 445 01b2 85B0     		sub	sp, sp, #20	@,,
+ 446              	.LCFI22:
+ 447              		.cfi_def_cfa_offset 24
+ 448 01b4 0190     		str	r0, [sp, #4]	@ pI2cDevice, pI2cDevice
+ 151:../epcf/peripheral/source/i2c/i2c.c **** 	int32_t status=0;
+ 449              		.loc 1 151 0
+ 450 01b6 0023     		movs	r3, #0	@ tmp113,
+ 451 01b8 0393     		str	r3, [sp, #12]	@ tmp113, status
+ 152:../epcf/peripheral/source/i2c/i2c.c **** 
+ 153:../epcf/peripheral/source/i2c/i2c.c **** 	if(pI2cDevice->controllerConfig == NULL)
+ 452              		.loc 1 153 0
+ 453 01ba 019B     		ldr	r3, [sp, #4]	@ tmp114, pI2cDevice
+ 454 01bc 1B68     		ldr	r3, [r3]	@ D.6402, pI2cDevice_3(D)->controllerConfig
+ 455 01be 002B     		cmp	r3, #0	@ D.6402,
+ 456 01c0 03D1     		bne	.L25	@,
+ 154:../epcf/peripheral/source/i2c/i2c.c **** 	{
+ 155:../epcf/peripheral/source/i2c/i2c.c **** 		status = epcf_i2c_nativeGetTxBufferCount(pI2cDevice);
+ 457              		.loc 1 155 0
+ 458 01c2 0198     		ldr	r0, [sp, #4]	@, pI2cDevice
+ 459 01c4 FFF7FEFF 		bl	epcf_i2c_nativeGetTxBufferCount	@
+ 460 01c8 0390     		str	r0, [sp, #12]	@, status
+ 461              	.L25:
+ 156:../epcf/peripheral/source/i2c/i2c.c **** 	}
+ 157:../epcf/peripheral/source/i2c/i2c.c **** 	else
+ 158:../epcf/peripheral/source/i2c/i2c.c **** 	{
+ 159:../epcf/peripheral/source/i2c/i2c.c **** //		TODO: controller structure is not defined
+ 160:../epcf/peripheral/source/i2c/i2c.c **** 	}
+ 161:../epcf/peripheral/source/i2c/i2c.c **** 	return status;
+ 462              		.loc 1 161 0
+ 463 01ca 039B     		ldr	r3, [sp, #12]	@ D.6403, status
+ 162:../epcf/peripheral/source/i2c/i2c.c **** }
+ 464              		.loc 1 162 0
+ 465 01cc 1846     		mov	r0, r3	@, <retval>
+ARM GAS  /tmp/ccTmpiai.s 			page 12
+
+
+ 466 01ce 05B0     		add	sp, sp, #20	@,,
+ 467              	.LCFI23:
+ 468              		.cfi_def_cfa_offset 4
+ 469              		@ sp needed	@
+ 470 01d0 5DF804FB 		ldr	pc, [sp], #4	@
+ 471              		.cfi_endproc
+ 472              	.LFE47:
+ 473              		.size	epcf_i2c_getTxBufferCount, .-epcf_i2c_getTxBufferCount
+ 474              		.align	2
+ 475              		.global	epcf_i2c_txBufferFlush
+ 476              		.thumb
+ 477              		.thumb_func
+ 478              		.type	epcf_i2c_txBufferFlush, %function
+ 479              	epcf_i2c_txBufferFlush:
+ 480              	.LFB48:
+ 163:../epcf/peripheral/source/i2c/i2c.c **** 
+ 164:../epcf/peripheral/source/i2c/i2c.c **** int8_t epcf_i2c_txBufferFlush(EPCFI2cDevice_t* pI2cDevice)
+ 165:../epcf/peripheral/source/i2c/i2c.c **** {
+ 481              		.loc 1 165 0
+ 482              		.cfi_startproc
+ 483              		@ args = 0, pretend = 0, frame = 16
+ 484              		@ frame_needed = 0, uses_anonymous_args = 0
+ 485 01d4 00B5     		push	{lr}	@
+ 486              	.LCFI24:
+ 487              		.cfi_def_cfa_offset 4
+ 488              		.cfi_offset 14, -4
+ 489 01d6 85B0     		sub	sp, sp, #20	@,,
+ 490              	.LCFI25:
+ 491              		.cfi_def_cfa_offset 24
+ 492 01d8 0190     		str	r0, [sp, #4]	@ pI2cDevice, pI2cDevice
+ 166:../epcf/peripheral/source/i2c/i2c.c **** 	int8_t status=0;
+ 493              		.loc 1 166 0
+ 494 01da 0023     		movs	r3, #0	@ tmp113,
+ 495 01dc 8DF80F30 		strb	r3, [sp, #15]	@ tmp114, status
+ 167:../epcf/peripheral/source/i2c/i2c.c **** 
+ 168:../epcf/peripheral/source/i2c/i2c.c **** 	if(pI2cDevice->controllerConfig == NULL)
+ 496              		.loc 1 168 0
+ 497 01e0 019B     		ldr	r3, [sp, #4]	@ tmp115, pI2cDevice
+ 498 01e2 1B68     		ldr	r3, [r3]	@ D.6404, pI2cDevice_3(D)->controllerConfig
+ 499 01e4 002B     		cmp	r3, #0	@ D.6404,
+ 500 01e6 05D1     		bne	.L28	@,
+ 169:../epcf/peripheral/source/i2c/i2c.c **** 	{
+ 170:../epcf/peripheral/source/i2c/i2c.c **** 		status = epcf_i2c_nativeTxBufferFlush(pI2cDevice);
+ 501              		.loc 1 170 0
+ 502 01e8 0198     		ldr	r0, [sp, #4]	@, pI2cDevice
+ 503 01ea FFF7FEFF 		bl	epcf_i2c_nativeTxBufferFlush	@
+ 504 01ee 0346     		mov	r3, r0	@ tmp116,
+ 505 01f0 8DF80F30 		strb	r3, [sp, #15]	@ tmp117, status
+ 506              	.L28:
+ 171:../epcf/peripheral/source/i2c/i2c.c **** 	}
+ 172:../epcf/peripheral/source/i2c/i2c.c **** 	else
+ 173:../epcf/peripheral/source/i2c/i2c.c **** 	{
+ 174:../epcf/peripheral/source/i2c/i2c.c **** //		TODO: controller structure is not defined
+ 175:../epcf/peripheral/source/i2c/i2c.c **** 	}
+ 176:../epcf/peripheral/source/i2c/i2c.c **** 	return status;
+ 507              		.loc 1 176 0
+ 508 01f4 9DF80F30 		ldrb	r3, [sp, #15]	@ zero_extendqisi2	@ D.6405, status
+ARM GAS  /tmp/ccTmpiai.s 			page 13
+
+
+ 509 01f8 5BB2     		sxtb	r3, r3	@ tmp119, D.6405
+ 177:../epcf/peripheral/source/i2c/i2c.c **** }
+ 510              		.loc 1 177 0
+ 511 01fa 1846     		mov	r0, r3	@, <retval>
+ 512 01fc 05B0     		add	sp, sp, #20	@,,
+ 513              	.LCFI26:
+ 514              		.cfi_def_cfa_offset 4
+ 515              		@ sp needed	@
+ 516 01fe 5DF804FB 		ldr	pc, [sp], #4	@
+ 517              		.cfi_endproc
+ 518              	.LFE48:
+ 519              		.size	epcf_i2c_txBufferFlush, .-epcf_i2c_txBufferFlush
+ 520 0202 00BF     		.align	2
+ 521              		.global	epcf_i2c_close
+ 522              		.thumb
+ 523              		.thumb_func
+ 524              		.type	epcf_i2c_close, %function
+ 525              	epcf_i2c_close:
+ 526              	.LFB49:
+ 178:../epcf/peripheral/source/i2c/i2c.c **** 
+ 179:../epcf/peripheral/source/i2c/i2c.c **** int8_t epcf_i2c_close(EPCFI2cDevice_t* pI2cDevice)
+ 180:../epcf/peripheral/source/i2c/i2c.c **** {
+ 527              		.loc 1 180 0
+ 528              		.cfi_startproc
+ 529              		@ args = 0, pretend = 0, frame = 16
+ 530              		@ frame_needed = 0, uses_anonymous_args = 0
+ 531 0204 00B5     		push	{lr}	@
+ 532              	.LCFI27:
+ 533              		.cfi_def_cfa_offset 4
+ 534              		.cfi_offset 14, -4
+ 535 0206 85B0     		sub	sp, sp, #20	@,,
+ 536              	.LCFI28:
+ 537              		.cfi_def_cfa_offset 24
+ 538 0208 0190     		str	r0, [sp, #4]	@ pI2cDevice, pI2cDevice
+ 181:../epcf/peripheral/source/i2c/i2c.c **** 	int8_t status=0;
+ 539              		.loc 1 181 0
+ 540 020a 0023     		movs	r3, #0	@ tmp113,
+ 541 020c 8DF80F30 		strb	r3, [sp, #15]	@ tmp114, status
+ 182:../epcf/peripheral/source/i2c/i2c.c **** 
+ 183:../epcf/peripheral/source/i2c/i2c.c **** 	if(pI2cDevice->controllerConfig == NULL)
+ 542              		.loc 1 183 0
+ 543 0210 019B     		ldr	r3, [sp, #4]	@ tmp115, pI2cDevice
+ 544 0212 1B68     		ldr	r3, [r3]	@ D.6406, pI2cDevice_3(D)->controllerConfig
+ 545 0214 002B     		cmp	r3, #0	@ D.6406,
+ 546 0216 05D1     		bne	.L31	@,
+ 184:../epcf/peripheral/source/i2c/i2c.c **** 	{
+ 185:../epcf/peripheral/source/i2c/i2c.c **** 		status = epcf_i2c_nativeClose(pI2cDevice);
+ 547              		.loc 1 185 0
+ 548 0218 0198     		ldr	r0, [sp, #4]	@, pI2cDevice
+ 549 021a FFF7FEFF 		bl	epcf_i2c_nativeClose	@
+ 550 021e 0346     		mov	r3, r0	@ tmp116,
+ 551 0220 8DF80F30 		strb	r3, [sp, #15]	@ tmp117, status
+ 552              	.L31:
+ 186:../epcf/peripheral/source/i2c/i2c.c **** 	}
+ 187:../epcf/peripheral/source/i2c/i2c.c **** 	else
+ 188:../epcf/peripheral/source/i2c/i2c.c **** 	{
+ 189:../epcf/peripheral/source/i2c/i2c.c **** //		TODO: controller structure is not defined
+ARM GAS  /tmp/ccTmpiai.s 			page 14
+
+
+ 190:../epcf/peripheral/source/i2c/i2c.c **** 	}
+ 191:../epcf/peripheral/source/i2c/i2c.c **** 	return status;
+ 553              		.loc 1 191 0
+ 554 0224 9DF80F30 		ldrb	r3, [sp, #15]	@ zero_extendqisi2	@ D.6407, status
+ 555 0228 5BB2     		sxtb	r3, r3	@ tmp119, D.6407
+ 192:../epcf/peripheral/source/i2c/i2c.c **** }
+ 556              		.loc 1 192 0
+ 557 022a 1846     		mov	r0, r3	@, <retval>
+ 558 022c 05B0     		add	sp, sp, #20	@,,
+ 559              	.LCFI29:
+ 560              		.cfi_def_cfa_offset 4
+ 561              		@ sp needed	@
+ 562 022e 5DF804FB 		ldr	pc, [sp], #4	@
+ 563              		.cfi_endproc
+ 564              	.LFE49:
+ 565              		.size	epcf_i2c_close, .-epcf_i2c_close
+ 566 0232 00BF     		.align	2
+ 567              		.global	epcf_i2c_getDeviceCount
+ 568              		.thumb
+ 569              		.thumb_func
+ 570              		.type	epcf_i2c_getDeviceCount, %function
+ 571              	epcf_i2c_getDeviceCount:
+ 572              	.LFB50:
+ 193:../epcf/peripheral/source/i2c/i2c.c **** 
+ 194:../epcf/peripheral/source/i2c/i2c.c **** uint8_t epcf_i2c_getDeviceCount()
+ 195:../epcf/peripheral/source/i2c/i2c.c **** {
+ 573              		.loc 1 195 0
+ 574              		.cfi_startproc
+ 575              		@ args = 0, pretend = 0, frame = 8
+ 576              		@ frame_needed = 0, uses_anonymous_args = 0
+ 577 0234 00B5     		push	{lr}	@
+ 578              	.LCFI30:
+ 579              		.cfi_def_cfa_offset 4
+ 580              		.cfi_offset 14, -4
+ 581 0236 83B0     		sub	sp, sp, #12	@,,
+ 582              	.LCFI31:
+ 583              		.cfi_def_cfa_offset 16
+ 196:../epcf/peripheral/source/i2c/i2c.c **** 	uint8_t status=0;
+ 584              		.loc 1 196 0
+ 585 0238 0023     		movs	r3, #0	@ tmp112,
+ 586 023a 8DF80730 		strb	r3, [sp, #7]	@ tmp113, status
+ 197:../epcf/peripheral/source/i2c/i2c.c **** 	status = epcf_i2c_nativeGetDeviceCount();
+ 587              		.loc 1 197 0
+ 588 023e FFF7FEFF 		bl	epcf_i2c_nativeGetDeviceCount	@
+ 589 0242 0346     		mov	r3, r0	@ tmp114,
+ 590 0244 8DF80730 		strb	r3, [sp, #7]	@ tmp115, status
+ 198:../epcf/peripheral/source/i2c/i2c.c **** 	return status;
+ 591              		.loc 1 198 0
+ 592 0248 9DF80730 		ldrb	r3, [sp, #7]	@ zero_extendqisi2	@ D.6408, status
+ 199:../epcf/peripheral/source/i2c/i2c.c **** }
+ 593              		.loc 1 199 0
+ 594 024c 1846     		mov	r0, r3	@, <retval>
+ 595 024e 03B0     		add	sp, sp, #12	@,,
+ 596              	.LCFI32:
+ 597              		.cfi_def_cfa_offset 4
+ 598              		@ sp needed	@
+ 599 0250 5DF804FB 		ldr	pc, [sp], #4	@
+ARM GAS  /tmp/ccTmpiai.s 			page 15
+
+
+ 600              		.cfi_endproc
+ 601              	.LFE50:
+ 602              		.size	epcf_i2c_getDeviceCount, .-epcf_i2c_getDeviceCount
+ 603              		.align	2
+ 604              		.global	epcf_i2c_extGetDeviceCount
+ 605              		.thumb
+ 606              		.thumb_func
+ 607              		.type	epcf_i2c_extGetDeviceCount, %function
+ 608              	epcf_i2c_extGetDeviceCount:
+ 609              	.LFB51:
+ 200:../epcf/peripheral/source/i2c/i2c.c **** 
+ 201:../epcf/peripheral/source/i2c/i2c.c **** uint8_t epcf_i2c_extGetDeviceCount(EPCFI2cController_t* pI2cController)
+ 202:../epcf/peripheral/source/i2c/i2c.c **** {
+ 610              		.loc 1 202 0
+ 611              		.cfi_startproc
+ 612              		@ args = 0, pretend = 0, frame = 16
+ 613              		@ frame_needed = 0, uses_anonymous_args = 0
+ 614              		@ link register save eliminated.
+ 615 0254 84B0     		sub	sp, sp, #16	@,,
+ 616              	.LCFI33:
+ 617              		.cfi_def_cfa_offset 16
+ 618 0256 0190     		str	r0, [sp, #4]	@ pI2cController, pI2cController
+ 203:../epcf/peripheral/source/i2c/i2c.c **** 	uint8_t status=0;
+ 619              		.loc 1 203 0
+ 620 0258 0023     		movs	r3, #0	@ tmp112,
+ 621 025a 8DF80F30 		strb	r3, [sp, #15]	@ tmp113, status
+ 204:../epcf/peripheral/source/i2c/i2c.c **** //	TODO: controller structure is not defined
+ 205:../epcf/peripheral/source/i2c/i2c.c **** 	return status;
+ 622              		.loc 1 205 0
+ 623 025e 9DF80F30 		ldrb	r3, [sp, #15]	@ zero_extendqisi2	@ D.6409, status
+ 206:../epcf/peripheral/source/i2c/i2c.c **** }
+ 624              		.loc 1 206 0
+ 625 0262 1846     		mov	r0, r3	@, <retval>
+ 626 0264 04B0     		add	sp, sp, #16	@,,
+ 627              	.LCFI34:
+ 628              		.cfi_def_cfa_offset 0
+ 629              		@ sp needed	@
+ 630 0266 7047     		bx	lr	@
+ 631              		.cfi_endproc
+ 632              	.LFE51:
+ 633              		.size	epcf_i2c_extGetDeviceCount, .-epcf_i2c_extGetDeviceCount
+ 634              	.Letext0:
+ 635              		.file 2 "/usr/include/newlib/machine/_default_types.h"
+ 636              		.file 3 "/usr/include/newlib/sys/_stdint.h"
+ 637              		.file 4 "../pcf/include/../../epcf/./common/types.h"
+ 638              		.file 5 "./include/../../epcf/peripheral/source/i2c/i2c_hidden.h"
+ 639              		.file 6 "./include/../../epcf/peripheral/include/./i2c/i2c.h"
+ 640              		.file 7 "./include/../../epcf/utils/include/epcf_fifo.h"
+ 641              		.file 8 "../pcf/include/private/arch/arm/cm3/nxp/lpc1768/./../../../../arm/cm3/nxp/lpc1768/lpc1768
+ 642              		.section	.debug_info,"",%progbits
+ 643              	.Ldebug_info0:
+ 644 0000 83060000 		.4byte	0x683
+ 645 0004 0200     		.2byte	0x2
+ 646 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 647 000a 04       		.byte	0x4
+ 648 000b 01       		.uleb128 0x1
+ 649 000c 31010000 		.4byte	.LASF80
+ARM GAS  /tmp/ccTmpiai.s 			page 16
+
+
+ 650 0010 01       		.byte	0x1
+ 651 0011 E0000000 		.4byte	.LASF81
+ 652 0015 9E010000 		.4byte	.LASF82
+ 653 0019 00000000 		.4byte	.Ltext0
+ 654 001d 68020000 		.4byte	.Letext0
+ 655 0021 00000000 		.4byte	.Ldebug_line0
+ 656 0025 02       		.uleb128 0x2
+ 657 0026 04       		.byte	0x4
+ 658 0027 07       		.byte	0x7
+ 659 0028 87030000 		.4byte	.LASF0
+ 660 002c 03       		.uleb128 0x3
+ 661 002d 04       		.byte	0x4
+ 662 002e 05       		.byte	0x5
+ 663 002f 696E7400 		.ascii	"int\000"
+ 664 0033 04       		.uleb128 0x4
+ 665 0034 D3020000 		.4byte	.LASF2
+ 666 0038 02       		.byte	0x2
+ 667 0039 1B       		.byte	0x1b
+ 668 003a 3E000000 		.4byte	0x3e
+ 669 003e 02       		.uleb128 0x2
+ 670 003f 01       		.byte	0x1
+ 671 0040 06       		.byte	0x6
+ 672 0041 42030000 		.4byte	.LASF1
+ 673 0045 04       		.uleb128 0x4
+ 674 0046 7C020000 		.4byte	.LASF3
+ 675 004a 02       		.byte	0x2
+ 676 004b 1D       		.byte	0x1d
+ 677 004c 50000000 		.4byte	0x50
+ 678 0050 02       		.uleb128 0x2
+ 679 0051 01       		.byte	0x1
+ 680 0052 08       		.byte	0x8
+ 681 0053 1D030000 		.4byte	.LASF4
+ 682 0057 02       		.uleb128 0x2
+ 683 0058 02       		.byte	0x2
+ 684 0059 05       		.byte	0x5
+ 685 005a 55000000 		.4byte	.LASF5
+ 686 005e 04       		.uleb128 0x4
+ 687 005f D5000000 		.4byte	.LASF6
+ 688 0063 02       		.byte	0x2
+ 689 0064 2B       		.byte	0x2b
+ 690 0065 69000000 		.4byte	0x69
+ 691 0069 02       		.uleb128 0x2
+ 692 006a 02       		.byte	0x2
+ 693 006b 07       		.byte	0x7
+ 694 006c C5030000 		.4byte	.LASF7
+ 695 0070 04       		.uleb128 0x4
+ 696 0071 E6040000 		.4byte	.LASF8
+ 697 0075 02       		.byte	0x2
+ 698 0076 3F       		.byte	0x3f
+ 699 0077 7B000000 		.4byte	0x7b
+ 700 007b 02       		.uleb128 0x2
+ 701 007c 04       		.byte	0x4
+ 702 007d 05       		.byte	0x5
+ 703 007e 4C020000 		.4byte	.LASF9
+ 704 0082 04       		.uleb128 0x4
+ 705 0083 A8000000 		.4byte	.LASF10
+ 706 0087 02       		.byte	0x2
+ARM GAS  /tmp/ccTmpiai.s 			page 17
+
+
+ 707 0088 41       		.byte	0x41
+ 708 0089 8D000000 		.4byte	0x8d
+ 709 008d 02       		.uleb128 0x2
+ 710 008e 04       		.byte	0x4
+ 711 008f 07       		.byte	0x7
+ 712 0090 9B040000 		.4byte	.LASF11
+ 713 0094 02       		.uleb128 0x2
+ 714 0095 08       		.byte	0x8
+ 715 0096 05       		.byte	0x5
+ 716 0097 21020000 		.4byte	.LASF12
+ 717 009b 02       		.uleb128 0x2
+ 718 009c 08       		.byte	0x8
+ 719 009d 07       		.byte	0x7
+ 720 009e 67030000 		.4byte	.LASF13
+ 721 00a2 02       		.uleb128 0x2
+ 722 00a3 04       		.byte	0x4
+ 723 00a4 07       		.byte	0x7
+ 724 00a5 6D000000 		.4byte	.LASF14
+ 725 00a9 05       		.uleb128 0x5
+ 726 00aa 04       		.byte	0x4
+ 727 00ab 02       		.uleb128 0x2
+ 728 00ac 01       		.byte	0x1
+ 729 00ad 08       		.byte	0x8
+ 730 00ae 47020000 		.4byte	.LASF15
+ 731 00b2 04       		.uleb128 0x4
+ 732 00b3 3C000000 		.4byte	.LASF16
+ 733 00b7 03       		.byte	0x3
+ 734 00b8 13       		.byte	0x13
+ 735 00b9 33000000 		.4byte	0x33
+ 736 00bd 04       		.uleb128 0x4
+ 737 00be 29010000 		.4byte	.LASF17
+ 738 00c2 03       		.byte	0x3
+ 739 00c3 14       		.byte	0x14
+ 740 00c4 45000000 		.4byte	0x45
+ 741 00c8 04       		.uleb128 0x4
+ 742 00c9 9F030000 		.4byte	.LASF18
+ 743 00cd 03       		.byte	0x3
+ 744 00ce 1A       		.byte	0x1a
+ 745 00cf 5E000000 		.4byte	0x5e
+ 746 00d3 04       		.uleb128 0x4
+ 747 00d4 14040000 		.4byte	.LASF19
+ 748 00d8 03       		.byte	0x3
+ 749 00d9 1F       		.byte	0x1f
+ 750 00da 70000000 		.4byte	0x70
+ 751 00de 04       		.uleb128 0x4
+ 752 00df 7E030000 		.4byte	.LASF20
+ 753 00e3 03       		.byte	0x3
+ 754 00e4 20       		.byte	0x20
+ 755 00e5 82000000 		.4byte	0x82
+ 756 00e9 02       		.uleb128 0x2
+ 757 00ea 04       		.byte	0x4
+ 758 00eb 04       		.byte	0x4
+ 759 00ec F3010000 		.4byte	.LASF21
+ 760 00f0 06       		.uleb128 0x6
+ 761 00f1 01       		.byte	0x1
+ 762 00f2 04       		.byte	0x4
+ 763 00f3 06       		.byte	0x6
+ARM GAS  /tmp/ccTmpiai.s 			page 18
+
+
+ 764 00f4 0B010000 		.4byte	0x10b
+ 765 00f8 07       		.uleb128 0x7
+ 766 00f9 22050000 		.4byte	.LASF22
+ 767 00fd 00       		.sleb128 0
+ 768 00fe 07       		.uleb128 0x7
+ 769 00ff 68040000 		.4byte	.LASF23
+ 770 0103 01       		.sleb128 1
+ 771 0104 07       		.uleb128 0x7
+ 772 0105 C1040000 		.4byte	.LASF24
+ 773 0109 02       		.sleb128 2
+ 774 010a 00       		.byte	0
+ 775 010b 04       		.uleb128 0x4
+ 776 010c 07020000 		.4byte	.LASF25
+ 777 0110 04       		.byte	0x4
+ 778 0111 0A       		.byte	0xa
+ 779 0112 F0000000 		.4byte	0xf0
+ 780 0116 06       		.uleb128 0x6
+ 781 0117 01       		.byte	0x1
+ 782 0118 04       		.byte	0x4
+ 783 0119 12       		.byte	0x12
+ 784 011a 3D010000 		.4byte	0x13d
+ 785 011e 07       		.uleb128 0x7
+ 786 011f 59050000 		.4byte	.LASF26
+ 787 0123 00       		.sleb128 0
+ 788 0124 07       		.uleb128 0x7
+ 789 0125 F0040000 		.4byte	.LASF27
+ 790 0129 01       		.sleb128 1
+ 791 012a 07       		.uleb128 0x7
+ 792 012b 46040000 		.4byte	.LASF28
+ 793 012f 02       		.sleb128 2
+ 794 0130 07       		.uleb128 0x7
+ 795 0131 DC020000 		.4byte	.LASF29
+ 796 0135 03       		.sleb128 3
+ 797 0136 07       		.uleb128 0x7
+ 798 0137 33040000 		.4byte	.LASF30
+ 799 013b 04       		.sleb128 4
+ 800 013c 00       		.byte	0
+ 801 013d 04       		.uleb128 0x4
+ 802 013e A8030000 		.4byte	.LASF31
+ 803 0142 04       		.byte	0x4
+ 804 0143 18       		.byte	0x18
+ 805 0144 16010000 		.4byte	0x116
+ 806 0148 08       		.uleb128 0x8
+ 807 0149 08       		.byte	0x8
+ 808 014a 04       		.byte	0x4
+ 809 014b 1D       		.byte	0x1d
+ 810 014c 6D010000 		.4byte	0x16d
+ 811 0150 09       		.uleb128 0x9
+ 812 0151 D3040000 		.4byte	.LASF32
+ 813 0155 04       		.byte	0x4
+ 814 0156 1F       		.byte	0x1f
+ 815 0157 DE000000 		.4byte	0xde
+ 816 015b 02       		.byte	0x2
+ 817 015c 23       		.byte	0x23
+ 818 015d 00       		.uleb128 0
+ 819 015e 09       		.uleb128 0x9
+ 820 015f 99010000 		.4byte	.LASF33
+ARM GAS  /tmp/ccTmpiai.s 			page 19
+
+
+ 821 0163 04       		.byte	0x4
+ 822 0164 20       		.byte	0x20
+ 823 0165 3D010000 		.4byte	0x13d
+ 824 0169 02       		.byte	0x2
+ 825 016a 23       		.byte	0x23
+ 826 016b 04       		.uleb128 0x4
+ 827 016c 00       		.byte	0
+ 828 016d 04       		.uleb128 0x4
+ 829 016e ED020000 		.4byte	.LASF34
+ 830 0172 04       		.byte	0x4
+ 831 0173 21       		.byte	0x21
+ 832 0174 48010000 		.4byte	0x148
+ 833 0178 0A       		.uleb128 0xa
+ 834 0179 B3000000 		.4byte	.LASF83
+ 835 017d 1C       		.byte	0x1c
+ 836 017e 05       		.byte	0x5
+ 837 017f 0F       		.byte	0xf
+ 838 0180 E7010000 		.4byte	0x1e7
+ 839 0184 09       		.uleb128 0x9
+ 840 0185 11050000 		.4byte	.LASF35
+ 841 0189 05       		.byte	0x5
+ 842 018a 11       		.byte	0x11
+ 843 018b DF020000 		.4byte	0x2df
+ 844 018f 02       		.byte	0x2
+ 845 0190 23       		.byte	0x23
+ 846 0191 00       		.uleb128 0
+ 847 0192 09       		.uleb128 0x9
+ 848 0193 F8020000 		.4byte	.LASF36
+ 849 0197 05       		.byte	0x5
+ 850 0198 12       		.byte	0x12
+ 851 0199 BD000000 		.4byte	0xbd
+ 852 019d 02       		.byte	0x2
+ 853 019e 23       		.byte	0x23
+ 854 019f 04       		.uleb128 0x4
+ 855 01a0 09       		.uleb128 0x9
+ 856 01a1 FE020000 		.4byte	.LASF37
+ 857 01a5 05       		.byte	0x5
+ 858 01a6 13       		.byte	0x13
+ 859 01a7 A9000000 		.4byte	0xa9
+ 860 01ab 02       		.byte	0x2
+ 861 01ac 23       		.byte	0x23
+ 862 01ad 08       		.uleb128 0x8
+ 863 01ae 09       		.uleb128 0x9
+ 864 01af 0D030000 		.4byte	.LASF38
+ 865 01b3 05       		.byte	0x5
+ 866 01b4 14       		.byte	0x14
+ 867 01b5 0B010000 		.4byte	0x10b
+ 868 01b9 02       		.byte	0x2
+ 869 01ba 23       		.byte	0x23
+ 870 01bb 0C       		.uleb128 0xc
+ 871 01bc 09       		.uleb128 0x9
+ 872 01bd 17020000 		.4byte	.LASF39
+ 873 01c1 05       		.byte	0x5
+ 874 01c2 15       		.byte	0x15
+ 875 01c3 E5020000 		.4byte	0x2e5
+ 876 01c7 02       		.byte	0x2
+ 877 01c8 23       		.byte	0x23
+ARM GAS  /tmp/ccTmpiai.s 			page 20
+
+
+ 878 01c9 10       		.uleb128 0x10
+ 879 01ca 09       		.uleb128 0x9
+ 880 01cb 4F050000 		.4byte	.LASF40
+ 881 01cf 05       		.byte	0x5
+ 882 01d0 16       		.byte	0x16
+ 883 01d1 E5020000 		.4byte	0x2e5
+ 884 01d5 02       		.byte	0x2
+ 885 01d6 23       		.byte	0x23
+ 886 01d7 14       		.uleb128 0x14
+ 887 01d8 09       		.uleb128 0x9
+ 888 01d9 DF030000 		.4byte	.LASF41
+ 889 01dd 05       		.byte	0x5
+ 890 01de 18       		.byte	0x18
+ 891 01df BD000000 		.4byte	0xbd
+ 892 01e3 02       		.byte	0x2
+ 893 01e4 23       		.byte	0x23
+ 894 01e5 18       		.uleb128 0x18
+ 895 01e6 00       		.byte	0
+ 896 01e7 06       		.uleb128 0x6
+ 897 01e8 01       		.byte	0x1
+ 898 01e9 06       		.byte	0x6
+ 899 01ea 0E       		.byte	0xe
+ 900 01eb 02020000 		.4byte	0x202
+ 901 01ef 07       		.uleb128 0x7
+ 902 01f0 1B000000 		.4byte	.LASF42
+ 903 01f4 00       		.sleb128 0
+ 904 01f5 07       		.uleb128 0x7
+ 905 01f6 DC010000 		.4byte	.LASF43
+ 906 01fa 01       		.sleb128 1
+ 907 01fb 07       		.uleb128 0x7
+ 908 01fc 4E030000 		.4byte	.LASF44
+ 909 0200 02       		.sleb128 2
+ 910 0201 00       		.byte	0
+ 911 0202 04       		.uleb128 0x4
+ 912 0203 2B030000 		.4byte	.LASF45
+ 913 0207 06       		.byte	0x6
+ 914 0208 12       		.byte	0x12
+ 915 0209 E7010000 		.4byte	0x1e7
+ 916 020d 08       		.uleb128 0x8
+ 917 020e 28       		.byte	0x28
+ 918 020f 06       		.byte	0x6
+ 919 0210 36       		.byte	0x36
+ 920 0211 A2020000 		.4byte	0x2a2
+ 921 0215 09       		.uleb128 0x9
+ 922 0216 F8020000 		.4byte	.LASF36
+ 923 021a 06       		.byte	0x6
+ 924 021b 38       		.byte	0x38
+ 925 021c BD000000 		.4byte	0xbd
+ 926 0220 02       		.byte	0x2
+ 927 0221 23       		.byte	0x23
+ 928 0222 00       		.uleb128 0
+ 929 0223 09       		.uleb128 0x9
+ 930 0224 CA020000 		.4byte	.LASF46
+ 931 0228 06       		.byte	0x6
+ 932 0229 3A       		.byte	0x3a
+ 933 022a DE000000 		.4byte	0xde
+ 934 022e 02       		.byte	0x2
+ARM GAS  /tmp/ccTmpiai.s 			page 21
+
+
+ 935 022f 23       		.byte	0x23
+ 936 0230 04       		.uleb128 0x4
+ 937 0231 09       		.uleb128 0x9
+ 938 0232 B9030000 		.4byte	.LASF47
+ 939 0236 06       		.byte	0x6
+ 940 0237 3E       		.byte	0x3e
+ 941 0238 02020000 		.4byte	0x202
+ 942 023c 02       		.byte	0x2
+ 943 023d 23       		.byte	0x23
+ 944 023e 08       		.uleb128 0x8
+ 945 023f 09       		.uleb128 0x9
+ 946 0240 94030000 		.4byte	.LASF48
+ 947 0244 06       		.byte	0x6
+ 948 0245 40       		.byte	0x40
+ 949 0246 A2020000 		.4byte	0x2a2
+ 950 024a 02       		.byte	0x2
+ 951 024b 23       		.byte	0x23
+ 952 024c 0A       		.uleb128 0xa
+ 953 024d 09       		.uleb128 0x9
+ 954 024e AD040000 		.4byte	.LASF49
+ 955 0252 06       		.byte	0x6
+ 956 0253 45       		.byte	0x45
+ 957 0254 A2020000 		.4byte	0x2a2
+ 958 0258 02       		.byte	0x2
+ 959 0259 23       		.byte	0x23
+ 960 025a 12       		.uleb128 0x12
+ 961 025b 09       		.uleb128 0x9
+ 962 025c 02040000 		.4byte	.LASF50
+ 963 0260 06       		.byte	0x6
+ 964 0261 4C       		.byte	0x4c
+ 965 0262 0B010000 		.4byte	0x10b
+ 966 0266 02       		.byte	0x2
+ 967 0267 23       		.byte	0x23
+ 968 0268 1A       		.uleb128 0x1a
+ 969 0269 09       		.uleb128 0x9
+ 970 026a 0D030000 		.4byte	.LASF38
+ 971 026e 06       		.byte	0x6
+ 972 026f 51       		.byte	0x51
+ 973 0270 0B010000 		.4byte	0x10b
+ 974 0274 02       		.byte	0x2
+ 975 0275 23       		.byte	0x23
+ 976 0276 1B       		.uleb128 0x1b
+ 977 0277 09       		.uleb128 0x9
+ 978 0278 6F020000 		.4byte	.LASF51
+ 979 027c 06       		.byte	0x6
+ 980 027d 55       		.byte	0x55
+ 981 027e DE000000 		.4byte	0xde
+ 982 0282 02       		.byte	0x2
+ 983 0283 23       		.byte	0x23
+ 984 0284 1C       		.uleb128 0x1c
+ 985 0285 09       		.uleb128 0x9
+ 986 0286 D9040000 		.4byte	.LASF52
+ 987 028a 06       		.byte	0x6
+ 988 028b 58       		.byte	0x58
+ 989 028c DE000000 		.4byte	0xde
+ 990 0290 02       		.byte	0x2
+ 991 0291 23       		.byte	0x23
+ARM GAS  /tmp/ccTmpiai.s 			page 22
+
+
+ 992 0292 20       		.uleb128 0x20
+ 993 0293 09       		.uleb128 0x9
+ 994 0294 43050000 		.4byte	.LASF53
+ 995 0298 06       		.byte	0x6
+ 996 0299 5B       		.byte	0x5b
+ 997 029a A9000000 		.4byte	0xa9
+ 998 029e 02       		.byte	0x2
+ 999 029f 23       		.byte	0x23
+ 1000 02a0 24       		.uleb128 0x24
+ 1001 02a1 00       		.byte	0
+ 1002 02a2 0B       		.uleb128 0xb
+ 1003 02a3 C8000000 		.4byte	0xc8
+ 1004 02a7 B2020000 		.4byte	0x2b2
+ 1005 02ab 0C       		.uleb128 0xc
+ 1006 02ac A2000000 		.4byte	0xa2
+ 1007 02b0 03       		.byte	0x3
+ 1008 02b1 00       		.byte	0
+ 1009 02b2 04       		.uleb128 0x4
+ 1010 02b3 7B040000 		.4byte	.LASF54
+ 1011 02b7 06       		.byte	0x6
+ 1012 02b8 5C       		.byte	0x5c
+ 1013 02b9 0D020000 		.4byte	0x20d
+ 1014 02bd 04       		.uleb128 0x4
+ 1015 02be F9010000 		.4byte	.LASF55
+ 1016 02c2 07       		.byte	0x7
+ 1017 02c3 0D       		.byte	0xd
+ 1018 02c4 C8020000 		.4byte	0x2c8
+ 1019 02c8 0D       		.uleb128 0xd
+ 1020 02c9 85000000 		.4byte	.LASF57
+ 1021 02cd 01       		.byte	0x1
+ 1022 02ce 04       		.uleb128 0x4
+ 1023 02cf C1000000 		.4byte	.LASF56
+ 1024 02d3 05       		.byte	0x5
+ 1025 02d4 0C       		.byte	0xc
+ 1026 02d5 D9020000 		.4byte	0x2d9
+ 1027 02d9 0D       		.uleb128 0xd
+ 1028 02da 43000000 		.4byte	.LASF58
+ 1029 02de 01       		.byte	0x1
+ 1030 02df 0E       		.uleb128 0xe
+ 1031 02e0 04       		.byte	0x4
+ 1032 02e1 CE020000 		.4byte	0x2ce
+ 1033 02e5 0E       		.uleb128 0xe
+ 1034 02e6 04       		.byte	0x4
+ 1035 02e7 BD020000 		.4byte	0x2bd
+ 1036 02eb 0F       		.uleb128 0xf
+ 1037 02ec 01       		.byte	0x1
+ 1038 02ed B4020000 		.4byte	.LASF61
+ 1039 02f1 01       		.byte	0x1
+ 1040 02f2 0D       		.byte	0xd
+ 1041 02f3 01       		.byte	0x1
+ 1042 02f4 34030000 		.4byte	0x334
+ 1043 02f8 00000000 		.4byte	.LFB40
+ 1044 02fc 52000000 		.4byte	.LFE40
+ 1045 0300 00000000 		.4byte	.LLST0
+ 1046 0304 01       		.byte	0x1
+ 1047 0305 34030000 		.4byte	0x334
+ 1048 0309 10       		.uleb128 0x10
+ARM GAS  /tmp/ccTmpiai.s 			page 23
+
+
+ 1049 030a 2F020000 		.4byte	.LASF63
+ 1050 030e 01       		.byte	0x1
+ 1051 030f 0D       		.byte	0xd
+ 1052 0310 3A030000 		.4byte	0x33a
+ 1053 0314 02       		.byte	0x2
+ 1054 0315 91       		.byte	0x91
+ 1055 0316 6C       		.sleb128 -20
+ 1056 0317 11       		.uleb128 0x11
+ 1057 0318 58040000 		.4byte	.LASF59
+ 1058 031c 01       		.byte	0x1
+ 1059 031d 0F       		.byte	0xf
+ 1060 031e 34030000 		.4byte	0x334
+ 1061 0322 02       		.byte	0x2
+ 1062 0323 91       		.byte	0x91
+ 1063 0324 70       		.sleb128 -16
+ 1064 0325 11       		.uleb128 0x11
+ 1065 0326 D8030000 		.4byte	.LASF60
+ 1066 032a 01       		.byte	0x1
+ 1067 032b 10       		.byte	0x10
+ 1068 032c B2000000 		.4byte	0xb2
+ 1069 0330 02       		.byte	0x2
+ 1070 0331 91       		.byte	0x91
+ 1071 0332 77       		.sleb128 -9
+ 1072 0333 00       		.byte	0
+ 1073 0334 0E       		.uleb128 0xe
+ 1074 0335 04       		.byte	0x4
+ 1075 0336 78010000 		.4byte	0x178
+ 1076 033a 0E       		.uleb128 0xe
+ 1077 033b 04       		.byte	0x4
+ 1078 033c B2020000 		.4byte	0x2b2
+ 1079 0340 0F       		.uleb128 0xf
+ 1080 0341 01       		.byte	0x1
+ 1081 0342 02050000 		.4byte	.LASF62
+ 1082 0346 01       		.byte	0x1
+ 1083 0347 3B       		.byte	0x3b
+ 1084 0348 01       		.byte	0x1
+ 1085 0349 D3000000 		.4byte	0xd3
+ 1086 034d 54000000 		.4byte	.LFB41
+ 1087 0351 A8000000 		.4byte	.LFE41
+ 1088 0355 38000000 		.4byte	.LLST1
+ 1089 0359 01       		.byte	0x1
+ 1090 035a CF030000 		.4byte	0x3cf
+ 1091 035e 10       		.uleb128 0x10
+ 1092 035f 58040000 		.4byte	.LASF59
+ 1093 0363 01       		.byte	0x1
+ 1094 0364 3B       		.byte	0x3b
+ 1095 0365 34030000 		.4byte	0x334
+ 1096 0369 02       		.byte	0x2
+ 1097 036a 91       		.byte	0x91
+ 1098 036b 64       		.sleb128 -28
+ 1099 036c 10       		.uleb128 0x10
+ 1100 036d 04010000 		.4byte	.LASF64
+ 1101 0371 01       		.byte	0x1
+ 1102 0372 3B       		.byte	0x3b
+ 1103 0373 0B010000 		.4byte	0x10b
+ 1104 0377 02       		.byte	0x2
+ 1105 0378 91       		.byte	0x91
+ARM GAS  /tmp/ccTmpiai.s 			page 24
+
+
+ 1106 0379 63       		.sleb128 -29
+ 1107 037a 10       		.uleb128 0x10
+ 1108 037b 3A020000 		.4byte	.LASF65
+ 1109 037f 01       		.byte	0x1
+ 1110 0380 3B       		.byte	0x3b
+ 1111 0381 BD000000 		.4byte	0xbd
+ 1112 0385 02       		.byte	0x2
+ 1113 0386 91       		.byte	0x91
+ 1114 0387 62       		.sleb128 -30
+ 1115 0388 10       		.uleb128 0x10
+ 1116 0389 63040000 		.4byte	.LASF66
+ 1117 038d 01       		.byte	0x1
+ 1118 038e 3B       		.byte	0x3b
+ 1119 038f CF030000 		.4byte	0x3cf
+ 1120 0393 02       		.byte	0x2
+ 1121 0394 91       		.byte	0x91
+ 1122 0395 5C       		.sleb128 -36
+ 1123 0396 10       		.uleb128 0x10
+ 1124 0397 BC040000 		.4byte	.LASF67
+ 1125 039b 01       		.byte	0x1
+ 1126 039c 3B       		.byte	0x3b
+ 1127 039d DE000000 		.4byte	0xde
+ 1128 03a1 02       		.byte	0x2
+ 1129 03a2 91       		.byte	0x91
+ 1130 03a3 00       		.sleb128 0
+ 1131 03a4 10       		.uleb128 0x10
+ 1132 03a5 31000000 		.4byte	.LASF68
+ 1133 03a9 01       		.byte	0x1
+ 1134 03aa 3B       		.byte	0x3b
+ 1135 03ab 0B010000 		.4byte	0x10b
+ 1136 03af 02       		.byte	0x2
+ 1137 03b0 91       		.byte	0x91
+ 1138 03b1 04       		.sleb128 4
+ 1139 03b2 10       		.uleb128 0x10
+ 1140 03b3 6B050000 		.4byte	.LASF69
+ 1141 03b7 01       		.byte	0x1
+ 1142 03b8 3B       		.byte	0x3b
+ 1143 03b9 6D010000 		.4byte	0x16d
+ 1144 03bd 02       		.byte	0x2
+ 1145 03be 91       		.byte	0x91
+ 1146 03bf 08       		.sleb128 8
+ 1147 03c0 11       		.uleb128 0x11
+ 1148 03c1 D8030000 		.4byte	.LASF60
+ 1149 03c5 01       		.byte	0x1
+ 1150 03c6 3D       		.byte	0x3d
+ 1151 03c7 D3000000 		.4byte	0xd3
+ 1152 03cb 02       		.byte	0x2
+ 1153 03cc 91       		.byte	0x91
+ 1154 03cd 6C       		.sleb128 -20
+ 1155 03ce 00       		.byte	0
+ 1156 03cf 0E       		.uleb128 0xe
+ 1157 03d0 04       		.byte	0x4
+ 1158 03d1 D5030000 		.4byte	0x3d5
+ 1159 03d5 12       		.uleb128 0x12
+ 1160 03d6 BD000000 		.4byte	0xbd
+ 1161 03da 0F       		.uleb128 0xf
+ 1162 03db 01       		.byte	0x1
+ARM GAS  /tmp/ccTmpiai.s 			page 25
+
+
+ 1163 03dc 5F000000 		.4byte	.LASF70
+ 1164 03e0 01       		.byte	0x1
+ 1165 03e1 4A       		.byte	0x4a
+ 1166 03e2 01       		.byte	0x1
+ 1167 03e3 D3000000 		.4byte	0xd3
+ 1168 03e7 A8000000 		.4byte	.LFB42
+ 1169 03eb FC000000 		.4byte	.LFE42
+ 1170 03ef 70000000 		.4byte	.LLST2
+ 1171 03f3 01       		.byte	0x1
+ 1172 03f4 69040000 		.4byte	0x469
+ 1173 03f8 10       		.uleb128 0x10
+ 1174 03f9 58040000 		.4byte	.LASF59
+ 1175 03fd 01       		.byte	0x1
+ 1176 03fe 4A       		.byte	0x4a
+ 1177 03ff 34030000 		.4byte	0x334
+ 1178 0403 02       		.byte	0x2
+ 1179 0404 91       		.byte	0x91
+ 1180 0405 64       		.sleb128 -28
+ 1181 0406 10       		.uleb128 0x10
+ 1182 0407 04010000 		.4byte	.LASF64
+ 1183 040b 01       		.byte	0x1
+ 1184 040c 4A       		.byte	0x4a
+ 1185 040d 0B010000 		.4byte	0x10b
+ 1186 0411 02       		.byte	0x2
+ 1187 0412 91       		.byte	0x91
+ 1188 0413 63       		.sleb128 -29
+ 1189 0414 10       		.uleb128 0x10
+ 1190 0415 3A020000 		.4byte	.LASF65
+ 1191 0419 01       		.byte	0x1
+ 1192 041a 4A       		.byte	0x4a
+ 1193 041b BD000000 		.4byte	0xbd
+ 1194 041f 02       		.byte	0x2
+ 1195 0420 91       		.byte	0x91
+ 1196 0421 62       		.sleb128 -30
+ 1197 0422 10       		.uleb128 0x10
+ 1198 0423 63040000 		.4byte	.LASF66
+ 1199 0427 01       		.byte	0x1
+ 1200 0428 4A       		.byte	0x4a
+ 1201 0429 69040000 		.4byte	0x469
+ 1202 042d 02       		.byte	0x2
+ 1203 042e 91       		.byte	0x91
+ 1204 042f 5C       		.sleb128 -36
+ 1205 0430 10       		.uleb128 0x10
+ 1206 0431 BC040000 		.4byte	.LASF67
+ 1207 0435 01       		.byte	0x1
+ 1208 0436 4A       		.byte	0x4a
+ 1209 0437 DE000000 		.4byte	0xde
+ 1210 043b 02       		.byte	0x2
+ 1211 043c 91       		.byte	0x91
+ 1212 043d 00       		.sleb128 0
+ 1213 043e 10       		.uleb128 0x10
+ 1214 043f 31000000 		.4byte	.LASF68
+ 1215 0443 01       		.byte	0x1
+ 1216 0444 4A       		.byte	0x4a
+ 1217 0445 0B010000 		.4byte	0x10b
+ 1218 0449 02       		.byte	0x2
+ 1219 044a 91       		.byte	0x91
+ARM GAS  /tmp/ccTmpiai.s 			page 26
+
+
+ 1220 044b 04       		.sleb128 4
+ 1221 044c 10       		.uleb128 0x10
+ 1222 044d 6B050000 		.4byte	.LASF69
+ 1223 0451 01       		.byte	0x1
+ 1224 0452 4A       		.byte	0x4a
+ 1225 0453 6D010000 		.4byte	0x16d
+ 1226 0457 02       		.byte	0x2
+ 1227 0458 91       		.byte	0x91
+ 1228 0459 08       		.sleb128 8
+ 1229 045a 11       		.uleb128 0x11
+ 1230 045b D8030000 		.4byte	.LASF60
+ 1231 045f 01       		.byte	0x1
+ 1232 0460 4C       		.byte	0x4c
+ 1233 0461 D3000000 		.4byte	0xd3
+ 1234 0465 02       		.byte	0x2
+ 1235 0466 91       		.byte	0x91
+ 1236 0467 6C       		.sleb128 -20
+ 1237 0468 00       		.byte	0
+ 1238 0469 0E       		.uleb128 0xe
+ 1239 046a 04       		.byte	0x4
+ 1240 046b BD000000 		.4byte	0xbd
+ 1241 046f 0F       		.uleb128 0xf
+ 1242 0470 01       		.byte	0x1
+ 1243 0471 88040000 		.4byte	.LASF71
+ 1244 0475 01       		.byte	0x1
+ 1245 0476 59       		.byte	0x59
+ 1246 0477 01       		.byte	0x1
+ 1247 0478 B2000000 		.4byte	0xb2
+ 1248 047c FC000000 		.4byte	.LFB43
+ 1249 0480 2A010000 		.4byte	.LFE43
+ 1250 0484 A8000000 		.4byte	.LLST3
+ 1251 0488 01       		.byte	0x1
+ 1252 0489 AA040000 		.4byte	0x4aa
+ 1253 048d 10       		.uleb128 0x10
+ 1254 048e 58040000 		.4byte	.LASF59
+ 1255 0492 01       		.byte	0x1
+ 1256 0493 59       		.byte	0x59
+ 1257 0494 34030000 		.4byte	0x334
+ 1258 0498 02       		.byte	0x2
+ 1259 0499 91       		.byte	0x91
+ 1260 049a 6C       		.sleb128 -20
+ 1261 049b 11       		.uleb128 0x11
+ 1262 049c D8030000 		.4byte	.LASF60
+ 1263 04a0 01       		.byte	0x1
+ 1264 04a1 5B       		.byte	0x5b
+ 1265 04a2 B2000000 		.4byte	0xb2
+ 1266 04a6 02       		.byte	0x2
+ 1267 04a7 91       		.byte	0x91
+ 1268 04a8 77       		.sleb128 -9
+ 1269 04a9 00       		.byte	0
+ 1270 04aa 0F       		.uleb128 0xf
+ 1271 04ab 01       		.byte	0x1
+ 1272 04ac A0020000 		.4byte	.LASF72
+ 1273 04b0 01       		.byte	0x1
+ 1274 04b1 68       		.byte	0x68
+ 1275 04b2 01       		.byte	0x1
+ 1276 04b3 B2000000 		.4byte	0xb2
+ARM GAS  /tmp/ccTmpiai.s 			page 27
+
+
+ 1277 04b7 2C010000 		.4byte	.LFB44
+ 1278 04bb 5A010000 		.4byte	.LFE44
+ 1279 04bf E0000000 		.4byte	.LLST4
+ 1280 04c3 01       		.byte	0x1
+ 1281 04c4 E5040000 		.4byte	0x4e5
+ 1282 04c8 10       		.uleb128 0x10
+ 1283 04c9 58040000 		.4byte	.LASF59
+ 1284 04cd 01       		.byte	0x1
+ 1285 04ce 68       		.byte	0x68
+ 1286 04cf 34030000 		.4byte	0x334
+ 1287 04d3 02       		.byte	0x2
+ 1288 04d4 91       		.byte	0x91
+ 1289 04d5 6C       		.sleb128 -20
+ 1290 04d6 11       		.uleb128 0x11
+ 1291 04d7 D8030000 		.4byte	.LASF60
+ 1292 04db 01       		.byte	0x1
+ 1293 04dc 6A       		.byte	0x6a
+ 1294 04dd B2000000 		.4byte	0xb2
+ 1295 04e1 02       		.byte	0x2
+ 1296 04e2 91       		.byte	0x91
+ 1297 04e3 77       		.sleb128 -9
+ 1298 04e4 00       		.byte	0
+ 1299 04e5 0F       		.uleb128 0xf
+ 1300 04e6 01       		.byte	0x1
+ 1301 04e7 55020000 		.4byte	.LASF73
+ 1302 04eb 01       		.byte	0x1
+ 1303 04ec 77       		.byte	0x77
+ 1304 04ed 01       		.byte	0x1
+ 1305 04ee D3000000 		.4byte	0xd3
+ 1306 04f2 5C010000 		.4byte	.LFB45
+ 1307 04f6 80010000 		.4byte	.LFE45
+ 1308 04fa 18010000 		.4byte	.LLST5
+ 1309 04fe 01       		.byte	0x1
+ 1310 04ff 20050000 		.4byte	0x520
+ 1311 0503 10       		.uleb128 0x10
+ 1312 0504 58040000 		.4byte	.LASF59
+ 1313 0508 01       		.byte	0x1
+ 1314 0509 77       		.byte	0x77
+ 1315 050a 34030000 		.4byte	0x334
+ 1316 050e 02       		.byte	0x2
+ 1317 050f 91       		.byte	0x91
+ 1318 0510 6C       		.sleb128 -20
+ 1319 0511 11       		.uleb128 0x11
+ 1320 0512 D8030000 		.4byte	.LASF60
+ 1321 0516 01       		.byte	0x1
+ 1322 0517 79       		.byte	0x79
+ 1323 0518 D3000000 		.4byte	0xd3
+ 1324 051c 02       		.byte	0x2
+ 1325 051d 91       		.byte	0x91
+ 1326 051e 74       		.sleb128 -12
+ 1327 051f 00       		.byte	0
+ 1328 0520 0F       		.uleb128 0xf
+ 1329 0521 01       		.byte	0x1
+ 1330 0522 91000000 		.4byte	.LASF74
+ 1331 0526 01       		.byte	0x1
+ 1332 0527 86       		.byte	0x86
+ 1333 0528 01       		.byte	0x1
+ARM GAS  /tmp/ccTmpiai.s 			page 28
+
+
+ 1334 0529 B2000000 		.4byte	0xb2
+ 1335 052d 80010000 		.4byte	.LFB46
+ 1336 0531 AE010000 		.4byte	.LFE46
+ 1337 0535 50010000 		.4byte	.LLST6
+ 1338 0539 01       		.byte	0x1
+ 1339 053a 5B050000 		.4byte	0x55b
+ 1340 053e 10       		.uleb128 0x10
+ 1341 053f 58040000 		.4byte	.LASF59
+ 1342 0543 01       		.byte	0x1
+ 1343 0544 86       		.byte	0x86
+ 1344 0545 34030000 		.4byte	0x334
+ 1345 0549 02       		.byte	0x2
+ 1346 054a 91       		.byte	0x91
+ 1347 054b 6C       		.sleb128 -20
+ 1348 054c 11       		.uleb128 0x11
+ 1349 054d D8030000 		.4byte	.LASF60
+ 1350 0551 01       		.byte	0x1
+ 1351 0552 88       		.byte	0x88
+ 1352 0553 B2000000 		.4byte	0xb2
+ 1353 0557 02       		.byte	0x2
+ 1354 0558 91       		.byte	0x91
+ 1355 0559 77       		.sleb128 -9
+ 1356 055a 00       		.byte	0
+ 1357 055b 0F       		.uleb128 0xf
+ 1358 055c 01       		.byte	0x1
+ 1359 055d 86020000 		.4byte	.LASF75
+ 1360 0561 01       		.byte	0x1
+ 1361 0562 95       		.byte	0x95
+ 1362 0563 01       		.byte	0x1
+ 1363 0564 D3000000 		.4byte	0xd3
+ 1364 0568 B0010000 		.4byte	.LFB47
+ 1365 056c D4010000 		.4byte	.LFE47
+ 1366 0570 88010000 		.4byte	.LLST7
+ 1367 0574 01       		.byte	0x1
+ 1368 0575 96050000 		.4byte	0x596
+ 1369 0579 10       		.uleb128 0x10
+ 1370 057a 58040000 		.4byte	.LASF59
+ 1371 057e 01       		.byte	0x1
+ 1372 057f 95       		.byte	0x95
+ 1373 0580 34030000 		.4byte	0x334
+ 1374 0584 02       		.byte	0x2
+ 1375 0585 91       		.byte	0x91
+ 1376 0586 6C       		.sleb128 -20
+ 1377 0587 11       		.uleb128 0x11
+ 1378 0588 D8030000 		.4byte	.LASF60
+ 1379 058c 01       		.byte	0x1
+ 1380 058d 97       		.byte	0x97
+ 1381 058e D3000000 		.4byte	0xd3
+ 1382 0592 02       		.byte	0x2
+ 1383 0593 91       		.byte	0x91
+ 1384 0594 74       		.sleb128 -12
+ 1385 0595 00       		.byte	0
+ 1386 0596 0F       		.uleb128 0xf
+ 1387 0597 01       		.byte	0x1
+ 1388 0598 1C040000 		.4byte	.LASF76
+ 1389 059c 01       		.byte	0x1
+ 1390 059d A4       		.byte	0xa4
+ARM GAS  /tmp/ccTmpiai.s 			page 29
+
+
+ 1391 059e 01       		.byte	0x1
+ 1392 059f B2000000 		.4byte	0xb2
+ 1393 05a3 D4010000 		.4byte	.LFB48
+ 1394 05a7 02020000 		.4byte	.LFE48
+ 1395 05ab C0010000 		.4byte	.LLST8
+ 1396 05af 01       		.byte	0x1
+ 1397 05b0 D1050000 		.4byte	0x5d1
+ 1398 05b4 10       		.uleb128 0x10
+ 1399 05b5 58040000 		.4byte	.LASF59
+ 1400 05b9 01       		.byte	0x1
+ 1401 05ba A4       		.byte	0xa4
+ 1402 05bb 34030000 		.4byte	0x334
+ 1403 05bf 02       		.byte	0x2
+ 1404 05c0 91       		.byte	0x91
+ 1405 05c1 6C       		.sleb128 -20
+ 1406 05c2 11       		.uleb128 0x11
+ 1407 05c3 D8030000 		.4byte	.LASF60
+ 1408 05c7 01       		.byte	0x1
+ 1409 05c8 A6       		.byte	0xa6
+ 1410 05c9 B2000000 		.4byte	0xb2
+ 1411 05cd 02       		.byte	0x2
+ 1412 05ce 91       		.byte	0x91
+ 1413 05cf 77       		.sleb128 -9
+ 1414 05d0 00       		.byte	0
+ 1415 05d1 0F       		.uleb128 0xf
+ 1416 05d2 01       		.byte	0x1
+ 1417 05d3 76000000 		.4byte	.LASF77
+ 1418 05d7 01       		.byte	0x1
+ 1419 05d8 B3       		.byte	0xb3
+ 1420 05d9 01       		.byte	0x1
+ 1421 05da B2000000 		.4byte	0xb2
+ 1422 05de 04020000 		.4byte	.LFB49
+ 1423 05e2 32020000 		.4byte	.LFE49
+ 1424 05e6 F8010000 		.4byte	.LLST9
+ 1425 05ea 01       		.byte	0x1
+ 1426 05eb 0C060000 		.4byte	0x60c
+ 1427 05ef 10       		.uleb128 0x10
+ 1428 05f0 58040000 		.4byte	.LASF59
+ 1429 05f4 01       		.byte	0x1
+ 1430 05f5 B3       		.byte	0xb3
+ 1431 05f6 34030000 		.4byte	0x334
+ 1432 05fa 02       		.byte	0x2
+ 1433 05fb 91       		.byte	0x91
+ 1434 05fc 6C       		.sleb128 -20
+ 1435 05fd 11       		.uleb128 0x11
+ 1436 05fe D8030000 		.4byte	.LASF60
+ 1437 0602 01       		.byte	0x1
+ 1438 0603 B5       		.byte	0xb5
+ 1439 0604 B2000000 		.4byte	0xb2
+ 1440 0608 02       		.byte	0x2
+ 1441 0609 91       		.byte	0x91
+ 1442 060a 77       		.sleb128 -9
+ 1443 060b 00       		.byte	0
+ 1444 060c 13       		.uleb128 0x13
+ 1445 060d 01       		.byte	0x1
+ 1446 060e 11010000 		.4byte	.LASF84
+ 1447 0612 01       		.byte	0x1
+ARM GAS  /tmp/ccTmpiai.s 			page 30
+
+
+ 1448 0613 C2       		.byte	0xc2
+ 1449 0614 BD000000 		.4byte	0xbd
+ 1450 0618 34020000 		.4byte	.LFB50
+ 1451 061c 54020000 		.4byte	.LFE50
+ 1452 0620 30020000 		.4byte	.LLST10
+ 1453 0624 01       		.byte	0x1
+ 1454 0625 38060000 		.4byte	0x638
+ 1455 0629 11       		.uleb128 0x11
+ 1456 062a D8030000 		.4byte	.LASF60
+ 1457 062e 01       		.byte	0x1
+ 1458 062f C4       		.byte	0xc4
+ 1459 0630 BD000000 		.4byte	0xbd
+ 1460 0634 02       		.byte	0x2
+ 1461 0635 91       		.byte	0x91
+ 1462 0636 77       		.sleb128 -9
+ 1463 0637 00       		.byte	0
+ 1464 0638 14       		.uleb128 0x14
+ 1465 0639 01       		.byte	0x1
+ 1466 063a 00000000 		.4byte	.LASF78
+ 1467 063e 01       		.byte	0x1
+ 1468 063f C9       		.byte	0xc9
+ 1469 0640 01       		.byte	0x1
+ 1470 0641 BD000000 		.4byte	0xbd
+ 1471 0645 54020000 		.4byte	.LFB51
+ 1472 0649 68020000 		.4byte	.LFE51
+ 1473 064d 68020000 		.4byte	.LLST11
+ 1474 0651 01       		.byte	0x1
+ 1475 0652 73060000 		.4byte	0x673
+ 1476 0656 10       		.uleb128 0x10
+ 1477 0657 F3030000 		.4byte	.LASF79
+ 1478 065b 01       		.byte	0x1
+ 1479 065c C9       		.byte	0xc9
+ 1480 065d DF020000 		.4byte	0x2df
+ 1481 0661 02       		.byte	0x2
+ 1482 0662 91       		.byte	0x91
+ 1483 0663 74       		.sleb128 -12
+ 1484 0664 11       		.uleb128 0x11
+ 1485 0665 D8030000 		.4byte	.LASF60
+ 1486 0669 01       		.byte	0x1
+ 1487 066a CB       		.byte	0xcb
+ 1488 066b BD000000 		.4byte	0xbd
+ 1489 066f 02       		.byte	0x2
+ 1490 0670 91       		.byte	0x91
+ 1491 0671 7F       		.sleb128 -1
+ 1492 0672 00       		.byte	0
+ 1493 0673 15       		.uleb128 0x15
+ 1494 0674 36050000 		.4byte	.LASF85
+ 1495 0678 08       		.byte	0x8
+ 1496 0679 E602     		.2byte	0x2e6
+ 1497 067b 81060000 		.4byte	0x681
+ 1498 067f 01       		.byte	0x1
+ 1499 0680 01       		.byte	0x1
+ 1500 0681 16       		.uleb128 0x16
+ 1501 0682 D3000000 		.4byte	0xd3
+ 1502 0686 00       		.byte	0
+ 1503              		.section	.debug_abbrev,"",%progbits
+ 1504              	.Ldebug_abbrev0:
+ARM GAS  /tmp/ccTmpiai.s 			page 31
+
+
+ 1505 0000 01       		.uleb128 0x1
+ 1506 0001 11       		.uleb128 0x11
+ 1507 0002 01       		.byte	0x1
+ 1508 0003 25       		.uleb128 0x25
+ 1509 0004 0E       		.uleb128 0xe
+ 1510 0005 13       		.uleb128 0x13
+ 1511 0006 0B       		.uleb128 0xb
+ 1512 0007 03       		.uleb128 0x3
+ 1513 0008 0E       		.uleb128 0xe
+ 1514 0009 1B       		.uleb128 0x1b
+ 1515 000a 0E       		.uleb128 0xe
+ 1516 000b 11       		.uleb128 0x11
+ 1517 000c 01       		.uleb128 0x1
+ 1518 000d 12       		.uleb128 0x12
+ 1519 000e 01       		.uleb128 0x1
+ 1520 000f 10       		.uleb128 0x10
+ 1521 0010 06       		.uleb128 0x6
+ 1522 0011 00       		.byte	0
+ 1523 0012 00       		.byte	0
+ 1524 0013 02       		.uleb128 0x2
+ 1525 0014 24       		.uleb128 0x24
+ 1526 0015 00       		.byte	0
+ 1527 0016 0B       		.uleb128 0xb
+ 1528 0017 0B       		.uleb128 0xb
+ 1529 0018 3E       		.uleb128 0x3e
+ 1530 0019 0B       		.uleb128 0xb
+ 1531 001a 03       		.uleb128 0x3
+ 1532 001b 0E       		.uleb128 0xe
+ 1533 001c 00       		.byte	0
+ 1534 001d 00       		.byte	0
+ 1535 001e 03       		.uleb128 0x3
+ 1536 001f 24       		.uleb128 0x24
+ 1537 0020 00       		.byte	0
+ 1538 0021 0B       		.uleb128 0xb
+ 1539 0022 0B       		.uleb128 0xb
+ 1540 0023 3E       		.uleb128 0x3e
+ 1541 0024 0B       		.uleb128 0xb
+ 1542 0025 03       		.uleb128 0x3
+ 1543 0026 08       		.uleb128 0x8
+ 1544 0027 00       		.byte	0
+ 1545 0028 00       		.byte	0
+ 1546 0029 04       		.uleb128 0x4
+ 1547 002a 16       		.uleb128 0x16
+ 1548 002b 00       		.byte	0
+ 1549 002c 03       		.uleb128 0x3
+ 1550 002d 0E       		.uleb128 0xe
+ 1551 002e 3A       		.uleb128 0x3a
+ 1552 002f 0B       		.uleb128 0xb
+ 1553 0030 3B       		.uleb128 0x3b
+ 1554 0031 0B       		.uleb128 0xb
+ 1555 0032 49       		.uleb128 0x49
+ 1556 0033 13       		.uleb128 0x13
+ 1557 0034 00       		.byte	0
+ 1558 0035 00       		.byte	0
+ 1559 0036 05       		.uleb128 0x5
+ 1560 0037 0F       		.uleb128 0xf
+ 1561 0038 00       		.byte	0
+ARM GAS  /tmp/ccTmpiai.s 			page 32
+
+
+ 1562 0039 0B       		.uleb128 0xb
+ 1563 003a 0B       		.uleb128 0xb
+ 1564 003b 00       		.byte	0
+ 1565 003c 00       		.byte	0
+ 1566 003d 06       		.uleb128 0x6
+ 1567 003e 04       		.uleb128 0x4
+ 1568 003f 01       		.byte	0x1
+ 1569 0040 0B       		.uleb128 0xb
+ 1570 0041 0B       		.uleb128 0xb
+ 1571 0042 3A       		.uleb128 0x3a
+ 1572 0043 0B       		.uleb128 0xb
+ 1573 0044 3B       		.uleb128 0x3b
+ 1574 0045 0B       		.uleb128 0xb
+ 1575 0046 01       		.uleb128 0x1
+ 1576 0047 13       		.uleb128 0x13
+ 1577 0048 00       		.byte	0
+ 1578 0049 00       		.byte	0
+ 1579 004a 07       		.uleb128 0x7
+ 1580 004b 28       		.uleb128 0x28
+ 1581 004c 00       		.byte	0
+ 1582 004d 03       		.uleb128 0x3
+ 1583 004e 0E       		.uleb128 0xe
+ 1584 004f 1C       		.uleb128 0x1c
+ 1585 0050 0D       		.uleb128 0xd
+ 1586 0051 00       		.byte	0
+ 1587 0052 00       		.byte	0
+ 1588 0053 08       		.uleb128 0x8
+ 1589 0054 13       		.uleb128 0x13
+ 1590 0055 01       		.byte	0x1
+ 1591 0056 0B       		.uleb128 0xb
+ 1592 0057 0B       		.uleb128 0xb
+ 1593 0058 3A       		.uleb128 0x3a
+ 1594 0059 0B       		.uleb128 0xb
+ 1595 005a 3B       		.uleb128 0x3b
+ 1596 005b 0B       		.uleb128 0xb
+ 1597 005c 01       		.uleb128 0x1
+ 1598 005d 13       		.uleb128 0x13
+ 1599 005e 00       		.byte	0
+ 1600 005f 00       		.byte	0
+ 1601 0060 09       		.uleb128 0x9
+ 1602 0061 0D       		.uleb128 0xd
+ 1603 0062 00       		.byte	0
+ 1604 0063 03       		.uleb128 0x3
+ 1605 0064 0E       		.uleb128 0xe
+ 1606 0065 3A       		.uleb128 0x3a
+ 1607 0066 0B       		.uleb128 0xb
+ 1608 0067 3B       		.uleb128 0x3b
+ 1609 0068 0B       		.uleb128 0xb
+ 1610 0069 49       		.uleb128 0x49
+ 1611 006a 13       		.uleb128 0x13
+ 1612 006b 38       		.uleb128 0x38
+ 1613 006c 0A       		.uleb128 0xa
+ 1614 006d 00       		.byte	0
+ 1615 006e 00       		.byte	0
+ 1616 006f 0A       		.uleb128 0xa
+ 1617 0070 13       		.uleb128 0x13
+ 1618 0071 01       		.byte	0x1
+ARM GAS  /tmp/ccTmpiai.s 			page 33
+
+
+ 1619 0072 03       		.uleb128 0x3
+ 1620 0073 0E       		.uleb128 0xe
+ 1621 0074 0B       		.uleb128 0xb
+ 1622 0075 0B       		.uleb128 0xb
+ 1623 0076 3A       		.uleb128 0x3a
+ 1624 0077 0B       		.uleb128 0xb
+ 1625 0078 3B       		.uleb128 0x3b
+ 1626 0079 0B       		.uleb128 0xb
+ 1627 007a 01       		.uleb128 0x1
+ 1628 007b 13       		.uleb128 0x13
+ 1629 007c 00       		.byte	0
+ 1630 007d 00       		.byte	0
+ 1631 007e 0B       		.uleb128 0xb
+ 1632 007f 01       		.uleb128 0x1
+ 1633 0080 01       		.byte	0x1
+ 1634 0081 49       		.uleb128 0x49
+ 1635 0082 13       		.uleb128 0x13
+ 1636 0083 01       		.uleb128 0x1
+ 1637 0084 13       		.uleb128 0x13
+ 1638 0085 00       		.byte	0
+ 1639 0086 00       		.byte	0
+ 1640 0087 0C       		.uleb128 0xc
+ 1641 0088 21       		.uleb128 0x21
+ 1642 0089 00       		.byte	0
+ 1643 008a 49       		.uleb128 0x49
+ 1644 008b 13       		.uleb128 0x13
+ 1645 008c 2F       		.uleb128 0x2f
+ 1646 008d 0B       		.uleb128 0xb
+ 1647 008e 00       		.byte	0
+ 1648 008f 00       		.byte	0
+ 1649 0090 0D       		.uleb128 0xd
+ 1650 0091 13       		.uleb128 0x13
+ 1651 0092 00       		.byte	0
+ 1652 0093 03       		.uleb128 0x3
+ 1653 0094 0E       		.uleb128 0xe
+ 1654 0095 3C       		.uleb128 0x3c
+ 1655 0096 0C       		.uleb128 0xc
+ 1656 0097 00       		.byte	0
+ 1657 0098 00       		.byte	0
+ 1658 0099 0E       		.uleb128 0xe
+ 1659 009a 0F       		.uleb128 0xf
+ 1660 009b 00       		.byte	0
+ 1661 009c 0B       		.uleb128 0xb
+ 1662 009d 0B       		.uleb128 0xb
+ 1663 009e 49       		.uleb128 0x49
+ 1664 009f 13       		.uleb128 0x13
+ 1665 00a0 00       		.byte	0
+ 1666 00a1 00       		.byte	0
+ 1667 00a2 0F       		.uleb128 0xf
+ 1668 00a3 2E       		.uleb128 0x2e
+ 1669 00a4 01       		.byte	0x1
+ 1670 00a5 3F       		.uleb128 0x3f
+ 1671 00a6 0C       		.uleb128 0xc
+ 1672 00a7 03       		.uleb128 0x3
+ 1673 00a8 0E       		.uleb128 0xe
+ 1674 00a9 3A       		.uleb128 0x3a
+ 1675 00aa 0B       		.uleb128 0xb
+ARM GAS  /tmp/ccTmpiai.s 			page 34
+
+
+ 1676 00ab 3B       		.uleb128 0x3b
+ 1677 00ac 0B       		.uleb128 0xb
+ 1678 00ad 27       		.uleb128 0x27
+ 1679 00ae 0C       		.uleb128 0xc
+ 1680 00af 49       		.uleb128 0x49
+ 1681 00b0 13       		.uleb128 0x13
+ 1682 00b1 11       		.uleb128 0x11
+ 1683 00b2 01       		.uleb128 0x1
+ 1684 00b3 12       		.uleb128 0x12
+ 1685 00b4 01       		.uleb128 0x1
+ 1686 00b5 40       		.uleb128 0x40
+ 1687 00b6 06       		.uleb128 0x6
+ 1688 00b7 9642     		.uleb128 0x2116
+ 1689 00b9 0C       		.uleb128 0xc
+ 1690 00ba 01       		.uleb128 0x1
+ 1691 00bb 13       		.uleb128 0x13
+ 1692 00bc 00       		.byte	0
+ 1693 00bd 00       		.byte	0
+ 1694 00be 10       		.uleb128 0x10
+ 1695 00bf 05       		.uleb128 0x5
+ 1696 00c0 00       		.byte	0
+ 1697 00c1 03       		.uleb128 0x3
+ 1698 00c2 0E       		.uleb128 0xe
+ 1699 00c3 3A       		.uleb128 0x3a
+ 1700 00c4 0B       		.uleb128 0xb
+ 1701 00c5 3B       		.uleb128 0x3b
+ 1702 00c6 0B       		.uleb128 0xb
+ 1703 00c7 49       		.uleb128 0x49
+ 1704 00c8 13       		.uleb128 0x13
+ 1705 00c9 02       		.uleb128 0x2
+ 1706 00ca 0A       		.uleb128 0xa
+ 1707 00cb 00       		.byte	0
+ 1708 00cc 00       		.byte	0
+ 1709 00cd 11       		.uleb128 0x11
+ 1710 00ce 34       		.uleb128 0x34
+ 1711 00cf 00       		.byte	0
+ 1712 00d0 03       		.uleb128 0x3
+ 1713 00d1 0E       		.uleb128 0xe
+ 1714 00d2 3A       		.uleb128 0x3a
+ 1715 00d3 0B       		.uleb128 0xb
+ 1716 00d4 3B       		.uleb128 0x3b
+ 1717 00d5 0B       		.uleb128 0xb
+ 1718 00d6 49       		.uleb128 0x49
+ 1719 00d7 13       		.uleb128 0x13
+ 1720 00d8 02       		.uleb128 0x2
+ 1721 00d9 0A       		.uleb128 0xa
+ 1722 00da 00       		.byte	0
+ 1723 00db 00       		.byte	0
+ 1724 00dc 12       		.uleb128 0x12
+ 1725 00dd 26       		.uleb128 0x26
+ 1726 00de 00       		.byte	0
+ 1727 00df 49       		.uleb128 0x49
+ 1728 00e0 13       		.uleb128 0x13
+ 1729 00e1 00       		.byte	0
+ 1730 00e2 00       		.byte	0
+ 1731 00e3 13       		.uleb128 0x13
+ 1732 00e4 2E       		.uleb128 0x2e
+ARM GAS  /tmp/ccTmpiai.s 			page 35
+
+
+ 1733 00e5 01       		.byte	0x1
+ 1734 00e6 3F       		.uleb128 0x3f
+ 1735 00e7 0C       		.uleb128 0xc
+ 1736 00e8 03       		.uleb128 0x3
+ 1737 00e9 0E       		.uleb128 0xe
+ 1738 00ea 3A       		.uleb128 0x3a
+ 1739 00eb 0B       		.uleb128 0xb
+ 1740 00ec 3B       		.uleb128 0x3b
+ 1741 00ed 0B       		.uleb128 0xb
+ 1742 00ee 49       		.uleb128 0x49
+ 1743 00ef 13       		.uleb128 0x13
+ 1744 00f0 11       		.uleb128 0x11
+ 1745 00f1 01       		.uleb128 0x1
+ 1746 00f2 12       		.uleb128 0x12
+ 1747 00f3 01       		.uleb128 0x1
+ 1748 00f4 40       		.uleb128 0x40
+ 1749 00f5 06       		.uleb128 0x6
+ 1750 00f6 9642     		.uleb128 0x2116
+ 1751 00f8 0C       		.uleb128 0xc
+ 1752 00f9 01       		.uleb128 0x1
+ 1753 00fa 13       		.uleb128 0x13
+ 1754 00fb 00       		.byte	0
+ 1755 00fc 00       		.byte	0
+ 1756 00fd 14       		.uleb128 0x14
+ 1757 00fe 2E       		.uleb128 0x2e
+ 1758 00ff 01       		.byte	0x1
+ 1759 0100 3F       		.uleb128 0x3f
+ 1760 0101 0C       		.uleb128 0xc
+ 1761 0102 03       		.uleb128 0x3
+ 1762 0103 0E       		.uleb128 0xe
+ 1763 0104 3A       		.uleb128 0x3a
+ 1764 0105 0B       		.uleb128 0xb
+ 1765 0106 3B       		.uleb128 0x3b
+ 1766 0107 0B       		.uleb128 0xb
+ 1767 0108 27       		.uleb128 0x27
+ 1768 0109 0C       		.uleb128 0xc
+ 1769 010a 49       		.uleb128 0x49
+ 1770 010b 13       		.uleb128 0x13
+ 1771 010c 11       		.uleb128 0x11
+ 1772 010d 01       		.uleb128 0x1
+ 1773 010e 12       		.uleb128 0x12
+ 1774 010f 01       		.uleb128 0x1
+ 1775 0110 40       		.uleb128 0x40
+ 1776 0111 06       		.uleb128 0x6
+ 1777 0112 9742     		.uleb128 0x2117
+ 1778 0114 0C       		.uleb128 0xc
+ 1779 0115 01       		.uleb128 0x1
+ 1780 0116 13       		.uleb128 0x13
+ 1781 0117 00       		.byte	0
+ 1782 0118 00       		.byte	0
+ 1783 0119 15       		.uleb128 0x15
+ 1784 011a 34       		.uleb128 0x34
+ 1785 011b 00       		.byte	0
+ 1786 011c 03       		.uleb128 0x3
+ 1787 011d 0E       		.uleb128 0xe
+ 1788 011e 3A       		.uleb128 0x3a
+ 1789 011f 0B       		.uleb128 0xb
+ARM GAS  /tmp/ccTmpiai.s 			page 36
+
+
+ 1790 0120 3B       		.uleb128 0x3b
+ 1791 0121 05       		.uleb128 0x5
+ 1792 0122 49       		.uleb128 0x49
+ 1793 0123 13       		.uleb128 0x13
+ 1794 0124 3F       		.uleb128 0x3f
+ 1795 0125 0C       		.uleb128 0xc
+ 1796 0126 3C       		.uleb128 0x3c
+ 1797 0127 0C       		.uleb128 0xc
+ 1798 0128 00       		.byte	0
+ 1799 0129 00       		.byte	0
+ 1800 012a 16       		.uleb128 0x16
+ 1801 012b 35       		.uleb128 0x35
+ 1802 012c 00       		.byte	0
+ 1803 012d 49       		.uleb128 0x49
+ 1804 012e 13       		.uleb128 0x13
+ 1805 012f 00       		.byte	0
+ 1806 0130 00       		.byte	0
+ 1807 0131 00       		.byte	0
+ 1808              		.section	.debug_loc,"",%progbits
+ 1809              	.Ldebug_loc0:
+ 1810              	.LLST0:
+ 1811 0000 00000000 		.4byte	.LFB40-.Ltext0
+ 1812 0004 02000000 		.4byte	.LCFI0-.Ltext0
+ 1813 0008 0200     		.2byte	0x2
+ 1814 000a 7D       		.byte	0x7d
+ 1815 000b 00       		.sleb128 0
+ 1816 000c 02000000 		.4byte	.LCFI0-.Ltext0
+ 1817 0010 04000000 		.4byte	.LCFI1-.Ltext0
+ 1818 0014 0200     		.2byte	0x2
+ 1819 0016 7D       		.byte	0x7d
+ 1820 0017 04       		.sleb128 4
+ 1821 0018 04000000 		.4byte	.LCFI1-.Ltext0
+ 1822 001c 4E000000 		.4byte	.LCFI2-.Ltext0
+ 1823 0020 0200     		.2byte	0x2
+ 1824 0022 7D       		.byte	0x7d
+ 1825 0023 18       		.sleb128 24
+ 1826 0024 4E000000 		.4byte	.LCFI2-.Ltext0
+ 1827 0028 52000000 		.4byte	.LFE40-.Ltext0
+ 1828 002c 0200     		.2byte	0x2
+ 1829 002e 7D       		.byte	0x7d
+ 1830 002f 04       		.sleb128 4
+ 1831 0030 00000000 		.4byte	0
+ 1832 0034 00000000 		.4byte	0
+ 1833              	.LLST1:
+ 1834 0038 54000000 		.4byte	.LFB41-.Ltext0
+ 1835 003c 56000000 		.4byte	.LCFI3-.Ltext0
+ 1836 0040 0200     		.2byte	0x2
+ 1837 0042 7D       		.byte	0x7d
+ 1838 0043 00       		.sleb128 0
+ 1839 0044 56000000 		.4byte	.LCFI3-.Ltext0
+ 1840 0048 58000000 		.4byte	.LCFI4-.Ltext0
+ 1841 004c 0200     		.2byte	0x2
+ 1842 004e 7D       		.byte	0x7d
+ 1843 004f 0C       		.sleb128 12
+ 1844 0050 58000000 		.4byte	.LCFI4-.Ltext0
+ 1845 0054 A6000000 		.4byte	.LCFI5-.Ltext0
+ 1846 0058 0200     		.2byte	0x2
+ARM GAS  /tmp/ccTmpiai.s 			page 37
+
+
+ 1847 005a 7D       		.byte	0x7d
+ 1848 005b 38       		.sleb128 56
+ 1849 005c A6000000 		.4byte	.LCFI5-.Ltext0
+ 1850 0060 A8000000 		.4byte	.LFE41-.Ltext0
+ 1851 0064 0200     		.2byte	0x2
+ 1852 0066 7D       		.byte	0x7d
+ 1853 0067 0C       		.sleb128 12
+ 1854 0068 00000000 		.4byte	0
+ 1855 006c 00000000 		.4byte	0
+ 1856              	.LLST2:
+ 1857 0070 A8000000 		.4byte	.LFB42-.Ltext0
+ 1858 0074 AA000000 		.4byte	.LCFI6-.Ltext0
+ 1859 0078 0200     		.2byte	0x2
+ 1860 007a 7D       		.byte	0x7d
+ 1861 007b 00       		.sleb128 0
+ 1862 007c AA000000 		.4byte	.LCFI6-.Ltext0
+ 1863 0080 AC000000 		.4byte	.LCFI7-.Ltext0
+ 1864 0084 0200     		.2byte	0x2
+ 1865 0086 7D       		.byte	0x7d
+ 1866 0087 0C       		.sleb128 12
+ 1867 0088 AC000000 		.4byte	.LCFI7-.Ltext0
+ 1868 008c FA000000 		.4byte	.LCFI8-.Ltext0
+ 1869 0090 0200     		.2byte	0x2
+ 1870 0092 7D       		.byte	0x7d
+ 1871 0093 38       		.sleb128 56
+ 1872 0094 FA000000 		.4byte	.LCFI8-.Ltext0
+ 1873 0098 FC000000 		.4byte	.LFE42-.Ltext0
+ 1874 009c 0200     		.2byte	0x2
+ 1875 009e 7D       		.byte	0x7d
+ 1876 009f 0C       		.sleb128 12
+ 1877 00a0 00000000 		.4byte	0
+ 1878 00a4 00000000 		.4byte	0
+ 1879              	.LLST3:
+ 1880 00a8 FC000000 		.4byte	.LFB43-.Ltext0
+ 1881 00ac FE000000 		.4byte	.LCFI9-.Ltext0
+ 1882 00b0 0200     		.2byte	0x2
+ 1883 00b2 7D       		.byte	0x7d
+ 1884 00b3 00       		.sleb128 0
+ 1885 00b4 FE000000 		.4byte	.LCFI9-.Ltext0
+ 1886 00b8 00010000 		.4byte	.LCFI10-.Ltext0
+ 1887 00bc 0200     		.2byte	0x2
+ 1888 00be 7D       		.byte	0x7d
+ 1889 00bf 04       		.sleb128 4
+ 1890 00c0 00010000 		.4byte	.LCFI10-.Ltext0
+ 1891 00c4 26010000 		.4byte	.LCFI11-.Ltext0
+ 1892 00c8 0200     		.2byte	0x2
+ 1893 00ca 7D       		.byte	0x7d
+ 1894 00cb 18       		.sleb128 24
+ 1895 00cc 26010000 		.4byte	.LCFI11-.Ltext0
+ 1896 00d0 2A010000 		.4byte	.LFE43-.Ltext0
+ 1897 00d4 0200     		.2byte	0x2
+ 1898 00d6 7D       		.byte	0x7d
+ 1899 00d7 04       		.sleb128 4
+ 1900 00d8 00000000 		.4byte	0
+ 1901 00dc 00000000 		.4byte	0
+ 1902              	.LLST4:
+ 1903 00e0 2C010000 		.4byte	.LFB44-.Ltext0
+ARM GAS  /tmp/ccTmpiai.s 			page 38
+
+
+ 1904 00e4 2E010000 		.4byte	.LCFI12-.Ltext0
+ 1905 00e8 0200     		.2byte	0x2
+ 1906 00ea 7D       		.byte	0x7d
+ 1907 00eb 00       		.sleb128 0
+ 1908 00ec 2E010000 		.4byte	.LCFI12-.Ltext0
+ 1909 00f0 30010000 		.4byte	.LCFI13-.Ltext0
+ 1910 00f4 0200     		.2byte	0x2
+ 1911 00f6 7D       		.byte	0x7d
+ 1912 00f7 04       		.sleb128 4
+ 1913 00f8 30010000 		.4byte	.LCFI13-.Ltext0
+ 1914 00fc 56010000 		.4byte	.LCFI14-.Ltext0
+ 1915 0100 0200     		.2byte	0x2
+ 1916 0102 7D       		.byte	0x7d
+ 1917 0103 18       		.sleb128 24
+ 1918 0104 56010000 		.4byte	.LCFI14-.Ltext0
+ 1919 0108 5A010000 		.4byte	.LFE44-.Ltext0
+ 1920 010c 0200     		.2byte	0x2
+ 1921 010e 7D       		.byte	0x7d
+ 1922 010f 04       		.sleb128 4
+ 1923 0110 00000000 		.4byte	0
+ 1924 0114 00000000 		.4byte	0
+ 1925              	.LLST5:
+ 1926 0118 5C010000 		.4byte	.LFB45-.Ltext0
+ 1927 011c 5E010000 		.4byte	.LCFI15-.Ltext0
+ 1928 0120 0200     		.2byte	0x2
+ 1929 0122 7D       		.byte	0x7d
+ 1930 0123 00       		.sleb128 0
+ 1931 0124 5E010000 		.4byte	.LCFI15-.Ltext0
+ 1932 0128 60010000 		.4byte	.LCFI16-.Ltext0
+ 1933 012c 0200     		.2byte	0x2
+ 1934 012e 7D       		.byte	0x7d
+ 1935 012f 04       		.sleb128 4
+ 1936 0130 60010000 		.4byte	.LCFI16-.Ltext0
+ 1937 0134 7C010000 		.4byte	.LCFI17-.Ltext0
+ 1938 0138 0200     		.2byte	0x2
+ 1939 013a 7D       		.byte	0x7d
+ 1940 013b 18       		.sleb128 24
+ 1941 013c 7C010000 		.4byte	.LCFI17-.Ltext0
+ 1942 0140 80010000 		.4byte	.LFE45-.Ltext0
+ 1943 0144 0200     		.2byte	0x2
+ 1944 0146 7D       		.byte	0x7d
+ 1945 0147 04       		.sleb128 4
+ 1946 0148 00000000 		.4byte	0
+ 1947 014c 00000000 		.4byte	0
+ 1948              	.LLST6:
+ 1949 0150 80010000 		.4byte	.LFB46-.Ltext0
+ 1950 0154 82010000 		.4byte	.LCFI18-.Ltext0
+ 1951 0158 0200     		.2byte	0x2
+ 1952 015a 7D       		.byte	0x7d
+ 1953 015b 00       		.sleb128 0
+ 1954 015c 82010000 		.4byte	.LCFI18-.Ltext0
+ 1955 0160 84010000 		.4byte	.LCFI19-.Ltext0
+ 1956 0164 0200     		.2byte	0x2
+ 1957 0166 7D       		.byte	0x7d
+ 1958 0167 04       		.sleb128 4
+ 1959 0168 84010000 		.4byte	.LCFI19-.Ltext0
+ 1960 016c AA010000 		.4byte	.LCFI20-.Ltext0
+ARM GAS  /tmp/ccTmpiai.s 			page 39
+
+
+ 1961 0170 0200     		.2byte	0x2
+ 1962 0172 7D       		.byte	0x7d
+ 1963 0173 18       		.sleb128 24
+ 1964 0174 AA010000 		.4byte	.LCFI20-.Ltext0
+ 1965 0178 AE010000 		.4byte	.LFE46-.Ltext0
+ 1966 017c 0200     		.2byte	0x2
+ 1967 017e 7D       		.byte	0x7d
+ 1968 017f 04       		.sleb128 4
+ 1969 0180 00000000 		.4byte	0
+ 1970 0184 00000000 		.4byte	0
+ 1971              	.LLST7:
+ 1972 0188 B0010000 		.4byte	.LFB47-.Ltext0
+ 1973 018c B2010000 		.4byte	.LCFI21-.Ltext0
+ 1974 0190 0200     		.2byte	0x2
+ 1975 0192 7D       		.byte	0x7d
+ 1976 0193 00       		.sleb128 0
+ 1977 0194 B2010000 		.4byte	.LCFI21-.Ltext0
+ 1978 0198 B4010000 		.4byte	.LCFI22-.Ltext0
+ 1979 019c 0200     		.2byte	0x2
+ 1980 019e 7D       		.byte	0x7d
+ 1981 019f 04       		.sleb128 4
+ 1982 01a0 B4010000 		.4byte	.LCFI22-.Ltext0
+ 1983 01a4 D0010000 		.4byte	.LCFI23-.Ltext0
+ 1984 01a8 0200     		.2byte	0x2
+ 1985 01aa 7D       		.byte	0x7d
+ 1986 01ab 18       		.sleb128 24
+ 1987 01ac D0010000 		.4byte	.LCFI23-.Ltext0
+ 1988 01b0 D4010000 		.4byte	.LFE47-.Ltext0
+ 1989 01b4 0200     		.2byte	0x2
+ 1990 01b6 7D       		.byte	0x7d
+ 1991 01b7 04       		.sleb128 4
+ 1992 01b8 00000000 		.4byte	0
+ 1993 01bc 00000000 		.4byte	0
+ 1994              	.LLST8:
+ 1995 01c0 D4010000 		.4byte	.LFB48-.Ltext0
+ 1996 01c4 D6010000 		.4byte	.LCFI24-.Ltext0
+ 1997 01c8 0200     		.2byte	0x2
+ 1998 01ca 7D       		.byte	0x7d
+ 1999 01cb 00       		.sleb128 0
+ 2000 01cc D6010000 		.4byte	.LCFI24-.Ltext0
+ 2001 01d0 D8010000 		.4byte	.LCFI25-.Ltext0
+ 2002 01d4 0200     		.2byte	0x2
+ 2003 01d6 7D       		.byte	0x7d
+ 2004 01d7 04       		.sleb128 4
+ 2005 01d8 D8010000 		.4byte	.LCFI25-.Ltext0
+ 2006 01dc FE010000 		.4byte	.LCFI26-.Ltext0
+ 2007 01e0 0200     		.2byte	0x2
+ 2008 01e2 7D       		.byte	0x7d
+ 2009 01e3 18       		.sleb128 24
+ 2010 01e4 FE010000 		.4byte	.LCFI26-.Ltext0
+ 2011 01e8 02020000 		.4byte	.LFE48-.Ltext0
+ 2012 01ec 0200     		.2byte	0x2
+ 2013 01ee 7D       		.byte	0x7d
+ 2014 01ef 04       		.sleb128 4
+ 2015 01f0 00000000 		.4byte	0
+ 2016 01f4 00000000 		.4byte	0
+ 2017              	.LLST9:
+ARM GAS  /tmp/ccTmpiai.s 			page 40
+
+
+ 2018 01f8 04020000 		.4byte	.LFB49-.Ltext0
+ 2019 01fc 06020000 		.4byte	.LCFI27-.Ltext0
+ 2020 0200 0200     		.2byte	0x2
+ 2021 0202 7D       		.byte	0x7d
+ 2022 0203 00       		.sleb128 0
+ 2023 0204 06020000 		.4byte	.LCFI27-.Ltext0
+ 2024 0208 08020000 		.4byte	.LCFI28-.Ltext0
+ 2025 020c 0200     		.2byte	0x2
+ 2026 020e 7D       		.byte	0x7d
+ 2027 020f 04       		.sleb128 4
+ 2028 0210 08020000 		.4byte	.LCFI28-.Ltext0
+ 2029 0214 2E020000 		.4byte	.LCFI29-.Ltext0
+ 2030 0218 0200     		.2byte	0x2
+ 2031 021a 7D       		.byte	0x7d
+ 2032 021b 18       		.sleb128 24
+ 2033 021c 2E020000 		.4byte	.LCFI29-.Ltext0
+ 2034 0220 32020000 		.4byte	.LFE49-.Ltext0
+ 2035 0224 0200     		.2byte	0x2
+ 2036 0226 7D       		.byte	0x7d
+ 2037 0227 04       		.sleb128 4
+ 2038 0228 00000000 		.4byte	0
+ 2039 022c 00000000 		.4byte	0
+ 2040              	.LLST10:
+ 2041 0230 34020000 		.4byte	.LFB50-.Ltext0
+ 2042 0234 36020000 		.4byte	.LCFI30-.Ltext0
+ 2043 0238 0200     		.2byte	0x2
+ 2044 023a 7D       		.byte	0x7d
+ 2045 023b 00       		.sleb128 0
+ 2046 023c 36020000 		.4byte	.LCFI30-.Ltext0
+ 2047 0240 38020000 		.4byte	.LCFI31-.Ltext0
+ 2048 0244 0200     		.2byte	0x2
+ 2049 0246 7D       		.byte	0x7d
+ 2050 0247 04       		.sleb128 4
+ 2051 0248 38020000 		.4byte	.LCFI31-.Ltext0
+ 2052 024c 50020000 		.4byte	.LCFI32-.Ltext0
+ 2053 0250 0200     		.2byte	0x2
+ 2054 0252 7D       		.byte	0x7d
+ 2055 0253 10       		.sleb128 16
+ 2056 0254 50020000 		.4byte	.LCFI32-.Ltext0
+ 2057 0258 54020000 		.4byte	.LFE50-.Ltext0
+ 2058 025c 0200     		.2byte	0x2
+ 2059 025e 7D       		.byte	0x7d
+ 2060 025f 04       		.sleb128 4
+ 2061 0260 00000000 		.4byte	0
+ 2062 0264 00000000 		.4byte	0
+ 2063              	.LLST11:
+ 2064 0268 54020000 		.4byte	.LFB51-.Ltext0
+ 2065 026c 56020000 		.4byte	.LCFI33-.Ltext0
+ 2066 0270 0200     		.2byte	0x2
+ 2067 0272 7D       		.byte	0x7d
+ 2068 0273 00       		.sleb128 0
+ 2069 0274 56020000 		.4byte	.LCFI33-.Ltext0
+ 2070 0278 66020000 		.4byte	.LCFI34-.Ltext0
+ 2071 027c 0200     		.2byte	0x2
+ 2072 027e 7D       		.byte	0x7d
+ 2073 027f 10       		.sleb128 16
+ 2074 0280 66020000 		.4byte	.LCFI34-.Ltext0
+ARM GAS  /tmp/ccTmpiai.s 			page 41
+
+
+ 2075 0284 68020000 		.4byte	.LFE51-.Ltext0
+ 2076 0288 0200     		.2byte	0x2
+ 2077 028a 7D       		.byte	0x7d
+ 2078 028b 00       		.sleb128 0
+ 2079 028c 00000000 		.4byte	0
+ 2080 0290 00000000 		.4byte	0
+ 2081              		.section	.debug_aranges,"",%progbits
+ 2082 0000 1C000000 		.4byte	0x1c
+ 2083 0004 0200     		.2byte	0x2
+ 2084 0006 00000000 		.4byte	.Ldebug_info0
+ 2085 000a 04       		.byte	0x4
+ 2086 000b 00       		.byte	0
+ 2087 000c 0000     		.2byte	0
+ 2088 000e 0000     		.2byte	0
+ 2089 0010 00000000 		.4byte	.Ltext0
+ 2090 0014 68020000 		.4byte	.Letext0-.Ltext0
+ 2091 0018 00000000 		.4byte	0
+ 2092 001c 00000000 		.4byte	0
+ 2093              		.section	.debug_line,"",%progbits
+ 2094              	.Ldebug_line0:
+ 2095 0000 27020000 		.section	.debug_str,"MS",%progbits,1
+ 2095      0200C401 
+ 2095      00000201 
+ 2095      FB0E0D00 
+ 2095      01010101 
+ 2096              	.LASF78:
+ 2097 0000 65706366 		.ascii	"epcf_i2c_extGetDeviceCount\000"
+ 2097      5F693263 
+ 2097      5F657874 
+ 2097      47657444 
+ 2097      65766963 
+ 2098              	.LASF42:
+ 2099 001b 656E4550 		.ascii	"enEPCFI2cAddress_7bit\000"
+ 2099      43464932 
+ 2099      63416464 
+ 2099      72657373 
+ 2099      5F376269 
+ 2100              	.LASF68:
+ 2101 0031 62757352 		.ascii	"busRelease\000"
+ 2101      656C6561 
+ 2101      736500
+ 2102              	.LASF16:
+ 2103 003c 696E7438 		.ascii	"int8_t\000"
+ 2103      5F7400
+ 2104              	.LASF58:
+ 2105 0043 45504346 		.ascii	"EPCFI2cController\000"
+ 2105      49326343 
+ 2105      6F6E7472 
+ 2105      6F6C6C65 
+ 2105      7200
+ 2106              	.LASF5:
+ 2107 0055 73686F72 		.ascii	"short int\000"
+ 2107      7420696E 
+ 2107      7400
+ 2108              	.LASF70:
+ 2109 005f 65706366 		.ascii	"epcf_i2c_read\000"
+ 2109      5F693263 
+ARM GAS  /tmp/ccTmpiai.s 			page 42
+
+
+ 2109      5F726561 
+ 2109      6400
+ 2110              	.LASF14:
+ 2111 006d 73697A65 		.ascii	"sizetype\000"
+ 2111      74797065 
+ 2111      00
+ 2112              	.LASF77:
+ 2113 0076 65706366 		.ascii	"epcf_i2c_close\000"
+ 2113      5F693263 
+ 2113      5F636C6F 
+ 2113      736500
+ 2114              	.LASF57:
+ 2115 0085 50434646 		.ascii	"PCFFifoDesc\000"
+ 2115      69666F44 
+ 2115      65736300 
+ 2116              	.LASF74:
+ 2117 0091 65706366 		.ascii	"epcf_i2c_rxBufferFlush\000"
+ 2117      5F693263 
+ 2117      5F727842 
+ 2117      75666665 
+ 2117      72466C75 
+ 2118              	.LASF10:
+ 2119 00a8 5F5F7569 		.ascii	"__uint32_t\000"
+ 2119      6E743332 
+ 2119      5F7400
+ 2120              	.LASF83:
+ 2121 00b3 45504346 		.ascii	"EPCFI2cDevice\000"
+ 2121      49326344 
+ 2121      65766963 
+ 2121      6500
+ 2122              	.LASF56:
+ 2123 00c1 45504346 		.ascii	"EPCFI2cController_t\000"
+ 2123      49326343 
+ 2123      6F6E7472 
+ 2123      6F6C6C65 
+ 2123      725F7400 
+ 2124              	.LASF6:
+ 2125 00d5 5F5F7569 		.ascii	"__uint16_t\000"
+ 2125      6E743136 
+ 2125      5F7400
+ 2126              	.LASF81:
+ 2127 00e0 2E2E2F65 		.ascii	"../epcf/peripheral/source/i2c/i2c.c\000"
+ 2127      7063662F 
+ 2127      70657269 
+ 2127      70686572 
+ 2127      616C2F73 
+ 2128              	.LASF64:
+ 2129 0104 6D617374 		.ascii	"masterEnable\000"
+ 2129      6572456E 
+ 2129      61626C65 
+ 2129      00
+ 2130              	.LASF84:
+ 2131 0111 65706366 		.ascii	"epcf_i2c_getDeviceCount\000"
+ 2131      5F693263 
+ 2131      5F676574 
+ 2131      44657669 
+ 2131      6365436F 
+ARM GAS  /tmp/ccTmpiai.s 			page 43
+
+
+ 2132              	.LASF17:
+ 2133 0129 75696E74 		.ascii	"uint8_t\000"
+ 2133      385F7400 
+ 2134              	.LASF80:
+ 2135 0131 474E5520 		.ascii	"GNU C 4.9.3 20150529 (prerelease) -mcpu=cortex-m3 -"
+ 2135      4320342E 
+ 2135      392E3320 
+ 2135      32303135 
+ 2135      30353239 
+ 2136 0164 6D746875 		.ascii	"mthumb -gdwarf-2 -O0 -std=gnu99 -fomit-frame-pointe"
+ 2136      6D62202D 
+ 2136      67647761 
+ 2136      72662D32 
+ 2136      202D4F30 
+ 2137 0197 7200     		.ascii	"r\000"
+ 2138              	.LASF33:
+ 2139 0199 756E6974 		.ascii	"unit\000"
+ 2139      00
+ 2140              	.LASF82:
+ 2141 019e 2F686F6D 		.ascii	"/home/majorviraj/Desktop/self_balancing/firmware/i2"
+ 2141      652F6D61 
+ 2141      6A6F7276 
+ 2141      6972616A 
+ 2141      2F446573 
+ 2142 01d1 635F7465 		.ascii	"c_test/app\000"
+ 2142      73742F61 
+ 2142      707000
+ 2143              	.LASF43:
+ 2144 01dc 656E4550 		.ascii	"enEPCFI2cAddress_10bit\000"
+ 2144      43464932 
+ 2144      63416464 
+ 2144      72657373 
+ 2144      5F313062 
+ 2145              	.LASF21:
+ 2146 01f3 666C6F61 		.ascii	"float\000"
+ 2146      7400
+ 2147              	.LASF55:
+ 2148 01f9 50434646 		.ascii	"PCFFifoDesc_t\000"
+ 2148      69666F44 
+ 2148      6573635F 
+ 2148      7400
+ 2149              	.LASF25:
+ 2150 0207 456E4550 		.ascii	"EnEPCFBoolean_t\000"
+ 2150      4346426F 
+ 2150      6F6C6561 
+ 2150      6E5F7400 
+ 2151              	.LASF39:
+ 2152 0217 69326354 		.ascii	"i2cTxFifo\000"
+ 2152      78466966 
+ 2152      6F00
+ 2153              	.LASF12:
+ 2154 0221 6C6F6E67 		.ascii	"long long int\000"
+ 2154      206C6F6E 
+ 2154      6720696E 
+ 2154      7400
+ 2155              	.LASF63:
+ 2156 022f 70493263 		.ascii	"pI2cConfig\000"
+ARM GAS  /tmp/ccTmpiai.s 			page 44
+
+
+ 2156      436F6E66 
+ 2156      696700
+ 2157              	.LASF65:
+ 2158 023a 736C6176 		.ascii	"slaveAddress\000"
+ 2158      65416464 
+ 2158      72657373 
+ 2158      00
+ 2159              	.LASF15:
+ 2160 0247 63686172 		.ascii	"char\000"
+ 2160      00
+ 2161              	.LASF9:
+ 2162 024c 6C6F6E67 		.ascii	"long int\000"
+ 2162      20696E74 
+ 2162      00
+ 2163              	.LASF73:
+ 2164 0255 65706366 		.ascii	"epcf_i2c_getRxBufferCount\000"
+ 2164      5F693263 
+ 2164      5F676574 
+ 2164      52784275 
+ 2164      66666572 
+ 2165              	.LASF51:
+ 2166 026f 74784275 		.ascii	"txBufferSize\000"
+ 2166      66666572 
+ 2166      53697A65 
+ 2166      00
+ 2167              	.LASF3:
+ 2168 027c 5F5F7569 		.ascii	"__uint8_t\000"
+ 2168      6E74385F 
+ 2168      7400
+ 2169              	.LASF75:
+ 2170 0286 65706366 		.ascii	"epcf_i2c_getTxBufferCount\000"
+ 2170      5F693263 
+ 2170      5F676574 
+ 2170      54784275 
+ 2170      66666572 
+ 2171              	.LASF72:
+ 2172 02a0 65706366 		.ascii	"epcf_i2c_intDisable\000"
+ 2172      5F693263 
+ 2172      5F696E74 
+ 2172      44697361 
+ 2172      626C6500 
+ 2173              	.LASF61:
+ 2174 02b4 65706366 		.ascii	"epcf_i2c_CreateNative\000"
+ 2174      5F693263 
+ 2174      5F437265 
+ 2174      6174654E 
+ 2174      61746976 
+ 2175              	.LASF46:
+ 2176 02ca 62617564 		.ascii	"baudrate\000"
+ 2176      72617465 
+ 2176      00
+ 2177              	.LASF2:
+ 2178 02d3 5F5F696E 		.ascii	"__int8_t\000"
+ 2178      74385F74 
+ 2178      00
+ 2179              	.LASF29:
+ 2180 02dc 656E4550 		.ascii	"enEPCFTimeUnit_s\000"
+ARM GAS  /tmp/ccTmpiai.s 			page 45
+
+
+ 2180      43465469 
+ 2180      6D65556E 
+ 2180      69745F73 
+ 2180      00
+ 2181              	.LASF34:
+ 2182 02ed 45504346 		.ascii	"EPCFTime_t\000"
+ 2182      54696D65 
+ 2182      5F7400
+ 2183              	.LASF36:
+ 2184 02f8 69326349 		.ascii	"i2cId\000"
+ 2184      6400
+ 2185              	.LASF37:
+ 2186 02fe 69326343 		.ascii	"i2cChannelAddr\000"
+ 2186      68616E6E 
+ 2186      656C4164 
+ 2186      647200
+ 2187              	.LASF38:
+ 2188 030d 696E7465 		.ascii	"interruptEnable\000"
+ 2188      72727570 
+ 2188      74456E61 
+ 2188      626C6500 
+ 2189              	.LASF4:
+ 2190 031d 756E7369 		.ascii	"unsigned char\000"
+ 2190      676E6564 
+ 2190      20636861 
+ 2190      7200
+ 2191              	.LASF45:
+ 2192 032b 456E4550 		.ascii	"EnEPCFI2cAddressType_t\000"
+ 2192      43464932 
+ 2192      63416464 
+ 2192      72657373 
+ 2192      54797065 
+ 2193              	.LASF1:
+ 2194 0342 7369676E 		.ascii	"signed char\000"
+ 2194      65642063 
+ 2194      68617200 
+ 2195              	.LASF44:
+ 2196 034e 656E4550 		.ascii	"enEPCFI2cAddressType_Max\000"
+ 2196      43464932 
+ 2196      63416464 
+ 2196      72657373 
+ 2196      54797065 
+ 2197              	.LASF13:
+ 2198 0367 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2198      206C6F6E 
+ 2198      6720756E 
+ 2198      7369676E 
+ 2198      65642069 
+ 2199              	.LASF20:
+ 2200 037e 75696E74 		.ascii	"uint32_t\000"
+ 2200      33325F74 
+ 2200      00
+ 2201              	.LASF0:
+ 2202 0387 756E7369 		.ascii	"unsigned int\000"
+ 2202      676E6564 
+ 2202      20696E74 
+ 2202      00
+ARM GAS  /tmp/ccTmpiai.s 			page 46
+
+
+ 2203              	.LASF48:
+ 2204 0394 6F776E41 		.ascii	"ownAddress\000"
+ 2204      64647265 
+ 2204      737300
+ 2205              	.LASF18:
+ 2206 039f 75696E74 		.ascii	"uint16_t\000"
+ 2206      31365F74 
+ 2206      00
+ 2207              	.LASF31:
+ 2208 03a8 456E4550 		.ascii	"EnEPCFTimeUnit_t\000"
+ 2208      43465469 
+ 2208      6D65556E 
+ 2208      69745F74 
+ 2208      00
+ 2209              	.LASF47:
+ 2210 03b9 61646472 		.ascii	"addressType\000"
+ 2210      65737354 
+ 2210      79706500 
+ 2211              	.LASF7:
+ 2212 03c5 73686F72 		.ascii	"short unsigned int\000"
+ 2212      7420756E 
+ 2212      7369676E 
+ 2212      65642069 
+ 2212      6E7400
+ 2213              	.LASF60:
+ 2214 03d8 73746174 		.ascii	"status\000"
+ 2214      757300
+ 2215              	.LASF41:
+ 2216 03df 65787465 		.ascii	"extendedI2cDeviceId\000"
+ 2216      6E646564 
+ 2216      49326344 
+ 2216      65766963 
+ 2216      65496400 
+ 2217              	.LASF79:
+ 2218 03f3 70493263 		.ascii	"pI2cController\000"
+ 2218      436F6E74 
+ 2218      726F6C6C 
+ 2218      657200
+ 2219              	.LASF50:
+ 2220 0402 67656E65 		.ascii	"generalCallEnable\000"
+ 2220      72616C43 
+ 2220      616C6C45 
+ 2220      6E61626C 
+ 2220      6500
+ 2221              	.LASF19:
+ 2222 0414 696E7433 		.ascii	"int32_t\000"
+ 2222      325F7400 
+ 2223              	.LASF76:
+ 2224 041c 65706366 		.ascii	"epcf_i2c_txBufferFlush\000"
+ 2224      5F693263 
+ 2224      5F747842 
+ 2224      75666665 
+ 2224      72466C75 
+ 2225              	.LASF30:
+ 2226 0433 656E4550 		.ascii	"enEPCFTimeUnit_Max\000"
+ 2226      43465469 
+ 2226      6D65556E 
+ARM GAS  /tmp/ccTmpiai.s 			page 47
+
+
+ 2226      69745F4D 
+ 2226      617800
+ 2227              	.LASF28:
+ 2228 0446 656E4550 		.ascii	"enEPCFTimeUnit_ms\000"
+ 2228      43465469 
+ 2228      6D65556E 
+ 2228      69745F6D 
+ 2228      7300
+ 2229              	.LASF59:
+ 2230 0458 70493263 		.ascii	"pI2cDevice\000"
+ 2230      44657669 
+ 2230      636500
+ 2231              	.LASF66:
+ 2232 0463 64617461 		.ascii	"data\000"
+ 2232      00
+ 2233              	.LASF23:
+ 2234 0468 656E4550 		.ascii	"enEPCFBoolean_True\000"
+ 2234      4346426F 
+ 2234      6F6C6561 
+ 2234      6E5F5472 
+ 2234      756500
+ 2235              	.LASF54:
+ 2236 047b 45504346 		.ascii	"EPCFI2cCfg_t\000"
+ 2236      49326343 
+ 2236      66675F74 
+ 2236      00
+ 2237              	.LASF71:
+ 2238 0488 65706366 		.ascii	"epcf_i2c_intEnable\000"
+ 2238      5F693263 
+ 2238      5F696E74 
+ 2238      456E6162 
+ 2238      6C6500
+ 2239              	.LASF11:
+ 2240 049b 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2240      20756E73 
+ 2240      69676E65 
+ 2240      6420696E 
+ 2240      7400
+ 2241              	.LASF49:
+ 2242 04ad 6F776E41 		.ascii	"ownAddressMask\000"
+ 2242      64647265 
+ 2242      73734D61 
+ 2242      736B00
+ 2243              	.LASF67:
+ 2244 04bc 73697A65 		.ascii	"size\000"
+ 2244      00
+ 2245              	.LASF24:
+ 2246 04c1 656E4550 		.ascii	"enEPCFBoolean_Max\000"
+ 2246      4346426F 
+ 2246      6F6C6561 
+ 2246      6E5F4D61 
+ 2246      7800
+ 2247              	.LASF32:
+ 2248 04d3 636F756E 		.ascii	"count\000"
+ 2248      7400
+ 2249              	.LASF52:
+ 2250 04d9 72784275 		.ascii	"rxBufferSize\000"
+ARM GAS  /tmp/ccTmpiai.s 			page 48
+
+
+ 2250      66666572 
+ 2250      53697A65 
+ 2250      00
+ 2251              	.LASF8:
+ 2252 04e6 5F5F696E 		.ascii	"__int32_t\000"
+ 2252      7433325F 
+ 2252      7400
+ 2253              	.LASF27:
+ 2254 04f0 656E4550 		.ascii	"enEPCFTimeUnit_us\000"
+ 2254      43465469 
+ 2254      6D65556E 
+ 2254      69745F75 
+ 2254      7300
+ 2255              	.LASF62:
+ 2256 0502 65706366 		.ascii	"epcf_i2c_write\000"
+ 2256      5F693263 
+ 2256      5F777269 
+ 2256      746500
+ 2257              	.LASF35:
+ 2258 0511 636F6E74 		.ascii	"controllerConfig\000"
+ 2258      726F6C6C 
+ 2258      6572436F 
+ 2258      6E666967 
+ 2258      00
+ 2259              	.LASF22:
+ 2260 0522 656E4550 		.ascii	"enEPCFBoolean_False\000"
+ 2260      4346426F 
+ 2260      6F6C6561 
+ 2260      6E5F4661 
+ 2260      6C736500 
+ 2261              	.LASF85:
+ 2262 0536 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 2262      52784275 
+ 2262      66666572 
+ 2262      00
+ 2263              	.LASF53:
+ 2264 0543 68617264 		.ascii	"hardwareCfg\000"
+ 2264      77617265 
+ 2264      43666700 
+ 2265              	.LASF40:
+ 2266 054f 69326352 		.ascii	"i2cRxFifo\000"
+ 2266      78466966 
+ 2266      6F00
+ 2267              	.LASF26:
+ 2268 0559 656E4550 		.ascii	"enEPCFTimeUnit_ns\000"
+ 2268      43465469 
+ 2268      6D65556E 
+ 2268      69745F6E 
+ 2268      7300
+ 2269              	.LASF69:
+ 2270 056b 74696D65 		.ascii	"timeout\000"
+ 2270      6F757400 
+ 2271              		.ident	"GCC: (15:4.9.3+svn231177-1) 4.9.3 20150529 (prerelease)"
+ARM GAS  /tmp/ccTmpiai.s 			page 49
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 i2c.c
+     /tmp/ccTmpiai.s:48     .text:0000000000000000 $t
+     /tmp/ccTmpiai.s:53     .text:0000000000000000 epcf_i2c_CreateNative
+     /tmp/ccTmpiai.s:125    .text:0000000000000054 epcf_i2c_write
+     /tmp/ccTmpiai.s:189    .text:00000000000000a8 epcf_i2c_read
+     /tmp/ccTmpiai.s:253    .text:00000000000000fc epcf_i2c_intEnable
+     /tmp/ccTmpiai.s:299    .text:000000000000012c epcf_i2c_intDisable
+     /tmp/ccTmpiai.s:345    .text:000000000000015c epcf_i2c_getRxBufferCount
+     /tmp/ccTmpiai.s:389    .text:0000000000000180 epcf_i2c_rxBufferFlush
+     /tmp/ccTmpiai.s:435    .text:00000000000001b0 epcf_i2c_getTxBufferCount
+     /tmp/ccTmpiai.s:479    .text:00000000000001d4 epcf_i2c_txBufferFlush
+     /tmp/ccTmpiai.s:525    .text:0000000000000204 epcf_i2c_close
+     /tmp/ccTmpiai.s:571    .text:0000000000000234 epcf_i2c_getDeviceCount
+     /tmp/ccTmpiai.s:608    .text:0000000000000254 epcf_i2c_extGetDeviceCount
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+epcf_i2c_nativeGetDeviceCount
+malloc
+epcf_i2c_nativeInit
+epcf_i2c_nativeWrite
+epcf_i2c_nativeRead
+epcf_i2c_nativeIntEnable
+epcf_i2c_nativeIntDisable
+epcf_i2c_nativeGetRxBufferCount
+epcf_i2c_nativeRxBufferFlush
+epcf_i2c_nativeGetTxBufferCount
+epcf_i2c_nativeTxBufferFlush
+epcf_i2c_nativeClose

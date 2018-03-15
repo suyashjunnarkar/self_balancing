@@ -1,0 +1,39 @@
+/**
+ * \file  spi_config.h
+ * \brief This file is used to configure a SPI device
+ */
+
+#ifndef __EPCF_INCLUDE_PERIPHERAL_SPI_SPI_CONFIG_H
+#define __EPCF_INCLUDE_PERIPHERAL_SPI_SPI_CONFIG_H
+
+#include "spi.h"
+
+#define EPCF_SPI_INCLUDE PCF_CONDITIONAL_INCLUDE_FILE(EPCF_DIR_NATIVE_PATH/,port/PCF_ARCH_NAME/PCF_ARCH_VARIANT/PCF_ARCH_DEVICE_VENDOR/PCF_ARCH_DEVICE/include/spi/,spi_,PCF_ARCH_DEVICE.h)
+#include EPCF_SPI_INCLUDE
+#undef EPCF_SPI_INCLUDE
+
+
+//#if(EPCF_BUILD_MODE == EPCF_BUILD_NATIVE)
+//  #if(EPCF_USE_SPI == PCF_YES)
+//      #define __EPCF_SPI_INCLUDE PCF_CONDITIONAL_INCLUDE_FILE(NATIVE_PATH/,port/PCF_ARCH_NAME/PCF_ARCH_VARIANT/PCF_ARCH_DEVICE_VENDOR/PCF_ARCH_DEVICE/spi/,spi_,PCF_ARCH_DEVICE.h)
+//      #include __EPCF_SPI_INCLUDE
+//      #undef __EPCF_SPI_INCLUDE
+//  #endif
+//#endif
+//
+//#if(EPCF_BUILD_MODE == EPCF_BUILD_EXTENDED)
+//  #if(EPCF_USE_SPI == PCF_YES)
+//      #define __EPCF_SPI_INCLUDE PCF_CONDITIONAL_INCLUDE_FILE(NATIVE_PATH/,port/PCF_ARCH_NAME/PCF_ARCH_VARIANT/PCF_ARCH_DEVICE_VENDOR/PCF_ARCH_DEVICE/spi/,spi_,PCF_ARCH_DEVICE.h)
+//      #include __EPCF_SPI_INCLUDE
+//      #undef __EPCF_SPI_INCLUDE
+//  #endif
+//
+//  #if(EPCF_EXTENDED_USE_SPI == PCF_YES)
+//      #define __EPCF_SPI_INCLUDE PCF_CONDITIONAL_INCLUDE_FILE(EXTENDED_PATH/,controller/,spi/,spi_controller.h)
+//      #include __EPCF_SPI_INCLUDE
+//      #undef __EPCF_SPI_INCLUDE
+//  #endif
+//#endif
+
+#endif      //__EPCF_INCLUDED_PERIPHERAL_SPI_SPI_CONFIG_H
+/**@**/

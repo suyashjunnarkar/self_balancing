@@ -1,0 +1,1239 @@
+Archive member included to satisfy reference by file (symbol)
+
+/usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubdf3.o)
+                              Build/Obj/Debug/uart_lpc1768.o (__aeabi_dsub)
+/usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_muldivdf3.o)
+                              Build/Obj/Debug/epcf_string.o (__aeabi_dmul)
+/usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpdf2.o)
+                              Build/Obj/Debug/uart_lpc1768.o (__aeabi_dcmple)
+/usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_truncdfsf2.o)
+                              Build/Obj/Debug/uart_lpc1768.o (__aeabi_d2f)
+/usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubsf3.o)
+                              Build/Obj/Debug/uart_lpc1768.o (__aeabi_fsub)
+/usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_muldivsf3.o)
+                              Build/Obj/Debug/uart_lpc1768.o (__aeabi_fmul)
+/usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpsf2.o)
+                              Build/Obj/Debug/epcf_string.o (__aeabi_fcmpeq)
+/usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_fixsfsi.o)
+                              Build/Obj/Debug/epcf_string.o (__aeabi_f2iz)
+/usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_fixunssfsi.o)
+                              Build/Obj/Debug/uart_lpc1768.o (__aeabi_f2uiz)
+/usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+                              Build/Obj/Debug/sysClk_lpc1768.o (malloc)
+/usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-freer.o)
+                              /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o) (_free_r)
+/usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+                              /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o) (_malloc_r)
+/usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+                              /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o) (_sbrk_r)
+/usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+                              /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o) (_impure_ptr)
+/usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+                              /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o) (errno)
+/usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+                              /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o) (_sbrk)
+
+Allocating common symbols
+Common symbol       size              file
+
+i2cDevice           0x4               Build/Obj/Debug/appConfig.o
+errno               0x4               /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+Switch              0x4               Build/Obj/Debug/appConfig.o
+myUART              0x4               Build/Obj/Debug/appConfig.o
+myLED               0x4               Build/Obj/Debug/appConfig.o
+myGpio              0x4               Build/Obj/Debug/appConfig.o
+LED                 0x4               Build/Obj/Debug/appConfig.o
+myClock             0x4               Build/Obj/Debug/appConfig.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x0000000000000000 0x0000000000080000 xrw
+RAM1             0x0000000010000000 0x0000000000008000 xrw
+RAM2             0x000000002007c000 0x0000000000008000 xrw
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD Build/Obj/Debug/app.o
+LOAD Build/Obj/Debug/appConfig.o
+LOAD Build/Obj/Debug/sysClk.o
+LOAD Build/Obj/Debug/pin_lpc1768.o
+LOAD Build/Obj/Debug/vectors_lpc1768.o
+LOAD Build/Obj/Debug/sysClk_lpc1768.o
+LOAD Build/Obj/Debug/gpio_lpc1768.o
+LOAD Build/Obj/Debug/gpio.o
+LOAD Build/Obj/Debug/uart_lpc1768.o
+LOAD Build/Obj/Debug/i2c_lpc1768.o
+LOAD Build/Obj/Debug/uart.o
+LOAD Build/Obj/Debug/i2c.o
+LOAD Build/Obj/Debug/epcf_fifo.o
+LOAD Build/Obj/Debug/epcf_string.o
+START GROUP
+LOAD /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a
+LOAD /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a
+END GROUP
+START GROUP
+LOAD /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a
+LOAD /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a
+LOAD /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a
+END GROUP
+START GROUP
+LOAD /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a
+LOAD /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a
+LOAD /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a
+END GROUP
+
+.text           0x0000000000000000     0x676c
+                0x0000000000000000                _stext = .
+ CREATE_OBJECT_SYMBOLS
+ *(.vectors)
+ .vectors       0x0000000000000000       0xc0 Build/Obj/Debug/vectors_lpc1768.o
+                0x0000000000000000                gVectors
+ *(.text)
+ .text          0x00000000000000c0      0x1b8 Build/Obj/Debug/app.o
+                0x00000000000000c0                main
+ .text          0x0000000000000278      0x12c Build/Obj/Debug/appConfig.o
+                0x0000000000000278                delay
+                0x000000000000029c                serialBegin
+                0x00000000000002b4                serialPrint
+                0x00000000000002e0                appInit
+ .text          0x00000000000003a4       0x18 Build/Obj/Debug/sysClk.o
+                0x00000000000003a4                epcfCreateSysClk
+ .text          0x00000000000003bc      0xb3c Build/Obj/Debug/pin_lpc1768.o
+                0x00000000000003bc                epcfPinInit
+ .text          0x0000000000000ef8      0x10c Build/Obj/Debug/vectors_lpc1768.o
+                0x0000000000000ef8                ResetHandler
+                0x0000000000000f60                NMI_Handler
+                0x0000000000000f64                HardFault_Handler
+                0x0000000000000f68                MemManage_Handler
+                0x0000000000000f6c                BusFault_Handler
+                0x0000000000000f70                UsageFault_Handler
+                0x0000000000000f74                SVC_Handler
+                0x0000000000000f78                DebugMon_Handler
+                0x0000000000000f7c                PendSV_Handler
+                0x0000000000000f80                SysTick_Handler
+                0x0000000000000f84                WDT_IRQHandler
+                0x0000000000000f88                TIMER0_IRQHandler
+                0x0000000000000f8c                TIMER1_IRQHandler
+                0x0000000000000f90                TIMER2_IRQHandler
+                0x0000000000000f94                TIMER3_IRQHandler
+                0x0000000000000fa8                PWM_IRQHandler
+                0x0000000000000fb8                SPI_IRQHandler
+                0x0000000000000fbc                SSP0_IRQHandler
+                0x0000000000000fc0                SSP1_IRQHandler
+                0x0000000000000fc4                PLL0_IRQHandler
+                0x0000000000000fc8                RTC_IRQHandler
+                0x0000000000000fcc                EINT0_IRQHandler
+                0x0000000000000fd0                EINT1_IRQHandler
+                0x0000000000000fd4                EINT2_IRQHandler
+                0x0000000000000fd8                EINT3_IRQHandler
+                0x0000000000000fdc                ADC_IRQHandler
+                0x0000000000000fe0                BOD_IRQHandler
+                0x0000000000000fe4                USB_IRQHandler
+                0x0000000000000fe8                CAN_IRQHandler
+                0x0000000000000fec                DMA_IRQHandler
+                0x0000000000000ff0                I2S_IRQHandler
+                0x0000000000000ff4                ENET_IRQHandler
+                0x0000000000000ff8                RIT_IRQHandler
+                0x0000000000000ffc                MCPWM_IRQHandler
+                0x0000000000001000                QEI_IRQHandler
+ .text          0x0000000000001004      0x3b0 Build/Obj/Debug/sysClk_lpc1768.o
+                0x0000000000001004                epcfNativeCreateSysClk
+                0x0000000000001048                epcfNativeSysGetCpuClock
+                0x00000000000010e8                epcfNativeSysSetPclkDiv
+                0x0000000000001160                epcfNativeSysGetPclk
+ .text          0x00000000000013b4      0x4b8 Build/Obj/Debug/gpio_lpc1768.o
+                0x00000000000013b4                epcf_gpio_nativeInit
+                0x00000000000014e8                epcf_gpio_nativeSet
+                0x0000000000001514                epcf_gpio_nativeClear
+                0x0000000000001540                epcf_gpio_nativeRead
+                0x0000000000001578                epcf_gpio_nativeSetDirection
+                0x00000000000015f4                epcf_gpio_nativeGetDeviceCount
+                0x0000000000001600                epcf_gpio_nativeIntEnable
+                0x0000000000001774                epcf_gpio_nativeIntDisable
+                0x000000000000178c                epcf_gpio_nativeIntAttachCallback
+                0x00000000000017f8                epcf_gpio_nativeIntDetachCallback
+ .text          0x000000000000186c      0x1c4 Build/Obj/Debug/gpio.o
+                0x000000000000186c                epcf_gpio_createNative
+                0x00000000000018dc                epcf_gpio_set
+                0x000000000000191c                epcf_gpio_clear
+                0x000000000000195c                epcf_gpio_read
+                0x000000000000199c                epcf_gpio_setDirection
+                0x00000000000019f0                epcf_gpio_getDeviceCount
+                0x0000000000001a10                epcf_gpio_extGetDeviceCount
+ .text          0x0000000000001a30      0xd90 Build/Obj/Debug/uart_lpc1768.o
+                0x0000000000001a30                epcf_uart_nativeInit
+                0x0000000000001bb0                epcf_uart_nativeClose
+                0x0000000000001bf8                epcf_uart_nativeWrite
+                0x0000000000001d24                epcf_uart_nativeWriteString
+                0x0000000000001e58                epcf_uart_nativeRead
+                0x0000000000001f54                epcf_uart_nativeGetDeviceCount
+                0x0000000000001f60                epcf_uart_nativeGetRxBufferCount
+                0x0000000000001f7c                epcf_uart_nativeRxBufferFlush
+                0x0000000000001f98                epcf_uart_nativeGetTxBufferCount
+                0x0000000000001fb4                epcf_uart_nativeTxBufferFlush
+                0x00000000000024b0                UART0_IRQHandler
+                0x0000000000002574                UART1_IRQHandler
+                0x0000000000002638                UART2_IRQHandler
+                0x00000000000026fc                UART3_IRQHandler
+ .text          0x00000000000027c0     0x1e70 Build/Obj/Debug/i2c_lpc1768.o
+                0x00000000000027c0                epcf_i2c_nativeInit
+                0x0000000000003094                epcf_i2c_nativeIntEnable
+                0x00000000000030ec                epcf_i2c_nativeIntDisable
+                0x0000000000003148                epcf_i2c_nativeWrite
+                0x000000000000328c                epcf_i2c_nativeRead
+                0x0000000000003450                epcf_i2c_nativeGetRxBufferCount
+                0x0000000000003484                epcf_i2c_nativeRxBufferFlush
+                0x00000000000034b8                epcf_i2c_nativeGetTxBufferCount
+                0x00000000000034ec                epcf_i2c_nativeTxBufferFlush
+                0x0000000000003520                epcf_i2c_nativeClose
+                0x0000000000003570                epcf_i2c_nativeGetDeviceCount
+                0x0000000000003580                I2C0_IRQHandler
+                0x0000000000003b10                I2C1_IRQHandler
+                0x00000000000040a0                I2C2_IRQHandler
+ .text          0x0000000000004630      0x2b8 Build/Obj/Debug/uart.o
+                0x0000000000004630                epcf_uart_createNative
+                0x0000000000004688                epcf_uart_close
+                0x00000000000046c8                epcf_uart_write
+                0x000000000000471c                epcf_uart_writeString
+                0x0000000000004760                epcf_uart_read
+                0x00000000000047b4                epcf_uart_getDeviceCount
+                0x00000000000047d4                epcf_uart_getRxBufferCount
+                0x0000000000004808                epcf_uart_rxBufferFlush
+                0x0000000000004848                epcf_uart_getTxBufferCount
+                0x000000000000487c                epcf_uart_txBufferFlush
+                0x00000000000048bc                epcf_uart_extGetDeviceCount
+ .text          0x00000000000048e8      0x268 Build/Obj/Debug/i2c.o
+                0x00000000000048e8                epcf_i2c_CreateNative
+                0x000000000000493c                epcf_i2c_write
+                0x0000000000004990                epcf_i2c_read
+                0x00000000000049e4                epcf_i2c_intEnable
+                0x0000000000004a14                epcf_i2c_intDisable
+                0x0000000000004a44                epcf_i2c_getRxBufferCount
+                0x0000000000004a68                epcf_i2c_rxBufferFlush
+                0x0000000000004a98                epcf_i2c_getTxBufferCount
+                0x0000000000004abc                epcf_i2c_txBufferFlush
+                0x0000000000004aec                epcf_i2c_close
+                0x0000000000004b1c                epcf_i2c_getDeviceCount
+                0x0000000000004b3c                epcf_i2c_extGetDeviceCount
+ .text          0x0000000000004b50      0x16c Build/Obj/Debug/epcf_fifo.o
+                0x0000000000004b50                pcfFifoInit
+                0x0000000000004bb0                pcfFifoLength
+                0x0000000000004bc0                pcfFifoCount
+                0x0000000000004bd0                pcfFifoPush
+                0x0000000000004c28                pcfFifoPop
+                0x0000000000004c70                pcfFifoFlush
+                0x0000000000004c88                pcfFifoIsEmpty
+                0x0000000000004ca0                pcfFifoIsFull
+ *fill*         0x0000000000004cbc        0x4 00000000
+ .text          0x0000000000004cc0      0x764 Build/Obj/Debug/epcf_string.o
+                0x0000000000004cc0                pcfStringTokenize
+                0x0000000000004e38                pcfStrLen
+                0x0000000000004e5c                pcfStrCopy
+                0x0000000000004e94                pcfStrReverse
+                0x0000000000004f10                pcfMemCopy
+                0x0000000000004f48                pcfMemSet
+                0x0000000000004f80                pcfMemCompare
+                0x0000000000004fbc                pcfFtoA
+                0x0000000000005200                pcfAtoI
+                0x0000000000005240                pcfAtoF
+                0x0000000000005328                pcfItoA
+                0x00000000000053bc                pcfStrCat
+ .text          0x0000000000005424      0x370 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubdf3.o)
+                0x0000000000005424                __aeabi_drsub
+                0x000000000000542c                __aeabi_dsub
+                0x000000000000542c                __subdf3
+                0x0000000000005430                __adddf3
+                0x0000000000005430                __aeabi_dadd
+                0x00000000000056a8                __aeabi_ui2d
+                0x00000000000056a8                __floatunsidf
+                0x00000000000056c8                __floatsidf
+                0x00000000000056c8                __aeabi_i2d
+                0x00000000000056ec                __extendsfdf2
+                0x00000000000056ec                __aeabi_f2d
+                0x0000000000005728                __aeabi_ul2d
+                0x0000000000005728                __floatundidf
+                0x0000000000005738                __floatdidf
+                0x0000000000005738                __aeabi_l2d
+ .text          0x0000000000005794      0x424 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_muldivdf3.o)
+                0x0000000000005794                __aeabi_dmul
+                0x0000000000005794                __muldf3
+                0x00000000000059e8                __aeabi_ddiv
+                0x00000000000059e8                __divdf3
+ .text          0x0000000000005bb8      0x110 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpdf2.o)
+                0x0000000000005bb8                __gtdf2
+                0x0000000000005bb8                __gedf2
+                0x0000000000005bc0                __ltdf2
+                0x0000000000005bc0                __ledf2
+                0x0000000000005bc8                __cmpdf2
+                0x0000000000005bc8                __eqdf2
+                0x0000000000005bc8                __nedf2
+                0x0000000000005c44                __aeabi_cdrcmple
+                0x0000000000005c54                __aeabi_cdcmple
+                0x0000000000005c54                __aeabi_cdcmpeq
+                0x0000000000005c64                __aeabi_dcmpeq
+                0x0000000000005c78                __aeabi_dcmplt
+                0x0000000000005c8c                __aeabi_dcmple
+                0x0000000000005ca0                __aeabi_dcmpge
+                0x0000000000005cb4                __aeabi_dcmpgt
+ .text          0x0000000000005cc8       0xa0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_truncdfsf2.o)
+                0x0000000000005cc8                __aeabi_d2f
+                0x0000000000005cc8                __truncdfsf2
+ .text          0x0000000000005d68      0x21c /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubsf3.o)
+                0x0000000000005d68                __aeabi_frsub
+                0x0000000000005d70                __subsf3
+                0x0000000000005d70                __aeabi_fsub
+                0x0000000000005d74                __aeabi_fadd
+                0x0000000000005d74                __addsf3
+                0x0000000000005ed4                __aeabi_ui2f
+                0x0000000000005ed4                __floatunsisf
+                0x0000000000005edc                __aeabi_i2f
+                0x0000000000005edc                __floatsisf
+                0x0000000000005ef8                __floatundisf
+                0x0000000000005ef8                __aeabi_ul2f
+                0x0000000000005f08                __floatdisf
+                0x0000000000005f08                __aeabi_l2f
+ .text          0x0000000000005f84      0x2a0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_muldivsf3.o)
+                0x0000000000005f84                __mulsf3
+                0x0000000000005f84                __aeabi_fmul
+                0x00000000000060ec                __divsf3
+                0x00000000000060ec                __aeabi_fdiv
+ .text          0x0000000000006224       0xec /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpsf2.o)
+                0x0000000000006224                __gtsf2
+                0x0000000000006224                __gesf2
+                0x000000000000622c                __lesf2
+                0x000000000000622c                __ltsf2
+                0x0000000000006234                __nesf2
+                0x0000000000006234                __eqsf2
+                0x0000000000006234                __cmpsf2
+                0x0000000000006294                __aeabi_cfrcmple
+                0x000000000000629c                __aeabi_cfcmple
+                0x000000000000629c                __aeabi_cfcmpeq
+                0x00000000000062ac                __aeabi_fcmpeq
+                0x00000000000062c0                __aeabi_fcmplt
+                0x00000000000062d4                __aeabi_fcmple
+                0x00000000000062e8                __aeabi_fcmpge
+                0x00000000000062fc                __aeabi_fcmpgt
+ .text          0x0000000000006310       0x4c /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_fixsfsi.o)
+                0x0000000000006310                __fixsfsi
+                0x0000000000006310                __aeabi_f2iz
+ .text          0x000000000000635c       0x40 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_fixunssfsi.o)
+                0x000000000000635c                __aeabi_f2uiz
+                0x000000000000635c                __fixunssfsi
+ .text          0x000000000000639c        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+ .text          0x000000000000639c        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-freer.o)
+ .text          0x000000000000639c        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+ .text          0x000000000000639c        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+ .text          0x000000000000639c        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+ .text          0x000000000000639c        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+ .text          0x000000000000639c        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+ *(.text.*)
+ .text.malloc   0x000000000000639c       0x10 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+                0x000000000000639c                malloc
+ .text.free     0x00000000000063ac       0x10 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+                0x00000000000063ac                free
+ .text._free_r  0x00000000000063bc       0x88 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-freer.o)
+                0x00000000000063bc                _free_r
+ .text._malloc_r
+                0x0000000000006444       0xac /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+                0x0000000000006444                _malloc_r
+ .text._sbrk_r  0x00000000000064f0       0x20 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+                0x00000000000064f0                _sbrk_r
+ .text.cleanup_glue
+                0x0000000000006510       0x1a /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+                0x0000000000006510                cleanup_glue
+ *fill*         0x000000000000652a        0x2 00000000
+ .text._reclaim_reent
+                0x000000000000652c       0xb4 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+                0x000000000000652c                _reclaim_reent
+ .text._sbrk    0x00000000000065e0       0x1c /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+                0x00000000000065e0                _sbrk
+                0x00000000000065fc                . = ALIGN (0x4)
+ *(.rodata)
+ .rodata        0x00000000000065fc        0xe Build/Obj/Debug/app.o
+ *fill*         0x000000000000660a        0x2 00000000
+ .rodata        0x000000000000660c       0x88 Build/Obj/Debug/pin_lpc1768.o
+ .rodata        0x0000000000006694        0x4 Build/Obj/Debug/sysClk_lpc1768.o
+ .rodata        0x0000000000006698       0xac Build/Obj/Debug/uart_lpc1768.o
+                0x00000000000066e4                _uart_AltFunction
+ .rodata        0x0000000000006744       0x20 Build/Obj/Debug/i2c_lpc1768.o
+ *(.rodata.*)
+ .rodata.str1.1
+                0x0000000000006764        0x2 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+ *fill*         0x0000000000006766        0x2 00000000
+ .rodata._global_impure_ptr
+                0x0000000000006768        0x4 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+                0x0000000000006768                _global_impure_ptr
+                0x000000000000676c                . = ALIGN (0x4)
+
+.glue_7         0x000000000000676c        0x0
+ .glue_7        0x000000000000676c        0x0 linker stubs
+
+.glue_7t        0x000000000000676c        0x0
+ .glue_7t       0x000000000000676c        0x0 linker stubs
+
+.vfp11_veneer   0x000000000000676c        0x0
+ .vfp11_veneer  0x000000000000676c        0x0 linker stubs
+
+.v4_bx          0x000000000000676c        0x0
+ .v4_bx         0x000000000000676c        0x0 linker stubs
+
+.iplt           0x000000000000676c        0x0
+ .iplt          0x000000000000676c        0x0 Build/Obj/Debug/app.o
+
+.rel.dyn        0x000000000000676c        0x0
+ .rel.iplt      0x000000000000676c        0x0 Build/Obj/Debug/app.o
+
+.ARM.extab
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+                0x000000000000676c                __exidx_start = .
+
+.ARM.exidx
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+                0x000000000000676c                __exidx_end = .
+                0x000000000000676c                _etext = .
+
+.data           0x000000002007c000      0x3a4 load address 0x000000000000676c
+                0x000000002007c000                . = ALIGN (0x4)
+                0x000000002007c000                _sdata = .
+ *(.data)
+ .data          0x000000002007c000        0x0 Build/Obj/Debug/app.o
+ .data          0x000000002007c000       0x84 Build/Obj/Debug/appConfig.o
+                0x000000002007c000                myClockCfg
+                0x000000002007c00c                myGpioCfg
+                0x000000002007c018                LED_Config
+                0x000000002007c024                myLED_Config
+                0x000000002007c030                Switch_Config
+                0x000000002007c03c                uartHWCfg
+                0x000000002007c040                uart_Config
+                0x000000002007c054                i2cConfig
+                0x000000002007c07c                communicationTimeOuts
+ .data          0x000000002007c084        0x0 Build/Obj/Debug/sysClk.o
+ .data          0x000000002007c084        0x0 Build/Obj/Debug/pin_lpc1768.o
+ .data          0x000000002007c084        0x0 Build/Obj/Debug/vectors_lpc1768.o
+ .data          0x000000002007c084        0x0 Build/Obj/Debug/sysClk_lpc1768.o
+ .data          0x000000002007c084        0x1 Build/Obj/Debug/gpio_lpc1768.o
+ .data          0x000000002007c085        0x0 Build/Obj/Debug/gpio.o
+ *fill*         0x000000002007c085        0x3 
+ .data          0x000000002007c088      0x284 Build/Obj/Debug/uart_lpc1768.o
+                0x000000002007c088                irq_num
+                0x000000002007c098                pwr_uart_ch
+                0x000000002007c0a8                pdiv_clk_uart_ch
+                0x000000002007c0b8                uart_channel_addr
+ .data          0x000000002007c30c       0x34 Build/Obj/Debug/i2c_lpc1768.o
+ .data          0x000000002007c340        0x0 Build/Obj/Debug/uart.o
+ .data          0x000000002007c340        0x0 Build/Obj/Debug/i2c.o
+ .data          0x000000002007c340        0x0 Build/Obj/Debug/epcf_fifo.o
+ .data          0x000000002007c340        0x0 Build/Obj/Debug/epcf_string.o
+ .data          0x000000002007c340        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubdf3.o)
+ .data          0x000000002007c340        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_muldivdf3.o)
+ .data          0x000000002007c340        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpdf2.o)
+ .data          0x000000002007c340        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_truncdfsf2.o)
+ .data          0x000000002007c340        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubsf3.o)
+ .data          0x000000002007c340        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_muldivsf3.o)
+ .data          0x000000002007c340        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpsf2.o)
+ .data          0x000000002007c340        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_fixsfsi.o)
+ .data          0x000000002007c340        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_fixunssfsi.o)
+ .data          0x000000002007c340        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+ .data          0x000000002007c340        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-freer.o)
+ .data          0x000000002007c340        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+ .data          0x000000002007c340        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+ .data          0x000000002007c340        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+ .data          0x000000002007c340        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+ .data          0x000000002007c340        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+ *(.data.*)
+ .data.impure_data
+                0x000000002007c340       0x60 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+ .data._impure_ptr
+                0x000000002007c3a0        0x4 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+                0x000000002007c3a0                _impure_ptr
+                0x000000002007c3a4                . = ALIGN (0x4)
+ *(.fastrun)
+ *(.fastrun.*)
+                0x000000002007c3a4                . = ALIGN (0x4)
+                0x000000002007c3a4                _edata = .
+
+.igot.plt       0x000000002007c3a4        0x0 load address 0x0000000000006b10
+ .igot.plt      0x000000002007c3a4        0x0 Build/Obj/Debug/app.o
+
+.bss            0x0000000010000000      0x48c
+                0x0000000010000000                . = ALIGN (0x4)
+                0x0000000010000000                _sbss = .
+ *(.bss)
+ .bss           0x0000000010000000        0x4 Build/Obj/Debug/app.o
+                0x0000000010000000                slaveAddress
+ .bss           0x0000000010000004        0x0 Build/Obj/Debug/appConfig.o
+ .bss           0x0000000010000004        0x0 Build/Obj/Debug/sysClk.o
+ .bss           0x0000000010000004        0x0 Build/Obj/Debug/pin_lpc1768.o
+ .bss           0x0000000010000004        0x0 Build/Obj/Debug/vectors_lpc1768.o
+ .bss           0x0000000010000004        0x4 Build/Obj/Debug/sysClk_lpc1768.o
+ .bss           0x0000000010000008      0x2ff Build/Obj/Debug/gpio_lpc1768.o
+ .bss           0x0000000010000307        0x0 Build/Obj/Debug/gpio.o
+ *fill*         0x0000000010000307        0x1 
+ .bss           0x0000000010000308       0x24 Build/Obj/Debug/uart_lpc1768.o
+ .bss           0x000000001000032c       0x2f Build/Obj/Debug/i2c_lpc1768.o
+ .bss           0x000000001000035b        0x0 Build/Obj/Debug/uart.o
+ .bss           0x000000001000035b        0x0 Build/Obj/Debug/i2c.o
+ .bss           0x000000001000035b        0x0 Build/Obj/Debug/epcf_fifo.o
+ *fill*         0x000000001000035b        0x1 
+ .bss           0x000000001000035c      0x104 Build/Obj/Debug/epcf_string.o
+ .bss           0x0000000010000460        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubdf3.o)
+ .bss           0x0000000010000460        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_muldivdf3.o)
+ .bss           0x0000000010000460        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpdf2.o)
+ .bss           0x0000000010000460        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_truncdfsf2.o)
+ .bss           0x0000000010000460        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubsf3.o)
+ .bss           0x0000000010000460        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_muldivsf3.o)
+ .bss           0x0000000010000460        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpsf2.o)
+ .bss           0x0000000010000460        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_fixsfsi.o)
+ .bss           0x0000000010000460        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_fixunssfsi.o)
+ .bss           0x0000000010000460        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+ .bss           0x0000000010000460        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-freer.o)
+ .bss           0x0000000010000460        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+ .bss           0x0000000010000460        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+ .bss           0x0000000010000460        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+ .bss           0x0000000010000460        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+ .bss           0x0000000010000460        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+ *(.bss.*)
+ .bss.__malloc_sbrk_start
+                0x0000000010000460        0x4 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+                0x0000000010000460                __malloc_sbrk_start
+ .bss.__malloc_free_list
+                0x0000000010000464        0x4 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+                0x0000000010000464                __malloc_free_list
+ .bss.heap_end.4079
+                0x0000000010000468        0x4 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+                0x000000001000046c                . = ALIGN (0x4)
+ COMMON         0x000000001000046c        0x0 Build/Obj/Debug/app.o
+ COMMON         0x000000001000046c       0x1c Build/Obj/Debug/appConfig.o
+                0x000000001000046c                i2cDevice
+                0x0000000010000470                Switch
+                0x0000000010000474                myUART
+                0x0000000010000478                myLED
+                0x000000001000047c                myGpio
+                0x0000000010000480                LED
+                0x0000000010000484                myClock
+ COMMON         0x0000000010000488        0x4 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+                0x0000000010000488                errno
+                0x000000001000048c                _ebss = .
+
+.heap           0x000000002007c3a4        0x0
+                0x000000002007c3a4                __end__ = .
+                0x000000002007c3a4                PROVIDE (end, .)
+ *(.heap*)
+                0x000000002007c3a4                __HeapLimit = .
+                0x0000000020084000                _estack = (ORIGIN (RAM2) + LENGTH (RAM2))
+OUTPUT(Build/Hex/Debug/app.elf elf32-littlearm)
+
+.debug_info     0x0000000000000000     0xa3ac
+ .debug_info    0x0000000000000000      0x481 Build/Obj/Debug/app.o
+ .debug_info    0x0000000000000481      0x7e5 Build/Obj/Debug/appConfig.o
+ .debug_info    0x0000000000000c66      0x18a Build/Obj/Debug/sysClk.o
+ .debug_info    0x0000000000000df0      0x5c0 Build/Obj/Debug/pin_lpc1768.o
+ .debug_info    0x00000000000013b0      0x4e4 Build/Obj/Debug/vectors_lpc1768.o
+ .debug_info    0x0000000000001894      0x6ac Build/Obj/Debug/sysClk_lpc1768.o
+ .debug_info    0x0000000000001f40      0x861 Build/Obj/Debug/gpio_lpc1768.o
+ .debug_info    0x00000000000027a1      0x5b8 Build/Obj/Debug/gpio.o
+ .debug_info    0x0000000000002d59     0x15e0 Build/Obj/Debug/uart_lpc1768.o
+ .debug_info    0x0000000000004339      0xffc Build/Obj/Debug/i2c_lpc1768.o
+ .debug_info    0x0000000000005335      0x87f Build/Obj/Debug/uart.o
+ .debug_info    0x0000000000005bb4      0x687 Build/Obj/Debug/i2c.o
+ .debug_info    0x000000000000623b      0x305 Build/Obj/Debug/epcf_fifo.o
+ .debug_info    0x0000000000006540      0x605 Build/Obj/Debug/epcf_string.o
+ .debug_info    0x0000000000006b45       0xba /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubdf3.o)
+ .debug_info    0x0000000000006bff       0xba /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_muldivdf3.o)
+ .debug_info    0x0000000000006cb9       0xba /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpdf2.o)
+ .debug_info    0x0000000000006d73       0xba /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_truncdfsf2.o)
+ .debug_info    0x0000000000006e2d       0xba /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubsf3.o)
+ .debug_info    0x0000000000006ee7       0xba /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_muldivsf3.o)
+ .debug_info    0x0000000000006fa1       0xba /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpsf2.o)
+ .debug_info    0x000000000000705b       0xba /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_fixsfsi.o)
+ .debug_info    0x0000000000007115       0xba /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_fixunssfsi.o)
+ .debug_info    0x00000000000071cf      0x7c1 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+ .debug_info    0x0000000000007990      0x81a /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-freer.o)
+ .debug_info    0x00000000000081aa      0x8fb /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+ .debug_info    0x0000000000008aa5      0x7a0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+ .debug_info    0x0000000000009245      0x7d3 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+ .debug_info    0x0000000000009a18      0x8fb /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+ .debug_info    0x000000000000a313       0x99 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+
+.debug_abbrev   0x0000000000000000     0x1f8e
+ .debug_abbrev  0x0000000000000000      0x12d Build/Obj/Debug/app.o
+ .debug_abbrev  0x000000000000012d      0x17f Build/Obj/Debug/appConfig.o
+ .debug_abbrev  0x00000000000002ac       0xd1 Build/Obj/Debug/sysClk.o
+ .debug_abbrev  0x000000000000037d      0x187 Build/Obj/Debug/pin_lpc1768.o
+ .debug_abbrev  0x0000000000000504       0xdb Build/Obj/Debug/vectors_lpc1768.o
+ .debug_abbrev  0x00000000000005df      0x17d Build/Obj/Debug/sysClk_lpc1768.o
+ .debug_abbrev  0x000000000000075c      0x187 Build/Obj/Debug/gpio_lpc1768.o
+ .debug_abbrev  0x00000000000008e3      0x124 Build/Obj/Debug/gpio.o
+ .debug_abbrev  0x0000000000000a07      0x2ab Build/Obj/Debug/uart_lpc1768.o
+ .debug_abbrev  0x0000000000000cb2      0x258 Build/Obj/Debug/i2c_lpc1768.o
+ .debug_abbrev  0x0000000000000f0a      0x116 Build/Obj/Debug/uart.o
+ .debug_abbrev  0x0000000000001020      0x132 Build/Obj/Debug/i2c.o
+ .debug_abbrev  0x0000000000001152      0x112 Build/Obj/Debug/epcf_fifo.o
+ .debug_abbrev  0x0000000000001264      0x184 Build/Obj/Debug/epcf_string.o
+ .debug_abbrev  0x00000000000013e8       0x14 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubdf3.o)
+ .debug_abbrev  0x00000000000013fc       0x14 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_muldivdf3.o)
+ .debug_abbrev  0x0000000000001410       0x14 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpdf2.o)
+ .debug_abbrev  0x0000000000001424       0x14 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_truncdfsf2.o)
+ .debug_abbrev  0x0000000000001438       0x14 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubsf3.o)
+ .debug_abbrev  0x000000000000144c       0x14 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_muldivsf3.o)
+ .debug_abbrev  0x0000000000001460       0x14 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpsf2.o)
+ .debug_abbrev  0x0000000000001474       0x14 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_fixsfsi.o)
+ .debug_abbrev  0x0000000000001488       0x14 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_fixunssfsi.o)
+ .debug_abbrev  0x000000000000149c      0x19f /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+ .debug_abbrev  0x000000000000163b      0x1b6 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-freer.o)
+ .debug_abbrev  0x00000000000017f1      0x250 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+ .debug_abbrev  0x0000000000001a41      0x1a2 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+ .debug_abbrev  0x0000000000001be3      0x136 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+ .debug_abbrev  0x0000000000001d19      0x1f2 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+ .debug_abbrev  0x0000000000001f0b       0x83 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+
+.debug_loc      0x0000000000000000     0x1c37
+ .debug_loc     0x0000000000000000       0x2d Build/Obj/Debug/app.o
+ .debug_loc     0x000000000000002d       0xa4 Build/Obj/Debug/appConfig.o
+ .debug_loc     0x00000000000000d1       0x38 Build/Obj/Debug/sysClk.o
+ .debug_loc     0x0000000000000109       0xe8 Build/Obj/Debug/pin_lpc1768.o
+ .debug_loc     0x00000000000001f1       0x2c Build/Obj/Debug/vectors_lpc1768.o
+ .debug_loc     0x000000000000021d      0x138 Build/Obj/Debug/sysClk_lpc1768.o
+ .debug_loc     0x0000000000000355      0x198 Build/Obj/Debug/gpio_lpc1768.o
+ .debug_loc     0x00000000000004ed      0x188 Build/Obj/Debug/gpio.o
+ .debug_loc     0x0000000000000675      0x384 Build/Obj/Debug/uart_lpc1768.o
+ .debug_loc     0x00000000000009f9      0x318 Build/Obj/Debug/i2c_lpc1768.o
+ .debug_loc     0x0000000000000d11      0x2b0 Build/Obj/Debug/uart.o
+ .debug_loc     0x0000000000000fc1      0x294 Build/Obj/Debug/i2c.o
+ .debug_loc     0x0000000000001255      0x16c Build/Obj/Debug/epcf_fifo.o
+ .debug_loc     0x00000000000013c1      0x240 Build/Obj/Debug/epcf_string.o
+ .debug_loc     0x0000000000001601       0x58 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+ .debug_loc     0x0000000000001659      0x172 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-freer.o)
+ .debug_loc     0x00000000000017cb      0x304 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+ .debug_loc     0x0000000000001acf       0x4d /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+ .debug_loc     0x0000000000001b1c       0xfa /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+ .debug_loc     0x0000000000001c16       0x21 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+
+.debug_aranges  0x0000000000000000      0x3c8
+ .debug_aranges
+                0x0000000000000000       0x20 Build/Obj/Debug/app.o
+ .debug_aranges
+                0x0000000000000020       0x20 Build/Obj/Debug/appConfig.o
+ .debug_aranges
+                0x0000000000000040       0x20 Build/Obj/Debug/sysClk.o
+ .debug_aranges
+                0x0000000000000060       0x20 Build/Obj/Debug/pin_lpc1768.o
+ .debug_aranges
+                0x0000000000000080       0x20 Build/Obj/Debug/vectors_lpc1768.o
+ .debug_aranges
+                0x00000000000000a0       0x20 Build/Obj/Debug/sysClk_lpc1768.o
+ .debug_aranges
+                0x00000000000000c0       0x20 Build/Obj/Debug/gpio_lpc1768.o
+ .debug_aranges
+                0x00000000000000e0       0x20 Build/Obj/Debug/gpio.o
+ .debug_aranges
+                0x0000000000000100       0x20 Build/Obj/Debug/uart_lpc1768.o
+ .debug_aranges
+                0x0000000000000120       0x20 Build/Obj/Debug/i2c_lpc1768.o
+ .debug_aranges
+                0x0000000000000140       0x20 Build/Obj/Debug/uart.o
+ .debug_aranges
+                0x0000000000000160       0x20 Build/Obj/Debug/i2c.o
+ .debug_aranges
+                0x0000000000000180       0x20 Build/Obj/Debug/epcf_fifo.o
+ .debug_aranges
+                0x00000000000001a0       0x20 Build/Obj/Debug/epcf_string.o
+ .debug_aranges
+                0x00000000000001c0       0x20 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubdf3.o)
+ .debug_aranges
+                0x00000000000001e0       0x20 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_muldivdf3.o)
+ .debug_aranges
+                0x0000000000000200       0x20 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpdf2.o)
+ .debug_aranges
+                0x0000000000000220       0x20 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_truncdfsf2.o)
+ .debug_aranges
+                0x0000000000000240       0x20 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubsf3.o)
+ .debug_aranges
+                0x0000000000000260       0x20 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_muldivsf3.o)
+ .debug_aranges
+                0x0000000000000280       0x20 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpsf2.o)
+ .debug_aranges
+                0x00000000000002a0       0x20 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_fixsfsi.o)
+ .debug_aranges
+                0x00000000000002c0       0x20 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_fixunssfsi.o)
+ .debug_aranges
+                0x00000000000002e0       0x28 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+ .debug_aranges
+                0x0000000000000308       0x20 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-freer.o)
+ .debug_aranges
+                0x0000000000000328       0x20 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+ .debug_aranges
+                0x0000000000000348       0x20 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+ .debug_aranges
+                0x0000000000000368       0x18 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+ .debug_aranges
+                0x0000000000000380       0x28 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+ .debug_aranges
+                0x00000000000003a8       0x20 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+
+.debug_line     0x0000000000000000     0x374f
+ .debug_line    0x0000000000000000      0x244 Build/Obj/Debug/app.o
+ .debug_line    0x0000000000000244      0x2a9 Build/Obj/Debug/appConfig.o
+ .debug_line    0x00000000000004ed      0x14f Build/Obj/Debug/sysClk.o
+ .debug_line    0x000000000000063c      0x3be Build/Obj/Debug/pin_lpc1768.o
+ .debug_line    0x00000000000009fa      0x233 Build/Obj/Debug/vectors_lpc1768.o
+ .debug_line    0x0000000000000c2d      0x26e Build/Obj/Debug/sysClk_lpc1768.o
+ .debug_line    0x0000000000000e9b      0x346 Build/Obj/Debug/gpio_lpc1768.o
+ .debug_line    0x00000000000011e1      0x1f6 Build/Obj/Debug/gpio.o
+ .debug_line    0x00000000000013d7      0x509 Build/Obj/Debug/uart_lpc1768.o
+ .debug_line    0x00000000000018e0      0x534 Build/Obj/Debug/i2c_lpc1768.o
+ .debug_line    0x0000000000001e14      0x22a Build/Obj/Debug/uart.o
+ .debug_line    0x000000000000203e      0x22b Build/Obj/Debug/i2c.o
+ .debug_line    0x0000000000002269      0x16a Build/Obj/Debug/epcf_fifo.o
+ .debug_line    0x00000000000023d3      0x2af Build/Obj/Debug/epcf_string.o
+ .debug_line    0x0000000000002682      0x176 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubdf3.o)
+ .debug_line    0x00000000000027f8      0x19a /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_muldivdf3.o)
+ .debug_line    0x0000000000002992       0xb7 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpdf2.o)
+ .debug_line    0x0000000000002a49       0x8b /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_truncdfsf2.o)
+ .debug_line    0x0000000000002ad4      0x117 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubsf3.o)
+ .debug_line    0x0000000000002beb      0x13a /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_muldivsf3.o)
+ .debug_line    0x0000000000002d25       0xab /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpsf2.o)
+ .debug_line    0x0000000000002dd0       0x77 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_fixsfsi.o)
+ .debug_line    0x0000000000002e47       0x73 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_fixunssfsi.o)
+ .debug_line    0x0000000000002eba      0x16e /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+ .debug_line    0x0000000000003028      0x145 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-freer.o)
+ .debug_line    0x000000000000316d      0x199 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+ .debug_line    0x0000000000003306      0x162 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+ .debug_line    0x0000000000003468       0xf1 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+ .debug_line    0x0000000000003559      0x19e /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+ .debug_line    0x00000000000036f7       0x58 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+
+.debug_str      0x0000000000000000     0x2e69
+ .debug_str     0x0000000000000000      0x4c3 Build/Obj/Debug/app.o
+                                        0x51c (size before relaxing)
+ .debug_str     0x00000000000004c3      0x5e6 Build/Obj/Debug/appConfig.o
+                                        0xadb (size before relaxing)
+ .debug_str     0x0000000000000aa9       0x51 Build/Obj/Debug/sysClk.o
+                                        0x294 (size before relaxing)
+ .debug_str     0x0000000000000afa      0x203 Build/Obj/Debug/pin_lpc1768.o
+                                        0x58e (size before relaxing)
+ .debug_str     0x0000000000000cfd      0x318 Build/Obj/Debug/vectors_lpc1768.o
+                                        0x498 (size before relaxing)
+ .debug_str     0x0000000000001015      0x2d0 Build/Obj/Debug/sysClk_lpc1768.o
+                                        0x541 (size before relaxing)
+ .debug_str     0x00000000000012e5      0x398 Build/Obj/Debug/gpio_lpc1768.o
+                                        0x8a3 (size before relaxing)
+ .debug_str     0x000000000000167d       0xd9 Build/Obj/Debug/gpio.o
+                                        0x6c3 (size before relaxing)
+ .debug_str     0x0000000000001756      0x773 Build/Obj/Debug/uart_lpc1768.o
+                                        0xf0f (size before relaxing)
+ .debug_str     0x0000000000001ec9      0x3b6 Build/Obj/Debug/i2c_lpc1768.o
+                                        0xbb2 (size before relaxing)
+ .debug_str     0x000000000000227f      0x139 Build/Obj/Debug/uart.o
+                                        0x883 (size before relaxing)
+ .debug_str     0x00000000000023b8      0x13c Build/Obj/Debug/i2c.o
+                                        0x573 (size before relaxing)
+ .debug_str     0x00000000000024f4       0xb2 Build/Obj/Debug/epcf_fifo.o
+                                        0x295 (size before relaxing)
+ .debug_str     0x00000000000025a6       0xfc Build/Obj/Debug/epcf_string.o
+                                        0x314 (size before relaxing)
+ .debug_str     0x00000000000026a2      0x45b /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+                                        0x54f (size before relaxing)
+ .debug_str     0x0000000000002afd       0x90 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-freer.o)
+                                        0x593 (size before relaxing)
+ .debug_str     0x0000000000002b8d       0x50 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+                                        0x5c8 (size before relaxing)
+ .debug_str     0x0000000000002bdd       0xa0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+                                        0x532 (size before relaxing)
+ .debug_str     0x0000000000002c7d       0x8b /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+                                        0x57a (size before relaxing)
+ .debug_str     0x0000000000002d08       0x58 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+                                        0x55a (size before relaxing)
+ .debug_str     0x0000000000002d60      0x109 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+                                        0x122 (size before relaxing)
+
+.comment        0x0000000000000000       0x70
+ .comment       0x0000000000000000       0x38 Build/Obj/Debug/app.o
+                                         0x39 (size before relaxing)
+ .comment       0x0000000000000038       0x39 Build/Obj/Debug/appConfig.o
+ .comment       0x0000000000000038       0x39 Build/Obj/Debug/sysClk.o
+ .comment       0x0000000000000038       0x39 Build/Obj/Debug/pin_lpc1768.o
+ .comment       0x0000000000000038       0x39 Build/Obj/Debug/vectors_lpc1768.o
+ .comment       0x0000000000000038       0x39 Build/Obj/Debug/sysClk_lpc1768.o
+ .comment       0x0000000000000038       0x39 Build/Obj/Debug/gpio_lpc1768.o
+ .comment       0x0000000000000038       0x39 Build/Obj/Debug/gpio.o
+ .comment       0x0000000000000038       0x39 Build/Obj/Debug/uart_lpc1768.o
+ .comment       0x0000000000000038       0x39 Build/Obj/Debug/i2c_lpc1768.o
+ .comment       0x0000000000000038       0x39 Build/Obj/Debug/uart.o
+ .comment       0x0000000000000038       0x39 Build/Obj/Debug/i2c.o
+ .comment       0x0000000000000038       0x39 Build/Obj/Debug/epcf_fifo.o
+ .comment       0x0000000000000038       0x39 Build/Obj/Debug/epcf_string.o
+ .comment       0x0000000000000038       0x38 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+                                         0x39 (size before relaxing)
+ .comment       0x0000000000000070       0x39 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-freer.o)
+ .comment       0x0000000000000070       0x39 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+ .comment       0x0000000000000070       0x39 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+ .comment       0x0000000000000070       0x39 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+ .comment       0x0000000000000070       0x39 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+ .comment       0x0000000000000070       0x39 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+
+.ARM.attributes
+                0x0000000000000000       0x33
+ .ARM.attributes
+                0x0000000000000000       0x33 Build/Obj/Debug/app.o
+ .ARM.attributes
+                0x0000000000000033       0x33 Build/Obj/Debug/appConfig.o
+ .ARM.attributes
+                0x0000000000000066       0x33 Build/Obj/Debug/sysClk.o
+ .ARM.attributes
+                0x0000000000000099       0x33 Build/Obj/Debug/pin_lpc1768.o
+ .ARM.attributes
+                0x00000000000000cc       0x33 Build/Obj/Debug/vectors_lpc1768.o
+ .ARM.attributes
+                0x00000000000000ff       0x33 Build/Obj/Debug/sysClk_lpc1768.o
+ .ARM.attributes
+                0x0000000000000132       0x33 Build/Obj/Debug/gpio_lpc1768.o
+ .ARM.attributes
+                0x0000000000000165       0x33 Build/Obj/Debug/gpio.o
+ .ARM.attributes
+                0x0000000000000198       0x33 Build/Obj/Debug/uart_lpc1768.o
+ .ARM.attributes
+                0x00000000000001cb       0x33 Build/Obj/Debug/i2c_lpc1768.o
+ .ARM.attributes
+                0x00000000000001fe       0x33 Build/Obj/Debug/uart.o
+ .ARM.attributes
+                0x0000000000000231       0x33 Build/Obj/Debug/i2c.o
+ .ARM.attributes
+                0x0000000000000264       0x33 Build/Obj/Debug/epcf_fifo.o
+ .ARM.attributes
+                0x0000000000000297       0x33 Build/Obj/Debug/epcf_string.o
+ .ARM.attributes
+                0x00000000000002ca       0x1d /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubdf3.o)
+ .ARM.attributes
+                0x00000000000002e7       0x1d /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_muldivdf3.o)
+ .ARM.attributes
+                0x0000000000000304       0x1d /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpdf2.o)
+ .ARM.attributes
+                0x0000000000000321       0x1d /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_truncdfsf2.o)
+ .ARM.attributes
+                0x000000000000033e       0x1d /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubsf3.o)
+ .ARM.attributes
+                0x000000000000035b       0x1d /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_muldivsf3.o)
+ .ARM.attributes
+                0x0000000000000378       0x1d /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpsf2.o)
+ .ARM.attributes
+                0x0000000000000395       0x1d /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_fixsfsi.o)
+ .ARM.attributes
+                0x00000000000003b2       0x1d /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_fixunssfsi.o)
+ .ARM.attributes
+                0x00000000000003cf       0x2d /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+ .ARM.attributes
+                0x00000000000003fc       0x2d /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-freer.o)
+ .ARM.attributes
+                0x0000000000000429       0x2d /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+ .ARM.attributes
+                0x0000000000000456       0x2d /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+ .ARM.attributes
+                0x0000000000000483       0x2d /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+ .ARM.attributes
+                0x00000000000004b0       0x2d /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+ .ARM.attributes
+                0x00000000000004dd       0x2d /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+
+.debug_frame    0x0000000000000000     0x10cc
+ .debug_frame   0x0000000000000000       0x2c Build/Obj/Debug/app.o
+ .debug_frame   0x000000000000002c       0x7c Build/Obj/Debug/appConfig.o
+ .debug_frame   0x00000000000000a8       0x2c Build/Obj/Debug/sysClk.o
+ .debug_frame   0x00000000000000d4       0x90 Build/Obj/Debug/pin_lpc1768.o
+ .debug_frame   0x0000000000000164      0x2bc Build/Obj/Debug/vectors_lpc1768.o
+ .debug_frame   0x0000000000000420       0xc8 Build/Obj/Debug/sysClk_lpc1768.o
+ .debug_frame   0x00000000000004e8      0x100 Build/Obj/Debug/gpio_lpc1768.o
+ .debug_frame   0x00000000000005e8       0xd4 Build/Obj/Debug/gpio.o
+ .debug_frame   0x00000000000006bc      0x20c Build/Obj/Debug/uart_lpc1768.o
+ .debug_frame   0x00000000000008c8      0x1dc Build/Obj/Debug/i2c_lpc1768.o
+ .debug_frame   0x0000000000000aa4      0x168 Build/Obj/Debug/uart.o
+ .debug_frame   0x0000000000000c0c      0x16c Build/Obj/Debug/i2c.o
+ .debug_frame   0x0000000000000d78       0xd4 Build/Obj/Debug/epcf_fifo.o
+ .debug_frame   0x0000000000000e4c      0x150 Build/Obj/Debug/epcf_string.o
+ .debug_frame   0x0000000000000f9c       0x30 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+ .debug_frame   0x0000000000000fcc       0x2c /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-freer.o)
+ .debug_frame   0x0000000000000ff8       0x2c /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+ .debug_frame   0x0000000000001024       0x2c /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+ .debug_frame   0x0000000000001050       0x5c /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+ .debug_frame   0x00000000000010ac       0x20 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+
+.debug_ranges   0x0000000000000000       0xa0
+ .debug_ranges  0x0000000000000000       0x18 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+ .debug_ranges  0x0000000000000018       0x28 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-freer.o)
+ .debug_ranges  0x0000000000000040       0x28 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+ .debug_ranges  0x0000000000000068       0x10 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+ .debug_ranges  0x0000000000000078       0x18 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+ .debug_ranges  0x0000000000000090       0x10 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+
+Cross Reference Table
+
+Symbol                                            File
+ADC_IRQHandler                                    Build/Obj/Debug/vectors_lpc1768.o
+BOD_IRQHandler                                    Build/Obj/Debug/vectors_lpc1768.o
+BusFault_Handler                                  Build/Obj/Debug/vectors_lpc1768.o
+CAN_IRQHandler                                    Build/Obj/Debug/vectors_lpc1768.o
+DMA_IRQHandler                                    Build/Obj/Debug/vectors_lpc1768.o
+DebugMon_Handler                                  Build/Obj/Debug/vectors_lpc1768.o
+EINT0_IRQHandler                                  Build/Obj/Debug/vectors_lpc1768.o
+EINT1_IRQHandler                                  Build/Obj/Debug/vectors_lpc1768.o
+EINT2_IRQHandler                                  Build/Obj/Debug/vectors_lpc1768.o
+EINT3_IRQHandler                                  Build/Obj/Debug/vectors_lpc1768.o
+ENET_IRQHandler                                   Build/Obj/Debug/vectors_lpc1768.o
+HardFault_Handler                                 Build/Obj/Debug/vectors_lpc1768.o
+I2C0_IRQHandler                                   Build/Obj/Debug/i2c_lpc1768.o
+                                                  Build/Obj/Debug/vectors_lpc1768.o
+I2C1_IRQHandler                                   Build/Obj/Debug/i2c_lpc1768.o
+                                                  Build/Obj/Debug/vectors_lpc1768.o
+I2C2_IRQHandler                                   Build/Obj/Debug/i2c_lpc1768.o
+                                                  Build/Obj/Debug/vectors_lpc1768.o
+I2S_IRQHandler                                    Build/Obj/Debug/vectors_lpc1768.o
+LED                                               Build/Obj/Debug/appConfig.o
+                                                  Build/Obj/Debug/app.o
+LED_Config                                        Build/Obj/Debug/appConfig.o
+MCPWM_IRQHandler                                  Build/Obj/Debug/vectors_lpc1768.o
+MemManage_Handler                                 Build/Obj/Debug/vectors_lpc1768.o
+NMI_Handler                                       Build/Obj/Debug/vectors_lpc1768.o
+PLL0_IRQHandler                                   Build/Obj/Debug/vectors_lpc1768.o
+PWM_IRQHandler                                    Build/Obj/Debug/vectors_lpc1768.o
+PendSV_Handler                                    Build/Obj/Debug/vectors_lpc1768.o
+QEI_IRQHandler                                    Build/Obj/Debug/vectors_lpc1768.o
+RIT_IRQHandler                                    Build/Obj/Debug/vectors_lpc1768.o
+RTC_IRQHandler                                    Build/Obj/Debug/vectors_lpc1768.o
+ResetHandler                                      Build/Obj/Debug/vectors_lpc1768.o
+SPI_IRQHandler                                    Build/Obj/Debug/vectors_lpc1768.o
+SSP0_IRQHandler                                   Build/Obj/Debug/vectors_lpc1768.o
+SSP1_IRQHandler                                   Build/Obj/Debug/vectors_lpc1768.o
+SVC_Handler                                       Build/Obj/Debug/vectors_lpc1768.o
+Switch                                            Build/Obj/Debug/appConfig.o
+Switch_Config                                     Build/Obj/Debug/appConfig.o
+SysTick_Handler                                   Build/Obj/Debug/vectors_lpc1768.o
+TIMER0_IRQHandler                                 Build/Obj/Debug/vectors_lpc1768.o
+TIMER1_IRQHandler                                 Build/Obj/Debug/vectors_lpc1768.o
+TIMER2_IRQHandler                                 Build/Obj/Debug/vectors_lpc1768.o
+TIMER3_IRQHandler                                 Build/Obj/Debug/vectors_lpc1768.o
+UART0_IRQHandler                                  Build/Obj/Debug/uart_lpc1768.o
+                                                  Build/Obj/Debug/vectors_lpc1768.o
+UART1_IRQHandler                                  Build/Obj/Debug/uart_lpc1768.o
+                                                  Build/Obj/Debug/vectors_lpc1768.o
+UART2_IRQHandler                                  Build/Obj/Debug/uart_lpc1768.o
+                                                  Build/Obj/Debug/vectors_lpc1768.o
+UART3_IRQHandler                                  Build/Obj/Debug/uart_lpc1768.o
+                                                  Build/Obj/Debug/vectors_lpc1768.o
+USB_IRQHandler                                    Build/Obj/Debug/vectors_lpc1768.o
+UsageFault_Handler                                Build/Obj/Debug/vectors_lpc1768.o
+WDT_IRQHandler                                    Build/Obj/Debug/vectors_lpc1768.o
+__adddf3                                          /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubdf3.o)
+__addsf3                                          /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubsf3.o)
+__aeabi_cdcmpeq                                   /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpdf2.o)
+__aeabi_cdcmple                                   /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpdf2.o)
+__aeabi_cdrcmple                                  /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpdf2.o)
+__aeabi_cfcmpeq                                   /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpsf2.o)
+__aeabi_cfcmple                                   /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpsf2.o)
+__aeabi_cfrcmple                                  /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpsf2.o)
+__aeabi_d2f                                       /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_truncdfsf2.o)
+                                                  Build/Obj/Debug/epcf_string.o
+                                                  Build/Obj/Debug/uart_lpc1768.o
+__aeabi_dadd                                      /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubdf3.o)
+                                                  Build/Obj/Debug/epcf_string.o
+                                                  Build/Obj/Debug/uart_lpc1768.o
+__aeabi_dcmpeq                                    /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpdf2.o)
+__aeabi_dcmpge                                    /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpdf2.o)
+                                                  Build/Obj/Debug/uart_lpc1768.o
+__aeabi_dcmpgt                                    /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpdf2.o)
+__aeabi_dcmple                                    /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpdf2.o)
+                                                  Build/Obj/Debug/uart_lpc1768.o
+__aeabi_dcmplt                                    /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpdf2.o)
+__aeabi_ddiv                                      /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_muldivdf3.o)
+__aeabi_dmul                                      /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_muldivdf3.o)
+                                                  Build/Obj/Debug/epcf_string.o
+__aeabi_drsub                                     /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubdf3.o)
+__aeabi_dsub                                      /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubdf3.o)
+                                                  Build/Obj/Debug/uart_lpc1768.o
+__aeabi_f2d                                       /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubdf3.o)
+                                                  Build/Obj/Debug/epcf_string.o
+                                                  Build/Obj/Debug/uart_lpc1768.o
+__aeabi_f2iz                                      /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_fixsfsi.o)
+                                                  Build/Obj/Debug/epcf_string.o
+__aeabi_f2uiz                                     /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_fixunssfsi.o)
+                                                  Build/Obj/Debug/uart_lpc1768.o
+__aeabi_fadd                                      /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubsf3.o)
+                                                  Build/Obj/Debug/epcf_string.o
+__aeabi_fcmpeq                                    /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpsf2.o)
+                                                  Build/Obj/Debug/epcf_string.o
+__aeabi_fcmpge                                    /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpsf2.o)
+                                                  Build/Obj/Debug/epcf_string.o
+                                                  Build/Obj/Debug/uart_lpc1768.o
+__aeabi_fcmpgt                                    /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpsf2.o)
+__aeabi_fcmple                                    /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpsf2.o)
+                                                  Build/Obj/Debug/uart_lpc1768.o
+__aeabi_fcmplt                                    /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpsf2.o)
+                                                  Build/Obj/Debug/epcf_string.o
+__aeabi_fdiv                                      /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_muldivsf3.o)
+                                                  Build/Obj/Debug/epcf_string.o
+                                                  Build/Obj/Debug/uart_lpc1768.o
+__aeabi_fmul                                      /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_muldivsf3.o)
+                                                  Build/Obj/Debug/epcf_string.o
+                                                  Build/Obj/Debug/uart_lpc1768.o
+__aeabi_frsub                                     /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubsf3.o)
+__aeabi_fsub                                      /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubsf3.o)
+                                                  Build/Obj/Debug/epcf_string.o
+                                                  Build/Obj/Debug/uart_lpc1768.o
+__aeabi_i2d                                       /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubdf3.o)
+__aeabi_i2f                                       /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubsf3.o)
+                                                  Build/Obj/Debug/epcf_string.o
+__aeabi_l2d                                       /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubdf3.o)
+__aeabi_l2f                                       /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubsf3.o)
+__aeabi_ui2d                                      /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubdf3.o)
+__aeabi_ui2f                                      /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubsf3.o)
+                                                  Build/Obj/Debug/uart_lpc1768.o
+__aeabi_ul2d                                      /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubdf3.o)
+__aeabi_ul2f                                      /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubsf3.o)
+__cmpdf2                                          /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpdf2.o)
+__cmpsf2                                          /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpsf2.o)
+__divdf3                                          /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_muldivdf3.o)
+__divsf3                                          /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_muldivsf3.o)
+__eqdf2                                           /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpdf2.o)
+__eqsf2                                           /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpsf2.o)
+__extendsfdf2                                     /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubdf3.o)
+__fixsfsi                                         /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_fixsfsi.o)
+__fixunssfsi                                      /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_fixunssfsi.o)
+__floatdidf                                       /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubdf3.o)
+__floatdisf                                       /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubsf3.o)
+__floatsidf                                       /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubdf3.o)
+__floatsisf                                       /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubsf3.o)
+__floatundidf                                     /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubdf3.o)
+__floatundisf                                     /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubsf3.o)
+__floatunsidf                                     /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubdf3.o)
+__floatunsisf                                     /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubsf3.o)
+__gedf2                                           /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpdf2.o)
+__gesf2                                           /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpsf2.o)
+__gtdf2                                           /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpdf2.o)
+__gtsf2                                           /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpsf2.o)
+__ledf2                                           /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpdf2.o)
+__lesf2                                           /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpsf2.o)
+__ltdf2                                           /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpdf2.o)
+__ltsf2                                           /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpsf2.o)
+__malloc_free_list                                /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+                                                  /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-freer.o)
+__malloc_sbrk_start                               /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+__muldf3                                          /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_muldivdf3.o)
+__mulsf3                                          /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_muldivsf3.o)
+__nedf2                                           /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpdf2.o)
+__nesf2                                           /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_cmpsf2.o)
+__sf_fake_stderr                                  /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+__sf_fake_stdin                                   /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+__sf_fake_stdout                                  /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+__subdf3                                          /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubdf3.o)
+__subsf3                                          /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_addsubsf3.o)
+__truncdfsf2                                      /usr/lib/gcc/arm-none-eabi/4.9.3/armv7-m/libgcc.a(_arm_truncdfsf2.o)
+_ebss                                             Build/Obj/Debug/vectors_lpc1768.o
+_edata                                            Build/Obj/Debug/vectors_lpc1768.o
+_estack                                           Build/Obj/Debug/vectors_lpc1768.o
+_etext                                            Build/Obj/Debug/vectors_lpc1768.o
+_free_r                                           /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-freer.o)
+                                                  /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+                                                  /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+_global_impure_ptr                                /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+_impure_ptr                                       /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-impure.o)
+                                                  /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+                                                  /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+_malloc_r                                         /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+                                                  /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+_reclaim_reent                                    /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+_sbrk                                             /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+                                                  /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+_sbrk_r                                           /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+                                                  /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-nano-mallocr.o)
+_sbss                                             Build/Obj/Debug/vectors_lpc1768.o
+_sdata                                            Build/Obj/Debug/vectors_lpc1768.o
+_stext                                            Build/Obj/Debug/vectors_lpc1768.o
+_uart_AltFunction                                 Build/Obj/Debug/uart_lpc1768.o
+appInit                                           Build/Obj/Debug/appConfig.o
+                                                  Build/Obj/Debug/app.o
+cleanup_glue                                      /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+communicationTimeOuts                             Build/Obj/Debug/appConfig.o
+delay                                             Build/Obj/Debug/appConfig.o
+end                                               /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libnosys.a(sbrk.o)
+epcfCreateSysClk                                  Build/Obj/Debug/sysClk.o
+                                                  Build/Obj/Debug/appConfig.o
+epcfNativeCreateSysClk                            Build/Obj/Debug/sysClk_lpc1768.o
+                                                  Build/Obj/Debug/sysClk.o
+epcfNativeSysGetCpuClock                          Build/Obj/Debug/sysClk_lpc1768.o
+epcfNativeSysGetPclk                              Build/Obj/Debug/sysClk_lpc1768.o
+                                                  Build/Obj/Debug/i2c_lpc1768.o
+                                                  Build/Obj/Debug/uart_lpc1768.o
+epcfNativeSysSetPclkDiv                           Build/Obj/Debug/sysClk_lpc1768.o
+                                                  Build/Obj/Debug/i2c_lpc1768.o
+                                                  Build/Obj/Debug/uart_lpc1768.o
+epcfPinInit                                       Build/Obj/Debug/pin_lpc1768.o
+                                                  Build/Obj/Debug/i2c_lpc1768.o
+                                                  Build/Obj/Debug/uart_lpc1768.o
+                                                  Build/Obj/Debug/gpio_lpc1768.o
+epcf_gpio_clear                                   Build/Obj/Debug/gpio.o
+                                                  Build/Obj/Debug/app.o
+epcf_gpio_createNative                            Build/Obj/Debug/gpio.o
+                                                  Build/Obj/Debug/appConfig.o
+epcf_gpio_extGetDeviceCount                       Build/Obj/Debug/gpio.o
+epcf_gpio_getDeviceCount                          Build/Obj/Debug/gpio.o
+epcf_gpio_nativeClear                             Build/Obj/Debug/gpio_lpc1768.o
+                                                  Build/Obj/Debug/gpio.o
+epcf_gpio_nativeGetDeviceCount                    Build/Obj/Debug/gpio_lpc1768.o
+                                                  Build/Obj/Debug/gpio.o
+epcf_gpio_nativeInit                              Build/Obj/Debug/gpio_lpc1768.o
+                                                  Build/Obj/Debug/gpio.o
+epcf_gpio_nativeIntAttachCallback                 Build/Obj/Debug/gpio_lpc1768.o
+epcf_gpio_nativeIntDetachCallback                 Build/Obj/Debug/gpio_lpc1768.o
+epcf_gpio_nativeIntDisable                        Build/Obj/Debug/gpio_lpc1768.o
+epcf_gpio_nativeIntEnable                         Build/Obj/Debug/gpio_lpc1768.o
+epcf_gpio_nativeRead                              Build/Obj/Debug/gpio_lpc1768.o
+                                                  Build/Obj/Debug/gpio.o
+epcf_gpio_nativeSet                               Build/Obj/Debug/gpio_lpc1768.o
+                                                  Build/Obj/Debug/gpio.o
+epcf_gpio_nativeSetDirection                      Build/Obj/Debug/gpio_lpc1768.o
+                                                  Build/Obj/Debug/gpio.o
+epcf_gpio_read                                    Build/Obj/Debug/gpio.o
+epcf_gpio_set                                     Build/Obj/Debug/gpio.o
+                                                  Build/Obj/Debug/app.o
+epcf_gpio_setDirection                            Build/Obj/Debug/gpio.o
+epcf_i2c_CreateNative                             Build/Obj/Debug/i2c.o
+                                                  Build/Obj/Debug/appConfig.o
+epcf_i2c_close                                    Build/Obj/Debug/i2c.o
+epcf_i2c_extGetDeviceCount                        Build/Obj/Debug/i2c.o
+epcf_i2c_getDeviceCount                           Build/Obj/Debug/i2c.o
+epcf_i2c_getRxBufferCount                         Build/Obj/Debug/i2c.o
+epcf_i2c_getTxBufferCount                         Build/Obj/Debug/i2c.o
+epcf_i2c_intDisable                               Build/Obj/Debug/i2c.o
+epcf_i2c_intEnable                                Build/Obj/Debug/i2c.o
+epcf_i2c_nativeClose                              Build/Obj/Debug/i2c_lpc1768.o
+                                                  Build/Obj/Debug/i2c.o
+epcf_i2c_nativeGetDeviceCount                     Build/Obj/Debug/i2c_lpc1768.o
+                                                  Build/Obj/Debug/i2c.o
+epcf_i2c_nativeGetRxBufferCount                   Build/Obj/Debug/i2c_lpc1768.o
+                                                  Build/Obj/Debug/i2c.o
+epcf_i2c_nativeGetTxBufferCount                   Build/Obj/Debug/i2c_lpc1768.o
+                                                  Build/Obj/Debug/i2c.o
+epcf_i2c_nativeInit                               Build/Obj/Debug/i2c_lpc1768.o
+                                                  Build/Obj/Debug/i2c.o
+epcf_i2c_nativeIntDisable                         Build/Obj/Debug/i2c_lpc1768.o
+                                                  Build/Obj/Debug/i2c.o
+epcf_i2c_nativeIntEnable                          Build/Obj/Debug/i2c_lpc1768.o
+                                                  Build/Obj/Debug/i2c.o
+epcf_i2c_nativeRead                               Build/Obj/Debug/i2c_lpc1768.o
+                                                  Build/Obj/Debug/i2c.o
+epcf_i2c_nativeRxBufferFlush                      Build/Obj/Debug/i2c_lpc1768.o
+                                                  Build/Obj/Debug/i2c.o
+epcf_i2c_nativeTxBufferFlush                      Build/Obj/Debug/i2c_lpc1768.o
+                                                  Build/Obj/Debug/i2c.o
+epcf_i2c_nativeWrite                              Build/Obj/Debug/i2c_lpc1768.o
+                                                  Build/Obj/Debug/i2c.o
+epcf_i2c_read                                     Build/Obj/Debug/i2c.o
+epcf_i2c_rxBufferFlush                            Build/Obj/Debug/i2c.o
+epcf_i2c_txBufferFlush                            Build/Obj/Debug/i2c.o
+epcf_i2c_write                                    Build/Obj/Debug/i2c.o
+epcf_uart_close                                   Build/Obj/Debug/uart.o
+epcf_uart_createNative                            Build/Obj/Debug/uart.o
+                                                  Build/Obj/Debug/appConfig.o
+epcf_uart_extGetDeviceCount                       Build/Obj/Debug/uart.o
+epcf_uart_getDeviceCount                          Build/Obj/Debug/uart.o
+epcf_uart_getRxBufferCount                        Build/Obj/Debug/uart.o
+epcf_uart_getTxBufferCount                        Build/Obj/Debug/uart.o
+                                                  Build/Obj/Debug/uart_lpc1768.o
+epcf_uart_nativeClose                             Build/Obj/Debug/uart_lpc1768.o
+                                                  Build/Obj/Debug/uart.o
+epcf_uart_nativeGetDeviceCount                    Build/Obj/Debug/uart_lpc1768.o
+                                                  Build/Obj/Debug/uart.o
+epcf_uart_nativeGetRxBufferCount                  Build/Obj/Debug/uart_lpc1768.o
+                                                  Build/Obj/Debug/uart.o
+epcf_uart_nativeGetTxBufferCount                  Build/Obj/Debug/uart_lpc1768.o
+                                                  Build/Obj/Debug/uart.o
+epcf_uart_nativeInit                              Build/Obj/Debug/uart_lpc1768.o
+                                                  Build/Obj/Debug/uart.o
+epcf_uart_nativeRead                              Build/Obj/Debug/uart_lpc1768.o
+                                                  Build/Obj/Debug/uart.o
+epcf_uart_nativeRxBufferFlush                     Build/Obj/Debug/uart_lpc1768.o
+                                                  Build/Obj/Debug/uart.o
+epcf_uart_nativeTxBufferFlush                     Build/Obj/Debug/uart_lpc1768.o
+                                                  Build/Obj/Debug/uart.o
+epcf_uart_nativeWrite                             Build/Obj/Debug/uart_lpc1768.o
+                                                  Build/Obj/Debug/uart.o
+epcf_uart_nativeWriteString                       Build/Obj/Debug/uart_lpc1768.o
+                                                  Build/Obj/Debug/uart.o
+epcf_uart_read                                    Build/Obj/Debug/uart.o
+epcf_uart_rxBufferFlush                           Build/Obj/Debug/uart.o
+epcf_uart_txBufferFlush                           Build/Obj/Debug/uart.o
+epcf_uart_write                                   Build/Obj/Debug/uart.o
+                                                  Build/Obj/Debug/appConfig.o
+epcf_uart_writeString                             Build/Obj/Debug/uart.o
+errno                                             /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-reent.o)
+                                                  /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-sbrkr.o)
+free                                              /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+gVectors                                          Build/Obj/Debug/vectors_lpc1768.o
+i2cConfig                                         Build/Obj/Debug/appConfig.o
+i2cDevice                                         Build/Obj/Debug/appConfig.o
+irq_num                                           Build/Obj/Debug/uart_lpc1768.o
+main                                              Build/Obj/Debug/app.o
+                                                  Build/Obj/Debug/vectors_lpc1768.o
+malloc                                            /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-malloc.o)
+                                                  Build/Obj/Debug/epcf_fifo.o
+                                                  Build/Obj/Debug/i2c.o
+                                                  Build/Obj/Debug/uart.o
+                                                  Build/Obj/Debug/i2c_lpc1768.o
+                                                  Build/Obj/Debug/uart_lpc1768.o
+                                                  Build/Obj/Debug/gpio.o
+                                                  Build/Obj/Debug/sysClk_lpc1768.o
+myClock                                           Build/Obj/Debug/appConfig.o
+myClockCfg                                        Build/Obj/Debug/appConfig.o
+myGpio                                            Build/Obj/Debug/appConfig.o
+                                                  Build/Obj/Debug/app.o
+myGpioCfg                                         Build/Obj/Debug/appConfig.o
+myLED                                             Build/Obj/Debug/appConfig.o
+                                                  Build/Obj/Debug/app.o
+myLED_Config                                      Build/Obj/Debug/appConfig.o
+myUART                                            Build/Obj/Debug/appConfig.o
+pcfAtoF                                           Build/Obj/Debug/epcf_string.o
+pcfAtoI                                           Build/Obj/Debug/epcf_string.o
+pcfFifoCount                                      Build/Obj/Debug/epcf_fifo.o
+                                                  Build/Obj/Debug/i2c_lpc1768.o
+                                                  Build/Obj/Debug/uart_lpc1768.o
+pcfFifoFlush                                      Build/Obj/Debug/epcf_fifo.o
+                                                  Build/Obj/Debug/i2c_lpc1768.o
+                                                  Build/Obj/Debug/uart_lpc1768.o
+pcfFifoInit                                       Build/Obj/Debug/epcf_fifo.o
+                                                  Build/Obj/Debug/i2c_lpc1768.o
+                                                  Build/Obj/Debug/uart_lpc1768.o
+pcfFifoIsEmpty                                    Build/Obj/Debug/epcf_fifo.o
+                                                  Build/Obj/Debug/i2c_lpc1768.o
+                                                  Build/Obj/Debug/uart_lpc1768.o
+pcfFifoIsFull                                     Build/Obj/Debug/epcf_fifo.o
+pcfFifoLength                                     Build/Obj/Debug/epcf_fifo.o
+pcfFifoPop                                        Build/Obj/Debug/epcf_fifo.o
+                                                  Build/Obj/Debug/i2c_lpc1768.o
+                                                  Build/Obj/Debug/uart_lpc1768.o
+pcfFifoPush                                       Build/Obj/Debug/epcf_fifo.o
+                                                  Build/Obj/Debug/i2c_lpc1768.o
+                                                  Build/Obj/Debug/uart_lpc1768.o
+pcfFtoA                                           Build/Obj/Debug/epcf_string.o
+pcfItoA                                           Build/Obj/Debug/epcf_string.o
+pcfMemCompare                                     Build/Obj/Debug/epcf_string.o
+pcfMemCopy                                        Build/Obj/Debug/epcf_string.o
+pcfMemSet                                         Build/Obj/Debug/epcf_string.o
+                                                  Build/Obj/Debug/i2c_lpc1768.o
+                                                  Build/Obj/Debug/uart_lpc1768.o
+pcfStrCat                                         Build/Obj/Debug/epcf_string.o
+pcfStrCopy                                        Build/Obj/Debug/epcf_string.o
+pcfStrLen                                         Build/Obj/Debug/epcf_string.o
+                                                  Build/Obj/Debug/uart_lpc1768.o
+pcfStrReverse                                     Build/Obj/Debug/epcf_string.o
+pcfStringTokenize                                 Build/Obj/Debug/epcf_string.o
+pdiv_clk_uart_ch                                  Build/Obj/Debug/uart_lpc1768.o
+pwr_uart_ch                                       Build/Obj/Debug/uart_lpc1768.o
+serialBegin                                       Build/Obj/Debug/appConfig.o
+serialPrint                                       Build/Obj/Debug/appConfig.o
+                                                  Build/Obj/Debug/app.o
+slaveAddress                                      Build/Obj/Debug/app.o
+uartHWCfg                                         Build/Obj/Debug/appConfig.o
+uart_Config                                       Build/Obj/Debug/appConfig.o
+                                                  Build/Obj/Debug/app.o
+uart_channel_addr                                 Build/Obj/Debug/uart_lpc1768.o

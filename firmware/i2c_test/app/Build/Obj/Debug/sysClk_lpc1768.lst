@@ -1,0 +1,2977 @@
+ARM GAS  /tmp/ccpnpUnM.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1	@ Tag_ABI_FP_denormal
+   5              		.eabi_attribute 21, 1	@ Tag_ABI_FP_exceptions
+   6              		.eabi_attribute 23, 3	@ Tag_ABI_FP_number_model
+   7              		.eabi_attribute 24, 1	@ Tag_ABI_align8_needed
+   8              		.eabi_attribute 25, 1	@ Tag_ABI_align8_preserved
+   9              		.eabi_attribute 26, 1	@ Tag_ABI_enum_size
+  10              		.eabi_attribute 30, 6	@ Tag_ABI_optimization_goals
+  11              		.eabi_attribute 34, 1	@ Tag_CPU_unaligned_access
+  12              		.eabi_attribute 18, 4	@ Tag_ABI_PCS_wchar_t
+  13              		.file	"sysClk_lpc1768.c"
+  14              	@ GNU C (15:4.9.3+svn231177-1) version 4.9.3 20150529 (prerelease) (arm-none-eabi)
+  15              	@	compiled by GNU C version 5.2.1 20151129, GMP version 6.1.0, MPFR version 3.1.3, MPC version 1.0.
+  16              	@ warning: MPFR header version 3.1.3 differs from library version 3.1.4.
+  17              	@ GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+  18              	@ options passed:  -I . -I ./include -I ../pcf/include -imultilib armv7-m
+  19              	@ -MD Build/Obj/Debug/sysClk_lpc1768.d -MF Build/.dep/sysClk_lpc1768.o.d
+  20              	@ -MP -MQ Build/Obj/Debug/sysClk_lpc1768.o -D__USES_INITFINI__
+  21              	@ ../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c
+  22              	@ -mcpu=cortex-m3 -mthumb -auxbase-strip Build/Obj/Debug/sysClk_lpc1768.o
+  23              	@ -gdwarf-2 -O0 -Wall -Wno-cpp -std=gnu99 -fomit-frame-pointer
+  24              	@ -fverbose-asm
+  25              	@ options enabled:  -faggressive-loop-optimizations -fauto-inc-dec -fcommon
+  26              	@ -fdelete-null-pointer-checks -fdwarf2-cfi-asm -fearly-inlining
+  27              	@ -feliminate-unused-debug-types -ffunction-cse -fgcse-lm -fgnu-runtime
+  28              	@ -fgnu-unique -fident -finline-atomics -fira-hoist-pressure
+  29              	@ -fira-share-save-slots -fira-share-spill-slots -fivopts
+  30              	@ -fkeep-static-consts -fleading-underscore -flifetime-dse -fmath-errno
+  31              	@ -fmerge-debug-strings -fomit-frame-pointer -fpeephole
+  32              	@ -fprefetch-loop-arrays -freg-struct-return
+  33              	@ -fsched-critical-path-heuristic -fsched-dep-count-heuristic
+  34              	@ -fsched-group-heuristic -fsched-interblock -fsched-last-insn-heuristic
+  35              	@ -fsched-rank-heuristic -fsched-spec -fsched-spec-insn-heuristic
+  36              	@ -fsched-stalled-insns-dep -fshow-column -fsigned-zeros
+  37              	@ -fsplit-ivs-in-unroller -fstrict-volatile-bitfields -fsync-libcalls
+  38              	@ -ftrapping-math -ftree-coalesce-vars -ftree-cselim -ftree-forwprop
+  39              	@ -ftree-loop-if-convert -ftree-loop-im -ftree-loop-ivcanon
+  40              	@ -ftree-loop-optimize -ftree-parallelize-loops= -ftree-phiprop
+  41              	@ -ftree-reassoc -ftree-scev-cprop -funit-at-a-time -fverbose-asm
+  42              	@ -fzero-initialized-in-bss -mfix-cortex-m3-ldrd -mlittle-endian -mlra
+  43              	@ -mpic-data-is-text-relative -msched-prolog -mthumb -munaligned-access
+  44              	@ -mvectorize-with-neon-quad
+  45              	
+  46              		.text
+  47              	.Ltext0:
+  48              		.cfi_sections	.debug_frame
+  49              		.bss
+  50              		.align	2
+  51              	clkFrq:
+  52 0000 00000000 		.space	4
+  53              		.text
+  54              		.align	2
+  55              		.global	epcfNativeCreateSysClk
+  56              		.thumb
+  57              		.thumb_func
+ARM GAS  /tmp/ccpnpUnM.s 			page 2
+
+
+  58              		.type	epcfNativeCreateSysClk, %function
+  59              	epcfNativeCreateSysClk:
+  60              	.LFB40:
+  61              		.file 1 "../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c"
+   1:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** #include <stdlib.h>
+   2:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** 
+   3:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** #include "pcf.h"
+   4:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** 
+   5:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** #define __EPCF_PRIVATE_SYSCLK_H_INCLUDE PCF_CONDITIONAL_INCLUDE_FILE(EPCF_DIR_PATH/,peripheral/sour
+   6:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****  #include  __EPCF_PRIVATE_SYSCLK_H_INCLUDE
+   7:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****  #undef __EPCF_PRIVATE_SYSCLK_H_INCLUDE
+   8:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** 
+   9:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** //#include "epcf_string.h"
+  10:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** 
+  11:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** /**
+  12:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****  * Function provides detailed configuration of PLL with given arguments. 
+  13:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****  * CPU Freq = ((SrcClkFreq / N) * 2M) / D
+  14:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****  *
+  15:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****  * \param pllPreDivider PLL0 Pre-Divider value "N". 
+  16:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****  * \param pllMultiplier PLL0 Multiplier value "M". 
+  17:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****  * \param cpuClkDivider PLL clock will be divided by this value to produce the CPU clock.
+  18:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****  * \param pllClksrc Selects the clock source for PLL0
+  19:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****  *  
+  20:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****  * \return PLL config Status.
+  21:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****  */
+  22:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** static int8_t _epcfPllConfig(uint32_t pllPreDivider,uint32_t pllMultiplier,uint32_t cpuClkDivider,u
+  23:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** 
+  24:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** /**
+  25:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****  * The function sets the CPU Clock(CCLK) frequency with given settings.
+  26:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****  * The function internally calculates PLL0 Multiplier value(M),PLL0 Pre-Divider value(N), CPU clock
+  27:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****  * It calls pfPllInit with calculated arguments for that.
+  28:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****  *
+  29:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****  * \param config Pointer to configuration structure which contains the settings for PLL and CPU clo
+  30:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****  *
+  31:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****  * \return CPU clock config Status.
+  32:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****  */
+  33:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** static int8_t _epcfSysSetCpuClock(EPCFSysClkCfg_t* pConfig);
+  34:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** 
+  35:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** static void _epcfPllFeedSequence(void);
+  36:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** 
+  37:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** static uint32_t clkFrq=0;
+  38:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** 
+  39:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** EPCFSysClkDevice_t* epcfNativeCreateSysClk(EPCFSysClkCfg_t* pSysClkConfig)
+  40:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** {
+  62              		.loc 1 40 0
+  63              		.cfi_startproc
+  64              		@ args = 0, pretend = 0, frame = 16
+  65              		@ frame_needed = 0, uses_anonymous_args = 0
+  66 0000 00B5     		push	{lr}	@
+  67              	.LCFI0:
+  68              		.cfi_def_cfa_offset 4
+  69              		.cfi_offset 14, -4
+  70 0002 85B0     		sub	sp, sp, #20	@,,
+  71              	.LCFI1:
+  72              		.cfi_def_cfa_offset 24
+  73 0004 0190     		str	r0, [sp, #4]	@ pSysClkConfig, pSysClkConfig
+  41:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   EPCFSysClkDevice_t* pSysClkDevice;
+ARM GAS  /tmp/ccpnpUnM.s 			page 3
+
+
+  42:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   int8_t status = 0;
+  74              		.loc 1 42 0
+  75 0006 0023     		movs	r3, #0	@ tmp112,
+  76 0008 8DF80F30 		strb	r3, [sp, #15]	@ tmp113, status
+  43:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** 
+  44:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   pSysClkDevice = (EPCFSysClkDevice_t *)malloc(sizeof(EPCFSysClkDevice_t));
+  77              		.loc 1 44 0
+  78 000c 0020     		movs	r0, #0	@,
+  79 000e FFF7FEFF 		bl	malloc	@
+  80 0012 0346     		mov	r3, r0	@ tmp114,
+  81 0014 0293     		str	r3, [sp, #8]	@ tmp114, pSysClkDevice
+  45:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   if (pSysClkDevice == NULL)
+  82              		.loc 1 45 0
+  83 0016 029B     		ldr	r3, [sp, #8]	@ tmp115, pSysClkDevice
+  84 0018 002B     		cmp	r3, #0	@ tmp115,
+  85 001a 01D1     		bne	.L2	@,
+  46:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****     return NULL;
+  86              		.loc 1 46 0
+  87 001c 0023     		movs	r3, #0	@ D.6462,
+  88 001e 0CE0     		b	.L3	@
+  89              	.L2:
+  47:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** 
+  48:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   status = _epcfSysSetCpuClock(pSysClkConfig);
+  90              		.loc 1 48 0
+  91 0020 0198     		ldr	r0, [sp, #4]	@, pSysClkConfig
+  92 0022 00F059F9 		bl	_epcfSysSetCpuClock	@
+  93 0026 0346     		mov	r3, r0	@ tmp116,
+  94 0028 8DF80F30 		strb	r3, [sp, #15]	@ tmp117, status
+  49:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   if(status != 0)
+  95              		.loc 1 49 0
+  96 002c 9DF90F30 		ldrsb	r3, [sp, #15]	@ tmp118, status
+  97 0030 002B     		cmp	r3, #0	@ tmp118,
+  98 0032 01D0     		beq	.L4	@,
+  50:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****     return NULL;
+  99              		.loc 1 50 0
+ 100 0034 0023     		movs	r3, #0	@ D.6462,
+ 101 0036 00E0     		b	.L3	@
+ 102              	.L4:
+  51:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** 
+  52:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   return pSysClkDevice;
+ 103              		.loc 1 52 0
+ 104 0038 029B     		ldr	r3, [sp, #8]	@ D.6462, pSysClkDevice
+ 105              	.L3:
+  53:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** }
+ 106              		.loc 1 53 0
+ 107 003a 1846     		mov	r0, r3	@, <retval>
+ 108 003c 05B0     		add	sp, sp, #20	@,,
+ 109              	.LCFI2:
+ 110              		.cfi_def_cfa_offset 4
+ 111              		@ sp needed	@
+ 112 003e 5DF804FB 		ldr	pc, [sp], #4	@
+ 113              		.cfi_endproc
+ 114              	.LFE40:
+ 115              		.size	epcfNativeCreateSysClk, .-epcfNativeCreateSysClk
+ 116 0042 00BF     		.align	2
+ 117              		.global	epcfNativeSysGetCpuClock
+ 118              		.thumb
+ARM GAS  /tmp/ccpnpUnM.s 			page 4
+
+
+ 119              		.thumb_func
+ 120              		.type	epcfNativeSysGetCpuClock, %function
+ 121              	epcfNativeSysGetCpuClock:
+ 122              	.LFB41:
+  54:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** 
+  55:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** uint32_t epcfNativeSysGetCpuClock (EPCFSysClkDevice_t *pSysClkDevice)
+  56:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** {
+ 123              		.loc 1 56 0
+ 124              		.cfi_startproc
+ 125              		@ args = 0, pretend = 0, frame = 32
+ 126              		@ frame_needed = 0, uses_anonymous_args = 0
+ 127              		@ link register save eliminated.
+ 128 0044 88B0     		sub	sp, sp, #32	@,,
+ 129              	.LCFI3:
+ 130              		.cfi_def_cfa_offset 32
+ 131 0046 0190     		str	r0, [sp, #4]	@ pSysClkDevice, pSysClkDevice
+  57:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   uint32_t pllPreDiv, pllMul, pllDiv, srcClkFreq, freq, clkSrc;
+  58:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   
+  59:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   pllMul = (PERIPH_SC->PLL0STAT & 0x7FFF) + 1;
+ 132              		.loc 1 59 0
+ 133 0048 234B     		ldr	r3, .L13	@ D.6463,
+ 134 004a D3F88830 		ldr	r3, [r3, #136]	@ D.6464, _3->PLL0STAT
+ 135 004e C3F30E03 		ubfx	r3, r3, #0, #15	@ D.6464, D.6464,,
+ 136 0052 0133     		adds	r3, r3, #1	@ tmp131, D.6464,
+ 137 0054 0593     		str	r3, [sp, #20]	@ tmp131, pllMul
+  60:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   pllPreDiv = ((PERIPH_SC->PLL0STAT >> 16) & 0xFF) + 1;
+ 138              		.loc 1 60 0
+ 139 0056 204B     		ldr	r3, .L13	@ D.6463,
+ 140 0058 D3F88830 		ldr	r3, [r3, #136]	@ D.6464, _7->PLL0STAT
+ 141 005c 1B0C     		lsrs	r3, r3, #16	@ D.6464, D.6464,
+ 142 005e DBB2     		uxtb	r3, r3	@ D.6464, D.6464
+ 143 0060 0133     		adds	r3, r3, #1	@ tmp132, D.6464,
+ 144 0062 0493     		str	r3, [sp, #16]	@ tmp132, pllPreDiv
+  61:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   pllDiv = (PERIPH_SC->CCLKCFG & 0xFF)+ 1;
+ 145              		.loc 1 61 0
+ 146 0064 1C4B     		ldr	r3, .L13	@ D.6463,
+ 147 0066 D3F80431 		ldr	r3, [r3, #260]	@ D.6464, _12->CCLKCFG
+ 148 006a DBB2     		uxtb	r3, r3	@ D.6464, D.6464
+ 149 006c 0133     		adds	r3, r3, #1	@ tmp133, D.6464,
+ 150 006e 0393     		str	r3, [sp, #12]	@ tmp133, pllDiv
+  62:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   clkSrc = PERIPH_SC->CLKSRCSEL & 0x03;     
+ 151              		.loc 1 62 0
+ 152 0070 194B     		ldr	r3, .L13	@ D.6463,
+ 153 0072 D3F80C31 		ldr	r3, [r3, #268]	@ D.6464, _16->CLKSRCSEL
+ 154 0076 03F00303 		and	r3, r3, #3	@ tmp134, D.6464,
+ 155 007a 0293     		str	r3, [sp, #8]	@ tmp134, clkSrc
+  63:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** 
+  64:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   switch (clkSrc)
+ 156              		.loc 1 64 0
+ 157 007c 029B     		ldr	r3, [sp, #8]	@ clkSrc, clkSrc
+ 158 007e 012B     		cmp	r3, #1	@ clkSrc,
+ 159 0080 04D0     		beq	.L7	@,
+ 160 0082 022B     		cmp	r3, #2	@ clkSrc,
+ 161 0084 06D0     		beq	.L8	@,
+  65:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   {
+  66:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****     default:                            // Reserved
+  67:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****     case 0:                             // Internal RC oscillator
+ARM GAS  /tmp/ccpnpUnM.s 			page 5
+
+
+  68:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****       srcClkFreq = 4000000;
+ 162              		.loc 1 68 0
+ 163 0086 154B     		ldr	r3, .L13+4	@ tmp136,
+ 164 0088 0793     		str	r3, [sp, #28]	@ tmp136, srcClkFreq
+  69:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****             break;
+ 165              		.loc 1 69 0
+ 166 008a 07E0     		b	.L9	@
+ 167              	.L7:
+  70:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****     
+  71:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****     case 1:                             // Main oscillator
+  72:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****       srcClkFreq = clkFrq;
+ 168              		.loc 1 72 0
+ 169 008c 144B     		ldr	r3, .L13+8	@ tmp137,
+ 170 008e 1B68     		ldr	r3, [r3]	@ tmp138, clkFrq
+ 171 0090 0793     		str	r3, [sp, #28]	@ tmp138, srcClkFreq
+  73:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****       break;
+ 172              		.loc 1 73 0
+ 173 0092 03E0     		b	.L9	@
+ 174              	.L8:
+  74:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** 
+  75:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****     case 2:                             // RTC oscillator
+  76:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****       srcClkFreq = 32768;
+ 175              		.loc 1 76 0
+ 176 0094 4FF40043 		mov	r3, #32768	@ tmp139,
+ 177 0098 0793     		str	r3, [sp, #28]	@ tmp139, srcClkFreq
+  77:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****       break;
+ 178              		.loc 1 77 0
+ 179 009a 00BF     		nop
+ 180              	.L9:
+  78:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   }
+  79:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** 
+  80:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   if ( ((PERIPH_SC->PLL0STAT >> 24) & 3) == 3 )   // PLL0 connected
+ 181              		.loc 1 80 0
+ 182 009c 0E4B     		ldr	r3, .L13	@ D.6463,
+ 183 009e D3F88830 		ldr	r3, [r3, #136]	@ D.6464, _22->PLL0STAT
+ 184 00a2 1B0E     		lsrs	r3, r3, #24	@ D.6464, D.6464,
+ 185 00a4 03F00303 		and	r3, r3, #3	@ D.6464, D.6464,
+ 186 00a8 032B     		cmp	r3, #3	@ D.6464,
+ 187 00aa 0CD1     		bne	.L10	@,
+  81:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   {
+  82:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****     freq = ( (srcClkFreq / pllPreDiv) * (2 * pllMul) ) / pllDiv;
+ 188              		.loc 1 82 0
+ 189 00ac 079A     		ldr	r2, [sp, #28]	@ tmp140, srcClkFreq
+ 190 00ae 049B     		ldr	r3, [sp, #16]	@ tmp141, pllPreDiv
+ 191 00b0 B2FBF3F3 		udiv	r3, r2, r3	@ D.6464, tmp140, tmp141
+ 192 00b4 059A     		ldr	r2, [sp, #20]	@ tmp142, pllMul
+ 193 00b6 02FB03F3 		mul	r3, r2, r3	@ D.6464, tmp142, D.6464
+ 194 00ba 5A00     		lsls	r2, r3, #1	@ D.6464, D.6464,
+ 195 00bc 039B     		ldr	r3, [sp, #12]	@ tmp145, pllDiv
+ 196 00be B2FBF3F3 		udiv	r3, r2, r3	@ tmp144, D.6464, tmp145
+ 197 00c2 0693     		str	r3, [sp, #24]	@ tmp144, freq
+ 198 00c4 04E0     		b	.L11	@
+ 199              	.L10:
+  83:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   }
+  84:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   else
+  85:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   {
+  86:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****     freq = (srcClkFreq / pllDiv);
+ARM GAS  /tmp/ccpnpUnM.s 			page 6
+
+
+ 200              		.loc 1 86 0
+ 201 00c6 079A     		ldr	r2, [sp, #28]	@ tmp148, srcClkFreq
+ 202 00c8 039B     		ldr	r3, [sp, #12]	@ tmp149, pllDiv
+ 203 00ca B2FBF3F3 		udiv	r3, r2, r3	@ tmp147, tmp148, tmp149
+ 204 00ce 0693     		str	r3, [sp, #24]	@ tmp147, freq
+ 205              	.L11:
+  87:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   }
+  88:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   return freq;
+ 206              		.loc 1 88 0
+ 207 00d0 069B     		ldr	r3, [sp, #24]	@ D.6465, freq
+  89:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** }
+ 208              		.loc 1 89 0
+ 209 00d2 1846     		mov	r0, r3	@, <retval>
+ 210 00d4 08B0     		add	sp, sp, #32	@,,
+ 211              	.LCFI4:
+ 212              		.cfi_def_cfa_offset 0
+ 213              		@ sp needed	@
+ 214 00d6 7047     		bx	lr	@
+ 215              	.L14:
+ 216              		.align	2
+ 217              	.L13:
+ 218 00d8 00C00F40 		.word	1074774016
+ 219 00dc 00093D00 		.word	4000000
+ 220 00e0 00000000 		.word	clkFrq
+ 221              		.cfi_endproc
+ 222              	.LFE41:
+ 223              		.size	epcfNativeSysGetCpuClock, .-epcfNativeSysGetCpuClock
+ 224              		.align	2
+ 225              		.global	epcfNativeSysSetPclkDiv
+ 226              		.thumb
+ 227              		.thumb_func
+ 228              		.type	epcfNativeSysSetPclkDiv, %function
+ 229              	epcfNativeSysSetPclkDiv:
+ 230              	.LFB42:
+  90:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** 
+  91:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** void epcfNativeSysSetPclkDiv(EPCFSysClkDevice_t *pSysClkDevice, uint32_t peripheral, uint32_t clock
+  92:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** {
+ 231              		.loc 1 92 0
+ 232              		.cfi_startproc
+ 233              		@ args = 0, pretend = 0, frame = 16
+ 234              		@ frame_needed = 0, uses_anonymous_args = 0
+ 235              		@ link register save eliminated.
+ 236 00e4 84B0     		sub	sp, sp, #16	@,,
+ 237              	.LCFI5:
+ 238              		.cfi_def_cfa_offset 16
+ 239 00e6 0390     		str	r0, [sp, #12]	@ pSysClkDevice, pSysClkDevice
+ 240 00e8 0291     		str	r1, [sp, #8]	@ peripheral, peripheral
+ 241 00ea 0192     		str	r2, [sp, #4]	@ clock, clock
+  93:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   if(peripheral > 30)
+ 242              		.loc 1 93 0
+ 243 00ec 029B     		ldr	r3, [sp, #8]	@ tmp140, peripheral
+ 244 00ee 1E2B     		cmp	r3, #30	@ tmp140,
+ 245 00f0 19D9     		bls	.L16	@,
+  94:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   {
+  95:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****     PERIPH_SC->PCLKSEL1 &= ~(0x03 << (peripheral-32));
+ 246              		.loc 1 95 0
+ 247 00f2 1949     		ldr	r1, .L18	@ D.6466,
+ARM GAS  /tmp/ccpnpUnM.s 			page 7
+
+
+ 248 00f4 184B     		ldr	r3, .L18	@ D.6466,
+ 249 00f6 D3F8AC31 		ldr	r3, [r3, #428]	@ D.6467, _3->PCLKSEL1
+ 250 00fa 029A     		ldr	r2, [sp, #8]	@ tmp141, peripheral
+ 251 00fc 203A     		subs	r2, r2, #32	@ D.6467, tmp141,
+ 252 00fe 1046     		mov	r0, r2	@ D.6468, D.6467
+ 253 0100 0322     		movs	r2, #3	@ tmp142,
+ 254 0102 8240     		lsls	r2, r2, r0	@ D.6468, tmp142, D.6468
+ 255 0104 D243     		mvns	r2, r2	@ D.6468, D.6468
+ 256 0106 1340     		ands	r3, r3, r2	@, D.6467, D.6467, D.6467
+ 257 0108 C1F8AC31 		str	r3, [r1, #428]	@ D.6467, _2->PCLKSEL1
+  96:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****     PERIPH_SC->PCLKSEL1 |= (clock << (peripheral-32));
+ 258              		.loc 1 96 0
+ 259 010c 1249     		ldr	r1, .L18	@ D.6466,
+ 260 010e 124B     		ldr	r3, .L18	@ D.6466,
+ 261 0110 D3F8AC21 		ldr	r2, [r3, #428]	@ D.6467, _12->PCLKSEL1
+ 262 0114 029B     		ldr	r3, [sp, #8]	@ tmp143, peripheral
+ 263 0116 203B     		subs	r3, r3, #32	@ D.6467, tmp143,
+ 264 0118 1846     		mov	r0, r3	@ D.6468, D.6467
+ 265 011a 019B     		ldr	r3, [sp, #4]	@ tmp144, clock
+ 266 011c 8340     		lsls	r3, r3, r0	@ D.6467, tmp144, D.6468
+ 267 011e 1343     		orrs	r3, r3, r2	@, D.6467, D.6467, D.6467
+ 268 0120 C1F8AC31 		str	r3, [r1, #428]	@ D.6467, _11->PCLKSEL1
+ 269 0124 16E0     		b	.L15	@
+ 270              	.L16:
+  97:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   }
+  98:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   else
+  99:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   {
+ 100:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****     PERIPH_SC->PCLKSEL0 &= ~(0x03 << peripheral);
+ 271              		.loc 1 100 0
+ 272 0126 0C49     		ldr	r1, .L18	@ D.6466,
+ 273 0128 0B4B     		ldr	r3, .L18	@ D.6466,
+ 274 012a D3F8A831 		ldr	r3, [r3, #424]	@ D.6467, _20->PCLKSEL0
+ 275 012e 029A     		ldr	r2, [sp, #8]	@ D.6468, peripheral
+ 276 0130 0320     		movs	r0, #3	@ tmp145,
+ 277 0132 00FA02F2 		lsl	r2, r0, r2	@ D.6468, tmp145, D.6468
+ 278 0136 D243     		mvns	r2, r2	@ D.6468, D.6468
+ 279 0138 1340     		ands	r3, r3, r2	@, D.6467, D.6467, D.6467
+ 280 013a C1F8A831 		str	r3, [r1, #424]	@ D.6467, _19->PCLKSEL0
+ 101:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****     PERIPH_SC->PCLKSEL0 |= (clock << peripheral);
+ 281              		.loc 1 101 0
+ 282 013e 0648     		ldr	r0, .L18	@ D.6466,
+ 283 0140 054B     		ldr	r3, .L18	@ D.6466,
+ 284 0142 D3F8A821 		ldr	r2, [r3, #424]	@ D.6467, _28->PCLKSEL0
+ 285 0146 029B     		ldr	r3, [sp, #8]	@ D.6468, peripheral
+ 286 0148 0199     		ldr	r1, [sp, #4]	@ tmp146, clock
+ 287 014a 01FA03F3 		lsl	r3, r1, r3	@ D.6467, tmp146, D.6468
+ 288 014e 1343     		orrs	r3, r3, r2	@, D.6467, D.6467, D.6467
+ 289 0150 C0F8A831 		str	r3, [r0, #424]	@ D.6467, _27->PCLKSEL0
+ 290              	.L15:
+ 102:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   }
+ 103:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** }
+ 291              		.loc 1 103 0
+ 292 0154 04B0     		add	sp, sp, #16	@,,
+ 293              	.LCFI6:
+ 294              		.cfi_def_cfa_offset 0
+ 295              		@ sp needed	@
+ 296 0156 7047     		bx	lr	@
+ARM GAS  /tmp/ccpnpUnM.s 			page 8
+
+
+ 297              	.L19:
+ 298              		.align	2
+ 299              	.L18:
+ 300 0158 00C00F40 		.word	1074774016
+ 301              		.cfi_endproc
+ 302              	.LFE42:
+ 303              		.size	epcfNativeSysSetPclkDiv, .-epcfNativeSysSetPclkDiv
+ 304              		.section	.rodata
+ 305              		.align	2
+ 306              	.LC0:
+ 307 0000 04       		.byte	4
+ 308 0001 01       		.byte	1
+ 309 0002 02       		.byte	2
+ 310 0003 08       		.byte	8
+ 311              		.text
+ 312              		.align	2
+ 313              		.global	epcfNativeSysGetPclk
+ 314              		.thumb
+ 315              		.thumb_func
+ 316              		.type	epcfNativeSysGetPclk, %function
+ 317              	epcfNativeSysGetPclk:
+ 318              	.LFB43:
+ 104:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** 
+ 105:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** uint32_t epcfNativeSysGetPclk(EPCFSysClkDevice_t *pSysClkDevice, uint32_t peripheral)
+ 106:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** {
+ 319              		.loc 1 106 0
+ 320              		.cfi_startproc
+ 321              		@ args = 0, pretend = 0, frame = 24
+ 322              		@ frame_needed = 0, uses_anonymous_args = 0
+ 323 015c 00B5     		push	{lr}	@
+ 324              	.LCFI7:
+ 325              		.cfi_def_cfa_offset 4
+ 326              		.cfi_offset 14, -4
+ 327 015e 87B0     		sub	sp, sp, #28	@,,
+ 328              	.LCFI8:
+ 329              		.cfi_def_cfa_offset 32
+ 330 0160 0190     		str	r0, [sp, #4]	@ pSysClkDevice, pSysClkDevice
+ 331 0162 0091     		str	r1, [sp]	@ peripheral, peripheral
+ 107:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   const uint8_t pclkDiv[] = {4, 1, 2, 8};
+ 332              		.loc 1 107 0
+ 333 0164 1B4A     		ldr	r2, .L24	@ tmp128,
+ 334 0166 03AB     		add	r3, sp, #12	@ tmp129,,
+ 335 0168 1068     		ldr	r0, [r2]	@ unaligned	@,
+ 336 016a 1860     		str	r0, [r3]	@ unaligned	@, pclkDiv
+ 108:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   uint32_t divIndex;
+ 109:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   uint32_t freq = epcfNativeSysGetCpuClock(pSysClkDevice);
+ 337              		.loc 1 109 0
+ 338 016c 0198     		ldr	r0, [sp, #4]	@, pSysClkDevice
+ 339 016e FFF7FEFF 		bl	epcfNativeSysGetCpuClock	@
+ 340 0172 0490     		str	r0, [sp, #16]	@, freq
+ 110:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** 
+ 111:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   if(peripheral > 30)
+ 341              		.loc 1 111 0
+ 342 0174 009B     		ldr	r3, [sp]	@ tmp131, peripheral
+ 343 0176 1E2B     		cmp	r3, #30	@ tmp131,
+ 344 0178 10D9     		bls	.L21	@,
+ 112:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   {
+ARM GAS  /tmp/ccpnpUnM.s 			page 9
+
+
+ 113:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****     divIndex = PERIPH_SC->PCLKSEL1 & (0x03 << (peripheral-32));
+ 345              		.loc 1 113 0
+ 346 017a 174B     		ldr	r3, .L24+4	@ D.6469,
+ 347 017c D3F8AC31 		ldr	r3, [r3, #428]	@ D.6470, _5->PCLKSEL1
+ 348 0180 009A     		ldr	r2, [sp]	@ tmp132, peripheral
+ 349 0182 203A     		subs	r2, r2, #32	@ D.6470, tmp132,
+ 350 0184 1146     		mov	r1, r2	@ D.6471, D.6470
+ 351 0186 0322     		movs	r2, #3	@ tmp133,
+ 352 0188 8A40     		lsls	r2, r2, r1	@ D.6471, tmp133, D.6471
+ 353 018a 1340     		ands	r3, r3, r2	@, tmp134, D.6470, D.6470
+ 354 018c 0593     		str	r3, [sp, #20]	@ tmp134, divIndex
+ 114:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****     divIndex = divIndex >> (peripheral-32);
+ 355              		.loc 1 114 0
+ 356 018e 009B     		ldr	r3, [sp]	@ tmp135, peripheral
+ 357 0190 203B     		subs	r3, r3, #32	@ D.6470, tmp135,
+ 358 0192 1A46     		mov	r2, r3	@ D.6471, D.6470
+ 359 0194 059B     		ldr	r3, [sp, #20]	@ tmp137, divIndex
+ 360 0196 D340     		lsrs	r3, r3, r2	@ tmp136, tmp137, D.6471
+ 361 0198 0593     		str	r3, [sp, #20]	@ tmp136, divIndex
+ 362 019a 0DE0     		b	.L22	@
+ 363              	.L21:
+ 115:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   }
+ 116:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   else
+ 117:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   {
+ 118:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****     divIndex = PERIPH_SC->PCLKSEL0 & (0x03 << (peripheral));
+ 364              		.loc 1 118 0
+ 365 019c 0E4B     		ldr	r3, .L24+4	@ D.6469,
+ 366 019e D3F8A831 		ldr	r3, [r3, #424]	@ D.6470, _15->PCLKSEL0
+ 367 01a2 009A     		ldr	r2, [sp]	@ D.6471, peripheral
+ 368 01a4 0321     		movs	r1, #3	@ tmp138,
+ 369 01a6 01FA02F2 		lsl	r2, r1, r2	@ D.6471, tmp138, D.6471
+ 370 01aa 1340     		ands	r3, r3, r2	@, tmp139, D.6470, D.6470
+ 371 01ac 0593     		str	r3, [sp, #20]	@ tmp139, divIndex
+ 119:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****     divIndex = divIndex >> (peripheral);
+ 372              		.loc 1 119 0
+ 373 01ae 009B     		ldr	r3, [sp]	@ D.6471, peripheral
+ 374 01b0 059A     		ldr	r2, [sp, #20]	@ tmp141, divIndex
+ 375 01b2 22FA03F3 		lsr	r3, r2, r3	@ tmp140, tmp141, D.6471
+ 376 01b6 0593     		str	r3, [sp, #20]	@ tmp140, divIndex
+ 377              	.L22:
+ 120:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   }
+ 121:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   
+ 122:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   freq = freq / pclkDiv[divIndex];
+ 378              		.loc 1 122 0
+ 379 01b8 03AA     		add	r2, sp, #12	@ tmp142,,
+ 380 01ba 059B     		ldr	r3, [sp, #20]	@ tmp144, divIndex
+ 381 01bc 1344     		add	r3, r3, r2	@ tmp143, tmp142
+ 382 01be 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2	@ D.6472, pclkDiv
+ 383 01c0 1A46     		mov	r2, r3	@ D.6470, D.6472
+ 384 01c2 049B     		ldr	r3, [sp, #16]	@ tmp146, freq
+ 385 01c4 B3FBF2F3 		udiv	r3, r3, r2	@ tmp145, tmp146, D.6470
+ 386 01c8 0493     		str	r3, [sp, #16]	@ tmp145, freq
+ 123:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   return freq;
+ 387              		.loc 1 123 0
+ 388 01ca 049B     		ldr	r3, [sp, #16]	@ D.6473, freq
+ 124:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** }
+ 389              		.loc 1 124 0
+ARM GAS  /tmp/ccpnpUnM.s 			page 10
+
+
+ 390 01cc 1846     		mov	r0, r3	@, <retval>
+ 391 01ce 07B0     		add	sp, sp, #28	@,,
+ 392              	.LCFI9:
+ 393              		.cfi_def_cfa_offset 4
+ 394              		@ sp needed	@
+ 395 01d0 5DF804FB 		ldr	pc, [sp], #4	@
+ 396              	.L25:
+ 397              		.align	2
+ 398              	.L24:
+ 399 01d4 00000000 		.word	.LC0
+ 400 01d8 00C00F40 		.word	1074774016
+ 401              		.cfi_endproc
+ 402              	.LFE43:
+ 403              		.size	epcfNativeSysGetPclk, .-epcfNativeSysGetPclk
+ 404              		.align	2
+ 405              		.thumb
+ 406              		.thumb_func
+ 407              		.type	_epcfPllConfig, %function
+ 408              	_epcfPllConfig:
+ 409              	.LFB44:
+ 125:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** 
+ 126:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** //return values:
+ 127:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** //0  : success
+ 128:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** //-1 : invalid arguments
+ 129:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** static int8_t _epcfPllConfig(uint32_t pllPreDivider,uint32_t pllMultiplier,uint32_t cpuClkDivider,u
+ 130:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** {
+ 410              		.loc 1 130 0
+ 411              		.cfi_startproc
+ 412              		@ args = 0, pretend = 0, frame = 24
+ 413              		@ frame_needed = 0, uses_anonymous_args = 0
+ 414 01dc 00B5     		push	{lr}	@
+ 415              	.LCFI10:
+ 416              		.cfi_def_cfa_offset 4
+ 417              		.cfi_offset 14, -4
+ 418 01de 87B0     		sub	sp, sp, #28	@,,
+ 419              	.LCFI11:
+ 420              		.cfi_def_cfa_offset 32
+ 421 01e0 0390     		str	r0, [sp, #12]	@ pllPreDivider, pllPreDivider
+ 422 01e2 0291     		str	r1, [sp, #8]	@ pllMultiplier, pllMultiplier
+ 423 01e4 0192     		str	r2, [sp, #4]	@ cpuClkDivider, cpuClkDivider
+ 424 01e6 0093     		str	r3, [sp]	@ pllClkSrc, pllClkSrc
+ 131:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   uint32_t pllStatus;
+ 132:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** #if (PCF_ENABLE_DEBUG == PCF_ENABLE)
+ 133:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   if(pllClkSrc > 2)
+ 134:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   {
+ 135:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****     return -1;
+ 136:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   }
+ 137:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** #endif  // #if (PF_SYSCLK_DEBUG == 1)
+ 138:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** 
+ 139:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   pllStatus = PERIPH_SC->PLL0STAT;
+ 425              		.loc 1 139 0
+ 426 01e8 344B     		ldr	r3, .L32	@ D.6474,
+ 427 01ea D3F88830 		ldr	r3, [r3, #136]	@ tmp143, _1->PLL0STAT
+ 428 01ee 0593     		str	r3, [sp, #20]	@ tmp143, pllStatus
+ 140:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   PERIPH_SC->SCS = 0x20;              // Enable main oscillator
+ 429              		.loc 1 140 0
+ 430 01f0 324B     		ldr	r3, .L32	@ D.6474,
+ARM GAS  /tmp/ccpnpUnM.s 			page 11
+
+
+ 431 01f2 2022     		movs	r2, #32	@ tmp144,
+ 432 01f4 C3F8A021 		str	r2, [r3, #416]	@ tmp144, _3->SCS
+ 141:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   while ((PERIPH_SC->SCS & SYSCLK_SC_OSCSTAT) == 0);      // Wait for Oscillator to be ready
+ 433              		.loc 1 141 0
+ 434 01f8 00BF     		nop
+ 435              	.L27:
+ 436              		.loc 1 141 0 is_stmt 0 discriminator 1
+ 437 01fa 304B     		ldr	r3, .L32	@ D.6474,
+ 438 01fc D3F8A031 		ldr	r3, [r3, #416]	@ D.6475, _4->SCS
+ 439 0200 03F04003 		and	r3, r3, #64	@ D.6475, D.6475,
+ 440 0204 002B     		cmp	r3, #0	@ D.6475,
+ 441 0206 F8D0     		beq	.L27	@,
+ 142:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   
+ 143:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   if(pllStatus & PLL_PLLC0_STAT)              // if PLL is connected, disconnect it
+ 442              		.loc 1 143 0 is_stmt 1
+ 443 0208 059B     		ldr	r3, [sp, #20]	@ tmp145, pllStatus
+ 444 020a 03F00073 		and	r3, r3, #33554432	@ D.6475, tmp145,
+ 445 020e 002B     		cmp	r3, #0	@ D.6475,
+ 446 0210 09D0     		beq	.L28	@,
+ 144:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   {
+ 145:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****     //Disconnect PLL
+ 146:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****     PERIPH_SC->PLL0CON &= ~0x01;          
+ 447              		.loc 1 146 0
+ 448 0212 2A4A     		ldr	r2, .L32	@ D.6474,
+ 449 0214 294B     		ldr	r3, .L32	@ D.6474,
+ 450 0216 D3F88030 		ldr	r3, [r3, #128]	@ D.6475, _9->PLL0CON
+ 451 021a 23F00103 		bic	r3, r3, #1	@ D.6475, D.6475,
+ 452 021e C2F88030 		str	r3, [r2, #128]	@ D.6475, _8->PLL0CON
+ 147:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****     _epcfPllFeedSequence();
+ 453              		.loc 1 147 0
+ 454 0222 00F04DF8 		bl	_epcfPllFeedSequence	@
+ 455              	.L28:
+ 148:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   }
+ 149:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   if(pllStatus & PLL_PLLE0_STAT)              // if PLL is enabled, disable it
+ 456              		.loc 1 149 0
+ 457 0226 059B     		ldr	r3, [sp, #20]	@ tmp146, pllStatus
+ 458 0228 03F08073 		and	r3, r3, #16777216	@ D.6475, tmp146,
+ 459 022c 002B     		cmp	r3, #0	@ D.6475,
+ 460 022e 09D0     		beq	.L29	@,
+ 150:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   {
+ 151:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****     //Disable PLL
+ 152:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****     PERIPH_SC->PLL0CON &= ~0x02;
+ 461              		.loc 1 152 0
+ 462 0230 224A     		ldr	r2, .L32	@ D.6474,
+ 463 0232 224B     		ldr	r3, .L32	@ D.6474,
+ 464 0234 D3F88030 		ldr	r3, [r3, #128]	@ D.6475, _14->PLL0CON
+ 465 0238 23F00203 		bic	r3, r3, #2	@ D.6475, D.6475,
+ 466 023c C2F88030 		str	r3, [r2, #128]	@ D.6475, _13->PLL0CON
+ 153:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****     _epcfPllFeedSequence();
+ 467              		.loc 1 153 0
+ 468 0240 00F03EF8 		bl	_epcfPllFeedSequence	@
+ 469              	.L29:
+ 154:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   }
+ 155:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   PERIPH_SC->CLKSRCSEL = pllClkSrc;       // Select main oscillator as clock source for PLL
+ 470              		.loc 1 155 0
+ 471 0244 1D4A     		ldr	r2, .L32	@ D.6474,
+ 472 0246 009B     		ldr	r3, [sp]	@ tmp147, pllClkSrc
+ARM GAS  /tmp/ccpnpUnM.s 			page 12
+
+
+ 473 0248 C2F80C31 		str	r3, [r2, #268]	@ tmp147, _17->CLKSRCSEL
+ 156:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** 
+ 157:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   PERIPH_SC->PLL0CFG = ((pllPreDivider-1) << 16) | (pllMultiplier-1); 
+ 474              		.loc 1 157 0
+ 475 024c 1B49     		ldr	r1, .L32	@ D.6474,
+ 476 024e 039B     		ldr	r3, [sp, #12]	@ tmp148, pllPreDivider
+ 477 0250 013B     		subs	r3, r3, #1	@ D.6475, tmp148,
+ 478 0252 1A04     		lsls	r2, r3, #16	@ D.6475, D.6475,
+ 479 0254 029B     		ldr	r3, [sp, #8]	@ tmp149, pllMultiplier
+ 480 0256 013B     		subs	r3, r3, #1	@ D.6475, tmp149,
+ 481 0258 1343     		orrs	r3, r3, r2	@, D.6475, D.6475, D.6475
+ 482 025a C1F88430 		str	r3, [r1, #132]	@ D.6475, _19->PLL0CFG
+ 158:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   _epcfPllFeedSequence();
+ 483              		.loc 1 158 0
+ 484 025e 00F02FF8 		bl	_epcfPllFeedSequence	@
+ 159:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** 
+ 160:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   PERIPH_SC->PLL0CON = 0x01;            // Enable PLL
+ 485              		.loc 1 160 0
+ 486 0262 164B     		ldr	r3, .L32	@ D.6474,
+ 487 0264 0122     		movs	r2, #1	@ tmp150,
+ 488 0266 C3F88020 		str	r2, [r3, #128]	@ tmp150, _26->PLL0CON
+ 161:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   _epcfPllFeedSequence();
+ 489              		.loc 1 161 0
+ 490 026a 00F029F8 		bl	_epcfPllFeedSequence	@
+ 162:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** 
+ 163:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   PERIPH_SC->CCLKCFG = cpuClkDivider-1;     // CPU clock divider
+ 491              		.loc 1 163 0
+ 492 026e 134A     		ldr	r2, .L32	@ D.6474,
+ 493 0270 019B     		ldr	r3, [sp, #4]	@ tmp151, cpuClkDivider
+ 494 0272 013B     		subs	r3, r3, #1	@ D.6475, tmp151,
+ 495 0274 C2F80431 		str	r3, [r2, #260]	@ D.6475, _27->CCLKCFG
+ 164:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   
+ 165:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   PERIPH_SC->PCLKSEL0 = 0x00;             // Peripheral Clock Selection CCLK / 4
+ 496              		.loc 1 165 0
+ 497 0278 104B     		ldr	r3, .L32	@ D.6474,
+ 498 027a 0022     		movs	r2, #0	@ tmp152,
+ 499 027c C3F8A821 		str	r2, [r3, #424]	@ tmp152, _30->PCLKSEL0
+ 166:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   PERIPH_SC->PCLKSEL1 = 0x00;
+ 500              		.loc 1 166 0
+ 501 0280 0E4B     		ldr	r3, .L32	@ D.6474,
+ 502 0282 0022     		movs	r2, #0	@ tmp153,
+ 503 0284 C3F8AC21 		str	r2, [r3, #428]	@ tmp153, _31->PCLKSEL1
+ 167:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** 
+ 168:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   while( (PERIPH_SC->PLL0STAT & PLL_PLOCKO) == 0 ); // Wait for PLL to achieve lock
+ 504              		.loc 1 168 0
+ 505 0288 00BF     		nop
+ 506              	.L30:
+ 507              		.loc 1 168 0 is_stmt 0 discriminator 1
+ 508 028a 0C4B     		ldr	r3, .L32	@ D.6474,
+ 509 028c D3F88830 		ldr	r3, [r3, #136]	@ D.6475, _32->PLL0STAT
+ 510 0290 03F08063 		and	r3, r3, #67108864	@ D.6475, D.6475,
+ 511 0294 002B     		cmp	r3, #0	@ D.6475,
+ 512 0296 F8D0     		beq	.L30	@,
+ 169:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   
+ 170:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   PERIPH_SC->PLL0CON = 0x03;            // Connect PLL
+ 513              		.loc 1 170 0 is_stmt 1
+ 514 0298 084B     		ldr	r3, .L32	@ D.6474,
+ARM GAS  /tmp/ccpnpUnM.s 			page 13
+
+
+ 515 029a 0322     		movs	r2, #3	@ tmp154,
+ 516 029c C3F88020 		str	r2, [r3, #128]	@ tmp154, _35->PLL0CON
+ 171:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   _epcfPllFeedSequence();
+ 517              		.loc 1 171 0
+ 518 02a0 00F00EF8 		bl	_epcfPllFeedSequence	@
+ 172:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** 
+ 173:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   //LPC_SC->CLKOUTCFG =  0x00;
+ 174:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** 
+ 175:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   pllStatus = PERIPH_SC->PLL0STAT;
+ 519              		.loc 1 175 0
+ 520 02a4 054B     		ldr	r3, .L32	@ D.6474,
+ 521 02a6 D3F88830 		ldr	r3, [r3, #136]	@ tmp155, _36->PLL0STAT
+ 522 02aa 0593     		str	r3, [sp, #20]	@ tmp155, pllStatus
+ 176:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   pllStatus = 0;
+ 523              		.loc 1 176 0
+ 524 02ac 0023     		movs	r3, #0	@ tmp156,
+ 525 02ae 0593     		str	r3, [sp, #20]	@ tmp156, pllStatus
+ 177:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   
+ 178:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   return 0;
+ 526              		.loc 1 178 0
+ 527 02b0 0023     		movs	r3, #0	@ D.6476,
+ 528 02b2 5BB2     		sxtb	r3, r3	@ tmp158, D.6476
+ 179:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** }
+ 529              		.loc 1 179 0
+ 530 02b4 1846     		mov	r0, r3	@, <retval>
+ 531 02b6 07B0     		add	sp, sp, #28	@,,
+ 532              	.LCFI12:
+ 533              		.cfi_def_cfa_offset 4
+ 534              		@ sp needed	@
+ 535 02b8 5DF804FB 		ldr	pc, [sp], #4	@
+ 536              	.L33:
+ 537              		.align	2
+ 538              	.L32:
+ 539 02bc 00C00F40 		.word	1074774016
+ 540              		.cfi_endproc
+ 541              	.LFE44:
+ 542              		.size	_epcfPllConfig, .-_epcfPllConfig
+ 543              		.align	2
+ 544              		.thumb
+ 545              		.thumb_func
+ 546              		.type	_epcfPllFeedSequence, %function
+ 547              	_epcfPllFeedSequence:
+ 548              	.LFB45:
+ 180:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** 
+ 181:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** static void _epcfPllFeedSequence(void)
+ 182:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** {
+ 549              		.loc 1 182 0
+ 550              		.cfi_startproc
+ 551              		@ args = 0, pretend = 0, frame = 0
+ 552              		@ frame_needed = 0, uses_anonymous_args = 0
+ 553              		@ link register save eliminated.
+ 183:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   PERIPH_SC->PLL0FEED = 0xAA;
+ 554              		.loc 1 183 0
+ 555 02c0 044B     		ldr	r3, .L35	@ D.6477,
+ 556 02c2 AA22     		movs	r2, #170	@ tmp112,
+ 557 02c4 C3F88C20 		str	r2, [r3, #140]	@ tmp112, _1->PLL0FEED
+ 184:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   PERIPH_SC->PLL0FEED = 0x55;
+ARM GAS  /tmp/ccpnpUnM.s 			page 14
+
+
+ 558              		.loc 1 184 0
+ 559 02c8 024B     		ldr	r3, .L35	@ D.6477,
+ 560 02ca 5522     		movs	r2, #85	@ tmp113,
+ 561 02cc C3F88C20 		str	r2, [r3, #140]	@ tmp113, _2->PLL0FEED
+ 185:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** }
+ 562              		.loc 1 185 0
+ 563 02d0 7047     		bx	lr	@
+ 564              	.L36:
+ 565 02d2 00BF     		.align	2
+ 566              	.L35:
+ 567 02d4 00C00F40 		.word	1074774016
+ 568              		.cfi_endproc
+ 569              	.LFE45:
+ 570              		.size	_epcfPllFeedSequence, .-_epcfPllFeedSequence
+ 571              		.align	2
+ 572              		.thumb
+ 573              		.thumb_func
+ 574              		.type	_epcfSysSetCpuClock, %function
+ 575              	_epcfSysSetCpuClock:
+ 576              	.LFB46:
+ 186:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** 
+ 187:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** //return values:
+ 188:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** //0  : success
+ 189:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** //-1 : invalid arguments
+ 190:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** //-2 : error
+ 191:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** static int8_t _epcfSysSetCpuClock(EPCFSysClkCfg_t* config)
+ 192:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** {
+ 577              		.loc 1 192 0
+ 578              		.cfi_startproc
+ 579              		@ args = 0, pretend = 0, frame = 40
+ 580              		@ frame_needed = 0, uses_anonymous_args = 0
+ 581 02d8 00B5     		push	{lr}	@
+ 582              	.LCFI13:
+ 583              		.cfi_def_cfa_offset 4
+ 584              		.cfi_offset 14, -4
+ 585 02da 8BB0     		sub	sp, sp, #44	@,,
+ 586              	.LCFI14:
+ 587              		.cfi_def_cfa_offset 48
+ 588 02dc 0190     		str	r0, [sp, #4]	@ config, config
+ 193:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   uint32_t pllPreDiv, pllMul, pllDiv, temp, loop, preDivStatus = 0;
+ 589              		.loc 1 193 0
+ 590 02de 0023     		movs	r3, #0	@ tmp128,
+ 591 02e0 0793     		str	r3, [sp, #28]	@ tmp128, preDivStatus
+ 194:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   int8_t status=0;
+ 592              		.loc 1 194 0
+ 593 02e2 0023     		movs	r3, #0	@ tmp129,
+ 594 02e4 8DF81B30 		strb	r3, [sp, #27]	@ tmp130, status
+ 195:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** 
+ 196:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** #if (PCF_ENABLE_DEBUG == PCF_ENABLE)
+ 197:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****  // CHECK_NULL_PTR(config);
+ 198:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   if(config->pllClkSrc > 2)
+ 199:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   {
+ 200:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****     return -1;
+ 201:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   }
+ 202:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   if(config->cpuFreqHz > 100000000)
+ 203:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   {
+ 204:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****     return -1;
+ARM GAS  /tmp/ccpnpUnM.s 			page 15
+
+
+ 205:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   }
+ 206:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** #endif  // #if (PF_SYSCLK_DEBUG == 1)
+ 207:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** 
+ 208:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   clkFrq=config->oscFreq;
+ 595              		.loc 1 208 0
+ 596 02e8 019B     		ldr	r3, [sp, #4]	@ tmp131, config
+ 597 02ea 5B68     		ldr	r3, [r3, #4]	@ D.6479, config_7(D)->oscFreq
+ 598 02ec 2C4A     		ldr	r2, .L44	@ tmp132,
+ 599 02ee 1360     		str	r3, [r2]	@ D.6479, clkFrq
+ 209:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   pllDiv = (300*1000000) / config->cpuFreqHz;
+ 600              		.loc 1 209 0
+ 601 02f0 019B     		ldr	r3, [sp, #4]	@ tmp133, config
+ 602 02f2 1B68     		ldr	r3, [r3]	@ D.6479, config_7(D)->cpuFreqHz
+ 603 02f4 2B4A     		ldr	r2, .L44+4	@ tmp135,
+ 604 02f6 B2FBF3F3 		udiv	r3, r2, r3	@ tmp134, tmp135, D.6479
+ 605 02fa 0593     		str	r3, [sp, #20]	@ tmp134, pllDiv
+ 210:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   temp = ((config->cpuFreqHz * pllDiv) / (2 * config->oscFreq));
+ 606              		.loc 1 210 0
+ 607 02fc 019B     		ldr	r3, [sp, #4]	@ tmp136, config
+ 608 02fe 1B68     		ldr	r3, [r3]	@ D.6479, config_7(D)->cpuFreqHz
+ 609 0300 059A     		ldr	r2, [sp, #20]	@ tmp137, pllDiv
+ 610 0302 02FB03F2 		mul	r2, r2, r3	@ D.6479, tmp137, D.6479
+ 611 0306 019B     		ldr	r3, [sp, #4]	@ tmp138, config
+ 612 0308 5B68     		ldr	r3, [r3, #4]	@ D.6479, config_7(D)->oscFreq
+ 613 030a 5B00     		lsls	r3, r3, #1	@ D.6479, D.6479,
+ 614 030c B2FBF3F3 		udiv	r3, r2, r3	@ tmp139, D.6479, D.6479
+ 615 0310 0493     		str	r3, [sp, #16]	@ tmp139, temp
+ 211:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** 
+ 212:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   for(loop = temp; loop <= (config->oscFreq/1000000); loop++)
+ 616              		.loc 1 212 0
+ 617 0312 049B     		ldr	r3, [sp, #16]	@ tmp140, temp
+ 618 0314 0893     		str	r3, [sp, #32]	@ tmp140, loop
+ 619 0316 16E0     		b	.L38	@
+ 620              	.L41:
+ 213:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   {
+ 214:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****     if( ((config->oscFreq/1000000) % loop) == 0 )
+ 621              		.loc 1 214 0
+ 622 0318 019B     		ldr	r3, [sp, #4]	@ tmp141, config
+ 623 031a 5B68     		ldr	r3, [r3, #4]	@ D.6479, config_7(D)->oscFreq
+ 624 031c 224A     		ldr	r2, .L44+8	@ tmp143,
+ 625 031e A2FB0323 		umull	r2, r3, r2, r3	@ tmp170, tmp142, tmp143, D.6479
+ 626 0322 9B0C     		lsrs	r3, r3, #18	@ D.6479, tmp142,
+ 627 0324 089A     		ldr	r2, [sp, #32]	@ tmp147, loop
+ 628 0326 B3FBF2F2 		udiv	r2, r3, r2	@ tmp146, D.6479, tmp147
+ 629 032a 0899     		ldr	r1, [sp, #32]	@ tmp149, loop
+ 630 032c 01FB02F2 		mul	r2, r1, r2	@ tmp148, tmp149, tmp146
+ 631 0330 9B1A     		subs	r3, r3, r2	@ D.6479, D.6479, tmp148
+ 632 0332 002B     		cmp	r3, #0	@ D.6479,
+ 633 0334 04D1     		bne	.L39	@,
+ 215:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****     {
+ 216:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****       pllPreDiv = loop;
+ 634              		.loc 1 216 0
+ 635 0336 089B     		ldr	r3, [sp, #32]	@ tmp150, loop
+ 636 0338 0993     		str	r3, [sp, #36]	@ tmp150, pllPreDiv
+ 217:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****       preDivStatus = 1;
+ 637              		.loc 1 217 0
+ 638 033a 0123     		movs	r3, #1	@ tmp151,
+ARM GAS  /tmp/ccpnpUnM.s 			page 16
+
+
+ 639 033c 0793     		str	r3, [sp, #28]	@ tmp151, preDivStatus
+ 218:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****       break;
+ 640              		.loc 1 218 0
+ 641 033e 0BE0     		b	.L40	@
+ 642              	.L39:
+ 212:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   {
+ 643              		.loc 1 212 0 discriminator 2
+ 644 0340 089B     		ldr	r3, [sp, #32]	@ tmp153, loop
+ 645 0342 0133     		adds	r3, r3, #1	@ tmp152, tmp153,
+ 646 0344 0893     		str	r3, [sp, #32]	@ tmp152, loop
+ 647              	.L38:
+ 212:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   {
+ 648              		.loc 1 212 0 is_stmt 0 discriminator 1
+ 649 0346 019B     		ldr	r3, [sp, #4]	@ tmp154, config
+ 650 0348 5B68     		ldr	r3, [r3, #4]	@ D.6479, config_7(D)->oscFreq
+ 651 034a 174A     		ldr	r2, .L44+8	@ tmp156,
+ 652 034c A2FB0323 		umull	r2, r3, r2, r3	@ tmp171, tmp155, tmp156, D.6479
+ 653 0350 9A0C     		lsrs	r2, r3, #18	@ D.6479, tmp155,
+ 654 0352 089B     		ldr	r3, [sp, #32]	@ tmp157, loop
+ 655 0354 9A42     		cmp	r2, r3	@ D.6479, tmp157
+ 656 0356 DFD2     		bcs	.L41	@,
+ 657              	.L40:
+ 219:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****     }
+ 220:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   }
+ 221:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   if(!preDivStatus)
+ 658              		.loc 1 221 0 is_stmt 1
+ 659 0358 079B     		ldr	r3, [sp, #28]	@ tmp158, preDivStatus
+ 660 035a 002B     		cmp	r3, #0	@ tmp158,
+ 661 035c 01D1     		bne	.L42	@,
+ 222:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   {
+ 223:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****     return -2;
+ 662              		.loc 1 223 0
+ 663 035e FE23     		movs	r3, #254	@ D.6478,
+ 664 0360 18E0     		b	.L43	@
+ 665              	.L42:
+ 224:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   }
+ 225:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** 
+ 226:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   pllMul = ((config->cpuFreqHz * pllDiv * pllPreDiv) / 24) / 1000000;
+ 666              		.loc 1 226 0
+ 667 0362 019B     		ldr	r3, [sp, #4]	@ tmp159, config
+ 668 0364 1B68     		ldr	r3, [r3]	@ D.6479, config_7(D)->cpuFreqHz
+ 669 0366 059A     		ldr	r2, [sp, #20]	@ tmp160, pllDiv
+ 670 0368 02FB03F3 		mul	r3, r2, r3	@ D.6479, tmp160, D.6479
+ 671 036c 099A     		ldr	r2, [sp, #36]	@ tmp161, pllPreDiv
+ 672 036e 02FB03F3 		mul	r3, r2, r3	@ D.6479, tmp161, D.6479
+ 673 0372 0E4A     		ldr	r2, .L44+12	@ tmp163,
+ 674 0374 A2FB0323 		umull	r2, r3, r2, r3	@ tmp172, tmp162, tmp163, D.6479
+ 675 0378 5B0D     		lsrs	r3, r3, #21	@ tmp164, tmp162,
+ 676 037a 0393     		str	r3, [sp, #12]	@ tmp164, pllMul
+ 227:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** 
+ 228:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   status = _epcfPllConfig(pllPreDiv ,pllMul ,pllDiv, config->pllClkSrc);
+ 677              		.loc 1 228 0
+ 678 037c 019B     		ldr	r3, [sp, #4]	@ tmp165, config
+ 679 037e 1B7A     		ldrb	r3, [r3, #8]	@ zero_extendqisi2	@ D.6480, config_7(D)->pllClkSrc
+ 680 0380 0998     		ldr	r0, [sp, #36]	@, pllPreDiv
+ 681 0382 0399     		ldr	r1, [sp, #12]	@, pllMul
+ 682 0384 059A     		ldr	r2, [sp, #20]	@, pllDiv
+ARM GAS  /tmp/ccpnpUnM.s 			page 17
+
+
+ 683 0386 FFF729FF 		bl	_epcfPllConfig	@
+ 684 038a 0346     		mov	r3, r0	@ tmp166,
+ 685 038c 8DF81B30 		strb	r3, [sp, #27]	@ tmp167, status
+ 229:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c ****   return status;
+ 686              		.loc 1 229 0
+ 687 0390 9DF81B30 		ldrb	r3, [sp, #27]	@ zero_extendqisi2	@ D.6478, status
+ 688              	.L43:
+ 689 0394 5BB2     		sxtb	r3, r3	@ tmp169, D.6478
+ 230:../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysClk/sysClk_lpc1768.c **** }
+ 690              		.loc 1 230 0
+ 691 0396 1846     		mov	r0, r3	@, <retval>
+ 692 0398 0BB0     		add	sp, sp, #44	@,,
+ 693              	.LCFI15:
+ 694              		.cfi_def_cfa_offset 4
+ 695              		@ sp needed	@
+ 696 039a 5DF804FB 		ldr	pc, [sp], #4	@
+ 697              	.L45:
+ 698 039e 00BF     		.align	2
+ 699              	.L44:
+ 700 03a0 00000000 		.word	clkFrq
+ 701 03a4 00A3E111 		.word	300000000
+ 702 03a8 83DE1B43 		.word	1125899907
+ 703 03ac 819F5E16 		.word	375299969
+ 704              		.cfi_endproc
+ 705              	.LFE46:
+ 706              		.size	_epcfSysSetCpuClock, .-_epcfSysSetCpuClock
+ 707              	.Letext0:
+ 708              		.file 2 "/usr/include/newlib/machine/_default_types.h"
+ 709              		.file 3 "/usr/include/newlib/sys/_stdint.h"
+ 710              		.file 4 "../pcf/include/private/arch/arm/cm3/nxp/lpc1768/./lpc1768_regmap.h"
+ 711              		.file 5 "./include/../../epcf/peripheral/include/./sysClk/sysClk.h"
+ 712              		.file 6 "./include/../../epcf/peripheral/source/sysClk/sysClk_hidden.h"
+ 713              		.file 7 "../pcf/include/private/arch/arm/cm3/nxp/lpc1768/./../../../../arm/cm3/nxp/lpc1768/lpc1768
+ 714              		.section	.debug_info,"",%progbits
+ 715              	.Ldebug_info0:
+ 716 0000 A8060000 		.4byte	0x6a8
+ 717 0004 0200     		.2byte	0x2
+ 718 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 719 000a 04       		.byte	0x4
+ 720 000b 01       		.uleb128 0x1
+ 721 000c E4000000 		.4byte	.LASF92
+ 722 0010 01       		.byte	0x1
+ 723 0011 6E030000 		.4byte	.LASF93
+ 724 0015 6D010000 		.4byte	.LASF94
+ 725 0019 00000000 		.4byte	.Ltext0
+ 726 001d B0030000 		.4byte	.Letext0
+ 727 0021 00000000 		.4byte	.Ldebug_line0
+ 728 0025 02       		.uleb128 0x2
+ 729 0026 04       		.byte	0x4
+ 730 0027 07       		.byte	0x7
+ 731 0028 FB020000 		.4byte	.LASF0
+ 732 002c 03       		.uleb128 0x3
+ 733 002d 04       		.byte	0x4
+ 734 002e 05       		.byte	0x5
+ 735 002f 696E7400 		.ascii	"int\000"
+ 736 0033 04       		.uleb128 0x4
+ 737 0034 51020000 		.4byte	.LASF2
+ARM GAS  /tmp/ccpnpUnM.s 			page 18
+
+
+ 738 0038 02       		.byte	0x2
+ 739 0039 1B       		.byte	0x1b
+ 740 003a 3E000000 		.4byte	0x3e
+ 741 003e 02       		.uleb128 0x2
+ 742 003f 01       		.byte	0x1
+ 743 0040 06       		.byte	0x6
+ 744 0041 B5020000 		.4byte	.LASF1
+ 745 0045 04       		.uleb128 0x4
+ 746 0046 2A050000 		.4byte	.LASF3
+ 747 004a 02       		.byte	0x2
+ 748 004b 1D       		.byte	0x1d
+ 749 004c 50000000 		.4byte	0x50
+ 750 0050 02       		.uleb128 0x2
+ 751 0051 01       		.byte	0x1
+ 752 0052 08       		.byte	0x8
+ 753 0053 8D020000 		.4byte	.LASF4
+ 754 0057 02       		.uleb128 0x2
+ 755 0058 02       		.byte	0x2
+ 756 0059 05       		.byte	0x5
+ 757 005a 74000000 		.4byte	.LASF5
+ 758 005e 02       		.uleb128 0x2
+ 759 005f 02       		.byte	0x2
+ 760 0060 07       		.byte	0x7
+ 761 0061 2E030000 		.4byte	.LASF6
+ 762 0065 04       		.uleb128 0x4
+ 763 0066 64030000 		.4byte	.LASF7
+ 764 006a 02       		.byte	0x2
+ 765 006b 3F       		.byte	0x3f
+ 766 006c 70000000 		.4byte	0x70
+ 767 0070 02       		.uleb128 0x2
+ 768 0071 04       		.byte	0x4
+ 769 0072 05       		.byte	0x5
+ 770 0073 F0010000 		.4byte	.LASF8
+ 771 0077 04       		.uleb128 0x4
+ 772 0078 3F040000 		.4byte	.LASF9
+ 773 007c 02       		.byte	0x2
+ 774 007d 41       		.byte	0x41
+ 775 007e 82000000 		.4byte	0x82
+ 776 0082 02       		.uleb128 0x2
+ 777 0083 04       		.byte	0x4
+ 778 0084 07       		.byte	0x7
+ 779 0085 08030000 		.4byte	.LASF10
+ 780 0089 02       		.uleb128 0x2
+ 781 008a 08       		.byte	0x8
+ 782 008b 05       		.byte	0x5
+ 783 008c C9010000 		.4byte	.LASF11
+ 784 0090 02       		.uleb128 0x2
+ 785 0091 08       		.byte	0x8
+ 786 0092 07       		.byte	0x7
+ 787 0093 C1020000 		.4byte	.LASF12
+ 788 0097 02       		.uleb128 0x2
+ 789 0098 04       		.byte	0x4
+ 790 0099 07       		.byte	0x7
+ 791 009a 7E000000 		.4byte	.LASF13
+ 792 009e 02       		.uleb128 0x2
+ 793 009f 01       		.byte	0x1
+ 794 00a0 08       		.byte	0x8
+ARM GAS  /tmp/ccpnpUnM.s 			page 19
+
+
+ 795 00a1 57030000 		.4byte	.LASF14
+ 796 00a5 04       		.uleb128 0x4
+ 797 00a6 63000000 		.4byte	.LASF15
+ 798 00aa 03       		.byte	0x3
+ 799 00ab 13       		.byte	0x13
+ 800 00ac 33000000 		.4byte	0x33
+ 801 00b0 04       		.uleb128 0x4
+ 802 00b1 DC000000 		.4byte	.LASF16
+ 803 00b5 03       		.byte	0x3
+ 804 00b6 14       		.byte	0x14
+ 805 00b7 45000000 		.4byte	0x45
+ 806 00bb 04       		.uleb128 0x4
+ 807 00bc 5C030000 		.4byte	.LASF17
+ 808 00c0 03       		.byte	0x3
+ 809 00c1 1F       		.byte	0x1f
+ 810 00c2 65000000 		.4byte	0x65
+ 811 00c6 04       		.uleb128 0x4
+ 812 00c7 7B020000 		.4byte	.LASF18
+ 813 00cb 03       		.byte	0x3
+ 814 00cc 20       		.byte	0x20
+ 815 00cd 77000000 		.4byte	0x77
+ 816 00d1 02       		.uleb128 0x2
+ 817 00d2 04       		.byte	0x4
+ 818 00d3 04       		.byte	0x4
+ 819 00d4 AB010000 		.4byte	.LASF19
+ 820 00d8 05       		.uleb128 0x5
+ 821 00d9 C6000000 		.4byte	0xc6
+ 822 00dd 06       		.uleb128 0x6
+ 823 00de D8000000 		.4byte	0xd8
+ 824 00e2 07       		.uleb128 0x7
+ 825 00e3 C6000000 		.4byte	0xc6
+ 826 00e7 F2000000 		.4byte	0xf2
+ 827 00eb 08       		.uleb128 0x8
+ 828 00ec 97000000 		.4byte	0x97
+ 829 00f0 03       		.byte	0x3
+ 830 00f1 00       		.byte	0
+ 831 00f2 07       		.uleb128 0x7
+ 832 00f3 C6000000 		.4byte	0xc6
+ 833 00f7 02010000 		.4byte	0x102
+ 834 00fb 08       		.uleb128 0x8
+ 835 00fc 97000000 		.4byte	0x97
+ 836 0100 0E       		.byte	0xe
+ 837 0101 00       		.byte	0
+ 838 0102 09       		.uleb128 0x9
+ 839 0103 CC01     		.2byte	0x1cc
+ 840 0105 04       		.byte	0x4
+ 841 0106 DA       		.byte	0xda
+ 842 0107 26030000 		.4byte	0x326
+ 843 010b 0A       		.uleb128 0xa
+ 844 010c 9B020000 		.4byte	.LASF20
+ 845 0110 04       		.byte	0x4
+ 846 0111 DC       		.byte	0xdc
+ 847 0112 D8000000 		.4byte	0xd8
+ 848 0116 02       		.byte	0x2
+ 849 0117 23       		.byte	0x23
+ 850 0118 00       		.uleb128 0
+ 851 0119 0A       		.uleb128 0xa
+ARM GAS  /tmp/ccpnpUnM.s 			page 20
+
+
+ 852 011a D0030000 		.4byte	.LASF21
+ 853 011e 04       		.byte	0x4
+ 854 011f DD       		.byte	0xdd
+ 855 0120 26030000 		.4byte	0x326
+ 856 0124 02       		.byte	0x2
+ 857 0125 23       		.byte	0x23
+ 858 0126 04       		.uleb128 0x4
+ 859 0127 0A       		.uleb128 0xa
+ 860 0128 87000000 		.4byte	.LASF22
+ 861 012c 04       		.byte	0x4
+ 862 012d DE       		.byte	0xde
+ 863 012e D8000000 		.4byte	0xd8
+ 864 0132 03       		.byte	0x3
+ 865 0133 23       		.byte	0x23
+ 866 0134 8001     		.uleb128 0x80
+ 867 0136 0A       		.uleb128 0xa
+ 868 0137 C8030000 		.4byte	.LASF23
+ 869 013b 04       		.byte	0x4
+ 870 013c DF       		.byte	0xdf
+ 871 013d D8000000 		.4byte	0xd8
+ 872 0141 03       		.byte	0x3
+ 873 0142 23       		.byte	0x23
+ 874 0143 8401     		.uleb128 0x84
+ 875 0145 0A       		.uleb128 0xa
+ 876 0146 B5030000 		.4byte	.LASF24
+ 877 014a 04       		.byte	0x4
+ 878 014b E0       		.byte	0xe0
+ 879 014c DD000000 		.4byte	0xdd
+ 880 0150 03       		.byte	0x3
+ 881 0151 23       		.byte	0x23
+ 882 0152 8801     		.uleb128 0x88
+ 883 0154 0A       		.uleb128 0xa
+ 884 0155 5A000000 		.4byte	.LASF25
+ 885 0159 04       		.byte	0x4
+ 886 015a E1       		.byte	0xe1
+ 887 015b D8000000 		.4byte	0xd8
+ 888 015f 03       		.byte	0x3
+ 889 0160 23       		.byte	0x23
+ 890 0161 8C01     		.uleb128 0x8c
+ 891 0163 0A       		.uleb128 0xa
+ 892 0164 DA030000 		.4byte	.LASF26
+ 893 0168 04       		.byte	0x4
+ 894 0169 E2       		.byte	0xe2
+ 895 016a E2000000 		.4byte	0xe2
+ 896 016e 03       		.byte	0x3
+ 897 016f 23       		.byte	0x23
+ 898 0170 9001     		.uleb128 0x90
+ 899 0172 0A       		.uleb128 0xa
+ 900 0173 FF010000 		.4byte	.LASF27
+ 901 0177 04       		.byte	0x4
+ 902 0178 E3       		.byte	0xe3
+ 903 0179 D8000000 		.4byte	0xd8
+ 904 017d 03       		.byte	0x3
+ 905 017e 23       		.byte	0x23
+ 906 017f A001     		.uleb128 0xa0
+ 907 0181 0A       		.uleb128 0xa
+ 908 0182 0B050000 		.4byte	.LASF28
+ARM GAS  /tmp/ccpnpUnM.s 			page 21
+
+
+ 909 0186 04       		.byte	0x4
+ 910 0187 E4       		.byte	0xe4
+ 911 0188 D8000000 		.4byte	0xd8
+ 912 018c 03       		.byte	0x3
+ 913 018d 23       		.byte	0x23
+ 914 018e A401     		.uleb128 0xa4
+ 915 0190 0A       		.uleb128 0xa
+ 916 0191 34000000 		.4byte	.LASF29
+ 917 0195 04       		.byte	0x4
+ 918 0196 E5       		.byte	0xe5
+ 919 0197 DD000000 		.4byte	0xdd
+ 920 019b 03       		.byte	0x3
+ 921 019c 23       		.byte	0x23
+ 922 019d A801     		.uleb128 0xa8
+ 923 019f 0A       		.uleb128 0xa
+ 924 01a0 07020000 		.4byte	.LASF30
+ 925 01a4 04       		.byte	0x4
+ 926 01a5 E6       		.byte	0xe6
+ 927 01a6 D8000000 		.4byte	0xd8
+ 928 01aa 03       		.byte	0x3
+ 929 01ab 23       		.byte	0x23
+ 930 01ac AC01     		.uleb128 0xac
+ 931 01ae 0A       		.uleb128 0xa
+ 932 01af E4030000 		.4byte	.LASF31
+ 933 01b3 04       		.byte	0x4
+ 934 01b4 E7       		.byte	0xe7
+ 935 01b5 E2000000 		.4byte	0xe2
+ 936 01b9 03       		.byte	0x3
+ 937 01ba 23       		.byte	0x23
+ 938 01bb B001     		.uleb128 0xb0
+ 939 01bd 0A       		.uleb128 0xa
+ 940 01be FF040000 		.4byte	.LASF32
+ 941 01c2 04       		.byte	0x4
+ 942 01c3 E8       		.byte	0xe8
+ 943 01c4 D8000000 		.4byte	0xd8
+ 944 01c8 03       		.byte	0x3
+ 945 01c9 23       		.byte	0x23
+ 946 01ca C001     		.uleb128 0xc0
+ 947 01cc 0A       		.uleb128 0xa
+ 948 01cd 75020000 		.4byte	.LASF33
+ 949 01d1 04       		.byte	0x4
+ 950 01d2 E9       		.byte	0xe9
+ 951 01d3 D8000000 		.4byte	0xd8
+ 952 01d7 03       		.byte	0x3
+ 953 01d8 23       		.byte	0x23
+ 954 01d9 C401     		.uleb128 0xc4
+ 955 01db 0A       		.uleb128 0xa
+ 956 01dc EE030000 		.4byte	.LASF34
+ 957 01e0 04       		.byte	0x4
+ 958 01e1 EA       		.byte	0xea
+ 959 01e2 F2000000 		.4byte	0xf2
+ 960 01e6 03       		.byte	0x3
+ 961 01e7 23       		.byte	0x23
+ 962 01e8 C801     		.uleb128 0xc8
+ 963 01ea 0A       		.uleb128 0xa
+ 964 01eb D4000000 		.4byte	.LASF35
+ 965 01ef 04       		.byte	0x4
+ARM GAS  /tmp/ccpnpUnM.s 			page 22
+
+
+ 966 01f0 EB       		.byte	0xeb
+ 967 01f1 D8000000 		.4byte	0xd8
+ 968 01f5 03       		.byte	0x3
+ 969 01f6 23       		.byte	0x23
+ 970 01f7 8402     		.uleb128 0x104
+ 971 01f9 0A       		.uleb128 0xa
+ 972 01fa D7010000 		.4byte	.LASF36
+ 973 01fe 04       		.byte	0x4
+ 974 01ff EC       		.byte	0xec
+ 975 0200 D8000000 		.4byte	0xd8
+ 976 0204 03       		.byte	0x3
+ 977 0205 23       		.byte	0x23
+ 978 0206 8802     		.uleb128 0x108
+ 979 0208 0A       		.uleb128 0xa
+ 980 0209 A4020000 		.4byte	.LASF37
+ 981 020d 04       		.byte	0x4
+ 982 020e ED       		.byte	0xed
+ 983 020f D8000000 		.4byte	0xd8
+ 984 0213 03       		.byte	0x3
+ 985 0214 23       		.byte	0x23
+ 986 0215 8C02     		.uleb128 0x10c
+ 987 0217 0A       		.uleb128 0xa
+ 988 0218 88040000 		.4byte	.LASF38
+ 989 021c 04       		.byte	0x4
+ 990 021d EE       		.byte	0xee
+ 991 021e D8000000 		.4byte	0xd8
+ 992 0222 03       		.byte	0x3
+ 993 0223 23       		.byte	0x23
+ 994 0224 9002     		.uleb128 0x110
+ 995 0226 0A       		.uleb128 0xa
+ 996 0227 BC010000 		.4byte	.LASF39
+ 997 022b 04       		.byte	0x4
+ 998 022c EF       		.byte	0xef
+ 999 022d D8000000 		.4byte	0xd8
+ 1000 0231 03       		.byte	0x3
+ 1001 0232 23       		.byte	0x23
+ 1002 0233 9402     		.uleb128 0x114
+ 1003 0235 0A       		.uleb128 0xa
+ 1004 0236 F8030000 		.4byte	.LASF40
+ 1005 023a 04       		.byte	0x4
+ 1006 023b F0       		.byte	0xf0
+ 1007 023c 36030000 		.4byte	0x336
+ 1008 0240 03       		.byte	0x3
+ 1009 0241 23       		.byte	0x23
+ 1010 0242 9802     		.uleb128 0x118
+ 1011 0244 0A       		.uleb128 0xa
+ 1012 0245 AC000000 		.4byte	.LASF41
+ 1013 0249 04       		.byte	0x4
+ 1014 024a F1       		.byte	0xf1
+ 1015 024b D8000000 		.4byte	0xd8
+ 1016 024f 03       		.byte	0x3
+ 1017 0250 23       		.byte	0x23
+ 1018 0251 C002     		.uleb128 0x140
+ 1019 0253 0A       		.uleb128 0xa
+ 1020 0254 02040000 		.4byte	.LASF42
+ 1021 0258 04       		.byte	0x4
+ 1022 0259 F2       		.byte	0xf2
+ARM GAS  /tmp/ccpnpUnM.s 			page 23
+
+
+ 1023 025a C6000000 		.4byte	0xc6
+ 1024 025e 03       		.byte	0x3
+ 1025 025f 23       		.byte	0x23
+ 1026 0260 C402     		.uleb128 0x144
+ 1027 0262 0A       		.uleb128 0xa
+ 1028 0263 A4000000 		.4byte	.LASF43
+ 1029 0267 04       		.byte	0x4
+ 1030 0268 F3       		.byte	0xf3
+ 1031 0269 D8000000 		.4byte	0xd8
+ 1032 026d 03       		.byte	0x3
+ 1033 026e 23       		.byte	0x23
+ 1034 026f C802     		.uleb128 0x148
+ 1035 0271 0A       		.uleb128 0xa
+ 1036 0272 6C020000 		.4byte	.LASF44
+ 1037 0276 04       		.byte	0x4
+ 1038 0277 F4       		.byte	0xf4
+ 1039 0278 D8000000 		.4byte	0xd8
+ 1040 027c 03       		.byte	0x3
+ 1041 027d 23       		.byte	0x23
+ 1042 027e CC02     		.uleb128 0x14c
+ 1043 0280 0A       		.uleb128 0xa
+ 1044 0281 0C040000 		.4byte	.LASF45
+ 1045 0285 04       		.byte	0x4
+ 1046 0286 F5       		.byte	0xf5
+ 1047 0287 46030000 		.4byte	0x346
+ 1048 028b 03       		.byte	0x3
+ 1049 028c 23       		.byte	0x23
+ 1050 028d D002     		.uleb128 0x150
+ 1051 028f 0A       		.uleb128 0xa
+ 1052 0290 6A000000 		.4byte	.LASF46
+ 1053 0294 04       		.byte	0x4
+ 1054 0295 F6       		.byte	0xf6
+ 1055 0296 D8000000 		.4byte	0xd8
+ 1056 029a 03       		.byte	0x3
+ 1057 029b 23       		.byte	0x23
+ 1058 029c 8003     		.uleb128 0x180
+ 1059 029e 0A       		.uleb128 0xa
+ 1060 029f 16040000 		.4byte	.LASF47
+ 1061 02a3 04       		.byte	0x4
+ 1062 02a4 F7       		.byte	0xf7
+ 1063 02a5 56030000 		.4byte	0x356
+ 1064 02a9 03       		.byte	0x3
+ 1065 02aa 23       		.byte	0x23
+ 1066 02ab 8403     		.uleb128 0x184
+ 1067 02ad 0B       		.uleb128 0xb
+ 1068 02ae 53435300 		.ascii	"SCS\000"
+ 1069 02b2 04       		.byte	0x4
+ 1070 02b3 F8       		.byte	0xf8
+ 1071 02b4 D8000000 		.4byte	0xd8
+ 1072 02b8 03       		.byte	0x3
+ 1073 02b9 23       		.byte	0x23
+ 1074 02ba A003     		.uleb128 0x1a0
+ 1075 02bc 0A       		.uleb128 0xa
+ 1076 02bd 64020000 		.4byte	.LASF48
+ 1077 02c1 04       		.byte	0x4
+ 1078 02c2 F9       		.byte	0xf9
+ 1079 02c3 D8000000 		.4byte	0xd8
+ARM GAS  /tmp/ccpnpUnM.s 			page 24
+
+
+ 1080 02c7 03       		.byte	0x3
+ 1081 02c8 23       		.byte	0x23
+ 1082 02c9 A403     		.uleb128 0x1a4
+ 1083 02cb 0A       		.uleb128 0xa
+ 1084 02cc 4A040000 		.4byte	.LASF49
+ 1085 02d0 04       		.byte	0x4
+ 1086 02d1 FA       		.byte	0xfa
+ 1087 02d2 D8000000 		.4byte	0xd8
+ 1088 02d6 03       		.byte	0x3
+ 1089 02d7 23       		.byte	0x23
+ 1090 02d8 A803     		.uleb128 0x1a8
+ 1091 02da 0A       		.uleb128 0xa
+ 1092 02db 53040000 		.4byte	.LASF50
+ 1093 02df 04       		.byte	0x4
+ 1094 02e0 FB       		.byte	0xfb
+ 1095 02e1 D8000000 		.4byte	0xd8
+ 1096 02e5 03       		.byte	0x3
+ 1097 02e6 23       		.byte	0x23
+ 1098 02e7 AC03     		.uleb128 0x1ac
+ 1099 02e9 0A       		.uleb128 0xa
+ 1100 02ea 55010000 		.4byte	.LASF51
+ 1101 02ee 04       		.byte	0x4
+ 1102 02ef FC       		.byte	0xfc
+ 1103 02f0 E2000000 		.4byte	0xe2
+ 1104 02f4 03       		.byte	0x3
+ 1105 02f5 23       		.byte	0x23
+ 1106 02f6 B003     		.uleb128 0x1b0
+ 1107 02f8 0A       		.uleb128 0xa
+ 1108 02f9 4C010000 		.4byte	.LASF52
+ 1109 02fd 04       		.byte	0x4
+ 1110 02fe FD       		.byte	0xfd
+ 1111 02ff D8000000 		.4byte	0xd8
+ 1112 0303 03       		.byte	0x3
+ 1113 0304 23       		.byte	0x23
+ 1114 0305 C003     		.uleb128 0x1c0
+ 1115 0307 0A       		.uleb128 0xa
+ 1116 0308 50000000 		.4byte	.LASF53
+ 1117 030c 04       		.byte	0x4
+ 1118 030d FE       		.byte	0xfe
+ 1119 030e D8000000 		.4byte	0xd8
+ 1120 0312 03       		.byte	0x3
+ 1121 0313 23       		.byte	0x23
+ 1122 0314 C403     		.uleb128 0x1c4
+ 1123 0316 0A       		.uleb128 0xa
+ 1124 0317 24030000 		.4byte	.LASF54
+ 1125 031b 04       		.byte	0x4
+ 1126 031c FF       		.byte	0xff
+ 1127 031d D8000000 		.4byte	0xd8
+ 1128 0321 03       		.byte	0x3
+ 1129 0322 23       		.byte	0x23
+ 1130 0323 C803     		.uleb128 0x1c8
+ 1131 0325 00       		.byte	0
+ 1132 0326 07       		.uleb128 0x7
+ 1133 0327 C6000000 		.4byte	0xc6
+ 1134 032b 36030000 		.4byte	0x336
+ 1135 032f 08       		.uleb128 0x8
+ 1136 0330 97000000 		.4byte	0x97
+ARM GAS  /tmp/ccpnpUnM.s 			page 25
+
+
+ 1137 0334 1E       		.byte	0x1e
+ 1138 0335 00       		.byte	0
+ 1139 0336 07       		.uleb128 0x7
+ 1140 0337 C6000000 		.4byte	0xc6
+ 1141 033b 46030000 		.4byte	0x346
+ 1142 033f 08       		.uleb128 0x8
+ 1143 0340 97000000 		.4byte	0x97
+ 1144 0344 09       		.byte	0x9
+ 1145 0345 00       		.byte	0
+ 1146 0346 07       		.uleb128 0x7
+ 1147 0347 C6000000 		.4byte	0xc6
+ 1148 034b 56030000 		.4byte	0x356
+ 1149 034f 08       		.uleb128 0x8
+ 1150 0350 97000000 		.4byte	0x97
+ 1151 0354 0B       		.byte	0xb
+ 1152 0355 00       		.byte	0
+ 1153 0356 07       		.uleb128 0x7
+ 1154 0357 C6000000 		.4byte	0xc6
+ 1155 035b 66030000 		.4byte	0x366
+ 1156 035f 08       		.uleb128 0x8
+ 1157 0360 97000000 		.4byte	0x97
+ 1158 0364 06       		.byte	0x6
+ 1159 0365 00       		.byte	0
+ 1160 0366 0C       		.uleb128 0xc
+ 1161 0367 B1010000 		.4byte	.LASF55
+ 1162 036b 04       		.byte	0x4
+ 1163 036c 0001     		.2byte	0x100
+ 1164 036e 02010000 		.4byte	0x102
+ 1165 0372 0D       		.uleb128 0xd
+ 1166 0373 2E040000 		.4byte	.LASF95
+ 1167 0377 00       		.byte	0
+ 1168 0378 06       		.byte	0x6
+ 1169 0379 0C       		.byte	0xc
+ 1170 037a 0E       		.uleb128 0xe
+ 1171 037b 34050000 		.4byte	.LASF96
+ 1172 037f 01       		.byte	0x1
+ 1173 0380 05       		.byte	0x5
+ 1174 0381 0C       		.byte	0xc
+ 1175 0382 9F030000 		.4byte	0x39f
+ 1176 0386 0F       		.uleb128 0xf
+ 1177 0387 B3000000 		.4byte	.LASF56
+ 1178 038b 00       		.sleb128 0
+ 1179 038c 0F       		.uleb128 0xf
+ 1180 038d 13050000 		.4byte	.LASF57
+ 1181 0391 01       		.sleb128 1
+ 1182 0392 0F       		.uleb128 0xf
+ 1183 0393 5C040000 		.4byte	.LASF58
+ 1184 0397 02       		.sleb128 2
+ 1185 0398 0F       		.uleb128 0xf
+ 1186 0399 40020000 		.4byte	.LASF59
+ 1187 039d 03       		.sleb128 3
+ 1188 039e 00       		.byte	0
+ 1189 039f 04       		.uleb128 0x4
+ 1190 03a0 E1010000 		.4byte	.LASF60
+ 1191 03a4 05       		.byte	0x5
+ 1192 03a5 12       		.byte	0x12
+ 1193 03a6 7A030000 		.4byte	0x37a
+ARM GAS  /tmp/ccpnpUnM.s 			page 26
+
+
+ 1194 03aa 10       		.uleb128 0x10
+ 1195 03ab F1040000 		.4byte	.LASF97
+ 1196 03af 0C       		.byte	0xc
+ 1197 03b0 05       		.byte	0x5
+ 1198 03b1 1F       		.byte	0x1f
+ 1199 03b2 E1030000 		.4byte	0x3e1
+ 1200 03b6 0A       		.uleb128 0xa
+ 1201 03b7 5A020000 		.4byte	.LASF61
+ 1202 03bb 05       		.byte	0x5
+ 1203 03bc 21       		.byte	0x21
+ 1204 03bd C6000000 		.4byte	0xc6
+ 1205 03c1 02       		.byte	0x2
+ 1206 03c2 23       		.byte	0x23
+ 1207 03c3 00       		.uleb128 0
+ 1208 03c4 0A       		.uleb128 0xa
+ 1209 03c5 D8020000 		.4byte	.LASF62
+ 1210 03c9 05       		.byte	0x5
+ 1211 03ca 22       		.byte	0x22
+ 1212 03cb C6000000 		.4byte	0xc6
+ 1213 03cf 02       		.byte	0x2
+ 1214 03d0 23       		.byte	0x23
+ 1215 03d1 04       		.uleb128 0x4
+ 1216 03d2 0A       		.uleb128 0xa
+ 1217 03d3 BE030000 		.4byte	.LASF63
+ 1218 03d7 05       		.byte	0x5
+ 1219 03d8 23       		.byte	0x23
+ 1220 03d9 9F030000 		.4byte	0x39f
+ 1221 03dd 02       		.byte	0x2
+ 1222 03de 23       		.byte	0x23
+ 1223 03df 08       		.uleb128 0x8
+ 1224 03e0 00       		.byte	0
+ 1225 03e1 04       		.uleb128 0x4
+ 1226 03e2 E0020000 		.4byte	.LASF64
+ 1227 03e6 05       		.byte	0x5
+ 1228 03e7 24       		.byte	0x24
+ 1229 03e8 AA030000 		.4byte	0x3aa
+ 1230 03ec 11       		.uleb128 0x11
+ 1231 03ed 01       		.byte	0x1
+ 1232 03ee 29020000 		.4byte	.LASF67
+ 1233 03f2 01       		.byte	0x1
+ 1234 03f3 27       		.byte	0x27
+ 1235 03f4 01       		.byte	0x1
+ 1236 03f5 35040000 		.4byte	0x435
+ 1237 03f9 00000000 		.4byte	.LFB40
+ 1238 03fd 42000000 		.4byte	.LFE40
+ 1239 0401 00000000 		.4byte	.LLST0
+ 1240 0405 01       		.byte	0x1
+ 1241 0406 35040000 		.4byte	0x435
+ 1242 040a 12       		.uleb128 0x12
+ 1243 040b 42000000 		.4byte	.LASF69
+ 1244 040f 01       		.byte	0x1
+ 1245 0410 27       		.byte	0x27
+ 1246 0411 3B040000 		.4byte	0x43b
+ 1247 0415 02       		.byte	0x2
+ 1248 0416 91       		.byte	0x91
+ 1249 0417 6C       		.sleb128 -20
+ 1250 0418 13       		.uleb128 0x13
+ARM GAS  /tmp/ccpnpUnM.s 			page 27
+
+
+ 1251 0419 8F000000 		.4byte	.LASF65
+ 1252 041d 01       		.byte	0x1
+ 1253 041e 29       		.byte	0x29
+ 1254 041f 35040000 		.4byte	0x435
+ 1255 0423 02       		.byte	0x2
+ 1256 0424 91       		.byte	0x91
+ 1257 0425 70       		.sleb128 -16
+ 1258 0426 13       		.uleb128 0x13
+ 1259 0427 41030000 		.4byte	.LASF66
+ 1260 042b 01       		.byte	0x1
+ 1261 042c 2A       		.byte	0x2a
+ 1262 042d A5000000 		.4byte	0xa5
+ 1263 0431 02       		.byte	0x2
+ 1264 0432 91       		.byte	0x91
+ 1265 0433 77       		.sleb128 -9
+ 1266 0434 00       		.byte	0
+ 1267 0435 14       		.uleb128 0x14
+ 1268 0436 04       		.byte	0x4
+ 1269 0437 72030000 		.4byte	0x372
+ 1270 043b 14       		.uleb128 0x14
+ 1271 043c 04       		.byte	0x4
+ 1272 043d E1030000 		.4byte	0x3e1
+ 1273 0441 15       		.uleb128 0x15
+ 1274 0442 01       		.byte	0x1
+ 1275 0443 10020000 		.4byte	.LASF68
+ 1276 0447 01       		.byte	0x1
+ 1277 0448 37       		.byte	0x37
+ 1278 0449 01       		.byte	0x1
+ 1279 044a C6000000 		.4byte	0xc6
+ 1280 044e 44000000 		.4byte	.LFB41
+ 1281 0452 E4000000 		.4byte	.LFE41
+ 1282 0456 38000000 		.4byte	.LLST1
+ 1283 045a 01       		.byte	0x1
+ 1284 045b C2040000 		.4byte	0x4c2
+ 1285 045f 12       		.uleb128 0x12
+ 1286 0460 8F000000 		.4byte	.LASF65
+ 1287 0464 01       		.byte	0x1
+ 1288 0465 37       		.byte	0x37
+ 1289 0466 35040000 		.4byte	0x435
+ 1290 046a 02       		.byte	0x2
+ 1291 046b 91       		.byte	0x91
+ 1292 046c 64       		.sleb128 -28
+ 1293 046d 13       		.uleb128 0x13
+ 1294 046e 1A030000 		.4byte	.LASF70
+ 1295 0472 01       		.byte	0x1
+ 1296 0473 39       		.byte	0x39
+ 1297 0474 C6000000 		.4byte	0xc6
+ 1298 0478 02       		.byte	0x2
+ 1299 0479 91       		.byte	0x91
+ 1300 047a 70       		.sleb128 -16
+ 1301 047b 13       		.uleb128 0x13
+ 1302 047c 9D000000 		.4byte	.LASF71
+ 1303 0480 01       		.byte	0x1
+ 1304 0481 39       		.byte	0x39
+ 1305 0482 C6000000 		.4byte	0xc6
+ 1306 0486 02       		.byte	0x2
+ 1307 0487 91       		.byte	0x91
+ARM GAS  /tmp/ccpnpUnM.s 			page 28
+
+
+ 1308 0488 74       		.sleb128 -12
+ 1309 0489 13       		.uleb128 0x13
+ 1310 048a 2D000000 		.4byte	.LASF72
+ 1311 048e 01       		.byte	0x1
+ 1312 048f 39       		.byte	0x39
+ 1313 0490 C6000000 		.4byte	0xc6
+ 1314 0494 02       		.byte	0x2
+ 1315 0495 91       		.byte	0x91
+ 1316 0496 6C       		.sleb128 -20
+ 1317 0497 13       		.uleb128 0x13
+ 1318 0498 F0020000 		.4byte	.LASF73
+ 1319 049c 01       		.byte	0x1
+ 1320 049d 39       		.byte	0x39
+ 1321 049e C6000000 		.4byte	0xc6
+ 1322 04a2 02       		.byte	0x2
+ 1323 04a3 91       		.byte	0x91
+ 1324 04a4 7C       		.sleb128 -4
+ 1325 04a5 13       		.uleb128 0x13
+ 1326 04a6 3D000000 		.4byte	.LASF74
+ 1327 04aa 01       		.byte	0x1
+ 1328 04ab 39       		.byte	0x39
+ 1329 04ac C6000000 		.4byte	0xc6
+ 1330 04b0 02       		.byte	0x2
+ 1331 04b1 91       		.byte	0x91
+ 1332 04b2 78       		.sleb128 -8
+ 1333 04b3 13       		.uleb128 0x13
+ 1334 04b4 04050000 		.4byte	.LASF75
+ 1335 04b8 01       		.byte	0x1
+ 1336 04b9 39       		.byte	0x39
+ 1337 04ba C6000000 		.4byte	0xc6
+ 1338 04be 02       		.byte	0x2
+ 1339 04bf 91       		.byte	0x91
+ 1340 04c0 68       		.sleb128 -24
+ 1341 04c1 00       		.byte	0
+ 1342 04c2 16       		.uleb128 0x16
+ 1343 04c3 01       		.byte	0x1
+ 1344 04c4 00000000 		.4byte	.LASF98
+ 1345 04c8 01       		.byte	0x1
+ 1346 04c9 5B       		.byte	0x5b
+ 1347 04ca 01       		.byte	0x1
+ 1348 04cb E4000000 		.4byte	.LFB42
+ 1349 04cf 5C010000 		.4byte	.LFE42
+ 1350 04d3 64000000 		.4byte	.LLST2
+ 1351 04d7 01       		.byte	0x1
+ 1352 04d8 07050000 		.4byte	0x507
+ 1353 04dc 12       		.uleb128 0x12
+ 1354 04dd 8F000000 		.4byte	.LASF65
+ 1355 04e1 01       		.byte	0x1
+ 1356 04e2 5B       		.byte	0x5b
+ 1357 04e3 35040000 		.4byte	0x435
+ 1358 04e7 02       		.byte	0x2
+ 1359 04e8 91       		.byte	0x91
+ 1360 04e9 7C       		.sleb128 -4
+ 1361 04ea 12       		.uleb128 0x12
+ 1362 04eb 94040000 		.4byte	.LASF76
+ 1363 04ef 01       		.byte	0x1
+ 1364 04f0 5B       		.byte	0x5b
+ARM GAS  /tmp/ccpnpUnM.s 			page 29
+
+
+ 1365 04f1 C6000000 		.4byte	0xc6
+ 1366 04f5 02       		.byte	0x2
+ 1367 04f6 91       		.byte	0x91
+ 1368 04f7 78       		.sleb128 -8
+ 1369 04f8 12       		.uleb128 0x12
+ 1370 04f9 F9010000 		.4byte	.LASF77
+ 1371 04fd 01       		.byte	0x1
+ 1372 04fe 5B       		.byte	0x5b
+ 1373 04ff C6000000 		.4byte	0xc6
+ 1374 0503 02       		.byte	0x2
+ 1375 0504 91       		.byte	0x91
+ 1376 0505 74       		.sleb128 -12
+ 1377 0506 00       		.byte	0
+ 1378 0507 11       		.uleb128 0x11
+ 1379 0508 01       		.byte	0x1
+ 1380 0509 18000000 		.4byte	.LASF78
+ 1381 050d 01       		.byte	0x1
+ 1382 050e 69       		.byte	0x69
+ 1383 050f 01       		.byte	0x1
+ 1384 0510 C6000000 		.4byte	0xc6
+ 1385 0514 5C010000 		.4byte	.LFB43
+ 1386 0518 DC010000 		.4byte	.LFE43
+ 1387 051c 90000000 		.4byte	.LLST3
+ 1388 0520 01       		.byte	0x1
+ 1389 0521 6C050000 		.4byte	0x56c
+ 1390 0525 12       		.uleb128 0x12
+ 1391 0526 8F000000 		.4byte	.LASF65
+ 1392 052a 01       		.byte	0x1
+ 1393 052b 69       		.byte	0x69
+ 1394 052c 35040000 		.4byte	0x435
+ 1395 0530 02       		.byte	0x2
+ 1396 0531 91       		.byte	0x91
+ 1397 0532 64       		.sleb128 -28
+ 1398 0533 12       		.uleb128 0x12
+ 1399 0534 94040000 		.4byte	.LASF76
+ 1400 0538 01       		.byte	0x1
+ 1401 0539 69       		.byte	0x69
+ 1402 053a C6000000 		.4byte	0xc6
+ 1403 053e 02       		.byte	0x2
+ 1404 053f 91       		.byte	0x91
+ 1405 0540 60       		.sleb128 -32
+ 1406 0541 13       		.uleb128 0x13
+ 1407 0542 72040000 		.4byte	.LASF79
+ 1408 0546 01       		.byte	0x1
+ 1409 0547 6B       		.byte	0x6b
+ 1410 0548 7C050000 		.4byte	0x57c
+ 1411 054c 02       		.byte	0x2
+ 1412 054d 91       		.byte	0x91
+ 1413 054e 6C       		.sleb128 -20
+ 1414 054f 13       		.uleb128 0x13
+ 1415 0550 84020000 		.4byte	.LASF80
+ 1416 0554 01       		.byte	0x1
+ 1417 0555 6C       		.byte	0x6c
+ 1418 0556 C6000000 		.4byte	0xc6
+ 1419 055a 02       		.byte	0x2
+ 1420 055b 91       		.byte	0x91
+ 1421 055c 74       		.sleb128 -12
+ARM GAS  /tmp/ccpnpUnM.s 			page 30
+
+
+ 1422 055d 13       		.uleb128 0x13
+ 1423 055e 3D000000 		.4byte	.LASF74
+ 1424 0562 01       		.byte	0x1
+ 1425 0563 6D       		.byte	0x6d
+ 1426 0564 C6000000 		.4byte	0xc6
+ 1427 0568 02       		.byte	0x2
+ 1428 0569 91       		.byte	0x91
+ 1429 056a 70       		.sleb128 -16
+ 1430 056b 00       		.byte	0
+ 1431 056c 07       		.uleb128 0x7
+ 1432 056d B0000000 		.4byte	0xb0
+ 1433 0571 7C050000 		.4byte	0x57c
+ 1434 0575 08       		.uleb128 0x8
+ 1435 0576 97000000 		.4byte	0x97
+ 1436 057a 03       		.byte	0x3
+ 1437 057b 00       		.byte	0
+ 1438 057c 06       		.uleb128 0x6
+ 1439 057d 6C050000 		.4byte	0x56c
+ 1440 0581 17       		.uleb128 0x17
+ 1441 0582 48030000 		.4byte	.LASF85
+ 1442 0586 01       		.byte	0x1
+ 1443 0587 81       		.byte	0x81
+ 1444 0588 01       		.byte	0x1
+ 1445 0589 A5000000 		.4byte	0xa5
+ 1446 058d DC010000 		.4byte	.LFB44
+ 1447 0591 C0020000 		.4byte	.LFE44
+ 1448 0595 C8000000 		.4byte	.LLST4
+ 1449 0599 01       		.byte	0x1
+ 1450 059a E5050000 		.4byte	0x5e5
+ 1451 059e 12       		.uleb128 0x12
+ 1452 059f 7A040000 		.4byte	.LASF81
+ 1453 05a3 01       		.byte	0x1
+ 1454 05a4 81       		.byte	0x81
+ 1455 05a5 C6000000 		.4byte	0xc6
+ 1456 05a9 02       		.byte	0x2
+ 1457 05aa 91       		.byte	0x91
+ 1458 05ab 6C       		.sleb128 -20
+ 1459 05ac 12       		.uleb128 0x12
+ 1460 05ad 5F010000 		.4byte	.LASF82
+ 1461 05b1 01       		.byte	0x1
+ 1462 05b2 81       		.byte	0x81
+ 1463 05b3 C6000000 		.4byte	0xc6
+ 1464 05b7 02       		.byte	0x2
+ 1465 05b8 91       		.byte	0x91
+ 1466 05b9 68       		.sleb128 -24
+ 1467 05ba 12       		.uleb128 0x12
+ 1468 05bb 20040000 		.4byte	.LASF83
+ 1469 05bf 01       		.byte	0x1
+ 1470 05c0 81       		.byte	0x81
+ 1471 05c1 C6000000 		.4byte	0xc6
+ 1472 05c5 02       		.byte	0x2
+ 1473 05c6 91       		.byte	0x91
+ 1474 05c7 64       		.sleb128 -28
+ 1475 05c8 12       		.uleb128 0x12
+ 1476 05c9 BE030000 		.4byte	.LASF63
+ 1477 05cd 01       		.byte	0x1
+ 1478 05ce 81       		.byte	0x81
+ARM GAS  /tmp/ccpnpUnM.s 			page 31
+
+
+ 1479 05cf C6000000 		.4byte	0xc6
+ 1480 05d3 02       		.byte	0x2
+ 1481 05d4 91       		.byte	0x91
+ 1482 05d5 60       		.sleb128 -32
+ 1483 05d6 13       		.uleb128 0x13
+ 1484 05d7 9F040000 		.4byte	.LASF84
+ 1485 05db 01       		.byte	0x1
+ 1486 05dc 83       		.byte	0x83
+ 1487 05dd C6000000 		.4byte	0xc6
+ 1488 05e1 02       		.byte	0x2
+ 1489 05e2 91       		.byte	0x91
+ 1490 05e3 74       		.sleb128 -12
+ 1491 05e4 00       		.byte	0
+ 1492 05e5 18       		.uleb128 0x18
+ 1493 05e6 AE040000 		.4byte	.LASF99
+ 1494 05ea 01       		.byte	0x1
+ 1495 05eb B5       		.byte	0xb5
+ 1496 05ec 01       		.byte	0x1
+ 1497 05ed C0020000 		.4byte	.LFB45
+ 1498 05f1 D8020000 		.4byte	.LFE45
+ 1499 05f5 02       		.byte	0x2
+ 1500 05f6 7D       		.byte	0x7d
+ 1501 05f7 00       		.sleb128 0
+ 1502 05f8 01       		.byte	0x1
+ 1503 05f9 17       		.uleb128 0x17
+ 1504 05fa C3040000 		.4byte	.LASF86
+ 1505 05fe 01       		.byte	0x1
+ 1506 05ff BF       		.byte	0xbf
+ 1507 0600 01       		.byte	0x1
+ 1508 0601 A5000000 		.4byte	0xa5
+ 1509 0605 D8020000 		.4byte	.LFB46
+ 1510 0609 B0030000 		.4byte	.LFE46
+ 1511 060d 00010000 		.4byte	.LLST5
+ 1512 0611 01       		.byte	0x1
+ 1513 0612 87060000 		.4byte	0x687
+ 1514 0616 12       		.uleb128 0x12
+ 1515 0617 CD000000 		.4byte	.LASF87
+ 1516 061b 01       		.byte	0x1
+ 1517 061c BF       		.byte	0xbf
+ 1518 061d 3B040000 		.4byte	0x43b
+ 1519 0621 02       		.byte	0x2
+ 1520 0622 91       		.byte	0x91
+ 1521 0623 54       		.sleb128 -44
+ 1522 0624 13       		.uleb128 0x13
+ 1523 0625 1A030000 		.4byte	.LASF70
+ 1524 0629 01       		.byte	0x1
+ 1525 062a C1       		.byte	0xc1
+ 1526 062b C6000000 		.4byte	0xc6
+ 1527 062f 02       		.byte	0x2
+ 1528 0630 91       		.byte	0x91
+ 1529 0631 74       		.sleb128 -12
+ 1530 0632 13       		.uleb128 0x13
+ 1531 0633 9D000000 		.4byte	.LASF71
+ 1532 0637 01       		.byte	0x1
+ 1533 0638 C1       		.byte	0xc1
+ 1534 0639 C6000000 		.4byte	0xc6
+ 1535 063d 02       		.byte	0x2
+ARM GAS  /tmp/ccpnpUnM.s 			page 32
+
+
+ 1536 063e 91       		.byte	0x91
+ 1537 063f 5C       		.sleb128 -36
+ 1538 0640 13       		.uleb128 0x13
+ 1539 0641 2D000000 		.4byte	.LASF72
+ 1540 0645 01       		.byte	0x1
+ 1541 0646 C1       		.byte	0xc1
+ 1542 0647 C6000000 		.4byte	0xc6
+ 1543 064b 02       		.byte	0x2
+ 1544 064c 91       		.byte	0x91
+ 1545 064d 64       		.sleb128 -28
+ 1546 064e 13       		.uleb128 0x13
+ 1547 064f 6F000000 		.4byte	.LASF88
+ 1548 0653 01       		.byte	0x1
+ 1549 0654 C1       		.byte	0xc1
+ 1550 0655 C6000000 		.4byte	0xc6
+ 1551 0659 02       		.byte	0x2
+ 1552 065a 91       		.byte	0x91
+ 1553 065b 60       		.sleb128 -32
+ 1554 065c 13       		.uleb128 0x13
+ 1555 065d A9040000 		.4byte	.LASF89
+ 1556 0661 01       		.byte	0x1
+ 1557 0662 C1       		.byte	0xc1
+ 1558 0663 C6000000 		.4byte	0xc6
+ 1559 0667 02       		.byte	0x2
+ 1560 0668 91       		.byte	0x91
+ 1561 0669 70       		.sleb128 -16
+ 1562 066a 13       		.uleb128 0x13
+ 1563 066b D7040000 		.4byte	.LASF90
+ 1564 066f 01       		.byte	0x1
+ 1565 0670 C1       		.byte	0xc1
+ 1566 0671 C6000000 		.4byte	0xc6
+ 1567 0675 02       		.byte	0x2
+ 1568 0676 91       		.byte	0x91
+ 1569 0677 6C       		.sleb128 -20
+ 1570 0678 13       		.uleb128 0x13
+ 1571 0679 41030000 		.4byte	.LASF66
+ 1572 067d 01       		.byte	0x1
+ 1573 067e C2       		.byte	0xc2
+ 1574 067f A5000000 		.4byte	0xa5
+ 1575 0683 02       		.byte	0x2
+ 1576 0684 91       		.byte	0x91
+ 1577 0685 6B       		.sleb128 -21
+ 1578 0686 00       		.byte	0
+ 1579 0687 13       		.uleb128 0x13
+ 1580 0688 AE020000 		.4byte	.LASF91
+ 1581 068c 01       		.byte	0x1
+ 1582 068d 25       		.byte	0x25
+ 1583 068e C6000000 		.4byte	0xc6
+ 1584 0692 05       		.byte	0x5
+ 1585 0693 03       		.byte	0x3
+ 1586 0694 00000000 		.4byte	clkFrq
+ 1587 0698 19       		.uleb128 0x19
+ 1588 0699 E4040000 		.4byte	.LASF100
+ 1589 069d 07       		.byte	0x7
+ 1590 069e E602     		.2byte	0x2e6
+ 1591 06a0 A6060000 		.4byte	0x6a6
+ 1592 06a4 01       		.byte	0x1
+ARM GAS  /tmp/ccpnpUnM.s 			page 33
+
+
+ 1593 06a5 01       		.byte	0x1
+ 1594 06a6 05       		.uleb128 0x5
+ 1595 06a7 BB000000 		.4byte	0xbb
+ 1596 06ab 00       		.byte	0
+ 1597              		.section	.debug_abbrev,"",%progbits
+ 1598              	.Ldebug_abbrev0:
+ 1599 0000 01       		.uleb128 0x1
+ 1600 0001 11       		.uleb128 0x11
+ 1601 0002 01       		.byte	0x1
+ 1602 0003 25       		.uleb128 0x25
+ 1603 0004 0E       		.uleb128 0xe
+ 1604 0005 13       		.uleb128 0x13
+ 1605 0006 0B       		.uleb128 0xb
+ 1606 0007 03       		.uleb128 0x3
+ 1607 0008 0E       		.uleb128 0xe
+ 1608 0009 1B       		.uleb128 0x1b
+ 1609 000a 0E       		.uleb128 0xe
+ 1610 000b 11       		.uleb128 0x11
+ 1611 000c 01       		.uleb128 0x1
+ 1612 000d 12       		.uleb128 0x12
+ 1613 000e 01       		.uleb128 0x1
+ 1614 000f 10       		.uleb128 0x10
+ 1615 0010 06       		.uleb128 0x6
+ 1616 0011 00       		.byte	0
+ 1617 0012 00       		.byte	0
+ 1618 0013 02       		.uleb128 0x2
+ 1619 0014 24       		.uleb128 0x24
+ 1620 0015 00       		.byte	0
+ 1621 0016 0B       		.uleb128 0xb
+ 1622 0017 0B       		.uleb128 0xb
+ 1623 0018 3E       		.uleb128 0x3e
+ 1624 0019 0B       		.uleb128 0xb
+ 1625 001a 03       		.uleb128 0x3
+ 1626 001b 0E       		.uleb128 0xe
+ 1627 001c 00       		.byte	0
+ 1628 001d 00       		.byte	0
+ 1629 001e 03       		.uleb128 0x3
+ 1630 001f 24       		.uleb128 0x24
+ 1631 0020 00       		.byte	0
+ 1632 0021 0B       		.uleb128 0xb
+ 1633 0022 0B       		.uleb128 0xb
+ 1634 0023 3E       		.uleb128 0x3e
+ 1635 0024 0B       		.uleb128 0xb
+ 1636 0025 03       		.uleb128 0x3
+ 1637 0026 08       		.uleb128 0x8
+ 1638 0027 00       		.byte	0
+ 1639 0028 00       		.byte	0
+ 1640 0029 04       		.uleb128 0x4
+ 1641 002a 16       		.uleb128 0x16
+ 1642 002b 00       		.byte	0
+ 1643 002c 03       		.uleb128 0x3
+ 1644 002d 0E       		.uleb128 0xe
+ 1645 002e 3A       		.uleb128 0x3a
+ 1646 002f 0B       		.uleb128 0xb
+ 1647 0030 3B       		.uleb128 0x3b
+ 1648 0031 0B       		.uleb128 0xb
+ 1649 0032 49       		.uleb128 0x49
+ARM GAS  /tmp/ccpnpUnM.s 			page 34
+
+
+ 1650 0033 13       		.uleb128 0x13
+ 1651 0034 00       		.byte	0
+ 1652 0035 00       		.byte	0
+ 1653 0036 05       		.uleb128 0x5
+ 1654 0037 35       		.uleb128 0x35
+ 1655 0038 00       		.byte	0
+ 1656 0039 49       		.uleb128 0x49
+ 1657 003a 13       		.uleb128 0x13
+ 1658 003b 00       		.byte	0
+ 1659 003c 00       		.byte	0
+ 1660 003d 06       		.uleb128 0x6
+ 1661 003e 26       		.uleb128 0x26
+ 1662 003f 00       		.byte	0
+ 1663 0040 49       		.uleb128 0x49
+ 1664 0041 13       		.uleb128 0x13
+ 1665 0042 00       		.byte	0
+ 1666 0043 00       		.byte	0
+ 1667 0044 07       		.uleb128 0x7
+ 1668 0045 01       		.uleb128 0x1
+ 1669 0046 01       		.byte	0x1
+ 1670 0047 49       		.uleb128 0x49
+ 1671 0048 13       		.uleb128 0x13
+ 1672 0049 01       		.uleb128 0x1
+ 1673 004a 13       		.uleb128 0x13
+ 1674 004b 00       		.byte	0
+ 1675 004c 00       		.byte	0
+ 1676 004d 08       		.uleb128 0x8
+ 1677 004e 21       		.uleb128 0x21
+ 1678 004f 00       		.byte	0
+ 1679 0050 49       		.uleb128 0x49
+ 1680 0051 13       		.uleb128 0x13
+ 1681 0052 2F       		.uleb128 0x2f
+ 1682 0053 0B       		.uleb128 0xb
+ 1683 0054 00       		.byte	0
+ 1684 0055 00       		.byte	0
+ 1685 0056 09       		.uleb128 0x9
+ 1686 0057 13       		.uleb128 0x13
+ 1687 0058 01       		.byte	0x1
+ 1688 0059 0B       		.uleb128 0xb
+ 1689 005a 05       		.uleb128 0x5
+ 1690 005b 3A       		.uleb128 0x3a
+ 1691 005c 0B       		.uleb128 0xb
+ 1692 005d 3B       		.uleb128 0x3b
+ 1693 005e 0B       		.uleb128 0xb
+ 1694 005f 01       		.uleb128 0x1
+ 1695 0060 13       		.uleb128 0x13
+ 1696 0061 00       		.byte	0
+ 1697 0062 00       		.byte	0
+ 1698 0063 0A       		.uleb128 0xa
+ 1699 0064 0D       		.uleb128 0xd
+ 1700 0065 00       		.byte	0
+ 1701 0066 03       		.uleb128 0x3
+ 1702 0067 0E       		.uleb128 0xe
+ 1703 0068 3A       		.uleb128 0x3a
+ 1704 0069 0B       		.uleb128 0xb
+ 1705 006a 3B       		.uleb128 0x3b
+ 1706 006b 0B       		.uleb128 0xb
+ARM GAS  /tmp/ccpnpUnM.s 			page 35
+
+
+ 1707 006c 49       		.uleb128 0x49
+ 1708 006d 13       		.uleb128 0x13
+ 1709 006e 38       		.uleb128 0x38
+ 1710 006f 0A       		.uleb128 0xa
+ 1711 0070 00       		.byte	0
+ 1712 0071 00       		.byte	0
+ 1713 0072 0B       		.uleb128 0xb
+ 1714 0073 0D       		.uleb128 0xd
+ 1715 0074 00       		.byte	0
+ 1716 0075 03       		.uleb128 0x3
+ 1717 0076 08       		.uleb128 0x8
+ 1718 0077 3A       		.uleb128 0x3a
+ 1719 0078 0B       		.uleb128 0xb
+ 1720 0079 3B       		.uleb128 0x3b
+ 1721 007a 0B       		.uleb128 0xb
+ 1722 007b 49       		.uleb128 0x49
+ 1723 007c 13       		.uleb128 0x13
+ 1724 007d 38       		.uleb128 0x38
+ 1725 007e 0A       		.uleb128 0xa
+ 1726 007f 00       		.byte	0
+ 1727 0080 00       		.byte	0
+ 1728 0081 0C       		.uleb128 0xc
+ 1729 0082 16       		.uleb128 0x16
+ 1730 0083 00       		.byte	0
+ 1731 0084 03       		.uleb128 0x3
+ 1732 0085 0E       		.uleb128 0xe
+ 1733 0086 3A       		.uleb128 0x3a
+ 1734 0087 0B       		.uleb128 0xb
+ 1735 0088 3B       		.uleb128 0x3b
+ 1736 0089 05       		.uleb128 0x5
+ 1737 008a 49       		.uleb128 0x49
+ 1738 008b 13       		.uleb128 0x13
+ 1739 008c 00       		.byte	0
+ 1740 008d 00       		.byte	0
+ 1741 008e 0D       		.uleb128 0xd
+ 1742 008f 13       		.uleb128 0x13
+ 1743 0090 00       		.byte	0
+ 1744 0091 03       		.uleb128 0x3
+ 1745 0092 0E       		.uleb128 0xe
+ 1746 0093 0B       		.uleb128 0xb
+ 1747 0094 0B       		.uleb128 0xb
+ 1748 0095 3A       		.uleb128 0x3a
+ 1749 0096 0B       		.uleb128 0xb
+ 1750 0097 3B       		.uleb128 0x3b
+ 1751 0098 0B       		.uleb128 0xb
+ 1752 0099 00       		.byte	0
+ 1753 009a 00       		.byte	0
+ 1754 009b 0E       		.uleb128 0xe
+ 1755 009c 04       		.uleb128 0x4
+ 1756 009d 01       		.byte	0x1
+ 1757 009e 03       		.uleb128 0x3
+ 1758 009f 0E       		.uleb128 0xe
+ 1759 00a0 0B       		.uleb128 0xb
+ 1760 00a1 0B       		.uleb128 0xb
+ 1761 00a2 3A       		.uleb128 0x3a
+ 1762 00a3 0B       		.uleb128 0xb
+ 1763 00a4 3B       		.uleb128 0x3b
+ARM GAS  /tmp/ccpnpUnM.s 			page 36
+
+
+ 1764 00a5 0B       		.uleb128 0xb
+ 1765 00a6 01       		.uleb128 0x1
+ 1766 00a7 13       		.uleb128 0x13
+ 1767 00a8 00       		.byte	0
+ 1768 00a9 00       		.byte	0
+ 1769 00aa 0F       		.uleb128 0xf
+ 1770 00ab 28       		.uleb128 0x28
+ 1771 00ac 00       		.byte	0
+ 1772 00ad 03       		.uleb128 0x3
+ 1773 00ae 0E       		.uleb128 0xe
+ 1774 00af 1C       		.uleb128 0x1c
+ 1775 00b0 0D       		.uleb128 0xd
+ 1776 00b1 00       		.byte	0
+ 1777 00b2 00       		.byte	0
+ 1778 00b3 10       		.uleb128 0x10
+ 1779 00b4 13       		.uleb128 0x13
+ 1780 00b5 01       		.byte	0x1
+ 1781 00b6 03       		.uleb128 0x3
+ 1782 00b7 0E       		.uleb128 0xe
+ 1783 00b8 0B       		.uleb128 0xb
+ 1784 00b9 0B       		.uleb128 0xb
+ 1785 00ba 3A       		.uleb128 0x3a
+ 1786 00bb 0B       		.uleb128 0xb
+ 1787 00bc 3B       		.uleb128 0x3b
+ 1788 00bd 0B       		.uleb128 0xb
+ 1789 00be 01       		.uleb128 0x1
+ 1790 00bf 13       		.uleb128 0x13
+ 1791 00c0 00       		.byte	0
+ 1792 00c1 00       		.byte	0
+ 1793 00c2 11       		.uleb128 0x11
+ 1794 00c3 2E       		.uleb128 0x2e
+ 1795 00c4 01       		.byte	0x1
+ 1796 00c5 3F       		.uleb128 0x3f
+ 1797 00c6 0C       		.uleb128 0xc
+ 1798 00c7 03       		.uleb128 0x3
+ 1799 00c8 0E       		.uleb128 0xe
+ 1800 00c9 3A       		.uleb128 0x3a
+ 1801 00ca 0B       		.uleb128 0xb
+ 1802 00cb 3B       		.uleb128 0x3b
+ 1803 00cc 0B       		.uleb128 0xb
+ 1804 00cd 27       		.uleb128 0x27
+ 1805 00ce 0C       		.uleb128 0xc
+ 1806 00cf 49       		.uleb128 0x49
+ 1807 00d0 13       		.uleb128 0x13
+ 1808 00d1 11       		.uleb128 0x11
+ 1809 00d2 01       		.uleb128 0x1
+ 1810 00d3 12       		.uleb128 0x12
+ 1811 00d4 01       		.uleb128 0x1
+ 1812 00d5 40       		.uleb128 0x40
+ 1813 00d6 06       		.uleb128 0x6
+ 1814 00d7 9642     		.uleb128 0x2116
+ 1815 00d9 0C       		.uleb128 0xc
+ 1816 00da 01       		.uleb128 0x1
+ 1817 00db 13       		.uleb128 0x13
+ 1818 00dc 00       		.byte	0
+ 1819 00dd 00       		.byte	0
+ 1820 00de 12       		.uleb128 0x12
+ARM GAS  /tmp/ccpnpUnM.s 			page 37
+
+
+ 1821 00df 05       		.uleb128 0x5
+ 1822 00e0 00       		.byte	0
+ 1823 00e1 03       		.uleb128 0x3
+ 1824 00e2 0E       		.uleb128 0xe
+ 1825 00e3 3A       		.uleb128 0x3a
+ 1826 00e4 0B       		.uleb128 0xb
+ 1827 00e5 3B       		.uleb128 0x3b
+ 1828 00e6 0B       		.uleb128 0xb
+ 1829 00e7 49       		.uleb128 0x49
+ 1830 00e8 13       		.uleb128 0x13
+ 1831 00e9 02       		.uleb128 0x2
+ 1832 00ea 0A       		.uleb128 0xa
+ 1833 00eb 00       		.byte	0
+ 1834 00ec 00       		.byte	0
+ 1835 00ed 13       		.uleb128 0x13
+ 1836 00ee 34       		.uleb128 0x34
+ 1837 00ef 00       		.byte	0
+ 1838 00f0 03       		.uleb128 0x3
+ 1839 00f1 0E       		.uleb128 0xe
+ 1840 00f2 3A       		.uleb128 0x3a
+ 1841 00f3 0B       		.uleb128 0xb
+ 1842 00f4 3B       		.uleb128 0x3b
+ 1843 00f5 0B       		.uleb128 0xb
+ 1844 00f6 49       		.uleb128 0x49
+ 1845 00f7 13       		.uleb128 0x13
+ 1846 00f8 02       		.uleb128 0x2
+ 1847 00f9 0A       		.uleb128 0xa
+ 1848 00fa 00       		.byte	0
+ 1849 00fb 00       		.byte	0
+ 1850 00fc 14       		.uleb128 0x14
+ 1851 00fd 0F       		.uleb128 0xf
+ 1852 00fe 00       		.byte	0
+ 1853 00ff 0B       		.uleb128 0xb
+ 1854 0100 0B       		.uleb128 0xb
+ 1855 0101 49       		.uleb128 0x49
+ 1856 0102 13       		.uleb128 0x13
+ 1857 0103 00       		.byte	0
+ 1858 0104 00       		.byte	0
+ 1859 0105 15       		.uleb128 0x15
+ 1860 0106 2E       		.uleb128 0x2e
+ 1861 0107 01       		.byte	0x1
+ 1862 0108 3F       		.uleb128 0x3f
+ 1863 0109 0C       		.uleb128 0xc
+ 1864 010a 03       		.uleb128 0x3
+ 1865 010b 0E       		.uleb128 0xe
+ 1866 010c 3A       		.uleb128 0x3a
+ 1867 010d 0B       		.uleb128 0xb
+ 1868 010e 3B       		.uleb128 0x3b
+ 1869 010f 0B       		.uleb128 0xb
+ 1870 0110 27       		.uleb128 0x27
+ 1871 0111 0C       		.uleb128 0xc
+ 1872 0112 49       		.uleb128 0x49
+ 1873 0113 13       		.uleb128 0x13
+ 1874 0114 11       		.uleb128 0x11
+ 1875 0115 01       		.uleb128 0x1
+ 1876 0116 12       		.uleb128 0x12
+ 1877 0117 01       		.uleb128 0x1
+ARM GAS  /tmp/ccpnpUnM.s 			page 38
+
+
+ 1878 0118 40       		.uleb128 0x40
+ 1879 0119 06       		.uleb128 0x6
+ 1880 011a 9742     		.uleb128 0x2117
+ 1881 011c 0C       		.uleb128 0xc
+ 1882 011d 01       		.uleb128 0x1
+ 1883 011e 13       		.uleb128 0x13
+ 1884 011f 00       		.byte	0
+ 1885 0120 00       		.byte	0
+ 1886 0121 16       		.uleb128 0x16
+ 1887 0122 2E       		.uleb128 0x2e
+ 1888 0123 01       		.byte	0x1
+ 1889 0124 3F       		.uleb128 0x3f
+ 1890 0125 0C       		.uleb128 0xc
+ 1891 0126 03       		.uleb128 0x3
+ 1892 0127 0E       		.uleb128 0xe
+ 1893 0128 3A       		.uleb128 0x3a
+ 1894 0129 0B       		.uleb128 0xb
+ 1895 012a 3B       		.uleb128 0x3b
+ 1896 012b 0B       		.uleb128 0xb
+ 1897 012c 27       		.uleb128 0x27
+ 1898 012d 0C       		.uleb128 0xc
+ 1899 012e 11       		.uleb128 0x11
+ 1900 012f 01       		.uleb128 0x1
+ 1901 0130 12       		.uleb128 0x12
+ 1902 0131 01       		.uleb128 0x1
+ 1903 0132 40       		.uleb128 0x40
+ 1904 0133 06       		.uleb128 0x6
+ 1905 0134 9742     		.uleb128 0x2117
+ 1906 0136 0C       		.uleb128 0xc
+ 1907 0137 01       		.uleb128 0x1
+ 1908 0138 13       		.uleb128 0x13
+ 1909 0139 00       		.byte	0
+ 1910 013a 00       		.byte	0
+ 1911 013b 17       		.uleb128 0x17
+ 1912 013c 2E       		.uleb128 0x2e
+ 1913 013d 01       		.byte	0x1
+ 1914 013e 03       		.uleb128 0x3
+ 1915 013f 0E       		.uleb128 0xe
+ 1916 0140 3A       		.uleb128 0x3a
+ 1917 0141 0B       		.uleb128 0xb
+ 1918 0142 3B       		.uleb128 0x3b
+ 1919 0143 0B       		.uleb128 0xb
+ 1920 0144 27       		.uleb128 0x27
+ 1921 0145 0C       		.uleb128 0xc
+ 1922 0146 49       		.uleb128 0x49
+ 1923 0147 13       		.uleb128 0x13
+ 1924 0148 11       		.uleb128 0x11
+ 1925 0149 01       		.uleb128 0x1
+ 1926 014a 12       		.uleb128 0x12
+ 1927 014b 01       		.uleb128 0x1
+ 1928 014c 40       		.uleb128 0x40
+ 1929 014d 06       		.uleb128 0x6
+ 1930 014e 9642     		.uleb128 0x2116
+ 1931 0150 0C       		.uleb128 0xc
+ 1932 0151 01       		.uleb128 0x1
+ 1933 0152 13       		.uleb128 0x13
+ 1934 0153 00       		.byte	0
+ARM GAS  /tmp/ccpnpUnM.s 			page 39
+
+
+ 1935 0154 00       		.byte	0
+ 1936 0155 18       		.uleb128 0x18
+ 1937 0156 2E       		.uleb128 0x2e
+ 1938 0157 00       		.byte	0
+ 1939 0158 03       		.uleb128 0x3
+ 1940 0159 0E       		.uleb128 0xe
+ 1941 015a 3A       		.uleb128 0x3a
+ 1942 015b 0B       		.uleb128 0xb
+ 1943 015c 3B       		.uleb128 0x3b
+ 1944 015d 0B       		.uleb128 0xb
+ 1945 015e 27       		.uleb128 0x27
+ 1946 015f 0C       		.uleb128 0xc
+ 1947 0160 11       		.uleb128 0x11
+ 1948 0161 01       		.uleb128 0x1
+ 1949 0162 12       		.uleb128 0x12
+ 1950 0163 01       		.uleb128 0x1
+ 1951 0164 40       		.uleb128 0x40
+ 1952 0165 0A       		.uleb128 0xa
+ 1953 0166 9742     		.uleb128 0x2117
+ 1954 0168 0C       		.uleb128 0xc
+ 1955 0169 00       		.byte	0
+ 1956 016a 00       		.byte	0
+ 1957 016b 19       		.uleb128 0x19
+ 1958 016c 34       		.uleb128 0x34
+ 1959 016d 00       		.byte	0
+ 1960 016e 03       		.uleb128 0x3
+ 1961 016f 0E       		.uleb128 0xe
+ 1962 0170 3A       		.uleb128 0x3a
+ 1963 0171 0B       		.uleb128 0xb
+ 1964 0172 3B       		.uleb128 0x3b
+ 1965 0173 05       		.uleb128 0x5
+ 1966 0174 49       		.uleb128 0x49
+ 1967 0175 13       		.uleb128 0x13
+ 1968 0176 3F       		.uleb128 0x3f
+ 1969 0177 0C       		.uleb128 0xc
+ 1970 0178 3C       		.uleb128 0x3c
+ 1971 0179 0C       		.uleb128 0xc
+ 1972 017a 00       		.byte	0
+ 1973 017b 00       		.byte	0
+ 1974 017c 00       		.byte	0
+ 1975              		.section	.debug_loc,"",%progbits
+ 1976              	.Ldebug_loc0:
+ 1977              	.LLST0:
+ 1978 0000 00000000 		.4byte	.LFB40-.Ltext0
+ 1979 0004 02000000 		.4byte	.LCFI0-.Ltext0
+ 1980 0008 0200     		.2byte	0x2
+ 1981 000a 7D       		.byte	0x7d
+ 1982 000b 00       		.sleb128 0
+ 1983 000c 02000000 		.4byte	.LCFI0-.Ltext0
+ 1984 0010 04000000 		.4byte	.LCFI1-.Ltext0
+ 1985 0014 0200     		.2byte	0x2
+ 1986 0016 7D       		.byte	0x7d
+ 1987 0017 04       		.sleb128 4
+ 1988 0018 04000000 		.4byte	.LCFI1-.Ltext0
+ 1989 001c 3E000000 		.4byte	.LCFI2-.Ltext0
+ 1990 0020 0200     		.2byte	0x2
+ 1991 0022 7D       		.byte	0x7d
+ARM GAS  /tmp/ccpnpUnM.s 			page 40
+
+
+ 1992 0023 18       		.sleb128 24
+ 1993 0024 3E000000 		.4byte	.LCFI2-.Ltext0
+ 1994 0028 42000000 		.4byte	.LFE40-.Ltext0
+ 1995 002c 0200     		.2byte	0x2
+ 1996 002e 7D       		.byte	0x7d
+ 1997 002f 04       		.sleb128 4
+ 1998 0030 00000000 		.4byte	0
+ 1999 0034 00000000 		.4byte	0
+ 2000              	.LLST1:
+ 2001 0038 44000000 		.4byte	.LFB41-.Ltext0
+ 2002 003c 46000000 		.4byte	.LCFI3-.Ltext0
+ 2003 0040 0200     		.2byte	0x2
+ 2004 0042 7D       		.byte	0x7d
+ 2005 0043 00       		.sleb128 0
+ 2006 0044 46000000 		.4byte	.LCFI3-.Ltext0
+ 2007 0048 D6000000 		.4byte	.LCFI4-.Ltext0
+ 2008 004c 0200     		.2byte	0x2
+ 2009 004e 7D       		.byte	0x7d
+ 2010 004f 20       		.sleb128 32
+ 2011 0050 D6000000 		.4byte	.LCFI4-.Ltext0
+ 2012 0054 E4000000 		.4byte	.LFE41-.Ltext0
+ 2013 0058 0200     		.2byte	0x2
+ 2014 005a 7D       		.byte	0x7d
+ 2015 005b 00       		.sleb128 0
+ 2016 005c 00000000 		.4byte	0
+ 2017 0060 00000000 		.4byte	0
+ 2018              	.LLST2:
+ 2019 0064 E4000000 		.4byte	.LFB42-.Ltext0
+ 2020 0068 E6000000 		.4byte	.LCFI5-.Ltext0
+ 2021 006c 0200     		.2byte	0x2
+ 2022 006e 7D       		.byte	0x7d
+ 2023 006f 00       		.sleb128 0
+ 2024 0070 E6000000 		.4byte	.LCFI5-.Ltext0
+ 2025 0074 56010000 		.4byte	.LCFI6-.Ltext0
+ 2026 0078 0200     		.2byte	0x2
+ 2027 007a 7D       		.byte	0x7d
+ 2028 007b 10       		.sleb128 16
+ 2029 007c 56010000 		.4byte	.LCFI6-.Ltext0
+ 2030 0080 5C010000 		.4byte	.LFE42-.Ltext0
+ 2031 0084 0200     		.2byte	0x2
+ 2032 0086 7D       		.byte	0x7d
+ 2033 0087 00       		.sleb128 0
+ 2034 0088 00000000 		.4byte	0
+ 2035 008c 00000000 		.4byte	0
+ 2036              	.LLST3:
+ 2037 0090 5C010000 		.4byte	.LFB43-.Ltext0
+ 2038 0094 5E010000 		.4byte	.LCFI7-.Ltext0
+ 2039 0098 0200     		.2byte	0x2
+ 2040 009a 7D       		.byte	0x7d
+ 2041 009b 00       		.sleb128 0
+ 2042 009c 5E010000 		.4byte	.LCFI7-.Ltext0
+ 2043 00a0 60010000 		.4byte	.LCFI8-.Ltext0
+ 2044 00a4 0200     		.2byte	0x2
+ 2045 00a6 7D       		.byte	0x7d
+ 2046 00a7 04       		.sleb128 4
+ 2047 00a8 60010000 		.4byte	.LCFI8-.Ltext0
+ 2048 00ac D0010000 		.4byte	.LCFI9-.Ltext0
+ARM GAS  /tmp/ccpnpUnM.s 			page 41
+
+
+ 2049 00b0 0200     		.2byte	0x2
+ 2050 00b2 7D       		.byte	0x7d
+ 2051 00b3 20       		.sleb128 32
+ 2052 00b4 D0010000 		.4byte	.LCFI9-.Ltext0
+ 2053 00b8 DC010000 		.4byte	.LFE43-.Ltext0
+ 2054 00bc 0200     		.2byte	0x2
+ 2055 00be 7D       		.byte	0x7d
+ 2056 00bf 04       		.sleb128 4
+ 2057 00c0 00000000 		.4byte	0
+ 2058 00c4 00000000 		.4byte	0
+ 2059              	.LLST4:
+ 2060 00c8 DC010000 		.4byte	.LFB44-.Ltext0
+ 2061 00cc DE010000 		.4byte	.LCFI10-.Ltext0
+ 2062 00d0 0200     		.2byte	0x2
+ 2063 00d2 7D       		.byte	0x7d
+ 2064 00d3 00       		.sleb128 0
+ 2065 00d4 DE010000 		.4byte	.LCFI10-.Ltext0
+ 2066 00d8 E0010000 		.4byte	.LCFI11-.Ltext0
+ 2067 00dc 0200     		.2byte	0x2
+ 2068 00de 7D       		.byte	0x7d
+ 2069 00df 04       		.sleb128 4
+ 2070 00e0 E0010000 		.4byte	.LCFI11-.Ltext0
+ 2071 00e4 B8020000 		.4byte	.LCFI12-.Ltext0
+ 2072 00e8 0200     		.2byte	0x2
+ 2073 00ea 7D       		.byte	0x7d
+ 2074 00eb 20       		.sleb128 32
+ 2075 00ec B8020000 		.4byte	.LCFI12-.Ltext0
+ 2076 00f0 C0020000 		.4byte	.LFE44-.Ltext0
+ 2077 00f4 0200     		.2byte	0x2
+ 2078 00f6 7D       		.byte	0x7d
+ 2079 00f7 04       		.sleb128 4
+ 2080 00f8 00000000 		.4byte	0
+ 2081 00fc 00000000 		.4byte	0
+ 2082              	.LLST5:
+ 2083 0100 D8020000 		.4byte	.LFB46-.Ltext0
+ 2084 0104 DA020000 		.4byte	.LCFI13-.Ltext0
+ 2085 0108 0200     		.2byte	0x2
+ 2086 010a 7D       		.byte	0x7d
+ 2087 010b 00       		.sleb128 0
+ 2088 010c DA020000 		.4byte	.LCFI13-.Ltext0
+ 2089 0110 DC020000 		.4byte	.LCFI14-.Ltext0
+ 2090 0114 0200     		.2byte	0x2
+ 2091 0116 7D       		.byte	0x7d
+ 2092 0117 04       		.sleb128 4
+ 2093 0118 DC020000 		.4byte	.LCFI14-.Ltext0
+ 2094 011c 9A030000 		.4byte	.LCFI15-.Ltext0
+ 2095 0120 0200     		.2byte	0x2
+ 2096 0122 7D       		.byte	0x7d
+ 2097 0123 30       		.sleb128 48
+ 2098 0124 9A030000 		.4byte	.LCFI15-.Ltext0
+ 2099 0128 B0030000 		.4byte	.LFE46-.Ltext0
+ 2100 012c 0200     		.2byte	0x2
+ 2101 012e 7D       		.byte	0x7d
+ 2102 012f 04       		.sleb128 4
+ 2103 0130 00000000 		.4byte	0
+ 2104 0134 00000000 		.4byte	0
+ 2105              		.section	.debug_aranges,"",%progbits
+ARM GAS  /tmp/ccpnpUnM.s 			page 42
+
+
+ 2106 0000 1C000000 		.4byte	0x1c
+ 2107 0004 0200     		.2byte	0x2
+ 2108 0006 00000000 		.4byte	.Ldebug_info0
+ 2109 000a 04       		.byte	0x4
+ 2110 000b 00       		.byte	0
+ 2111 000c 0000     		.2byte	0
+ 2112 000e 0000     		.2byte	0
+ 2113 0010 00000000 		.4byte	.Ltext0
+ 2114 0014 B0030000 		.4byte	.Letext0-.Ltext0
+ 2115 0018 00000000 		.4byte	0
+ 2116 001c 00000000 		.4byte	0
+ 2117              		.section	.debug_line,"",%progbits
+ 2118              	.Ldebug_line0:
+ 2119 0000 6A020000 		.section	.debug_str,"MS",%progbits,1
+ 2119      0200D901 
+ 2119      00000201 
+ 2119      FB0E0D00 
+ 2119      01010101 
+ 2120              	.LASF98:
+ 2121 0000 65706366 		.ascii	"epcfNativeSysSetPclkDiv\000"
+ 2121      4E617469 
+ 2121      76655379 
+ 2121      73536574 
+ 2121      50636C6B 
+ 2122              	.LASF78:
+ 2123 0018 65706366 		.ascii	"epcfNativeSysGetPclk\000"
+ 2123      4E617469 
+ 2123      76655379 
+ 2123      73476574 
+ 2123      50636C6B 
+ 2124              	.LASF72:
+ 2125 002d 706C6C44 		.ascii	"pllDiv\000"
+ 2125      697600
+ 2126              	.LASF29:
+ 2127 0034 504C4C31 		.ascii	"PLL1STAT\000"
+ 2127      53544154 
+ 2127      00
+ 2128              	.LASF74:
+ 2129 003d 66726571 		.ascii	"freq\000"
+ 2129      00
+ 2130              	.LASF69:
+ 2131 0042 70537973 		.ascii	"pSysClkConfig\000"
+ 2131      436C6B43 
+ 2131      6F6E6669 
+ 2131      6700
+ 2132              	.LASF53:
+ 2133 0050 444D4152 		.ascii	"DMAREQSEL\000"
+ 2133      45515345 
+ 2133      4C00
+ 2134              	.LASF25:
+ 2135 005a 504C4C30 		.ascii	"PLL0FEED\000"
+ 2135      46454544 
+ 2135      00
+ 2136              	.LASF15:
+ 2137 0063 696E7438 		.ascii	"int8_t\000"
+ 2137      5F7400
+ 2138              	.LASF46:
+ARM GAS  /tmp/ccpnpUnM.s 			page 43
+
+
+ 2139 006a 52534944 		.ascii	"RSID\000"
+ 2139      00
+ 2140              	.LASF88:
+ 2141 006f 74656D70 		.ascii	"temp\000"
+ 2141      00
+ 2142              	.LASF5:
+ 2143 0074 73686F72 		.ascii	"short int\000"
+ 2143      7420696E 
+ 2143      7400
+ 2144              	.LASF13:
+ 2145 007e 73697A65 		.ascii	"sizetype\000"
+ 2145      74797065 
+ 2145      00
+ 2146              	.LASF22:
+ 2147 0087 504C4C30 		.ascii	"PLL0CON\000"
+ 2147      434F4E00 
+ 2148              	.LASF65:
+ 2149 008f 70537973 		.ascii	"pSysClkDevice\000"
+ 2149      436C6B44 
+ 2149      65766963 
+ 2149      6500
+ 2150              	.LASF71:
+ 2151 009d 706C6C4D 		.ascii	"pllMul\000"
+ 2151      756C00
+ 2152              	.LASF43:
+ 2153 00a4 4558544D 		.ascii	"EXTMODE\000"
+ 2153      4F444500 
+ 2154              	.LASF41:
+ 2155 00ac 45585449 		.ascii	"EXTINT\000"
+ 2155      4E5400
+ 2156              	.LASF56:
+ 2157 00b3 656E4550 		.ascii	"enEPCFPllClkSrcInternalRC\000"
+ 2157      4346506C 
+ 2157      6C436C6B 
+ 2157      53726349 
+ 2157      6E746572 
+ 2158              	.LASF87:
+ 2159 00cd 636F6E66 		.ascii	"config\000"
+ 2159      696700
+ 2160              	.LASF35:
+ 2161 00d4 43434C4B 		.ascii	"CCLKCFG\000"
+ 2161      43464700 
+ 2162              	.LASF16:
+ 2163 00dc 75696E74 		.ascii	"uint8_t\000"
+ 2163      385F7400 
+ 2164              	.LASF92:
+ 2165 00e4 474E5520 		.ascii	"GNU C 4.9.3 20150529 (prerelease) -mcpu=cortex-m3 -"
+ 2165      4320342E 
+ 2165      392E3320 
+ 2165      32303135 
+ 2165      30353239 
+ 2166 0117 6D746875 		.ascii	"mthumb -gdwarf-2 -O0 -std=gnu99 -fomit-frame-pointe"
+ 2166      6D62202D 
+ 2166      67647761 
+ 2166      72662D32 
+ 2166      202D4F30 
+ 2167 014a 7200     		.ascii	"r\000"
+ARM GAS  /tmp/ccpnpUnM.s 			page 44
+
+
+ 2168              	.LASF52:
+ 2169 014c 55534249 		.ascii	"USBIntSt\000"
+ 2169      6E745374 
+ 2169      00
+ 2170              	.LASF51:
+ 2171 0155 52455345 		.ascii	"RESERVED8\000"
+ 2171      52564544 
+ 2171      3800
+ 2172              	.LASF82:
+ 2173 015f 706C6C4D 		.ascii	"pllMultiplier\000"
+ 2173      756C7469 
+ 2173      706C6965 
+ 2173      7200
+ 2174              	.LASF94:
+ 2175 016d 2F686F6D 		.ascii	"/home/majorviraj/Desktop/self_balancing/firmware/i2"
+ 2175      652F6D61 
+ 2175      6A6F7276 
+ 2175      6972616A 
+ 2175      2F446573 
+ 2176 01a0 635F7465 		.ascii	"c_test/app\000"
+ 2176      73742F61 
+ 2176      707000
+ 2177              	.LASF19:
+ 2178 01ab 666C6F61 		.ascii	"float\000"
+ 2178      7400
+ 2179              	.LASF55:
+ 2180 01b1 53435F54 		.ascii	"SC_TypeDef\000"
+ 2180      79706544 
+ 2180      656600
+ 2181              	.LASF39:
+ 2182 01bc 43414E57 		.ascii	"CANWAKEFLAGS\000"
+ 2182      414B4546 
+ 2182      4C414753 
+ 2182      00
+ 2183              	.LASF11:
+ 2184 01c9 6C6F6E67 		.ascii	"long long int\000"
+ 2184      206C6F6E 
+ 2184      6720696E 
+ 2184      7400
+ 2185              	.LASF36:
+ 2186 01d7 55534243 		.ascii	"USBCLKCFG\000"
+ 2186      4C4B4346 
+ 2186      4700
+ 2187              	.LASF60:
+ 2188 01e1 456E4550 		.ascii	"EnEPCFClkSrc_t\000"
+ 2188      4346436C 
+ 2188      6B537263 
+ 2188      5F7400
+ 2189              	.LASF8:
+ 2190 01f0 6C6F6E67 		.ascii	"long int\000"
+ 2190      20696E74 
+ 2190      00
+ 2191              	.LASF77:
+ 2192 01f9 636C6F63 		.ascii	"clock\000"
+ 2192      6B00
+ 2193              	.LASF27:
+ 2194 01ff 504C4C31 		.ascii	"PLL1CON\000"
+ARM GAS  /tmp/ccpnpUnM.s 			page 45
+
+
+ 2194      434F4E00 
+ 2195              	.LASF30:
+ 2196 0207 504C4C31 		.ascii	"PLL1FEED\000"
+ 2196      46454544 
+ 2196      00
+ 2197              	.LASF68:
+ 2198 0210 65706366 		.ascii	"epcfNativeSysGetCpuClock\000"
+ 2198      4E617469 
+ 2198      76655379 
+ 2198      73476574 
+ 2198      43707543 
+ 2199              	.LASF67:
+ 2200 0229 65706366 		.ascii	"epcfNativeCreateSysClk\000"
+ 2200      4E617469 
+ 2200      76654372 
+ 2200      65617465 
+ 2200      53797343 
+ 2201              	.LASF59:
+ 2202 0240 656E4550 		.ascii	"enEPCFClkSrc_Max\000"
+ 2202      4346436C 
+ 2202      6B537263 
+ 2202      5F4D6178 
+ 2202      00
+ 2203              	.LASF2:
+ 2204 0251 5F5F696E 		.ascii	"__int8_t\000"
+ 2204      74385F74 
+ 2204      00
+ 2205              	.LASF61:
+ 2206 025a 63707546 		.ascii	"cpuFreqHz\000"
+ 2206      72657148 
+ 2206      7A00
+ 2207              	.LASF48:
+ 2208 0264 49524354 		.ascii	"IRCTRIM\000"
+ 2208      52494D00 
+ 2209              	.LASF44:
+ 2210 026c 45585450 		.ascii	"EXTPOLAR\000"
+ 2210      4F4C4152 
+ 2210      00
+ 2211              	.LASF33:
+ 2212 0275 50434F4E 		.ascii	"PCONP\000"
+ 2212      5000
+ 2213              	.LASF18:
+ 2214 027b 75696E74 		.ascii	"uint32_t\000"
+ 2214      33325F74 
+ 2214      00
+ 2215              	.LASF80:
+ 2216 0284 64697649 		.ascii	"divIndex\000"
+ 2216      6E646578 
+ 2216      00
+ 2217              	.LASF4:
+ 2218 028d 756E7369 		.ascii	"unsigned char\000"
+ 2218      676E6564 
+ 2218      20636861 
+ 2218      7200
+ 2219              	.LASF20:
+ 2220 029b 464C4153 		.ascii	"FLASHCFG\000"
+ 2220      48434647 
+ARM GAS  /tmp/ccpnpUnM.s 			page 46
+
+
+ 2220      00
+ 2221              	.LASF37:
+ 2222 02a4 434C4B53 		.ascii	"CLKSRCSEL\000"
+ 2222      52435345 
+ 2222      4C00
+ 2223              	.LASF91:
+ 2224 02ae 636C6B46 		.ascii	"clkFrq\000"
+ 2224      727100
+ 2225              	.LASF1:
+ 2226 02b5 7369676E 		.ascii	"signed char\000"
+ 2226      65642063 
+ 2226      68617200 
+ 2227              	.LASF12:
+ 2228 02c1 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2228      206C6F6E 
+ 2228      6720756E 
+ 2228      7369676E 
+ 2228      65642069 
+ 2229              	.LASF62:
+ 2230 02d8 6F736346 		.ascii	"oscFreq\000"
+ 2230      72657100 
+ 2231              	.LASF64:
+ 2232 02e0 45504346 		.ascii	"EPCFSysClkCfg_t\000"
+ 2232      53797343 
+ 2232      6C6B4366 
+ 2232      675F7400 
+ 2233              	.LASF73:
+ 2234 02f0 73726343 		.ascii	"srcClkFreq\000"
+ 2234      6C6B4672 
+ 2234      657100
+ 2235              	.LASF0:
+ 2236 02fb 756E7369 		.ascii	"unsigned int\000"
+ 2236      676E6564 
+ 2236      20696E74 
+ 2236      00
+ 2237              	.LASF10:
+ 2238 0308 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2238      20756E73 
+ 2238      69676E65 
+ 2238      6420696E 
+ 2238      7400
+ 2239              	.LASF70:
+ 2240 031a 706C6C50 		.ascii	"pllPreDiv\000"
+ 2240      72654469 
+ 2240      7600
+ 2241              	.LASF54:
+ 2242 0324 434C4B4F 		.ascii	"CLKOUTCFG\000"
+ 2242      55544346 
+ 2242      4700
+ 2243              	.LASF6:
+ 2244 032e 73686F72 		.ascii	"short unsigned int\000"
+ 2244      7420756E 
+ 2244      7369676E 
+ 2244      65642069 
+ 2244      6E7400
+ 2245              	.LASF66:
+ 2246 0341 73746174 		.ascii	"status\000"
+ARM GAS  /tmp/ccpnpUnM.s 			page 47
+
+
+ 2246      757300
+ 2247              	.LASF85:
+ 2248 0348 5F657063 		.ascii	"_epcfPllConfig\000"
+ 2248      66506C6C 
+ 2248      436F6E66 
+ 2248      696700
+ 2249              	.LASF14:
+ 2250 0357 63686172 		.ascii	"char\000"
+ 2250      00
+ 2251              	.LASF17:
+ 2252 035c 696E7433 		.ascii	"int32_t\000"
+ 2252      325F7400 
+ 2253              	.LASF7:
+ 2254 0364 5F5F696E 		.ascii	"__int32_t\000"
+ 2254      7433325F 
+ 2254      7400
+ 2255              	.LASF93:
+ 2256 036e 2E2E2F65 		.ascii	"../epcf/native/port/arm/cm3/nxp/lpc1768/source/sysC"
+ 2256      7063662F 
+ 2256      6E617469 
+ 2256      76652F70 
+ 2256      6F72742F 
+ 2257 03a1 6C6B2F73 		.ascii	"lk/sysClk_lpc1768.c\000"
+ 2257      7973436C 
+ 2257      6B5F6C70 
+ 2257      63313736 
+ 2257      382E6300 
+ 2258              	.LASF24:
+ 2259 03b5 504C4C30 		.ascii	"PLL0STAT\000"
+ 2259      53544154 
+ 2259      00
+ 2260              	.LASF63:
+ 2261 03be 706C6C43 		.ascii	"pllClkSrc\000"
+ 2261      6C6B5372 
+ 2261      6300
+ 2262              	.LASF23:
+ 2263 03c8 504C4C30 		.ascii	"PLL0CFG\000"
+ 2263      43464700 
+ 2264              	.LASF21:
+ 2265 03d0 52455345 		.ascii	"RESERVED0\000"
+ 2265      52564544 
+ 2265      3000
+ 2266              	.LASF26:
+ 2267 03da 52455345 		.ascii	"RESERVED1\000"
+ 2267      52564544 
+ 2267      3100
+ 2268              	.LASF31:
+ 2269 03e4 52455345 		.ascii	"RESERVED2\000"
+ 2269      52564544 
+ 2269      3200
+ 2270              	.LASF34:
+ 2271 03ee 52455345 		.ascii	"RESERVED3\000"
+ 2271      52564544 
+ 2271      3300
+ 2272              	.LASF40:
+ 2273 03f8 52455345 		.ascii	"RESERVED4\000"
+ 2273      52564544 
+ARM GAS  /tmp/ccpnpUnM.s 			page 48
+
+
+ 2273      3400
+ 2274              	.LASF42:
+ 2275 0402 52455345 		.ascii	"RESERVED5\000"
+ 2275      52564544 
+ 2275      3500
+ 2276              	.LASF45:
+ 2277 040c 52455345 		.ascii	"RESERVED6\000"
+ 2277      52564544 
+ 2277      3600
+ 2278              	.LASF47:
+ 2279 0416 52455345 		.ascii	"RESERVED7\000"
+ 2279      52564544 
+ 2279      3700
+ 2280              	.LASF83:
+ 2281 0420 63707543 		.ascii	"cpuClkDivider\000"
+ 2281      6C6B4469 
+ 2281      76696465 
+ 2281      7200
+ 2282              	.LASF95:
+ 2283 042e 45504346 		.ascii	"EPCFSysClkDevice\000"
+ 2283      53797343 
+ 2283      6C6B4465 
+ 2283      76696365 
+ 2283      00
+ 2284              	.LASF9:
+ 2285 043f 5F5F7569 		.ascii	"__uint32_t\000"
+ 2285      6E743332 
+ 2285      5F7400
+ 2286              	.LASF49:
+ 2287 044a 50434C4B 		.ascii	"PCLKSEL0\000"
+ 2287      53454C30 
+ 2287      00
+ 2288              	.LASF50:
+ 2289 0453 50434C4B 		.ascii	"PCLKSEL1\000"
+ 2289      53454C31 
+ 2289      00
+ 2290              	.LASF58:
+ 2291 045c 656E4550 		.ascii	"enEPCFPllClkSrcRtcOSC\000"
+ 2291      4346506C 
+ 2291      6C436C6B 
+ 2291      53726352 
+ 2291      74634F53 
+ 2292              	.LASF79:
+ 2293 0472 70636C6B 		.ascii	"pclkDiv\000"
+ 2293      44697600 
+ 2294              	.LASF81:
+ 2295 047a 706C6C50 		.ascii	"pllPreDivider\000"
+ 2295      72654469 
+ 2295      76696465 
+ 2295      7200
+ 2296              	.LASF38:
+ 2297 0488 43414E53 		.ascii	"CANSLEEPCLR\000"
+ 2297      4C454550 
+ 2297      434C5200 
+ 2298              	.LASF76:
+ 2299 0494 70657269 		.ascii	"peripheral\000"
+ 2299      70686572 
+ARM GAS  /tmp/ccpnpUnM.s 			page 49
+
+
+ 2299      616C00
+ 2300              	.LASF84:
+ 2301 049f 706C6C53 		.ascii	"pllStatus\000"
+ 2301      74617475 
+ 2301      7300
+ 2302              	.LASF89:
+ 2303 04a9 6C6F6F70 		.ascii	"loop\000"
+ 2303      00
+ 2304              	.LASF99:
+ 2305 04ae 5F657063 		.ascii	"_epcfPllFeedSequence\000"
+ 2305      66506C6C 
+ 2305      46656564 
+ 2305      53657175 
+ 2305      656E6365 
+ 2306              	.LASF86:
+ 2307 04c3 5F657063 		.ascii	"_epcfSysSetCpuClock\000"
+ 2307      66537973 
+ 2307      53657443 
+ 2307      7075436C 
+ 2307      6F636B00 
+ 2308              	.LASF90:
+ 2309 04d7 70726544 		.ascii	"preDivStatus\000"
+ 2309      69765374 
+ 2309      61747573 
+ 2309      00
+ 2310              	.LASF100:
+ 2311 04e4 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 2311      52784275 
+ 2311      66666572 
+ 2311      00
+ 2312              	.LASF97:
+ 2313 04f1 45504346 		.ascii	"EPCFSysClkCfg\000"
+ 2313      53797343 
+ 2313      6C6B4366 
+ 2313      6700
+ 2314              	.LASF32:
+ 2315 04ff 50434F4E 		.ascii	"PCON\000"
+ 2315      00
+ 2316              	.LASF75:
+ 2317 0504 636C6B53 		.ascii	"clkSrc\000"
+ 2317      726300
+ 2318              	.LASF28:
+ 2319 050b 504C4C31 		.ascii	"PLL1CFG\000"
+ 2319      43464700 
+ 2320              	.LASF57:
+ 2321 0513 656E4550 		.ascii	"enEPCFPllClkSrcMainOSC\000"
+ 2321      4346506C 
+ 2321      6C436C6B 
+ 2321      5372634D 
+ 2321      61696E4F 
+ 2322              	.LASF3:
+ 2323 052a 5F5F7569 		.ascii	"__uint8_t\000"
+ 2323      6E74385F 
+ 2323      7400
+ 2324              	.LASF96:
+ 2325 0534 456E4550 		.ascii	"EnEPCFClkSrc\000"
+ 2325      4346436C 
+ARM GAS  /tmp/ccpnpUnM.s 			page 50
+
+
+ 2325      6B537263 
+ 2325      00
+ 2326              		.ident	"GCC: (15:4.9.3+svn231177-1) 4.9.3 20150529 (prerelease)"
+ARM GAS  /tmp/ccpnpUnM.s 			page 51
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 sysClk_lpc1768.c
+     /tmp/ccpnpUnM.s:50     .bss:0000000000000000 $d
+     /tmp/ccpnpUnM.s:51     .bss:0000000000000000 clkFrq
+     /tmp/ccpnpUnM.s:54     .text:0000000000000000 $t
+     /tmp/ccpnpUnM.s:59     .text:0000000000000000 epcfNativeCreateSysClk
+     /tmp/ccpnpUnM.s:575    .text:00000000000002d8 _epcfSysSetCpuClock
+     /tmp/ccpnpUnM.s:121    .text:0000000000000044 epcfNativeSysGetCpuClock
+     /tmp/ccpnpUnM.s:218    .text:00000000000000d8 $d
+     /tmp/ccpnpUnM.s:224    .text:00000000000000e4 $t
+     /tmp/ccpnpUnM.s:229    .text:00000000000000e4 epcfNativeSysSetPclkDiv
+     /tmp/ccpnpUnM.s:300    .text:0000000000000158 $d
+     /tmp/ccpnpUnM.s:305    .rodata:0000000000000000 $d
+     /tmp/ccpnpUnM.s:312    .text:000000000000015c $t
+     /tmp/ccpnpUnM.s:317    .text:000000000000015c epcfNativeSysGetPclk
+     /tmp/ccpnpUnM.s:399    .text:00000000000001d4 $d
+     /tmp/ccpnpUnM.s:404    .text:00000000000001dc $t
+     /tmp/ccpnpUnM.s:408    .text:00000000000001dc _epcfPllConfig
+     /tmp/ccpnpUnM.s:547    .text:00000000000002c0 _epcfPllFeedSequence
+     /tmp/ccpnpUnM.s:539    .text:00000000000002bc $d
+     /tmp/ccpnpUnM.s:543    .text:00000000000002c0 $t
+     /tmp/ccpnpUnM.s:567    .text:00000000000002d4 $d
+     /tmp/ccpnpUnM.s:571    .text:00000000000002d8 $t
+     /tmp/ccpnpUnM.s:700    .text:00000000000003a0 $d
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+malloc
